@@ -4,7 +4,6 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/vue-fontawesome": "latest-3",
-    "@vueuse/motion": "^2.2.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "radix-vue": "^1.9.6",

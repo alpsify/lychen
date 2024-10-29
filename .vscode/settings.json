@@ -3,10 +3,10 @@
 	"editor.guides.bracketPairs": true,
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.codeActionsOnSave": {
+	/*"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 		//"source.organizeImports": "explicit"
-	},
+	},*/
 	"eslint.validate": ["javascript", "javascriptreact", "typescript", "vue", "yaml"],
 	"eslint.options": {
 		"overrideConfigFile": "eslint.config.js"

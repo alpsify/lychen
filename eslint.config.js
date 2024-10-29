@@ -8,7 +8,7 @@ import importPlugin from "eslint-plugin-import";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import markdown from "@eslint/markdown";
 import checkFile from "eslint-plugin-check-file";
-import eslintPluginYml from 'eslint-plugin-yml';
+import eslintPluginYml from "eslint-plugin-yml";
 
 export default [
   {
@@ -20,7 +20,7 @@ export default [
       "check-file": checkFile,
     },
   },
-  {languageOptions: {globals: globals.node}},
+  { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
@@ -28,10 +28,10 @@ export default [
   eslintConfigPrettier,
   importPlugin.flatConfigs.recommended,
   ...markdown.configs.processor,
-  ...eslintPluginYml.configs['flat/recommended'],
+  ...eslintPluginYml.configs["flat/recommended"],
   {
     files: ["**/*.vue"],
-    languageOptions: {parserOptions: {parser: tseslint.parser}},
+    languageOptions: { parserOptions: { parser: tseslint.parser } },
   },
   {
     rules: {
@@ -46,7 +46,7 @@ export default [
       "vue/multi-word-component-names": "off",
       "@typescript-eslint/no-empty-object-type": [
         "error",
-        {allowInterfaces: "with-single-extends"},
+        { allowInterfaces: "with-single-extends" },
       ],
       "@typescript-eslint/no-unused-vars": "off",
       "check-file/filename-naming-convention": [
@@ -62,13 +62,13 @@ export default [
           "components/**/": "KEBAB_CASE",
         },
       ],
-      'yml/sort-keys': ['error'],
-      'yml/file-extension': ['error', {extension: 'yml'}],
-      'yml/block-sequence': 'error',
-      'yml/no-multiple-empty-lines': ['error', {max: 1}],
-      'yml/quotes': ['error', {prefer: 'single', avoidEscape: true}],
-      'yml/sort-sequence-values': ['error', {order: {type: 'asc'}, pathPattern: '^dependsOn$'}],
-      'yml/no-empty-sequence-entry': ['error'],
+      "yml/sort-keys": ["error"],
+      "yml/file-extension": ["error", { extension: "yml" }],
+      "yml/block-sequence": "error",
+      "yml/no-multiple-empty-lines": ["error", { max: 1 }],
+      "yml/quotes": ["error", { prefer: "single", avoidEscape: true }],
+      "yml/sort-sequence-values": ["error", { order: { type: "asc" }, pathPattern: "^dependsOn$" }],
+      "yml/no-empty-sequence-entry": ["error"],
     },
   },
 ];

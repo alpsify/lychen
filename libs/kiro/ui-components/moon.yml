@@ -1,7 +1,3 @@
-dependsOn:
-  - kiro-util-sdk
-  - ui-components
-
 id: kiro-ui-components
 
 language: typescript
@@ -10,3 +6,8 @@ tags:
   - kiro
 
 type: library
+
+dependsOn:
+  - ui-components
+  - kiro-util-sdk
+

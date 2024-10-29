@@ -1,5 +1,5 @@
 import {useTranslations as useGlobal} from '@lychen/ui-i18n/global';
-import {useI18nExtended} from '@alpsify/vue-util-i18n/useI18nExtended';
+import {useI18nExtended} from '@lychen/vue-util-i18n/useI18nExtended';
 
 import enUs from './en-US';
 import frFr from './fr-FR';
