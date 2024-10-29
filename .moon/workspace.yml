@@ -2,6 +2,7 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
 constraints:
   enforceProjectTypeRelationships: true
+
 generator:
   templates:
     - ./templates
@@ -14,18 +15,17 @@ hasher:
     - '**/*.jpg'
     - '**/*.jpeg'
     - '**/*.ttf'
-
   walkStrategy: glob
+
 projects:
   - 'libs/**/*/moon.yml'
-  - 'apps/**/*/moon.yml'
+  - 'projects/**/*/moon.yml'
 
 vcs:
   defaultBranch: main
   hooks:
     pre-commit:
-      - 'moon :lint --affected'
+      - 'moon :format --affected'
   manager: git
-  # - 'moon :madge'
   syncHooks: true
 
