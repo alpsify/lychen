@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [
+  ],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/libs/vue-util-i18n",
+    "paths": {
+    }
+  }
+}

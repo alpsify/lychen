@@ -1,0 +1,20 @@
+{
+  "name": "@lychen/ui-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fortawesome/vue-fontawesome": "latest-3",
+    "@vueuse/motion": "^2.2.6",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "radix-vue": "^1.9.6",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul-vue": "^0.2.0",
+    "vue": "3.5.11",
+    "vue-sonner": "^1.2.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}

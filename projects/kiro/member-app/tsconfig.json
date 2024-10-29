@@ -1,0 +1,28 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "files": [],
+  "references": [
+
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+
+    },
+  },
+  "include": [
+    "**/*",
+  ]
+}

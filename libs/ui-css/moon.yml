@@ -1,0 +1,23 @@
+id: ui-css
+
+language: typescript
+
+tasks:
+  sync-font-open-sans:
+    command: ln -sfn $workspaceRoot/libs/asset-fonts/fonts/Open_Sans $projectRoot/font/Open_Sans
+    inputs:
+      - '/libs/asset-fonts/fonts/Open_Sans/**/*'
+
+    options:
+      cache: false
+    platform: system
+
+  sync-font-poppins:
+    command: ln -sfn $workspaceRoot/libs/asset-fonts/fonts/Poppins $projectRoot/font/Poppins
+    inputs:
+      - '/libs/asset-fonts/fonts/Poppins/**/*'
+    options:
+      cache: false
+    platform: system
+
+type: library

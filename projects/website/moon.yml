@@ -1,0 +1,34 @@
+dependsOn:
+  - ui-components
+  - ui-css
+  - ui-i18n
+  - ui-layouts
+  - vue-util-i18n
+type: application
+id: website
+
+language: typescript
+
+tasks:
+  dev:
+    command: yarn run dev
+    deps:
+      - sync-all-logos
+      - sync-fonts
+    options:
+      persistent: true
+
+  sync-all-logos:
+    command: ln -sfn $workspaceRoot/libs/asset-logos $projectRoot/public/logos
+    inputs:
+      - '/libs/asset-logos/**/*'
+
+  sync-fonts:
+    command: ln -sfn $workspaceRoot/libs/ui-css/fonts/ $projectRoot/public/fonts
+    inputs:
+      - '/libs/ui-css/fonts/**/*'
+    options:
+      cache: false
+    platform: system
+
+

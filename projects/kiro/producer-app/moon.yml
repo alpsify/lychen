@@ -1,0 +1,13 @@
+dependsOn:
+  - ui-components
+
+id: kiro-producer-app
+
+language: typescript
+
+tasks:
+  dev:
+    command: yarn run dev
+    options:
+      persistent: true
+type: application
