@@ -1,0 +1,31 @@
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+constraints:
+  enforceProjectTypeRelationships: true
+generator:
+  templates:
+    - ./templates
+
+hasher:
+  ignorePatterns:
+    - '**/*.png'
+    - '**/*.webp'
+    - '**/*.webm'
+    - '**/*.jpg'
+    - '**/*.jpeg'
+    - '**/*.ttf'
+
+  walkStrategy: glob
+projects:
+  - 'libs/**/*/moon.yml'
+  - 'apps/**/*/moon.yml'
+
+vcs:
+  defaultBranch: main
+  hooks:
+    pre-commit:
+      - 'moon :lint --affected'
+  manager: git
+  # - 'moon :madge'
+  syncHooks: true
+

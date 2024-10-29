@@ -1,6 +1,6 @@
 {
   "name": "lychen",
-  "packageManager": "yarn@3.6.4",
+  "packageManager": "yarn@4.5.1",
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "@eslint/markdown": "^6.2.1",
