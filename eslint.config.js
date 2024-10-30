@@ -53,7 +53,8 @@ export default [
         "error",
         {
           "**/*.md": "KEBAB_CASE",
-          "**/!(*.config).{js,ts}": "PASCAL_CASE",
+          "**/*.vue": "PASCAL_CASE",
+          //"**/!(*.config).{js,ts}": "PASCAL_CASE",
         },
       ],
       "check-file/folder-naming-convention": [

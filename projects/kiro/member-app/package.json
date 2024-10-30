@@ -11,6 +11,10 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.6.0",
 		"@fortawesome/pro-light-svg-icons": "^6.6.0",
+		"@lychen/kiro-ui-components": "workspace:*",
+		"@lychen/ui-components": "workspace:*",
+		"@lychen/ui-css": "workspace:*",
+		"@lychen/vue-util-i18n": "workspace:*",
 		"@vueuse/core": "11.1.0",
 		"@zitadel/vue": "1.1.1",
 		"radix-vue": "1.9.6",

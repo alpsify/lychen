@@ -14,6 +14,7 @@
     }
   ],
   "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/projects/luna/website",
     "paths": {
       "@lychen/kiro-ui-components/*": [
         "../../../libs/kiro/ui-components/*"
@@ -21,7 +22,6 @@
       "@lychen/ui-components/*": [
         "../../../libs/ui-components/*"
       ]
-    },
-    "outDir": "../../../.moon/cache/types/projects/kiro/producer-app"
+    }
   }
 }

@@ -5,8 +5,6 @@ dependsOn:
   - ui-layouts
   - vue-util-i18n
 
-type: application
-
 id: website
 
 language: typescript
@@ -23,12 +21,14 @@ tasks:
   sync-all-logos:
     command: ln -sfn $workspaceRoot/libs/asset-logos $projectRoot/public/logos
     inputs:
-      - "/libs/asset-logos/**/*"
+      - '/libs/asset-logos/**/*'
 
   sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/ui-css/fonts/ $projectRoot/public/fonts
+    command: ln -sfn $workspaceRoot/libs/ui-css/fonts $projectRoot/public/fonts
     inputs:
-      - "/libs/ui-css/fonts/**/*"
+      - '/libs/ui-css/fonts/**/*'
     options:
       cache: false
     platform: system
+
+type: application

@@ -7,6 +7,7 @@
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "outDir": "../../.moon/cache/types/libs/ui-components"
   }
 }

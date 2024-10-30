@@ -1,11 +1,19 @@
 {
   "include": [
-    "**/*"
+    "**/*",
+    "../vue/util-i18n/**/*"
   ],
   "references": [
+    {
+      "path": "../vue/util-i18n"
+    }
   ],
   "compilerOptions": {
     "paths": {
-    }
+      "@lychen/vue-util-i18n/*": [
+        "../vue/util-i18n/*"
+      ]
+    },
+    "outDir": "../../.moon/cache/types/libs/ui-i18n"
   }
 }

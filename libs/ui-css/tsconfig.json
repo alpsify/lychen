@@ -6,6 +6,7 @@
   "references": [],
   "compilerOptions": {
     "emitDeclarationOnly": true,
-    "paths": {}
+    "paths": {},
+    "outDir": "../../.moon/cache/types/libs/ui-css"
   }
 }

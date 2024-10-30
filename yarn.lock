@@ -1638,6 +1638,9 @@ __metadata:
   dependencies:
     "@fortawesome/fontawesome-svg-core": "npm:^6.6.0"
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
+    "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/vue-util-i18n": "workspace:*"
     "@vitejs/plugin-vue": "npm:^5.1.2"
     "@vueuse/core": "npm:11.1.0"
     "@zitadel/vue": "npm:1.1.1"
@@ -1654,7 +1657,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/kiro-ui-components@workspace:libs/kiro/ui-components":
+"@lychen/kiro-ui-components@workspace:*, @lychen/kiro-ui-components@workspace:libs/kiro/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-ui-components@workspace:libs/kiro/ui-components"
   dependencies:
@@ -1673,6 +1676,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
   dependencies:
+    "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.1.2"
     "@vueuse/core": "npm:11.1.0"
@@ -1688,7 +1694,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/typescript-util-date@workspace:libs/typescript/util-date":
+"@lychen/typescript-util-date@workspace:*, @lychen/typescript-util-date@workspace:libs/typescript/util-date":
   version: 0.0.0-use.local
   resolution: "@lychen/typescript-util-date@workspace:libs/typescript/util-date"
   languageName: unknown
@@ -1711,7 +1717,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/ui-css@workspace:libs/ui-css":
+"@lychen/ui-css@workspace:*, @lychen/ui-css@workspace:libs/ui-css":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-css@workspace:libs/ui-css"
   languageName: unknown
@@ -1720,6 +1726,8 @@ __metadata:
 "@lychen/ui-i18n@workspace:libs/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
+  dependencies:
+    "@lychen/vue-util-i18n": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1727,6 +1735,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-layouts@workspace:libs/ui-layouts"
   dependencies:
+    "@lychen/kiro-ui-components": "workspace:*"
     vue: "npm:3.5.11"
   languageName: unknown
   linkType: soft
@@ -1737,11 +1746,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-util-i18n@workspace:libs/vue/util-i18n":
+"@lychen/vue-util-i18n@workspace:*, @lychen/vue-util-i18n@workspace:libs/vue/util-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-i18n@workspace:libs/vue/util-i18n"
   dependencies:
     "@intlify/core-base": "npm:^9.8.0"
+    "@lychen/typescript-util-date": "workspace:*"
     vue: "npm:3.5.3"
     vue-i18n: "npm:^9.13.0"
   languageName: unknown

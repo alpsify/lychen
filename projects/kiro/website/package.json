@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lychen/kiro-ui-components": "workspace:*",
+    "@lychen/ui-components": "workspace:*",
+    "@lychen/ui-css": "workspace:*",
+    "@lychen/vue-util-i18n": "workspace:*",
     "@unhead/vue": "1.11.7",
     "@vueuse/core": "11.1.0",
     "radix-vue": "1.9.6",

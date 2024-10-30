@@ -5,6 +5,7 @@
   ],
   "references": [],
   "compilerOptions": {
-    "paths": {}
+    "paths": {},
+    "outDir": "../../../.moon/cache/types/libs/typescript/util-date"
   }
 }

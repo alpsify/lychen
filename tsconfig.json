@@ -1,3 +1,53 @@
 {
-  "extends": "./tsconfig.options.json"
+  "extends": "./tsconfig.options.json",
+  "references": [
+    {
+      "path": "libs/kiro/ui-components"
+    },
+    {
+      "path": "libs/kiro/util-sdk"
+    },
+    {
+      "path": "libs/typescript/util-date"
+    },
+    {
+      "path": "libs/ui-components"
+    },
+    {
+      "path": "libs/ui-css"
+    },
+    {
+      "path": "libs/ui-i18n"
+    },
+    {
+      "path": "libs/ui-layouts"
+    },
+    {
+      "path": "libs/util-composables"
+    },
+    {
+      "path": "libs/vue/util-i18n"
+    },
+    {
+      "path": "projects/kiro/admin-app"
+    },
+    {
+      "path": "projects/kiro/manager-app"
+    },
+    {
+      "path": "projects/kiro/member-app"
+    },
+    {
+      "path": "projects/kiro/producer-app"
+    },
+    {
+      "path": "projects/kiro/website"
+    },
+    {
+      "path": "projects/luna/website"
+    },
+    {
+      "path": "projects/tera/website"
+    }
+  ]
 }

@@ -1,6 +1,5 @@
+dependsOn:
+  - typescript-util-date
 id: vue-util-i18n
 language: typescript
 type: library
-
-dependsOn:
-  - typescript-util-date

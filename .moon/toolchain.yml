@@ -6,12 +6,10 @@ node:
   inferTasksFromScripts: false
   npm: {}
   packageManager: yarn
+  syncPackageManagerField: true
   syncProjectWorkspaceDependencies: true
   version: 20.8.0
   yarn:
-    plugins:
-      - interactive-tools
-      - workspace-tools
     version: 4.5.1
 
 rust:
@@ -26,4 +24,3 @@ typescript:
   routeOutDirToCache: true
   syncProjectReferences: true
   syncProjectReferencesToPaths: true
-
