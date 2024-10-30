@@ -1,0 +1,23 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"editorconfig.editorconfig",
+		"ms-playwright.playwright",
+		"christian-kohler.path-intellisense",
+		"christian-kohler.npm-intellisense",
+		"moonrepo.moon-console",
+		"gruntfuggly.todo-tree",
+		"syler.sass-indented",
+		"sibiraj-s.vscode-scss-formatter",
+		"mrmlnc.vscode-scss",
+		"mrmlnc.vscode-duplicate",
+		"pascalreitermann93.vscode-yaml-sort"
+	],
+	"unwantedRecommendations": [
+		"octref.vetur",
+		"hookyqr.beautify",
+		"dbaeumer.jshint",
+		"ms-vscode.vscode-typescript-tslint-plugin"
+	]
+}

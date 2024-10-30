@@ -1,0 +1,11 @@
+{
+  "name": "@lychen/vue-util-i18n",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@intlify/core-base": "^9.8.0",
+    "@lychen/typescript-util-date": "workspace:*",
+    "vue": "3.5.3",
+    "vue-i18n": "^9.13.0"
+  }
+}

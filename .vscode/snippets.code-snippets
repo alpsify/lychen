@@ -1,0 +1,10 @@
+{
+	"async-import-vue-component": {
+		"prefix": "asyncimport",
+		"body": [
+			"import { defineAsyncComponent } from 'vue';",
+			"const ${1:ComponentName} = defineAsyncComponent(() => import('${2:path/to/component.vue}'));",
+		],
+		"description": "Import Vue component with defineAsyncComponent",
+	},
+}

@@ -1,0 +1,55 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "files": [],
+  "references": [
+    {
+      "path": "../../../libs/kiro/ui-components"
+    },
+    {
+      "path": "../../../libs/ui-components"
+    },
+    {
+      "path": "../../../libs/ui-css"
+    },
+    {
+      "path": "../../../libs/vue/util-i18n"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@lychen/ui-css/*": [
+        "../../../libs/ui-css/*"
+      ],
+      "@lychen/vue-util-i18n/*": [
+        "../../../libs/vue/util-i18n/*"
+      ],
+      "@lychen/kiro-ui-components/*": [
+        "../../../libs/kiro/ui-components/*"
+      ],
+      "@lychen/ui-components/*": [
+        "../../../libs/ui-components/*"
+      ]
+    },
+    "outDir": "../../../.moon/cache/types/projects/kiro/member-app"
+  },
+  "include": [
+    "**/*",
+    "../../../libs/kiro/ui-components/**/*",
+    "../../../libs/ui-components/**/*",
+    "../../../libs/ui-css/**/*",
+    "../../../libs/vue/util-i18n/**/*"
+  ]
+}

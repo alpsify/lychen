@@ -1,0 +1,10 @@
+{
+  "name": "@lychen/ui-layouts",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/kiro-ui-components": "workspace:*",
+    "@lychen/ui-components": "workspace:*",
+    "vue": "3.5.11"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [],
+  "compilerOptions": {
+    "paths": {},
+    "outDir": "../../../.moon/cache/types/libs/typescript/util-date"
+  }
+}

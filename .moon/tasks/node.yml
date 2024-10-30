@@ -1,0 +1,13 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  format:
+    command:
+      - prettier
+      - .
+      - --write
+    inputs:
+      - '**/*.{vue,ts,js,yaml,yml,json}'
+      - '!**/build/'
+      - '!**/dist/'
+      - '!**/playwright-report/'

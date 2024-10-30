@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [],
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "paths": {},
+    "outDir": "../../.moon/cache/types/libs/ui-components"
+  }
+}

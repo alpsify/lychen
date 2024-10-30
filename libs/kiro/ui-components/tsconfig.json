@@ -1,0 +1,27 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../ui-components/**/*",
+    "../util-sdk/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../ui-components"
+    },
+    {
+      "path": "../util-sdk"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/kiro/ui-components",
+    "paths": {
+      "@lychen/kiro-util-sdk/*": [
+        "../util-sdk/*"
+      ],
+      "@lychen/ui-components/*": [
+        "../../ui-components/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@lychen/kiro-ui-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/kiro-util-sdk": "workspace:*",
+    "@lychen/ui-components": "workspace:*",
+    "vue": "3.5.11"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.13"
+  }
+}

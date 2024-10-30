@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*"
+  ],
+  "references": [],
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "paths": {},
+    "outDir": "../../../.moon/cache/types/libs/kiro/util-sdk"
+  }
+}
