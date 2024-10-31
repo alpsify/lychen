@@ -1,4 +1,4 @@
-export {default as ViewHome} from './ViewHome.vue';
+export { default as ViewHome } from './ViewHome.vue';
 
 export const RouteViewHome = {
   path: '/',

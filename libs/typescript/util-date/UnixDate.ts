@@ -1,3 +1,3 @@
 export function unixDateToDate(value: number): Date {
-	return new Date(value * 1000);
+  return new Date(value * 1000);
 }

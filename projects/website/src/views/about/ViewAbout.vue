@@ -1,12 +1,12 @@
 <template>
-	<div class="container bg-surface text-surface-on">A propos</div>
+  <div class="container bg-surface text-surface-on">A propos</div>
 </template>
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue';
 
 useHead({
-	title: 'Tarifs',
+  title: 'Tarifs',
 });
 </script>
 

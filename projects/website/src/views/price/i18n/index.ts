@@ -1,4 +1,4 @@
-import {useI18nExtended} from '@lychen/vue-util-i18n/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-util-i18n/useI18nExtended';
 
 import enUs from './en-US';
 import frFr from './fr-FR';
@@ -12,11 +12,11 @@ export const messages = {
 export const TRANSLATION_KEY = 'view_price';
 
 export function useTranslations(rootKey: string = TRANSLATION_KEY) {
-  const {t, d, n} = useI18nExtended({messages, rootKey});
+  const { t, d, n } = useI18nExtended({ messages, rootKey });
 
   function tPrefixed(key: string) {
     return t(`${TRANSLATION_KEY}.${key}`);
   }
 
-  return {t: tPrefixed, d, n};
+  return { t: tPrefixed, d, n };
 }

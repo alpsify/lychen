@@ -2,24 +2,42 @@
   "extends": "../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../libs/ui-components/**/*",
+    "../../libs/ui-css/**/*",
+    "../../libs/ui-i18n/**/*",
+    "../../libs/ui-layouts/**/*",
+    "../../libs/vue/util-i18n/**/*"
   ],
   "references": [
+    {
+      "path": "../../libs/ui-components"
+    },
+    {
+      "path": "../../libs/ui-css"
+    },
+    {
+      "path": "../../libs/ui-i18n"
+    },
+    {
+      "path": "../../libs/ui-layouts"
+    },
+    {
+      "path": "../../libs/vue/util-i18n"
+    }
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@views/*": [
-        "src/views/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-    }
+      "@/*": ["src/*"],
+      "@views/*": ["src/views/*"],
+      "@assets/*": ["src/assets/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@lychen/ui-components/*": ["../../libs/ui-components/*"],
+      "@lychen/ui-css/*": ["../../libs/ui-css/*"],
+      "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
+      "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
+      "@lychen/vue-util-i18n/*": ["../../libs/vue/util-i18n/*"]
+    },
+    "outDir": "../../.moon/cache/types/projects/website"
   }
 }

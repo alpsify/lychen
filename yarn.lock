@@ -1639,6 +1639,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": "npm:^6.6.0"
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
     "@vitejs/plugin-vue": "npm:^5.1.2"
@@ -1661,12 +1662,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-ui-components@workspace:libs/kiro/ui-components"
   dependencies:
+    "@lychen/kiro-util-sdk": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
     tailwindcss: "npm:3.4.13"
     vue: "npm:3.5.11"
   languageName: unknown
   linkType: soft
 
-"@lychen/kiro-util-sdk@workspace:libs/kiro/util-sdk":
+"@lychen/kiro-util-sdk@workspace:*, @lychen/kiro-util-sdk@workspace:libs/kiro/util-sdk":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-util-sdk@workspace:libs/kiro/util-sdk"
   languageName: unknown
@@ -1677,6 +1680,7 @@ __metadata:
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
   dependencies:
     "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
@@ -1700,7 +1704,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/ui-components@workspace:libs/ui-components":
+"@lychen/ui-components@workspace:*, @lychen/ui-components@workspace:libs/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-components@workspace:libs/ui-components"
   dependencies:
@@ -1735,7 +1739,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-layouts@workspace:libs/ui-layouts"
   dependencies:
-    "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
     vue: "npm:3.5.11"
   languageName: unknown
   linkType: soft

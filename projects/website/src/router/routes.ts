@@ -6,11 +6,11 @@ import { RouteViewPrice } from '@/views/price';
 import { RouteViewHome } from '../views/home';
 
 const routes: RouteRecordRaw[] = [
-	{
-		path: '/',
-		component: () => import('@layouts/main/LayoutMain.vue'),
-		children: [RouteViewHome, RouteViewAbout, RouteViewPrice],
-	},
+  {
+    path: '/',
+    component: () => import('@layouts/main/LayoutMain.vue'),
+    children: [RouteViewHome, RouteViewAbout, RouteViewPrice],
+  },
 ];
 
 export default routes;

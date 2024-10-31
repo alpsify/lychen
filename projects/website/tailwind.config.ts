@@ -1,16 +1,17 @@
-import {animationConfig} from '@lychen/ui-css/tailwind/animationConfig';
-import {colorsConfig} from '@lychen/ui-css/tailwind/colorsConfig';
-import {fontsConfig} from '@lychen/ui-css/tailwind/fontsConfig';
-import {keyframesConfig} from '@lychen/ui-css/tailwind/keyframesConfig';
-import type {Config} from 'tailwindcss';
+import { animationConfig } from '@lychen/ui-css/tailwind/animationConfig';
+import { colorsConfig } from '@lychen/ui-css/tailwind/colorsConfig';
+import { fontsConfig } from '@lychen/ui-css/tailwind/fontsConfig';
+import { keyframesConfig } from '@lychen/ui-css/tailwind/keyframesConfig';
+import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
+import { contentConfig } from '@lychen/ui-css/tailwind/contentConfig';
 
 export default {
   darkMode: 'selector',
   safelist: ['dark'],
   prefix: '',
 
-  content: ['./src/**/*.{vue,js,ts,jsx,tsx}', '../../../libs/lychen/**/*.{vue,js,ts,jsx,tsx}'],
+  content: contentConfig,
 
   theme: {
     container: {

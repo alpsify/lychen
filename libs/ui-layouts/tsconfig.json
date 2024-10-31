@@ -1,9 +1,6 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": [
-    "**/*",
-    "../ui-components/**/*"
-  ],
+  "include": ["**/*", "../ui-components/**/*"],
   "references": [
     {
       "path": "../ui-components"
@@ -12,9 +9,7 @@
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/libs/ui-layouts",
     "paths": {
-      "@lychen/ui-components/*": [
-        "../ui-components/*"
-      ]
+      "@lychen/ui-components/*": ["../ui-components/*"]
     }
   }
 }

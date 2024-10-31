@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4">
     <div class="flex flex-col lg:flex-row justify-between gap-4 items-stretch">
       <div class="flex flex-col gap-2 basis-1/3">
-        <LychenLogo/>
+        <LychenLogo />
         <p class="text-sm opacity-80">
           {{ t(`${TRANSLATION_KEY}.footer.seo_paragraph`) }}
         </p>
@@ -15,13 +15,13 @@
           <a
             class="underline"
             href="https://alpsify.com"
-          >@alpsify</a
+            >@alpsify</a
           >
           and
           <a
             class="underline"
             href="https://humusandco.fr"
-          >@humusandco</a
+            >@humusandco</a
           >
         </p>
       </div>
@@ -32,7 +32,8 @@
       <ul class="flex flex-row gap-2 opacity-60 text-xs">
         <li
           v-for="(menu, _index) in legalMenus"
-          :key="_index">
+          :key="_index"
+        >
           {{ menu.title }}
         </li>
       </ul>
@@ -41,17 +42,17 @@
 </template>
 
 <script lang="ts" setup>
-import {TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY} from '@lychen/ui-i18n/global';
-import {defineAsyncComponent} from 'vue';
+import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
+import { defineAsyncComponent } from 'vue';
 
-import {TRANSLATION_KEY, useTranslations} from './i18n';
+import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
 const legalMenus = [
-  {title: "Conditions générales d'utilisation"},
-  {title: 'Protection des données'},
-  {title: 'Mentions légales'},
+  { title: "Conditions générales d'utilisation" },
+  { title: 'Protection des données' },
+  { title: 'Mentions légales' },
 ];
 
-const {t} = useTranslations();
+const { t } = useTranslations();
 </script>

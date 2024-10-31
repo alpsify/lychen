@@ -1,7 +1,7 @@
-import {unixDateToDate} from '@lychen/typescript-util-date/UnixDate';
-import {useI18n, UseI18nOptions} from 'vue-i18n';
+import { unixDateToDate } from '@lychen/typescript-util-date/UnixDate';
+import { useI18n, UseI18nOptions } from 'vue-i18n';
 
-import {addRootKey} from './RootKeyHelper';
+import { addRootKey } from './RootKeyHelper';
 
 interface UseCustomI18nOptions extends UseI18nOptions {
   rootKey?: string;
@@ -18,7 +18,7 @@ export function useI18nExtended(options?: UseCustomI18nOptions) {
     }
   }
 
-  const {n, t, d} = useI18n(options);
+  const { n, t, d } = useI18n(options);
 
   function customN(value: number, keyOrOptions: string | object): string {
     if (keyOrOptions === 'percent') {

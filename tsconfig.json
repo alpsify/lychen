@@ -48,6 +48,9 @@
     },
     {
       "path": "projects/tera/website"
+    },
+    {
+      "path": "projects/website"
     }
   ]
 }

@@ -1,7 +1,7 @@
-import {ObjectValues} from '@lychen/ui-components/lib/utils';
-import {computed} from 'vue';
+import { ObjectValues } from '@lychen/ui-components/lib/utils';
+import { computed } from 'vue';
 
-import {TRANSLATION_KEY, useTranslations} from './i18n';
+import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 export const APPLICATION_STATE = {
   Funding: 'funding',
@@ -45,7 +45,7 @@ export const APPLICATION_LINK = {
 } as const;
 
 export function useApplications() {
-  const {t} = useTranslations();
+  const { t } = useTranslations();
 
   function generateAppInfo(alias: ApplicationAlias) {
     return {

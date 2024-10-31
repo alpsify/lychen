@@ -1,32 +1,36 @@
 <template>
   <LychenContainer class="flex flex-col gap-10">
-    <div class="flex flex-col lg:flex-row items-center gap-4 justify-between lg:justify-center">
+    <div class="flex flex-col items-center justify-between gap-4 lg:flex-row lg:justify-center">
       <LychenTitle
         variant="h2"
-        class="basis-2/3">
+        class="basis-2/3"
+      >
         Fait pour ceux qui veulent du changements
       </LychenTitle>
       <LychenParagraph
         variant="website-default"
-        class="basis-1/3">
-        Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que
-        vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace
-        de collaboration et de partage.
+        class="basis-1/3"
+      >
+        Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et
+        environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une
+        association, nous vous offrons un espace de collaboration et de partage.
       </LychenParagraph>
     </div>
-    <div class="flex flex-col lg:grid lg:grid-cols-3 gap-4">
+    <div class="flex flex-col gap-4 lg:grid lg:grid-cols-3">
       <LychenCard
         v-for="(actor, index) in actors"
         :key="index"
-        class="justify-end items-stretch">
+        class="items-stretch justify-end"
+      >
         <Routerlink :to="{ name: RouteViewPrice.name }">
-          <div class="p-4 bg-center bg-no-repeat rounded-lg flex flex-col items-start pb-0 gap-2">
+          <div class="flex flex-col items-start gap-2 rounded-lg bg-center bg-no-repeat p-4 pb-0">
             <img
               src="https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              class="rounded-lg"/>
+              class="rounded-lg"
+            />
             <LychenTitle variant="h6">{{ actor.title }}</LychenTitle>
           </div>
-          <div class="opacity-70 p-4">{{ actor.text }}</div>
+          <div class="p-4 opacity-70">{{ actor.text }}</div>
         </Routerlink>
       </LychenCard>
     </div>
@@ -34,13 +38,15 @@
 </template>
 
 <script setup lang="ts">
-import {defineAsyncComponent} from 'vue';
+import { defineAsyncComponent } from 'vue';
 
-import {RouteViewPrice} from '../price';
-import {actors} from '.';
-import {useTranslations} from './i18n';
+import { RouteViewPrice } from '../price';
+import { actors } from '.';
+import { useTranslations } from './i18n';
 
-const LychenTitle = defineAsyncComponent(() => import('@lychen/ui-components/title/LychenTitle.vue'));
+const LychenTitle = defineAsyncComponent(
+  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+);
 const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
 );
@@ -48,7 +54,6 @@ const LychenCard = defineAsyncComponent(() => import('@lychen/ui-components/card
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
-const {t} = useTranslations();
+const { t } = useTranslations();
 </script>

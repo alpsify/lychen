@@ -1,5 +1,5 @@
 <template>
-	<ViewPriceHero />
+  <ViewPriceHero />
 </template>
 
 <script lang="ts" setup>
@@ -11,7 +11,7 @@ import ViewPriceHero from './ViewPriceHero.vue';
 const { t } = useTranslations();
 
 useHead({
-	title: t('meta.title'),
+  title: t('meta.title'),
 });
 </script>
 

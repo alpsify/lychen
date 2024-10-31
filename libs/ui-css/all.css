@@ -1,4 +1,4 @@
-@import 'color/colors';
-@import 'color/gradients';
-@import 'components/fonts';
-@import 'components/scroll';
+@import 'color/colors.css';
+@import 'color/gradients.css';
+@import 'components/fonts.css';
+@import 'components/scroll.css';

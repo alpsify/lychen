@@ -19,10 +19,10 @@ app.use(router);
 
 /* i18n */
 const i18n = createI18n({
-	globalInjection: false,
-	legacy: false,
-	fallbackLocale: navigator.languages[0],
-	locale: navigator.languages[0],
+  globalInjection: false,
+  legacy: false,
+  fallbackLocale: navigator.languages[0],
+  locale: navigator.languages[0],
 });
 app.use(i18n);
 

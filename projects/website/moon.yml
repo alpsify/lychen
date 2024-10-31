@@ -5,7 +5,7 @@ dependsOn:
   - ui-layouts
   - vue-util-i18n
 
-id: website
+id: main-website
 
 language: typescript
 
