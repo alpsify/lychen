@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {defineAsyncComponent} from 'vue';
-import {RouterLink} from 'vue-router';
+import { defineAsyncComponent } from "vue";
+import { RouterLink } from "vue-router";
 
-import {LayoutInAppNavigationMenu} from '.';
+import { LayoutInAppNavigationMenu } from ".";
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const LychenIcon = defineAsyncComponent(() => import("@lychen/ui-components/icon/LychenIcon.vue"));
 
 interface Props {
   menu: LayoutInAppNavigationMenu;
@@ -16,8 +16,9 @@ const props = defineProps<Props>();
 <template>
   <RouterLink
     :to="{ name: props.menu.routeName }"
-    class="flex flex-col gap-1 rounded-md p-2 hover:bg-surface-container-lowest text-surface-container-low-on">
-    <LychenIcon :icon="props.menu.icon"/>
+    class="flex flex-col gap-1 rounded-md p-2 hover:bg-surface-container-lowest text-surface-container-low-on"
+  >
+    <LychenIcon :icon="props.menu.icon" />
     <small class="opacity-50">{{ props.menu.title }}</small>
   </RouterLink>
 </template>

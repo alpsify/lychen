@@ -1,7 +1,7 @@
 <template>
   <div>
-    Producer Bouton pour créer un Contracts Visualisation des contrats / du contrat en cours Visualisation des
-    informations Visualsiation des produits
+    Producer Bouton pour créer un Contracts Visualisation des contrats / du contrat en cours
+    Visualisation des informations Visualsiation des produits
   </div>
 </template>
 

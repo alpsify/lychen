@@ -1,10 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "**/*",
-    "../../../libs/kiro/ui-components/**/*",
-    "../../../libs/ui-components/**/*"
-  ],
+  "include": ["**/*", "../../../libs/kiro/ui-components/**/*", "../../../libs/ui-components/**/*"],
   "references": [
     {
       "path": "../../../libs/kiro/ui-components"
@@ -15,12 +11,8 @@
   ],
   "compilerOptions": {
     "paths": {
-      "@lychen/kiro-ui-components/*": [
-        "../../../libs/kiro/ui-components/*"
-      ],
-      "@lychen/ui-components/*": [
-        "../../../libs/ui-components/*"
-      ]
+      "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
+      "@lychen/ui-components/*": ["../../../libs/ui-components/*"]
     },
     "outDir": "../../../.moon/cache/types/projects/kiro/producer-app"
   }

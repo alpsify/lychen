@@ -8,24 +8,24 @@
 </template>
 
 <script lang="ts" setup>
-import LayoutInAppNavigation from './navigation/LayoutInAppNavigation.vue';
+import LayoutInAppNavigation from "./navigation/LayoutInAppNavigation.vue";
 </script>
 
 <style lang="css" scoped>
 .layout-in-app {
-	height: 100dvh;
-	display: grid;
-	grid-template-columns: 1;
-	grid-template-rows: 1fr 70px;
-	grid-template-areas: 'main' 'navigation';
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1fr 70px;
+  grid-template-areas: "main" "navigation";
 
-	main {
-		grid-area: main;
-		overflow: auto;
-	}
+  main {
+    grid-area: main;
+    overflow: auto;
+  }
 
-	.navigation {
-		grid-area: navigation;
-	}
+  .navigation {
+    grid-area: navigation;
+  }
 }
 </style>

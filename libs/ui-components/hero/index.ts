@@ -1,1 +1,1 @@
-export { default as LychenHero } from './LychenHero.vue';
+export { default as LychenHero } from "./LychenHero.vue";

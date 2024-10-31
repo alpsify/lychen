@@ -1,1 +1,1 @@
-export { default as LychenContainer } from './LychenContainer.vue';
+export { default as LychenContainer } from "./LychenContainer.vue";

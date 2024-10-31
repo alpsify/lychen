@@ -6,4 +6,5 @@ export default {
   trailingComma: "all",
   arrowParens: "always",
   vueIndentScriptAndStyle: false,
+  singleQuote: true,
 };

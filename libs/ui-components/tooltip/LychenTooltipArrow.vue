@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TooltipArrow } from 'radix-vue';
+import { TooltipArrow } from "radix-vue";
 </script>
 
 <template>
@@ -12,6 +12,6 @@ import { TooltipArrow } from 'radix-vue';
 
 <style>
 .TooltipArrow {
-	fill: rgb(var(--color-surface-container-highest));
+  fill: rgb(var(--color-surface-container-highest));
 }
 </style>

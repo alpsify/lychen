@@ -1,1 +1,1 @@
-export { default as Input } from './LychenInput.vue';
+export { default as Input } from "./LychenInput.vue";

@@ -7,28 +7,32 @@
           :key="index"
           class="step rounded-full"
           :class="{ active: step === index - 1 }"
-          @click="step = index - 1"/>
+          @click="step = index - 1"
+        />
       </div>
       <div
         v-if="step < 2"
-        class="text-secondary flex items-center justify-end gap-2">
-        <small @click="step = 2">{{ t('skip') }} </small>
+        class="text-secondary flex items-center justify-end gap-2"
+      >
+        <small @click="step = 2">{{ t("skip") }} </small>
         <!--<FontAwesomeIcon :icon="['fal', 'chevron-right']" />-->
       </div>
     </div>
     <Transition
       name="slide-fade"
-      mode="out-in">
+      mode="out-in"
+    >
       <div
         :key="step"
-        class="flex flex-col items-center justify-center gap-4 text-center">
+        class="flex flex-col items-center justify-center gap-4 text-center"
+      >
         <h2 class="font-poppins text-surface-on text-3xl font-bold">
           {{ t(`step.${step}.title`) }}
         </h2>
         <p class="text-surface-on/80 text-sm">
           {{ t(`step.${step}.paragraph`) }}
         </p>
-        <img :src="imgSrc"/>
+        <img :src="imgSrc" />
       </div>
     </Transition>
     <div class="flex flex-col gap-4">
@@ -40,14 +44,15 @@
       <template v-else>
         <LychenTooltip :content="t('register_tooltip')">
           <LychenButton @click.prevent="$zitadel.oidcAuth.signIn({ prompt: 'create' })">
-            {{ t('register') }}
+            {{ t("register") }}
           </LychenButton>
         </LychenTooltip>
         <LychenButton
           class="text-secondary"
           variant="ghost"
-          @click.prevent="$zitadel.oidcAuth.signIn">
-          {{ t('login') }}
+          @click.prevent="$zitadel.oidcAuth.signIn"
+        >
+          {{ t("login") }}
         </LychenButton>
       </template>
     </div>
@@ -55,12 +60,16 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineAsyncComponent, ref} from 'vue';
+import { computed, defineAsyncComponent, ref } from "vue";
 
-import {useTranslations} from './i18n';
+import { useTranslations } from "./i18n";
 
-const LychenButton = defineAsyncComponent(() => import('@lychen/ui-components/button/LychenButton.vue'));
-const LychenTooltip = defineAsyncComponent(() => import('@lychen/ui-components/tooltip/LychenTooltip.vue'));
+const LychenButton = defineAsyncComponent(
+  () => import("@lychen/ui-components/button/LychenButton.vue"),
+);
+const LychenTooltip = defineAsyncComponent(
+  () => import("@lychen/ui-components/tooltip/LychenTooltip.vue"),
+);
 
 const step = ref(0);
 
@@ -68,7 +77,7 @@ const imgSrc = computed(() => {
   return new URL(`./assets/images/graphic-${step.value}.png`, import.meta.url).href;
 });
 
-const {t} = useTranslations();
+const { t } = useTranslations();
 </script>
 
 <style scoped>
@@ -81,7 +90,7 @@ const {t} = useTranslations();
     cursor: pointer;
 
     .step {
-      background: theme('colors.secondary.DEFAULT');
+      background: theme("colors.secondary.DEFAULT");
       height: 8px;
       transition: width 500ms ease-in-out;
     }
@@ -92,7 +101,7 @@ const {t} = useTranslations();
 
     .step:not(.active) {
       width: 12px;
-      background: theme('colors.secondary.DEFAULT' / 50%);
+      background: theme("colors.secondary.DEFAULT" / 50%);
     }
   }
 }

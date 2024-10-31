@@ -1,1 +1,1 @@
-export { default as LychenTextGenerateEffect } from './LychenTextGenerateEffect.vue';
+export { default as LychenTextGenerateEffect } from "./LychenTextGenerateEffect.vue";

@@ -1,9 +1,7 @@
 <template>
   <div class="userinfo">
     <div>
-      <h1>
-        This is a login-protected page
-      </h1>
+      <h1>This is a login-protected page</h1>
       <h2>
         The following profile data is extended by information from ZITADELs userinfo endpoint.
       </h2>
@@ -13,7 +11,8 @@
             v-for="c in claims"
             :key="c.key"
           >
-            <strong>{{ c.key }}</strong>: {{ c.value }}
+            <strong>{{ c.key }}</strong
+            >: {{ c.value }}
           </li>
         </ul>
       </div>
@@ -23,27 +22,28 @@
     v-if="$zitadel.oidcAuth.isAuthenticated"
     href="#"
     @click.prevent="$zitadel.oidcAuth.signOut"
-  >Signout</a>
+    >Signout</a
+  >
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   computed: {
     user() {
-      return this.$zitadel.oidcAuth.userProfile
+      return this.$zitadel.oidcAuth.userProfile;
     },
     claims() {
       if (this.user) {
-        return Object.keys(this.user).map(key => ({
+        return Object.keys(this.user).map((key) => ({
           key,
-          value: this.user[key]
-        }))
+          value: this.user[key],
+        }));
       }
-      return []
-    }
-  }
+      return [];
+    },
+  },
 });
 </script>
 <style>

@@ -1,5 +1,5 @@
 export type LayoutInAppNavigationMenu = {
-	routeName: string;
-	icon: string[];
-	title: string;
+  routeName: string;
+  icon: string[];
+  title: string;
 };
