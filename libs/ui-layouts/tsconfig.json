@@ -1,10 +1,10 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": ["**/*", "../kiro/ui-components/**/*", "../ui-components/**/*"],
+  "include": [
+    "**/*",
+    "../ui-components/**/*"
+  ],
   "references": [
-    {
-      "path": "../kiro/ui-components"
-    },
     {
       "path": "../ui-components"
     }
@@ -12,8 +12,9 @@
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/libs/ui-layouts",
     "paths": {
-      "@lychen/ui-components/*": ["../ui-components/*"],
-      "@lychen/kiro-ui-components/*": ["../kiro/ui-components/*"]
+      "@lychen/ui-components/*": [
+        "../ui-components/*"
+      ]
     }
   }
 }
