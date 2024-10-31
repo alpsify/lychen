@@ -4,12 +4,12 @@ import {
   type NavigationMenuContentEmits,
   type NavigationMenuContentProps,
   useForwardPropsEmits,
-} from "radix-vue";
-import { computed, type HTMLAttributes } from "vue";
+} from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from "../lib/utils";
+import { cn } from '../lib/utils';
 
-const props = defineProps<NavigationMenuContentProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<NavigationMenuContentProps & { class?: HTMLAttributes['class'] }>();
 
 const emits = defineEmits<NavigationMenuContentEmits>();
 

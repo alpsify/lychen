@@ -14,7 +14,7 @@
         v-if="step < 2"
         class="text-secondary flex items-center justify-end gap-2"
       >
-        <small @click="step = 2">{{ t("skip") }} </small>
+        <small @click="step = 2">{{ t('skip') }} </small>
         <!--<FontAwesomeIcon :icon="['fal', 'chevron-right']" />-->
       </div>
     </div>
@@ -44,7 +44,7 @@
       <template v-else>
         <LychenTooltip :content="t('register_tooltip')">
           <LychenButton @click.prevent="$zitadel.oidcAuth.signIn({ prompt: 'create' })">
-            {{ t("register") }}
+            {{ t('register') }}
           </LychenButton>
         </LychenTooltip>
         <LychenButton
@@ -52,7 +52,7 @@
           variant="ghost"
           @click.prevent="$zitadel.oidcAuth.signIn"
         >
-          {{ t("login") }}
+          {{ t('login') }}
         </LychenButton>
       </template>
     </div>
@@ -60,15 +60,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, ref } from "vue";
+import { computed, defineAsyncComponent, ref } from 'vue';
 
-import { useTranslations } from "./i18n";
+import { useTranslations } from './i18n';
 
 const LychenButton = defineAsyncComponent(
-  () => import("@lychen/ui-components/button/LychenButton.vue"),
+  () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 const LychenTooltip = defineAsyncComponent(
-  () => import("@lychen/ui-components/tooltip/LychenTooltip.vue"),
+  () => import('@lychen/ui-components/tooltip/LychenTooltip.vue'),
 );
 
 const step = ref(0);
@@ -90,7 +90,7 @@ const { t } = useTranslations();
     cursor: pointer;
 
     .step {
-      background: theme("colors.secondary.DEFAULT");
+      background: theme('colors.secondary.DEFAULT');
       height: 8px;
       transition: width 500ms ease-in-out;
     }
@@ -101,7 +101,7 @@ const { t } = useTranslations();
 
     .step:not(.active) {
       width: 12px;
-      background: theme("colors.secondary.DEFAULT" / 50%);
+      background: theme('colors.secondary.DEFAULT' / 50%);
     }
   }
 }

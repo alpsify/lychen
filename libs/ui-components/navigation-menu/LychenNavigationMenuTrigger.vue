@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from "radix-vue";
-import { computed, type HTMLAttributes } from "vue";
+import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
 
-import LychenIcon from "../icon/LychenIcon.vue";
-import { cn } from "../lib/utils";
-import { navigationMenuTriggerStyle } from ".";
+import LychenIcon from '../icon/LychenIcon.vue';
+import { cn } from '../lib/utils';
+import { navigationMenuTriggerStyle } from '.';
 
-const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>();
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;

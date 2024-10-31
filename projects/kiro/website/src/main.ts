@@ -1,13 +1,13 @@
-import "./stylesheet/main.css";
+import './stylesheet/main.css';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fal } from "@fortawesome/pro-light-svg-icons";
-import { createHead } from "@unhead/vue";
-import { createApp } from "vue";
-import { createI18n } from "vue-i18n";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fal } from '@fortawesome/pro-light-svg-icons';
+import { createHead } from '@unhead/vue';
+import { createApp } from 'vue';
+import { createI18n } from 'vue-i18n';
 
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue';
+import router from './router';
 
 const app = createApp(App);
 
@@ -30,4 +30,4 @@ app.use(i18n);
 const head = createHead();
 app.use(head);
 
-app.mount("#app");
+app.mount('#app');

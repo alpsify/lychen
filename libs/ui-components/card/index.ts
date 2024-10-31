@@ -1,1 +1,1 @@
-export { default as LychenCard } from "./LychenCard.vue";
+export { default as LychenCard } from './LychenCard.vue';

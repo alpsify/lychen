@@ -1,7 +1,7 @@
-export { default as ViewDistributions } from "./ViewDistributions.vue";
+export { default as ViewDistributions } from './ViewDistributions.vue';
 
 export const RouteViewDistributions = {
-  path: "/distributions",
-  component: () => import("./ViewDistributions.vue"),
-  name: "distributions",
+  path: '/distributions',
+  component: () => import('./ViewDistributions.vue'),
+  name: 'distributions',
 };

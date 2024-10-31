@@ -21,15 +21,15 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from "../lib/utils";
-import type { BaseProps as Props } from ".";
+import { cn } from '../lib/utils';
+import type { BaseProps as Props } from '.';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_SPEED,
   PATTERN_BACKGROUND_VARIANT,
   patternBackgroundMaskVariants,
   patternBackgroundVariants,
-} from ".";
+} from '.';
 
 const props = withDefaults(defineProps<Props>(), {
   direction: () => PATTERN_BACKGROUND_DIRECTION.Top,

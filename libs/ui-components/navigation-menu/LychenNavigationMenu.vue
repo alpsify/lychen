@@ -4,13 +4,13 @@ import {
   type NavigationMenuRootEmits,
   type NavigationMenuRootProps,
   useForwardPropsEmits,
-} from "radix-vue";
-import { computed, type HTMLAttributes } from "vue";
+} from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from "../lib/utils";
-import NavigationMenuViewport from "./LychenNavigationMenuViewport.vue";
+import { cn } from '../lib/utils';
+import NavigationMenuViewport from './LychenNavigationMenuViewport.vue';
 
-const props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes['class'] }>();
 
 const emits = defineEmits<NavigationMenuRootEmits>();
 

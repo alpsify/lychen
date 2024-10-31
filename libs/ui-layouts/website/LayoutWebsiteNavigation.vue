@@ -25,18 +25,18 @@
 </template>
 
 <script lang="ts" setup>
-import { LychenSheetTrigger } from "@lychen/ui-components/sheet";
-import { defineAsyncComponent } from "vue";
+import { LychenSheetTrigger } from '@lychen/ui-components/sheet';
+import { defineAsyncComponent } from 'vue';
 
 const LychenSheet = defineAsyncComponent(
-  () => import("@lychen/ui-components/sheet/LychenSheet.vue"),
+  () => import('@lychen/ui-components/sheet/LychenSheet.vue'),
 );
 
 const LychenSheetContent = defineAsyncComponent(
-  () => import("@lychen/ui-components/sheet/LychenSheetContent.vue"),
+  () => import('@lychen/ui-components/sheet/LychenSheetContent.vue'),
 );
 
-const LychenIcon = defineAsyncComponent(() => import("@lychen/ui-components/icon/LychenIcon.vue"));
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 </script>
 
 <style lang="css" scoped>

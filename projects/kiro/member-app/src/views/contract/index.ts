@@ -1,7 +1,7 @@
-export { default as ViewContract } from "./ViewContract.vue";
+export { default as ViewContract } from './ViewContract.vue';
 
 export const RouteViewContract = {
-  path: "/contract/:uuid",
-  component: () => import("./ViewContract.vue"),
-  name: "contract",
+  path: '/contract/:uuid',
+  component: () => import('./ViewContract.vue'),
+  name: 'contract',
 };

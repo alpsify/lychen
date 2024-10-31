@@ -1,6 +1,6 @@
-import { RouteRecordRaw } from "vue-router";
+import { RouteRecordRaw } from 'vue-router';
 
-import { RouteViewHome } from "../views/home";
+import { RouteViewHome } from '../views/home';
 
 const routes: RouteRecordRaw[] = [RouteViewHome];
 

@@ -14,11 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent } from 'vue';
 
-import { Props } from ".";
+import { Props } from '.';
 
 defineProps<Props>();
 
-const LychenIcon = defineAsyncComponent(() => import("@lychen/ui-components/icon/LychenIcon.vue"));
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 </script>

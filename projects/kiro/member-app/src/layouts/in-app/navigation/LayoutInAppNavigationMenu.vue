@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from "vue";
-import { RouterLink } from "vue-router";
+import { defineAsyncComponent } from 'vue';
+import { RouterLink } from 'vue-router';
 
-import { LayoutInAppNavigationMenu } from ".";
+import { LayoutInAppNavigationMenu } from '.';
 
-const LychenIcon = defineAsyncComponent(() => import("@lychen/ui-components/icon/LychenIcon.vue"));
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
 interface Props {
   menu: LayoutInAppNavigationMenu;

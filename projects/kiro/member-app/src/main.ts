@@ -1,15 +1,15 @@
-import "./stylesheet/main.css";
+import './stylesheet/main.css';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fal } from "@fortawesome/pro-light-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fal } from '@fortawesome/pro-light-svg-icons';
 //import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { createApp } from "vue";
-import { createI18n } from "vue-i18n";
+import { createApp } from 'vue';
+import { createI18n } from 'vue-i18n';
 
-import zitadelAuth from "@/services/ZitadelAuth";
+import zitadelAuth from '@/services/ZitadelAuth';
 
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue';
+import router from './router';
 
 const app = createApp(App);
 
@@ -30,7 +30,7 @@ const i18n = createI18n({
 app.use(i18n);
 
 /* Zitadel */
-declare module "vue" {
+declare module 'vue' {
   interface ComponentCustomProperties {
     $zitadel: typeof zitadelAuth;
   }
@@ -41,4 +41,4 @@ zitadelAuth.oidcAuth.startup().then((ok) => {
   }
 });
 
-app.mount("#app");
+app.mount('#app');

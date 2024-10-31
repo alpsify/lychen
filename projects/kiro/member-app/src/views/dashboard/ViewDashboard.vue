@@ -43,12 +43,12 @@
 </template>
 
 <script lang="ts" setup>
-import { Input } from "@lychen/ui-components/input";
+import { Input } from '@lychen/ui-components/input';
 </script>
 
 <style lang="css" scoped>
 header {
-  background-image: url("@/assets/amap-header.png");
+  background-image: url('@/assets/amap-header.png');
   background-position: center;
   min-height: 250px;
 }

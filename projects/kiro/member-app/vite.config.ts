@@ -1,11 +1,11 @@
-import path from "node:path";
+import path from 'node:path';
 
-import vue from "@vitejs/plugin-vue";
-import autoprefixer from "autoprefixer";
-import tailwind from "tailwindcss";
-import { defineConfig } from "vite";
-import mkcert from "vite-plugin-mkcert";
-import { VitePWA } from "vite-plugin-pwa";
+import vue from '@vitejs/plugin-vue';
+import autoprefixer from 'autoprefixer';
+import tailwind from 'tailwindcss';
+import { defineConfig } from 'vite';
+import mkcert from 'vite-plugin-mkcert';
+import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,17 +20,17 @@ export default defineConfig({
   },
   plugins: [
     mkcert({
-      hosts: ["kiro.member.lychen.local"],
+      hosts: ['kiro.member.lychen.local'],
     }),
     vue(),
-    VitePWA({ registerType: "autoUpdate" }),
+    VitePWA({ registerType: 'autoUpdate' }),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@assets": path.resolve(__dirname, "./src/assets"),
-      "@views": path.resolve(__dirname, "./src/views"),
-      "@layouts": path.resolve(__dirname, "./src/layouts"),
+      '@': path.resolve(__dirname, './src'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@views': path.resolve(__dirname, './src/views'),
+      '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
 });

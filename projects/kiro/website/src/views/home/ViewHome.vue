@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "@unhead/vue";
+import { useHead } from '@unhead/vue';
 
 useHead({
-  title: "Accueil",
+  title: 'Accueil',
 });
 </script>
 

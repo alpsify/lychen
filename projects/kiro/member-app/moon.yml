@@ -20,7 +20,7 @@ tasks:
   sync-fonts:
     command: ln -sfn $workspaceRoot/libs/ui-css/fonts/ $projectRoot/public/fonts
     inputs:
-      - "/libs/ui-css/fonts/**/*"
+      - '/libs/ui-css/fonts/**/*'
     options:
       cache: false
     platform: system

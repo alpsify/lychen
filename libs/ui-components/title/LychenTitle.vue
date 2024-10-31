@@ -7,15 +7,15 @@
 </template>
 
 <script lang="ts" setup>
-import { AsTag, Primitive, type PrimitiveProps } from "radix-vue";
-import { Component, computed, HTMLAttributes } from "vue";
+import { AsTag, Primitive, type PrimitiveProps } from 'radix-vue';
+import { Component, computed, HTMLAttributes } from 'vue';
 
-import { cn } from "../lib/utils";
-import { TitleVariants, titleVariants } from ".";
+import { cn } from '../lib/utils';
+import { TitleVariants, titleVariants } from '.';
 
 interface Props extends PrimitiveProps {
-  variant?: TitleVariants["variant"];
-  class?: HTMLAttributes["class"];
+  variant?: TitleVariants['variant'];
+  class?: HTMLAttributes['class'];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -29,10 +29,10 @@ const calculatedAs = computed<AsTag | Component>(() => {
     return props.as;
   }
 
-  if (props.variant?.startsWith("h")) {
+  if (props.variant?.startsWith('h')) {
     return props.variant;
   }
 
-  return "h1";
+  return 'h1';
 });
 </script>

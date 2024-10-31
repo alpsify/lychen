@@ -36,9 +36,9 @@
 </template>
 
 <script lang="ts" setup>
-import LychenButton from "../button/LychenButton.vue";
-import LychenIcon from "../icon/LychenIcon.vue";
-import { cn } from "../lib/utils";
+import LychenButton from '../button/LychenButton.vue';
+import LychenIcon from '../icon/LychenIcon.vue';
+import { cn } from '../lib/utils';
 
 const props = defineProps<{
   title: string;

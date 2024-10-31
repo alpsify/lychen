@@ -9,24 +9,24 @@
 </template>
 
 <script setup lang="ts">
-import type { LayoutInAppNavigationMenu as MenuType } from ".";
-import LayoutInAppNavigationMenu from "./LayoutInAppNavigationMenu.vue";
+import type { LayoutInAppNavigationMenu as MenuType } from '.';
+import LayoutInAppNavigationMenu from './LayoutInAppNavigationMenu.vue';
 
 const menus: MenuType[] = [
   {
-    routeName: "dashboard",
-    icon: ["fal", "objects-column"],
-    title: "Accueil",
+    routeName: 'dashboard',
+    icon: ['fal', 'objects-column'],
+    title: 'Accueil',
   },
   {
-    routeName: "dashboard",
-    icon: ["fal", "store"],
-    title: "Mes AMAPs",
+    routeName: 'dashboard',
+    icon: ['fal', 'store'],
+    title: 'Mes AMAPs',
   },
   {
-    routeName: "user-profil",
-    icon: ["fal", "gear"],
-    title: "Réglages",
+    routeName: 'user-profil',
+    icon: ['fal', 'gear'],
+    title: 'Réglages',
   },
 ];
 </script>

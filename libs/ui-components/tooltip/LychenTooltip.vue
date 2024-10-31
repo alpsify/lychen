@@ -4,10 +4,10 @@ import {
   type TooltipRootEmits,
   type TooltipRootProps,
   useForwardPropsEmits,
-} from "radix-vue";
+} from 'radix-vue';
 
-import LychenTooltipContent from "./LychenTooltipContent.vue";
-import LychenTooltipTrigger from "./LychenTooltipTrigger.vue";
+import LychenTooltipContent from './LychenTooltipContent.vue';
+import LychenTooltipTrigger from './LychenTooltipTrigger.vue';
 
 interface Props extends TooltipRootProps {
   content: string;

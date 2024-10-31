@@ -1,7 +1,7 @@
-export { default as ViewDashboard } from "./ViewDashboard.vue";
+export { default as ViewDashboard } from './ViewDashboard.vue';
 
 export const RouteViewDashboard = {
-  path: "/dashboard",
-  component: () => import("./ViewDashboard.vue"),
-  name: "dashboard",
+  path: '/dashboard',
+  component: () => import('./ViewDashboard.vue'),
+  name: 'dashboard',
 };

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TooltipArrow } from "radix-vue";
+import { TooltipArrow } from 'radix-vue';
 </script>
 
 <template>

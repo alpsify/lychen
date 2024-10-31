@@ -1,7 +1,7 @@
-export { default as ViewPricing } from "./ViewPricing.vue";
+export { default as ViewPricing } from './ViewPricing.vue';
 
 export const RouteViewPricing = {
-  path: "/",
-  component: () => import("./ViewPricing.vue"),
-  name: "pricing",
+  path: '/',
+  component: () => import('./ViewPricing.vue'),
+  name: 'pricing',
 };

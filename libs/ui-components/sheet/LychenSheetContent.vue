@@ -7,16 +7,16 @@ import {
   DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
-} from "radix-vue";
-import { computed, type HTMLAttributes } from "vue";
+} from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
 
-import LychenIcon from "../icon/LychenIcon.vue";
-import { cn } from "../lib/utils";
-import { type LychenSheetVariants, sheetVariants } from ".";
+import LychenIcon from '../icon/LychenIcon.vue';
+import { cn } from '../lib/utils';
+import { type LychenSheetVariants, sheetVariants } from '.';
 
 interface SheetContentProps extends DialogContentProps {
-  class?: HTMLAttributes["class"];
-  side?: LychenSheetVariants["side"];
+  class?: HTMLAttributes['class'];
+  side?: LychenSheetVariants['side'];
 }
 
 defineOptions({

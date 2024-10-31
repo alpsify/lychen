@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from "vue";
+import type { HTMLAttributes } from 'vue';
 
-import { cn } from "../lib/utils";
+import { cn } from '../lib/utils';
 
 const props = defineProps<{
   defaultValue?: string | number;
-  class?: HTMLAttributes["class"];
+  class?: HTMLAttributes['class'];
 }>();
 
 const modelValue = defineModel<string | number>();

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import LayoutInAppNavigation from "./navigation/LayoutInAppNavigation.vue";
+import LayoutInAppNavigation from './navigation/LayoutInAppNavigation.vue';
 </script>
 
 <style lang="css" scoped>
@@ -17,7 +17,7 @@ import LayoutInAppNavigation from "./navigation/LayoutInAppNavigation.vue";
   display: grid;
   grid-template-columns: 1;
   grid-template-rows: 1fr 70px;
-  grid-template-areas: "main" "navigation";
+  grid-template-areas: 'main' 'navigation';
 
   main {
     grid-area: main;

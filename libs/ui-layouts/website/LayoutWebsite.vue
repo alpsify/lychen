@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import LayoutWebsiteFooter from "./LayoutWebsiteFooter.vue";
-import LayoutWebsiteNavigation from "./LayoutWebsiteNavigation.vue";
+import LayoutWebsiteFooter from './LayoutWebsiteFooter.vue';
+import LayoutWebsiteNavigation from './LayoutWebsiteNavigation.vue';
 </script>
 
 <style lang="css" scoped>
