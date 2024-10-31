@@ -1,9 +1,9 @@
 <template>
-	<footer class="p-4 container">
-		<div class="flex flex-col bg-surface-container-low rounded-xl p-6">
-			<slot></slot>
-		</div>
-	</footer>
+  <footer class="container p-4">
+    <div class="bg-surface-container-low flex flex-col rounded-xl p-6">
+      <slot></slot>
+    </div>
+  </footer>
 </template>
 
 <script lang="ts" setup></script>

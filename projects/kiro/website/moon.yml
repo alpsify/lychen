@@ -1,5 +1,5 @@
 dependsOn:
-  - ui-components
+  - global-ui-components
   - ui-css
   - vue-util-i18n
 
@@ -12,5 +12,5 @@ tasks:
     command: yarn run dev
     options:
       persistent: true
-      
+
 type: application

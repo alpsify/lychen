@@ -1,7 +1,7 @@
 dependsOn:
-  - kiro-ui-components
   #- kiro-util-sdk
-  - ui-components
+  - global-ui-components
+  - kiro-ui-components
   - ui-css
   - vue-util-i18n
 

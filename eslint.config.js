@@ -70,6 +70,7 @@ export default [
       "yml/quotes": ["error", { prefer: "single", avoidEscape: true }],
       "yml/sort-sequence-values": ["error", { order: { type: "asc" }, pathPattern: "^dependsOn$" }],
       "yml/no-empty-sequence-entry": ["error"],
+      "tailwindcss/no-custom-classname": "off",
     },
   },
 ];

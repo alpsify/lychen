@@ -1,5 +1,5 @@
 dependsOn:
-  - ui-components
+  - global-ui-components
 
 id: kiro-manager-app
 

@@ -1,5 +1,5 @@
 dependsOn:
-  - ui-components
+  - global-ui-components
   - ui-css
   - ui-i18n
   - ui-layouts

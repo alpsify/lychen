@@ -1,6 +1,5 @@
-
 dependsOn:
-  - ui-components
+  - global-ui-components
 
 id: luna-website
 
