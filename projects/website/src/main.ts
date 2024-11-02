@@ -1,7 +1,5 @@
 import './stylesheet/main.css';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fal } from '@fortawesome/pro-light-svg-icons';
 import { createHead } from '@unhead/vue';
 import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
@@ -9,13 +7,14 @@ import { createI18n } from 'vue-i18n';
 import App from './App.vue';
 import router from './router';
 
-const app = createApp(App);
+import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 
-/* FontAwesome */
-library.add(fal);
+const app = createApp(App);
 
 /* Router */
 app.use(router);
+
+loadFontAwesomeStyles();
 
 /* i18n */
 const i18n = createI18n({

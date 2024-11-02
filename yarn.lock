@@ -1444,6 +1444,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/free-brands-svg-icons@npm:^6.6.0":
+  version: 6.6.0
+  resolution: "@fortawesome/free-brands-svg-icons@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffree-brands-svg-icons%2F-%2F6.6.0%2Ffree-brands-svg-icons-6.6.0.tgz"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": "npm:6.6.0"
+  checksum: 10c0/1135a22ff274939da477496f550b6750a1b5fd0ddd0c09bddb1874f2c183a5c8edb519de2cebf6454b12a8457c3eec587bdb6f68e96140cceeb6d02c1ec35479
+  languageName: node
+  linkType: hard
+
 "@fortawesome/pro-light-svg-icons@npm:^6.6.0":
   version: 6.6.0
   resolution: "@fortawesome/pro-light-svg-icons@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-light-svg-icons%2F-%2F6.6.0%2Fpro-light-svg-icons-6.6.0.tgz"
@@ -1708,6 +1717,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-components@workspace:libs/ui-components"
   dependencies:
+    "@fortawesome/free-brands-svg-icons": "npm:^6.6.0"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.1"
@@ -1727,7 +1738,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/ui-i18n@workspace:libs/ui-i18n":
+"@lychen/ui-i18n@workspace:*, @lychen/ui-i18n@workspace:libs/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
   dependencies:
@@ -1735,7 +1746,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/ui-layouts@workspace:libs/ui-layouts":
+"@lychen/ui-layouts@workspace:*, @lychen/ui-layouts@workspace:libs/ui-layouts":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-layouts@workspace:libs/ui-layouts"
   dependencies:
@@ -1765,6 +1776,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
+    "@lychen/ui-components": "workspace:*"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/ui-layouts": "workspace:*"
+    "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.1.2"
     "@vueuse/core": "npm:11.1.0"

@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/pro-light-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "latest-3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
