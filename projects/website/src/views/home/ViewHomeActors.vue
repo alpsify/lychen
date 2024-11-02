@@ -5,15 +5,13 @@
         variant="h2"
         class="basis-2/3"
       >
-        Fait pour ceux qui veulent du changements
+        {{ t('actors.title') }}
       </LychenTitle>
       <LychenParagraph
         variant="website-default"
         class="basis-1/3"
       >
-        Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et
-        environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une
-        association, nous vous offrons un espace de collaboration et de partage.
+        {{ t('actors.description') }}
       </LychenParagraph>
     </div>
     <div class="flex flex-col gap-4 lg:grid lg:grid-cols-3">
@@ -33,6 +31,7 @@
 import { defineAsyncComponent } from 'vue';
 
 import { actors } from '.';
+import { useTranslations } from './i18n';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -44,4 +43,6 @@ const LychenCard = defineAsyncComponent(() => import('@lychen/ui-components/card
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
+
+const { t } = useTranslations();
 </script>
