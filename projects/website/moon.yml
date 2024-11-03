@@ -10,6 +10,12 @@ id: website
 language: typescript
 
 tasks:
+  build:
+    command: yarn run build
+    deps:
+      - sync-all-logos
+      - sync-fonts
+
   dev:
     command: yarn run dev
     deps:
