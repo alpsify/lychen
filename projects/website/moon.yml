@@ -1,11 +1,11 @@
 dependsOn:
-  - global-ui-components
+  - ui-components
   - ui-css
   - ui-i18n
   - ui-layouts
   - vue-util-i18n
 
-id: main-website
+id: website
 
 language: typescript
 

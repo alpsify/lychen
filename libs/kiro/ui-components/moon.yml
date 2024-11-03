@@ -1,5 +1,5 @@
 dependsOn:
-  - global-ui-components
+  - ui-components
   - kiro-util-sdk
 
 id: kiro-ui-components

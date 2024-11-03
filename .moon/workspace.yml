@@ -3,6 +3,9 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 constraints:
   enforceProjectTypeRelationships: true
 
+experiments:
+  strictProjectIds: true
+
 generator:
   templates:
     - ./templates

@@ -1,11 +1,11 @@
 <template>
   <LychenHero
-    class="flex flex-col-reverse lg:flex-row gap-4 items-center text-surface-on"
+    class="text-surface-on flex flex-col-reverse items-center gap-4 lg:flex-row"
     background-image="https://img.passeportsante.net/1200x675/2021-05-03/i103871-lichens-hm.webp"
     overlay
     overlay-class="bg-surface opacity-50"
   >
-    <div class="basis-1/2 flex flex-col gap-2 z-10 items-start">
+    <div class="z-10 flex basis-1/2 flex-col items-start gap-2">
       <LychenTitle variant="h1">{{ t('hero.title') }}</LychenTitle>
       <LychenParagraph
         variant="website-default"

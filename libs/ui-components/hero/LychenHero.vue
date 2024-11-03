@@ -1,6 +1,7 @@
 <template>
   <header
-    class="relative bg-center bg-no-repeat bg-cover"
+    ref="el"
+    class="relative bg-cover bg-center bg-no-repeat"
     :style="backgroundImage ? `background-image: url(${backgroundImage});` : ''"
   >
     <div
