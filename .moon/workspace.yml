@@ -29,6 +29,5 @@ vcs:
   hooks:
     pre-commit:
       - 'moon :format --affected'
-      - 'git add .'
   manager: git
   syncHooks: true
