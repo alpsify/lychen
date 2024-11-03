@@ -43,12 +43,17 @@
         >{{ t('oss.sub_description') }}</LychenParagraph
       >
     </div>
-    <LychenRippleContainer
-      class="flex w-full basis-1/2 flex-col items-center justify-center md:w-full lg:w-full"
+    <div
+      class="relative flex w-full basis-1/2 flex-col items-center justify-center md:w-full lg:w-full"
     >
       <p class="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tight">OSS</p>
       <span>Open Source Software</span>
-    </LychenRippleContainer>
+      <LychenRipple
+        :number-of-circles="4"
+        class="[mask-image:linear-gradient(to_bottom,white,transparent)]"
+        circle-class="border-[rgb(var(--color-primary))] bg-primary/25 blobed"
+      />
+    </div>
   </LychenContainer>
 </template>
 
@@ -56,7 +61,10 @@
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';
-import LychenRippleContainer from '@lychen/ui-components/ripple/LychenRippleContainer.vue';
+
+const LychenRipple = defineAsyncComponent(
+  () => import('@lychen/ui-components/ripple/LychenRipple.vue'),
+);
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -73,3 +81,9 @@ const LychenContainer = defineAsyncComponent(
 
 const { t } = useTranslations();
 </script>
+
+<style scoped>
+:deep(.blobed) {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+</style>

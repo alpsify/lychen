@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('absolute rounded-full shadow-xl', 'animate-ripple-circle', props.class)" />
+  <div :class="cn('absolute shadow-xl', 'animate-ripple-circle', props.class)" />
 </template>
 
 <script setup lang="ts">
@@ -9,15 +9,16 @@ interface Props {
   size?: number;
   class?: string;
   opacity?: number;
-  animationDelay: number;
-  borderColor: string;
-  borderStyle: string;
+  animationDelay?: number;
+  borderStyle?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   size: 210,
   opacity: 0.24,
   class: undefined,
+  animationDelay: 0,
+  borderStyle: 'dash',
 });
 </script>
 
@@ -33,7 +34,6 @@ const props = withDefaults(defineProps<Props>(), {
   opacity: v-bind('props.opacity');
   transform: translate(-50%, -50%) scale(1);
   border-style: v-bind('props.borderStyle');
-  border-color: v-bind('props.borderColor');
 }
 
 @keyframes ripple-effect {

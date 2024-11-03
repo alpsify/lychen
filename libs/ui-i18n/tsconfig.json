@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.options.json",
   "include": ["**/*", "../vue/util-i18n/**/*"],
   "references": [
     {

@@ -7,7 +7,7 @@
       :size="baseCircleSize + index * spaceBetweenCircle"
       :animation-delay="index * waveSpeed"
       :border-style="index === numberOfCircles - 1 ? 'dashed' : 'solid'"
-      :border-color="circleBorderColor"
+      :class="circleClass"
     />
   </div>
 </template>
@@ -20,7 +20,7 @@ interface Props {
   baseCircleOpacity?: number;
   spaceBetweenCircle?: number;
   circleOpacityDowngradeRatio?: number;
-  circleBorderColor?: string;
+  circleClass?: string;
   waveSpeed?: number;
   numberOfCircles?: number;
 }
@@ -29,9 +29,9 @@ withDefaults(defineProps<Props>(), {
   baseCircleSize: 210,
   baseCircleOpacity: 0.24,
   circleOpacityDowngradeRatio: 0.03,
-  circleBorderColor: 'rgb(var(--color-tertiary))',
   waveSpeed: 80,
   spaceBetweenCircle: 70,
   numberOfCircles: 7,
+  circleClass: undefined,
 });
 </script>
