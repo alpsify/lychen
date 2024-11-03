@@ -9,32 +9,4 @@ id: website
 
 language: typescript
 
-tasks:
-  build:
-    command: yarn run build
-    deps:
-      - sync-all-logos
-      - sync-fonts
-
-  dev:
-    command: yarn run dev
-    deps:
-      - sync-all-logos
-      - sync-fonts
-    options:
-      persistent: true
-
-  sync-all-logos:
-    command: ln -sfn $workspaceRoot/libs/asset-logos $projectRoot/public/logos
-    inputs:
-      - '/libs/asset-logos/**/*'
-
-  sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/ui-css/fonts $projectRoot/public/fonts
-    inputs:
-      - '/libs/ui-css/fonts/**/*'
-    options:
-      cache: false
-    platform: system
-
 type: application

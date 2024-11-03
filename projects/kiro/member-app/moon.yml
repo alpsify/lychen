@@ -1,28 +1,12 @@
 dependsOn:
+  - kiro-ui-components
   #- kiro-util-sdk
   - ui-components
-  - kiro-ui-components
   - ui-css
   - vue-util-i18n
 
 id: kiro-member-app
 
 language: typescript
-
-tasks:
-  dev:
-    command: yarn run dev
-    deps:
-      - sync-fonts
-    options:
-      persistent: true
-
-  sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/ui-css/fonts/ $projectRoot/public/fonts
-    inputs:
-      - '/libs/ui-css/fonts/**/*'
-    options:
-      cache: false
-    platform: system
 
 type: application

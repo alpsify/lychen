@@ -7,10 +7,4 @@ id: kiro-website
 
 language: typescript
 
-tasks:
-  dev:
-    command: yarn run dev
-    options:
-      persistent: true
-
 type: application
