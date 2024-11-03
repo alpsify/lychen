@@ -5,5 +5,4 @@ set -eo pipefail
 # https://moonrepo.dev/docs/guides/vcs-hooks
 
 moon :format --affected
-git add .
 
