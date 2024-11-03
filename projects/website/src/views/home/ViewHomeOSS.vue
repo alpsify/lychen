@@ -4,38 +4,38 @@
       <LychenTitle variant="h2">{{ t('oss.title') }}</LychenTitle>
       <LychenParagraph variant="website-default">{{ t('oss.description') }}</LychenParagraph>
       <div class="grid grid-cols-2 grid-rows-2 gap-4">
-        <div
+        <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
         >
           <LychenIcon
             icon="lock-open"
             class="fa-2xl opacity-70"
           />{{ t('oss.key_point.no_vendor_lockin') }}
-        </div>
-        <div
+        </LychenCard>
+        <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
         >
           <LychenIcon
             icon="arrow-up-right-and-arrow-down-left-from-center"
             class="fa-2xl opacity-70"
           />{{ t('oss.key_point.scalable') }}
-        </div>
-        <div
+        </LychenCard>
+        <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
         >
           <LychenIcon
             icon="plug-circle-plus"
             class="fa-2xl opacity-70"
           />{{ t('oss.key_point.extensible') }}
-        </div>
-        <div
+        </LychenCard>
+        <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
         >
           <LychenIcon
             icon="cloud-arrow-up"
             class="fa-2xl opacity-70"
           />{{ t('oss.key_point.cloud_or_self_hosted') }}
-        </div>
+        </LychenCard>
       </div>
       <LychenParagraph
         variant="website-default"
@@ -61,6 +61,8 @@
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';
+
+const LychenCard = defineAsyncComponent(() => import('@lychen/ui-components/card/LychenCard.vue'));
 
 const LychenRipple = defineAsyncComponent(
   () => import('@lychen/ui-components/ripple/LychenRipple.vue'),
