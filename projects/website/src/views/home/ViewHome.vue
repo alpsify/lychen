@@ -2,6 +2,7 @@
   <ViewHomeHero />
   <ViewHomeDefinition />
   <ViewHomeFeatures />
+  <ViewHomeOSS />
   <ViewHomePresentation />
   <ViewHomeActors />
 </template>
@@ -15,6 +16,7 @@ import ViewHomeDefinition from './ViewHomeDefinition.vue';
 import ViewHomeFeatures from './ViewHomeFeatures.vue';
 import ViewHomeHero from './ViewHomeHero.vue';
 import ViewHomePresentation from './ViewHomePresentation.vue';
+import ViewHomeOSS from './ViewHomeOSS.vue';
 
 const { t } = useTranslations();
 

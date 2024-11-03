@@ -30,4 +30,16 @@ export default {
     description:
       "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
   },
+  oss: {
+    title: 'Transparent & Open-source',
+    sub_description: 'Profitez de tout ce que vous aimez, sans les inconvénients.',
+    description:
+      "Notre plateforme est entièrement open-source, ce qui signifie que chaque aspect de son code est accessible, modifiable et vérifiable par tous. Nous croyons en la transparence totale pour que chacun puisse s'assurer de la sécurité, de la fiabilité et de l'intégrité de notre solution.",
+    key_point: {
+      no_vendor_lockin: 'Pas de verrouillage fournisseur',
+      scalable: 'Scalable',
+      extensible: 'Extensible',
+      cloud_or_self_hosted: 'Cloud ou auto-hébergé',
+    },
+  },
 };

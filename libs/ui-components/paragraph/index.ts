@@ -10,7 +10,7 @@ export const paragraphVariants = cva('text-balance', {
   variants: {
     variant: {
       default: 'text-base leading-4',
-      'website-default': 'text-base tracking-tight leading-6 font-semibold',
+      'website-default': 'text-base font-semibold leading-6 tracking-tight',
     },
   },
   defaultVariants: {
