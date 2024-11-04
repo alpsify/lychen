@@ -4,18 +4,18 @@
     :direction="PATTERN_BACKGROUND_DIRECTION.Bottom"
     :variant="PATTERN_BACKGROUND_VARIANT.Dot"
     :mask="PATTERN_BACKGROUND_MASK.EllipseTop"
-    class="h-[30rem] w-full flex flex-col items-center justify-center text-center"
+    class="flex h-[30rem] w-full flex-col items-center justify-center text-center"
     size="md"
     :speed="PATTERN_BACKGROUND_SPEED.Slow"
   >
     <LychenTitle
       variant="h1"
-      class="z-10 text-surface-on"
+      class="text-surface-on z-10"
       >{{ t('definition.phonetic') }}
     </LychenTitle>
     <LychenTextGenerateEffect
       :words="t('definition.definition')"
-      class="font-bold text-xl w-1/3 opacity-90"
+      class="text-xl font-bold opacity-90 lg:w-1/3"
     />
   </LychenPatternBackground>
 </template>

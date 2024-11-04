@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-row gap-4">
+  <LychenContainer class="flex flex-col-reverse gap-4 overflow-x-clip lg:flex-row">
     <div class="flex basis-1/2 flex-col justify-center gap-4">
       <LychenTitle variant="h2">{{ t('oss.title') }}</LychenTitle>
       <LychenParagraph variant="website-default">{{ t('oss.description') }}</LychenParagraph>
@@ -44,14 +44,13 @@
       >
     </div>
     <div
-      class="relative flex w-full basis-1/2 flex-col items-center justify-center md:w-full lg:w-full"
+      class="relative flex h-[300px] w-full flex-col items-center justify-center md:w-full lg:w-full lg:basis-1/2"
     >
       <p class="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tight">OSS</p>
       <span>Open Source Software</span>
       <LychenRipple
         :number-of-circles="4"
-        class="[mask-image:linear-gradient(to_bottom,white,transparent)]"
-        circle-class="border-[rgb(var(--color-primary))] bg-positive/50 blobed"
+        circle-class="border-[rgb(var(--color-primary))] bg-primary/25 blobed"
       />
     </div>
   </LychenContainer>

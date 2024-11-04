@@ -3,10 +3,12 @@
     <LychenTitle variant="h2">{{ t('features.title') }}</LychenTitle>
     <LychenParagraph
       variant="website-default"
-      class="w-1/2 text-center"
+      class="lg:w-1/2 lg:text-center"
       >{{ t('features.description') }}
     </LychenParagraph>
-    <LychenBentoGrid class="mt-10 grid w-full auto-rows-[30rem] grid-cols-3 gap-4 lg:grid-rows-3">
+    <LychenBentoGrid
+      class="mt-10 grid w-full auto-rows-[20rem] grid-cols-3 gap-4 lg:auto-rows-[minmax(20rem,30rem)] lg:grid-rows-3"
+    >
       <LychenBentoGridCard
         v-for="(feature, index) in features"
         :key="index"
