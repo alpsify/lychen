@@ -31,4 +31,9 @@ export default defineConfig({
       '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['/logos', '/fonts'],
+    },
+  },
 });
