@@ -51,7 +51,7 @@
       <LychenRipple
         :number-of-circles="4"
         class="[mask-image:linear-gradient(to_bottom,white,transparent)]"
-        circle-class="border-[rgb(var(--color-primary))] bg-primary/25 blobed"
+        circle-class="border-[rgb(var(--color-secondary))] bg-secondary/50 blobed"
       />
     </div>
   </LychenContainer>
