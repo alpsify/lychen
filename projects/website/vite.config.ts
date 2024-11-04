@@ -33,7 +33,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['/logos', '/fonts'],
+      external: [/logos/, /fonts/],
     },
   },
 });
