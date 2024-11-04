@@ -23,14 +23,12 @@ tasks:
     command: docker build . -t alpsify/lychen-website:latest
     deps:
       - build
-    local: true
     platform: system
 
   docker-push:
     command: docker push alpsify/lychen-website:latest
     deps:
       - docker-build
-    local: true
     platform: system
 
   dokploy-deploy:
