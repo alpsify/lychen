@@ -9,4 +9,19 @@ id: website
 
 language: typescript
 
+tasks:
+  docker-build:
+    command: docker build . -t alpsify/lychen-website:latest
+    deps:
+      - build
+    local: true
+    platform: system
+
+  docker-push:
+    command: docker push alpsify/lychen-website:latest
+    deps:
+      - docker-build
+    local: true
+    platform: system
+
 type: application
