@@ -1,6 +1,6 @@
 <template>
-  <LychenContainer class="flex flex-col-reverse lg:flex-row gap-4 items-center">
-    <div class="basis-1/2 flex flex-col gap-2">
+  <LychenContainer class="flex flex-col-reverse items-center gap-4 lg:flex-row">
+    <div class="flex basis-1/2 flex-col gap-2">
       <LychenTitle variant="h2">{{ t('presentation.title') }}</LychenTitle>
       <LychenParagraph variant="website-default">{{
         t('presentation.description')

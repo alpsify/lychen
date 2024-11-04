@@ -3,7 +3,7 @@
     <LychenTitle variant="h2">{{ t('features.title') }}</LychenTitle>
     <LychenParagraph
       variant="website-default"
-      class="lg:w-1/2 lg:text-center"
+      class="opacity-80 lg:w-1/2 lg:text-center"
       >{{ t('features.description') }}
     </LychenParagraph>
     <LychenBentoGrid

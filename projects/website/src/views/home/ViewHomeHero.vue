@@ -12,10 +12,12 @@
         class="opacity-80"
         >{{ t('hero.description') }}
       </LychenParagraph>
-      <LychenButton class="flex gap-2"
-        >{{ t('hero.discover') }}
-        <LychenIcon icon="arrow-right" />
-      </LychenButton>
+      <RouterLink to="#definition">
+        <LychenButton class="flex gap-2"
+          >{{ t('hero.discover') }}
+          <LychenIcon icon="chevron-down" />
+        </LychenButton>
+      </RouterLink>
     </div>
     <div class="basis-1/2"></div>
   </LychenHero>

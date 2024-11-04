@@ -2,7 +2,11 @@
   <LychenContainer class="flex flex-col-reverse items-center gap-4 overflow-x-clip lg:flex-row">
     <div class="flex basis-1/2 flex-col justify-center gap-4">
       <LychenTitle variant="h2">{{ t('oss.title') }}</LychenTitle>
-      <LychenParagraph variant="website-default">{{ t('oss.description') }}</LychenParagraph>
+      <LychenParagraph
+        variant="website-default"
+        class="opacity-80"
+        >{{ t('oss.description') }}</LychenParagraph
+      >
       <div class="grid grid-cols-2 grid-rows-2 gap-4">
         <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"

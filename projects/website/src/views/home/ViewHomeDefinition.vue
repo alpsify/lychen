@@ -1,5 +1,6 @@
 <template>
   <LychenPatternBackground
+    id="definition"
     :animate="true"
     :direction="PATTERN_BACKGROUND_DIRECTION.Bottom"
     :variant="PATTERN_BACKGROUND_VARIANT.Dot"
