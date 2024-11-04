@@ -35,7 +35,7 @@
                     :key="application.title"
                   >
                     <LychenNavigationMenuLink as-child>
-                      <a
+                      <div
                         :href="application.link"
                         target="_blank"
                         class="hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on flex select-none flex-row items-center gap-2 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
@@ -59,7 +59,7 @@
                             {{ application.description }}
                           </p>
                         </div>
-                      </a>
+                      </div>
                     </LychenNavigationMenuLink>
                   </li>
                 </ul>
