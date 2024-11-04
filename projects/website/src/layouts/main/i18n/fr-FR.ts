@@ -14,7 +14,7 @@ export default {
       },
     },
     price: {
-      title: 'Tarif',
+      title: 'Tarifs',
     },
     soon: 'Bientôt disponible',
   },

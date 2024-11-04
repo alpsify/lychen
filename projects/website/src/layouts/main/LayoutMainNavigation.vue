@@ -1,12 +1,12 @@
 <template>
-  <div class="flex w-full flex-row items-center justify-between gap-4">
-    <div class="flex flex-row items-center gap-2">
+  <div class="flex w-full flex-row items-stretch justify-between gap-4">
+    <div class="flex flex-row items-stretch gap-2">
       <RouterLink
         :to="{ name: RouteViewHome.name }"
-        class="flex flex-row items-center gap-2"
+        class="flex flex-row items-stretch"
       >
-        <LychenLogo />
-      </RouterLink>
+        <LychenLogo
+      /></RouterLink>
       <LychenNavigationMenu class="hidden lg:flex">
         <LychenNavigationMenuList>
           <LychenNavigationMenuItem>

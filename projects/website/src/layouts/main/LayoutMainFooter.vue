@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col gap-4">
-    <div class="flex flex-col lg:flex-row justify-between gap-4 items-stretch">
-      <div class="flex flex-col gap-2 basis-1/3">
-        <LychenLogo />
+    <div class="flex flex-col items-stretch justify-between gap-4 lg:flex-row">
+      <div class="flex basis-1/3 flex-col gap-2">
+        <LychenLogo class="h-16" />
         <p class="text-sm opacity-80">
           {{ t(`${TRANSLATION_KEY}.footer.seo_paragraph`) }}
         </p>
       </div>
 
-      <div class="flex flex-col gap-2 basis-1/4 text-sm justify-center">
+      <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">
         <p class="font-medium">{{ t(`${GLOBAL_TRANSLATION_KEY}.email.contact`) }}</p>
         <p>
           Made with ❤️ by
@@ -27,9 +27,9 @@
       </div>
     </div>
 
-    <div class="flex flex-col-reverse lg:flex-row justify-between items-center gap-4">
+    <div class="flex flex-col-reverse items-center justify-between gap-4 lg:flex-row">
       <small class="text-xs">{{ t(`${TRANSLATION_KEY}.footer.copyright`) }}</small>
-      <ul class="flex flex-row gap-2 opacity-60 text-xs">
+      <ul class="flex flex-row gap-2 text-xs opacity-60">
         <li
           v-for="(menu, _index) in legalMenus"
           :key="_index"
