@@ -9,7 +9,7 @@ on:
 jobs:
   buildandpush:
     name: 'Build and push docker images'
-    runs-on: 'self-hosted'
+    runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -27,7 +27,7 @@ jobs:
         run: 'moon ci :docker-push'
   deploy:
     name: 'Deploy to VPS'
-    runs-on: 'self-hosted'
+    runs-on: ubuntu-latest
     needs: buildandpush
     steps:
       - name: 'Redeploy from Dokploy on VPS'
