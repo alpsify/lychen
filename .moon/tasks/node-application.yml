@@ -4,29 +4,29 @@ tasks:
   build:
     command: yarn run build
     deps:
-      - sync-all-logos
+      - sync-logos
       - sync-fonts
 
   dev:
     command: yarn run dev
     deps:
-      - sync-all-logos
+      - sync-logos
       - sync-fonts
     options:
       persistent: true
 
-  sync-all-logos:
-    command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public/logos
+  sync-fonts:
+    command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public
     inputs:
-      - '/libs/assets/logos/**/*'
+      - '/libs/assets/fonts/**/*'
     options:
       cache: false
     platform: system
 
-  sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts
+  sync-logos:
+    command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public
     inputs:
-      - '/libs/assets/fonts/**/*'
+      - '/libs/assets/logos/**/*'
     options:
       cache: false
     platform: system
