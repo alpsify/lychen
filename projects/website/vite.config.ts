@@ -21,7 +21,13 @@ export default defineConfig({
     mkcert({
       hosts: ['lychen.local'],
     }),
-    vue(),
+    vue({
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false,
+        },
+      },
+    }),
   ],
   resolve: {
     alias: {
@@ -33,7 +39,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: [/logos/, /fonts/],
+      //external: [/logos/, /fonts/],
     },
   },
 });
