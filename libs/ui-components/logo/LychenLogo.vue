@@ -2,7 +2,7 @@
   <div class="flex flex-row items-stretch justify-start gap-2">
     <div class="h-full">
       <img
-        src="/logos/lychen/logo-lychen.png"
+        src="/logos/lychen/logo-lychen.webp"
         class="h-full w-auto"
       />
     </div>
