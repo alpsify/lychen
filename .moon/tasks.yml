@@ -8,3 +8,11 @@ tasks:
     command: noop
     options:
       internal: true
+
+  list-application-id:
+    command:
+      - 'curl'
+      - "-X 'GET'"
+      - '${DOKPLOY_API_URL}api/project.all'
+      - "-H 'accept: application/json'"
+      - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
