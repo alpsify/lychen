@@ -78,12 +78,12 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
-      <RouterLink to="https://github.com/alpsify/lychen">
+      <a href="https://github.com/alpsify/lychen">
         <LychenIcon
           icon="github"
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
-      </RouterLink>
+      </a>
       <LychenButton
         size="xs"
         variant="secondary"
