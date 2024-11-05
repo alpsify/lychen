@@ -6,7 +6,6 @@ import tailwind from 'tailwindcss';
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   server: {
     https: {},
@@ -35,11 +34,6 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
       '@views': path.resolve(__dirname, './src/views'),
       '@layouts': path.resolve(__dirname, './src/layouts'),
-    },
-  },
-  build: {
-    rollupOptions: {
-      //external: [/logos/, /fonts/],
     },
   },
 });
