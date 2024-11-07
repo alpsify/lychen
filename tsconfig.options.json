@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig-moon/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./", //If not setup genera TS6059 error on .vue files import
+    "rootDir": "./", //If not setup gener TS6059 error on .vue files import
     "allowJs": true,
     "lib": ["esnext", "dom"],
     "module": "esnext",
