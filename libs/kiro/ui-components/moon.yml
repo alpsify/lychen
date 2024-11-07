@@ -1,6 +1,6 @@
 dependsOn:
-  - ui-components
   - kiro-util-sdk
+  - ui-components
 
 id: kiro-ui-components
 

@@ -1,5 +1,5 @@
 import { unixDateToDate } from '@lychen/typescript-util-date/UnixDate';
-import { useI18n, UseI18nOptions } from 'vue-i18n';
+import { useI18n, type UseI18nOptions } from 'vue-i18n';
 
 import { addRootKey } from './RootKeyHelper';
 

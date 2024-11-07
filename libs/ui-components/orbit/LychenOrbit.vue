@@ -4,7 +4,7 @@
     class="pointer-events-none absolute inset-0 size-full"
   >
     <circle
-      class="stroke-1 stroke-surface-on/20"
+      class="stroke-surface-on/20 stroke-1"
       cx="50%"
       cy="50%"
       :r="radius"

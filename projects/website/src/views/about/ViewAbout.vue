@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-surface text-surface-on">A propos</div>
+  <div class="bg-surface text-surface-on container">A propos</div>
 </template>
 
 <script lang="ts" setup>

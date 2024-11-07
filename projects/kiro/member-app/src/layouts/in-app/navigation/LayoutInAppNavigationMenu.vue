@@ -16,7 +16,7 @@ const props = defineProps<Props>();
 <template>
   <RouterLink
     :to="{ name: props.menu.routeName }"
-    class="flex flex-col gap-1 rounded-md p-2 hover:bg-surface-container-lowest text-surface-container-low-on"
+    class="hover:bg-surface-container-lowest text-surface-container-low-on flex flex-col gap-1 rounded-md p-2"
   >
     <LychenIcon :icon="props.menu.icon" />
     <small class="opacity-50">{{ props.menu.title }}</small>

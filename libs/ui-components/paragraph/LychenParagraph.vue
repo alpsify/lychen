@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { Primitive, type PrimitiveProps } from 'radix-vue';
-import { HTMLAttributes } from 'vue';
+import { type HTMLAttributes } from 'vue';
 
 import { cn } from '../lib/utils';
 import { ParagraphVariants, paragraphVariants } from '.';
