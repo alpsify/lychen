@@ -4,8 +4,9 @@ tasks:
   format-fix:
     command:
       - prettier
-      - .
       - --write
+      - --no-error-on-unmatched-pattern
+      - .
     inputs:
       - '**/*.{vue,ts,js,yaml,yml,json}'
       - '!**/build/'
@@ -16,6 +17,9 @@ tasks:
     command:
       - eslint
       - --fix
+      - --report-unused-disable-directives
+      - --no-error-on-unmatched-pattern
+      - --exit-on-fatal-error
       - .
     inputs:
       - '**/*.{vue,ts,js,yaml,yml,json}'

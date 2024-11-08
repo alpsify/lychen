@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-surface-container-low flex items-center justify-center gap-6 p-2">
+  <nav class="flex items-center justify-center gap-6 bg-surface-container-low p-2">
     <LayoutInAppNavigationMenu
       v-for="(menu, index) in menus"
       :key="index"

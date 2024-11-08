@@ -11,7 +11,7 @@
   >
     <LychenTitle
       variant="h1"
-      class="text-surface-on z-10"
+      class="z-10 text-surface-on"
       >{{ t('definition.phonetic') }}
     </LychenTitle>
     <LychenTextGenerateEffect

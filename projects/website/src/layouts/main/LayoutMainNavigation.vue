@@ -14,7 +14,7 @@
             <LychenNavigationMenuContent>
               <div class="flex flex-col items-stretch gap-2 p-6">
                 <div
-                  class="bg-surface-container-highest text-surface-container-highest-on flex flex-row items-center gap-4 rounded-md p-4"
+                  class="flex flex-row items-center gap-4 rounded-md bg-surface-container-highest p-4 text-surface-container-highest-on"
                 >
                   <LychenIcon icon="megaphone" />
                   <div class="flex flex-col gap-0">
@@ -38,7 +38,7 @@
                       <div
                         :href="application.link"
                         target="_blank"
-                        class="hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on flex select-none flex-row items-center gap-2 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
+                        class="flex select-none flex-row items-center gap-2 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
                       >
                         <img
                           :src="`/logos/${application.logo}`"
@@ -55,7 +55,7 @@
                               }}
                             </LychenBadge>
                           </p>
-                          <p class="text-surface-container-on/70 line-clamp-3 text-xs leading-snug">
+                          <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
                             {{ application.description }}
                           </p>
                         </div>
