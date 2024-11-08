@@ -1,28 +1,36 @@
 $schema: 'https://moonrepo.dev/schemas/tasks.json'
 
 tasks:
-  format-fix:
+  format:
     command:
       - prettier
-      - --write
       - --no-error-on-unmatched-pattern
       - .
     inputs:
-      - '**/*.{vue,ts,js,yaml,yml,json}'
+      - '**/*.{vue,ts,js,yaml,yml,json,md}'
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
 
-  lint-fix:
+  format-fix:
+    deps:
+      - args: '--write'
+        target: 'format'
+
+  lint:
     command:
       - eslint
-      - --fix
       - --report-unused-disable-directives
       - --no-error-on-unmatched-pattern
       - --exit-on-fatal-error
       - .
     inputs:
-      - '**/*.{vue,ts,js,yaml,yml,json}'
+      - '**/*.{vue,ts,js,yaml,yml,json,md}'
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
+
+  lint-fix:
+    deps:
+      - args: '--fix'
+        target: 'lint'

@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
-      - name: Install dependencies
-        run: yarn install
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
       - name: Run ESLint
-        run: yarn lint
+        run: moon ci :format
       - name: Run Prettier
-        run: yarn format
+        run: moon ci :lint
