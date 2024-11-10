@@ -19,7 +19,7 @@
           <div
             :href="application.link"
             target="_blank"
-            class="bg-surface-container-high/50 hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on flex select-none flex-row items-center gap-2 space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors"
+            class="flex select-none flex-row items-center gap-2 space-y-1 rounded-md bg-surface-container-high/50 p-2 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
           >
             <img
               :src="`/logos/${application.logo}`"
@@ -32,7 +32,7 @@
                   >{{ t(`${TRANSLATION_KEY}.navigation.app.state.${application.state}`) }}
                 </LychenBadge>
               </p>
-              <p class="text-surface-container-on/70 line-clamp-3 text-xs leading-snug">
+              <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
                 {{ application.description }}
               </p>
             </div>
