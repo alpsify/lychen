@@ -6,7 +6,10 @@
       <slot></slot>
 
       <div class="flex flex-row items-center lg:hidden">
-        <LychenSheet side="right">
+        <LychenSheet
+          v-model:open="isOpen"
+          side="right"
+        >
           <LychenSheetTrigger as-child>
             <LychenIcon
               icon="bars-staggered"
@@ -15,6 +18,7 @@
           </LychenSheetTrigger>
           <LychenSheetContent
             class="bg-surface-container/50 text-surface-container-on w-full backdrop-blur-md"
+            @click="closeDialog"
           >
             <slot name="mobile"></slot>
           </LychenSheetContent>
@@ -26,7 +30,7 @@
 
 <script lang="ts" setup>
 import { LychenSheetTrigger } from '@lychen/ui-components/sheet';
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, ref } from 'vue';
 
 const LychenSheet = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheet.vue'),
@@ -37,4 +41,10 @@ const LychenSheetContent = defineAsyncComponent(
 );
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+
+const isOpen = ref(false);
+
+function closeDialog() {
+  isOpen.value = false;
+}
 </script>
