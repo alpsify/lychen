@@ -1,7 +1,7 @@
 <template>
   <LychenHero
-    class="flex flex-col-reverse items-center gap-4 text-surface-on lg:flex-row"
-    background-image="https://img.passeportsante.net/1200x675/2021-05-03/i103871-lichens-hm.webp"
+    class="text-surface-on flex flex-col-reverse items-center gap-4 lg:flex-row"
+    :background-image="heroUrl"
     overlay
     overlay-class="bg-surface opacity-50"
   >
@@ -24,6 +24,7 @@
 </template>
 
 <script setup lang="ts">
+import heroUrl from '../assets/hero-1.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';

@@ -13,7 +13,7 @@
     </div>
     <div class="basis-1/2">
       <img
-        src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        :src="imageUrl"
         class="rounded-lg"
       />
     </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import imageUrl from '../assets/presentation.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';

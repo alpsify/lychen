@@ -11,7 +11,7 @@
   >
     <LychenTitle
       variant="h1"
-      class="z-10 text-surface-on"
+      class="text-surface-on z-10"
       >{{ t('definition.phonetic') }}
     </LychenTitle>
     <LychenTextGenerateEffect
@@ -19,9 +19,24 @@
       class="text-xl font-bold opacity-90 lg:w-1/3"
     />
   </LychenPatternBackground>
+  <div class="container">
+    <LychenGlowBorder
+      :color="[
+        'rgb(var(--color-primary))',
+        'rgb(var(--color-secondary))',
+        'rgb(var(--color-tertiary))',
+      ]"
+    >
+      <img
+        :src="imageUrl"
+        class="h-60 w-full rounded-xl object-cover"
+      />
+    </LychenGlowBorder>
+  </div>
 </template>
 
 <script setup lang="ts">
+import imageUrl from '../assets/definition.webp';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_MASK,
@@ -34,6 +49,10 @@ import { useTranslations } from './i18n';
 
 const LychenPatternBackground = defineAsyncComponent(
   () => import('@lychen/ui-components/pattern-background/LychenPatternBackground.vue'),
+);
+
+const LychenGlowBorder = defineAsyncComponent(
+  () => import('@lychen/ui-components/glow-border/LychenGlowBorder.vue'),
 );
 
 const LychenTitle = defineAsyncComponent(
