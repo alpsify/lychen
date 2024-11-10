@@ -40,11 +40,11 @@ tasks:
       - 'curl'
       - '--trace'
       - "-X 'POST'"
-      - '${DOKPLOY_API_URL}api/application.deploy'
+      - '${DOKPLOY_API_URL}api/compose.deploy'
       - "-H 'accept: application/json'"
       - "-H 'Content-Type: application/json'"
       - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
-      - '-d ''{ "applicationId": "ffCBBtPRugzcn0klq9pS3"}'''
+      - '-d ''{ "applicationId": "${DOKPLOY_APP_ID}"}'''
     platform: system
 
 type: application
