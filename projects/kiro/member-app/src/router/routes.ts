@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 
 import zitadelAuth from '@/services/ZitadelAuth';
 import { RouteViewAssociation } from '@/views/association';

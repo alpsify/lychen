@@ -4,10 +4,33 @@ tasks:
   format:
     command:
       - prettier
+      - --no-error-on-unmatched-pattern
       - .
-      - --write
     inputs:
-      - '**/*.{vue,ts,js,yaml,yml,json}'
+      - '**/*.{vue,ts,js,yaml,yml,json,md}'
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
+
+  format-fix:
+    deps:
+      - args: '--write'
+        target: 'format'
+
+  lint:
+    command:
+      - eslint
+      - --report-unused-disable-directives
+      - --no-error-on-unmatched-pattern
+      - --exit-on-fatal-error
+      - .
+    inputs:
+      - '**/*.{vue,ts,js,yaml,yml,json,md}'
+      - '!**/build/'
+      - '!**/dist/'
+      - '!**/playwright-report/'
+
+  lint-fix:
+    deps:
+      - args: '--fix'
+        target: 'lint'

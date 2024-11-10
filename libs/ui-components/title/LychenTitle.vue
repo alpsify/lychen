@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts" setup>
-import { AsTag, Primitive, type PrimitiveProps } from 'radix-vue';
-import { Component, computed, HTMLAttributes } from 'vue';
+import { type AsTag, Primitive, type PrimitiveProps } from 'radix-vue';
+import { type Component, computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '../lib/utils';
 import { TitleVariants, titleVariants } from '.';

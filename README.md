@@ -5,6 +5,7 @@ Lychen is an environmental and agricultural symbiosis platform aiming to connect
 ## Overview
 
 The platform serves as a digital hub for:
+
 - **Food Production**: Centralizing agricultural resources and connecting producers with local distribution channels.
 - **Food Consumption**: Educating and supporting consumers in making sustainable food choices.
 - **Waste Valorization**: Providing resources and strategies for repurposing organic waste.

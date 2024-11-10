@@ -1,0 +1,22 @@
+name: Pull Request
+
+env:
+  FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
+
+on:
+  pull_request:
+
+jobs:
+  checkformat:
+    name: 'Check ESLint and Prettier rules'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: 'actions/checkout@v4'
+        with:
+          fetch-depth: 0
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
+      - name: Run ESLint
+        run: moon ci :format
+      - name: Run Prettier
+        run: moon ci :lint

@@ -28,6 +28,7 @@ vcs:
   defaultBranch: main
   hooks:
     pre-commit:
-      - 'moon :format --affected'
+      - 'moon :format-fix --affected'
+      - 'moon :lint-fix --affected'
   manager: git
   syncHooks: true

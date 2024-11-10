@@ -15,18 +15,18 @@
     <slot name="background">
       <div
         v-if="image"
-        class="absolute top-0 right-0 size-full opacity-100 bg-center group-hover:opacity-30 transition duration-150 ease-in-out"
+        class="absolute right-0 top-0 size-full bg-center opacity-100 transition duration-150 ease-in-out group-hover:opacity-30"
         :style="`background-image: url('${image}')`"
       ></div>
     </slot>
 
     <div
-      class="m-2 rounded-lg pointer-events-none flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10 backdrop-blur-md bg-surface/30 group-hover:bg-transparent group-hover:backdrop-blur-none"
+      class="bg-surface/30 pointer-events-none m-2 flex transform-gpu flex-col gap-1 rounded-lg p-6 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-10 group-hover:bg-transparent group-hover:backdrop-blur-none"
     >
-      <h3 class="text-xl font-semibold text-surface-container-on/80">
+      <h3 class="text-surface-container-on/80 text-xl font-semibold">
         {{ title }}
       </h3>
-      <p class="max-w-lg text-surface-container-on/60">{{ description }}</p>
+      <p class="text-surface-container-on/60 max-w-lg">{{ description }}</p>
     </div>
 
     <div

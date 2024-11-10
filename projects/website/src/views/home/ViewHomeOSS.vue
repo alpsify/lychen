@@ -9,7 +9,7 @@
       >
       <div class="grid grid-cols-2 grid-rows-2 gap-4">
         <LychenCard
-          class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
+          class="flex flex-col items-center justify-center gap-4 rounded-lg bg-surface-container-low p-10"
         >
           <LychenIcon
             icon="lock-open"
@@ -17,7 +17,7 @@
           />{{ t('oss.key_point.no_vendor_lockin') }}
         </LychenCard>
         <LychenCard
-          class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
+          class="flex flex-col items-center justify-center gap-4 rounded-lg bg-surface-container-low p-10"
         >
           <LychenIcon
             icon="arrow-up-right-and-arrow-down-left-from-center"
@@ -25,7 +25,7 @@
           />{{ t('oss.key_point.scalable') }}
         </LychenCard>
         <LychenCard
-          class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
+          class="flex flex-col items-center justify-center gap-4 rounded-lg bg-surface-container-low p-10"
         >
           <LychenIcon
             icon="plug-circle-plus"
@@ -33,7 +33,7 @@
           />{{ t('oss.key_point.extensible') }}
         </LychenCard>
         <LychenCard
-          class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
+          class="flex flex-col items-center justify-center gap-4 rounded-lg bg-surface-container-low p-10"
         >
           <LychenIcon
             icon="cloud-arrow-up"

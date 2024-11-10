@@ -12,7 +12,7 @@
       </div>
       <div
         v-if="step < 2"
-        class="text-secondary flex items-center justify-end gap-2"
+        class="flex items-center justify-end gap-2 text-secondary"
       >
         <small @click="step = 2">{{ t('skip') }} </small>
         <!--<FontAwesomeIcon :icon="['fal', 'chevron-right']" />-->
@@ -26,10 +26,10 @@
         :key="step"
         class="flex flex-col items-center justify-center gap-4 text-center"
       >
-        <h2 class="font-poppins text-surface-on text-3xl font-bold">
+        <h2 class="font-poppins text-3xl font-bold text-surface-on">
           {{ t(`step.${step}.title`) }}
         </h2>
-        <p class="text-surface-on/80 text-sm">
+        <p class="text-sm text-surface-on/80">
           {{ t(`step.${step}.paragraph`) }}
         </p>
         <img :src="imgSrc" />

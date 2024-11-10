@@ -1,6 +1,6 @@
 <template>
   <LychenHero
-    class="text-surface-on flex flex-col-reverse items-center gap-4 lg:flex-row"
+    class="flex flex-col-reverse items-center gap-4 text-surface-on lg:flex-row"
     background-image="https://img.passeportsante.net/1200x675/2021-05-03/i103871-lichens-hm.webp"
     overlay
     overlay-class="bg-surface opacity-50"

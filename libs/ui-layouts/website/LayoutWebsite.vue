@@ -2,6 +2,9 @@
   <div class="lychen-website-layout">
     <LayoutWebsiteNavigation class="lychen-website-layout-navigation fixed p-2">
       <slot name="navigation"></slot>
+      <template #mobile>
+        <slot name="mobile"></slot>
+      </template>
     </LayoutWebsiteNavigation>
     <slot>
       <main class="flex flex-col">

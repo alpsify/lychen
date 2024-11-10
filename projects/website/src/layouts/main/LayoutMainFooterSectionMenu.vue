@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
 
 defineProps<{
   title: string;

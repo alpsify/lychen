@@ -1,5 +1,5 @@
 <template>
-  <LychenHero class="text-surface-on flex flex-col gap-4 items-center justify-center text-center">
+  <LychenHero class="flex flex-col items-center justify-center gap-4 text-center text-surface-on">
     <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
     <LychenParagraph
       class="md:w-4/6"

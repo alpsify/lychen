@@ -15,21 +15,21 @@
     <slot name="background">
       <div
         v-if="image"
-        class="absolute top-0 right-0 size-full opacity-100 bg-center group-hover:opacity-30 transition duration-150 ease-in-out bg-no-repeat bg-cover"
+        class="absolute right-0 top-0 size-full bg-cover bg-center bg-no-repeat opacity-100 transition duration-150 ease-in-out group-hover:opacity-30"
         :style="`background-image: url('${image}')`"
       ></div>
     </slot>
 
     <div
-      class="m-4 rounded-lg pointer-events-none flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10 backdrop-blur-md bg-surface/30 group-hover:bg-transparent group-hover:backdrop-blur-none"
+      class="bg-surface/30 pointer-events-none m-4 flex transform-gpu flex-col gap-1 rounded-lg p-6 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-10 group-hover:bg-transparent group-hover:backdrop-blur-none"
     >
       <LychenTitle
         variant="h6"
-        class="text-xl font-semibold text-surface-container-on"
+        class="text-surface-container-on text-xl font-semibold"
       >
         {{ title }}
       </LychenTitle>
-      <LychenParagraph class="max-w-lg text-surface-container-on/80">{{
+      <LychenParagraph class="text-surface-container-on/80 max-w-lg">{{
         description
       }}</LychenParagraph>
     </div>

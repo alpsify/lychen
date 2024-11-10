@@ -1,5 +1,5 @@
-import { LocaleMessage } from '@intlify/core-base';
-import { VueMessageType } from 'vue-i18n';
+import type { LocaleMessage } from '@intlify/core-base';
+import type { VueMessageType } from 'vue-i18n';
 
 export function addRootKey(
   obj: { [x: string]: LocaleMessage<VueMessageType> },

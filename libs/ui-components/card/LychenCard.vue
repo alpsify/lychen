@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Primitive, PrimitiveProps } from 'radix-vue';
+import { Primitive, type PrimitiveProps } from 'radix-vue';
 import type { HTMLAttributes } from 'vue';
 
 import { cn } from '../lib/utils';
