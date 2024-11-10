@@ -16,7 +16,7 @@ tasks:
       persistent: true
 
   sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public
+    command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts
     inputs:
       - '/libs/assets/fonts/**/*'
     options:
@@ -24,7 +24,7 @@ tasks:
     platform: system
 
   sync-logos:
-    command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public
+    command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public/logos
     inputs:
       - '/libs/assets/logos/**/*'
     options:
