@@ -91,7 +91,7 @@ import LychenNavigationMenuList from '@lychen/ui-components/navigation-menu/Lych
 import LychenNavigationMenuTrigger from '@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
 import { RouteViewHome } from '@views/home';
-import { defineAsyncComponent, toValue } from 'vue';
+import { defineAsyncComponent } from 'vue';
 
 import { useApplications } from '@/composables/application/useApplications';
 import { RouteViewPrice } from '@/views/price';
@@ -103,9 +103,6 @@ const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenNavigationMenu = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenu.vue'),
-);
-const LychenButton = defineAsyncComponent(
-  () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 
 const { t } = useTranslations();
