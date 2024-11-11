@@ -27,7 +27,6 @@ const forwardedProps = useForwardProps(delegatedProps);
         cn(
           'origin-top-center relative mt-3 h-[--radix-navigation-menu-viewport-height] w-full overflow-hidden rounded-3xl shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[--radix-navigation-menu-viewport-width]',
           props.class,
-          'bg-surface-container text-surface-container-on',
         )
       "
     />

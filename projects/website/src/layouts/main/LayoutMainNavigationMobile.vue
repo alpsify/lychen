@@ -52,10 +52,8 @@ import { TRANSLATION_KEY, useTranslations } from './i18n';
 import { RouteViewPrice } from '@/views/price';
 import { RouteViewHome } from '@/views/home';
 import { defineAsyncComponent } from 'vue';
-import { DialogClose } from 'radix-vue';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
 const { t } = useTranslations();
 

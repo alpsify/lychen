@@ -13,7 +13,9 @@
             <LychenNavigationMenuTrigger>{{
               t(`${TRANSLATION_KEY}.navigation.app.title`)
             }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent>
+            <LychenNavigationMenuContent
+              class="bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+            >
               <div class="flex flex-col items-stretch gap-2 p-6">
                 <div
                   class="flex flex-row items-center gap-4 rounded-xl bg-surface-container-highest p-4 text-surface-container-highest-on"
@@ -36,24 +38,20 @@
                     v-for="application in applicationsList"
                     :key="application.title"
                   >
-                    <LychenNavigationMenuLink as-child>
-                      <div
-                        :href="application.link"
-                        target="_blank"
-                        class="select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
+                    <div
+                      :href="application.link"
+                      target="_blank"
+                      class="cursor-pointer h-full select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
+                    >
+                      <p
+                        class="text-md font-black font-lexend leading-none tracking-wide lowercase"
                       >
-                        <div class="flex flex-row gap-2 justify-between items-center">
-                          <p
-                            class="text-md font-black font-lexend leading-none tracking-wide lowercase"
-                          >
-                            {{ application.title }}
-                          </p>
-                        </div>
-                        <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                          {{ application.description }}
-                        </p>
-                      </div>
-                    </LychenNavigationMenuLink>
+                        {{ application.title }}
+                      </p>
+                      <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
+                        {{ application.description }}
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -93,7 +91,7 @@ import LychenNavigationMenuList from '@lychen/ui-components/navigation-menu/Lych
 import LychenNavigationMenuTrigger from '@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
 import { RouteViewHome } from '@views/home';
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, toValue } from 'vue';
 
 import { useApplications } from '@/composables/application/useApplications';
 import { RouteViewPrice } from '@/views/price';

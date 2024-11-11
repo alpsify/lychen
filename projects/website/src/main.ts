@@ -20,9 +20,10 @@ loadFontAwesomeStyles();
 const i18n = createI18n({
   globalInjection: false,
   legacy: false,
-  fallbackLocale: navigator.languages[0],
+  fallbackLocale: 'fr-FR',
   locale: navigator.languages[0],
 });
+
 app.use(i18n);
 
 /* unhead */
