@@ -1,5 +1,8 @@
 export default {
   navigation: {
+    home: {
+      title: 'Accueil',
+    },
     app: {
       title: 'Applications',
       state: {

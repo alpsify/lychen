@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  DialogClose,
   DialogContent,
   type DialogContentEmits,
   type DialogContentProps,

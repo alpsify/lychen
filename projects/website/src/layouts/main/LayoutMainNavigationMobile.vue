@@ -1,16 +1,19 @@
 <template>
-  <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-4">
-    <RouterLink
-      :to="{ name: RouteViewHome.name }"
-      class="flex h-10 flex-row items-stretch"
-    >
-      <LychenLogo
-    /></RouterLink>
+  <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
+    <div class="flex flex-row items-stretch mb-5">
+      <LychenLogo />
+    </div>
+
+    <div class="text-lg font-bold">
+      <RouterLink :to="{ name: RouteViewHome.name }"
+        >{{ t(`${TRANSLATION_KEY}.navigation.home.title`) }}
+      </RouterLink>
+    </div>
     <div class="text-lg font-bold opacity-50">
       {{ t(`${TRANSLATION_KEY}.navigation.app.title`) }}
     </div>
 
-    <ul class="flex flex-col gap-2">
+    <ul class="flex flex-col gap-1">
       <li
         v-for="application in applicationsList"
         :key="application.title"
@@ -19,28 +22,21 @@
           <div
             :href="application.link"
             target="_blank"
-            class="flex select-none flex-row items-center gap-2 space-y-1 rounded-md bg-surface-container-high/50 p-2 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
+            class="select-none bg-surface-container/40 flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
           >
-            <img
-              :src="`/logos/${application.logo}`"
-              class="size-8"
-            />
-            <div class="flex flex-col gap-1">
-              <p class="flex flex-row items-center gap-2 text-sm font-bold leading-none">
+            <div class="flex flex-row gap-2 justify-between items-center">
+              <p class="text-md font-black font-lexend leading-none tracking-wide lowercase">
                 {{ application.title }}
-                <LychenBadge variant="tertiary"
-                  >{{ t(`${TRANSLATION_KEY}.navigation.app.state.${application.state}`) }}
-                </LychenBadge>
-              </p>
-              <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                {{ application.description }}
               </p>
             </div>
+            <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
+              {{ application.description }}
+            </p>
           </div>
         </LychenNavigationMenuLink>
       </li>
     </ul>
-    <div class="font-bold">
+    <div class="text-lg font-bold">
       <RouterLink :to="{ name: RouteViewPrice.name }"
         >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
       </RouterLink>
@@ -56,8 +52,10 @@ import { TRANSLATION_KEY, useTranslations } from './i18n';
 import { RouteViewPrice } from '@/views/price';
 import { RouteViewHome } from '@/views/home';
 import { defineAsyncComponent } from 'vue';
+import { DialogClose } from 'radix-vue';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
 const { t } = useTranslations();
 

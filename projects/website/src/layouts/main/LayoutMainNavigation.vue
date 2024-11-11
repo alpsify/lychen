@@ -71,17 +71,15 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
-      <a href="https://github.com/alpsify/lychen">
+      <a
+        href="https://github.com/alpsify/lychen"
+        trget="_blank"
+      >
         <LychenIcon
           icon="github"
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
       </a>
-      <LychenButton
-        size="xs"
-        variant="secondary"
-        >{{ t(`${TRANSLATION_KEY}.navigation.soon`) }}
-      </LychenButton>
     </div>
   </div>
 </template>
