@@ -30,5 +30,6 @@ vcs:
     pre-commit:
       - 'moon :format-fix --affected'
       - 'moon :lint-fix --affected'
+      - 'git add -u'
   manager: git
   syncHooks: true

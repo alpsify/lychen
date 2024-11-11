@@ -6,4 +6,5 @@ set -eo pipefail
 
 moon :format-fix --affected
 moon :lint-fix --affected
+git add -u
 

@@ -7,7 +7,7 @@ import animate from 'tailwindcss-animate';
 import { contentConfig } from '@lychen/ui-css/tailwind/contentConfig';
 
 export default {
-  darkMode: 'selector',
+  //darkMode: ['selector'],
   safelist: ['dark'],
   prefix: '',
 

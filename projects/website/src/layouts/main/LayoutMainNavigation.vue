@@ -1,12 +1,12 @@
 <template>
   <div class="flex w-full flex-row items-stretch justify-between gap-4">
+    <RouterLink
+      :to="{ name: RouteViewHome.name }"
+      class="flex flex-row items-stretch"
+    >
+      <LychenLogo
+    /></RouterLink>
     <div class="flex flex-row items-stretch gap-2">
-      <RouterLink
-        :to="{ name: RouteViewHome.name }"
-        class="flex flex-row items-stretch"
-      >
-        <LychenLogo
-      /></RouterLink>
       <LychenNavigationMenu class="hidden lg:flex">
         <LychenNavigationMenuList>
           <LychenNavigationMenuItem>
@@ -16,7 +16,7 @@
             <LychenNavigationMenuContent>
               <div class="flex flex-col items-stretch gap-2 p-6">
                 <div
-                  class="flex flex-row items-center gap-4 rounded-md bg-surface-container-highest p-4 text-surface-container-highest-on"
+                  class="flex flex-row items-center gap-4 rounded-xl bg-surface-container-highest p-4 text-surface-container-highest-on"
                 >
                   <LychenIcon icon="megaphone" />
                   <div class="flex flex-col gap-0">
@@ -40,27 +40,18 @@
                       <div
                         :href="application.link"
                         target="_blank"
-                        class="flex select-none flex-row items-center gap-2 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
+                        class="select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
                       >
-                        <img
-                          :src="`/logos/${application.logo}`"
-                          class="size-8"
-                        />
-                        <div class="flex flex-col gap-1">
+                        <div class="flex flex-row gap-2 justify-between items-center">
                           <p
-                            class="flex flex-row items-center gap-2 text-sm font-bold leading-none"
+                            class="text-md font-black font-lexend leading-none tracking-wide lowercase"
                           >
                             {{ application.title }}
-                            <LychenBadge variant="tertiary"
-                              >{{
-                                t(`${TRANSLATION_KEY}.navigation.app.state.${application.state}`)
-                              }}
-                            </LychenBadge>
-                          </p>
-                          <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                            {{ application.description }}
                           </p>
                         </div>
+                        <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
+                          {{ application.description }}
+                        </p>
                       </div>
                     </LychenNavigationMenuLink>
                   </li>
@@ -116,9 +107,6 @@ const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenNavigationMenu = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenu.vue'),
-);
-const LychenBadge = defineAsyncComponent(
-  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
 );
 const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),

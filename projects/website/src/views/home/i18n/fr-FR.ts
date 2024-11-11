@@ -3,7 +3,11 @@ export default {
     title: 'Lychen',
   },
   hero: {
-    title: 'Acteur de la symbiose du territoire',
+    title: {
+      prepend: 'Acteur de la ',
+      key_word: 'symbiose',
+      append: ' du territoire',
+    },
     description:
       'La symbiose mutualiste est une interaction durable et réciproquement profitable entre différents organismes.',
     discover: 'Découvrir',

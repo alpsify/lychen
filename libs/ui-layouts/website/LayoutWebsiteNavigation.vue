@@ -1,7 +1,7 @@
 <template>
   <div class="z-50 flex h-[70px] w-full">
     <div
-      class="bg-surface-container/50 text-surface-container-on container flex flex-row items-stretch gap-4 rounded-lg px-4 py-2 shadow-sm backdrop-blur-md"
+      class="bg-surface-container/50 text-surface-container-on container flex flex-row items-stretch gap-4 rounded-full px-6 py-2 shadow-lg backdrop-blur-md"
     >
       <slot></slot>
 

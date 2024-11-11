@@ -8,7 +8,7 @@
       v-if="overlay"
       :class="cn('absolute top-0 left-0 size-full', overlayClass)"
     ></div>
-    <div :class="cn('container py-8 min-h-dvh md:min-h-[80dvh] z-10', props.class)">
+    <div :class="cn('container py-8 z-10', props.class)">
       <slot></slot>
     </div>
   </header>
