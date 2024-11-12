@@ -54,6 +54,9 @@
     },
     {
       "path": "projects/website"
+    },
+    {
+      "path": "projects/website-ssr"
     }
   ]
 }

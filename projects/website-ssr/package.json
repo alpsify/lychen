@@ -1,0 +1,23 @@
+{
+  "name": "@lychen/website-ssr",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@lychen/ui-components": "workspace:*",
+    "@lychen/ui-css": "workspace:*",
+    "@lychen/ui-i18n": "workspace:*",
+    "@lychen/ui-layouts": "workspace:*",
+    "@lychen/vue-util-composables": "workspace:*",
+    "@lychen/vue-util-i18n": "workspace:*",
+    "nuxt": "^3.14.159",
+    "vue": "latest",
+    "vue-router": "latest"
+  }
+}
