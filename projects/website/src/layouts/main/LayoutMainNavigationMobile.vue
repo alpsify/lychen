@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
     <div class="flex flex-row items-stretch mb-5">
-      <LychenLogo />
+      <LychenLogo class="h-10" />
     </div>
 
     <div class="text-lg font-bold">
