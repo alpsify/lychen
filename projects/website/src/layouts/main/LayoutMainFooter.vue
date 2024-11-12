@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4">
     <div class="flex flex-col items-stretch justify-between gap-4 lg:flex-row">
       <div class="flex basis-1/3 flex-col gap-2">
-        <LychenLogo />
+        <LychenLogo class="h-14" />
         <p class="text-sm opacity-80">
           {{ t(`${TRANSLATION_KEY}.footer.seo_paragraph`) }}
         </p>

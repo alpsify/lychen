@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue';
+import heroUrl from '../assets/hero-1.webp';
+import { useHead, useSeoMeta } from '@unhead/vue';
 
 import { useTranslations } from './i18n';
 import ViewHomeActors from './ViewHomeActors.vue';
@@ -21,7 +22,16 @@ import ViewHomeOSS from './ViewHomeOSS.vue';
 const { t } = useTranslations();
 
 useHead({
+  title: t('tab.title'),
+});
+
+useSeoMeta({
   title: t('meta.title'),
+  description: t('meta.description'),
+  ogDescription: t('meta.og_description'),
+  ogTitle: t('meta.og_title'),
+  ogImage: heroUrl,
+  twitterCard: 'summary_large_image',
 });
 </script>
 
