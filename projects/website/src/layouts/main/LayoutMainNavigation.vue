@@ -69,6 +69,7 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
+      <LychenThemeSwitcher />
       <a
         href="https://github.com/alpsify/lychen"
         trget="_blank"
@@ -84,25 +85,43 @@
 
 <script setup lang="ts">
 import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
-import LychenNavigationMenuContent from '@lychen/ui-components/navigation-menu/LychenNavigationMenuContent.vue';
-import LychenNavigationMenuItem from '@lychen/ui-components/navigation-menu/LychenNavigationMenuItem.vue';
-import LychenNavigationMenuLink from '@lychen/ui-components/navigation-menu/LychenNavigationMenuLink.vue';
-import LychenNavigationMenuList from '@lychen/ui-components/navigation-menu/LychenNavigationMenuList.vue';
-import LychenNavigationMenuTrigger from '@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue';
+import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
 import { RouteViewHome } from '@views/home';
-import { defineAsyncComponent } from 'vue';
 
 import { useApplications } from '@/composables/application/useApplications';
 import { RouteViewPrice } from '@/views/price';
 
 import { TRANSLATION_KEY, useTranslations } from './i18n';
+
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
+
+const LychenThemeSwitcher = defineAsyncComponent(
+  () => import('@lychen/ui-components/theme-switcher/LychenThemeSwitcher.vue'),
+);
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenNavigationMenu = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenu.vue'),
+);
+const LychenNavigationMenuContent = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuContent.vue'),
+);
+const LychenNavigationMenuItem = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuItem.vue'),
+);
+
+const LychenNavigationMenuLink = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuLink.vue'),
+);
+
+const LychenNavigationMenuList = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuList.vue'),
+);
+
+const LychenNavigationMenuTrigger = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue'),
 );
 
 const { t } = useTranslations();

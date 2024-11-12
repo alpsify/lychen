@@ -3,6 +3,7 @@ dependsOn:
   - ui-css
   - ui-i18n
   - ui-layouts
+  - vue-util-composables
   - vue-util-i18n
 
 env:

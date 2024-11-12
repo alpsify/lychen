@@ -1,10 +1,16 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": ["**/*"],
-  "references": [],
+  "include": ["**/*", "../vue/util-composables/**/*"],
+  "references": [
+    {
+      "path": "../vue/util-composables"
+    }
+  ],
   "compilerOptions": {
     "emitDeclarationOnly": true,
-    "paths": {},
+    "paths": {
+      "@lychen/vue-util-composables/*": ["../vue/util-composables/*"]
+    },
     "outDir": "../../.moon/cache/types/libs/ui-components"
   }
 }

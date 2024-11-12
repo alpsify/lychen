@@ -1721,6 +1721,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:^6.6.0"
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@lychen/vue-util-composables": "workspace:*"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.1"
     radix-vue: "npm:^1.9.6"
@@ -1762,6 +1763,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
+  dependencies:
+    "@vueuse/core": "npm:^11.2.0"
+    vue: "npm:3.5.3"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-util-i18n@workspace:*, @lychen/vue-util-i18n@workspace:libs/vue/util-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-i18n@workspace:libs/vue/util-i18n"
@@ -1781,6 +1791,7 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.1.2"
@@ -2858,6 +2869,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/core@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "@vueuse/core@npm:11.2.0"
+  dependencies:
+    "@types/web-bluetooth": "npm:^0.0.20"
+    "@vueuse/metadata": "npm:11.2.0"
+    "@vueuse/shared": "npm:11.2.0"
+    vue-demi: "npm:>=0.14.10"
+  checksum: 10c0/d4ac9abef8680a521c160c387922fa98e7cb2f7cbc43d647a0c9eaa654bb72581b4e53fe8452ce8520b2a600b657c252ac87d09eafd4736ed0ae1a3c9c91c8e1
+  languageName: node
+  linkType: hard
+
 "@vueuse/metadata@npm:10.11.1":
   version: 10.11.1
   resolution: "@vueuse/metadata@npm:10.11.1"
@@ -2869,6 +2892,13 @@ __metadata:
   version: 11.1.0
   resolution: "@vueuse/metadata@npm:11.1.0"
   checksum: 10c0/5063d8b81c31e3c7ea24ff7fad0d0ec43a951540066329f36daf96fc0e8780ed902282d36c6df856288f07d0c5edb525f551cf9e8b84837782e2ac0a1988c498
+  languageName: node
+  linkType: hard
+
+"@vueuse/metadata@npm:11.2.0":
+  version: 11.2.0
+  resolution: "@vueuse/metadata@npm:11.2.0"
+  checksum: 10c0/a6f6b734d7237e9e80d005f3cd566141153cf2f59011c57396517a5d448857ecda792c910cde0401f7d524f0f693608616af30fd0f70e867a25f9b0d768a8fb4
   languageName: node
   linkType: hard
 
@@ -2887,6 +2917,15 @@ __metadata:
   dependencies:
     vue-demi: "npm:>=0.14.10"
   checksum: 10c0/ed9a4625537825fe783c66823592560696604f5301e8dcef12dda3a816b85334e7c70ccbaaf1c0c62ea2b8efcce58893b780210162374d2e9bc1e4c5889e066b
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:11.2.0":
+  version: 11.2.0
+  resolution: "@vueuse/shared@npm:11.2.0"
+  dependencies:
+    vue-demi: "npm:>=0.14.10"
+  checksum: 10c0/24c8b4ffb7e1d253f67cb19736926707b5c1b18901b1cd71c075f22495c3382b845253185d2c8986b4a86a17bf637dac01317d68a044cc712621221d278f23ff
   languageName: node
   linkType: hard
 

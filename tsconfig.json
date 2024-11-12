@@ -26,6 +26,9 @@
       "path": "libs/util-composables"
     },
     {
+      "path": "libs/vue/util-composables"
+    },
+    {
       "path": "libs/vue/util-i18n"
     },
     {
