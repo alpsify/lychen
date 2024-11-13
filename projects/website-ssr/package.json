@@ -16,8 +16,15 @@
     "@lychen/ui-layouts": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@lychen/vue-util-i18n": "workspace:*",
+    "@vueuse/core": "11.1.0",
     "nuxt": "^3.14.159",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tailwindcss-animate": "1.0.7"
   }
 }

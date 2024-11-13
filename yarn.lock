@@ -2079,7 +2079,12 @@ __metadata:
     "@lychen/ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
+    "@vueuse/core": "npm:11.1.0"
+    autoprefixer: "npm:^10.4.20"
     nuxt: "npm:^3.14.159"
+    postcss: "npm:^8.4.47"
+    tailwindcss: "npm:^3.4.13"
+    tailwindcss-animate: "npm:1.0.7"
     vue: "npm:latest"
     vue-router: "npm:latest"
   languageName: unknown
