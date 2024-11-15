@@ -5,6 +5,7 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
+  DialogClose,
   useForwardPropsEmits,
 } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';

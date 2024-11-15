@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "yarn run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+    "generate": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/static && yarn run build:server && node prerender",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,15 +20,20 @@
     "@lychen/vue-util-i18n": "workspace:*",
     "@unhead/vue": "1.11.7",
     "@vueuse/core": "11.1.0",
+    "compression": "^1.7.4",
+    "express": "^5.0.1",
     "radix-vue": "1.9.6",
+    "sirv": "^3.0.0",
     "vue": "3.5.11",
     "vue-i18n": "^10.0.4",
     "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
+    "@vue/server-renderer": "^3.5.12",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "serve-static": "^1.16.2",
     "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "1.0.7",
     "vite": "^5.4.1",

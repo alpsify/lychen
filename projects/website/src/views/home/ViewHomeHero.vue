@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import heroUrl from '../assets/hero-1.webp';
+import heroUrl from './assets/hero-1.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';

@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import imageUrl from '../assets/definition.webp';
+import imageUrl from './assets/definition.webp';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_MASK,

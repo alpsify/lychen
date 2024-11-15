@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import heroUrl from '../assets/hero-1.webp';
+import heroUrl from './assets/hero-1.webp';
 import { useHead, useSeoMeta } from '@unhead/vue';
 
 import { useTranslations } from './i18n';

@@ -48,4 +48,10 @@ tasks:
       - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}"}'''
     platform: system
 
+  prerender:
+    command: yarn run generate
+    options:
+      cache: false
+    platform: system
+
 type: application
