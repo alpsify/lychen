@@ -54,9 +54,6 @@
     },
     {
       "path": "projects/website"
-    },
-    {
-      "path": "projects/website-ssr-NUXT-fail"
     }
   ]
 }
