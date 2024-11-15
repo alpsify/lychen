@@ -4,7 +4,6 @@ import { fontsConfig } from '@lychen/ui-css/tailwind/fontsConfig';
 import { keyframesConfig } from '@lychen/ui-css/tailwind/keyframesConfig';
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
-import { contentConfig } from '@lychen/ui-css/tailwind/contentConfig';
 
 export default {
   darkMode: 'class',
