@@ -5768,6 +5768,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.13.0"
     "@eslint/markdown": "npm:^6.2.1"
+    "@eslint/plugin-kit": "npm:^0.2.3"
     "@types/eslint": "npm:^9.6.1"
     "@types/node": "npm:^22.8.7"
     clsx: "npm:^2.1.1"
