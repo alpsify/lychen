@@ -61,7 +61,7 @@ export default [
       'check-file/filename-naming-convention': [
         'error',
         {
-          '**/!(*app).vue': 'PASCAL_CASE',
+          '**/*.vue': 'PASCAL_CASE',
           //"**/!(*.config).{js,ts}": "PASCAL_CASE",
         },
       ],
