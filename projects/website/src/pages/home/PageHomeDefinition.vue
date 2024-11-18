@@ -10,7 +10,7 @@
     :speed="PATTERN_BACKGROUND_SPEED.Slow"
   >
     <LychenTitle
-      variant="h1"
+      variant="h2"
       class="text-surface-on z-10"
       >{{ t('definition.phonetic') }}
     </LychenTitle>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import imageUrl from '../assets/definition.webp';
+import imageUrl from './assets/definition.webp';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_MASK,

@@ -1,15 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { RouteViewAbout } from '@/views/about';
-import { RouteViewPrice } from '@/views/price';
-
-import { RouteViewHome } from '../views/home';
+import { RoutePagePrice } from '@/pages/price';
+import { RoutePageHome } from '@/pages/home';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@layouts/main/LayoutMain.vue'),
-    children: [RouteViewHome, RouteViewAbout, RouteViewPrice],
+    children: [RoutePageHome, RoutePagePrice],
   },
 ];
 

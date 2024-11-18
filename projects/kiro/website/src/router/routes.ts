@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { RouteViewHome } from '../views/home';
+import { RoutePageHome } from '../pages/home';
 
-const routes: RouteRecordRaw[] = [RouteViewHome];
+const routes: RouteRecordRaw[] = [RoutePageHome];
 
 export default routes;

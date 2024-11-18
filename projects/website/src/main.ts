@@ -1,33 +1,44 @@
 import './stylesheet/main.css';
 
-import { createHead } from '@unhead/vue';
-import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 
+import { ViteSSG } from 'vite-ssg';
+
 import App from './App.vue';
-import router from './router';
-
+import routes from './router/routes';
 import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
+import type { RouterScrollBehavior } from 'vue-router';
 
-const app = createApp(App);
+// eslint-disable-next-line func-style
+const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
+  if (to.hash) {
+    return {
+      el: to.hash,
+      behavior: 'smooth',
+    };
+  }
 
-/* Router */
-app.use(router);
+  return { top: 0 };
+};
 
-loadFontAwesomeStyles();
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+    scrollBehavior,
+    base: import.meta.env.BASE_URL,
+  },
+  ({ app, router, routes, isClient, initialState }) => {
+    loadFontAwesomeStyles();
 
-/* i18n */
-const i18n = createI18n({
-  globalInjection: false,
-  legacy: false,
-  fallbackLocale: 'fr-FR',
-  locale: navigator.languages[0],
-});
+    /* i18n */
+    const i18n = createI18n({
+      globalInjection: false,
+      legacy: false,
+      fallbackLocale: 'fr-FR',
+      locale: import.meta.env.SSR ? 'fr-FR' : navigator.languages[0],
+    });
 
-app.use(i18n);
-
-/* unhead */
-const head = createHead();
-app.use(head);
-
-app.mount('#app');
+    app.use(i18n);
+  },
+);

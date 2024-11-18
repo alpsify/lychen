@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import imageUrl from '../assets/presentation.webp';
+import imageUrl from './assets/presentation.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';

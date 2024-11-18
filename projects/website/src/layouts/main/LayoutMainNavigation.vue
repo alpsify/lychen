@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full flex-row items-stretch justify-between gap-4">
     <RouterLink
-      :to="{ name: RouteViewHome.name }"
+      :to="{ name: RoutePageHome.name }"
       class="flex flex-row items-stretch"
     >
       <LychenLogo
@@ -59,7 +59,7 @@
           </LychenNavigationMenuItem>
           <LychenNavigationMenuItem>
             <LychenNavigationMenuLink :class="navigationMenuTriggerStyle()">
-              <RouterLink :to="{ name: RouteViewPrice.name }"
+              <RouterLink :to="{ name: RoutePagePrice.name }"
                 >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
               </RouterLink>
             </LychenNavigationMenuLink>
@@ -87,10 +87,10 @@
 import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
 import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
-import { RouteViewHome } from '@views/home';
+import { RoutePageHome } from '@pages/home';
 
 import { useApplications } from '@/composables/application/useApplications';
-import { RouteViewPrice } from '@/views/price';
+import { RoutePagePrice } from '@/pages/price';
 
 import { TRANSLATION_KEY, useTranslations } from './i18n';
 

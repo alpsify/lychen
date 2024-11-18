@@ -1,7 +1,7 @@
-export { default as ViewHome } from './ViewHome.vue';
+export { default as PageHome } from './PageHome.vue';
 
-export const RouteViewHome = {
+export const RoutePageHome = {
   path: '/',
-  component: () => import('./ViewHome.vue'),
+  component: () => import('./PageHome.vue'),
   name: 'home',
 };
