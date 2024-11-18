@@ -15,12 +15,12 @@
     "@lychen/ui-layouts": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@lychen/vue-util-i18n": "workspace:*",
+    "@lychen/vue-util-plausible": "workspace:*",
     "@unhead/vue": "1.11.7",
     "@vueuse/core": "11.1.0",
     "radix-vue": "1.9.6",
     "vue": "3.5.11",
     "vue-i18n": "^10.0.4",
-    "vue-plausible": "^1.3.2",
     "vue-router": "4"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@ import App from './App.vue';
 import routes from './router/routes';
 import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 import type { RouterScrollBehavior } from 'vue-router';
-import { VuePlausible } from 'vue-plausible';
+import { plausiblePlugin } from '@lychen/vue-util-plausible/Plausible';
 
 // eslint-disable-next-line func-style
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
@@ -41,7 +41,7 @@ export const createApp = ViteSSG(
 
     app.use(i18n);
 
-    app.use(VuePlausible, {
+    app.use(plausiblePlugin, {
       domain: 'lychen.fr',
       trackLocalhost: false,
     });

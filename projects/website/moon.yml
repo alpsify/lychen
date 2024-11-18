@@ -5,6 +5,7 @@ dependsOn:
   - ui-layouts
   - vue-util-composables
   - vue-util-i18n
+  - vue-util-plausible
 
 env:
   DOKPLOY_COMPOSE_ID: 'jqEDVdLT2adh_RT3NLoQO'
