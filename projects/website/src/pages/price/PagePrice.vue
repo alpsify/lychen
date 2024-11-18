@@ -1,12 +1,12 @@
 <template>
-  <ViewPriceHero />
+  <PagePriceHero />
 </template>
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue';
 
 import { useTranslations } from './i18n';
-import ViewPriceHero from './ViewPriceHero.vue';
+import PagePriceHero from './PagePriceHero.vue';
 
 const { t } = useTranslations();
 

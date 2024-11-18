@@ -33,7 +33,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@views/*": ["src/views/*"],
+      "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/ui-components/*": ["../../libs/ui-components/*"],

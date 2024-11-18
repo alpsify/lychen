@@ -5,7 +5,7 @@
     </div>
 
     <div class="text-lg font-bold">
-      <RouterLink :to="{ name: RouteViewHome.name }"
+      <RouterLink :to="{ name: RoutePageHome.name }"
         >{{ t(`${TRANSLATION_KEY}.navigation.home.title`) }}
       </RouterLink>
     </div>
@@ -37,7 +37,7 @@
       </li>
     </ul>
     <div class="text-lg font-bold">
-      <RouterLink :to="{ name: RouteViewPrice.name }"
+      <RouterLink :to="{ name: RoutePagePrice.name }"
         >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
       </RouterLink>
     </div>
@@ -49,8 +49,8 @@ import LychenNavigationMenuLink from '@lychen/ui-components/navigation-menu/Lych
 import { useApplications } from '@/composables/application/useApplications';
 
 import { TRANSLATION_KEY, useTranslations } from './i18n';
-import { RouteViewPrice } from '@/views/price';
-import { RouteViewHome } from '@/views/home';
+import { RoutePagePrice } from '@/pages/price';
+import { RoutePageHome } from '@/pages/home';
 import { defineAsyncComponent } from 'vue';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));

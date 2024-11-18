@@ -5,10 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "yarn run build:client && npm run build:server",
-    "build:client": "vite build --ssrManifest --outDir dist/client",
-    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "generate": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/static && yarn run build:server && node prerender",
+    "build": "vite-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -37,6 +34,7 @@
     "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "1.0.7",
     "vite": "^5.4.1",
-    "vite-plugin-mkcert": "^1.17.6"
+    "vite-plugin-mkcert": "^1.17.6",
+    "vite-ssg": "^0.24.1"
   }
 }

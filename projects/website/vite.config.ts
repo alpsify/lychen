@@ -1,12 +1,12 @@
 import path from 'node:path';
 
+import type { UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import autoprefixer from 'autoprefixer';
 import tailwind from 'tailwindcss';
-import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
 
-export default defineConfig({
+const config: UserConfig = {
   server: {
     https: {},
     port: 8080,
@@ -32,8 +32,14 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@assets': path.resolve(__dirname, './src/assets'),
-      '@views': path.resolve(__dirname, './src/views'),
+      '@pages': path.resolve(__dirname, './src/pages'),
       '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
-});
+  ssgOptions: {
+    script: 'async',
+    formatting: 'prettify',
+  },
+};
+
+export default config;

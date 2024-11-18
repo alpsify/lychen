@@ -1,17 +1,17 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 import zitadelAuth from '@/services/ZitadelAuth';
-import { RouteViewAssociation } from '@/views/association';
-import { RouteViewAssociations } from '@/views/associations';
-import { RouteViewContract } from '@/views/contract';
-import { RouteViewContracts } from '@/views/contracts';
-import { RouteViewCreateContractWithProducer } from '@/views/create-contract-with-producer';
-import { RouteViewDashboard } from '@/views/dashboard';
-import { RouteViewDistribution } from '@/views/distribution';
-import { RouteViewDistributions } from '@/views/distributions';
-import { RouteViewOnboarding } from '@/views/onboarding';
-import { RouteViewProducer } from '@/views/producer';
-import { RouteViewUserProfil } from '@/views/user-profil';
+import { RouteViewAssociation } from '@/pages/association';
+import { RouteViewAssociations } from '@/pages/associations';
+import { RouteViewContract } from '@/pages/contract';
+import { RouteViewContracts } from '@/pages/contracts';
+import { RouteViewCreateContractWithProducer } from '@/pages/create-contract-with-producer';
+import { RouteViewDashboard } from '@/pages/dashboard';
+import { RouteViewDistribution } from '@/pages/distribution';
+import { RouteViewDistributions } from '@/pages/distributions';
+import { RouteViewOnboarding } from '@/pages/onboarding';
+import { RouteViewProducer } from '@/pages/producer';
+import { RouteViewUserProfil } from '@/pages/user-profil';
 
 const routes: RouteRecordRaw[] = [
   {
