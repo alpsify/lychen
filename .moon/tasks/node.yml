@@ -11,6 +11,7 @@ tasks:
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
+      - '!**/.vite-ssg-temp/'
 
   format-fix:
     deps:
@@ -29,6 +30,7 @@ tasks:
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
+      - '!**/.vite-ssg-temp/'
 
   lint-fix:
     deps:

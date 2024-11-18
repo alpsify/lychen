@@ -32,9 +32,6 @@
       "path": "libs/vue/util-i18n"
     },
     {
-      "path": "libs/vue/util-plausible"
-    },
-    {
       "path": "projects/kiro/admin-app"
     },
     {

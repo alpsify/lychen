@@ -7,8 +7,7 @@
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
     "../../libs/vue/util-composables/**/*",
-    "../../libs/vue/util-i18n/**/*",
-    "../../libs/vue/util-plausible/**/*"
+    "../../libs/vue/util-i18n/**/*"
   ],
   "references": [
     {
@@ -28,9 +27,6 @@
     },
     {
       "path": "../../libs/vue/util-i18n"
-    },
-    {
-      "path": "../../libs/vue/util-plausible"
     }
   ],
   "compilerOptions": {
@@ -45,8 +41,7 @@
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
       "@lychen/vue-util-i18n/*": ["../../libs/vue/util-i18n/*"],
-      "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
-      "@lychen/vue-util-plausible/*": ["../../libs/vue/util-plausible/*"]
+      "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

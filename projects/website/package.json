@@ -15,7 +15,6 @@
     "@lychen/ui-layouts": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@lychen/vue-util-i18n": "workspace:*",
-    "@lychen/vue-util-plausible": "workspace:*",
     "@unhead/vue": "1.11.7",
     "@vueuse/core": "11.1.0",
     "radix-vue": "1.9.6",
@@ -31,6 +30,7 @@
     "tailwindcss-animate": "1.0.7",
     "vite": "^5.4.1",
     "vite-plugin-mkcert": "^1.17.6",
-    "vite-ssg": "^0.24.1"
+    "vite-ssg": "^0.24.1",
+    "vite-ssg-sitemap": "^0.8.1"
   }
 }

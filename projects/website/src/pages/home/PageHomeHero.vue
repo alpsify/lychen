@@ -26,7 +26,11 @@
         to="#definition"
         class="self-center"
       >
-        <LychenButton class="flex gap-2">{{ t('hero.discover') }} </LychenButton>
+        <LychenButton
+          class="flex gap-2"
+          data-umami-event="discover-button"
+          >{{ t('hero.discover') }}
+        </LychenButton>
       </RouterLink>
     </div>
   </LychenHero>

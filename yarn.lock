@@ -1763,15 +1763,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-util-plausible@workspace:*, @lychen/vue-util-plausible@workspace:libs/vue/util-plausible":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-util-plausible@workspace:libs/vue/util-plausible"
-  dependencies:
-    plausible-tracker: "npm:^0.3.9"
-    vue: "npm:3.5.11"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/website@workspace:projects/website":
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
@@ -1782,7 +1773,6 @@ __metadata:
     "@lychen/ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
-    "@lychen/vue-util-plausible": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.1.2"
     "@vueuse/core": "npm:11.1.0"
@@ -1794,6 +1784,7 @@ __metadata:
     vite: "npm:^5.4.1"
     vite-plugin-mkcert: "npm:^1.17.6"
     vite-ssg: "npm:^0.24.1"
+    vite-ssg-sitemap: "npm:^0.8.1"
     vue: "npm:3.5.11"
     vue-i18n: "npm:^10.0.4"
     vue-router: "npm:4"
@@ -3548,13 +3539,13 @@ __metadata:
   linkType: hard
 
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2":
-  version: 7.0.5
-  resolution: "cross-spawn@npm:7.0.5"
+  version: 7.0.6
+  resolution: "cross-spawn@npm:7.0.6"
   dependencies:
     path-key: "npm:^3.1.0"
     shebang-command: "npm:^2.0.0"
     which: "npm:^2.0.1"
-  checksum: 10c0/aa82ce7ac0814a27e6f2b738c5a7cf1fa21a3558a1e42df449fc96541ba3ba731e4d3ecffa4435348808a86212f287c6f20a1ee551ef1ff95d01cfec5f434944
+  checksum: 10c0/053ea8b2135caff68a9e81470e845613e374e7309a47731e81639de3eaeb90c3d01af0e0b44d2ab9d50b43467223b88567dfeb3262db942dc063b9976718ffc1
   languageName: node
   linkType: hard
 
@@ -6785,13 +6776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"plausible-tracker@npm:^0.3.9":
-  version: 0.3.9
-  resolution: "plausible-tracker@npm:0.3.9"
-  checksum: 10c0/750018ad255119f7a5e6d108b35c1c7e4dd04ad9b0e950951812658b02b464865fdcb22a72f8a29881bcf3e5a4da7653ff881d333362ee6c319e63fae03153fb
-  languageName: node
-  linkType: hard
-
 "pluralize@npm:^8.0.0":
   version: 8.0.0
   resolution: "pluralize@npm:8.0.0"
@@ -8412,6 +8396,13 @@ __metadata:
     "@vite-pwa/assets-generator":
       optional: true
   checksum: 10c0/b0b26fab553d758185608941652cccdf7a6365fa3c749120edc83e1173de8103bf948d2ed52a159eea6b3ffe08b983077b68e78593fb2bf0e307fc517dc09065
+  languageName: node
+  linkType: hard
+
+"vite-ssg-sitemap@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "vite-ssg-sitemap@npm:0.8.1"
+  checksum: 10c0/046705e083cecec2b2095e64c3b82972f8c324c283139c2e0eb62efb2e803f3d51043bcb9dde3bac134e6fd92199dcdd867e4221b704e2dd4f2119ae879b88fd
   languageName: node
   linkType: hard
 
