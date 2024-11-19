@@ -3,6 +3,21 @@ export default {
     home: {
       title: 'Accueil',
     },
+    community: {
+      title: 'Communauté',
+      discord: {
+        title: 'Discord',
+        description: 'Rejoignez la communauté sur Discord.',
+      },
+      github: {
+        title: 'GitHub',
+        description: 'Code source pour Lychen.',
+      },
+      forum: {
+        title: 'Forum',
+        description: 'Rejoignez le forum.',
+      },
+    },
     app: {
       title: 'Applications',
       state: {
