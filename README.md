@@ -15,11 +15,11 @@ By promoting symbiotic relationships between these actors, Lychen encourages eco
 
 ## Sponsors
 
-Lychen is an GPL-3.0-licensed open source project with its ongoing development made possible entirely by the support backers. If you'd like to join them, please consider [ sponsoring Lychen development](https://github.com/sponsors/nathan-de-pachtere).
+Lychen is an GPL-3.0-licensed open source project with its ongoing development made possible entirely by the support backers. If you'd like to join them, please consider [sponsoring Lychen development](https://github.com/sponsors/nathan-de-pachtere).
 
 ## Questions
 
-For questions and support please use [the official forum](https://github.com/alpsify/lychen/discussions) or [community chat](). The issue list of this repo is **exclusively** for bug reports and feature requests.
+For questions and support please use [the official forum](https://github.com/alpsify/lychen/discussions) or [community chat](https://discord.gg/FSMbXt5gr4). The issue list of this repo is **exclusively** for bug reports and feature requests.
 
 ## Technologies
 

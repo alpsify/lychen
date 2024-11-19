@@ -79,6 +79,15 @@
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
       </a>
+      <a
+        href="https://discord.gg/FSMbXt5gr4"
+        trget="_blank"
+      >
+        <LychenIcon
+          icon="discord"
+          :fashion="LYCHEN_ICON_FASHION.Brands"
+        />
+      </a>
     </div>
   </div>
 </template>
