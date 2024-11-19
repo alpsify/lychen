@@ -3,6 +3,10 @@ name: 'Production deployment'
 env:
   FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
 
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:
