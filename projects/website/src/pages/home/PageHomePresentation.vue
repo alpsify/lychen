@@ -14,6 +14,8 @@
     <div class="basis-1/2">
       <img
         :src="imageUrl"
+        loading="lazy"
+        alt="Eco-friendly residential complex with glass walls, rooftop gardens, and lush greenery connected by wooden paths."
         class="rounded-lg"
       />
     </div>

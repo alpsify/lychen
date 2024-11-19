@@ -30,6 +30,7 @@
       <img
         :src="imageUrl"
         class="h-60 w-full rounded-xl object-cover"
+        alt="Close-up of orange mushrooms and blue lichen on a rock, with a soft, sunlit forest background."
       />
     </LychenGlowBorder>
   </div>
