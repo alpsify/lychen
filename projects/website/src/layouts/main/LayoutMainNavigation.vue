@@ -57,6 +57,40 @@
               </div>
             </LychenNavigationMenuContent>
           </LychenNavigationMenuItem>
+
+          <LychenNavigationMenuItem>
+            <LychenNavigationMenuTrigger>{{
+              t(`${TRANSLATION_KEY}.navigation.resources.title`)
+            }}</LychenNavigationMenuTrigger>
+            <LychenNavigationMenuContent
+              class="bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+            >
+              <div class="flex flex-row gap-4 p-6 md:w-[400px]">
+                <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2">
+                  <a
+                    v-for="resourceMenu in resourcesMenuList"
+                    :key="resourceMenu.title"
+                    :href="resourceMenu.link"
+                    target="_blank"
+                    class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
+                  >
+                    <p class="text-md font-black font-lexend leading-none tracking-wide">
+                      {{ resourceMenu.title }}
+                    </p>
+                    <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
+                      {{ resourceMenu.description }}
+                    </p>
+                  </a>
+                </div>
+                <div class="basis-1/2">
+                  <img
+                    :src="ResourcesMenuUrl"
+                    class="h-full w-auto rounded-lg"
+                  />
+                </div>
+              </div>
+            </LychenNavigationMenuContent>
+          </LychenNavigationMenuItem>
           <LychenNavigationMenuItem>
             <LychenNavigationMenuTrigger>{{
               t(`${TRANSLATION_KEY}.navigation.community.title`)
@@ -127,6 +161,7 @@
 
 <script setup lang="ts">
 import CommunityMenuUrl from './assets/community-menu.webp';
+import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
 import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
@@ -138,7 +173,7 @@ import { RoutePagePrice } from '@/pages/price';
 import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
-import { useCommunityMenu } from '.';
+import { useCommunityMenu, useResourcesMenu } from '.';
 
 const LychenThemeSwitcher = defineAsyncComponent(
   () => import('@lychen/ui-components/theme-switcher/LychenThemeSwitcher.vue'),
@@ -173,6 +208,7 @@ const { t } = useTranslations();
 const { applicationsList } = useApplications();
 
 const { communityMenuList } = useCommunityMenu();
+const { resourcesMenuList } = useResourcesMenu();
 </script>
 
 <style lang="css" scoped></style>

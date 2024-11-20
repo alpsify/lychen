@@ -18,6 +18,17 @@ export default {
         description: 'Rejoignez le forum.',
       },
     },
+    resources: {
+      title: 'Ressources',
+      blog: {
+        title: 'Blog',
+        description: 'Lisez nos derniers articles et analyses.',
+      },
+      project_dashboard: {
+        title: 'Roadmap & Gestion',
+        description: 'Découvrez ce qui arrive bientôt et votez pour les nouvelles fonctionnalités.',
+      },
+    },
     app: {
       title: 'Applications',
       state: {
