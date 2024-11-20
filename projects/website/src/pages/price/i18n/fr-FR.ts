@@ -1,6 +1,10 @@
 export default {
   meta: {
-    title: 'Tarifs',
+    title: 'Tarifs éthiques et responsables',
+    description:
+      "Lychen, l'écosystème d'applications pour connecter les utilisateurs autour de projets collectifs et locaux est centré sur la biodiversité.",
+    og_title: '@:view_home.meta.title',
+    og_description: '@:view_home.meta.description',
   },
 
   title: 'Gratuit (si, si, vraiment)',

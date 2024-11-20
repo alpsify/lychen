@@ -1,14 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export { default as LychenSheet } from './LychenSheet.vue';
-export { default as LychenSheetClose } from './LychenSheetClose.vue';
-export { default as LychenSheetContent } from './LychenSheetContent.vue';
-export { default as LychenSheetDescription } from './LychenSheetDescription.vue';
-export { default as LychenSheetFooter } from './LychenSheetFooter.vue';
-export { default as LychenSheetHeader } from './LychenSheetHeader.vue';
-export { default as LychenSheetTitle } from './LychenSheetTitle.vue';
-export { default as LychenSheetTrigger } from './LychenSheetTrigger.vue';
-
 export const sheetVariants = cva(
   'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
   {

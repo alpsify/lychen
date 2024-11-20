@@ -1,9 +1,6 @@
 export default {
-  tab: {
-    title: 'Lychen - Acteur de la symbiose du territoire.',
-  },
   meta: {
-    title: 'Lychen - Connecter les communautés autour de la biodiversité',
+    title: 'Connecter les communautés autour de la biodiversité',
     description:
       "Lychen, l'écosystème d'applications pour connecter les utilisateurs autour de projets collectifs et locaux est centré sur la biodiversité.",
     og_title: '@:view_home.meta.title',

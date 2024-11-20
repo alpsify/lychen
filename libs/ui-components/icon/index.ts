@@ -1,6 +1,4 @@
-import { ObjectValues } from 'lib/utils';
-
-export { default as LychenIcon } from './LychenIcon.vue';
+import { ObjectValues } from '../lib/utils';
 
 export const LYCHEN_ICON_FASHION = {
   Default: 'fal',

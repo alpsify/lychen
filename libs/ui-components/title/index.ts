@@ -1,7 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export { default as LychenTitle } from './LychenTitle.vue';
-
 export interface Props {
   text: string;
 }

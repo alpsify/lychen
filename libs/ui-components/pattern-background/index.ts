@@ -3,8 +3,6 @@ import type { HTMLAttributes } from 'vue';
 
 import type { ObjectValues } from '../lib/utils';
 
-export { default as LychenPatternBackground } from './LychenPatternBackground.vue';
-
 export const PATTERN_BACKGROUND_DIRECTION = {
   Top: 'top',
   Bottom: 'bottom',

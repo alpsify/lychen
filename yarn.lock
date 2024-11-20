@@ -1773,7 +1773,8 @@ __metadata:
     "@lychen/ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
-    "@unhead/vue": "npm:1.11.7"
+    "@unhead/schema-org": "npm:^1.11.11"
+    "@unhead/vue": "npm:^1.11.11"
     "@vitejs/plugin-vue": "npm:^5.1.2"
     "@vueuse/core": "npm:11.1.0"
     autoprefixer: "npm:^10.4.20"
@@ -2486,6 +2487,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unhead/schema-org@npm:^1.11.11":
+  version: 1.11.11
+  resolution: "@unhead/schema-org@npm:1.11.11"
+  dependencies:
+    ohash: "npm:^1.1.4"
+    ufo: "npm:^1.5.4"
+  checksum: 10c0/afd4fcd06e9d0cffb71c4c713cef326183ec1a6c264820953619109cf43c93f54c836ce3d31b368fda9f42f6a47014faf03354420ff68bc62b26d9773f314d27
+  languageName: node
+  linkType: hard
+
 "@unhead/schema@npm:1.11.11":
   version: 1.11.11
   resolution: "@unhead/schema@npm:1.11.11"
@@ -2539,7 +2550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/vue@npm:^1.11.10":
+"@unhead/vue@npm:^1.11.10, @unhead/vue@npm:^1.11.11":
   version: 1.11.11
   resolution: "@unhead/vue@npm:1.11.11"
   dependencies:
@@ -6558,6 +6569,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ohash@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "ohash@npm:1.1.4"
+  checksum: 10c0/73c3bcab2891ee2155ed62bb4c2906f622bf2204a3c9f4616ada8a6a76276bb6b4b4180eaf273b7c7d6232793e4d79d486aab436ebfc0d06d92a997f07122864
+  languageName: node
+  linkType: hard
+
 "oidc-client@npm:^1.11.5":
   version: 1.11.5
   resolution: "oidc-client@npm:1.11.5"
@@ -8146,6 +8164,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
+  languageName: node
+  linkType: hard
+
+"ufo@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "ufo@npm:1.5.4"
+  checksum: 10c0/b5dc4dc435c49c9ef8890f1b280a19ee4d0954d1d6f9ab66ce62ce64dd04c7be476781531f952a07c678d51638d02ad4b98e16237be29149295b0f7c09cda765
   languageName: node
   linkType: hard
 

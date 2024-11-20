@@ -29,8 +29,11 @@
 </template>
 
 <script lang="ts" setup>
-import { LychenSheetTrigger } from '@lychen/ui-components/sheet';
 import { defineAsyncComponent, ref } from 'vue';
+
+const LychenSheetTrigger = defineAsyncComponent(
+  () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),
+);
 
 const LychenSheet = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheet.vue'),
