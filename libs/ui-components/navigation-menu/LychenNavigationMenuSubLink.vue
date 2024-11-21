@@ -4,7 +4,7 @@
     :to="route ? { name: route.name } : null"
     class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-container/30 hover:text-primary-container-on focus:bg-primary-container/30 focus:text-primary-container-on"
     :href="link"
-    :target="target"
+    :target="link ? target : '_self'"
   >
     <div class="flex flex-row justify-between no-wrap">
       <p class="text-md font-black font-lexend leading-none tracking-wide">
