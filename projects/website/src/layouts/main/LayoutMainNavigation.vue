@@ -13,12 +13,12 @@
             <LychenNavigationMenuTrigger>{{
               t(`${TRANSLATION_KEY}.navigation.app.title`)
             }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent
-              class="bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
-            >
-              <div class="flex flex-col items-stretch gap-2 p-6">
+            <LychenNavigationMenuContent>
+              <div
+                class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+              >
                 <div
-                  class="flex flex-row items-center gap-4 rounded-xl bg-surface-container-highest p-4 text-surface-container-highest-on"
+                  class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-surface-container-highest-on"
                 >
                   <LychenIcon icon="megaphone" />
                   <div class="flex flex-col gap-0">
@@ -33,7 +33,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="grid gap-3 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3">
+                <div class="grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3 p-6">
                   <LychenNavigationMenuSubLink
                     v-for="application in applicationsList"
                     v-bind="application"
@@ -48,11 +48,11 @@
             <LychenNavigationMenuTrigger>{{
               t(`${TRANSLATION_KEY}.navigation.resources.title`)
             }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent
-              class="bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
-            >
-              <div class="flex flex-row gap-4 p-6 md:w-[400px]">
-                <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2">
+            <LychenNavigationMenuContent>
+              <div
+                class="flex flex-row gap-2 md:w-[400px] bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+              >
+                <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
                     v-for="resourceMenu in resourcesMenuList"
                     v-bind="resourceMenu"
@@ -62,7 +62,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="ResourcesMenuUrl"
-                    class="h-full w-auto rounded-lg"
+                    class="h-full w-auto"
                   />
                 </div>
               </div>
@@ -72,11 +72,11 @@
             <LychenNavigationMenuTrigger>{{
               t(`${TRANSLATION_KEY}.navigation.community.title`)
             }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent
-              class="bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
-            >
-              <div class="flex flex-row gap-4 p-6 md:w-[400px]">
-                <div class="flex flex-col items-stretch gap-2 basis-1/2">
+            <LychenNavigationMenuContent>
+              <div
+                class="flex flex-row gap-4 md:w-[400px] bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+              >
+                <div class="flex flex-col items-stretch gap-2 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
                     v-for="communityMenu in communityMenuList"
                     v-bind="communityMenu"
@@ -86,7 +86,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="CommunityMenuUrl"
-                    class="h-full w-auto rounded-lg"
+                    class="h-full w-auto"
                   />
                 </div>
               </div>
