@@ -10,7 +10,7 @@
       </template>
     </LayoutWebsiteNavigation>
     <slot>
-      <main class="flex flex-col">
+      <main class="flex flex-col min-h-dvh">
         <RouterView />
       </main>
     </slot>
