@@ -4,7 +4,7 @@
       :to="{ name: RoutePageHome.name }"
       class="flex flex-row items-stretch"
     >
-      <LychenLogo
+      <LychenLogo class="logo-hover-effect"
     /></RouterLink>
     <div class="flex flex-row items-stretch gap-2">
       <LychenNavigationMenu class="hidden lg:flex">
@@ -186,4 +186,12 @@ const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.logo-hover-effect {
+  transition: color 1s;
+}
+
+.logo-hover-effect:hover {
+  color: rgb(var(--color-on-primary-container));
+}
+</style>
