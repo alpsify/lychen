@@ -28,6 +28,10 @@ export default {
         title: 'Roadmap & Gestion',
         description: 'Découvrez ce qui arrive bientôt et votez pour les nouvelles fonctionnalités.',
       },
+      manifest: {
+        title: 'Manifeste',
+        description: 'Notre position, nos valeurs et nos engagements',
+      },
     },
     app: {
       title: 'Applications',

@@ -3,8 +3,8 @@ export default {
     title: 'Connecter les communautés autour de la biodiversité',
     description:
       "Lychen, l'écosystème d'applications pour connecter les utilisateurs autour de projets collectifs et locaux est centré sur la biodiversité.",
-    og_title: '@:view_home.meta.title',
-    og_description: '@:view_home.meta.description',
+    og_title: '@:page_home.meta.title',
+    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: {

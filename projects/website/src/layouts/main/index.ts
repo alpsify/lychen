@@ -1,3 +1,4 @@
+import { RoutePageManifest } from '@/pages/manifest';
 import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 export function useCommunityMenu() {
@@ -39,6 +40,11 @@ export function useResourcesMenu() {
       title: t(`${TRANSLATION_KEY}.navigation.resources.project_dashboard.title`),
       description: t(`${TRANSLATION_KEY}.navigation.resources.project_dashboard.description`),
       link: 'https://huly.app/workbench/lychen',
+    },
+    {
+      title: t(`${TRANSLATION_KEY}.navigation.resources.manifest.title`),
+      description: t(`${TRANSLATION_KEY}.navigation.resources.manifest.description`),
+      route: RoutePageManifest,
     },
     /*{
       title: t(`${TRANSLATION_KEY}.navigation.resources.feedback.title`),

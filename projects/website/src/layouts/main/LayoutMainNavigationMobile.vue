@@ -36,7 +36,24 @@
         </LychenNavigationMenuLink>
       </li>
     </ul>
-    <div class="text-lg font-bold">
+    <div class="flex flex-col gap-0">
+      <p class="text-lg font-bold opacity-50">
+        {{ t(`${TRANSLATION_KEY}.navigation.resources.title`) }}
+      </p>
+      <p class="text-md font-bold">
+        <a href="">{{ t(`${TRANSLATION_KEY}.navigation.resources.blog.title`) }} </a>
+      </p>
+      <p class="text-md font-bold">
+        <a href="">{{ t(`${TRANSLATION_KEY}.navigation.resources.project_dashboard.title`) }} </a>
+      </p>
+      <p class="text-md font-bold">
+        <RouterLink :to="{ name: RoutePagePrice.name }"
+          >{{ t(`${TRANSLATION_KEY}.navigation.resources.manifest.title`) }}
+        </RouterLink>
+      </p>
+    </div>
+
+    <div class="text-md font-bold">
       <RouterLink :to="{ name: RoutePagePrice.name }"
         >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
       </RouterLink>

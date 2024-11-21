@@ -33,27 +33,13 @@
                     </p>
                   </div>
                 </div>
-                <ul class="grid gap-3 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3">
-                  <li
+                <div class="grid gap-3 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3">
+                  <LychenNavigationMenuSubLink
                     v-for="application in applicationsList"
+                    v-bind="application"
                     :key="application.title"
-                  >
-                    <div
-                      :href="application.link"
-                      target="_blank"
-                      class="cursor-pointer h-full select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
-                    >
-                      <p
-                        class="text-md font-black font-lexend leading-none tracking-wide lowercase"
-                      >
-                        {{ application.title }}
-                      </p>
-                      <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                        {{ application.description }}
-                      </p>
-                    </div>
-                  </li>
-                </ul>
+                  />
+                </div>
               </div>
             </LychenNavigationMenuContent>
           </LychenNavigationMenuItem>
@@ -67,20 +53,11 @@
             >
               <div class="flex flex-row gap-4 p-6 md:w-[400px]">
                 <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2">
-                  <a
+                  <LychenNavigationMenuSubLink
                     v-for="resourceMenu in resourcesMenuList"
+                    v-bind="resourceMenu"
                     :key="resourceMenu.title"
-                    :href="resourceMenu.link"
-                    target="_blank"
-                    class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
-                  >
-                    <p class="text-md font-black font-lexend leading-none tracking-wide">
-                      {{ resourceMenu.title }}
-                    </p>
-                    <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                      {{ resourceMenu.description }}
-                    </p>
-                  </a>
+                  />
                 </div>
                 <div class="basis-1/2">
                   <img
@@ -100,20 +77,11 @@
             >
               <div class="flex flex-row gap-4 p-6 md:w-[400px]">
                 <div class="flex flex-col items-stretch gap-2 basis-1/2">
-                  <a
+                  <LychenNavigationMenuSubLink
                     v-for="communityMenu in communityMenuList"
+                    v-bind="communityMenu"
                     :key="communityMenu.title"
-                    :href="communityMenu.link"
-                    target="_blank"
-                    class="cursor-pointer h-full select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface-container-high hover:text-surface-container-high-on focus:bg-surface-container-high focus:text-surface-container-high-on"
-                  >
-                    <p class="text-md font-black font-lexend leading-none tracking-wide">
-                      {{ communityMenu.title }}
-                    </p>
-                    <p class="line-clamp-3 text-xs leading-snug text-surface-container-on/70">
-                      {{ communityMenu.description }}
-                    </p>
-                  </a>
+                  />
                 </div>
                 <div class="basis-1/2">
                   <img
@@ -125,7 +93,10 @@
             </LychenNavigationMenuContent>
           </LychenNavigationMenuItem>
           <LychenNavigationMenuItem>
-            <LychenNavigationMenuLink :class="navigationMenuTriggerStyle()">
+            <LychenNavigationMenuLink
+              :class="navigationMenuTriggerStyle()"
+              class="hover:bg-primary-container/30 hover:text-primary-container-on"
+            >
               <RouterLink :to="{ name: RoutePagePrice.name }"
                 >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
               </RouterLink>
@@ -174,6 +145,10 @@ import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu, useResourcesMenu } from '.';
+
+const LychenNavigationMenuSubLink = defineAsyncComponent(
+  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
+);
 
 const LychenThemeSwitcher = defineAsyncComponent(
   () => import('@lychen/ui-components/theme-switcher/LychenThemeSwitcher.vue'),

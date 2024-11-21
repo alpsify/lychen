@@ -9,7 +9,7 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'view_home';
+export const TRANSLATION_KEY = 'page_home';
 
 export function useTranslations(rootKey: string = TRANSLATION_KEY) {
   const { t, d, n } = useI18nExtended({ messages, rootKey });
