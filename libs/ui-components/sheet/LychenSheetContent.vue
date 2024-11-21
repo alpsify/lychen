@@ -45,16 +45,19 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       :class="cn(sheetVariants({ side }), props.class)"
       v-bind="{ ...forwarded, ...$attrs }"
     >
-      <slot />
+      <div class="flex flex-row justify-between">
+        <slot name="header"></slot>
+        <DialogClose
+          class="focus:ring-ring data-[state=open]:bg-secondary rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-offset-2 disabled:pointer-events-none"
+        >
+          <LychenIcon
+            icon="times"
+            class="size-4"
+          />
+        </DialogClose>
+      </div>
 
-      <DialogClose
-        class="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
-      >
-        <LychenIcon
-          icon="times"
-          class="size-4"
-        />
-      </DialogClose>
+      <slot />
     </DialogContent>
   </DialogPortal>
 </template>

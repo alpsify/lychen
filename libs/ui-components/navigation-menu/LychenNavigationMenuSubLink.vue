@@ -5,6 +5,7 @@
     class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-container/30 hover:text-primary-container-on focus:bg-primary-container/30 focus:text-primary-container-on"
     :href="link"
     :target="link ? target : '_self'"
+    @click="emitCloseIfRoute()"
   >
     <div class="flex flex-row justify-between no-wrap">
       <p class="text-md font-black font-lexend leading-none tracking-wide">
@@ -18,13 +19,14 @@
         />
       </div>
     </div>
-    <p class="line-clamp-3 text-xs leading-snug opacity-50">
+    <p class="line-clamp-3 text-xs leading-snug opacity-70">
       {{ description }}
     </p>
   </component>
 </template>
 
 <script lang="ts" setup>
+import { EVENT_NavigateToRoute } from '.';
 import LychenIcon from '../icon/LychenIcon.vue';
 
 interface Props {
@@ -34,9 +36,16 @@ interface Props {
   link?: string;
   target?: string;
 }
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   target: '_blank',
   link: undefined,
   route: undefined,
 });
+
+const emit = defineEmits<{ (e: typeof EVENT_NavigateToRoute): void }>();
+function emitCloseIfRoute() {
+  if (props.route) {
+    emit(EVENT_NavigateToRoute);
+  }
+}
 </script>

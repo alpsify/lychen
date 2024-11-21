@@ -18,8 +18,8 @@
           </LychenSheetTrigger>
           <LychenSheetContent
             class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg"
-            @click="closeDialog"
           >
+            <template #header><slot name="header"></slot></template>
             <slot name="mobile"></slot>
           </LychenSheetContent>
         </LychenSheet>
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent, ref } from 'vue';
+import { defineAsyncComponent, provide, ref } from 'vue';
 
 const LychenSheetTrigger = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),
@@ -45,11 +45,9 @@ const LychenSheetContent = defineAsyncComponent(
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
-const isOpen = ref(false);
+const isOpen = ref<boolean>(false);
 
-function closeDialog() {
-  isOpen.value = false;
-}
+provide('mobileMenuIsOpen', isOpen);
 </script>
 
 <style scoped>

@@ -5,6 +5,9 @@
       <template #mobile>
         <slot name="mobile"></slot>
       </template>
+      <template #header>
+        <slot name="header"></slot>
+      </template>
     </LayoutWebsiteNavigation>
     <slot>
       <main class="flex flex-col">
