@@ -49,5 +49,8 @@ export default {
       extensible: 'Extensible',
       cloud_or_self_hosted: 'Cloud ou auto-hébergé',
     },
+    button: {
+      label: 'Voir le manifeste complet',
+    },
   },
 };

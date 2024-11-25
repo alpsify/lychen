@@ -1,12 +1,20 @@
 <template>
   <LychenContainer class="flex flex-col-reverse items-center gap-4 overflow-x-clip lg:flex-row">
     <div class="flex basis-1/2 flex-col justify-center gap-4">
+      <RouterLink :to="RoutePageManifest">
+        <LychenButton
+          varient="primary"
+          class="flex flex-row gap-2"
+          >{{ t('oss.button.label') }} <LychenIcon icon="chevron-right"
+        /></LychenButton>
+      </RouterLink>
       <LychenTitle variant="h2">{{ t('oss.title') }}</LychenTitle>
       <LychenParagraph
         variant="website-default"
         class="opacity-80"
         >{{ t('oss.description') }}</LychenParagraph
       >
+
       <div class="grid grid-cols-2 grid-rows-2 gap-4">
         <LychenCard
           class="bg-surface-container-low flex flex-col items-center justify-center gap-4 rounded-lg p-10"
@@ -64,6 +72,11 @@
 import { defineAsyncComponent } from 'vue';
 
 import { useTranslations } from './i18n';
+import { RoutePageManifest } from '../manifest';
+
+const LychenButton = defineAsyncComponent(
+  () => import('@lychen/ui-components/button/LychenButton.vue'),
+);
 
 const LychenCard = defineAsyncComponent(() => import('@lychen/ui-components/card/LychenCard.vue'));
 
