@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full flex-row items-stretch justify-between gap-4">
     <RouterLink
-      :to="{ name: RoutePageHome.name }"
+      :to="RoutePageHome"
       class="flex flex-row items-stretch"
     >
       <LychenLogo class="logo-hover-effect"
@@ -97,8 +97,18 @@
               :class="navigationMenuTriggerStyle()"
               class="hover:bg-primary-container/30 hover:text-primary-container-on"
             >
-              <RouterLink :to="{ name: RoutePagePrice.name }"
+              <RouterLink :to="RoutePagePrice"
                 >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
+              </RouterLink>
+            </LychenNavigationMenuLink>
+          </LychenNavigationMenuItem>
+          <LychenNavigationMenuItem>
+            <LychenNavigationMenuLink
+              :class="navigationMenuTriggerStyle()"
+              class="hover:bg-primary-container/30 hover:text-primary-container-on"
+            >
+              <RouterLink :to="RoutePageSponsor"
+                >{{ t(`${TRANSLATION_KEY}.navigation.sponsor.title`) }}
               </RouterLink>
             </LychenNavigationMenuLink>
           </LychenNavigationMenuItem>
@@ -145,6 +155,7 @@ import { TRANSLATION_KEY, useTranslations } from './i18n';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu, useResourcesMenu } from '.';
+import { RoutePageSponsor } from '@/pages/sponsor';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),

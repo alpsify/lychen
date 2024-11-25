@@ -2,7 +2,7 @@
   <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
     <div class="text-lg font-bold">
       <RouterLink
-        :to="{ name: RoutePageHome.name }"
+        :to="RoutePageHome"
         @click="closeMobileMenu"
         >{{ t(`${TRANSLATION_KEY}.navigation.home.title`) }}
       </RouterLink>
@@ -56,9 +56,16 @@
 
     <div class="text-lg font-bold">
       <RouterLink
-        :to="{ name: RoutePagePrice.name }"
+        :to="RoutePagePrice"
         @click="closeMobileMenu"
         >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
+      </RouterLink>
+    </div>
+    <div class="text-lg font-bold">
+      <RouterLink
+        :to="RoutePageSponsor"
+        @click="closeMobileMenu"
+        >{{ t(`${TRANSLATION_KEY}.navigation.sponsor.title`) }}
       </RouterLink>
     </div>
   </div>
@@ -77,6 +84,7 @@ import LychenAccordionTrigger from '@lychen/ui-components/accordion/LychenAccord
 import LychenAccordionContent from '@lychen/ui-components/accordion/LychenAccordionContent.vue';
 import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordionItem.vue';
 import { inject, type Ref } from 'vue';
+import { RoutePageSponsor } from '@/pages/sponsor';
 
 const { t } = useTranslations();
 

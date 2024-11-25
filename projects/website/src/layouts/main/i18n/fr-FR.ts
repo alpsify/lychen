@@ -49,6 +49,9 @@ export default {
     price: {
       title: 'Tarifs',
     },
+    sponsor: {
+      title: 'Sponsor',
+    },
     soon: 'Bientôt disponible',
   },
   footer: {
