@@ -1,14 +1,14 @@
 $schema: 'https://moonrepo.dev/schemas/tasks.json'
 
-implicitDeps:
-  - '^:affected'
+#implicitDeps:
+# - '^:affected'
 
 tasks:
-  affected:
-    command: noop
-    options:
-      cache: false
-      internal: true
+  # affected:
+  # command: noop
+  # options:
+  #   cache: false
+  #  internal: true
 
   list-application-id:
     command:
