@@ -17,8 +17,8 @@ tasks:
 
   sync-fonts:
     command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts
-    #deps:
-    #- assets:affected
+    deps:
+      - assets:affected
     inputs:
       - '/libs/assets/fonts/**/*'
     options:
@@ -27,8 +27,8 @@ tasks:
 
   sync-logos:
     command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public/logos
-    #deps:
-    #- assets:affected
+    deps:
+      - assets:affected
     inputs:
       - '/libs/assets/logos/**/*'
     options:
