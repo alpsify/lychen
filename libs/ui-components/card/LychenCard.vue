@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
     :as="as"
     :class="
       cn(
-        'flex flex-col rounded-lg bg-surface-container text-surface-container-on shadow-[2px_4px_16px_0px_rgba(var(--color-on-surface)/0.08)_inset]',
+        'flex flex-col rounded-lg bg-surface-container text-surface-container-on shadow-[2px_4px_16px_0px_rgba(var(--color-on-surface)/0.06)_inset]',
         props.class,
       )
     "
