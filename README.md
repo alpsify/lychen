@@ -31,7 +31,7 @@ BACK
 
 - [PHP](https://www.php.net/) 8
 - [Symfony](https://symfony.com/) 7
-- [ApiPlatform](https://api-platform.com/) 3
+- [ApiPlatform](https://api-platform.com/) 4
 - [PostgreSQL](https://www.postgresql.org/) 16
 
 FRONT

@@ -1,0 +1,29 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  dokploy-compose-deploy:
+    command:
+      - 'curl'
+      #- '--trace'
+      - '-X POST'
+      - '${DOKPLOY_API_URL}/compose.deploy'
+      #- "-H 'accept: application/json'"
+      - "-H 'Content-Type: application/json'"
+      - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
+    options:
+      internal: true
+    platform: system
+
+  production-dokploy-compose-deploy:
+    deps:
+      - args:
+          - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_PRODUCTION_ID}"}'''
+        target: dokploy-compose-deploy
+    platform: system
+
+  staging-dokploy-compose-deploy:
+    deps:
+      - args:
+          - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_STAGING_ID}"}'''
+        target: dokploy-compose-deploy
+    platform: system

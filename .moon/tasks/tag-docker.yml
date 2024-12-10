@@ -1,0 +1,54 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  docker-build:
+    command: docker build . --no-cache -t
+    options:
+      cache: false
+    platform: system
+
+  docker-push:
+    command: docker push
+    options:
+      cache: false
+    platform: system
+
+  production-docker-build:
+    deps:
+      - production-build
+      - args:
+          - 'ghcr.io/alpsify/lychen/${DOCKER_PRODUCTION_IMAGE_NAME}:latest'
+        target: docker-build
+    options:
+      cache: false
+      runDepsInParallel: false
+
+  production-docker-push:
+    deps:
+      - production-docker-build
+      - args:
+          - 'ghcr.io/alpsify/lychen/${DOCKER_PRODUCTION_IMAGE_NAME}:latest'
+        target: docker-push
+    options:
+      cache: false
+      runDepsInParallel: false
+
+  staging-docker-build:
+    deps:
+      - staging-build
+      - args:
+          - 'ghcr.io/alpsify/lychen/${DOCKER_STAGING_IMAGE_NAME}:latest'
+        target: docker-build
+    options:
+      cache: false
+      runDepsInParallel: false
+
+  staging-docker-push:
+    deps:
+      - staging-docker-build
+      - args:
+          - 'ghcr.io/alpsify/lychen/${DOCKER_STAGING_IMAGE_NAME}:latest'
+        target: docker-push
+    options:
+      cache: false
+      runDepsInParallel: false

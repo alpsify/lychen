@@ -1,19 +1,34 @@
 $schema: 'https://moonrepo.dev/schemas/tasks.json'
 
 tasks:
-  build:
-    command: yarn run build
+  assets-sync:
+    command: noop
     deps:
-      - sync-logos
       - sync-fonts
+      - sync-logos
 
   dev:
     command: yarn run dev
     deps:
-      - sync-logos
-      - sync-fonts
+      - assets-sync
     options:
       persistent: true
+
+  production-build:
+    command: yarn run build
+    deps:
+      - assets-sync
+      - ^:affected
+    options:
+      cache: false
+
+  staging-build:
+    command: yarn run build
+    deps:
+      - assets-sync
+      - ^:affected
+    options:
+      cache: false
 
   sync-fonts:
     command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts

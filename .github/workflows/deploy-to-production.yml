@@ -1,7 +1,8 @@
-name: 'Production deployment'
+name: 'Deploy to production'
 
 env:
   FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
+  REGISTRY: ghcr.io
 
 on:
   push:
@@ -16,6 +17,9 @@ jobs:
   buildandpush:
     name: 'Build and push docker images'
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -27,10 +31,11 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
-        run: 'moon ci :docker-push'
+        run: 'moon ci :production-docker-push'
 
   deploy:
     name: 'Deploy to VPS'
@@ -47,4 +52,4 @@ jobs:
         env:
           DOKPLOY_API_TOKEN: ${{ secrets.DOKPLOY_API_TOKEN }}
           DOKPLOY_API_URL: ${{ secrets.DOKPLOY_API_URL }}
-        run: 'moon ci :dokploy-deploy'
+        run: 'moon ci :production-dokploy-compose-deploy'
