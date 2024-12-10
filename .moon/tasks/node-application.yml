@@ -7,6 +7,13 @@ tasks:
       - sync-fonts
       - sync-logos
 
+  build:
+    command: yarn build
+    deps:
+      - assets-sync
+    options:
+      cache: false
+
   dev:
     command: yarn run dev
     deps:
@@ -15,20 +22,10 @@ tasks:
       persistent: true
 
   production-build:
-    command: yarn run build
-    deps:
-      - assets-sync
-      - ^:affected
-    options:
-      cache: false
+    extends: build
 
   staging-build:
-    command: yarn run build
-    deps:
-      - assets-sync
-      - ^:affected
-    options:
-      cache: false
+    extends: build
 
   sync-fonts:
     command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts

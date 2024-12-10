@@ -4,26 +4,43 @@ tasks:
   dokploy-compose-deploy:
     command:
       - 'curl'
-      #- '--trace'
       - '-X POST'
       - '${DOKPLOY_API_URL}/compose.deploy'
-      #- "-H 'accept: application/json'"
+      - "-H 'accept: application/json'"
       - "-H 'Content-Type: application/json'"
       - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
-    options:
-      internal: true
+      - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}"}'''
+    platform: system
+
+  dokploy-compose-update:
+    command:
+      - 'curl'
+      - '-X POST'
+      - '${DOKPLOY_API_URL}/compose.update'
+      - "-H 'accept: application/json'"
+      - "-H 'Content-Type: application/json'"
+      - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
+      - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}", "composeFile": "$(<$projectRoot/${COMPOSE_FILE})"}'''
     platform: system
 
   production-dokploy-compose-deploy:
-    deps:
-      - args:
-          - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_PRODUCTION_ID}"}'''
-        target: dokploy-compose-deploy
-    platform: system
+    env:
+      DOKPLOY_COMPOSE_ID: ${PRODUCTION_DOKPLOY_COMPOSE_ID}
+    extends: dokploy-compose-deploy
+
+  production-dokploy-compose-update:
+    env:
+      COMPOSE_FILE: compose.production.yml
+      DOKPLOY_COMPOSE_ID: ${PRODUCTION_DOKPLOY_COMPOSE_ID}
+    extends: dokploy-compose-update
 
   staging-dokploy-compose-deploy:
-    deps:
-      - args:
-          - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_STAGING_ID}"}'''
-        target: dokploy-compose-deploy
-    platform: system
+    env:
+      DOKPLOY_COMPOSE_ID: ${STAGING_DOKPLOY_COMPOSE_ID}
+    extends: dokploy-compose-deploy
+
+  staging-dokploy-compose-update:
+    env:
+      COMPOSE_FILE: compose.staging.yml
+      DOKPLOY_COMPOSE_ID: ${STAGING_DOKPLOY_COMPOSE_ID}
+    extends: dokploy-compose-update

@@ -7,10 +7,10 @@ dependsOn:
   - vue-util-i18n
 
 env:
-  DOCKER_PRODUCTION_IMAGE_NAME: website-production
-  DOCKER_STAGING_IMAGE_NAME: website-staging
-  DOKPLOY_COMPOSE_PRODUCTION_ID: 'jqEDVdLT2adh_RT3NLoQO'
-  DOKPLOY_COMPOSE_STAGING_ID: ''
+  PRODUCTION_DOCKER_IMAGE: lychen/production/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: jqEDVdLT2adh_RT3NLoQO
+  STAGING_DOCKER_IMAGE: lychen/staging/website
+  STAGING_DOKPLOY_COMPOSE_ID: mLzk8ec3AD7cjI_aPIRKL
 
 id: website
 
