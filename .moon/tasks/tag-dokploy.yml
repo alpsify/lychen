@@ -13,34 +13,33 @@ tasks:
     platform: system
 
   dokploy-compose-update:
-    command:
-      - 'curl'
-      - '-X POST'
-      - '${DOKPLOY_API_URL}/compose.update'
-      - "-H 'accept: application/json'"
-      - "-H 'Content-Type: application/json'"
-      - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
-      - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}", "composeFile": "$(<$projectRoot/${COMPOSE_FILE})"}'''
+    options:
+      cache: false
     platform: system
+    script: bash $workspaceRoot/.moon/scripts/dokploy-compose-update-from-file.sh
 
   production-dokploy-compose-deploy:
+    deps:
+      - production-dokploy-compose-update
     env:
       DOKPLOY_COMPOSE_ID: ${PRODUCTION_DOKPLOY_COMPOSE_ID}
     extends: dokploy-compose-deploy
 
   production-dokploy-compose-update:
     env:
-      COMPOSE_FILE: compose.production.yml
+      COMPOSE_FILE: $projectRoot/compose.production.yml
       DOKPLOY_COMPOSE_ID: ${PRODUCTION_DOKPLOY_COMPOSE_ID}
     extends: dokploy-compose-update
 
   staging-dokploy-compose-deploy:
+    deps:
+      - staging-dokploy-compose-update
     env:
       DOKPLOY_COMPOSE_ID: ${STAGING_DOKPLOY_COMPOSE_ID}
     extends: dokploy-compose-deploy
 
   staging-dokploy-compose-update:
     env:
-      COMPOSE_FILE: compose.staging.yml
+      COMPOSE_FILE: $projectRoot/compose.staging.yml
       DOKPLOY_COMPOSE_ID: ${STAGING_DOKPLOY_COMPOSE_ID}
     extends: dokploy-compose-update
