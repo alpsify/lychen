@@ -28,6 +28,7 @@ export const APPLICATION_ALIAS = {
   Meli: 'meli',
   Kolo: 'kolo',
   Tera: 'tera',
+  Myko: 'myko',
 } as const;
 
 export type ApplicationAlias = ObjectValues<typeof APPLICATION_ALIAS>;
@@ -42,6 +43,7 @@ export const APPLICATION_LINK = {
   [APPLICATION_ALIAS.Meli]: 'meli.lychen.fr',
   [APPLICATION_ALIAS.Kolo]: 'kolo.lychen.fr',
   [APPLICATION_ALIAS.Tera]: 'tera.lychen.fr',
+  [APPLICATION_ALIAS.Myko]: 'myko.lychen.fr',
 } as const;
 
 export function useApplications() {
@@ -63,7 +65,14 @@ export function useApplications() {
     });
   });
 
+  const sortedApplicationsList = computed<Application[]>(() => {
+    return applicationsList.value.sort((a, b) =>
+      a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
+    );
+  });
+
   return {
     applicationsList,
+    sortedApplicationsList,
   };
 }

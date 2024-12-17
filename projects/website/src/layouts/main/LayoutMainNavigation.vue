@@ -35,7 +35,7 @@
                 </div>
                 <div class="grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3 p-6">
                   <LychenNavigationMenuSubLink
-                    v-for="application in applicationsList"
+                    v-for="application in sortedApplicationsList"
                     v-bind="application"
                     :key="application.title"
                   />
@@ -191,7 +191,7 @@ const LychenNavigationMenuTrigger = defineAsyncComponent(
 
 const { t } = useTranslations();
 
-const { applicationsList } = useApplications();
+const { sortedApplicationsList } = useApplications();
 
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();

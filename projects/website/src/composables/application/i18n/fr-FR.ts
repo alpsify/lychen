@@ -35,4 +35,8 @@ export default {
     name: 'Tera',
     description: 'Outil pour les maraîchers et jardiniers',
   },
+  myko: {
+    name: 'Myko',
+    description: 'Outil pour les myciculteurs : récolteurs, producteurs, sélectionneurs',
+  },
 };
