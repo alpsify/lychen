@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import heroUrl from './assets/hero-1.webp';
+import ogImageUrl from './assets/Home-ogImage.webp';
 
 import { useTranslations } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
@@ -21,7 +21,7 @@ import { useExtendedHead } from '@/composables/useExtendedHead';
 
 const { t } = useTranslations();
 
-useExtendedHead(t, { ogImage: heroUrl });
+useExtendedHead(t, { ogImage: ogImageUrl });
 </script>
 
 <style lang="css" scoped></style>

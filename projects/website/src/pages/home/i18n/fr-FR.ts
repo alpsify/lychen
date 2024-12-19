@@ -13,7 +13,7 @@ export default {
       append: ' des territoires',
     },
     description:
-      "L'écosystème conçu pour connecter, organiser et développer la résilience des territoires face aux changements climatiques.",
+      'Un écosystème conçu pour connecter, organiser et renforcer la résilience des territoires face aux changements climatiques.',
     discover: 'Découvrir',
   },
   crowfunding: {

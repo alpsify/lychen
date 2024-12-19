@@ -6,7 +6,7 @@
   >
     <div
       v-if="overlay"
-      :class="cn('absolute top-0 left-0 size-full', overlayClass)"
+      :class="cn('overlay absolute top-0 left-0 size-full', overlayClass)"
     ></div>
     <div :class="cn('container py-8 z-10', props.class)">
       <slot></slot>
@@ -33,3 +33,9 @@ const props = withDefaults(defineProps<Props>(), {
   class: undefined,
 });
 </script>
+
+<style>
+.overlay {
+  border-radius: inherit;
+}
+</style>
