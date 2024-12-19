@@ -6,6 +6,7 @@
         <p class="text-sm opacity-80">
           {{ t(`${TRANSLATION_KEY}.footer.seo_paragraph`) }}
         </p>
+        <p class="text-sm opacity-60">Prononciation: \li. kɛn\</p>
       </div>
 
       <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">

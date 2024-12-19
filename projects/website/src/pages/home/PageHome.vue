@@ -1,6 +1,6 @@
 <template>
   <PageHomeHero />
-  <PageHomeDefinition />
+  <PageHomeCrowfunding />
   <PageHomeFeatures />
   <PageHomeOSS />
   <PageHomePresentation />
@@ -12,7 +12,7 @@ import heroUrl from './assets/hero-1.webp';
 
 import { useTranslations } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
-import PageHomeDefinition from './PageHomeDefinition.vue';
+import PageHomeCrowfunding from './PageHomeCrowfunding.vue';
 import PageHomeFeatures from './PageHomeFeatures.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomePresentation from './PageHomePresentation.vue';
