@@ -13,6 +13,7 @@
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/ui-layouts": "workspace:*",
+    "@lychen/util-odd": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@lychen/vue-util-i18n": "workspace:*",
     "@unhead/schema-org": "^1.11.11",

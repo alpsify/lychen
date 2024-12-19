@@ -3,6 +3,7 @@ dependsOn:
   - ui-css
   - ui-i18n
   - ui-layouts
+  - util-odd
   - vue-util-composables
   - vue-util-i18n
 
@@ -25,5 +26,11 @@ project:
 tags:
   - docker
   - dokploy
+
+tasks:
+  assets-sync:
+    deps:
+      - args: '$projectRoot/public/odd-icons'
+        target: util-odd:sync-icons
 
 type: application

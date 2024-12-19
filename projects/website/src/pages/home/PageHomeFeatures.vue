@@ -1,29 +1,53 @@
 <template>
   <LychenContainer class="flex flex-col items-center gap-4">
-    <LychenTitle variant="h2">{{ t('features.title') }}</LychenTitle>
-    <LychenParagraph
-      variant="website-default"
-      class="opacity-80 lg:w-1/2 lg:text-center"
-      >{{ t('features.description') }}
-    </LychenParagraph>
-    <LychenBentoGrid
-      class="mt-10 grid w-full auto-rows-[20rem] grid-cols-3 gap-4 lg:auto-rows-[minmax(20rem,30rem)] lg:grid-rows-3"
+    <LychenTitle variant="h2">{{ t('applications.title') }}</LychenTitle>
+    <LychenTitle
+      variant="h2"
+      class="opacity-80 text-center"
+      >{{ t('applications.second_title') }}</LychenTitle
     >
-      <LychenBentoGridCard
-        v-for="(feature, index) in features"
-        :key="index"
-        v-bind="feature"
-        :class="feature.class"
-      />
-    </LychenBentoGrid>
+  </LychenContainer>
+  <LychenContainer class="flex flex-col items-center gap-4">
+    <div class="flex flex-col-reverse md:grid md:grid-cols-[30%_1fr] gap-8 mt-10">
+      <div class="flex flex-col justify-between gap-10">
+        <LychenTitle variant="h3">{{ t('goals.title') }}</LychenTitle>
+        <GoalSubSection
+          v-for="goal in goals"
+          :key="goal.index"
+          :title="goal.title"
+          :description="goal.description"
+          :link="{
+            title: t(`goals.link_title.${goal.index}`),
+            href: goal.link,
+          }"
+          :expanded="goal.index === selectedGoal.index"
+          @click="selectedGoal = goal"
+        />
+      </div>
+      <div class="rounded-2xl bg-gradient-to-r from-secondary-container to-secondary md:p-8">
+        <img
+          v-if="selectedGoal"
+          :src="`odd-icons/${selectedGoal.icon}`"
+          class="rounded-lg h-14 md:h-24 absolute m-2 fade-in-10"
+        />
+        <img
+          src="./assets/definition.webp"
+          class="rounded-lg"
+        />
+      </div>
+    </div>
   </LychenContainer>
 </template>
 
 <script setup lang="ts">
-import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
-import { defineAsyncComponent } from 'vue';
+import { computed, defineAsyncComponent, ref } from 'vue';
 
 import { useTranslations } from './i18n';
+import { useOdd } from '@lychen/util-odd/composables/useOdd';
+
+const GoalSubSection = defineAsyncComponent(
+  () => import('@/pages/home/component/GoalSubSection.vue'),
+);
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -32,60 +56,11 @@ const LychenTitle = defineAsyncComponent(
 const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
 );
-const LychenBentoGrid = defineAsyncComponent(
-  () => import('@lychen/ui-components/bento-grid/LychenBentoGrid.vue'),
-);
-const LychenBentoGridCard = defineAsyncComponent(
-  () => import('@lychen/ui-components/bento-grid/LychenBentoGridCard.vue'),
-);
 
 const { t } = useTranslations();
 
-const features = [
-  {
-    title: 'Consommation alimentaire',
-    description: 'Gèrer et optimiser la consommation de produits locaux.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3',
-  },
-  {
-    title: 'Production alimentaire',
-    description: 'Suivre et analyser la production agricole et son impact.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/6631952/pexels-photo-6631952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3',
-  },
-  {
-    title: 'Environnement',
-    description: "Comprendre, préserver l'environnement",
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4',
-  },
-  {
-    title: 'Valorisation des déchets organiques',
-    description: 'Organiser et valoriser les déchets pour un impact positif.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/7728736/pexels-photo-7728736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2',
-  },
-  {
-    title: 'Activité du territoire',
-    description: 'Promouvoir et organiser les projets projets locaux.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/4880395/pexels-photo-4880395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4',
-  },
-];
+const { two, eleven, twelve } = useOdd();
+
+const goals = computed(() => [eleven.value, two.value, twelve.value]);
+const selectedGoal = ref(eleven.value);
 </script>

@@ -22,10 +22,17 @@ export default {
       'Rejoignez-nous pour co-créer Lychen et donner vie à un projet Open Source innovant.',
     preregister: 'Préinscrivez-vous dès maintenant !',
   },
-  features: {
-    title: 'Mettre en relations les différents acteurs.',
-    description:
-      "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
+  applications: {
+    title: 'Un seul écosystème',
+    second_title: 'Tous les outils pour la planète',
+  },
+  goals: {
+    title: 'Objectifs de développement durable',
+    link_title: {
+      2: 'Voir plus',
+      11: 'Découvrir plus',
+      12: 'Plus de détails',
+    },
   },
   presentation: {
     title: "Ensemble, semons les graines d'un avenir durable.",

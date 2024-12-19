@@ -1752,6 +1752,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/util-odd@workspace:*, @lychen/util-odd@workspace:libs/util-odd":
+  version: 0.0.0-use.local
+  resolution: "@lychen/util-odd@workspace:libs/util-odd"
+  dependencies:
+    "@lychen/vue-util-i18n": "workspace:*"
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
@@ -1780,6 +1789,7 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/util-odd": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"
