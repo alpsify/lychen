@@ -1801,6 +1801,7 @@ __metadata:
     radix-vue: "npm:1.9.6"
     tailwindcss: "npm:^3.4.16"
     tailwindcss-animate: "npm:1.0.7"
+    tailwindcss-motion: "npm:1.0.0"
     vite: "npm:^6.0.3"
     vite-plugin-mkcert: "npm:^1.17.6"
     vite-ssg: "npm:^0.24.2"
@@ -7724,6 +7725,15 @@ __metadata:
   peerDependencies:
     tailwindcss: "*"
   checksum: 10c0/ec7dbd1631076b97d66a1fbaaa06e0725fccfa63119221e8d87a997b02dcede98ad88bb1ef6665b968f5d260fcefb10592e0299ca70208d365b37761edf5e19a
+  languageName: node
+  linkType: hard
+
+"tailwindcss-motion@npm:1.0.0":
+  version: 1.0.0
+  resolution: "tailwindcss-motion@npm:1.0.0"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 10c0/3a81194673a856d44a972c2851ab2c95653547b0d621beded5fcbf671d94193f3d8712df7f819fc82632383f2cf1ac6add48d27b69a47af5183befcbc38d982e
   languageName: node
   linkType: hard
 

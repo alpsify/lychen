@@ -54,14 +54,15 @@ const { t } = useTranslations();
 const { y } = useWindowScroll();
 </script>
 
-<style>
+<style scoped>
 #hero {
+  --time: 1.2s;
   top: 0;
   scale: 1;
-  transition: all 1.5s ease-in-out;
+  transition: all var(--time) ease-in-out;
   border-radius: 0px;
   header {
-    transition: all 1.5s ease-in-out;
+    transition: all var(--time) ease-in-out;
   }
 }
 
