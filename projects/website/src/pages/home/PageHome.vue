@@ -1,6 +1,6 @@
 <template>
   <PageHomeHero />
-  <PageHomeDefinition />
+  <PageHomeCrowfunding />
   <PageHomeFeatures />
   <PageHomeOSS />
   <PageHomePresentation />
@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts" setup>
-import heroUrl from './assets/hero-1.webp';
+import ogImageUrl from './assets/Home-ogImage.webp';
 
 import { useTranslations } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
-import PageHomeDefinition from './PageHomeDefinition.vue';
+import PageHomeCrowfunding from './PageHomeCrowfunding.vue';
 import PageHomeFeatures from './PageHomeFeatures.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomePresentation from './PageHomePresentation.vue';
@@ -21,7 +21,7 @@ import { useExtendedHead } from '@/composables/useExtendedHead';
 
 const { t } = useTranslations();
 
-useExtendedHead(t, { ogImage: heroUrl });
+useExtendedHead(t, { ogImage: ogImageUrl });
 </script>
 
 <style lang="css" scoped></style>
