@@ -3,7 +3,7 @@
     class="component grid grid-cols-[4px_1fr] gap-6"
     :class="expanded ? 'expanded' : ''"
   >
-    <div class="w-full h-4/5 bg-surface-container rounded-full mt-[3px]">
+    <div class="w-full h-4/5 rounded-full mt-[3px] badge-track">
       <div class="w-full h-2/5 bg-primary rounded-full badge"></div>
     </div>
     <div class="flex flex-col gap-2">
@@ -54,11 +54,21 @@ defineProps<Props>();
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 
+  .badge-track {
+    background: theme('colors.surface.container');
+  }
+
   .badge,
   .link {
     transition: all 0.5s ease-in-out;
     display: none;
     opacity: 0;
+  }
+
+  &:hover {
+    .badge-track {
+      background: theme('colors.surface.container-highest');
+    }
   }
 }
 
@@ -69,6 +79,16 @@ defineProps<Props>();
   .link {
     display: flex;
     opacity: 1;
+  }
+
+  .badge-track {
+    background: theme('colors.surface.container-highest');
+  }
+
+  &:hover {
+    .badge-track {
+      background: theme('colors.surface.container-highest');
+    }
   }
 }
 </style>
