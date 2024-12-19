@@ -1,0 +1,25 @@
+dependsOn:
+  - vue-util-i18n
+
+id: util-odd
+
+language: typescript
+
+project:
+  description: ODD related utils
+  metadata:
+    link: https://www.un.org/sustainabledevelopment/
+
+tasks:
+  sync-icons:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/assets/icons
+    inputs:
+      - '$projectRoot/assets/icons/**/*'
+    options:
+      cache: false
+    platform: system
+
+type: library

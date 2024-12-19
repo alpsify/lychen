@@ -6,6 +6,7 @@
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
+    "../../libs/util-odd/**/*",
     "../../libs/vue/util-composables/**/*",
     "../../libs/vue/util-i18n/**/*"
   ],
@@ -21,6 +22,9 @@
     },
     {
       "path": "../../libs/ui-layouts"
+    },
+    {
+      "path": "../../libs/util-odd"
     },
     {
       "path": "../../libs/vue/util-composables"
@@ -41,7 +45,8 @@
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
       "@lychen/vue-util-i18n/*": ["../../libs/vue/util-i18n/*"],
-      "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"]
+      "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
+      "@lychen/util-odd/*": ["../../libs/util-odd/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

@@ -8,23 +8,31 @@ export default {
   },
   hero: {
     title: {
-      prepend: 'Acteur de la ',
-      key_word: 'symbiose',
-      append: ' du territoire',
+      prepend: 'Développer la ',
+      key_word: 'robutesse',
+      append: ' des territoires',
     },
     description:
-      'La symbiose mutualiste est une interaction durable et réciproquement profitable entre différents organismes.',
+      'Un écosystème conçu pour connecter, organiser et renforcer la résilience des territoires face aux changements climatiques.',
     discover: 'Découvrir',
   },
-  definition: {
-    phonetic: '\\li. kɛn\\',
-    definition:
-      "Végétal symbiotique formé par l'association d'une algue microscopique et d'un champignon filamenteux.",
-  },
-  features: {
-    title: 'Mettre en relations les différents acteurs.',
+  crowfunding: {
+    title: "Vous pouvez nous aider à créer l'écosystème parfait !",
     description:
-      "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
+      'Rejoignez-nous pour co-créer Lychen et donner vie à un projet Open Source innovant.',
+    preregister: 'Préinscrivez-vous dès maintenant !',
+  },
+  applications: {
+    title: 'Un seul écosystème',
+    second_title: 'Tous les outils pour la planète',
+  },
+  goals: {
+    title: 'Objectifs de développement durable',
+    link_title: {
+      2: 'Voir plus',
+      11: 'Découvrir plus',
+      12: 'Plus de détails',
+    },
   },
   presentation: {
     title: "Ensemble, semons les graines d'un avenir durable.",
