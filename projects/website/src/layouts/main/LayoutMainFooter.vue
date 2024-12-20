@@ -4,13 +4,13 @@
       <div class="flex basis-1/3 flex-col gap-2">
         <LychenLogo class="h-14" />
         <p class="text-sm opacity-80">
-          {{ t(`${TRANSLATION_KEY}.footer.seo_paragraph`) }}
+          {{ t(`footer.seo_paragraph`) }}
         </p>
         <p class="text-sm opacity-60">Prononciation: \li. kɛn\</p>
       </div>
 
       <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">
-        <p class="font-medium">{{ t(`${GLOBAL_TRANSLATION_KEY}.email.contact`) }}</p>
+        <p class="font-medium">{{ tGlobal(`email.contact`) }}</p>
         <p>
           Made with ❤️ by
           <a
@@ -29,7 +29,7 @@
     </div>
 
     <div class="flex flex-col-reverse items-center justify-between gap-4 lg:flex-row">
-      <small class="text-xs">{{ t(`${TRANSLATION_KEY}.footer.copyright`) }}</small>
+      <small class="text-xs">{{ t(`footer.copyright`) }}</small>
       <ul class="flex flex-row gap-2 text-xs opacity-60">
         <li
           v-for="(menu, _index) in legalMenus"
@@ -43,10 +43,14 @@
 </template>
 
 <script lang="ts" setup>
-import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
+import {
+  TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
+  messages as globalMessages,
+} from '@lychen/ui-i18n/global';
 import { defineAsyncComponent } from 'vue';
 
-import { TRANSLATION_KEY, useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
 const legalMenus = [
@@ -55,5 +59,10 @@ const legalMenus = [
   { title: 'Mentions légales' },
 ];
 
-const { t } = useTranslations();
+const { t: tGlobal } = useI18nExtended({
+  messages: globalMessages,
+  rootKey: GLOBAL_TRANSLATION_KEY,
+  prefixed: true,
+});
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

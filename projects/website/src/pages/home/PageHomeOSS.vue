@@ -33,7 +33,8 @@
 import ossUrl from './assets/oss.webp';
 import { defineAsyncComponent } from 'vue';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageManifest } from '../manifest';
 
 const LychenDivWithBackgroundImage = defineAsyncComponent(
@@ -57,7 +58,7 @@ const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
 );
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>
 
 <style scoped>

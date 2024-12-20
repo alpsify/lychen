@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   }
 }

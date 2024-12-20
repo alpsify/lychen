@@ -1,0 +1,5 @@
+id: vue-i18n-util-configs
+
+language: typescript
+
+type: library

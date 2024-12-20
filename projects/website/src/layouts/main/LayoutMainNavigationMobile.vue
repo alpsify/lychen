@@ -4,7 +4,7 @@
       <RouterLink
         :to="RoutePageHome"
         @click="closeMobileMenu"
-        >{{ t(`${TRANSLATION_KEY}.navigation.home.title`) }}
+        >{{ t(`navigation.home.title`) }}
       </RouterLink>
     </div>
     <LychenAccordion
@@ -15,7 +15,7 @@
     >
       <LychenAccordionItem value="applications">
         <LychenAccordionTrigger class="text-lg font-bold">{{
-          t(`${TRANSLATION_KEY}.navigation.app.title`)
+          t(`navigation.app.title`)
         }}</LychenAccordionTrigger>
         <LychenAccordionContent>
           <LychenNavigationMenuSubLink
@@ -28,7 +28,7 @@
       </LychenAccordionItem>
       <LychenAccordionItem value="resources">
         <LychenAccordionTrigger class="text-lg font-bold">{{
-          t(`${TRANSLATION_KEY}.navigation.resources.title`)
+          t(`navigation.resources.title`)
         }}</LychenAccordionTrigger>
         <LychenAccordionContent>
           <LychenNavigationMenuSubLink
@@ -41,7 +41,7 @@
       </LychenAccordionItem>
       <LychenAccordionItem value="community">
         <LychenAccordionTrigger class="text-lg font-bold">{{
-          t(`${TRANSLATION_KEY}.navigation.community.title`)
+          t(`navigation.community.title`)
         }}</LychenAccordionTrigger>
         <LychenAccordionContent>
           <LychenNavigationMenuSubLink
@@ -58,14 +58,14 @@
       <RouterLink
         :to="RoutePagePrice"
         @click="closeMobileMenu"
-        >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
+        >{{ t(`navigation.price.title`) }}
       </RouterLink>
     </div>
     <div class="text-lg font-bold">
       <RouterLink
         :to="RoutePageSponsor"
         @click="closeMobileMenu"
-        >{{ t(`${TRANSLATION_KEY}.navigation.sponsor.title`) }}
+        >{{ t(`navigation.sponsor.title`) }}
       </RouterLink>
     </div>
   </div>
@@ -74,10 +74,12 @@
 <script setup lang="ts">
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 
-import { TRANSLATION_KEY, useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePagePrice } from '@/pages/price';
 import { RoutePageHome } from '@/pages/home';
-import { useCommunityMenu, useResourcesMenu } from '.';
+import { useCommunityMenu } from './composables/useCommunityMenu';
+import { useResourcesMenu } from './composables/useResourcesMenu';
 import LychenNavigationMenuSubLink from '@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue';
 import LychenAccordion from '@lychen/ui-components/accordion/LychenAccordion.vue';
 import LychenAccordionTrigger from '@lychen/ui-components/accordion/LychenAccordionTrigger.vue';
@@ -86,7 +88,7 @@ import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordion
 import { inject, type Ref } from 'vue';
 import { RoutePageSponsor } from '@/pages/sponsor';
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { applicationsList } = useApplicationsCatalog();
 const { communityMenuList } = useCommunityMenu();

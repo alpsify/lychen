@@ -8,8 +8,8 @@
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
-    "../../libs/vue/util-composables/**/*",
-    "../../libs/vue/util-i18n/**/*"
+    "../../libs/vue/i18n/util-composables/**/*",
+    "../../libs/vue/util-composables/**/*"
   ],
   "references": [
     {
@@ -31,10 +31,10 @@
       "path": "../../libs/ui-layouts"
     },
     {
-      "path": "../../libs/vue/util-composables"
+      "path": "../../libs/vue/i18n/util-composables"
     },
     {
-      "path": "../../libs/vue/util-i18n"
+      "path": "../../libs/vue/util-composables"
     }
   ],
   "compilerOptions": {
@@ -48,7 +48,7 @@
       "@lychen/ui-css/*": ["../../libs/ui-css/*"],
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
-      "@lychen/vue-util-i18n/*": ["../../libs/vue/util-i18n/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
       "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"]

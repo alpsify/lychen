@@ -53,10 +53,19 @@
       "path": "libs/util-composables"
     },
     {
-      "path": "libs/vue/util-composables"
+      "path": "libs/vue/i18n/util-composables"
     },
     {
-      "path": "libs/vue/util-i18n"
+      "path": "libs/vue/i18n/util-config"
+    },
+    {
+      "path": "libs/vue/i18n/util-configs"
+    },
+    {
+      "path": "libs/vue/i18n/util-helpers"
+    },
+    {
+      "path": "libs/vue/util-composables"
     },
     {
       "path": "projects/kiro/admin-app"

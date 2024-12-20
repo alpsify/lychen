@@ -1,4 +1,4 @@
-import { useTranslations, TRANSLATION_KEY } from '@lychen/applications-ui-i18n';
+import { messages, TRANSLATION_KEY } from '@lychen/applications-ui-i18n';
 import { Application } from '@lychen/applications-util-model/Application';
 import {
   ApplicationAlias,
@@ -6,15 +6,16 @@ import {
 } from '@lychen/applications-util-model/ApplicationAlias';
 import { APPLICATION_STATE } from '@lychen/applications-util-model/ApplicationState';
 import { computed } from 'vue';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 export function useApplicationsCatalog() {
-  const { t } = useTranslations();
+  const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
   function generateAppInfo(alias: ApplicationAlias) {
     return {
       link: `https://${alias}.lychen.fr`,
-      title: t(`${TRANSLATION_KEY}.${alias}.name`),
-      description: t(`${TRANSLATION_KEY}.${alias}.description`),
+      title: t(`${alias}.name`),
+      description: t(`${alias}.description`),
       state: APPLICATION_STATE.Funding,
     };
   }

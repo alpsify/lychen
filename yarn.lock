@@ -1641,8 +1641,6 @@ __metadata:
 "@lychen/applications-ui-i18n@workspace:*, @lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n"
-  dependencies:
-    "@lychen/vue-util-i18n": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1652,6 +1650,7 @@ __metadata:
   dependencies:
     "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
@@ -1674,7 +1673,7 @@ __metadata:
     "@lychen/kiro-ui-components": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:11.1.0"
     "@zitadel/vue": "npm:1.1.1"
@@ -1715,7 +1714,7 @@ __metadata:
     "@lychen/kiro-ui-components": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:11.1.0"
@@ -1740,8 +1739,6 @@ __metadata:
 "@lychen/odd-ui-i18n@workspace:*, @lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n"
-  dependencies:
-    "@lychen/vue-util-i18n": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1751,6 +1748,7 @@ __metadata:
   dependencies:
     "@lychen/odd-ui-i18n": "workspace:*"
     "@lychen/odd-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1805,7 +1803,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
   dependencies:
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1824,24 +1822,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-i18n-util-composables@workspace:*, @lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables"
+  dependencies:
+    "@lychen/typescript-util-date": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vue-i18n-util-helpers": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-i18n-util-helpers@workspace:*, @lychen/vue-i18n-util-helpers@workspace:libs/vue/i18n/util-helpers":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-helpers@workspace:libs/vue/i18n/util-helpers"
+  dependencies:
+    "@intlify/core-base": "npm:^10.0.4"
+    vue: "npm:3.5.13"
+    vue-i18n: "npm:^10.0.5"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
   dependencies:
     "@vueuse/core": "npm:^11.2.0"
     vue: "npm:3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-util-i18n@workspace:*, @lychen/vue-util-i18n@workspace:libs/vue/util-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-util-i18n@workspace:libs/vue/util-i18n"
-  dependencies:
-    "@intlify/core-base": "npm:^10.0.4"
-    "@lychen/typescript-util-date": "workspace:*"
-    "@lychen/typescript-util-object": "workspace:*"
-    vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
   languageName: unknown
   linkType: soft
 
@@ -1856,8 +1868,8 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"
     "@unhead/vue": "npm:^1.11.11"
     "@vitejs/plugin-vue": "npm:^5.2.1"

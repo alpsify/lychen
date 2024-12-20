@@ -42,7 +42,8 @@ import Goal12Url from './assets/goal-12.webp';
 import Goal11Url from './assets/goal-11.webp';
 import { computed, defineAsyncComponent, ref } from 'vue';
 import { useOddCatalog } from '@lychen/odd-util-composables/useOddCatalog';
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const GoalSubSection = defineAsyncComponent(
   () => import('@/pages/home/component/GoalSubSection.vue'),
@@ -56,7 +57,7 @@ const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
 );
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { two, eleven, twelve } = useOddCatalog();
 

@@ -1,9 +1,10 @@
-import { useTranslations } from '@lychen/odd-ui-i18n';
+import { messages, TRANSLATION_KEY } from '@lychen/odd-ui-i18n';
 import { Odd } from '@lychen/odd-util-model/Odd';
 import { type Ref, ref } from 'vue';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 export function useOddCatalog() {
-  const { t } = useTranslations();
+  const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
   const totalNumber = 17;
 

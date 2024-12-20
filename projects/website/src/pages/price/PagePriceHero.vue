@@ -25,7 +25,8 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
@@ -37,7 +38,7 @@ const LychenTitle = defineAsyncComponent(
 
 const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>
 
 <style lang="css" scoped></style>

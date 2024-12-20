@@ -50,7 +50,8 @@ import imageUrl from './assets/ulule_horizontal_blanc.png';
 import imageUrlLight from './assets/ulule_horizontal.png';
 import { defineAsyncComponent } from 'vue';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 
@@ -68,7 +69,7 @@ const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
 );
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { isDark } = usePreferredColorScheme();
 </script>

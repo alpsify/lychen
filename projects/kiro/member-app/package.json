@@ -14,7 +14,7 @@
     "@lychen/kiro-ui-components": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
-    "@lychen/vue-util-i18n": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
     "@vueuse/core": "11.1.0",
     "@zitadel/vue": "1.1.1",
     "radix-vue": "1.9.6",

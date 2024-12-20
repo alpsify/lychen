@@ -4,6 +4,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@lychen/odd-ui-i18n": "workspace:*",
-    "@lychen/odd-util-model": "workspace:*"
+    "@lychen/odd-util-model": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   }
 }

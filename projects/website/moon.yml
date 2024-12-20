@@ -6,8 +6,8 @@ dependsOn:
   - ui-css
   - ui-i18n
   - ui-layouts
+  - vue-i18n-util-composables
   - vue-util-composables
-  - vue-util-i18n
 
 env:
   PRODUCTION_DOCKER_IMAGE: lychen/production/website

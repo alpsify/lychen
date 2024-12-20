@@ -11,7 +11,7 @@
         <LychenNavigationMenuList>
           <LychenNavigationMenuItem>
             <LychenNavigationMenuTrigger>{{
-              t(`${TRANSLATION_KEY}.navigation.app.title`)
+              t(`navigation.app.title`)
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
@@ -23,12 +23,12 @@
                   <LychenIcon icon="megaphone" />
                   <div class="flex flex-col gap-0">
                     <p class="text-sm">
-                      {{ t(`${TRANSLATION_KEY}.navigation.app.menu.disclaimer.paragraph`) }}
+                      {{ t(`navigation.app.menu.disclaimer.paragraph`) }}
 
                       <a
                         class="text-sm underline"
-                        :href="`mailto:${t(`${GLOBAL_TRANSLATION_KEY}.email.contact`)}`"
-                        >{{ t(`${GLOBAL_TRANSLATION_KEY}.email.contact`) }}</a
+                        :href="`mailto:${tGlobal(`email.contact`)}`"
+                        >{{ tGlobal(`email.contact`) }}</a
                       >
                     </p>
                   </div>
@@ -46,7 +46,7 @@
 
           <LychenNavigationMenuItem>
             <LychenNavigationMenuTrigger>{{
-              t(`${TRANSLATION_KEY}.navigation.resources.title`)
+              t(`navigation.resources.title`)
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
@@ -70,7 +70,7 @@
           </LychenNavigationMenuItem>
           <LychenNavigationMenuItem>
             <LychenNavigationMenuTrigger>{{
-              t(`${TRANSLATION_KEY}.navigation.community.title`)
+              t(`navigation.community.title`)
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
@@ -97,9 +97,7 @@
               :class="navigationMenuTriggerStyle()"
               class="hover:bg-primary-container/30 hover:text-primary-container-on"
             >
-              <RouterLink :to="RoutePagePrice"
-                >{{ t(`${TRANSLATION_KEY}.navigation.price.title`) }}
-              </RouterLink>
+              <RouterLink :to="RoutePagePrice">{{ t(`navigation.price.title`) }} </RouterLink>
             </LychenNavigationMenuLink>
           </LychenNavigationMenuItem>
           <LychenNavigationMenuItem>
@@ -107,9 +105,7 @@
               :class="navigationMenuTriggerStyle()"
               class="hover:bg-primary-container/30 hover:text-primary-container-on"
             >
-              <RouterLink :to="RoutePageSponsor"
-                >{{ t(`${TRANSLATION_KEY}.navigation.sponsor.title`) }}
-              </RouterLink>
+              <RouterLink :to="RoutePageSponsor">{{ t(`navigation.sponsor.title`) }} </RouterLink>
             </LychenNavigationMenuLink>
           </LychenNavigationMenuItem>
         </LychenNavigationMenuList>
@@ -145,15 +141,20 @@ import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
 import { defineAsyncComponent } from 'vue';
-import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@/pages/price';
 
-import { TRANSLATION_KEY, useTranslations } from './i18n';
+import {
+  TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
+  messages as globalMessages,
+} from '@lychen/ui-i18n/global';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
-import { useCommunityMenu, useResourcesMenu } from '.';
+import { useCommunityMenu } from './composables/useCommunityMenu';
+import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@/pages/sponsor';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
@@ -188,7 +189,12 @@ const LychenNavigationMenuTrigger = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue'),
 );
 
-const { t } = useTranslations();
+const { t: tGlobal } = useI18nExtended({
+  messages: globalMessages,
+  rootKey: GLOBAL_TRANSLATION_KEY,
+  prefixed: true,
+});
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { sortedApplicationsList } = useApplicationsCatalog();
 

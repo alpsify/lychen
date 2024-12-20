@@ -62,7 +62,8 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent, ref } from 'vue';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
@@ -77,7 +78,7 @@ const imgSrc = computed(() => {
   return new URL(`./assets/images/graphic-${step.value}.png`, import.meta.url).href;
 });
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>
 
 <style scoped>

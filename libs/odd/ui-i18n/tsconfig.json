@@ -1,15 +1,9 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../../vue/util-i18n/**/*"],
-  "references": [
-    {
-      "path": "../../vue/util-i18n"
-    }
-  ],
+  "include": ["**/*"],
+  "references": [],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/odd/ui-i18n",
-    "paths": {
-      "@lychen/vue-util-i18n/*": ["../../vue/util-i18n/*"]
-    }
+    "paths": {}
   }
 }

@@ -1,7 +1,15 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../ui-i18n/**/*", "../util-model/**/*"],
+  "include": [
+    "**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../ui-i18n/**/*",
+    "../util-model/**/*"
+  ],
   "references": [
+    {
+      "path": "../../vue/i18n/util-composables"
+    },
     {
       "path": "../ui-i18n"
     },
@@ -14,7 +22,8 @@
     "paths": {
       "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"],
-      "@lychen/applications-util-model/*": ["../util-model/*"]
+      "@lychen/applications-util-model/*": ["../util-model/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"]
     }
   }
 }

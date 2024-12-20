@@ -56,7 +56,8 @@ import heroUrl from './assets/hero-2.webp';
 import { defineAsyncComponent } from 'vue';
 import { useWindowScroll } from '@vueuse/core';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageSponsor } from '../sponsor';
 
 const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
@@ -74,7 +75,7 @@ const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon
 const LychenRainbowBox = defineAsyncComponent(
   () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
 );
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { y } = useWindowScroll();
 </script>
