@@ -10,16 +10,23 @@
       overlay
       overlay-class="bg-surface-on dark:bg-surface opacity-40"
     >
-      <div class="z-10 flex md:basis-3/5 items-start flex-col gap-4">
+      <div class="flex md:basis-3/5 items-start flex-col gap-4">
         <LychenTitle
           variant="h1"
-          class="text-balance"
+          class="text-balance z-20"
           >{{ t('hero.title.prepend') }}
           {{ t('hero.title.key_word') }}
           {{ t('hero.title.append') }}</LychenTitle
         >
-        <LychenParagraph variant="website-highlight">{{ t('hero.description') }} </LychenParagraph>
-        <RouterLink to="#definition">
+        <LychenParagraph
+          variant="website-highlight"
+          class="z-20"
+          >{{ t('hero.description') }}
+        </LychenParagraph>
+        <RouterLink
+          to="#discover"
+          class="z-20"
+        >
           <LychenButton
             class="flex gap-2"
             data-umami-event="discover-button"
@@ -71,5 +78,9 @@ const { y } = useWindowScroll();
   header {
     border-radius: 50px;
   }
+}
+
+:deep(.blobed) {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 </style>

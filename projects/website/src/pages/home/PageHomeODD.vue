@@ -77,7 +77,7 @@ const images: { [key: number]: string } = {
 };
 </script>
 
-<style scope>
+<style scoped>
 .odd-icon {
   top: -28px;
   left: -28px;

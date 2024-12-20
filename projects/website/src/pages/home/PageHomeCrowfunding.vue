@@ -1,5 +1,8 @@
 <template>
-  <LychenContainer class="flex flex-col md:flex-row gap-6 items-stretch md:items-center md:py-10">
+  <LychenContainer
+    id="discover"
+    class="flex flex-col md:flex-row gap-6 items-stretch md:items-center md:py-10"
+  >
     <LychenIcon
       icon="bullhorn"
       class="fa-2xl"
