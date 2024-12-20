@@ -7,7 +7,7 @@
         overlay-class="bg-surface-on dark:bg-surface opacity-50"
         class="p-8 rounded-xl py-24 group"
       >
-        <div class="flex flex-col items-center gap-8 z-10">
+        <div class="relative flex flex-col items-center gap-8 z-10">
           <LychenTitle
             variant="h2"
             class="md:basis-2/5 text-center"

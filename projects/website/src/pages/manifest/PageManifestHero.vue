@@ -2,8 +2,10 @@
   <LychenHero
     class="flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center"
   >
-    <LychenTitle variant="h1">{{ t(`meta.title`) }}</LychenTitle>
-    <LychenParagraph variant="website-highlight">{{ t(`meta.description`) }}</LychenParagraph>
+    <div class="flex flex-col basis-3/4 gap-4 items-center">
+      <LychenTitle variant="h1">{{ t(`meta.title`) }}</LychenTitle>
+      <LychenParagraph variant="website-highlight">{{ t(`meta.description`) }}</LychenParagraph>
+    </div>
   </LychenHero>
 </template>
 

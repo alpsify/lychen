@@ -2,21 +2,23 @@
   <LychenHero
     class="flex flex-col items-center justify-center gap-4 text-center text-surface-on min-h-dvh"
   >
-    <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
-    <LychenParagraph
-      class="md:w-4/6"
-      variant="website-default"
-      >{{ t('paragraph') }}
-    </LychenParagraph>
-    <LychenParagraph
-      variant="website-default"
-      class="opacity-80"
-      >{{ t('paragraph_complement') }}
-    </LychenParagraph>
-    <img
-      src="./assets/smile_atiGofFl0TgADvvhneAEk.webp"
-      class="rounded-md"
-    />
+    <div class="flex flex-col basis-3/4 gap-4 items-center">
+      <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
+      <LychenParagraph
+        class="md:w-4/6"
+        variant="website-default"
+        >{{ t('paragraph') }}
+      </LychenParagraph>
+      <LychenParagraph
+        variant="website-default"
+        class="opacity-80"
+        >{{ t('paragraph_complement') }}
+      </LychenParagraph>
+      <img
+        src="./assets/smile_atiGofFl0TgADvvhneAEk.webp"
+        class="rounded-md"
+      />
+    </div>
   </LychenHero>
 </template>
 

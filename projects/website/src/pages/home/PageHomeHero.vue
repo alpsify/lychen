@@ -10,7 +10,7 @@
       overlay
       overlay-class="bg-surface-on dark:bg-surface opacity-40"
     >
-      <div class="flex md:basis-3/5 items-start flex-col gap-4">
+      <div class="flex flex-col md:w-3/5 items-start gap-4">
         <LychenTitle
           variant="h1"
           class="text-balance z-20"
@@ -23,16 +23,29 @@
           class="z-20"
           >{{ t('hero.description') }}
         </LychenParagraph>
-        <RouterLink
-          to="#discover"
-          class="z-20"
-        >
-          <LychenButton
-            class="flex gap-2"
-            data-umami-event="discover-button"
-            >{{ t('hero.discover') }}
-          </LychenButton>
-        </RouterLink>
+        <div class="flex flex-row gap-4 items-center">
+          <RouterLink
+            to="#discover"
+            class="z-20"
+          >
+            <LychenButton
+              class="flex gap-2"
+              data-umami-event="discover-button"
+              >{{ t('hero.discover') }}
+            </LychenButton>
+          </RouterLink>
+          <RouterLink
+            :to="RoutePageSponsor"
+            class="z-20"
+          >
+            <LychenRainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+              <LychenIcon
+                icon="handshake-angle"
+                class="fa-lg"
+              />{{ t('hero.sponsor_us') }}
+            </LychenRainbowBox>
+          </RouterLink>
+        </div>
       </div>
     </LychenHero>
   </div>
@@ -44,6 +57,7 @@ import { defineAsyncComponent } from 'vue';
 import { useWindowScroll } from '@vueuse/core';
 
 import { useTranslations } from './i18n';
+import { RoutePageSponsor } from '../sponsor';
 
 const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
 const LychenButton = defineAsyncComponent(
@@ -55,7 +69,11 @@ const LychenTitle = defineAsyncComponent(
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
+const LychenRainbowBox = defineAsyncComponent(
+  () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
+);
 const { t } = useTranslations();
 
 const { y } = useWindowScroll();

@@ -15,6 +15,7 @@ export default {
     description:
       'Un écosystème conçu pour connecter, organiser et renforcer la résilience des territoires face aux changements climatiques.',
     discover: 'Découvrir',
+    sponsor_us: 'Nous soutenir',
   },
   crowfunding: {
     title: "Vous pouvez nous aider à créer l'écosystème parfait !",
@@ -48,15 +49,8 @@ export default {
   },
   oss: {
     title: 'Un écosystème transparent et open-source',
-    sub_description: 'Profitez de tout ce que vous aimez, sans les inconvénients.',
     description:
       "Nous croyons en la transparence totale pour que chacun puisse s'assurer de la sécurité, de la fiabilité et de l'intégrité de notre solution.",
-    key_point: {
-      no_vendor_lockin: 'Pas de verrouillage fournisseur',
-      scalable: 'Scalable',
-      extensible: 'Extensible',
-      cloud_or_self_hosted: 'Cloud ou auto-hébergé',
-    },
     button: {
       label: 'Voir le manifeste complet',
     },

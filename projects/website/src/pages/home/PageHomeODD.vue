@@ -24,7 +24,9 @@
           @click="selectedGoal = goal"
         />
       </div>
-      <div class="rounded-2xl bg-gradient-to-t from-secondary-container to-secondary md:p-14">
+      <div
+        class="rounded-2xl bg-gradient-to-tr from-surface-container-highest to-transparent md:p-14"
+      >
         <div class="relative">
           <img
             v-if="selectedGoal"

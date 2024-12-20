@@ -8,9 +8,7 @@
       v-if="overlay"
       :class="cn('overlay absolute top-0 left-0 size-full z-1', overlayClass)"
     ></div>
-    <div class="relative">
-      <slot />
-    </div>
+    <slot />
   </component>
 </template>
 

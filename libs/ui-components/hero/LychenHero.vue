@@ -3,7 +3,7 @@
     is="header"
     v-bind="forwarded"
   >
-    <div :class="cn('container z-10', props.class)">
+    <div class="flex flex-col items-stretch container z-10 py-8">
       <slot /></div
   ></LychenDivWithBackgroundImage>
 </template>
@@ -12,7 +12,6 @@
 import LychenDivWithBackgroundImage from '../div/LychenDivWithBackgroundImage.vue';
 import { DivWithBackgroundImageProps } from '../div';
 import { useForwardProps } from 'radix-vue';
-import { cn } from '../lib/utils';
 
 const props = defineProps<Omit<DivWithBackgroundImageProps, 'is'>>();
 const forwarded = useForwardProps(props);
