@@ -1,8 +1,8 @@
-import { useTranslations } from '../i18n';
-import { Odd } from '../model/Odd';
+import { useTranslations } from '@lychen/odd-ui-i18n';
+import { Odd } from '@lychen/odd-util-model/Odd';
 import { type Ref, ref } from 'vue';
 
-export function useOdd() {
+export function useOddCatalog() {
   const { t } = useTranslations();
 
   const totalNumber = 17;

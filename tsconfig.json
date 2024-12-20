@@ -20,6 +20,15 @@
       "path": "libs/kiro/util-sdk"
     },
     {
+      "path": "libs/odd/ui-i18n"
+    },
+    {
+      "path": "libs/odd/util-composables"
+    },
+    {
+      "path": "libs/odd/util-model"
+    },
+    {
       "path": "libs/typescript/util-date"
     },
     {
@@ -42,9 +51,6 @@
     },
     {
       "path": "libs/util-composables"
-    },
-    {
-      "path": "libs/util-odd"
     },
     {
       "path": "libs/vue/util-composables"

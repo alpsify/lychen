@@ -1,0 +1,9 @@
+{
+  "name": "@lychen/odd-util-composables",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/odd-ui-i18n": "workspace:*",
+    "@lychen/odd-util-model": "workspace:*"
+  }
+}

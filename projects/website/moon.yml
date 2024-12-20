@@ -1,10 +1,11 @@
 dependsOn:
   - applications-util-composables
+  - odd-assets
+  - odd-util-composables
   - ui-components
   - ui-css
   - ui-i18n
   - ui-layouts
-  - util-odd
   - vue-util-composables
   - vue-util-i18n
 
@@ -32,6 +33,6 @@ tasks:
   assets-sync:
     deps:
       - args: '$projectRoot/public/odd-icons'
-        target: util-odd:sync-icons
+        target: odd-assets:sync-icons
 
 type: application

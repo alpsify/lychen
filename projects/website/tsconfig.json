@@ -3,17 +3,20 @@
   "include": [
     "**/*",
     "../../libs/applications/util-composables/**/*",
+    "../../libs/odd/util-composables/**/*",
     "../../libs/ui-components/**/*",
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
-    "../../libs/util-odd/**/*",
     "../../libs/vue/util-composables/**/*",
     "../../libs/vue/util-i18n/**/*"
   ],
   "references": [
     {
       "path": "../../libs/applications/util-composables"
+    },
+    {
+      "path": "../../libs/odd/util-composables"
     },
     {
       "path": "../../libs/ui-components"
@@ -26,9 +29,6 @@
     },
     {
       "path": "../../libs/ui-layouts"
-    },
-    {
-      "path": "../../libs/util-odd"
     },
     {
       "path": "../../libs/vue/util-composables"
@@ -50,8 +50,8 @@
       "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
       "@lychen/vue-util-i18n/*": ["../../libs/vue/util-i18n/*"],
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
-      "@lychen/util-odd/*": ["../../libs/util-odd/*"],
-      "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"]
+      "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
+      "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

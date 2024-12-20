@@ -41,9 +41,8 @@ import Goal2Url from './assets/goal-2.webp';
 import Goal12Url from './assets/goal-12.webp';
 import Goal11Url from './assets/goal-11.webp';
 import { computed, defineAsyncComponent, ref } from 'vue';
-
+import { useOddCatalog } from '@lychen/odd-util-composables/useOddCatalog';
 import { useTranslations } from './i18n';
-import { useOdd } from '@lychen/util-odd/composables/useOdd';
 
 const GoalSubSection = defineAsyncComponent(
   () => import('@/pages/home/component/GoalSubSection.vue'),
@@ -59,7 +58,7 @@ const LychenContainer = defineAsyncComponent(
 
 const { t } = useTranslations();
 
-const { two, eleven, twelve } = useOdd();
+const { two, eleven, twelve } = useOddCatalog();
 
 const goals = computed(() => [eleven.value, two.value, twelve.value]);
 const selectedGoal = ref(eleven.value);

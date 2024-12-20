@@ -1,0 +1,9 @@
+dependsOn:
+  - odd-ui-i18n
+  - odd-util-model
+
+id: odd-util-composables
+
+language: typescript
+
+type: library

@@ -1731,6 +1731,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/odd-assets@workspace:*, @lychen/odd-assets@workspace:libs/odd/assets":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-assets@workspace:libs/odd/assets"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-ui-i18n@workspace:*, @lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n"
+  dependencies:
+    "@lychen/vue-util-i18n": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-util-composables@workspace:*, @lychen/odd-util-composables@workspace:libs/odd/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-util-composables@workspace:libs/odd/util-composables"
+  dependencies:
+    "@lychen/odd-ui-i18n": "workspace:*"
+    "@lychen/odd-util-model": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-util-model@workspace:*, @lychen/odd-util-model@workspace:libs/odd/util-model":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-util-model@workspace:libs/odd/util-model"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/typescript-util-date@workspace:*, @lychen/typescript-util-date@workspace:libs/typescript/util-date":
   version: 0.0.0-use.local
   resolution: "@lychen/typescript-util-date@workspace:libs/typescript/util-date"
@@ -1795,15 +1824,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/util-odd@workspace:*, @lychen/util-odd@workspace:libs/util-odd":
-  version: 0.0.0-use.local
-  resolution: "@lychen/util-odd@workspace:libs/util-odd"
-  dependencies:
-    "@lychen/vue-util-i18n": "workspace:*"
-    vue: "npm:3.5.13"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
@@ -1830,11 +1850,12 @@ __metadata:
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
     "@lychen/applications-util-composables": "workspace:*"
+    "@lychen/odd-assets": "workspace:*"
+    "@lychen/odd-util-composables": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
-    "@lychen/util-odd": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"

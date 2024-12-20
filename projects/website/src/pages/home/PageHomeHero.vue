@@ -2,7 +2,7 @@
   <div
     id="hero"
     class="flex flex-col justify-start"
-    :class="y > 50 ? 'scaled-down' : ''"
+    :class="y > 10 ? 'scaled-down' : ''"
   >
     <LychenHero
       class="text-surface dark:text-surface-on flex flex-row items-center justify-start gap-4 min-h-dvh"

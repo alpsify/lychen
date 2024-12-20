@@ -1,0 +1,17 @@
+id: odd-assets
+
+language: assets
+
+tasks:
+  sync-icons:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/icons
+    inputs:
+      - '$projectRoot/icons/**/*'
+    options:
+      cache: false
+    platform: system
+
+type: library
