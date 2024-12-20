@@ -1,13 +1,5 @@
 <template>
   <LychenContainer class="flex flex-col items-center gap-4">
-    <LychenTitle variant="h2">{{ t('applications.title') }}</LychenTitle>
-    <LychenTitle
-      variant="h2"
-      class="opacity-80 text-center"
-      >{{ t('applications.second_title') }}</LychenTitle
-    >
-  </LychenContainer>
-  <LychenContainer class="flex flex-col items-center gap-4">
     <div class="flex flex-col-reverse md:grid md:grid-cols-[30%_1fr] gap-8 mt-10 w-full">
       <div class="flex flex-col justify-between gap-10">
         <LychenTitle variant="h2">{{ t('goals.title') }}</LychenTitle>

@@ -1,0 +1,8 @@
+dependsOn:
+  - vue-util-i18n
+
+id: applications-ui-i18n
+
+language: typescript
+
+type: library

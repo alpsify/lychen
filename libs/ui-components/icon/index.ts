@@ -1,4 +1,4 @@
-import { ObjectValues } from '../lib/utils';
+import { ObjectValues } from '@lychen/typescript-util-object/Object';
 
 export const LYCHEN_ICON_FASHION = {
   Default: 'fal',

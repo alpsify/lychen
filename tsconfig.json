@@ -2,6 +2,18 @@
   "extends": "./tsconfig.options.json",
   "references": [
     {
+      "path": "libs/applications/ui-components"
+    },
+    {
+      "path": "libs/applications/ui-i18n"
+    },
+    {
+      "path": "libs/applications/util-composables"
+    },
+    {
+      "path": "libs/applications/util-model"
+    },
+    {
       "path": "libs/kiro/ui-components"
     },
     {
@@ -9,6 +21,9 @@
     },
     {
       "path": "libs/typescript/util-date"
+    },
+    {
+      "path": "libs/typescript/util-object"
     },
     {
       "path": "libs/ui-components"
@@ -21,6 +36,9 @@
     },
     {
       "path": "libs/ui-layouts"
+    },
+    {
+      "path": "libs/util-applications"
     },
     {
       "path": "libs/util-composables"

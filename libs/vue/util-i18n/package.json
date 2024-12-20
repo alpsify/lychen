@@ -5,6 +5,7 @@
   "dependencies": {
     "@intlify/core-base": "^10.0.4",
     "@lychen/typescript-util-date": "workspace:*",
+    "@lychen/typescript-util-object": "workspace:*",
     "vue": "3.5.13",
     "vue-i18n": "^10.0.5"
   }

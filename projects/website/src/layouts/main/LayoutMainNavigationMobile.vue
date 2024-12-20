@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { useApplications } from '@/composables/application/useApplications';
+import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 
 import { TRANSLATION_KEY, useTranslations } from './i18n';
 import { RoutePagePrice } from '@/pages/price';
@@ -88,7 +88,7 @@ import { RoutePageSponsor } from '@/pages/sponsor';
 
 const { t } = useTranslations();
 
-const { applicationsList } = useApplications();
+const { applicationsList } = useApplicationsCatalog();
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
 

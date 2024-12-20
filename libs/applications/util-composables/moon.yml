@@ -1,0 +1,9 @@
+dependsOn:
+  - applications-ui-i18n
+  - applications-util-model
+
+id: applications-util-composables
+
+language: typescript
+
+type: library

@@ -147,8 +147,7 @@ import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-men
 import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY } from '@lychen/ui-i18n/global';
 import { RoutePageHome } from '@pages/home';
-
-import { useApplications } from '@/composables/application/useApplications';
+import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@/pages/price';
 
 import { TRANSLATION_KEY, useTranslations } from './i18n';
@@ -191,7 +190,7 @@ const LychenNavigationMenuTrigger = defineAsyncComponent(
 
 const { t } = useTranslations();
 
-const { sortedApplicationsList } = useApplications();
+const { sortedApplicationsList } = useApplicationsCatalog();
 
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();

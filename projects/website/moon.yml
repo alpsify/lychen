@@ -1,4 +1,5 @@
 dependsOn:
+  - applications-util-composables
   - ui-components
   - ui-css
   - ui-i18n

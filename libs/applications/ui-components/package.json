@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/applications-ui-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "vue": "3.5.13"
+  }
+}

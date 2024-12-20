@@ -1,8 +1,7 @@
 dependsOn:
   - typescript-util-object
-  - vue-util-composables
 
-id: ui-components
+id: applications-util-model
 
 language: typescript
 

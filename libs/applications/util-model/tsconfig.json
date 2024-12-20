@@ -10,7 +10,7 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/vue/util-i18n",
+    "outDir": "../../../.moon/cache/types/libs/applications/util-model",
     "paths": {
       "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"]

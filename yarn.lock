@@ -1630,6 +1630,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lychen/applications-ui-components@workspace:libs/applications/ui-components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-ui-components@workspace:libs/applications/ui-components"
+  dependencies:
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-ui-i18n@workspace:*, @lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n"
+  dependencies:
+    "@lychen/vue-util-i18n": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-composables@workspace:*, @lychen/applications-util-composables@workspace:libs/applications/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-composables@workspace:libs/applications/util-composables"
+  dependencies:
+    "@lychen/applications-ui-i18n": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-model@workspace:*, @lychen/applications-util-model@workspace:libs/applications/util-model":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-model@workspace:libs/applications/util-model"
+  dependencies:
+    "@lychen/typescript-util-date": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/kiro-member-app@workspace:projects/kiro/member-app":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-member-app@workspace:projects/kiro/member-app"
@@ -1702,6 +1737,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/typescript-util-object@workspace:*, @lychen/typescript-util-object@workspace:libs/typescript/util-object":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-util-object@workspace:libs/typescript/util-object"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/ui-components@workspace:*, @lychen/ui-components@workspace:libs/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-components@workspace:libs/ui-components"
@@ -1710,6 +1751,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:^6.6.0"
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@lychen/typescript-util-object": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@vueuse/core": "npm:^12.0.0"
     class-variance-authority: "npm:^0.7.0"
@@ -1777,6 +1819,7 @@ __metadata:
   dependencies:
     "@intlify/core-base": "npm:^10.0.4"
     "@lychen/typescript-util-date": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
     vue: "npm:3.5.13"
     vue-i18n: "npm:^10.0.5"
   languageName: unknown
@@ -1786,6 +1829,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
+    "@lychen/applications-util-composables": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
