@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { computed, type HTMLAttributes, onMounted, ref } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = withDefaults(
   defineProps<{

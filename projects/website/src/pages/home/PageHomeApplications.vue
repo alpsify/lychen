@@ -6,14 +6,42 @@
       class="opacity-80 text-center"
       >{{ t('applications.second_title') }}</LychenTitle
     >
+
+    <LychenCarousel
+      class="w-full mt-10"
+      :opts="{
+        align: 'start',
+      }"
+    >
+      <LychenCarouselContent>
+        <LychenCarouselItem
+          v-for="application in sortedApplicationsList"
+          :key="application.title"
+          class="md:basis-1/2 lg:basis-1/4"
+        >
+          <ApplicationCard
+            :application="application"
+            class="bg-surface-container rounded-3xl min-h-[500px] p-10"
+          />
+        </LychenCarouselItem>
+      </LychenCarouselContent>
+      <LychenCarouselPrevious />
+      <LychenCarouselNext />
+    </LychenCarousel>
   </LychenContainer>
-  <LychenContainer class="flex flex-col gap-10">Applications </LychenContainer>
 </template>
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
+import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
+import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
+import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
+import LychenCarouselPrevious from '@lychen/ui-components/carousel/LychenCarouselPrevious.vue';
+import LychenCarouselNext from '@lychen/ui-components/carousel/LychenCarouselNext.vue';
+import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -24,4 +52,6 @@ const LychenContainer = defineAsyncComponent(
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+const { sortedApplicationsList } = useApplicationsCatalog();
 </script>

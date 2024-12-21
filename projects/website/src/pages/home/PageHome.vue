@@ -2,6 +2,7 @@
   <PageHomeHero />
   <PageHomeCrowfunding />
   <PageHomeApplications />
+  <PageHomeBento />
   <PageHomeODD />
   <PageHomeOSS />
 
@@ -19,6 +20,7 @@ import PageHomeODD from './PageHomeODD.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomeOSS from './PageHomeOSS.vue';
 import PageHomeApplications from './PageHomeApplications.vue';
+import PageHomeBento from './PageHomeBento.vue';
 import { useExtendedHead } from '@/composables/useExtendedHead';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

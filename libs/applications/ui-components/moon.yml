@@ -1,3 +1,8 @@
+dependsOn:
+  - applications-util-model
+  - typescript-util-tailwind
+  - ui-components
+
 id: applications-ui-components
 
 language: typescript

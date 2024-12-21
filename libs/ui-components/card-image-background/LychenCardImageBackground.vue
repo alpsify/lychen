@@ -38,7 +38,7 @@
 <script lang="ts" setup>
 import LychenButton from '../button/LychenButton.vue';
 import LychenIcon from '../icon/LychenIcon.vue';
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = defineProps<{
   title: string;

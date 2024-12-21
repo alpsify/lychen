@@ -1,9 +1,17 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": ["**/*", "../typescript/util-object/**/*", "../vue/util-composables/**/*"],
+  "include": [
+    "**/*",
+    "../typescript/util-object/**/*",
+    "../typescript/util-tailwind/**/*",
+    "../vue/util-composables/**/*"
+  ],
   "references": [
     {
       "path": "../typescript/util-object"
+    },
+    {
+      "path": "../typescript/util-tailwind"
     },
     {
       "path": "../vue/util-composables"
@@ -13,7 +21,8 @@
     "emitDeclarationOnly": true,
     "paths": {
       "@lychen/vue-util-composables/*": ["../vue/util-composables/*"],
-      "@lychen/typescript-util-object/*": ["../typescript/util-object/*"]
+      "@lychen/typescript-util-object/*": ["../typescript/util-object/*"],
+      "@lychen/typescript-util-tailwind/*": ["../typescript/util-tailwind/*"]
     },
     "outDir": "../../.moon/cache/types/libs/ui-components"
   }

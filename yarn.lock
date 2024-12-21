@@ -1630,10 +1630,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lychen/applications-ui-components@workspace:libs/applications/ui-components":
+"@lychen/applications-ui-components@workspace:*, @lychen/applications-ui-components@workspace:libs/applications/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/applications-ui-components@workspace:libs/applications/ui-components"
   dependencies:
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/typescript-util-tailwind": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
@@ -1770,6 +1773,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/typescript-util-tailwind@workspace:*, @lychen/typescript-util-tailwind@workspace:libs/typescript/util-tailwind":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-util-tailwind@workspace:libs/typescript/util-tailwind"
+  dependencies:
+    clsx: "npm:^2.1.1"
+    tailwind-merge: "npm:^2.5.2"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/ui-components@workspace:*, @lychen/ui-components@workspace:libs/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/ui-components@workspace:libs/ui-components"
@@ -1779,12 +1791,12 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
     "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/typescript-util-tailwind": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@vueuse/core": "npm:^12.0.0"
     class-variance-authority: "npm:^0.7.0"
-    clsx: "npm:^2.1.1"
+    embla-carousel-vue: "npm:^8.5.1"
     radix-vue: "npm:^1.9.6"
-    tailwind-merge: "npm:^2.5.2"
     tailwindcss: "npm:^3.4.16"
     tailwindcss-animate: "npm:^1.0.7"
     vaul-vue: "npm:^0.2.0"
@@ -1861,6 +1873,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-composables": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
@@ -3836,6 +3849,34 @@ __metadata:
   version: 1.5.49
   resolution: "electron-to-chromium@npm:1.5.49"
   checksum: 10c0/7b22141c7ebea2f49b87adcbe2b353919abbe44066c50e5e44dd47759c4ef07f0a802b9fc8ce2eaa832a293945b6d49064c859f0fef36d10c12fb46af2c1005d
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel-reactive-utils@npm:8.5.1"
+  peerDependencies:
+    embla-carousel: 8.5.1
+  checksum: 10c0/f9f99f05014eb36902fb5a852c26e38afe3827a357bdcb8f744afe2af7786548369cbd8948022b635c85324f9b195c31af5f16934354690073e400829af7359d
+  languageName: node
+  linkType: hard
+
+"embla-carousel-vue@npm:^8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel-vue@npm:8.5.1"
+  dependencies:
+    embla-carousel: "npm:8.5.1"
+    embla-carousel-reactive-utils: "npm:8.5.1"
+  peerDependencies:
+    vue: ^3.2.37
+  checksum: 10c0/d26947ec81d5de5092b0d69899bc4af065c44277cc7377210beb3525d8478b2f28c5842acec4c7764fd4b98c8a8c702908fea9896ece6be85f2dfaceac566044
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel@npm:8.5.1"
+  checksum: 10c0/457f3ae6f13a55504a61b4cb57529fbc33102a921cbb2f234d6b53709ded03b8cf46fb7a1c95d51d9f37a2348013c6a4479705367b0b75bfb83862f52dd23d7f
   languageName: node
   linkType: hard
 

@@ -10,4 +10,10 @@
     rgb(var(--color-surface) / 1) 0%,
     rgb(var(--color-surface-container-highest) / 1) 100%
   );
+
+  --linear-gradient-primary-to-tertiary: linear-gradient(
+    45deg,
+    rgb(var(--color-primary) / 1) 0%,
+    rgb(var(--color-tertiary) / 1) 100%
+  );
 }

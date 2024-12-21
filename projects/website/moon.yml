@@ -1,4 +1,5 @@
 dependsOn:
+  - applications-ui-components
   - applications-util-composables
   - odd-assets
   - odd-util-composables

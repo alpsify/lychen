@@ -12,7 +12,7 @@
 import { Primitive, type PrimitiveProps } from 'radix-vue';
 import type { HTMLAttributes } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { type ButtonVariants, buttonVariants } from '.';
 
 interface Props extends PrimitiveProps {

@@ -9,7 +9,7 @@ tasks:
       - -sfn
       - $projectRoot/icons
     inputs:
-      - '$projectRoot/icons/**/*'
+      - '$projectRoot/icons/'
     options:
       cache: false
     platform: system

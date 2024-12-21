@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 interface Props {
   class?: string;

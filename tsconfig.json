@@ -35,6 +35,9 @@
       "path": "libs/typescript/util-object"
     },
     {
+      "path": "libs/typescript/util-tailwind"
+    },
+    {
       "path": "libs/ui-components"
     },
     {

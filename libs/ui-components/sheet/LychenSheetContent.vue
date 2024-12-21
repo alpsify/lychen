@@ -11,7 +11,7 @@ import {
 import { computed, type HTMLAttributes } from 'vue';
 
 import LychenIcon from '../icon/LychenIcon.vue';
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { type LychenSheetVariants, sheetVariants } from '.';
 
 interface SheetContentProps extends DialogContentProps {

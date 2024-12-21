@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../libs/applications/ui-components/**/*",
     "../../libs/applications/util-composables/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/ui-components/**/*",
@@ -12,6 +13,9 @@
     "../../libs/vue/util-composables/**/*"
   ],
   "references": [
+    {
+      "path": "../../libs/applications/ui-components"
+    },
     {
       "path": "../../libs/applications/util-composables"
     },
@@ -51,7 +55,8 @@
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
       "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
-      "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"]
+      "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"],
+      "@lychen/applications-ui-components/*": ["../../libs/applications/ui-components/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }
