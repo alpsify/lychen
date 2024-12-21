@@ -116,7 +116,7 @@
       <LychenThemeSwitcher />
       <a
         href="https://github.com/alpsify/lychen"
-        trget="_blank"
+        target="_blank"
       >
         <LychenIcon
           icon="github"
@@ -125,13 +125,23 @@
       </a>
       <a
         href="https://discord.gg/FSMbXt5gr4"
-        trget="_blank"
+        target="_blank"
       >
         <LychenIcon
           icon="discord"
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
       </a>
+      <a
+        href="https://tally.so/r/w5EYdZ"
+        target="_blank"
+      >
+        <LychenButton
+          variant="default"
+          size="sm"
+          class="gap-2"
+          >{{ t(`navigation.preregister`) }} <LychenIcon icon="rocket-launch" /></LychenButton
+      ></a>
     </div>
   </div>
 </template>
@@ -156,6 +166,7 @@ import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@/pages/sponsor';
+import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
