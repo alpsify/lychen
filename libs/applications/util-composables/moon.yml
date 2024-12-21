@@ -1,4 +1,5 @@
 dependsOn:
+  - applications-assets
   - applications-ui-i18n
   - applications-util-model
   - vue-i18n-util-composables

@@ -1,3 +1,4 @@
+import { ApplicationAlias } from './ApplicationAlias';
 import { ApplicationState } from './ApplicationState';
 
 export interface Application {
@@ -5,4 +6,5 @@ export interface Application {
   title: string;
   description: string;
   state: ApplicationState;
+  alias: ApplicationAlias;
 }

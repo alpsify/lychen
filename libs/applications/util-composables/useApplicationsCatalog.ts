@@ -11,12 +11,13 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 export function useApplicationsCatalog() {
   const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-  function generateAppInfo(alias: ApplicationAlias) {
+  function generateAppInfo(alias: ApplicationAlias): Application {
     return {
       link: `https://${alias}.lychen.fr`,
       title: t(`${alias}.name`),
       description: t(`${alias}.description`),
       state: APPLICATION_STATE.Funding,
+      alias,
     };
   }
 

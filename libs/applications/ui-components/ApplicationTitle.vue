@@ -1,5 +1,5 @@
 <template>
-  <p class="text-md font-black font-lexend leading-none tracking-wide">
+  <p class="text-lg font-black font-lexend leading-none tracking-wide">
     {{ value }}
   </p>
 </template>

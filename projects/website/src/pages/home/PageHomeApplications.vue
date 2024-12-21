@@ -21,7 +21,8 @@
         >
           <ApplicationCard
             :application="application"
-            class="bg-surface-container rounded-3xl min-h-[500px] p-10"
+            background-image-folder="applications-covers"
+            class="bg-surface-container rounded-3xl min-h-[500px] p-6"
           />
         </LychenCarouselItem>
       </LychenCarouselContent>

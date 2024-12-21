@@ -35,5 +35,7 @@ tasks:
     deps:
       - args: '$projectRoot/public/odd-icons'
         target: odd-assets:sync-icons
+      - args: '$projectRoot/public/applications-covers'
+        target: applications-assets:sync-covers
 
 type: application
