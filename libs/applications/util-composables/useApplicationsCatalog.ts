@@ -27,14 +27,33 @@ export function useApplicationsCatalog() {
     });
   });
 
-  const sortedApplicationsList = computed<Application[]>(() => {
+  const titleSortedApplicationsList = computed<Application[]>(() => {
     return applicationsList.value.sort((a, b) =>
       a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
     );
   });
 
+  const opiniatedApplicationsList = computed<Application[]>(() => {
+    const customOrder = [
+      APPLICATION_ALIAS.Tera,
+      APPLICATION_ALIAS.Myko,
+      APPLICATION_ALIAS.Meli,
+      APPLICATION_ALIAS.Kiro,
+      APPLICATION_ALIAS.Humu,
+      APPLICATION_ALIAS.Luna,
+      APPLICATION_ALIAS.Novi,
+      APPLICATION_ALIAS.Vara,
+      APPLICATION_ALIAS.Kolo,
+      APPLICATION_ALIAS.Eko,
+    ];
+    return Object.values(customOrder).map((alias) => {
+      return generateAppInfo(alias);
+    });
+  });
+
   return {
     applicationsList,
-    sortedApplicationsList,
+    titleSortedApplicationsList,
+    opiniatedApplicationsList,
   };
 }

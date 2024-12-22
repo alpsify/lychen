@@ -15,7 +15,7 @@
     >
       <LychenCarouselContent>
         <LychenCarouselItem
-          v-for="application in sortedApplicationsList"
+          v-for="application in opiniatedApplicationsList"
           :key="application.title"
           class="sm:basis-1/2 md:basis-1/2 lg:basis-1/4"
         >
@@ -54,5 +54,5 @@ const LychenContainer = defineAsyncComponent(
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { sortedApplicationsList } = useApplicationsCatalog();
+const { opiniatedApplicationsList } = useApplicationsCatalog();
 </script>

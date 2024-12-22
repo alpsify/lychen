@@ -35,7 +35,7 @@
                 </div>
                 <div class="grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3 p-6">
                   <LychenNavigationMenuSubLink
-                    v-for="application in sortedApplicationsList"
+                    v-for="application in opiniatedApplicationsList"
                     v-bind="application"
                     :key="application.title"
                   />
@@ -208,7 +208,7 @@ const { t: tGlobal } = useI18nExtended({
 });
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { sortedApplicationsList } = useApplicationsCatalog();
+const { opiniatedApplicationsList } = useApplicationsCatalog();
 
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();

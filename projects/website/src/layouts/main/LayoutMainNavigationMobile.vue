@@ -29,7 +29,7 @@
         }}</LychenAccordionTrigger>
         <LychenAccordionContent>
           <LychenNavigationMenuSubLink
-            v-for="application in applicationsList"
+            v-for="application in opiniatedApplicationsList"
             v-bind="application"
             :key="application.title"
             @navigate-to-route="closeMobileMenu"
@@ -101,7 +101,7 @@ import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { applicationsList } = useApplicationsCatalog();
+const { opiniatedApplicationsList } = useApplicationsCatalog();
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
 
