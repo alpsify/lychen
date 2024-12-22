@@ -13,30 +13,31 @@
     "@lychen/applications-util-composables": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
+    "@lychen/tailwind-util-configs": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/ui-layouts": "workspace:*",
+    "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-router-util-configs": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@unhead/schema-org": "^1.11.11",
     "@unhead/vue": "^1.11.11",
     "@vueuse/core": "11.1.0",
     "radix-vue": "1.9.6",
     "vue": "3.5.13",
-    "vue-router": "4"
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
-    "tailwindcss-animate": "1.0.7",
-    "tailwindcss-motion": "1.0.0",
     "vite": "^6.0.3",
     "vite-plugin-mkcert": "^1.17.6",
-    "vite-ssg": "^0.24.2",
+    "vite-ssg": "^0.24.3",
     "vite-ssg-sitemap": "^0.8.1"
   }
 }

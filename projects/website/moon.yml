@@ -3,12 +3,15 @@ dependsOn:
   - applications-util-composables
   - odd-assets
   - odd-util-composables
+  - tailwind-util-configs
   - ui-components
   - ui-css
   - ui-i18n
   - ui-layouts
+  - vite-util-ssg
   - vue-i18n-util-composables
   - vue-i18n-util-configs
+  - vue-router-util-configs
   - vue-util-composables
 
 env:

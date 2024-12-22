@@ -29,6 +29,9 @@
       "path": "libs/odd/util-model"
     },
     {
+      "path": "libs/tailwind/util-configs"
+    },
+    {
       "path": "libs/typescript/util-date"
     },
     {
@@ -56,6 +59,9 @@
       "path": "libs/util-composables"
     },
     {
+      "path": "libs/vite/util-ssg"
+    },
+    {
       "path": "libs/vue/i18n/util-composables"
     },
     {
@@ -66,6 +72,9 @@
     },
     {
       "path": "libs/vue/i18n/util-helpers"
+    },
+    {
+      "path": "libs/vue/router/util-configs"
     },
     {
       "path": "libs/vue/util-composables"

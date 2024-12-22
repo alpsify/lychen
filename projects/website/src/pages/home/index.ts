@@ -4,54 +4,6 @@ export const RoutePageHome = {
   name: 'home',
 };
 
-export const features = [
-  {
-    title: 'Consommation alimentaire',
-    description: 'We automatically save your files as you type.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3',
-  },
-  {
-    title: 'Production alimentaire',
-    description: 'Search through all your files in one place.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/6631952/pexels-photo-6631952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3',
-  },
-  {
-    title: 'Environnement',
-    description: 'Supports 100+ languages and counting.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4',
-  },
-  {
-    title: 'Valorisation des déchets organiques',
-    description: 'Use the calendar to filter your files by util-date.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/7728736/pexels-photo-7728736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2',
-  },
-  {
-    title: 'Activité du territoire',
-    description: 'Get notified when someone shares a file or mentions you in a comment.',
-    routeName: '',
-    image:
-      'https://images.pexels.com/photos/4880395/pexels-photo-4880395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    cta: 'En savoir plus',
-    class: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4',
-  },
-];
-
 export const actors = [
   {
     title: 'Collectivités',

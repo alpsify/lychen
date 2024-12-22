@@ -10,6 +10,8 @@ lerna-debug.log*
 
 public/logos
 public/fonts
+public/applications-covers
+public/fonts
 
 node_modules
 dist

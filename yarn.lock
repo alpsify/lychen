@@ -1696,7 +1696,7 @@ __metadata:
     vite-plugin-pwa: "npm:^0.21.1"
     vue: "npm:3.5.13"
     vue-i18n: "npm:^10.0.5"
-    vue-router: "npm:4"
+    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -1736,7 +1736,7 @@ __metadata:
     vite-plugin-mkcert: "npm:^1.17.6"
     vue: "npm:3.5.13"
     vue-i18n: "npm:^10.0.5"
-    vue-router: "npm:4"
+    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -1765,6 +1765,16 @@ __metadata:
 "@lychen/odd-util-model@workspace:*, @lychen/odd-util-model@workspace:libs/odd/util-model":
   version: 0.0.0-use.local
   resolution: "@lychen/odd-util-model@workspace:libs/odd/util-model"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/tailwind-util-configs@workspace:*, @lychen/tailwind-util-configs@workspace:libs/tailwind/util-configs":
+  version: 0.0.0-use.local
+  resolution: "@lychen/tailwind-util-configs@workspace:libs/tailwind/util-configs"
+  dependencies:
+    tailwindcss: "npm:^3.4.16"
+    tailwindcss-animate: "npm:1.0.7"
+    tailwindcss-motion: "npm:1.0.0"
   languageName: unknown
   linkType: soft
 
@@ -1842,6 +1852,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vite-util-ssg@workspace:*, @lychen/vite-util-ssg@workspace:libs/vite/util-ssg":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vite-util-ssg@workspace:libs/vite/util-ssg"
+  dependencies:
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    vite: "npm:^6.0.3"
+    vite-ssg: "npm:^0.24.3"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-i18n-util-composables@workspace:*, @lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables"
@@ -1871,6 +1893,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-router-util-configs@workspace:*, @lychen/vue-router-util-configs@workspace:libs/vue/router/util-configs":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-router-util-configs@workspace:libs/vue/router/util-configs"
+  dependencies:
+    vue: "npm:3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
@@ -1888,12 +1919,15 @@ __metadata:
     "@lychen/applications-util-composables": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/tailwind-util-configs": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-router-util-configs": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"
     "@unhead/vue": "npm:^1.11.11"
@@ -1903,14 +1937,12 @@ __metadata:
     postcss: "npm:^8.4.49"
     radix-vue: "npm:1.9.6"
     tailwindcss: "npm:^3.4.16"
-    tailwindcss-animate: "npm:1.0.7"
-    tailwindcss-motion: "npm:1.0.0"
     vite: "npm:^6.0.3"
     vite-plugin-mkcert: "npm:^1.17.6"
-    vite-ssg: "npm:^0.24.2"
+    vite-ssg: "npm:^0.24.3"
     vite-ssg-sitemap: "npm:^0.8.1"
     vue: "npm:3.5.13"
-    vue-router: "npm:4"
+    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -2592,7 +2624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.11.14, @unhead/dom@npm:^1.11.13":
+"@unhead/dom@npm:1.11.14, @unhead/dom@npm:^1.11.14":
   version: 1.11.14
   resolution: "@unhead/dom@npm:1.11.14"
   dependencies:
@@ -2675,7 +2707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/vue@npm:^1.11.11, @unhead/vue@npm:^1.11.13":
+"@unhead/vue@npm:^1.11.11, @unhead/vue@npm:^1.11.14":
   version: 1.11.14
   resolution: "@unhead/vue@npm:1.11.14"
   dependencies:
@@ -6988,7 +7020,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.4.1, prettier@npm:^3.4.2":
+"prettier@npm:^3.4.2":
   version: 3.4.2
   resolution: "prettier@npm:3.4.2"
   bin:
@@ -8519,21 +8551,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-ssg@npm:^0.24.2":
-  version: 0.24.2
-  resolution: "vite-ssg@npm:0.24.2"
+"vite-ssg@npm:^0.24.3":
+  version: 0.24.3
+  resolution: "vite-ssg@npm:0.24.3"
   dependencies:
-    "@unhead/dom": "npm:^1.11.13"
-    "@unhead/vue": "npm:^1.11.13"
+    "@unhead/dom": "npm:^1.11.14"
+    "@unhead/vue": "npm:^1.11.14"
     fs-extra: "npm:^11.2.0"
     html-minifier-terser: "npm:^7.2.0"
     html5parser: "npm:^2.0.2"
     jsdom: "npm:^25.0.1"
     kolorist: "npm:^1.8.0"
-    prettier: "npm:^3.4.1"
+    prettier: "npm:^3.4.2"
     yargs: "npm:^17.7.2"
   peerDependencies:
-    beasties: ^0.1.0
+    beasties: ^0.2.0
     critters: ^0.0.24
     vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0
     vue: ^3.2.10
@@ -8547,7 +8579,7 @@ __metadata:
       optional: true
   bin:
     vite-ssg: bin/vite-ssg.js
-  checksum: 10c0/ad5df09a2ffffe3238a39c470334add535bd1e2f44cc7ce3325ddfc8a74d69eef8deb4691bc44aa094f9bdf1b52a6bc9d45b0e8ac69db762893055a260df0867
+  checksum: 10c0/568ee35cf216e48a495fa956758c7ade70b6ca9f76a2cbe1c22743a32cb035693f37b058009e41b6d14d0822fbf1201f37ff1dee4fb2b531235ecdfe7173777a
   languageName: node
   linkType: hard
 
@@ -8658,14 +8690,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:4":
-  version: 4.4.5
-  resolution: "vue-router@npm:4.4.5"
+"vue-router@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "vue-router@npm:4.5.0"
   dependencies:
     "@vue/devtools-api": "npm:^6.6.4"
   peerDependencies:
     vue: ^3.2.0
-  checksum: 10c0/97764fa57f3338559645e6b86c5001b313bacd753bcacf01ca17770d78794fa564d9c9bd24e9b99104e31d7e484d7c30844099300ec923e0c05d45e27111c0e7
+  checksum: 10c0/5521c8d0ab7634ea75118824d4b4cae3748964725b3d3b4064eb3dbd44013381ea3163d4d856af61655936cd897b84f8eeebb312d0668532c3074d53814bd953
   languageName: node
   linkType: hard
 
