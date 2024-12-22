@@ -1,3 +1,5 @@
+import { type I18nOptions } from 'vue-i18n';
+
 const en = {
   currency: {
     style: 'currency',
@@ -9,7 +11,7 @@ const en = {
     useGrouping: false,
     minimumFractionDigits: 2,
   },
-};
+} as const;
 
 const fr = {
   currency: {
@@ -23,9 +25,9 @@ const fr = {
     useGrouping: false,
     minimumFractionDigits: 2,
   },
-};
+} as const;
 
-export const numberFormats = {
+export const numberFormats: I18nOptions['numberFormats'] = {
   'en-US': en,
   'en-GB': en,
   'fr-FR': fr,

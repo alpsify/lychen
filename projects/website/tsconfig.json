@@ -10,6 +10,7 @@
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
+    "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/util-composables/**/*"
   ],
   "references": [
@@ -38,6 +39,9 @@
       "path": "../../libs/vue/i18n/util-composables"
     },
     {
+      "path": "../../libs/vue/i18n/util-configs"
+    },
+    {
       "path": "../../libs/vue/util-composables"
     }
   ],
@@ -56,7 +60,8 @@
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
       "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"],
-      "@lychen/applications-ui-components/*": ["../../libs/applications/ui-components/*"]
+      "@lychen/applications-ui-components/*": ["../../libs/applications/ui-components/*"],
+      "@lychen/vue-i18n-util-configs/*": ["../../libs/vue/i18n/util-configs/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

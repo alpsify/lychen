@@ -1852,9 +1852,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs":
+"@lychen/vue-i18n-util-configs@workspace:*, @lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs"
+  dependencies:
+    vue: "npm:3.5.13"
+    vue-i18n: "npm:^10.0.5"
   languageName: unknown
   linkType: soft
 
@@ -1890,6 +1893,7 @@ __metadata:
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"
     "@unhead/vue": "npm:^1.11.11"
@@ -1906,7 +1910,6 @@ __metadata:
     vite-ssg: "npm:^0.24.2"
     vite-ssg-sitemap: "npm:^0.8.1"
     vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
     vue-router: "npm:4"
   languageName: unknown
   linkType: soft

@@ -8,6 +8,7 @@ dependsOn:
   - ui-i18n
   - ui-layouts
   - vue-i18n-util-composables
+  - vue-i18n-util-configs
   - vue-util-composables
 
 env:

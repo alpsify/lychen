@@ -1,9 +1,9 @@
-import { defaultDatetimeFormats } from './DatetimeFormat';
+import { datetimeFormats } from './DatetimeFormat';
 import { defaultFallbackLocale, defaultLocale } from './Default';
 import { numberFormats } from './NumberFormat';
 
-export const defaultConfig = {
-  datetimeFormats: defaultDatetimeFormats,
+export const configSSG = {
+  datetimeFormats: datetimeFormats,
   numberFormats: numberFormats,
   fallbackLocale: defaultFallbackLocale,
   globalInjection: true,

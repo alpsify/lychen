@@ -1,3 +1,5 @@
+import { type I18nOptions } from 'vue-i18n';
+
 const en = {
   long: {
     day: '2-digit',
@@ -24,7 +26,7 @@ const en = {
     hour: 'numeric',
     minute: 'numeric',
   },
-};
+} as const;
 
 const fr = {
   long: {
@@ -52,9 +54,9 @@ const fr = {
     hour: 'numeric',
     minute: 'numeric',
   },
-};
+} as const;
 
-export const defaultDatetimeFormats = {
+export const datetimeFormats: I18nOptions['datetimeFormats'] = {
   'en-US': en,
   'en-GB': en,
   'fr-FR': fr,
