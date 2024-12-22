@@ -30,10 +30,6 @@ export const createApp = ViteSSG(
   },
   ({ app, router, routes, isClient, initialState }) => {
     loadFontAwesomeStyles();
-
     createAndUse(app, configSSG);
-    /*const i18n = createI18n(configSSG);
-
-    app.use(i18n);*/
   },
 );
