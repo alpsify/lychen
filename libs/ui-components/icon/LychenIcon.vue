@@ -11,12 +11,12 @@ import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fon
 
 import { computed } from 'vue';
 
-import { LYCHEN_ICON_FASHION, LychenIconFashion } from '.';
+import { LYCHEN_ICON_FASHION_DEFAULT, LychenIconFashion } from '.';
 
 const props = withDefaults(
   defineProps<Omit<FontAwesomeIconProps, 'icon'> & { icon: string; fashion?: LychenIconFashion }>(),
   {
-    fashion: LYCHEN_ICON_FASHION.Default,
+    fashion: LYCHEN_ICON_FASHION_DEFAULT,
   },
 );
 

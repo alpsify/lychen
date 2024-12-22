@@ -39,10 +39,11 @@
             class="z-20"
           >
             <LychenRainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
-              <LychenIcon
-                icon="handshake-angle"
+              {{ t('hero.sponsor_us')
+              }}<LychenIcon
+                icon="hands-holding-heart"
                 class="fa-lg"
-              />{{ t('hero.sponsor_us') }}
+              />
             </LychenRainbowBox>
           </RouterLink>
         </div>

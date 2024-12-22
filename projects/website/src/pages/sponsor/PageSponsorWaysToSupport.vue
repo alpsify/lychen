@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col gap-4 md:w-1/2 md:py-20">
+  <LychenContainer class="flex flex-col gap-4 lg:w-1/2 md:py-20">
     <LychenTitle variant="h2">{{ t(`section.ways_to_support.title`) }}</LychenTitle>
     <LychenParagraph variant="website-highlight">{{
       t(`section.ways_to_support.description`)
