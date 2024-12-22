@@ -6,7 +6,7 @@
     overlay-class="bg-surface-on dark:bg-surface opacity-25"
   >
     <div
-      class="flex flex-col gap-2 bg-primary/10 dark:bg-primary-container/20 rounded-lg backdrop-blur-lg z-10 p-4 text-surface dark:text-surface-on"
+      class="flex flex-col gap-2 bg-primary/10 dark:bg-primary-container/20 rounded-3xl backdrop-blur-lg z-10 p-4 text-surface dark:text-surface-on"
     >
       <div class="flex flex-row justify-between self-stretch">
         <ApplicationTitle :value="application.title" /><LychenBadge v-if="displayState">{{

@@ -19,7 +19,7 @@
         <p>via le numérique</p>
       </div>
       <div class="item justify-center">
-        <p class="gradient text-2xl">Vous êtes propriétaire de vos données</p>
+        <p class="gradient text-xl md:text-2xl">Vous êtes propriétaire de vos données</p>
       </div>
       <div class="item justify-center">
         <p class="gradient text-4xl">Accessibilité</p>
@@ -48,7 +48,7 @@
             icon="hand-holding-heart"
             class="text-5xl"
           />
-          <p class="text-4xl gradient">Sponsor</p>
+          <p class="text-2xl md:text-4xl gradient">Sponsor</p>
         </div>
         plûtot qu'investisseur
       </div>
@@ -100,7 +100,22 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     'ten eleven seven seven seven twelve twelve'
     'thirteen thirteen fourteen fourteen fourteen twelve twelve';
 
-  @media not all and (min-width: 768px) {
+  @media not all and (min-width: 1024px) {
+    & {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'seven seven seven one'
+        'seven seven seven two'
+        'three four five five'
+        'six eight nine ten'
+        'six eight nine eleven'
+        'twelve twelve thirteen thirteen'
+        'fourteen fourteen fourteen fourteen';
+    }
+  }
+
+  @media not all and (min-width: 640px) {
     & {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
@@ -120,27 +135,12 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     }
   }
 
-  @media not all and (min-width: 1024px) {
-    & {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      grid-template-areas:
-        'seven seven seven one'
-        'seven seven seven two'
-        'three four five five'
-        'six eight nine ten'
-        'six eight nine eleven'
-        'twelve twelve thirteen thirteen'
-        'fourteen fourteen fourteen fourteen';
-    }
-  }
-
   .item {
     display: flex;
     flex-flow: column;
     align-items: center;
     padding: theme('padding.6') theme('padding.4');
-    border-radius: theme('borderRadius.xl');
+    border-radius: theme('borderRadius.3xl');
     background: theme('colors.surface.container');
     font-weight: theme('fontWeight.bold');
     text-align: center;

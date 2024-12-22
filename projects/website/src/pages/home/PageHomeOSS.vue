@@ -5,7 +5,7 @@
         :background-image="ossUrl"
         overlay
         overlay-class="bg-surface-on dark:bg-surface opacity-50"
-        class="p-8 rounded-xl py-24 group"
+        class="p-8 rounded-3xl py-24 group"
       >
         <div
           class="relative flex flex-col items-center gap-8 z-10 text-surface dark:text-surface-on"

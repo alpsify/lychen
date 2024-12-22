@@ -8,7 +8,7 @@
     >
 
     <LychenCarousel
-      class="w-full mt-10"
+      class="w-[85%] sm:w-[90%] mt-10"
       :opts="{
         align: 'start',
       }"
@@ -17,7 +17,7 @@
         <LychenCarouselItem
           v-for="application in sortedApplicationsList"
           :key="application.title"
-          class="md:basis-1/2 lg:basis-1/4"
+          class="sm:basis-1/2 md:basis-1/2 lg:basis-1/4"
         >
           <ApplicationCard
             :application="application"
