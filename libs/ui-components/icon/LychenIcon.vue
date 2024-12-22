@@ -1,17 +1,26 @@
 <template>
-  <FontAwesomeIcon :icon="fontAwesomeFormatted" />
+  <FontAwesomeIcon
+    v-bind="forwarded"
+    :icon="fontAwesomeFormatted"
+  />
 </template>
 
 <script setup lang="ts">
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { useForwardProps } from 'radix-vue';
+import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fontawesome';
 
 import { computed } from 'vue';
 
-import { LYCHEN_ICON_FASHION, LychenIconFashion } from '.';
+import { LYCHEN_ICON_FASHION_DEFAULT, LychenIconFashion } from '.';
 
-const props = withDefaults(defineProps<{ icon: string; fashion?: LychenIconFashion }>(), {
-  fashion: LYCHEN_ICON_FASHION.Default,
-});
+const props = withDefaults(
+  defineProps<Omit<FontAwesomeIconProps, 'icon'> & { icon: string; fashion?: LychenIconFashion }>(),
+  {
+    fashion: LYCHEN_ICON_FASHION_DEFAULT,
+  },
+);
+
+const forwarded = useForwardProps(props);
 
 const fontAwesomeFormatted = computed(() => [props.fashion, props.icon]);
 </script>

@@ -1,0 +1,28 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../typescript/util-tailwind/**/*",
+    "../../ui-components/**/*",
+    "../util-model/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../typescript/util-tailwind"
+    },
+    {
+      "path": "../../ui-components"
+    },
+    {
+      "path": "../util-model"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/ui-components",
+    "paths": {
+      "@lychen/applications-util-model/*": ["../util-model/*"],
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"]
+    }
+  }
+}

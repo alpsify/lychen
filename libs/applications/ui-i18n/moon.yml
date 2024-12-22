@@ -1,0 +1,5 @@
+id: applications-ui-i18n
+
+language: typescript
+
+type: library

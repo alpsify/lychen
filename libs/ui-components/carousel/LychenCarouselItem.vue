@@ -1,0 +1,25 @@
+<script setup lang="ts">
+import type { WithClassAsProps } from './interface';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { useLychenCarousel } from './useLychenCarousel';
+
+const props = defineProps<WithClassAsProps>();
+
+const { orientation } = useLychenCarousel();
+</script>
+
+<template>
+  <div
+    role="group"
+    aria-roledescription="slide"
+    :class="
+      cn(
+        'min-w-0 shrink-0 grow-0 basis-full',
+        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+        props.class,
+      )
+    "
+  >
+    <slot />
+  </div>
+</template>

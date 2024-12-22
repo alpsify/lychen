@@ -3,10 +3,10 @@
     <LychenTitle variant="h2">{{ t(`section.needs.title`) }}</LychenTitle>
     <LychenParagraph
       variant="website-highlight"
-      class="text-center w-3/5"
+      class="text-center md:w-3/5"
       >{{ t(`section.needs.description`) }}</LychenParagraph
     >
-    <div class="flex flex-col md:w-2/3 m-auto gap-6">
+    <div class="flex flex-col lg:w-2/3 m-auto gap-6">
       <div
         class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-surface-container-on rounded-lg items-center p-6"
       >
@@ -177,10 +177,17 @@
 import NathanDePachtereImage from './assets/NathanDePachtere.webp';
 import JenniferGeoffroyImage from './assets/JenniferGeoffroy.webp';
 import { defineAsyncComponent } from 'vue';
-import { useTranslations } from './i18n';
-import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
-import LychenBadge from '@lychen/ui-components/badge/LychenBadge.vue';
-import LychenRainbowBox from '@lychen/ui-components/rainbow-box/LychenRainbowBox.vue';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const LychenBadge = defineAsyncComponent(
+  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
+);
+
+const LychenRainbowBox = defineAsyncComponent(
+  () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
+);
 
 const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),
@@ -193,6 +200,5 @@ const LychenTitle = defineAsyncComponent(
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
-
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

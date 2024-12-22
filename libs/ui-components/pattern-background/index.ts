@@ -1,7 +1,6 @@
+import { ObjectValues } from '@lychen/typescript-util-object/Object';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { HTMLAttributes } from 'vue';
-
-import type { ObjectValues } from '../lib/utils';
 
 export const PATTERN_BACKGROUND_DIRECTION = {
   Top: 'top',

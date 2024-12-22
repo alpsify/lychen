@@ -2,28 +2,31 @@
   <LychenHero
     class="flex flex-col items-center justify-center gap-4 text-center text-surface-on min-h-dvh"
   >
-    <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
-    <LychenParagraph
-      class="md:w-4/6"
-      variant="website-default"
-      >{{ t('paragraph') }}
-    </LychenParagraph>
-    <LychenParagraph
-      variant="website-default"
-      class="opacity-80"
-      >{{ t('paragraph_complement') }}
-    </LychenParagraph>
-    <img
-      src="./assets/smile_atiGofFl0TgADvvhneAEk.webp"
-      class="rounded-md"
-    />
+    <div class="flex flex-col basis-3/4 gap-4 items-center">
+      <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
+      <LychenParagraph
+        class="md:w-4/6"
+        variant="website-default"
+        >{{ t('paragraph') }}
+      </LychenParagraph>
+      <LychenParagraph
+        variant="website-default"
+        class="opacity-80"
+        >{{ t('paragraph_complement') }}
+      </LychenParagraph>
+      <img
+        src="./assets/smile_atiGofFl0TgADvvhneAEk.webp"
+        class="rounded-md"
+      />
+    </div>
   </LychenHero>
 </template>
 
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
@@ -35,7 +38,7 @@ const LychenTitle = defineAsyncComponent(
 
 const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>
 
 <style lang="css" scoped></style>

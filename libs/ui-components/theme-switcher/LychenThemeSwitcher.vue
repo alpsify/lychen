@@ -7,10 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import { usePrefersColorScheme } from '@lychen/vue-util-composables/usePrefersColorScheme';
+import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 import { defineAsyncComponent } from 'vue';
 
 const LychenIcon = defineAsyncComponent(() => import('../icon/LychenIcon.vue'));
 
-const { toggleDark, isDark } = usePrefersColorScheme();
+const { toggleDark, isDark } = usePreferredColorScheme();
 </script>

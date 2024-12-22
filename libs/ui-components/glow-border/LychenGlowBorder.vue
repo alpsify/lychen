@@ -1,8 +1,5 @@
 <template>
-  <div
-    :style="parentStyles"
-    :class="cn('relative glow-border', $props.class)"
-  >
+  <div :class="cn('relative glow-border', $props.class)">
     <div
       :style="childStyles"
       :class="
@@ -18,10 +15,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 interface Props {
-  borderRadius?: number;
+  borderRadius?: string;
   color?: string | Array<string>;
   borderWidth?: number;
   duration?: number;
@@ -29,20 +26,16 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  borderRadius: 10,
+  borderRadius: '0.5rem',
   color: '#FFF',
   borderWidth: 2,
   duration: 10,
   class: undefined,
 });
 
-const parentStyles = computed(() => {
-  return { '--border-radius': `${props.borderRadius}px` };
-});
-
 const childStyles = computed(() => ({
   '--border-width': `${props.borderWidth}px`,
-  '--border-radius': `${props.borderRadius}px`,
+  '--border-radius': `${props.borderRadius}`,
   '--glow-pulse-duration': `${props.duration}s`,
   '--mask-linear-gradient': `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
   '--background-radial-gradient': `radial-gradient(circle, transparent, ${

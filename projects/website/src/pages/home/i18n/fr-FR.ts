@@ -8,23 +8,32 @@ export default {
   },
   hero: {
     title: {
-      prepend: 'Acteur de la ',
-      key_word: 'symbiose',
-      append: ' du territoire',
+      prepend: 'Développer la ',
+      key_word: 'robutesse',
+      append: ' des territoires',
     },
     description:
-      'La symbiose mutualiste est une interaction durable et réciproquement profitable entre différents organismes.',
+      'Un écosystème conçu pour connecter, organiser et renforcer la résilience des territoires face aux changements climatiques.',
     discover: 'Découvrir',
+    sponsor_us: 'Nous soutenir',
   },
-  definition: {
-    phonetic: '\\li. kɛn\\',
-    definition:
-      "Végétal symbiotique formé par l'association d'une algue microscopique et d'un champignon filamenteux.",
-  },
-  features: {
-    title: 'Mettre en relations les différents acteurs.',
+  crowfunding: {
+    title: "Vous pouvez nous aider à créer l'écosystème parfait !",
     description:
-      "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
+      'Rejoignez-nous pour co-créer Lychen et donner vie à un projet Open Source innovant.',
+    preregister: 'Préinscrivez-vous dès maintenant !',
+  },
+  applications: {
+    title: 'Un seul écosystème',
+    second_title: 'Tous les outils pour le territoire',
+  },
+  goals: {
+    title: 'Objectifs de développement durable',
+    link_title: {
+      2: 'Voir plus',
+      11: 'Découvrir plus',
+      12: 'Plus de détails',
+    },
   },
   presentation: {
     title: "Ensemble, semons les graines d'un avenir durable.",
@@ -34,21 +43,14 @@ export default {
       'Grâce à des outils de gestion de jardins partagés, des échanges de graines et de plants, et des projets de co-jardinage, nous œuvrons ensemble pour un avenir où la production alimentaire respecte la planète et soutient les communautés locales. Rejoignez-nous pour cultiver un avenir durable, où chaque action compte pour bâtir un monde plus vert et solidaire.',
   },
   actors: {
-    title: 'Fait pour ceux qui veulent du changements',
+    title: 'Fait pour ceux qui veulent du changement',
     description:
       "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
   },
   oss: {
-    title: 'Transparent & Open-source',
-    sub_description: 'Profitez de tout ce que vous aimez, sans les inconvénients.',
+    title: 'Un écosystème transparent et open-source',
     description:
-      "Notre plateforme est entièrement open-source, ce qui signifie que chaque aspect de son code est accessible, modifiable et vérifiable par tous. Nous croyons en la transparence totale pour que chacun puisse s'assurer de la sécurité, de la fiabilité et de l'intégrité de notre solution.",
-    key_point: {
-      no_vendor_lockin: 'Pas de verrouillage fournisseur',
-      scalable: 'Scalable',
-      extensible: 'Extensible',
-      cloud_or_self_hosted: 'Cloud ou auto-hébergé',
-    },
+      "Nous croyons en la transparence totale pour que chacun puisse s'assurer de la sécurité, de la fiabilité et de l'intégrité de notre solution.",
     button: {
       label: 'Voir le manifeste complet',
     },

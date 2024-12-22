@@ -1,4 +1,6 @@
 dependsOn:
+  - typescript-util-object
+  - typescript-util-tailwind
   - vue-util-composables
 
 id: ui-components

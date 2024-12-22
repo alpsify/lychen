@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "../../typescript/util-date/**/*", "../../typescript/util-object/**/*"],
+  "references": [
+    {
+      "path": "../../typescript/util-date"
+    },
+    {
+      "path": "../../typescript/util-object"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/util-model",
+    "paths": {
+      "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"]
+    }
+  }
+}

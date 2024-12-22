@@ -4,7 +4,7 @@ import { useForwardPropsEmits } from 'radix-vue';
 import { DrawerContent, DrawerPortal } from 'vaul-vue';
 import type { HtmlHTMLAttributes } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import DrawerOverlay from './LychenDrawerOverlay.vue';
 
 const props = defineProps<DialogContentProps & { class?: HtmlHTMLAttributes['class'] }>();

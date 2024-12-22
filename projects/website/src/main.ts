@@ -1,13 +1,12 @@
 import './stylesheet/main.css';
 
-import { createI18n } from 'vue-i18n';
-
 import { ViteSSG } from 'vite-ssg';
 
 import App from './App.vue';
 import routes from './router/routes';
 import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 import type { RouterScrollBehavior } from 'vue-router';
+import { useI18n } from '@lychen/vue-i18n-util-configs/useI18n';
 
 // eslint-disable-next-line func-style
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
@@ -30,14 +29,6 @@ export const createApp = ViteSSG(
   },
   ({ app, router, routes, isClient, initialState }) => {
     loadFontAwesomeStyles();
-
-    const i18n = createI18n({
-      globalInjection: false,
-      legacy: false,
-      fallbackLocale: 'fr-FR',
-      locale: import.meta.env.SSR ? 'fr-FR' : navigator.languages[0],
-    });
-
-    app.use(i18n);
+    useI18n(app);
   },
 );

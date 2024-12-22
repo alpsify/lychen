@@ -1,0 +1,17 @@
+id: applications-assets
+
+language: assets
+
+tasks:
+  sync-covers:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/covers
+    inputs:
+      - '$projectRoot/covers/'
+    options:
+      cache: false
+    platform: system
+
+type: library

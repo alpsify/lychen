@@ -5,6 +5,7 @@ import { keyframesConfig } from '@lychen/ui-css/tailwind/keyframesConfig';
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
 import { contentConfig } from '@lychen/ui-css/tailwind/contentConfig';
+import tailwindcssMotion from 'tailwindcss-motion';
 
 export default {
   darkMode: 'class',
@@ -28,5 +29,5 @@ export default {
       animation: animationConfig,
     },
   },
-  plugins: [animate],
+  plugins: [animate, tailwindcssMotion],
 } satisfies Config;

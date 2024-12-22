@@ -1437,37 +1437,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.6.0":
-  version: 6.6.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-common-types%2F-%2F6.6.0%2Ffontawesome-common-types-6.6.0.tgz"
-  checksum: 10c0/f76e5959f6ce01355f599126a3a68facba578dc8ebb7ad40fbd22417b7056364a577c1887720ec9653d4efa5b704a01150f5064fc7de237d697fd80e3d9c83aa
+"@fortawesome/duotone-light-svg-icons@npm:^6.7.2":
+  version: 6.7.2
+  resolution: "@fortawesome/duotone-light-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fduotone-light-svg-icons%2F-%2F6.7.2%2Fduotone-light-svg-icons-6.7.2.tgz"
+  checksum: 10c0/3022d5a13ce6bfe65c53458af7cfebbe7e4cb41de08a42a6ab94c0339e6bccba9807919865db3624de2125cdaa5702505c23485ea187c4f7591482abb6a4609b
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-svg-core%2F-%2F6.6.0%2Ffontawesome-svg-core-6.6.0.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.6.0"
-  checksum: 10c0/38e2840791711524a3c57d9ea48a5a2e99da6fa3c657ba6beaad7ec3b8da31489a9e38f42b23d70584c75b579dc1ff8c67e075bc9789032278e4da54bb86ecfe
+"@fortawesome/fontawesome-common-types@npm:6.7.2":
+  version: 6.7.2
+  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-common-types%2F-%2F6.7.2%2Ffontawesome-common-types-6.7.2.tgz"
+  checksum: 10c0/0785df560542d9c08a0ba07bb7a39902274a3cd65c018672eb2520a99efccce18bdb7f7f4b1c6089763bc5627bf0f0837c3af963a8427eaeb535bd57c820a723
   languageName: node
   linkType: hard
 
-"@fortawesome/free-brands-svg-icons@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "@fortawesome/free-brands-svg-icons@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffree-brands-svg-icons%2F-%2F6.6.0%2Ffree-brands-svg-icons-6.6.0.tgz"
+"@fortawesome/fontawesome-svg-core@npm:^6.6.0, @fortawesome/fontawesome-svg-core@npm:^6.7.2":
+  version: 6.7.2
+  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-svg-core%2F-%2F6.7.2%2Ffontawesome-svg-core-6.7.2.tgz"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.6.0"
-  checksum: 10c0/1135a22ff274939da477496f550b6750a1b5fd0ddd0c09bddb1874f2c183a5c8edb519de2cebf6454b12a8457c3eec587bdb6f68e96140cceeb6d02c1ec35479
+    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
+  checksum: 10c0/9e4e2992b341d2d11cd6ab8cf001e2cb9be4266ce200b307d15c0618e7d2cf11c1c4c67a1f95f3cc70feed2380fa66672132c32078674d5f9cb2cb0b7703f3ac
   languageName: node
   linkType: hard
 
-"@fortawesome/pro-light-svg-icons@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "@fortawesome/pro-light-svg-icons@npm:6.6.0::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-light-svg-icons%2F-%2F6.6.0%2Fpro-light-svg-icons-6.6.0.tgz"
+"@fortawesome/free-brands-svg-icons@npm:^6.7.2":
+  version: 6.7.2
+  resolution: "@fortawesome/free-brands-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffree-brands-svg-icons%2F-%2F6.7.2%2Ffree-brands-svg-icons-6.7.2.tgz"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.6.0"
-  checksum: 10c0/fbf51e6517e57657b7c9ea5730c2cbbd184377509282f922ec7fdd408dfe821820fa5a04c65f5db5ee79a3da583a50182a487594b4216a76edc144b753ca7fc4
+    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
+  checksum: 10c0/054af882f3416d4a04dfe0f8db8f1ac645d07709a019e95368ae796c1aeee5929dfaf023e5568438a600e1bc1496e6e7270659d2be91b50531fdbd724034b22c
+  languageName: node
+  linkType: hard
+
+"@fortawesome/pro-light-svg-icons@npm:^6.6.0, @fortawesome/pro-light-svg-icons@npm:^6.7.2":
+  version: 6.7.2
+  resolution: "@fortawesome/pro-light-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-light-svg-icons%2F-%2F6.7.2%2Fpro-light-svg-icons-6.7.2.tgz"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
+  checksum: 10c0/7b4a468d5382e473a93c6413774f98be11b12dc76ee9dda4fcedf599de9e4791250deb90b20839ebf73fc59c207679414c73ad73ac1bb088104a32958d992e42
   languageName: node
   linkType: hard
 
@@ -1630,6 +1637,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lychen/applications-ui-components@workspace:*, @lychen/applications-ui-components@workspace:libs/applications/ui-components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-ui-components@workspace:libs/applications/ui-components"
+  dependencies:
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/typescript-util-tailwind": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-ui-i18n@workspace:*, @lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-composables@workspace:*, @lychen/applications-util-composables@workspace:libs/applications/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-composables@workspace:libs/applications/util-composables"
+  dependencies:
+    "@lychen/applications-ui-i18n": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-model@workspace:*, @lychen/applications-util-model@workspace:libs/applications/util-model":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-model@workspace:libs/applications/util-model"
+  dependencies:
+    "@lychen/typescript-util-date": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/kiro-member-app@workspace:projects/kiro/member-app":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-member-app@workspace:projects/kiro/member-app"
@@ -1639,7 +1683,7 @@ __metadata:
     "@lychen/kiro-ui-components": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:11.1.0"
     "@zitadel/vue": "npm:1.1.1"
@@ -1680,7 +1724,7 @@ __metadata:
     "@lychen/kiro-ui-components": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@unhead/vue": "npm:1.11.7"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:11.1.0"
@@ -1696,9 +1740,52 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/odd-assets@workspace:*, @lychen/odd-assets@workspace:libs/odd/assets":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-assets@workspace:libs/odd/assets"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-ui-i18n@workspace:*, @lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-util-composables@workspace:*, @lychen/odd-util-composables@workspace:libs/odd/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-util-composables@workspace:libs/odd/util-composables"
+  dependencies:
+    "@lychen/odd-ui-i18n": "workspace:*"
+    "@lychen/odd-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-util-model@workspace:*, @lychen/odd-util-model@workspace:libs/odd/util-model":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-util-model@workspace:libs/odd/util-model"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/typescript-util-date@workspace:*, @lychen/typescript-util-date@workspace:libs/typescript/util-date":
   version: 0.0.0-use.local
   resolution: "@lychen/typescript-util-date@workspace:libs/typescript/util-date"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/typescript-util-object@workspace:*, @lychen/typescript-util-object@workspace:libs/typescript/util-object":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-util-object@workspace:libs/typescript/util-object"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/typescript-util-tailwind@workspace:*, @lychen/typescript-util-tailwind@workspace:libs/typescript/util-tailwind":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-util-tailwind@workspace:libs/typescript/util-tailwind"
+  dependencies:
+    clsx: "npm:^2.1.1"
+    tailwind-merge: "npm:^2.5.2"
   languageName: unknown
   linkType: soft
 
@@ -1706,15 +1793,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-components@workspace:libs/ui-components"
   dependencies:
-    "@fortawesome/fontawesome-svg-core": "npm:^6.6.0"
-    "@fortawesome/free-brands-svg-icons": "npm:^6.6.0"
-    "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
+    "@fortawesome/duotone-light-svg-icons": "npm:^6.7.2"
+    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
+    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/typescript-util-tailwind": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
+    "@vueuse/core": "npm:^12.0.0"
     class-variance-authority: "npm:^0.7.0"
-    clsx: "npm:^2.1.1"
+    embla-carousel-vue: "npm:^8.5.1"
     radix-vue: "npm:^1.9.6"
-    tailwind-merge: "npm:^2.5.2"
     tailwindcss: "npm:^3.4.16"
     tailwindcss-animate: "npm:^1.0.7"
     vaul-vue: "npm:^0.2.0"
@@ -1733,7 +1823,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
   dependencies:
-    "@lychen/vue-util-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1752,6 +1842,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-i18n-util-composables@workspace:*, @lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables"
+  dependencies:
+    "@lychen/typescript-util-date": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vue-i18n-util-helpers": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-i18n-util-configs@workspace:*, @lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs"
+  dependencies:
+    vue: "npm:3.5.13"
+    vue-i18n: "npm:^10.0.5"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-i18n-util-helpers@workspace:*, @lychen/vue-i18n-util-helpers@workspace:libs/vue/i18n/util-helpers":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-i18n-util-helpers@workspace:libs/vue/i18n/util-helpers"
+  dependencies:
+    "@intlify/core-base": "npm:^10.0.4"
+    vue: "npm:3.5.13"
+    vue-i18n: "npm:^10.0.5"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-util-composables@workspace:*, @lychen/vue-util-composables@workspace:libs/vue/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
@@ -1761,27 +1880,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-util-i18n@workspace:*, @lychen/vue-util-i18n@workspace:libs/vue/util-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-util-i18n@workspace:libs/vue/util-i18n"
-  dependencies:
-    "@intlify/core-base": "npm:^10.0.4"
-    "@lychen/typescript-util-date": "workspace:*"
-    vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/website@workspace:projects/website":
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/applications-util-composables": "workspace:*"
+    "@lychen/odd-assets": "workspace:*"
+    "@lychen/odd-util-composables": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
-    "@lychen/vue-util-i18n": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.11"
     "@unhead/vue": "npm:^1.11.11"
     "@vitejs/plugin-vue": "npm:^5.2.1"
@@ -1791,12 +1904,12 @@ __metadata:
     radix-vue: "npm:1.9.6"
     tailwindcss: "npm:^3.4.16"
     tailwindcss-animate: "npm:1.0.7"
+    tailwindcss-motion: "npm:1.0.0"
     vite: "npm:^6.0.3"
     vite-plugin-mkcert: "npm:^1.17.6"
     vite-ssg: "npm:^0.24.2"
     vite-ssg-sitemap: "npm:^0.8.1"
     vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
     vue-router: "npm:4"
   languageName: unknown
   linkType: soft
@@ -2730,6 +2843,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/core@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "@vueuse/core@npm:12.0.0"
+  dependencies:
+    "@types/web-bluetooth": "npm:^0.0.20"
+    "@vueuse/metadata": "npm:12.0.0"
+    "@vueuse/shared": "npm:12.0.0"
+    vue: "npm:^3.5.13"
+  checksum: 10c0/416a5d2725069ace3901a77168ff24e0f9aea535b04174edf506bedd97c8f6a14d23105c80e1f58ed3b690c9931fc9089b1e5960e769e6a3e886fa8b9d320cbb
+  languageName: node
+  linkType: hard
+
 "@vueuse/metadata@npm:10.11.1":
   version: 10.11.1
   resolution: "@vueuse/metadata@npm:10.11.1"
@@ -2748,6 +2873,13 @@ __metadata:
   version: 11.2.0
   resolution: "@vueuse/metadata@npm:11.2.0"
   checksum: 10c0/a6f6b734d7237e9e80d005f3cd566141153cf2f59011c57396517a5d448857ecda792c910cde0401f7d524f0f693608616af30fd0f70e867a25f9b0d768a8fb4
+  languageName: node
+  linkType: hard
+
+"@vueuse/metadata@npm:12.0.0":
+  version: 12.0.0
+  resolution: "@vueuse/metadata@npm:12.0.0"
+  checksum: 10c0/f67a256fef7961883e9921d2369be334015a4a0193987c3082b9b6386e31ed2d90de555b8d9aca63c5dda6cb3cf8df5d9b7842db77488c1ba638437befffca08
   languageName: node
   linkType: hard
 
@@ -2775,6 +2907,15 @@ __metadata:
   dependencies:
     vue-demi: "npm:>=0.14.10"
   checksum: 10c0/24c8b4ffb7e1d253f67cb19736926707b5c1b18901b1cd71c075f22495c3382b845253185d2c8986b4a86a17bf637dac01317d68a044cc712621221d278f23ff
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:12.0.0":
+  version: 12.0.0
+  resolution: "@vueuse/shared@npm:12.0.0"
+  dependencies:
+    vue: "npm:^3.5.13"
+  checksum: 10c0/7900edc00f636b9cc5fcf96e13ff9e7ec8f4f7efc0960964227cc31a26b3b45123d613a201c6b5d331534b72908b5e754ae2cba4169c5a145255987d3ad7da78
   languageName: node
   linkType: hard
 
@@ -3719,6 +3860,34 @@ __metadata:
   version: 1.5.49
   resolution: "electron-to-chromium@npm:1.5.49"
   checksum: 10c0/7b22141c7ebea2f49b87adcbe2b353919abbe44066c50e5e44dd47759c4ef07f0a802b9fc8ce2eaa832a293945b6d49064c859f0fef36d10c12fb46af2c1005d
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel-reactive-utils@npm:8.5.1"
+  peerDependencies:
+    embla-carousel: 8.5.1
+  checksum: 10c0/f9f99f05014eb36902fb5a852c26e38afe3827a357bdcb8f744afe2af7786548369cbd8948022b635c85324f9b195c31af5f16934354690073e400829af7359d
+  languageName: node
+  linkType: hard
+
+"embla-carousel-vue@npm:^8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel-vue@npm:8.5.1"
+  dependencies:
+    embla-carousel: "npm:8.5.1"
+    embla-carousel-reactive-utils: "npm:8.5.1"
+  peerDependencies:
+    vue: ^3.2.37
+  checksum: 10c0/d26947ec81d5de5092b0d69899bc4af065c44277cc7377210beb3525d8478b2f28c5842acec4c7764fd4b98c8a8c702908fea9896ece6be85f2dfaceac566044
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.5.1":
+  version: 8.5.1
+  resolution: "embla-carousel@npm:8.5.1"
+  checksum: 10c0/457f3ae6f13a55504a61b4cb57529fbc33102a921cbb2f234d6b53709ded03b8cf46fb7a1c95d51d9f37a2348013c6a4479705367b0b75bfb83862f52dd23d7f
   languageName: node
   linkType: hard
 
@@ -7717,6 +7886,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwindcss-motion@npm:1.0.0":
+  version: 1.0.0
+  resolution: "tailwindcss-motion@npm:1.0.0"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 10c0/3a81194673a856d44a972c2851ab2c95653547b0d621beded5fcbf671d94193f3d8712df7f819fc82632383f2cf1ac6add48d27b69a47af5183befcbc38d982e
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:3.4.13":
   version: 3.4.13
   resolution: "tailwindcss@npm:3.4.13"
@@ -8498,7 +8676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.5.13, vue@npm:^3.4.5":
+"vue@npm:3.5.13, vue@npm:^3.4.5, vue@npm:^3.5.13":
   version: 3.5.13
   resolution: "vue@npm:3.5.13"
   dependencies:

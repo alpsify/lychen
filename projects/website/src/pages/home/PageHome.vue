@@ -1,27 +1,31 @@
 <template>
   <PageHomeHero />
-  <PageHomeDefinition />
-  <PageHomeFeatures />
+  <PageHomeCrowfunding />
+  <PageHomeApplications />
+  <PageHomeBento />
+  <PageHomeODD />
   <PageHomeOSS />
-  <PageHomePresentation />
+
   <PageHomeActors />
 </template>
 
 <script lang="ts" setup>
-import heroUrl from './assets/hero-1.webp';
+import ogImageUrl from './assets/Home-ogImage.webp';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-import { useTranslations } from './i18n';
+import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
-import PageHomeDefinition from './PageHomeDefinition.vue';
-import PageHomeFeatures from './PageHomeFeatures.vue';
+import PageHomeCrowfunding from './PageHomeCrowfunding.vue';
+import PageHomeODD from './PageHomeODD.vue';
 import PageHomeHero from './PageHomeHero.vue';
-import PageHomePresentation from './PageHomePresentation.vue';
 import PageHomeOSS from './PageHomeOSS.vue';
+import PageHomeApplications from './PageHomeApplications.vue';
+import PageHomeBento from './PageHomeBento.vue';
 import { useExtendedHead } from '@/composables/useExtendedHead';
 
-const { t } = useTranslations();
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-useExtendedHead(t, { ogImage: heroUrl });
+useExtendedHead(t, { ogImage: ogImageUrl });
 </script>
 
 <style lang="css" scoped></style>

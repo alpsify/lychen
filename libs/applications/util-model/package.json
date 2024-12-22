@@ -1,0 +1,9 @@
+{
+  "name": "@lychen/applications-util-model",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/typescript-util-date": "workspace:*",
+    "@lychen/typescript-util-object": "workspace:*"
+  }
+}

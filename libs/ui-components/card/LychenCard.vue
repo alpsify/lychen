@@ -2,7 +2,7 @@
 import { Primitive, type PrimitiveProps } from 'radix-vue';
 import type { HTMLAttributes } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 interface Props extends PrimitiveProps {
   class?: HTMLAttributes['class'];

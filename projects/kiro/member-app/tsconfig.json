@@ -12,7 +12,7 @@
       "path": "../../../libs/ui-css"
     },
     {
-      "path": "../../../libs/vue/util-i18n"
+      "path": "../../../libs/vue/i18n/util-composables"
     }
   ],
   "compilerOptions": {
@@ -23,7 +23,7 @@
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
-      "@lychen/vue-util-i18n/*": ["../../../libs/vue/util-i18n/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
       "@lychen/ui-components/*": ["../../../libs/ui-components/*"]
     },
@@ -34,6 +34,6 @@
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
-    "../../../libs/vue/util-i18n/**/*"
+    "../../../libs/vue/i18n/util-composables/**/*"
   ]
 }

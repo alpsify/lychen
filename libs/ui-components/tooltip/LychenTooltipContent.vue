@@ -8,7 +8,7 @@ import {
 } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 defineOptions({
   inheritAttrs: false,

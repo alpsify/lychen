@@ -16,7 +16,6 @@ tasks:
   production-docker-build:
     args:
       - 'ghcr.io/alpsify/${PRODUCTION_DOCKER_IMAGE}:latest'
-
     deps:
       - production-build
     extends: docker-build

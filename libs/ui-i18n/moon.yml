@@ -1,6 +1,3 @@
-dependsOn:
-  - vue-util-i18n
-
 id: ui-i18n
 
 language: typescript

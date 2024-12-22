@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import type { BaseProps as Props } from '.';
 import {
   PATTERN_BACKGROUND_DIRECTION,

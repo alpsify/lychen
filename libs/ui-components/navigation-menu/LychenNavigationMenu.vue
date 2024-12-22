@@ -7,7 +7,7 @@ import {
 } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import NavigationMenuViewport from './LychenNavigationMenuViewport.vue';
 
 const props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes['class'] }>();

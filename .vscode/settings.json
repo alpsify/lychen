@@ -11,6 +11,9 @@
   "eslint.options": {
     "overrideConfigFile": "eslint.config.js"
   },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.inlayHints.parameterNames.enabled": "none",

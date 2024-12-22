@@ -1,10 +1,15 @@
 dependsOn:
+  - applications-ui-components
+  - applications-util-composables
+  - odd-assets
+  - odd-util-composables
   - ui-components
   - ui-css
   - ui-i18n
   - ui-layouts
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
   - vue-util-composables
-  - vue-util-i18n
 
 env:
   PRODUCTION_DOCKER_IMAGE: lychen/production/website
@@ -25,5 +30,13 @@ project:
 tags:
   - docker
   - dokploy
+
+tasks:
+  assets-sync:
+    deps:
+      - args: '$projectRoot/public/odd-icons'
+        target: odd-assets:sync-icons
+      - args: '$projectRoot/public/applications-covers'
+        target: applications-assets:sync-covers
 
 type: application

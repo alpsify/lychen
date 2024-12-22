@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 import LychenButton from '../button/LychenButton.vue';
 import LychenIcon from '../icon/LychenIcon.vue';
-import { cn } from '../lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import LychenParagraph from '../paragraph/LychenParagraph.vue';
 import LychenTitle from '../title/LychenTitle.vue';
 

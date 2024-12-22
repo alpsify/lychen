@@ -3,7 +3,7 @@ dependsOn:
   #- kiro-util-sdk
   - ui-components
   - ui-css
-  - vue-util-i18n
+  - vue-i18n-util-composables
 
 id: kiro-member-app
 

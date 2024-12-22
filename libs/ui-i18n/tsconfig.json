@@ -1,14 +1,14 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": ["**/*", "../vue/util-i18n/**/*"],
+  "include": ["**/*", "../vue/i18n/util-composables/**/*"],
   "references": [
     {
-      "path": "../vue/util-i18n"
+      "path": "../vue/i18n/util-composables"
     }
   ],
   "compilerOptions": {
     "paths": {
-      "@lychen/vue-util-i18n/*": ["../vue/util-i18n/*"]
+      "@lychen/vue-i18n-util-composables/*": ["../vue/i18n/util-composables/*"]
     },
     "outDir": "../../.moon/cache/types/libs/ui-i18n"
   }

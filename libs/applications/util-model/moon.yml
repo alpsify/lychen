@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-util-object
+
+id: applications-util-model
+
+language: typescript
+
+type: library
