@@ -43,7 +43,7 @@ export default {
       'Grâce à des outils de gestion de jardins partagés, des échanges de graines et de plants, et des projets de co-jardinage, nous œuvrons ensemble pour un avenir où la production alimentaire respecte la planète et soutient les communautés locales. Rejoignez-nous pour cultiver un avenir durable, où chaque action compte pour bâtir un monde plus vert et solidaire.',
   },
   actors: {
-    title: 'Fait pour ceux qui veulent du changements',
+    title: 'Fait pour ceux qui veulent du changement',
     description:
       "Notre plateforme facilite la mise en relation de tous les acteurs du secteur agricole et environnemental. Que vous soyez agriculteur, jardinier amateur, chercheur, ou membre d'une association, nous vous offrons un espace de collaboration et de partage.",
   },
