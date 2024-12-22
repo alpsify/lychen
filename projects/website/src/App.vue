@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { APP_HOST } from '@/constants';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
@@ -15,7 +14,7 @@ useHead({
   titleTemplate: 'Lychen | %s',
   templateParams: {
     schemaOrg: {
-      host: APP_HOST,
+      host: import.meta.env.VITE_UNHEAD_HOST,
     },
   },
 });

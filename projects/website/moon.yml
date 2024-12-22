@@ -12,13 +12,17 @@ dependsOn:
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
+  - vue-unhead-util-composables
   - vue-util-composables
 
 env:
+  DEV_DOMAIN: lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/website
   PRODUCTION_DOKPLOY_COMPOSE_ID: jqEDVdLT2adh_RT3NLoQO
+  PRODUCTION_DOMAIN: lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/website
   STAGING_DOKPLOY_COMPOSE_ID: mLzk8ec3AD7cjI_aPIRKL
+  STAGING_DOMAIN: staging.lychen.fr
 
 id: website
 
@@ -33,6 +37,7 @@ project:
 tags:
   - docker
   - dokploy
+  - ssg
 
 tasks:
   assets-sync:

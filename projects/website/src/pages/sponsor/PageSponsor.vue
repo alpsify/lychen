@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { useExtendedHead } from '@/composables/useExtendedHead';
+import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
 import { defineAsyncComponent } from 'vue';
 
 const PageSponsorNeeds = defineAsyncComponent(() => import('./PageSponsorNeeds.vue'));

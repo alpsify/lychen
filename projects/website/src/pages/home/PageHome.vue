@@ -21,7 +21,7 @@ import PageHomeHero from './PageHomeHero.vue';
 import PageHomeOSS from './PageHomeOSS.vue';
 import PageHomeApplications from './PageHomeApplications.vue';
 import PageHomeBento from './PageHomeBento.vue';
-import { useExtendedHead } from '@/composables/useExtendedHead';
+import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

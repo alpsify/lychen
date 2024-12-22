@@ -77,6 +77,9 @@
       "path": "libs/vue/router/util-configs"
     },
     {
+      "path": "libs/vue/unhead/util-composables"
+    },
+    {
       "path": "libs/vue/util-composables"
     },
     {

@@ -14,6 +14,7 @@
     "../../libs/vue/i18n/util-composables/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/router/util-configs/**/*",
+    "../../libs/vue/unhead/util-composables/**/*",
     "../../libs/vue/util-composables/**/*"
   ],
   "references": [
@@ -54,6 +55,9 @@
       "path": "../../libs/vue/router/util-configs"
     },
     {
+      "path": "../../libs/vue/unhead/util-composables"
+    },
+    {
       "path": "../../libs/vue/util-composables"
     }
   ],
@@ -76,7 +80,8 @@
       "@lychen/vue-i18n-util-configs/*": ["../../libs/vue/i18n/util-configs/*"],
       "@lychen/vue-router-util-configs/*": ["../../libs/vue/router/util-configs/*"],
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],
-      "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"]
+      "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"],
+      "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

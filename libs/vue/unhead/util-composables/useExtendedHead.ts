@@ -1,6 +1,5 @@
 import { useHead, useSeoMeta } from '@unhead/vue';
 import { useRoute, useRouter } from 'vue-router';
-import { APP_HOST } from '@/constants';
 
 export function useExtendedHead(
   t: (key: string) => string,
@@ -15,7 +14,7 @@ export function useExtendedHead(
         rel: 'canonical',
         href:
           options?.canonical ??
-          `${APP_HOST}${router.resolve(route.name ? { name: route.name } : route).path}`,
+          `${import.meta.env.VITE_UNHEAD_HOST}${router.resolve(route.name ? { name: route.name } : route).path}`,
       },
     ],
   });

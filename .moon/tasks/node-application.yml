@@ -18,13 +18,19 @@ tasks:
     command: yarn run dev
     deps:
       - assets-sync
+    env:
+      VITE_UNHEAD_HOST: ${DEV_DOMAIN}
     options:
       persistent: true
 
   production-build:
+    env:
+      VITE_UNHEAD_HOST: ${PRODUCTION_DOMAIN}
     extends: build
 
   staging-build:
+    env:
+      VITE_UNHEAD_HOST: ${STAGING_DOMAIN}
     extends: build
 
   sync-fonts:
