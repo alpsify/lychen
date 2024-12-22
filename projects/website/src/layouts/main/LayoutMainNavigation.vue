@@ -135,6 +135,7 @@
       <a
         href="https://tally.so/r/w5EYdZ"
         target="_blank"
+        class="hidden md:flex"
       >
         <LychenButton
           variant="default"
