@@ -25,7 +25,9 @@
         <p class="gradient text-4xl">Accessibilité</p>
         <p>Fluidité et modernité</p>
       </div>
-      <div class="item justify-center"><p class="text-2xl gradient">Changements citoyens</p></div>
+      <div class="item justify-center">
+        <p class="text-xl gradient md:text-2xl">Changements citoyens</p>
+      </div>
       <div class="item bg-surface-container-high">
         <img
           :src="bentoCentralImageUrl"
@@ -58,7 +60,7 @@
         compromis
       </div>
       <div class="item justify-center">
-        <p class="text-2xl gradient">Faire communiquer les acteurs du territoire</p>
+        <p class="text-xl gradient md:text-2xl">Faire communiquer les acteurs du territoire</p>
       </div>
       <div class="item justify-center"><p class="text-2xl">Petite équipe, grand résultat</p></div>
       <div class="item justify-center">
@@ -97,6 +99,41 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     'ten eleven seven seven seven eight nine'
     'ten eleven seven seven seven twelve twelve'
     'thirteen thirteen fourteen fourteen fourteen twelve twelve';
+
+  @media not all and (min-width: 768px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'seven seven'
+        'one two'
+        'three two'
+        'three four'
+        'three four'
+        'five five'
+        'eight six'
+        'eight nine'
+        'ten nine'
+        'ten eleven'
+        'twelve thirteen'
+        'fourteen fourteen';
+    }
+  }
+
+  @media not all and (min-width: 1024px) {
+    & {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'seven seven seven one'
+        'seven seven seven two'
+        'three four five five'
+        'six eight nine ten'
+        'six eight nine eleven'
+        'twelve twelve thirteen thirteen'
+        'fourteen fourteen fourteen fourteen';
+    }
+  }
 
   .item {
     display: flex;
