@@ -6,8 +6,7 @@ import App from './App.vue';
 import routes from './router/routes';
 import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 import type { RouterScrollBehavior } from 'vue-router';
-import { configSSG } from '@lychen/vue-i18n-util-configs/ConfigSSG';
-import { createAndUse } from '@lychen/vue-i18n-util-configs/CreateAndUse';
+import { useI18n } from '@lychen/vue-i18n-util-configs/useI18n';
 
 // eslint-disable-next-line func-style
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
@@ -30,6 +29,6 @@ export const createApp = ViteSSG(
   },
   ({ app, router, routes, isClient, initialState }) => {
     loadFontAwesomeStyles();
-    createAndUse(app, configSSG);
+    useI18n(app);
   },
 );
