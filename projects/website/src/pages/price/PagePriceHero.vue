@@ -1,23 +1,9 @@
 <template>
   <LychenHero
-    class="flex flex-col items-center justify-center gap-4 text-center text-surface-on min-h-dvh"
+    class="dark:text-surface-on text-surface flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center bg-gradient-to-tr from-[#EECDA3] to-[#EF629F] rounded-b-3xl pt-20"
   >
     <div class="flex flex-col basis-3/4 gap-4 items-center">
       <LychenTitle variant="h1">{{ t('title') }}</LychenTitle>
-      <LychenParagraph
-        class="md:w-4/6"
-        variant="website-default"
-        >{{ t('paragraph') }}
-      </LychenParagraph>
-      <LychenParagraph
-        variant="website-default"
-        class="opacity-80"
-        >{{ t('paragraph_complement') }}
-      </LychenParagraph>
-      <img
-        src="./assets/smile_atiGofFl0TgADvvhneAEk.webp"
-        class="rounded-md"
-      />
     </div>
   </LychenHero>
 </template>
@@ -27,10 +13,6 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
-);
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
