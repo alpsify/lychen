@@ -9,6 +9,7 @@ dependsOn:
   - kolo-ui-i18n
   - meli-ui-i18n
   - myko-ui-i18n
+  - novi-ui-i18n
   - tera-ui-i18n
   - vara-ui-i18n
   - vue-i18n-util-composables

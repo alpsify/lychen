@@ -59,6 +59,12 @@
       "path": "libs/myko/util-constants"
     },
     {
+      "path": "libs/novi/ui-i18n"
+    },
+    {
+      "path": "libs/novi/util-constants"
+    },
+    {
       "path": "libs/odd/ui-i18n"
     },
     {

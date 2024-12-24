@@ -5,6 +5,7 @@ dependsOn:
   - kolo-util-constants
   - meli-util-constants
   - myko-util-constants
+  - novi-util-constants
   - tera-util-constants
   - vara-util-constants
 

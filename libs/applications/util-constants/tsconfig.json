@@ -8,6 +8,7 @@
     "../../kolo/util-constants/**/*",
     "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
+    "../../novi/util-constants/**/*",
     "../../tera/util-constants/**/*",
     "../../typescript/util-date/**/*",
     "../../typescript/util-object/**/*",
@@ -31,6 +32,9 @@
     },
     {
       "path": "../../myko/util-constants"
+    },
+    {
+      "path": "../../novi/util-constants"
     },
     {
       "path": "../../tera/util-constants"
@@ -57,7 +61,8 @@
       "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"],
       "@lychen/kolo-util-constants/*": ["../../kolo/util-constants/*"],
       "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"],
-      "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"]
+      "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"],
+      "@lychen/novi-util-constants/*": ["../../novi/util-constants/*"]
     }
   }
 }

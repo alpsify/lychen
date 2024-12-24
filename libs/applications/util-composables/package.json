@@ -12,6 +12,7 @@
     "@lychen/kolo-ui-i18n": "workspace:*",
     "@lychen/meli-ui-i18n": "workspace:*",
     "@lychen/myko-ui-i18n": "workspace:*",
+    "@lychen/novi-ui-i18n": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/vara-ui-i18n": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",

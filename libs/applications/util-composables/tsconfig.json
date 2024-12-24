@@ -8,6 +8,7 @@
     "../../kolo/ui-i18n/**/*",
     "../../meli/ui-i18n/**/*",
     "../../myko/ui-i18n/**/*",
+    "../../novi/ui-i18n/**/*",
     "../../tera/ui-i18n/**/*",
     "../../vara/ui-i18n/**/*",
     "../../vue/i18n/util-composables/**/*",
@@ -33,6 +34,9 @@
     },
     {
       "path": "../../myko/ui-i18n"
+    },
+    {
+      "path": "../../novi/ui-i18n"
     },
     {
       "path": "../../tera/ui-i18n"
@@ -76,7 +80,9 @@
       "@lychen/vara-ui-i18n": ["../../vara/ui-i18n/index.ts"],
       "@lychen/vara-ui-i18n/*": ["../../vara/ui-i18n/*"],
       "@lychen/eko-ui-i18n": ["../../eko/ui-i18n/index.ts"],
-      "@lychen/eko-ui-i18n/*": ["../../eko/ui-i18n/*"]
+      "@lychen/eko-ui-i18n/*": ["../../eko/ui-i18n/*"],
+      "@lychen/novi-ui-i18n": ["../../novi/ui-i18n/index.ts"],
+      "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"]
     }
   }
 }

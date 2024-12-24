@@ -1669,6 +1669,7 @@ __metadata:
     "@lychen/kolo-ui-i18n": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
+    "@lychen/novi-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -1686,6 +1687,7 @@ __metadata:
     "@lychen/kolo-util-constants": "workspace:*"
     "@lychen/meli-util-constants": "workspace:*"
     "@lychen/myko-util-constants": "workspace:*"
+    "@lychen/novi-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
@@ -1847,6 +1849,20 @@ __metadata:
 "@lychen/myko-util-constants@workspace:*, @lychen/myko-util-constants@workspace:libs/myko/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/myko-util-constants@workspace:libs/myko/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/novi-ui-i18n@workspace:*, @lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n"
+  dependencies:
+    "@lychen/novi-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/novi-util-constants@workspace:*, @lychen/novi-util-constants@workspace:libs/novi/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/novi-util-constants@workspace:libs/novi/util-constants"
   languageName: unknown
   linkType: soft
 

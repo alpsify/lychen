@@ -6,13 +6,14 @@ import { APP_ALIAS as HUMU_APP_ALIAS } from '@lychen/humu-util-constants/App';
 import { APP_ALIAS as KOLO_APP_ALIAS } from '@lychen/kolo-util-constants/App';
 import { APP_ALIAS as VARA_APP_ALIAS } from '@lychen/vara-util-constants/App';
 import { APP_ALIAS as EKO_APP_ALIAS } from '@lychen/eko-util-constants/App';
+import { APP_ALIAS as NOVI_APP_ALIAS } from '@lychen/novi-util-constants/App';
 
 export const APPLICATION_ALIAS = {
   Kiro: KIRO_APP_ALIAS,
   Luna: 'luna',
   Eko: EKO_APP_ALIAS,
   Humu: HUMU_APP_ALIAS,
-  Novi: 'novi',
+  Novi: NOVI_APP_ALIAS,
   Vara: VARA_APP_ALIAS,
   Meli: MELI_APP_ALIAS,
   Kolo: KOLO_APP_ALIAS,

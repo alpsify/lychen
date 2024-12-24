@@ -9,6 +9,7 @@
     "@lychen/kolo-util-constants": "workspace:*",
     "@lychen/meli-util-constants": "workspace:*",
     "@lychen/myko-util-constants": "workspace:*",
+    "@lychen/novi-util-constants": "workspace:*",
     "@lychen/tera-util-constants": "workspace:*",
     "@lychen/vara-util-constants": "workspace:*"
   }
