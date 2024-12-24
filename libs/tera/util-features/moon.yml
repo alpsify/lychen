@@ -1,0 +1,10 @@
+dependsOn:
+  - applications-util-model
+  - tera-util-constants
+  - typescript-util-object
+
+id: tera-util-features
+
+language: typescript
+
+type: library

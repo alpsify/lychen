@@ -1,0 +1,17 @@
+{
+  "name": "@lychen/applications-util-constants",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/eko-util-constants": "workspace:*",
+    "@lychen/humu-util-constants": "workspace:*",
+    "@lychen/kiro-util-constants": "workspace:*",
+    "@lychen/kolo-util-constants": "workspace:*",
+    "@lychen/luna-util-constants": "workspace:*",
+    "@lychen/meli-util-constants": "workspace:*",
+    "@lychen/myko-util-constants": "workspace:*",
+    "@lychen/novi-util-constants": "workspace:*",
+    "@lychen/tera-util-constants": "workspace:*",
+    "@lychen/vara-util-constants": "workspace:*"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../eko/util-constants/**/*",
+    "../../humu/util-constants/**/*",
+    "../../kiro/util-constants/**/*",
+    "../../kolo/util-constants/**/*",
+    "../../luna/util-constants/**/*",
+    "../../meli/util-constants/**/*",
+    "../../myko/util-constants/**/*",
+    "../../novi/util-constants/**/*",
+    "../../tera/util-constants/**/*",
+    "../../typescript/util-date/**/*",
+    "../../typescript/util-object/**/*",
+    "../../vara/util-constants/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../eko/util-constants"
+    },
+    {
+      "path": "../../humu/util-constants"
+    },
+    {
+      "path": "../../kiro/util-constants"
+    },
+    {
+      "path": "../../kolo/util-constants"
+    },
+    {
+      "path": "../../luna/util-constants"
+    },
+    {
+      "path": "../../meli/util-constants"
+    },
+    {
+      "path": "../../myko/util-constants"
+    },
+    {
+      "path": "../../novi/util-constants"
+    },
+    {
+      "path": "../../tera/util-constants"
+    },
+    {
+      "path": "../../typescript/util-date"
+    },
+    {
+      "path": "../../typescript/util-object"
+    },
+    {
+      "path": "../../vara/util-constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/util-constants",
+    "paths": {
+      "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
+      "@lychen/tera-util-constants/*": ["../../tera/util-constants/*"],
+      "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"],
+      "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"],
+      "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"],
+      "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"],
+      "@lychen/kolo-util-constants/*": ["../../kolo/util-constants/*"],
+      "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"],
+      "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"],
+      "@lychen/novi-util-constants/*": ["../../novi/util-constants/*"],
+      "@lychen/luna-util-constants/*": ["../../luna/util-constants/*"]
+    }
+  }
+}

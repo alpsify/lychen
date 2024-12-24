@@ -1,7 +1,18 @@
 dependsOn:
   - applications-assets
   - applications-ui-i18n
+  - applications-util-constants
   - applications-util-model
+  - eko-ui-i18n
+  - humu-ui-i18n
+  - kiro-ui-i18n
+  - kolo-ui-i18n
+  - luna-ui-i18n
+  - meli-ui-i18n
+  - myko-ui-i18n
+  - novi-ui-i18n
+  - tera-ui-i18n
+  - vara-ui-i18n
   - vue-i18n-util-composables
 
 id: applications-util-composables

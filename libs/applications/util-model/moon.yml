@@ -1,4 +1,5 @@
 dependsOn:
+  - applications-util-constants
   - typescript-util-object
 
 id: applications-util-model

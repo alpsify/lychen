@@ -1,0 +1,8 @@
+dependsOn:
+  - humu-util-constants
+
+id: humu-ui-i18n
+
+language: typescript
+
+type: library

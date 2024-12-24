@@ -11,13 +11,64 @@
       "path": "libs/applications/util-composables"
     },
     {
+      "path": "libs/applications/util-constants"
+    },
+    {
       "path": "libs/applications/util-model"
+    },
+    {
+      "path": "libs/eko/ui-i18n"
+    },
+    {
+      "path": "libs/eko/util-constants"
+    },
+    {
+      "path": "libs/humu/ui-i18n"
+    },
+    {
+      "path": "libs/humu/util-constants"
     },
     {
       "path": "libs/kiro/ui-components"
     },
     {
+      "path": "libs/kiro/ui-i18n"
+    },
+    {
+      "path": "libs/kiro/util-constants"
+    },
+    {
       "path": "libs/kiro/util-sdk"
+    },
+    {
+      "path": "libs/kolo/ui-i18n"
+    },
+    {
+      "path": "libs/kolo/util-constants"
+    },
+    {
+      "path": "libs/luna/ui-i18n"
+    },
+    {
+      "path": "libs/luna/util-constants"
+    },
+    {
+      "path": "libs/meli/ui-i18n"
+    },
+    {
+      "path": "libs/meli/util-constants"
+    },
+    {
+      "path": "libs/myko/ui-i18n"
+    },
+    {
+      "path": "libs/myko/util-constants"
+    },
+    {
+      "path": "libs/novi/ui-i18n"
+    },
+    {
+      "path": "libs/novi/util-constants"
     },
     {
       "path": "libs/odd/ui-i18n"
@@ -30,6 +81,15 @@
     },
     {
       "path": "libs/tailwind/util-configs"
+    },
+    {
+      "path": "libs/tera/ui-i18n"
+    },
+    {
+      "path": "libs/tera/util-constants"
+    },
+    {
+      "path": "libs/tera/util-features"
     },
     {
       "path": "libs/typescript/util-date"
@@ -53,19 +113,19 @@
       "path": "libs/ui-layouts"
     },
     {
-      "path": "libs/util-applications"
+      "path": "libs/util-composables"
     },
     {
-      "path": "libs/util-composables"
+      "path": "libs/vara/ui-i18n"
+    },
+    {
+      "path": "libs/vara/util-constants"
     },
     {
       "path": "libs/vite/util-ssg"
     },
     {
       "path": "libs/vue/i18n/util-composables"
-    },
-    {
-      "path": "libs/vue/i18n/util-config"
     },
     {
       "path": "libs/vue/i18n/util-configs"

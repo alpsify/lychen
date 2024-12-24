@@ -1,3 +1,6 @@
+dependsOn:
+  - applications-util-constants
+
 id: applications-ui-i18n
 
 language: typescript

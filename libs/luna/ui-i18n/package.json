@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/luna-ui-i18n",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/luna-util-constants": "workspace:*"
+  }
+}

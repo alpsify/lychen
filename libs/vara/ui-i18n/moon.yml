@@ -1,0 +1,8 @@
+dependsOn:
+  - vara-util-constants
+
+id: vara-ui-i18n
+
+language: typescript
+
+type: library
