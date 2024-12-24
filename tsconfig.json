@@ -47,6 +47,12 @@
       "path": "libs/kolo/util-constants"
     },
     {
+      "path": "libs/luna/ui-i18n"
+    },
+    {
+      "path": "libs/luna/util-constants"
+    },
+    {
       "path": "libs/meli/ui-i18n"
     },
     {

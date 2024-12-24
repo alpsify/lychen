@@ -6,6 +6,7 @@
     "../../humu/util-constants/**/*",
     "../../kiro/util-constants/**/*",
     "../../kolo/util-constants/**/*",
+    "../../luna/util-constants/**/*",
     "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
     "../../novi/util-constants/**/*",
@@ -26,6 +27,9 @@
     },
     {
       "path": "../../kolo/util-constants"
+    },
+    {
+      "path": "../../luna/util-constants"
     },
     {
       "path": "../../meli/util-constants"
@@ -62,7 +66,8 @@
       "@lychen/kolo-util-constants/*": ["../../kolo/util-constants/*"],
       "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"],
       "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"],
-      "@lychen/novi-util-constants/*": ["../../novi/util-constants/*"]
+      "@lychen/novi-util-constants/*": ["../../novi/util-constants/*"],
+      "@lychen/luna-util-constants/*": ["../../luna/util-constants/*"]
     }
   }
 }

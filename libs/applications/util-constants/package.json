@@ -7,6 +7,7 @@
     "@lychen/humu-util-constants": "workspace:*",
     "@lychen/kiro-util-constants": "workspace:*",
     "@lychen/kolo-util-constants": "workspace:*",
+    "@lychen/luna-util-constants": "workspace:*",
     "@lychen/meli-util-constants": "workspace:*",
     "@lychen/myko-util-constants": "workspace:*",
     "@lychen/novi-util-constants": "workspace:*",

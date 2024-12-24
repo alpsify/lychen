@@ -6,6 +6,7 @@
     "../../humu/ui-i18n/**/*",
     "../../kiro/ui-i18n/**/*",
     "../../kolo/ui-i18n/**/*",
+    "../../luna/ui-i18n/**/*",
     "../../meli/ui-i18n/**/*",
     "../../myko/ui-i18n/**/*",
     "../../novi/ui-i18n/**/*",
@@ -28,6 +29,9 @@
     },
     {
       "path": "../../kolo/ui-i18n"
+    },
+    {
+      "path": "../../luna/ui-i18n"
     },
     {
       "path": "../../meli/ui-i18n"
@@ -82,7 +86,9 @@
       "@lychen/eko-ui-i18n": ["../../eko/ui-i18n/index.ts"],
       "@lychen/eko-ui-i18n/*": ["../../eko/ui-i18n/*"],
       "@lychen/novi-ui-i18n": ["../../novi/ui-i18n/index.ts"],
-      "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"]
+      "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"],
+      "@lychen/luna-ui-i18n": ["../../luna/ui-i18n/index.ts"],
+      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"]
     }
   }
 }

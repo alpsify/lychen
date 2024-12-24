@@ -1667,6 +1667,7 @@ __metadata:
     "@lychen/humu-ui-i18n": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
     "@lychen/kolo-ui-i18n": "workspace:*"
+    "@lychen/luna-ui-i18n": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
@@ -1685,6 +1686,7 @@ __metadata:
     "@lychen/humu-util-constants": "workspace:*"
     "@lychen/kiro-util-constants": "workspace:*"
     "@lychen/kolo-util-constants": "workspace:*"
+    "@lychen/luna-util-constants": "workspace:*"
     "@lychen/meli-util-constants": "workspace:*"
     "@lychen/myko-util-constants": "workspace:*"
     "@lychen/novi-util-constants": "workspace:*"
@@ -1821,6 +1823,20 @@ __metadata:
 "@lychen/kolo-util-constants@workspace:*, @lychen/kolo-util-constants@workspace:libs/kolo/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/kolo-util-constants@workspace:libs/kolo/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/luna-ui-i18n@workspace:*, @lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n"
+  dependencies:
+    "@lychen/luna-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/luna-util-constants@workspace:*, @lychen/luna-util-constants@workspace:libs/luna/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/luna-util-constants@workspace:libs/luna/util-constants"
   languageName: unknown
   linkType: soft
 

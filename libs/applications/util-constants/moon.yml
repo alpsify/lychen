@@ -3,6 +3,7 @@ dependsOn:
   - humu-util-constants
   - kiro-util-constants
   - kolo-util-constants
+  - luna-util-constants
   - meli-util-constants
   - myko-util-constants
   - novi-util-constants
