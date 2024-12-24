@@ -5,7 +5,7 @@ export function usePreferredColorScheme() {
   const toggleDark = useToggle(isDark);
 
   try {
-    if (!localStorage.getItem('color-scheme')) {
+    if (!localStorage.getItem('vueuse-color-scheme')) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         toggleDark(true);
       } else {
