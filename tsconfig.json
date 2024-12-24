@@ -14,6 +14,9 @@
       "path": "libs/applications/util-constants"
     },
     {
+      "path": "libs/applications/util-generic-composables"
+    },
+    {
       "path": "libs/applications/util-model"
     },
     {

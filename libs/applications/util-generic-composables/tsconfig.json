@@ -1,0 +1,28 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../util-constants/**/*",
+    "../util-model/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../util-constants"
+    },
+    {
+      "path": "../util-model"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/util-generic-composables",
+    "paths": {
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/applications-util-constants/*": ["../util-constants/*"],
+      "@lychen/applications-util-model/*": ["../util-model/*"]
+    }
+  }
+}

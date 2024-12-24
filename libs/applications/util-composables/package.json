@@ -5,6 +5,7 @@
   "dependencies": {
     "@lychen/applications-ui-i18n": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/applications-util-generic-composables": "workspace:*",
     "@lychen/applications-util-model": "workspace:*",
     "@lychen/eko-ui-i18n": "workspace:*",
     "@lychen/humu-ui-i18n": "workspace:*",
@@ -15,6 +16,7 @@
     "@lychen/myko-ui-i18n": "workspace:*",
     "@lychen/novi-ui-i18n": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
+    "@lychen/tera-util-features": "workspace:*",
     "@lychen/vara-ui-i18n": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "vue": "3.5.13"

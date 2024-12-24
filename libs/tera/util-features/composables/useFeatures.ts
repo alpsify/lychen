@@ -1,17 +1,19 @@
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { FEATURE_ALIAS, FEATURE_GROUP, FEATURES_LIST } from '@lychen/tera-util-constants/Feature';
+import {
+  useGenericApplicationsFeatures,
+  UseGenericApplicationsFeatures,
+} from '@lychen/applications-util-generic-composables/useGenericApplicationsFeatures';
 import { TRANSLATION_KEY, messages } from '../i18n';
-import { ApplicationFeature } from '@lychen/applications-util-model/ApplicationFeature';
-import { ApplicationFeatureListItem } from '@lychen/applications-util-model/ApplicationFeatureList';
+import { FeatureAlias, FeatureGroup } from '../model/Feature';
 
-export function useFeatures() {
-  const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-
-  function generateFeature(item: ApplicationFeatureListItem): ApplicationFeature {
-    return {
-      alias: item.alias,
-      title: t(`${item.alias}.title`),
-      description: t(`${item.alias}.description`),
-      group: item.group,
-    };
-  }
+export function useFeatures(): UseGenericApplicationsFeatures<FeatureGroup> {
+  return useGenericApplicationsFeatures<FeatureAlias, FeatureGroup>(
+    FEATURE_ALIAS,
+    FEATURE_GROUP,
+    FEATURES_LIST,
+    {
+      messages,
+      rootKey: TRANSLATION_KEY,
+    },
+  );
 }

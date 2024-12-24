@@ -1662,6 +1662,7 @@ __metadata:
   dependencies:
     "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-util-generic-composables": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/eko-ui-i18n": "workspace:*"
     "@lychen/humu-ui-i18n": "workspace:*"
@@ -1672,6 +1673,7 @@ __metadata:
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-util-features": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
@@ -1692,6 +1694,17 @@ __metadata:
     "@lychen/novi-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/vara-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-generic-composables@workspace:*, @lychen/applications-util-generic-composables@workspace:libs/applications/util-generic-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-generic-composables@workspace:libs/applications/util-generic-composables"
+  dependencies:
+    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -1934,10 +1947,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-util-features@workspace:libs/tera/util-features":
+"@lychen/tera-util-features@workspace:*, @lychen/tera-util-features@workspace:libs/tera/util-features":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-util-features@workspace:libs/tera/util-features"
   dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"

@@ -11,10 +11,12 @@
     "../../myko/ui-i18n/**/*",
     "../../novi/ui-i18n/**/*",
     "../../tera/ui-i18n/**/*",
+    "../../tera/util-features/**/*",
     "../../vara/ui-i18n/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
     "../util-constants/**/*",
+    "../util-generic-composables/**/*",
     "../util-model/**/*"
   ],
   "references": [
@@ -46,6 +48,9 @@
       "path": "../../tera/ui-i18n"
     },
     {
+      "path": "../../tera/util-features"
+    },
+    {
       "path": "../../vara/ui-i18n"
     },
     {
@@ -56,6 +61,9 @@
     },
     {
       "path": "../util-constants"
+    },
+    {
+      "path": "../util-generic-composables"
     },
     {
       "path": "../util-model"
@@ -88,7 +96,9 @@
       "@lychen/novi-ui-i18n": ["../../novi/ui-i18n/index.ts"],
       "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"],
       "@lychen/luna-ui-i18n": ["../../luna/ui-i18n/index.ts"],
-      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"]
+      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"],
+      "@lychen/tera-util-features/*": ["../../tera/util-features/*"],
+      "@lychen/applications-util-generic-composables/*": ["../util-generic-composables/*"]
     }
   }
 }

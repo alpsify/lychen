@@ -32,24 +32,43 @@
         <LychenCarouselPrevious />
         <LychenCarouselNext />
       </LychenCarousel>
-      <LychenDrawerContent
-        class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg"
-      >
+      <LychenDrawerContent class="bg-surface-container-high text-surface-container-on w-full">
         <div class="h-2 bg-surface/50 rounded-full w-1/6 self-center cursor-pointer"></div>
 
-        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-4 md:grid-rows-1 py-6">
-          <div class="flex flex-col gap-4 items-start">
-            <ApplicationTitle :value="selectedApplication.title" />
-            <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
-            <LychenButton
-              class="flex flex-row gap-2"
-              size="sm"
-              >Site web <LychenIcon icon="link"
-            /></LychenButton>
+        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-4 md:grid-rows-1 py-6 gap-4">
+          <div
+            class="flex flex-col justify-between gap-4 items-start bg-surface-container rounded-3xl p-6"
+          >
+            <div class="flex flex-col gap-2">
+              <ApplicationTitle
+                class="text-3xl"
+                :value="selectedApplication.title"
+              />
+              <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
+            </div>
+            <a
+              :href="selectedApplication.link"
+              target="_blank"
+            >
+              <LychenButton
+                class="flex flex-row gap-2"
+                size="sm"
+                >Site web <LychenIcon icon="link"
+              /></LychenButton>
+            </a>
           </div>
-          <div>b</div>
-          <div>c</div>
-          <div>d</div>
+          <div
+            v-for="group in features"
+            :key="group"
+          >
+            <p class="text-lg font-bold opacity-60">{{ group.title }}</p>
+            <ApplicationFeatureCard
+              v-for="feature in group.features"
+              v-bind="feature"
+              :key="feature.alias"
+              class="pl-0"
+            />
+          </div>
         </div>
       </LychenDrawerContent>
     </LychenDrawer>
@@ -57,12 +76,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, ref } from 'vue';
+import { defineAsyncComponent, onBeforeUnmount, ref, watch } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
 import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
+import ApplicationFeatureCard from '@lychen/applications-ui-components/ApplicationFeatureCard.vue';
 import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
 import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
 import LychenCarouselPrevious from '@lychen/ui-components/carousel/LychenCarouselPrevious.vue';
@@ -72,6 +92,7 @@ import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
 import { LychenDrawerTrigger } from '@lychen/ui-components/drawer';
+import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
 
 const LychenDrawer = defineAsyncComponent(
   () => import('@lychen/ui-components/drawer/LychenDrawer.vue'),
@@ -92,6 +113,18 @@ const LychenContainer = defineAsyncComponent(
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { opiniatedApplicationsList } = useApplicationsCatalog();
+const { getFeaturesOrganizedByGroup } = useApplicationsFeatures();
 
 const selectedApplication = ref();
+const features = ref();
+
+const unwatch = watch(selectedApplication, () => {
+  if (selectedApplication.value) {
+    features.value = getFeaturesOrganizedByGroup(selectedApplication.value.alias);
+  }
+});
+
+onBeforeUnmount(() => {
+  unwatch();
+});
 </script>
