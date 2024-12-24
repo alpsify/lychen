@@ -1,8 +1,9 @@
 import { APP_ALIAS as TERA_APP_ALIAS } from '@lychen/tera-util-constants/App';
 import { APP_ALIAS as MYKO_APP_ALIAS } from '@lychen/myko-util-constants/App';
+import { APP_ALIAS as KIRO_APP_ALIAS } from '@lychen/kiro-util-constants/App';
 
 export const APPLICATION_ALIAS = {
-  Kiro: 'kiro',
+  Kiro: KIRO_APP_ALIAS,
   Luna: 'luna',
   Eko: 'eko',
   Humu: 'humu',

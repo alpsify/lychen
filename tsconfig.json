@@ -20,6 +20,12 @@
       "path": "libs/kiro/ui-components"
     },
     {
+      "path": "libs/kiro/ui-i18n"
+    },
+    {
+      "path": "libs/kiro/util-constants"
+    },
+    {
       "path": "libs/kiro/util-sdk"
     },
     {

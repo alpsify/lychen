@@ -2,12 +2,16 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../kiro/util-constants/**/*",
     "../../myko/util-constants/**/*",
     "../../tera/util-constants/**/*",
     "../../typescript/util-date/**/*",
     "../../typescript/util-object/**/*"
   ],
   "references": [
+    {
+      "path": "../../kiro/util-constants"
+    },
     {
       "path": "../../myko/util-constants"
     },
@@ -27,7 +31,8 @@
       "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
       "@lychen/tera-util-constants/*": ["../../tera/util-constants/*"],
-      "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"]
+      "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"],
+      "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"]
     }
   }
 }

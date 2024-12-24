@@ -1,10 +1,7 @@
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 
 export default {
-  kiro: {
-    name: 'Kiro',
-    description: "Gestion d'AMAP simplifiée, moderne et flexible",
-  },
+  kiro: {},
   luna: {
     name: 'Luna',
     description: 'Biodynamie : calendrier lunaire, jardinage, astuces',

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@lychen/kiro-util-constants": "workspace:*",
     "@lychen/myko-util-constants": "workspace:*",
     "@lychen/tera-util-constants": "workspace:*"
   }

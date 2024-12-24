@@ -1,4 +1,5 @@
 dependsOn:
+  - kiro-util-constants
   - myko-util-constants
   - tera-util-constants
 

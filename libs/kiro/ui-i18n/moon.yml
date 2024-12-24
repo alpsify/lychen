@@ -1,0 +1,8 @@
+dependsOn:
+  - kiro-util-constants
+
+id: kiro-ui-i18n
+
+language: typescript
+
+type: library

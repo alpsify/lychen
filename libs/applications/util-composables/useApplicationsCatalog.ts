@@ -6,6 +6,10 @@ import {
   messages as mykoMessages,
   TRANSLATION_KEY as MYKO_TRANSLATION_KEY,
 } from '@lychen/myko-ui-i18n';
+import {
+  messages as kiroMessages,
+  TRANSLATION_KEY as KIRO_TRANSLATION_KEY,
+} from '@lychen/kiro-ui-i18n';
 import { Application, ApplicationAlias } from '@lychen/applications-util-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -15,6 +19,7 @@ import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/Applicati
 export function useApplicationsCatalog() {
   useI18nExtended({ messages: teraMessages, rootKey: TERA_TRANSLATION_KEY });
   useI18nExtended({ messages: mykoMessages, rootKey: MYKO_TRANSLATION_KEY });
+  useI18nExtended({ messages: kiroMessages, rootKey: KIRO_TRANSLATION_KEY });
   const { t } = useI18nExtended();
 
   function generateAppInfo(alias: ApplicationAlias): Application {

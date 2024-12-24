@@ -1,0 +1,16 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "../util-constants/**/*"],
+  "references": [
+    {
+      "path": "../util-constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/kiro/ui-i18n",
+    "paths": {
+      "@lychen/myko-util-constants/*": ["../util-constants/*"],
+      "@lychen/kiro-util-constants/*": ["../util-constants/*"]
+    }
+  }
+}

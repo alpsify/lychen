@@ -1663,6 +1663,7 @@ __metadata:
     "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
+    "@lychen/kiro-ui-i18n": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -1674,6 +1675,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/applications-util-constants@workspace:libs/applications/util-constants"
   dependencies:
+    "@lychen/kiro-util-constants": "workspace:*"
     "@lychen/myko-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
   languageName: unknown
@@ -1722,6 +1724,20 @@ __metadata:
     "@lychen/ui-components": "workspace:*"
     tailwindcss: "npm:3.4.13"
     vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/kiro-ui-i18n@workspace:*, @lychen/kiro-ui-i18n@workspace:libs/kiro/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kiro-ui-i18n@workspace:libs/kiro/ui-i18n"
+  dependencies:
+    "@lychen/kiro-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/kiro-util-constants@workspace:*, @lychen/kiro-util-constants@workspace:libs/kiro/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kiro-util-constants@workspace:libs/kiro/util-constants"
   languageName: unknown
   linkType: soft
 
