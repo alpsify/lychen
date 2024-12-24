@@ -2,6 +2,7 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../eko/ui-i18n/**/*",
     "../../humu/ui-i18n/**/*",
     "../../kiro/ui-i18n/**/*",
     "../../kolo/ui-i18n/**/*",
@@ -15,6 +16,9 @@
     "../util-model/**/*"
   ],
   "references": [
+    {
+      "path": "../../eko/ui-i18n"
+    },
     {
       "path": "../../humu/ui-i18n"
     },
@@ -70,7 +74,9 @@
       "@lychen/kolo-ui-i18n": ["../../kolo/ui-i18n/index.ts"],
       "@lychen/kolo-ui-i18n/*": ["../../kolo/ui-i18n/*"],
       "@lychen/vara-ui-i18n": ["../../vara/ui-i18n/index.ts"],
-      "@lychen/vara-ui-i18n/*": ["../../vara/ui-i18n/*"]
+      "@lychen/vara-ui-i18n/*": ["../../vara/ui-i18n/*"],
+      "@lychen/eko-ui-i18n": ["../../eko/ui-i18n/index.ts"],
+      "@lychen/eko-ui-i18n/*": ["../../eko/ui-i18n/*"]
     }
   }
 }

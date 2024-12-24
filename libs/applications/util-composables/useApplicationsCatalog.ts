@@ -26,6 +26,10 @@ import {
   messages as varaMessages,
   TRANSLATION_KEY as VARA_TRANSLATION_KEY,
 } from '@lychen/vara-ui-i18n';
+import {
+  messages as ekoMessages,
+  TRANSLATION_KEY as EKO_TRANSLATION_KEY,
+} from '@lychen/eko-ui-i18n';
 import { Application, ApplicationAlias } from '@lychen/applications-util-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -40,6 +44,7 @@ export function useApplicationsCatalog() {
   useI18nExtended({ messages: humuMessages, rootKey: HUMU_TRANSLATION_KEY });
   useI18nExtended({ messages: koloMessages, rootKey: KOLO_TRANSLATION_KEY });
   useI18nExtended({ messages: varaMessages, rootKey: VARA_TRANSLATION_KEY });
+  useI18nExtended({ messages: ekoMessages, rootKey: EKO_TRANSLATION_KEY });
   const { t } = useI18nExtended();
 
   function generateAppInfo(alias: ApplicationAlias): Application {

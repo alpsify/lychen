@@ -2,6 +2,7 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../eko/util-constants/**/*",
     "../../humu/util-constants/**/*",
     "../../kiro/util-constants/**/*",
     "../../kolo/util-constants/**/*",
@@ -13,6 +14,9 @@
     "../../vara/util-constants/**/*"
   ],
   "references": [
+    {
+      "path": "../../eko/util-constants"
+    },
     {
       "path": "../../humu/util-constants"
     },
@@ -52,7 +56,8 @@
       "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"],
       "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"],
       "@lychen/kolo-util-constants/*": ["../../kolo/util-constants/*"],
-      "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"]
+      "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"],
+      "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"]
     }
   }
 }

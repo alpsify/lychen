@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@lychen/eko-util-constants": "workspace:*",
     "@lychen/humu-util-constants": "workspace:*",
     "@lychen/kiro-util-constants": "workspace:*",
     "@lychen/kolo-util-constants": "workspace:*",

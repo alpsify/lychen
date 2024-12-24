@@ -17,6 +17,12 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/eko/ui-i18n"
+    },
+    {
+      "path": "libs/eko/util-constants"
+    },
+    {
       "path": "libs/humu/ui-i18n"
     },
     {
