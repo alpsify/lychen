@@ -3,6 +3,7 @@
   "include": [
     "**/*",
     "../../kiro/ui-i18n/**/*",
+    "../../meli/ui-i18n/**/*",
     "../../myko/ui-i18n/**/*",
     "../../tera/ui-i18n/**/*",
     "../../vue/i18n/util-composables/**/*",
@@ -13,6 +14,9 @@
   "references": [
     {
       "path": "../../kiro/ui-i18n"
+    },
+    {
+      "path": "../../meli/ui-i18n"
     },
     {
       "path": "../../myko/ui-i18n"
@@ -46,7 +50,9 @@
       "@lychen/myko-ui-i18n/*": ["../../myko/ui-i18n/*"],
       "@lychen/tera-ui-i18n": ["../../tera/ui-i18n/index.ts"],
       "@lychen/kiro-ui-i18n": ["../../kiro/ui-i18n/index.ts"],
-      "@lychen/kiro-ui-i18n/*": ["../../kiro/ui-i18n/*"]
+      "@lychen/kiro-ui-i18n/*": ["../../kiro/ui-i18n/*"],
+      "@lychen/meli-ui-i18n": ["../../meli/ui-i18n/index.ts"],
+      "@lychen/meli-ui-i18n/*": ["../../meli/ui-i18n/*"]
     }
   }
 }

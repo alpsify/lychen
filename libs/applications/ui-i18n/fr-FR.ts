@@ -1,7 +1,6 @@
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 
 export default {
-  kiro: {},
   luna: {
     name: 'Luna',
     description: 'Biodynamie : calendrier lunaire, jardinage, astuces',
@@ -21,10 +20,6 @@ export default {
   vara: {
     name: 'Vara',
     description: 'Visualisation et conservation de la biodiversité',
-  },
-  meli: {
-    name: 'Meli',
-    description: 'Outil pour les apiculteurs et les maraîchers',
   },
   [APPLICATION_ALIAS.Kolo]: {
     name: 'Kolo',

@@ -29,6 +29,12 @@
       "path": "libs/kiro/util-sdk"
     },
     {
+      "path": "libs/meli/ui-i18n"
+    },
+    {
+      "path": "libs/meli/util-constants"
+    },
+    {
       "path": "libs/myko/ui-i18n"
     },
     {

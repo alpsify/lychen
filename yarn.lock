@@ -1664,6 +1664,7 @@ __metadata:
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
+    "@lychen/meli-ui-i18n": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -1676,6 +1677,7 @@ __metadata:
   resolution: "@lychen/applications-util-constants@workspace:libs/applications/util-constants"
   dependencies:
     "@lychen/kiro-util-constants": "workspace:*"
+    "@lychen/meli-util-constants": "workspace:*"
     "@lychen/myko-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
   languageName: unknown
@@ -1767,6 +1769,20 @@ __metadata:
     vue: "npm:3.5.13"
     vue-i18n: "npm:^10.0.5"
     vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/meli-ui-i18n@workspace:*, @lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n"
+  dependencies:
+    "@lychen/meli-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/meli-util-constants@workspace:*, @lychen/meli-util-constants@workspace:libs/meli/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/meli-util-constants@workspace:libs/meli/util-constants"
   languageName: unknown
   linkType: soft
 

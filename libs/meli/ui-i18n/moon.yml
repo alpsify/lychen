@@ -1,0 +1,8 @@
+dependsOn:
+  - meli-util-constants
+
+id: meli-ui-i18n
+
+language: typescript
+
+type: library

@@ -3,6 +3,7 @@
   "include": [
     "**/*",
     "../../kiro/util-constants/**/*",
+    "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
     "../../tera/util-constants/**/*",
     "../../typescript/util-date/**/*",
@@ -11,6 +12,9 @@
   "references": [
     {
       "path": "../../kiro/util-constants"
+    },
+    {
+      "path": "../../meli/util-constants"
     },
     {
       "path": "../../myko/util-constants"
@@ -32,7 +36,8 @@
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
       "@lychen/tera-util-constants/*": ["../../tera/util-constants/*"],
       "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"],
-      "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"]
+      "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"],
+      "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"]
     }
   }
 }

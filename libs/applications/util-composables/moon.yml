@@ -4,6 +4,7 @@ dependsOn:
   - applications-util-constants
   - applications-util-model
   - kiro-ui-i18n
+  - meli-ui-i18n
   - myko-ui-i18n
   - tera-ui-i18n
   - vue-i18n-util-composables
