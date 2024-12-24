@@ -14,6 +14,10 @@ import {
   messages as meliMessages,
   TRANSLATION_KEY as MELI_TRANSLATION_KEY,
 } from '@lychen/meli-ui-i18n';
+import {
+  messages as humuMessages,
+  TRANSLATION_KEY as HUMU_TRANSLATION_KEY,
+} from '@lychen/humu-ui-i18n';
 import { Application, ApplicationAlias } from '@lychen/applications-util-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -25,6 +29,7 @@ export function useApplicationsCatalog() {
   useI18nExtended({ messages: mykoMessages, rootKey: MYKO_TRANSLATION_KEY });
   useI18nExtended({ messages: kiroMessages, rootKey: KIRO_TRANSLATION_KEY });
   useI18nExtended({ messages: meliMessages, rootKey: MELI_TRANSLATION_KEY });
+  useI18nExtended({ messages: humuMessages, rootKey: HUMU_TRANSLATION_KEY });
   const { t } = useI18nExtended();
 
   function generateAppInfo(alias: ApplicationAlias): Application {

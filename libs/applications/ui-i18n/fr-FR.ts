@@ -9,10 +9,6 @@ export default {
     name: 'Eko',
     description: 'Gestion de la méthanisation du territoire',
   },
-  humu: {
-    name: 'Humu',
-    description: 'Suivi et valorisation des composts',
-  },
   novi: {
     name: 'Novi',
     description: 'Recherches, statistiques et protocoles scientifiques',

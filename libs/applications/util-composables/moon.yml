@@ -3,6 +3,7 @@ dependsOn:
   - applications-ui-i18n
   - applications-util-constants
   - applications-util-model
+  - humu-ui-i18n
   - kiro-ui-i18n
   - meli-ui-i18n
   - myko-ui-i18n

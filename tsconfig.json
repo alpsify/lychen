@@ -17,6 +17,12 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/humu/ui-i18n"
+    },
+    {
+      "path": "libs/humu/util-constants"
+    },
+    {
       "path": "libs/kiro/ui-components"
     },
     {

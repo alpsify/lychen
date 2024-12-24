@@ -2,6 +2,7 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../humu/util-constants/**/*",
     "../../kiro/util-constants/**/*",
     "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
@@ -10,6 +11,9 @@
     "../../typescript/util-object/**/*"
   ],
   "references": [
+    {
+      "path": "../../humu/util-constants"
+    },
     {
       "path": "../../kiro/util-constants"
     },
@@ -37,7 +41,8 @@
       "@lychen/tera-util-constants/*": ["../../tera/util-constants/*"],
       "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"],
       "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"],
-      "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"]
+      "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"],
+      "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"]
     }
   }
 }

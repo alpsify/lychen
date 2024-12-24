@@ -1,4 +1,5 @@
 dependsOn:
+  - humu-util-constants
   - kiro-util-constants
   - meli-util-constants
   - myko-util-constants

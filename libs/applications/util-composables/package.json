@@ -6,6 +6,7 @@
     "@lychen/applications-ui-i18n": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
     "@lychen/applications-util-model": "workspace:*",
+    "@lychen/humu-ui-i18n": "workspace:*",
     "@lychen/kiro-ui-i18n": "workspace:*",
     "@lychen/meli-ui-i18n": "workspace:*",
     "@lychen/myko-ui-i18n": "workspace:*",

@@ -2,6 +2,7 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../humu/ui-i18n/**/*",
     "../../kiro/ui-i18n/**/*",
     "../../meli/ui-i18n/**/*",
     "../../myko/ui-i18n/**/*",
@@ -12,6 +13,9 @@
     "../util-model/**/*"
   ],
   "references": [
+    {
+      "path": "../../humu/ui-i18n"
+    },
     {
       "path": "../../kiro/ui-i18n"
     },
@@ -52,7 +56,9 @@
       "@lychen/kiro-ui-i18n": ["../../kiro/ui-i18n/index.ts"],
       "@lychen/kiro-ui-i18n/*": ["../../kiro/ui-i18n/*"],
       "@lychen/meli-ui-i18n": ["../../meli/ui-i18n/index.ts"],
-      "@lychen/meli-ui-i18n/*": ["../../meli/ui-i18n/*"]
+      "@lychen/meli-ui-i18n/*": ["../../meli/ui-i18n/*"],
+      "@lychen/humu-ui-i18n": ["../../humu/ui-i18n/index.ts"],
+      "@lychen/humu-ui-i18n/*": ["../../humu/ui-i18n/*"]
     }
   }
 }
