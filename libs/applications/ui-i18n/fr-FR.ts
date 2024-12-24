@@ -1,5 +1,3 @@
-import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
-
 export default {
   luna: {
     name: 'Luna',
@@ -16,9 +14,5 @@ export default {
   vara: {
     name: 'Vara',
     description: 'Visualisation et conservation de la biodiversité',
-  },
-  [APPLICATION_ALIAS.Kolo]: {
-    name: 'Kolo',
-    description: 'Gestion des magasins de producteurs',
   },
 };

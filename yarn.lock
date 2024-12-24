@@ -1788,6 +1788,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n"
+  dependencies:
+    "@lychen/kolo-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/kolo-util-constants@workspace:*, @lychen/kolo-util-constants@workspace:libs/kolo/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kolo-util-constants@workspace:libs/kolo/util-constants"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/meli-ui-i18n@workspace:*, @lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n"
