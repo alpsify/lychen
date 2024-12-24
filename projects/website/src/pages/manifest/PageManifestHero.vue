@@ -1,6 +1,6 @@
 <template>
   <LychenHero
-    class="flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center"
+    class="dark:text-surface-on text-surface flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center bg-gradient-to-tr from-[#141E30] to-[#243B55] rounded-b-3xl pt-20"
   >
     <div class="flex flex-col basis-3/4 gap-4 items-center">
       <LychenTitle variant="h1">{{ t(`meta.title`) }}</LychenTitle>
