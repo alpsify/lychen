@@ -3,7 +3,7 @@ import { useI18n, type UseI18nOptions } from 'vue-i18n';
 
 import { addRootKey } from '@lychen/vue-i18n-util-helpers/RootKeyHelper';
 
-interface UseCustomI18nOptions extends UseI18nOptions {
+export interface UseCustomI18nOptions extends UseI18nOptions {
   rootKey?: string;
   prefixed?: boolean;
 }

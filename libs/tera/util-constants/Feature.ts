@@ -1,10 +1,10 @@
-export const FEATURE_GROUP = {
+export const FEATURE_GROUP: { [key: string]: string } = {
   Citizen: 'citizen',
   MarketGardener: 'market_gardener',
   Community: 'community',
 } as const;
 
-export const FEATURE_ALIAS = {
+export const FEATURE_ALIAS: { [key: string]: string } = {
   CultureSpace: 'culture_space',
   Planning: 'planning',
   SeedLibrary: 'seed_library',
@@ -37,27 +37,4 @@ export const FEATURES_LIST = [
   { alias: FEATURE_ALIAS.FoodSovereignty, group: FEATURE_GROUP.Community },
   { alias: FEATURE_ALIAS.FoodEducation, group: FEATURE_GROUP.Community },
   { alias: FEATURE_ALIAS.ResourcesManagement, group: FEATURE_GROUP.Community },
-] as const;
-
-/*
-export const FEATURE_ALIAS_PER_GROUP = {
-  [FEATURE_GROUP.Citizen]: [
-    FEATURE_ALIAS.CultureSpace,
-    FEATURE_ALIAS.Planning,
-    FEATURE_ALIAS.SeedLibrary,
-    FEATURE_ALIAS.Logging,
-    FEATURE_ALIAS.Data,
-    FEATURE_ALIAS.Resources,
-  ],
-  [FEATURE_GROUP.MarketGardener]: [
-    FEATURE_ALIAS.Certifications,
-    FEATURE_ALIAS.Traceability,
-    FEATURE_ALIAS.Marketing,
-  ],
-  [FEATURE_GROUP.Community]: [
-    FEATURE_ALIAS.CultureSpacesManagement,
-    FEATURE_ALIAS.FoodSovereignty,
-    FEATURE_ALIAS.FoodEducation,
-    FEATURE_ALIAS.ResourcesManagement,
-  ],
-} as const;*/
+];
