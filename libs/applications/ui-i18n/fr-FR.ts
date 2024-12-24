@@ -1,3 +1,5 @@
+import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
+
 export default {
   kiro: {
     name: 'Kiro',
@@ -27,16 +29,8 @@ export default {
     name: 'Meli',
     description: 'Outil pour les apiculteurs et les maraîchers',
   },
-  kolo: {
+  [APPLICATION_ALIAS.Kolo]: {
     name: 'Kolo',
     description: 'Gestion des magasins de producteurs',
-  },
-  tera: {
-    name: 'Tera',
-    description: 'Outil pour les maraîchers et jardiniers',
-  },
-  myko: {
-    name: 'Myko',
-    description: 'Outil pour les myciculteurs : récolteurs, producteurs, sélectionneurs',
   },
 };

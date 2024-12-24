@@ -1,15 +1,21 @@
-import { messages, TRANSLATION_KEY } from '@lychen/applications-ui-i18n';
-import { Application } from '@lychen/applications-util-model/Application';
 import {
-  ApplicationAlias,
-  APPLICATION_ALIAS,
-} from '@lychen/applications-util-model/ApplicationAlias';
-import { APPLICATION_STATE } from '@lychen/applications-util-model/ApplicationState';
+  messages as teraMessages,
+  TRANSLATION_KEY as TERA_TRANSLATION_KEY,
+} from '@lychen/tera-ui-i18n';
+import {
+  messages as mykoMessages,
+  TRANSLATION_KEY as MYKO_TRANSLATION_KEY,
+} from '@lychen/myko-ui-i18n';
+import { Application, ApplicationAlias } from '@lychen/applications-util-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';
+import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 
 export function useApplicationsCatalog() {
-  const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+  useI18nExtended({ messages: teraMessages, rootKey: TERA_TRANSLATION_KEY });
+  useI18nExtended({ messages: mykoMessages, rootKey: MYKO_TRANSLATION_KEY });
+  const { t } = useI18nExtended();
 
   function generateAppInfo(alias: ApplicationAlias): Application {
     return {

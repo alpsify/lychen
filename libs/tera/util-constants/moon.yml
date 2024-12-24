@@ -1,0 +1,5 @@
+id: tera-util-constants
+
+language: typescript
+
+type: library

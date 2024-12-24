@@ -11,6 +11,9 @@
       "path": "libs/applications/util-composables"
     },
     {
+      "path": "libs/applications/util-constants"
+    },
+    {
       "path": "libs/applications/util-model"
     },
     {
@@ -18,6 +21,12 @@
     },
     {
       "path": "libs/kiro/util-sdk"
+    },
+    {
+      "path": "libs/myko/ui-i18n"
+    },
+    {
+      "path": "libs/myko/util-constants"
     },
     {
       "path": "libs/odd/ui-i18n"
@@ -30,6 +39,15 @@
     },
     {
       "path": "libs/tailwind/util-configs"
+    },
+    {
+      "path": "libs/tera/ui-i18n"
+    },
+    {
+      "path": "libs/tera/util-constants"
+    },
+    {
+      "path": "libs/tera/util-features"
     },
     {
       "path": "libs/typescript/util-date"
@@ -53,9 +71,6 @@
       "path": "libs/ui-layouts"
     },
     {
-      "path": "libs/util-applications"
-    },
-    {
       "path": "libs/util-composables"
     },
     {
@@ -63,9 +78,6 @@
     },
     {
       "path": "libs/vue/i18n/util-composables"
-    },
-    {
-      "path": "libs/vue/i18n/util-config"
     },
     {
       "path": "libs/vue/i18n/util-configs"

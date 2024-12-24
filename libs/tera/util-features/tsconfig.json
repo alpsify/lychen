@@ -2,13 +2,13 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
-    "../../typescript/util-date/**/*",
+    "../../applications/util-model/**/*",
     "../../typescript/util-object/**/*",
     "../util-constants/**/*"
   ],
   "references": [
     {
-      "path": "../../typescript/util-date"
+      "path": "../../applications/util-model"
     },
     {
       "path": "../../typescript/util-object"
@@ -18,11 +18,11 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/applications/util-model",
+    "outDir": "../../../.moon/cache/types/libs/tera/util-features",
     "paths": {
-      "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
+      "@lychen/applications-util-model/*": ["../../applications/util-model/*"],
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
-      "@lychen/applications-util-constants/*": ["../util-constants/*"]
+      "@lychen/tera-util-constants/*": ["../util-constants/*"]
     }
   }
 }

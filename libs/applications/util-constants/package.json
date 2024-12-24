@@ -1,0 +1,9 @@
+{
+  "name": "@lychen/applications-util-constants",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/myko-util-constants": "workspace:*",
+    "@lychen/tera-util-constants": "workspace:*"
+  }
+}

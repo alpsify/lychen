@@ -1,0 +1,9 @@
+dependsOn:
+  - myko-util-constants
+  - tera-util-constants
+
+id: applications-util-constants
+
+language: typescript
+
+type: library

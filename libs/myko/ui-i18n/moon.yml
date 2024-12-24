@@ -1,0 +1,8 @@
+dependsOn:
+  - myko-util-constants
+
+id: myko-ui-i18n
+
+language: typescript
+
+type: library

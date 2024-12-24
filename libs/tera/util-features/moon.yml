@@ -1,8 +1,9 @@
 dependsOn:
-  - applications-util-constants
+  - applications-util-model
+  - tera-util-constants
   - typescript-util-object
 
-id: applications-util-model
+id: tera-util-features
 
 language: typescript
 

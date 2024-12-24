@@ -1,7 +1,10 @@
 dependsOn:
   - applications-assets
   - applications-ui-i18n
+  - applications-util-constants
   - applications-util-model
+  - myko-ui-i18n
+  - tera-ui-i18n
   - vue-i18n-util-composables
 
 id: applications-util-composables

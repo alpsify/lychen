@@ -1,0 +1,33 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../myko/util-constants/**/*",
+    "../../tera/util-constants/**/*",
+    "../../typescript/util-date/**/*",
+    "../../typescript/util-object/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../myko/util-constants"
+    },
+    {
+      "path": "../../tera/util-constants"
+    },
+    {
+      "path": "../../typescript/util-date"
+    },
+    {
+      "path": "../../typescript/util-object"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/util-constants",
+    "paths": {
+      "@lychen/typescript-util-date/*": ["../../typescript/util-date/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
+      "@lychen/tera-util-constants/*": ["../../tera/util-constants/*"],
+      "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"]
+    }
+  }
+}

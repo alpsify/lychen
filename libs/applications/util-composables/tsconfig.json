@@ -2,16 +2,28 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "**/*",
+    "../../myko/ui-i18n/**/*",
+    "../../tera/ui-i18n/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
+    "../util-constants/**/*",
     "../util-model/**/*"
   ],
   "references": [
+    {
+      "path": "../../myko/ui-i18n"
+    },
+    {
+      "path": "../../tera/ui-i18n"
+    },
     {
       "path": "../../vue/i18n/util-composables"
     },
     {
       "path": "../ui-i18n"
+    },
+    {
+      "path": "../util-constants"
     },
     {
       "path": "../util-model"
@@ -23,7 +35,12 @@
       "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"],
       "@lychen/applications-util-model/*": ["../util-model/*"],
-      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"]
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/applications-util-constants/*": ["../util-constants/*"],
+      "@lychen/tera-ui-i18n/*": ["../../tera/ui-i18n/*"],
+      "@lychen/myko-ui-i18n": ["../../myko/ui-i18n/index.ts"],
+      "@lychen/myko-ui-i18n/*": ["../../myko/ui-i18n/*"],
+      "@lychen/tera-ui-i18n": ["../../tera/ui-i18n/index.ts"]
     }
   }
 }
