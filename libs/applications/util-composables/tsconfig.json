@@ -4,9 +4,11 @@
     "**/*",
     "../../humu/ui-i18n/**/*",
     "../../kiro/ui-i18n/**/*",
+    "../../kolo/ui-i18n/**/*",
     "../../meli/ui-i18n/**/*",
     "../../myko/ui-i18n/**/*",
     "../../tera/ui-i18n/**/*",
+    "../../vara/ui-i18n/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
     "../util-constants/**/*",
@@ -20,6 +22,9 @@
       "path": "../../kiro/ui-i18n"
     },
     {
+      "path": "../../kolo/ui-i18n"
+    },
+    {
       "path": "../../meli/ui-i18n"
     },
     {
@@ -27,6 +32,9 @@
     },
     {
       "path": "../../tera/ui-i18n"
+    },
+    {
+      "path": "../../vara/ui-i18n"
     },
     {
       "path": "../../vue/i18n/util-composables"
@@ -58,7 +66,11 @@
       "@lychen/meli-ui-i18n": ["../../meli/ui-i18n/index.ts"],
       "@lychen/meli-ui-i18n/*": ["../../meli/ui-i18n/*"],
       "@lychen/humu-ui-i18n": ["../../humu/ui-i18n/index.ts"],
-      "@lychen/humu-ui-i18n/*": ["../../humu/ui-i18n/*"]
+      "@lychen/humu-ui-i18n/*": ["../../humu/ui-i18n/*"],
+      "@lychen/kolo-ui-i18n": ["../../kolo/ui-i18n/index.ts"],
+      "@lychen/kolo-ui-i18n/*": ["../../kolo/ui-i18n/*"],
+      "@lychen/vara-ui-i18n": ["../../vara/ui-i18n/index.ts"],
+      "@lychen/vara-ui-i18n/*": ["../../vara/ui-i18n/*"]
     }
   }
 }

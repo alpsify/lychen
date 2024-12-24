@@ -4,6 +4,7 @@ import { APP_ALIAS as KIRO_APP_ALIAS } from '@lychen/kiro-util-constants/App';
 import { APP_ALIAS as MELI_APP_ALIAS } from '@lychen/meli-util-constants/App';
 import { APP_ALIAS as HUMU_APP_ALIAS } from '@lychen/humu-util-constants/App';
 import { APP_ALIAS as KOLO_APP_ALIAS } from '@lychen/kolo-util-constants/App';
+import { APP_ALIAS as VARA_APP_ALIAS } from '@lychen/vara-util-constants/App';
 
 export const APPLICATION_ALIAS = {
   Kiro: KIRO_APP_ALIAS,
@@ -11,7 +12,7 @@ export const APPLICATION_ALIAS = {
   Eko: 'eko',
   Humu: HUMU_APP_ALIAS,
   Novi: 'novi',
-  Vara: 'vara',
+  Vara: VARA_APP_ALIAS,
   Meli: MELI_APP_ALIAS,
   Kolo: KOLO_APP_ALIAS,
   Tera: TERA_APP_ALIAS,

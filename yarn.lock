@@ -1665,9 +1665,11 @@ __metadata:
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/humu-ui-i18n": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
+    "@lychen/kolo-ui-i18n": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/vara-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
@@ -1679,9 +1681,11 @@ __metadata:
   dependencies:
     "@lychen/humu-util-constants": "workspace:*"
     "@lychen/kiro-util-constants": "workspace:*"
+    "@lychen/kolo-util-constants": "workspace:*"
     "@lychen/meli-util-constants": "workspace:*"
     "@lychen/myko-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
+    "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1788,7 +1792,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n":
+"@lychen/kolo-ui-i18n@workspace:*, @lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n"
   dependencies:
@@ -1963,6 +1967,20 @@ __metadata:
 "@lychen/util-composables@workspace:libs/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/util-composables@workspace:libs/util-composables"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vara-ui-i18n@workspace:*, @lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n"
+  dependencies:
+    "@lychen/vara-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vara-util-constants@workspace:*, @lychen/vara-util-constants@workspace:libs/vara/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vara-util-constants@workspace:libs/vara/util-constants"
   languageName: unknown
   linkType: soft
 

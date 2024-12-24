@@ -4,11 +4,13 @@
     "**/*",
     "../../humu/util-constants/**/*",
     "../../kiro/util-constants/**/*",
+    "../../kolo/util-constants/**/*",
     "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
     "../../tera/util-constants/**/*",
     "../../typescript/util-date/**/*",
-    "../../typescript/util-object/**/*"
+    "../../typescript/util-object/**/*",
+    "../../vara/util-constants/**/*"
   ],
   "references": [
     {
@@ -16,6 +18,9 @@
     },
     {
       "path": "../../kiro/util-constants"
+    },
+    {
+      "path": "../../kolo/util-constants"
     },
     {
       "path": "../../meli/util-constants"
@@ -31,6 +36,9 @@
     },
     {
       "path": "../../typescript/util-object"
+    },
+    {
+      "path": "../../vara/util-constants"
     }
   ],
   "compilerOptions": {
@@ -42,7 +50,9 @@
       "@lychen/myko-util-constants/*": ["../../myko/util-constants/*"],
       "@lychen/kiro-util-constants/*": ["../../kiro/util-constants/*"],
       "@lychen/meli-util-constants/*": ["../../meli/util-constants/*"],
-      "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"]
+      "@lychen/humu-util-constants/*": ["../../humu/util-constants/*"],
+      "@lychen/kolo-util-constants/*": ["../../kolo/util-constants/*"],
+      "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"]
     }
   }
 }

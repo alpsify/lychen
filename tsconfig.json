@@ -98,6 +98,12 @@
       "path": "libs/util-composables"
     },
     {
+      "path": "libs/vara/ui-i18n"
+    },
+    {
+      "path": "libs/vara/util-constants"
+    },
+    {
       "path": "libs/vite/util-ssg"
     },
     {

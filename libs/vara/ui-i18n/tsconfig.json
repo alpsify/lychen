@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "../util-constants/**/*"],
+  "references": [
+    {
+      "path": "../util-constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vara/ui-i18n",
+    "paths": {
+      "@lychen/myko-util-constants/*": ["../util-constants/*"],
+      "@lychen/meli-util-constants/*": ["../util-constants/*"],
+      "@lychen/humu-util-constants/*": ["../util-constants/*"],
+      "@lychen/kolo-util-constants/*": ["../util-constants/*"],
+      "@lychen/vara-util-constants/*": ["../util-constants/*"]
+    }
+  }
+}

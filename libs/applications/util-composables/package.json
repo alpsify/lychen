@@ -8,9 +8,11 @@
     "@lychen/applications-util-model": "workspace:*",
     "@lychen/humu-ui-i18n": "workspace:*",
     "@lychen/kiro-ui-i18n": "workspace:*",
+    "@lychen/kolo-ui-i18n": "workspace:*",
     "@lychen/meli-ui-i18n": "workspace:*",
     "@lychen/myko-ui-i18n": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
+    "@lychen/vara-ui-i18n": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "vue": "3.5.13"
   }

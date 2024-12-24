@@ -11,8 +11,5 @@ export default {
     name: 'Novi',
     description: 'Recherches, statistiques et protocoles scientifiques',
   },
-  vara: {
-    name: 'Vara',
-    description: 'Visualisation et conservation de la biodiversité',
-  },
+  vara: {},
 };
