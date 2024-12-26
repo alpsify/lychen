@@ -27,11 +27,12 @@
                 @click="selectedApplication = application"
               >
                 <template #footer
-                  ><div
-                    class="text-sm self-center z-10 justify-end animate-in slide-in-from-bottom-4 duration-300 md:hidden md:group-hover:flex bg-primary text-primary-on px-4 py-2 rounded-full"
+                  ><LychenButton
+                    class="text-sm self-center z-10 justify-end animate-in slide-in-from-bottom-4 duration-300 md:hidden md:group-hover:flex"
+                    size="sm"
                   >
                     {{ t('applications.see_features') }}
-                  </div></template
+                  </LychenButton></template
                 >
               </ApplicationCard>
             </LychenDialogTrigger>
