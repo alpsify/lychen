@@ -1,9 +1,5 @@
 <template>
-  <div
-    id="hero"
-    class="flex flex-col justify-start"
-    :class="y > 10 ? 'scaled-down' : ''"
-  >
+  <LychenDivScalingDown class="flex flex-col justify-start">
     <LychenHero
       class="text-surface dark:text-surface-on flex flex-row items-center justify-start gap-4 min-h-dvh"
       :background-image="heroUrl"
@@ -49,17 +45,20 @@
         </div>
       </div>
     </LychenHero>
-  </div>
+  </LychenDivScalingDown>
 </template>
 
 <script setup lang="ts">
 import heroUrl from './assets/hero-2.webp';
 import { defineAsyncComponent } from 'vue';
-import { useWindowScroll } from '@vueuse/core';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageSponsor } from '../sponsor';
+
+const LychenDivScalingDown = defineAsyncComponent(
+  () => import('@lychen/ui-components/div/LychenDivScalingDown.vue'),
+);
 
 const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
 const LychenButton = defineAsyncComponent(
@@ -77,29 +76,9 @@ const LychenRainbowBox = defineAsyncComponent(
   () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-
-const { y } = useWindowScroll();
 </script>
 
 <style scoped>
-#hero {
-  --time: 1.2s;
-  top: 0;
-  scale: 1;
-  transition: all var(--time) ease-in-out;
-  border-radius: 0px;
-  header {
-    transition: all var(--time) ease-in-out;
-  }
-}
-
-#hero.scaled-down {
-  scale: 0.9;
-  header {
-    border-radius: 50px;
-  }
-}
-
 :deep(.blobed) {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
