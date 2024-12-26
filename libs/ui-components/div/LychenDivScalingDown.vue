@@ -35,14 +35,15 @@ const { y } = useWindowScroll();
   top: 0;
   scale: 1;
   transition: all var(--time) ease-in-out;
-  &:deep(:first-child) {
+  &:deep(> *:first-child) {
+    border-radius: 0px;
     transition: all var(--time) ease-in-out;
   }
 }
 
 .component.scaled-down {
   scale: v-bind('props.scaleRatio');
-  &:deep(:first-child) {
+  &:deep(> *:first-child) {
     border-radius: v-bind('props.endBorderRadius');
   }
 }

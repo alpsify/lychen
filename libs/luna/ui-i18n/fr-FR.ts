@@ -1,4 +1,4 @@
 export default {
   name: 'Luna',
-  description: 'Biodynamie : calendrier lunaire, jardinage, astuces',
+  description: 'Valorise les savoirs agricoles ancestraux et promeut les pratiques durables',
 };

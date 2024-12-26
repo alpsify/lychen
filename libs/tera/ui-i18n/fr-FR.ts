@@ -1,4 +1,5 @@
 export default {
   name: 'Tera',
-  description: 'Outil pour les maraîchers et jardiniers',
+  description:
+    'Facilite la gestion des cultures et connecte citoyens et maraîchers à des espaces partagés',
 };

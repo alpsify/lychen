@@ -1,4 +1,4 @@
 export default {
   name: 'Humu',
-  description: 'Suivi et valorisation des composts',
+  description: 'Structure la gestion des biodéchets et développe des initiatives de compostage',
 };

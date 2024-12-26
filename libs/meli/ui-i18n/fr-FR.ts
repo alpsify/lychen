@@ -1,4 +1,4 @@
 export default {
   name: 'Meli',
-  description: 'Outil pour les apiculteurs et les maraîchers',
+  description: "Organise l'activité apicole et connecte les apiculteurs avec les acteurs locaux",
 };

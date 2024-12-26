@@ -1,4 +1,4 @@
 export default {
   name: 'Vara',
-  description: 'Visualisation et conservation de la biodiversité',
+  description: 'Centralise les données sur la biodiversité et informe citoyens et associations',
 };

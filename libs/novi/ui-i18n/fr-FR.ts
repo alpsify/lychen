@@ -1,4 +1,4 @@
 export default {
   name: 'Novi',
-  description: 'Recherches, statistiques et protocoles scientifiques',
+  description: "Partage les connaissances scientifiques sur l'écosystème et encourage la recherche",
 };

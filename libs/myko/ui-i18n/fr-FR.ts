@@ -1,4 +1,4 @@
 export default {
   name: 'Myko',
-  description: 'Outil pour les myciculteurs : récolteurs, producteurs, sélectionneurs',
+  description: 'Optimise la culture de champignons et sensibilise à la mycologie',
 };

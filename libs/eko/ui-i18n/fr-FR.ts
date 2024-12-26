@@ -1,4 +1,4 @@
 export default {
   name: 'Eko',
-  description: 'Gestion de la méthanisation du territoire',
+  description: "Organise la méthanisation des biodéchets pour améliorer l'impact écologique",
 };
