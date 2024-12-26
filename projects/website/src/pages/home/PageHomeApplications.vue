@@ -24,6 +24,7 @@
                 :application="application"
                 background-image-folder="applications-covers"
                 class="bg-surface-container rounded-3xl min-h-[400px] md:min-h-[500px] p-6 cursor-pointer"
+                :data-umami-event="`Clicks on ${application.alias} card`"
                 @click="selectedApplication = application"
               >
                 <template #footer

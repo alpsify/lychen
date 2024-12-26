@@ -10,6 +10,7 @@
     <a
       href="https://fr.ulule.com/lychen/coming-soon/"
       target="_blank"
+      data-umami-event="Click on Ulule banner"
     >
       <LychenGlowBorder
         class="grow hover:shadow-md rounded-lg cursor-pointer"

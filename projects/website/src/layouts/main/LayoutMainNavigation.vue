@@ -141,6 +141,7 @@
           variant="default"
           size="sm"
           class="gap-2"
+          data-umami-event="Clicks on pre-register"
           >{{ t(`navigation.preregister`) }} <LychenIcon icon="rocket-launch" /></LychenButton
       ></a>
     </div>
