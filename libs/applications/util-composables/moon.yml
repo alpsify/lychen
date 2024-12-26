@@ -7,6 +7,7 @@ dependsOn:
   - eko-ui-i18n
   - humu-ui-i18n
   - kiro-ui-i18n
+  - kiro-util-features
   - kolo-ui-i18n
   - luna-ui-i18n
   - meli-ui-i18n

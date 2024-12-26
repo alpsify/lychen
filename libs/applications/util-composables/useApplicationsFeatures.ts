@@ -1,6 +1,7 @@
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 import { ApplicationFeatureList } from '@lychen/applications-util-model/ApplicationFeatureList';
 import { useFeatures as useTeraFeatures } from '@lychen/tera-util-features/composables/useFeatures';
+import { useFeatures as useKiroFeatures } from '@lychen/kiro-util-features/composables/useFeatures';
 import {
   OrganizedFeaturesByGroup,
   UseGenericApplicationsFeatures,
@@ -13,6 +14,7 @@ export function useApplicationsFeatures() {
     [key: ApplicationFeatureAlias]: UseGenericApplicationsFeatures<ApplicationFeatureGroup>;
   } = {
     [APPLICATION_ALIAS.Tera]: useTeraFeatures(),
+    [APPLICATION_ALIAS.Kiro]: useKiroFeatures(),
   };
 
   function getFeatures(
