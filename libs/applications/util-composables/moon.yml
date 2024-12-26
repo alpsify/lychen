@@ -11,6 +11,7 @@ dependsOn:
   - kolo-ui-i18n
   - luna-ui-i18n
   - meli-ui-i18n
+  - meli-util-features
   - myko-ui-i18n
   - novi-ui-i18n
   - tera-ui-i18n

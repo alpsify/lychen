@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - meli-util-constants
+  - typescript-util-object
+
+id: meli-util-features
+
+language: typescript
+
+type: library

@@ -2,24 +2,17 @@ export default {
   citizen: {
     title: 'Citoyen',
     feature: {
-      find_join_participate: {
-        title: 'Trouver et rejoindre une AMAP',
-        description:
-          'Recherchez, adhérez et participez aux activités d’une AMAP sur votre territoire.',
-      },
-      contracts: {
-        title: 'Gestion des contrats',
-        description: 'Signez vos contrats, gérez vos paiements et participez aux distributions.',
+      find_amap: {
+        title: 'Rejoindre une AMAP',
+        description: 'Trouvez, rejoignez et participez à une AMAP près de chez vous.',
       },
       communication: {
         title: 'Communication',
-        description:
-          'Communiquez directement avec les producteurs pour des renseignements et échanges.',
+        description: "Discutez directement avec les producteurs et les membres de l'AMAP.",
       },
-      services: {
-        title: 'Services',
-        description:
-          'Demandez ou proposez des services : partage, récupération ou échange de paniers.',
+      service_request: {
+        title: 'Demande de service',
+        description: 'Échangez, partagez ou récupérez un panier facilement.',
       },
     },
   },
@@ -27,49 +20,50 @@ export default {
     title: 'Association',
     feature: {
       association_management: {
-        title: 'Gestion associative',
+        title: "Gestion de l'association",
         description:
-          'Organisez la vie de l’association : calendrier, permanences, AG et événements.',
+          "Organisez les activités de l'AMAP : permanences, événements et communication.",
       },
       data_visualization: {
         title: 'Visualisation des données',
-        description: 'Analysez vos données pour identifier les axes d’amélioration.',
+        description: "Analysez les statistiques pour améliorer le fonctionnement de l'AMAP.",
       },
       food_security: {
         title: 'Sécurité alimentaire',
-        description:
-          'Soutenez la sécurité alimentaire avec des paniers solidaires ou des initiatives anti-gaspillage.',
+        description: 'Soutenez des initiatives solidaires : paniers solidaires, anti-gaspillage.',
       },
     },
   },
   producer: {
     title: 'Producteur',
     feature: {
-      contracts: {
+      contract_management: {
         title: 'Gestion des contrats',
-        description: 'Créez et gérez vos contrats, tarifs, paiements et validations.',
+        description: 'Créez et suivez vos contrats, tarifs et paiements.',
       },
       distribution_planning: {
         title: 'Planification des distributions',
-        description: 'Gérez les volumes, nombres et calendriers pour des distributions efficaces.',
+        description:
+          'Planifiez vos distributions avec précision : volume, calendrier, permanences.',
       },
       special_sales: {
         title: 'Ventes spéciales',
-        description: 'Organisez des ventes ponctuelles avec tarifs, commandes et paiements.',
+        description: 'Proposez des ventes ponctuelles et gérez les commandes facilement.',
       },
-      client_communication: {
+      customer_communication: {
         title: 'Communication client',
         description:
-          'Communiquez sur le bénévolat, les aides à la ferme et les informations exceptionnelles.',
+          'Communiquez avec vos clients pour des informations ou des demandes exceptionnelles.',
       },
     },
   },
   community: {
     title: 'Communauté de communes',
     feature: {
-      democratic_organization: {
-        title: 'Organisation démocratique',
-        description: 'Créez du lien avec les associations et organisez la démocratie alimentaire.',
+      food_democracy: {
+        title: 'Démocratie alimentaire',
+        description:
+          'Faites le lien entre les associations et les producteurs pour encourager la résilience alimentaire.',
       },
     },
   },

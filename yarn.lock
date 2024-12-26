@@ -1671,6 +1671,7 @@ __metadata:
     "@lychen/kolo-ui-i18n": "workspace:*"
     "@lychen/luna-ui-i18n": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
+    "@lychen/meli-util-features": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
@@ -1876,6 +1877,17 @@ __metadata:
 "@lychen/meli-util-constants@workspace:*, @lychen/meli-util-constants@workspace:libs/meli/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/meli-util-constants@workspace:libs/meli/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/meli-util-features@workspace:*, @lychen/meli-util-features@workspace:libs/meli/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/meli-util-features@workspace:libs/meli/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/meli-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
   languageName: unknown
   linkType: soft
 
