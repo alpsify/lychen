@@ -6,7 +6,7 @@
       class="opacity-80 text-center"
       >{{ t('applications.second_title') }}</LychenTitle
     >
-    <LychenDrawer side="right">
+    <LychenDialog v-model:open="isOpen">
       <LychenCarousel
         class="w-[85%] sm:w-[90%] mt-10"
         :opts="{
@@ -19,31 +19,43 @@
             :key="application.title"
             class="sm:basis-1/2 md:basis-1/2 lg:basis-1/4"
           >
-            <LychenDrawerTrigger as-child>
+            <LychenDialogTrigger as-child>
               <ApplicationCard
                 :application="application"
                 background-image-folder="applications-covers"
-                class="bg-surface-container rounded-3xl min-h-[500px] p-6 cursor-pointer"
+                class="bg-surface-container rounded-3xl min-h-[400px] md:min-h-[500px] p-6 cursor-pointer"
                 @click="selectedApplication = application"
-              />
-            </LychenDrawerTrigger>
+              >
+                <template #footer
+                  ><div
+                    class="text-sm self-center z-10 justify-end animate-in slide-in-from-bottom-4 duration-300 md:hidden md:group-hover:flex bg-primary text-primary-on px-4 py-2 rounded-full"
+                  >
+                    {{ t('applications.see_features') }}
+                  </div></template
+                >
+              </ApplicationCard>
+            </LychenDialogTrigger>
           </LychenCarouselItem>
         </LychenCarouselContent>
         <LychenCarouselPrevious />
         <LychenCarouselNext />
       </LychenCarousel>
-      <LychenDrawerContent class="bg-surface-container-high text-surface-container-on w-full">
-        <div class="h-2 bg-surface/50 rounded-full w-1/6 self-center cursor-pointer"></div>
-
-        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-4 md:grid-rows-1 py-6 gap-4">
+      <LychenDialogContent
+        class="bg-surface-container-high text-surface-container-on md:max-w-[80%] w-full max-h-dvh overflow-y-auto"
+      >
+        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-4 md:grid-rows-1 md:py-6 gap-4">
           <div
-            class="flex flex-col justify-between gap-4 items-start bg-surface-container rounded-3xl p-6"
+            class="flex flex-col justify-between gap-4 bg-secondary-container text-secondary-container-on rounded-3xl p-4 md:p-6 items-stretch"
           >
             <div class="flex flex-col gap-2">
-              <ApplicationTitle
-                class="text-3xl"
-                :value="selectedApplication.title"
-              />
+              <div class="flex flex-row justify-between items-center">
+                <ApplicationTitle
+                  class="text-3xl"
+                  :value="selectedApplication.title"
+                />
+                <LychenDialogClose />
+              </div>
+
               <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
             </div>
             <a
@@ -53,6 +65,7 @@
               <LychenButton
                 class="flex flex-row gap-2"
                 size="sm"
+                variant="secondary"
                 >Site web <LychenIcon icon="link"
               /></LychenButton>
             </a>
@@ -60,6 +73,7 @@
           <div
             v-for="group in features"
             :key="group"
+            class="md:py-6 py-2"
           >
             <p class="text-lg font-bold opacity-60">{{ group.title }}</p>
             <ApplicationFeatureCard
@@ -70,8 +84,8 @@
             />
           </div>
         </div>
-      </LychenDrawerContent>
-    </LychenDrawer>
+      </LychenDialogContent>
+    </LychenDialog>
   </LychenContainer>
 </template>
 
@@ -91,15 +105,16 @@ import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarousel
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
-import { LychenDrawerTrigger } from '@lychen/ui-components/drawer';
+import { LychenDialogTrigger } from '@lychen/ui-components/dialog';
 import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
+import LychenDialogClose from '@lychen/ui-components/dialog/LychenDialogClose.vue';
 
-const LychenDrawer = defineAsyncComponent(
-  () => import('@lychen/ui-components/drawer/LychenDrawer.vue'),
+const LychenDialog = defineAsyncComponent(
+  () => import('@lychen/ui-components/dialog/LychenDialog.vue'),
 );
 
-const LychenDrawerContent = defineAsyncComponent(
-  () => import('@lychen/ui-components/drawer/LychenDrawerContent.vue'),
+const LychenDialogContent = defineAsyncComponent(
+  () => import('@lychen/ui-components/dialog/LychenDialogContent.vue'),
 );
 
 const LychenTitle = defineAsyncComponent(
@@ -123,6 +138,8 @@ const unwatch = watch(selectedApplication, () => {
     features.value = getFeaturesOrganizedByGroup(selectedApplication.value.alias);
   }
 });
+
+const isOpen = ref(false);
 
 onBeforeUnmount(() => {
   unwatch();
