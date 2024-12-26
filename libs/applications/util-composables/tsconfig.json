@@ -7,6 +7,7 @@
     "../../kiro/ui-i18n/**/*",
     "../../kiro/util-features/**/*",
     "../../kolo/ui-i18n/**/*",
+    "../../kolo/util-features/**/*",
     "../../luna/ui-i18n/**/*",
     "../../luna/util-features/**/*",
     "../../meli/ui-i18n/**/*",
@@ -40,6 +41,9 @@
     },
     {
       "path": "../../kolo/ui-i18n"
+    },
+    {
+      "path": "../../kolo/util-features"
     },
     {
       "path": "../../luna/ui-i18n"
@@ -128,7 +132,8 @@
       "@lychen/myko-util-features/*": ["../../myko/util-features/*"],
       "@lychen/vara-util-features/*": ["../../vara/util-features/*"],
       "@lychen/novi-util-features/*": ["../../novi/util-features/*"],
-      "@lychen/luna-util-features/*": ["../../luna/util-features/*"]
+      "@lychen/luna-util-features/*": ["../../luna/util-features/*"],
+      "@lychen/kolo-util-features/*": ["../../kolo/util-features/*"]
     }
   }
 }

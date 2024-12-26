@@ -9,6 +9,7 @@ dependsOn:
   - kiro-ui-i18n
   - kiro-util-features
   - kolo-ui-i18n
+  - kolo-util-features
   - luna-ui-i18n
   - luna-util-features
   - meli-ui-i18n

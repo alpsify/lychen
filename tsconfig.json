@@ -53,6 +53,9 @@
       "path": "libs/kolo/util-constants"
     },
     {
+      "path": "libs/kolo/util-features"
+    },
+    {
       "path": "libs/luna/ui-i18n"
     },
     {
