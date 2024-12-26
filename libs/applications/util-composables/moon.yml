@@ -13,6 +13,7 @@ dependsOn:
   - meli-ui-i18n
   - meli-util-features
   - myko-ui-i18n
+  - myko-util-features
   - novi-ui-i18n
   - tera-ui-i18n
   - tera-util-features

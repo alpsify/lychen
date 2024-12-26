@@ -11,6 +11,7 @@
     "../../meli/ui-i18n/**/*",
     "../../meli/util-features/**/*",
     "../../myko/ui-i18n/**/*",
+    "../../myko/util-features/**/*",
     "../../novi/ui-i18n/**/*",
     "../../tera/ui-i18n/**/*",
     "../../tera/util-features/**/*",
@@ -48,6 +49,9 @@
     },
     {
       "path": "../../myko/ui-i18n"
+    },
+    {
+      "path": "../../myko/util-features"
     },
     {
       "path": "../../novi/ui-i18n"
@@ -108,7 +112,8 @@
       "@lychen/tera-util-features/*": ["../../tera/util-features/*"],
       "@lychen/applications-util-generic-composables/*": ["../util-generic-composables/*"],
       "@lychen/kiro-util-features/*": ["../../kiro/util-features/*"],
-      "@lychen/meli-util-features/*": ["../../meli/util-features/*"]
+      "@lychen/meli-util-features/*": ["../../meli/util-features/*"],
+      "@lychen/myko-util-features/*": ["../../myko/util-features/*"]
     }
   }
 }

@@ -3,6 +3,7 @@ import { ApplicationFeatureList } from '@lychen/applications-util-model/Applicat
 import { useFeatures as useTeraFeatures } from '@lychen/tera-util-features/composables/useFeatures';
 import { useFeatures as useKiroFeatures } from '@lychen/kiro-util-features/composables/useFeatures';
 import { useFeatures as useMeliFeatures } from '@lychen/meli-util-features/composables/useFeatures';
+import { useFeatures as useMykoFeatures } from '@lychen/myko-util-features/composables/useFeatures';
 import {
   OrganizedFeaturesByGroup,
   UseGenericApplicationsFeatures,
@@ -17,6 +18,7 @@ export function useApplicationsFeatures() {
     [APPLICATION_ALIAS.Tera]: useTeraFeatures(),
     [APPLICATION_ALIAS.Kiro]: useKiroFeatures(),
     [APPLICATION_ALIAS.Meli]: useMeliFeatures(),
+    [APPLICATION_ALIAS.Myko]: useMykoFeatures(),
   };
 
   function getFeatures(
