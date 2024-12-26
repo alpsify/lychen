@@ -1,0 +1,41 @@
+export default {
+  citizen: {
+    title: 'Citoyen',
+    feature: {
+      participatory_surveys: {
+        title: 'Participer à des enquêtes',
+        description:
+          'Participez à des enquêtes locales et suivez les guides pour identifier les espèces.',
+      },
+      data_collection: {
+        title: 'Collecte de données',
+        description: 'Soumettez des observations géolocalisées avec photos et notes.',
+      },
+      territory_information: {
+        title: 'Informations sur le territoire',
+        description: 'Accédez à des données locales sur la biodiversité et les zones protégées.',
+      },
+      statistics_visualization: {
+        title: 'Visualisation des statistiques',
+        description: 'Suivez les indicateurs locaux comme le nombre d’espèces recensées.',
+      },
+    },
+  },
+  association: {
+    title: 'Association',
+    feature: {
+      data_archiving: {
+        title: 'Archivage des données',
+        description: 'Stockez et publiez vos données de recensement dans un espace sécurisé.',
+      },
+      knowledge_sharing: {
+        title: 'Partage des savoirs',
+        description: 'Accédez à des articles, guides et études de cas collaboratifs.',
+      },
+      public_awareness: {
+        title: 'Sensibilisation',
+        description: 'Organisez des événements pour engager le public dans vos projets.',
+      },
+    },
+  },
+};

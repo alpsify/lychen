@@ -1,0 +1,36 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../applications/util-generic-composables/**/*",
+    "../../applications/util-model/**/*",
+    "../../typescript/util-object/**/*",
+    "../util-constants/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../applications/util-generic-composables"
+    },
+    {
+      "path": "../../applications/util-model"
+    },
+    {
+      "path": "../../typescript/util-object"
+    },
+    {
+      "path": "../util-constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vara/util-features",
+    "paths": {
+      "@lychen/applications-util-model/*": ["../../applications/util-model/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
+      "@lychen/tera-util-constants/*": ["../util-constants/*"],
+      "@lychen/applications-util-generic-composables/*": [
+        "../../applications/util-generic-composables/*"
+      ],
+      "@lychen/vara-util-constants/*": ["../util-constants/*"]
+    }
+  }
+}

@@ -18,6 +18,7 @@ dependsOn:
   - tera-ui-i18n
   - tera-util-features
   - vara-ui-i18n
+  - vara-util-features
   - vue-i18n-util-composables
 
 id: applications-util-composables

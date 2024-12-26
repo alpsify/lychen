@@ -1678,6 +1678,7 @@ __metadata:
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-features": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
+    "@lychen/vara-util-features": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
@@ -2079,6 +2080,17 @@ __metadata:
 "@lychen/vara-util-constants@workspace:*, @lychen/vara-util-constants@workspace:libs/vara/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/vara-util-constants@workspace:libs/vara/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vara-util-features@workspace:*, @lychen/vara-util-features@workspace:libs/vara/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vara-util-features@workspace:libs/vara/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 

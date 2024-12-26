@@ -16,6 +16,7 @@
     "../../tera/ui-i18n/**/*",
     "../../tera/util-features/**/*",
     "../../vara/ui-i18n/**/*",
+    "../../vara/util-features/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
     "../util-constants/**/*",
@@ -66,6 +67,9 @@
       "path": "../../vara/ui-i18n"
     },
     {
+      "path": "../../vara/util-features"
+    },
+    {
       "path": "../../vue/i18n/util-composables"
     },
     {
@@ -113,7 +117,8 @@
       "@lychen/applications-util-generic-composables/*": ["../util-generic-composables/*"],
       "@lychen/kiro-util-features/*": ["../../kiro/util-features/*"],
       "@lychen/meli-util-features/*": ["../../meli/util-features/*"],
-      "@lychen/myko-util-features/*": ["../../myko/util-features/*"]
+      "@lychen/myko-util-features/*": ["../../myko/util-features/*"],
+      "@lychen/vara-util-features/*": ["../../vara/util-features/*"]
     }
   }
 }

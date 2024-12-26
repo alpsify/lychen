@@ -41,7 +41,7 @@
         <LychenCarouselNext />
       </LychenCarousel>
       <LychenDialogContent
-        class="bg-surface-container-high text-surface-container-on md:max-w-[80%] w-full max-h-dvh overflow-y-auto gap-8"
+        class="bg-surface-container-high text-surface-container-on md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
       >
         <div
           class="flex flex-col justify-between gap-4 bg-secondary-container text-secondary-container-on rounded-3xl p-4 md:p-6 items-stretch"

@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - typescript-util-object
+  - vara-util-constants
+
+id: vara-util-features
+
+language: typescript
+
+type: library

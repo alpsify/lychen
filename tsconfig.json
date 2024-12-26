@@ -134,6 +134,9 @@
       "path": "libs/vara/util-constants"
     },
     {
+      "path": "libs/vara/util-features"
+    },
+    {
       "path": "libs/vite/util-ssg"
     },
     {
