@@ -26,6 +26,9 @@
       "path": "libs/eko/util-constants"
     },
     {
+      "path": "libs/eko/util-features"
+    },
+    {
       "path": "libs/humu/ui-i18n"
     },
     {

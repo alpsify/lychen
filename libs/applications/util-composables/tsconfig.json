@@ -3,6 +3,7 @@
   "include": [
     "**/*",
     "../../eko/ui-i18n/**/*",
+    "../../eko/util-features/**/*",
     "../../humu/ui-i18n/**/*",
     "../../humu/util-features/**/*",
     "../../kiro/ui-i18n/**/*",
@@ -30,6 +31,9 @@
   "references": [
     {
       "path": "../../eko/ui-i18n"
+    },
+    {
+      "path": "../../eko/util-features"
     },
     {
       "path": "../../humu/ui-i18n"
@@ -138,7 +142,8 @@
       "@lychen/novi-util-features/*": ["../../novi/util-features/*"],
       "@lychen/luna-util-features/*": ["../../luna/util-features/*"],
       "@lychen/kolo-util-features/*": ["../../kolo/util-features/*"],
-      "@lychen/humu-util-features/*": ["../../humu/util-features/*"]
+      "@lychen/humu-util-features/*": ["../../humu/util-features/*"],
+      "@lychen/eko-util-features/*": ["../../eko/util-features/*"]
     }
   }
 }

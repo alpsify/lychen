@@ -9,6 +9,7 @@ import { useFeatures as useNoviFeatures } from '@lychen/novi-util-features/compo
 import { useFeatures as useLunaFeatures } from '@lychen/luna-util-features/composables/useFeatures';
 import { useFeatures as useKoloFeatures } from '@lychen/kolo-util-features/composables/useFeatures';
 import { useFeatures as useHumuFeatures } from '@lychen/humu-util-features/composables/useFeatures';
+import { useFeatures as useEkoFeatures } from '@lychen/eko-util-features/composables/useFeatures';
 import {
   OrganizedFeaturesByGroup,
   UseGenericApplicationsFeatures,
@@ -29,6 +30,7 @@ export function useApplicationsFeatures() {
     [APPLICATION_ALIAS.Luna]: useLunaFeatures(),
     [APPLICATION_ALIAS.Kolo]: useKoloFeatures(),
     [APPLICATION_ALIAS.Humu]: useHumuFeatures(),
+    [APPLICATION_ALIAS.Eko]: useEkoFeatures(),
   };
 
   function getFeatures(

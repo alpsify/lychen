@@ -5,6 +5,7 @@ dependsOn:
   - applications-util-generic-composables
   - applications-util-model
   - eko-ui-i18n
+  - eko-util-features
   - humu-ui-i18n
   - humu-util-features
   - kiro-ui-i18n

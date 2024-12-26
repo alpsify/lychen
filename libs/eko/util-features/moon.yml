@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - eko-util-constants
+  - typescript-util-object
+
+id: eko-util-features
+
+language: typescript
+
+type: library

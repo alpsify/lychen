@@ -8,6 +8,7 @@
     "@lychen/applications-util-generic-composables": "workspace:*",
     "@lychen/applications-util-model": "workspace:*",
     "@lychen/eko-ui-i18n": "workspace:*",
+    "@lychen/eko-util-features": "workspace:*",
     "@lychen/humu-ui-i18n": "workspace:*",
     "@lychen/humu-util-features": "workspace:*",
     "@lychen/kiro-ui-i18n": "workspace:*",
