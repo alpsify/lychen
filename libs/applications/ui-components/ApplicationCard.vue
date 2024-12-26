@@ -1,9 +1,9 @@
 <template>
   <LychenDivWithBackgroundImage
-    :class="cn('flex flex-col gap-2 p-6 rounded-xl items-start', $props.class)"
+    :class="cn('flex flex-col gap-2 p-6 rounded-xl group justify-between', $props.class)"
     :background-image="`${backgroundImageFolder}/${application.alias}-cover-1.webp`"
     overlay
-    overlay-class="bg-surface-on dark:bg-surface opacity-25"
+    overlay-class="bg-surface-on dark:bg-surface opacity-25 group-hover:opacity-65 transition duration-300 ease-in-out"
   >
     <div
       class="flex flex-col gap-2 bg-primary/10 dark:bg-primary-container/20 rounded-3xl backdrop-blur-lg z-10 p-4 text-surface dark:text-surface-on"
@@ -15,6 +15,7 @@
       </div>
       <p class="opacity-80 text-balance">{{ application.description }}</p>
     </div>
+    <slot name="footer" />
   </LychenDivWithBackgroundImage>
 </template>
 

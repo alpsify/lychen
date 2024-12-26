@@ -14,6 +14,9 @@
       "path": "libs/applications/util-constants"
     },
     {
+      "path": "libs/applications/util-generic-composables"
+    },
+    {
       "path": "libs/applications/util-model"
     },
     {
@@ -23,10 +26,16 @@
       "path": "libs/eko/util-constants"
     },
     {
+      "path": "libs/eko/util-features"
+    },
+    {
       "path": "libs/humu/ui-i18n"
     },
     {
       "path": "libs/humu/util-constants"
+    },
+    {
+      "path": "libs/humu/util-features"
     },
     {
       "path": "libs/kiro/ui-components"
@@ -38,6 +47,9 @@
       "path": "libs/kiro/util-constants"
     },
     {
+      "path": "libs/kiro/util-features"
+    },
+    {
       "path": "libs/kiro/util-sdk"
     },
     {
@@ -47,10 +59,16 @@
       "path": "libs/kolo/util-constants"
     },
     {
+      "path": "libs/kolo/util-features"
+    },
+    {
       "path": "libs/luna/ui-i18n"
     },
     {
       "path": "libs/luna/util-constants"
+    },
+    {
+      "path": "libs/luna/util-features"
     },
     {
       "path": "libs/meli/ui-i18n"
@@ -59,16 +77,25 @@
       "path": "libs/meli/util-constants"
     },
     {
+      "path": "libs/meli/util-features"
+    },
+    {
       "path": "libs/myko/ui-i18n"
     },
     {
       "path": "libs/myko/util-constants"
     },
     {
+      "path": "libs/myko/util-features"
+    },
+    {
       "path": "libs/novi/ui-i18n"
     },
     {
       "path": "libs/novi/util-constants"
+    },
+    {
+      "path": "libs/novi/util-features"
     },
     {
       "path": "libs/odd/ui-i18n"
@@ -120,6 +147,9 @@
     },
     {
       "path": "libs/vara/util-constants"
+    },
+    {
+      "path": "libs/vara/util-features"
     },
     {
       "path": "libs/vite/util-ssg"

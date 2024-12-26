@@ -26,6 +26,7 @@ export default {
   applications: {
     title: 'Un seul écosystème',
     second_title: 'Tous les outils pour le territoire',
+    see_features: 'Voir les fonctionnalités',
   },
   goals: {
     title: 'Objectifs de développement durable',

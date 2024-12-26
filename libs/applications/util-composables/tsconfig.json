@@ -3,18 +3,29 @@
   "include": [
     "**/*",
     "../../eko/ui-i18n/**/*",
+    "../../eko/util-features/**/*",
     "../../humu/ui-i18n/**/*",
+    "../../humu/util-features/**/*",
     "../../kiro/ui-i18n/**/*",
+    "../../kiro/util-features/**/*",
     "../../kolo/ui-i18n/**/*",
+    "../../kolo/util-features/**/*",
     "../../luna/ui-i18n/**/*",
+    "../../luna/util-features/**/*",
     "../../meli/ui-i18n/**/*",
+    "../../meli/util-features/**/*",
     "../../myko/ui-i18n/**/*",
+    "../../myko/util-features/**/*",
     "../../novi/ui-i18n/**/*",
+    "../../novi/util-features/**/*",
     "../../tera/ui-i18n/**/*",
+    "../../tera/util-features/**/*",
     "../../vara/ui-i18n/**/*",
+    "../../vara/util-features/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
     "../util-constants/**/*",
+    "../util-generic-composables/**/*",
     "../util-model/**/*"
   ],
   "references": [
@@ -22,31 +33,61 @@
       "path": "../../eko/ui-i18n"
     },
     {
+      "path": "../../eko/util-features"
+    },
+    {
       "path": "../../humu/ui-i18n"
+    },
+    {
+      "path": "../../humu/util-features"
     },
     {
       "path": "../../kiro/ui-i18n"
     },
     {
+      "path": "../../kiro/util-features"
+    },
+    {
       "path": "../../kolo/ui-i18n"
+    },
+    {
+      "path": "../../kolo/util-features"
     },
     {
       "path": "../../luna/ui-i18n"
     },
     {
+      "path": "../../luna/util-features"
+    },
+    {
       "path": "../../meli/ui-i18n"
+    },
+    {
+      "path": "../../meli/util-features"
     },
     {
       "path": "../../myko/ui-i18n"
     },
     {
+      "path": "../../myko/util-features"
+    },
+    {
       "path": "../../novi/ui-i18n"
+    },
+    {
+      "path": "../../novi/util-features"
     },
     {
       "path": "../../tera/ui-i18n"
     },
     {
+      "path": "../../tera/util-features"
+    },
+    {
       "path": "../../vara/ui-i18n"
+    },
+    {
+      "path": "../../vara/util-features"
     },
     {
       "path": "../../vue/i18n/util-composables"
@@ -56,6 +97,9 @@
     },
     {
       "path": "../util-constants"
+    },
+    {
+      "path": "../util-generic-composables"
     },
     {
       "path": "../util-model"
@@ -88,7 +132,18 @@
       "@lychen/novi-ui-i18n": ["../../novi/ui-i18n/index.ts"],
       "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"],
       "@lychen/luna-ui-i18n": ["../../luna/ui-i18n/index.ts"],
-      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"]
+      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"],
+      "@lychen/tera-util-features/*": ["../../tera/util-features/*"],
+      "@lychen/applications-util-generic-composables/*": ["../util-generic-composables/*"],
+      "@lychen/kiro-util-features/*": ["../../kiro/util-features/*"],
+      "@lychen/meli-util-features/*": ["../../meli/util-features/*"],
+      "@lychen/myko-util-features/*": ["../../myko/util-features/*"],
+      "@lychen/vara-util-features/*": ["../../vara/util-features/*"],
+      "@lychen/novi-util-features/*": ["../../novi/util-features/*"],
+      "@lychen/luna-util-features/*": ["../../luna/util-features/*"],
+      "@lychen/kolo-util-features/*": ["../../kolo/util-features/*"],
+      "@lychen/humu-util-features/*": ["../../humu/util-features/*"],
+      "@lychen/eko-util-features/*": ["../../eko/util-features/*"]
     }
   }
 }

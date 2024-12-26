@@ -1662,17 +1662,28 @@ __metadata:
   dependencies:
     "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-util-generic-composables": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/eko-ui-i18n": "workspace:*"
+    "@lychen/eko-util-features": "workspace:*"
     "@lychen/humu-ui-i18n": "workspace:*"
+    "@lychen/humu-util-features": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
+    "@lychen/kiro-util-features": "workspace:*"
     "@lychen/kolo-ui-i18n": "workspace:*"
+    "@lychen/kolo-util-features": "workspace:*"
     "@lychen/luna-ui-i18n": "workspace:*"
+    "@lychen/luna-util-features": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
+    "@lychen/meli-util-features": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
+    "@lychen/myko-util-features": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
+    "@lychen/novi-util-features": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-util-features": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
+    "@lychen/vara-util-features": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
@@ -1692,6 +1703,17 @@ __metadata:
     "@lychen/novi-util-constants": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/vara-util-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/applications-util-generic-composables@workspace:*, @lychen/applications-util-generic-composables@workspace:libs/applications/util-generic-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-util-generic-composables@workspace:libs/applications/util-generic-composables"
+  dependencies:
+    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -1718,6 +1740,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/eko-util-features@workspace:*, @lychen/eko-util-features@workspace:libs/eko/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/eko-util-features@workspace:libs/eko/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/eko-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/humu-ui-i18n@workspace:*, @lychen/humu-ui-i18n@workspace:libs/humu/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/humu-ui-i18n@workspace:libs/humu/ui-i18n"
@@ -1729,6 +1762,17 @@ __metadata:
 "@lychen/humu-util-constants@workspace:*, @lychen/humu-util-constants@workspace:libs/humu/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/humu-util-constants@workspace:libs/humu/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/humu-util-features@workspace:*, @lychen/humu-util-features@workspace:libs/humu/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/humu-util-features@workspace:libs/humu/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/humu-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1783,6 +1827,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/kiro-util-features@workspace:*, @lychen/kiro-util-features@workspace:libs/kiro/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kiro-util-features@workspace:libs/kiro/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/kiro-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/kiro-util-sdk@workspace:*, @lychen/kiro-util-sdk@workspace:libs/kiro/util-sdk":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-util-sdk@workspace:libs/kiro/util-sdk"
@@ -1826,6 +1881,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/kolo-util-features@workspace:*, @lychen/kolo-util-features@workspace:libs/kolo/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kolo-util-features@workspace:libs/kolo/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/kolo-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/luna-ui-i18n@workspace:*, @lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n"
@@ -1837,6 +1903,17 @@ __metadata:
 "@lychen/luna-util-constants@workspace:*, @lychen/luna-util-constants@workspace:libs/luna/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/luna-util-constants@workspace:libs/luna/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/luna-util-features@workspace:*, @lychen/luna-util-features@workspace:libs/luna/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/luna-util-features@workspace:libs/luna/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/luna-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1854,6 +1931,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/meli-util-features@workspace:*, @lychen/meli-util-features@workspace:libs/meli/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/meli-util-features@workspace:libs/meli/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/meli-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/myko-ui-i18n@workspace:*, @lychen/myko-ui-i18n@workspace:libs/myko/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/myko-ui-i18n@workspace:libs/myko/ui-i18n"
@@ -1868,6 +1956,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/myko-util-features@workspace:*, @lychen/myko-util-features@workspace:libs/myko/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/myko-util-features@workspace:libs/myko/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/myko-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/novi-ui-i18n@workspace:*, @lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n"
@@ -1879,6 +1978,17 @@ __metadata:
 "@lychen/novi-util-constants@workspace:*, @lychen/novi-util-constants@workspace:libs/novi/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/novi-util-constants@workspace:libs/novi/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/novi-util-features@workspace:*, @lychen/novi-util-features@workspace:libs/novi/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/novi-util-features@workspace:libs/novi/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/novi-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1934,10 +2044,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-util-features@workspace:libs/tera/util-features":
+"@lychen/tera-util-features@workspace:*, @lychen/tera-util-features@workspace:libs/tera/util-features":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-util-features@workspace:libs/tera/util-features"
   dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
@@ -2029,6 +2140,17 @@ __metadata:
 "@lychen/vara-util-constants@workspace:*, @lychen/vara-util-constants@workspace:libs/vara/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/vara-util-constants@workspace:libs/vara/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vara-util-features@workspace:*, @lychen/vara-util-features@workspace:libs/vara/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vara-util-features@workspace:libs/vara/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 

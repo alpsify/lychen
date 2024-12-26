@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - humu-util-constants
+  - typescript-util-object
+
+id: humu-util-features
+
+language: typescript
+
+type: library

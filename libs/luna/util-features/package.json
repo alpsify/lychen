@@ -1,0 +1,11 @@
+{
+  "name": "@lychen/luna-util-features",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/applications-util-generic-composables": "workspace:*",
+    "@lychen/applications-util-model": "workspace:*",
+    "@lychen/luna-util-constants": "workspace:*",
+    "@lychen/typescript-util-object": "workspace:*"
+  }
+}

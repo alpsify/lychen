@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - myko-util-constants
+  - typescript-util-object
+
+id: myko-util-features
+
+language: typescript
+
+type: library
