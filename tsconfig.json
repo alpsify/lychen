@@ -59,6 +59,9 @@
       "path": "libs/luna/util-constants"
     },
     {
+      "path": "libs/luna/util-features"
+    },
+    {
       "path": "libs/meli/ui-i18n"
     },
     {

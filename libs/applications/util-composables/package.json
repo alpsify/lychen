@@ -13,6 +13,7 @@
     "@lychen/kiro-util-features": "workspace:*",
     "@lychen/kolo-ui-i18n": "workspace:*",
     "@lychen/luna-ui-i18n": "workspace:*",
+    "@lychen/luna-util-features": "workspace:*",
     "@lychen/meli-ui-i18n": "workspace:*",
     "@lychen/meli-util-features": "workspace:*",
     "@lychen/myko-ui-i18n": "workspace:*",

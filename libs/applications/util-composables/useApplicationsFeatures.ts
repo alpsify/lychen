@@ -6,6 +6,7 @@ import { useFeatures as useMeliFeatures } from '@lychen/meli-util-features/compo
 import { useFeatures as useMykoFeatures } from '@lychen/myko-util-features/composables/useFeatures';
 import { useFeatures as useVaraFeatures } from '@lychen/vara-util-features/composables/useFeatures';
 import { useFeatures as useNoviFeatures } from '@lychen/novi-util-features/composables/useFeatures';
+import { useFeatures as useLunaFeatures } from '@lychen/luna-util-features/composables/useFeatures';
 import {
   OrganizedFeaturesByGroup,
   UseGenericApplicationsFeatures,
@@ -23,6 +24,7 @@ export function useApplicationsFeatures() {
     [APPLICATION_ALIAS.Myko]: useMykoFeatures(),
     [APPLICATION_ALIAS.Vara]: useVaraFeatures(),
     [APPLICATION_ALIAS.Novi]: useNoviFeatures(),
+    [APPLICATION_ALIAS.Luna]: useLunaFeatures(),
   };
 
   function getFeatures(

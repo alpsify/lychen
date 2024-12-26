@@ -1670,6 +1670,7 @@ __metadata:
     "@lychen/kiro-util-features": "workspace:*"
     "@lychen/kolo-ui-i18n": "workspace:*"
     "@lychen/luna-ui-i18n": "workspace:*"
+    "@lychen/luna-util-features": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
     "@lychen/meli-util-features": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
@@ -1866,6 +1867,18 @@ __metadata:
 "@lychen/luna-util-constants@workspace:*, @lychen/luna-util-constants@workspace:libs/luna/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/luna-util-constants@workspace:libs/luna/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/luna-util-features@workspace:*, @lychen/luna-util-features@workspace:libs/luna/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/luna-util-features@workspace:libs/luna/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/luna-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 
