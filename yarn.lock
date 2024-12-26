@@ -1666,6 +1666,7 @@ __metadata:
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/eko-ui-i18n": "workspace:*"
     "@lychen/humu-ui-i18n": "workspace:*"
+    "@lychen/humu-util-features": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
     "@lychen/kiro-util-features": "workspace:*"
     "@lychen/kolo-ui-i18n": "workspace:*"
@@ -1749,6 +1750,17 @@ __metadata:
 "@lychen/humu-util-constants@workspace:*, @lychen/humu-util-constants@workspace:libs/humu/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/humu-util-constants@workspace:libs/humu/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/humu-util-features@workspace:*, @lychen/humu-util-features@workspace:libs/humu/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/humu-util-features@workspace:libs/humu/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/humu-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
   languageName: unknown
   linkType: soft
 

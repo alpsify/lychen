@@ -32,6 +32,9 @@
       "path": "libs/humu/util-constants"
     },
     {
+      "path": "libs/humu/util-features"
+    },
+    {
       "path": "libs/kiro/ui-components"
     },
     {

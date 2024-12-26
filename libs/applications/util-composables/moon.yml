@@ -6,6 +6,7 @@ dependsOn:
   - applications-util-model
   - eko-ui-i18n
   - humu-ui-i18n
+  - humu-util-features
   - kiro-ui-i18n
   - kiro-util-features
   - kolo-ui-i18n
