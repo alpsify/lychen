@@ -18,6 +18,7 @@
     "@lychen/myko-ui-i18n": "workspace:*",
     "@lychen/myko-util-features": "workspace:*",
     "@lychen/novi-ui-i18n": "workspace:*",
+    "@lychen/novi-util-features": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-features": "workspace:*",
     "@lychen/vara-ui-i18n": "workspace:*",

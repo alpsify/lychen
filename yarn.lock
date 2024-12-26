@@ -1675,6 +1675,7 @@ __metadata:
     "@lychen/myko-ui-i18n": "workspace:*"
     "@lychen/myko-util-features": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
+    "@lychen/novi-util-features": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-features": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
@@ -1929,6 +1930,18 @@ __metadata:
 "@lychen/novi-util-constants@workspace:*, @lychen/novi-util-constants@workspace:libs/novi/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/novi-util-constants@workspace:libs/novi/util-constants"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/novi-util-features@workspace:*, @lychen/novi-util-features@workspace:libs/novi/util-features":
+  version: 0.0.0-use.local
+  resolution: "@lychen/novi-util-features@workspace:libs/novi/util-features"
+  dependencies:
+    "@lychen/applications-util-generic-composables": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
+    "@lychen/novi-util-constants": "workspace:*"
+    "@lychen/typescript-util-object": "workspace:*"
+    "@lychen/vara-util-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 

@@ -13,6 +13,7 @@
     "../../myko/ui-i18n/**/*",
     "../../myko/util-features/**/*",
     "../../novi/ui-i18n/**/*",
+    "../../novi/util-features/**/*",
     "../../tera/ui-i18n/**/*",
     "../../tera/util-features/**/*",
     "../../vara/ui-i18n/**/*",
@@ -56,6 +57,9 @@
     },
     {
       "path": "../../novi/ui-i18n"
+    },
+    {
+      "path": "../../novi/util-features"
     },
     {
       "path": "../../tera/ui-i18n"
@@ -118,7 +122,8 @@
       "@lychen/kiro-util-features/*": ["../../kiro/util-features/*"],
       "@lychen/meli-util-features/*": ["../../meli/util-features/*"],
       "@lychen/myko-util-features/*": ["../../myko/util-features/*"],
-      "@lychen/vara-util-features/*": ["../../vara/util-features/*"]
+      "@lychen/vara-util-features/*": ["../../vara/util-features/*"],
+      "@lychen/novi-util-features/*": ["../../novi/util-features/*"]
     }
   }
 }

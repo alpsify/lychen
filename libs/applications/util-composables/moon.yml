@@ -15,6 +15,7 @@ dependsOn:
   - myko-ui-i18n
   - myko-util-features
   - novi-ui-i18n
+  - novi-util-features
   - tera-ui-i18n
   - tera-util-features
   - vara-ui-i18n

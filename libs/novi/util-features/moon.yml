@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - novi-util-constants
+  - typescript-util-object
+
+id: novi-util-features
+
+language: typescript
+
+type: library

@@ -83,6 +83,9 @@
       "path": "libs/novi/util-constants"
     },
     {
+      "path": "libs/novi/util-features"
+    },
+    {
       "path": "libs/odd/ui-i18n"
     },
     {
