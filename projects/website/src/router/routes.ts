@@ -1,9 +1,9 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { RoutePagePrice } from '@/pages/price';
-import { RoutePageHome } from '@/pages/home';
-import { RoutePageManifest } from '@/pages/manifest';
-import { RoutePageSponsor } from '@/pages/sponsor';
+import { RoutePagePrice } from '@pages/price';
+import { RoutePageHome } from '@pages/home';
+import { RoutePageManifest } from '@pages/manifest';
+import { RoutePageSponsor } from '@pages/sponsor';
 
 const routes: RouteRecordRaw[] = [
   {

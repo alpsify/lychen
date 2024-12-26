@@ -1,19 +1,92 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../../../libs/kiro/ui-components/**/*", "../../../libs/ui-components/**/*"],
+  "include": [
+    "**/*",
+    "../../../libs/applications/ui-components/**/*",
+    "../../../libs/applications/util-composables/**/*",
+    "../../../libs/kiro/ui-components/**/*",
+    "../../../libs/odd/util-composables/**/*",
+    "../../../libs/tailwind/util-configs/**/*",
+    "../../../libs/ui-components/**/*",
+    "../../../libs/ui-css/**/*",
+    "../../../libs/ui-i18n/**/*",
+    "../../../libs/ui-layouts/**/*",
+    "../../../libs/vite/util-ssg/**/*",
+    "../../../libs/vue/i18n/util-composables/**/*",
+    "../../../libs/vue/i18n/util-configs/**/*",
+    "../../../libs/vue/router/util-configs/**/*",
+    "../../../libs/vue/unhead/util-composables/**/*",
+    "../../../libs/vue/util-composables/**/*"
+  ],
   "references": [
+    {
+      "path": "../../../libs/applications/ui-components"
+    },
+    {
+      "path": "../../../libs/applications/util-composables"
+    },
     {
       "path": "../../../libs/kiro/ui-components"
     },
     {
+      "path": "../../../libs/odd/util-composables"
+    },
+    {
+      "path": "../../../libs/tailwind/util-configs"
+    },
+    {
       "path": "../../../libs/ui-components"
+    },
+    {
+      "path": "../../../libs/ui-css"
+    },
+    {
+      "path": "../../../libs/ui-i18n"
+    },
+    {
+      "path": "../../../libs/ui-layouts"
+    },
+    {
+      "path": "../../../libs/vite/util-ssg"
+    },
+    {
+      "path": "../../../libs/vue/i18n/util-composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/util-configs"
+    },
+    {
+      "path": "../../../libs/vue/router/util-configs"
+    },
+    {
+      "path": "../../../libs/vue/unhead/util-composables"
+    },
+    {
+      "path": "../../../libs/vue/util-composables"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/tera/website",
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-      "@lychen/ui-components/*": ["../../../libs/ui-components/*"]
+      "@lychen/ui-components/*": ["../../../libs/ui-components/*"],
+      "@lychen/applications-ui-components/*": ["../../../libs/applications/ui-components/*"],
+      "@lychen/applications-util-composables/*": ["../../../libs/applications/util-composables/*"],
+      "@lychen/odd-util-composables/*": ["../../../libs/odd/util-composables/*"],
+      "@lychen/tailwind-util-configs/*": ["../../../libs/tailwind/util-configs/*"],
+      "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
+      "@lychen/ui-i18n/*": ["../../../libs/ui-i18n/*"],
+      "@lychen/ui-layouts/*": ["../../../libs/ui-layouts/*"],
+      "@lychen/vite-util-ssg/*": ["../../../libs/vite/util-ssg/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
+      "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],
+      "@lychen/vue-router-util-configs/*": ["../../../libs/vue/router/util-configs/*"],
+      "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
+      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"]
     }
   }
 }

@@ -66,7 +66,6 @@
     "paths": {
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
-      "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/ui-components/*": ["../../libs/ui-components/*"],
       "@lychen/ui-css/*": ["../../libs/ui-css/*"],

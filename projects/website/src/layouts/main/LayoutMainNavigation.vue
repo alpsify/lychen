@@ -155,7 +155,7 @@ import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-men
 import { defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
-import { RoutePagePrice } from '@/pages/price';
+import { RoutePagePrice } from '@pages/price';
 
 import {
   TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
@@ -167,7 +167,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
-import { RoutePageSponsor } from '@/pages/sponsor';
+import { RoutePageSponsor } from '@pages/sponsor';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(

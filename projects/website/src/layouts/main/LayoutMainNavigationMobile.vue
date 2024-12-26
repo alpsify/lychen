@@ -86,8 +86,8 @@ import { useApplicationsCatalog } from '@lychen/applications-util-composables/us
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { RoutePagePrice } from '@/pages/price';
-import { RoutePageHome } from '@/pages/home';
+import { RoutePagePrice } from '@pages/price';
+import { RoutePageHome } from '@pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import LychenNavigationMenuSubLink from '@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue';
@@ -96,7 +96,7 @@ import LychenAccordionTrigger from '@lychen/ui-components/accordion/LychenAccord
 import LychenAccordionContent from '@lychen/ui-components/accordion/LychenAccordionContent.vue';
 import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordionItem.vue';
 import { inject, type Ref } from 'vue';
-import { RoutePageSponsor } from '@/pages/sponsor';
+import { RoutePageSponsor } from '@pages/sponsor';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

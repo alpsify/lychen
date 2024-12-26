@@ -1,4 +1,4 @@
-import { RoutePageManifest } from '@/pages/manifest';
+import { RoutePageManifest } from '@pages/manifest';
 import { messages, TRANSLATION_KEY } from '../i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
