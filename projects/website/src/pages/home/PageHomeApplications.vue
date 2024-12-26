@@ -41,41 +41,40 @@
         <LychenCarouselNext />
       </LychenCarousel>
       <LychenDialogContent
-        class="bg-surface-container-high text-surface-container-on md:max-w-[80%] w-full max-h-dvh overflow-y-auto"
+        class="bg-surface-container-high text-surface-container-on md:max-w-[80%] w-full max-h-dvh overflow-y-auto gap-8"
       >
-        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-4 md:grid-rows-1 md:py-6 gap-4">
-          <div
-            class="flex flex-col justify-between gap-4 bg-secondary-container text-secondary-container-on rounded-3xl p-4 md:p-6 items-stretch"
-          >
-            <div class="flex flex-col gap-2">
-              <div class="flex flex-row justify-between items-center">
-                <ApplicationTitle
-                  class="text-3xl"
-                  :value="selectedApplication.title"
-                />
-                <LychenDialogClose />
-              </div>
-
-              <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
+        <div
+          class="flex flex-col justify-between gap-4 bg-secondary-container text-secondary-container-on rounded-3xl p-4 md:p-6 items-stretch"
+        >
+          <div class="flex flex-col gap-2">
+            <div class="flex flex-row justify-between items-center">
+              <ApplicationTitle
+                class="text-3xl"
+                :value="selectedApplication.title"
+              />
+              <LychenDialogClose />
             </div>
-            <a
-              :href="selectedApplication.link"
-              target="_blank"
-            >
-              <LychenButton
-                class="flex flex-row gap-2"
-                size="sm"
-                variant="secondary"
-                >Site web <LychenIcon icon="link"
-              /></LychenButton>
-            </a>
+
+            <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
           </div>
+          <a
+            :href="selectedApplication.link"
+            target="_blank"
+          >
+            <LychenButton
+              class="flex flex-row gap-2"
+              size="sm"
+              variant="secondary"
+              >Site web <LychenIcon icon="link"
+            /></LychenButton>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-fluid md:grid-rows-1 gap-10">
           <div
             v-for="group in features"
             :key="group"
-            class="md:py-6 py-2"
           >
-            <p class="text-lg font-bold opacity-60">{{ group.title }}</p>
+            <p class="text-xl opacity-60 uppercase">{{ group.title }}</p>
             <ApplicationFeatureCard
               v-for="feature in group.features"
               v-bind="feature"

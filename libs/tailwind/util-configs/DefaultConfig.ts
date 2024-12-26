@@ -27,6 +27,9 @@ export default {
       colors: colorsConfig,
       keyframes: keyframesConfig,
       animation: animationConfig,
+      gridTemplateColumns: {
+        fluid: 'repeat(auto-fill, minmax(300px, 1fr));',
+      },
     },
   },
   plugins: [animate, tailwindcssMotion],

@@ -12,7 +12,7 @@
     "overrideConfigFile": "eslint.config.js"
   },
   "editor.quickSuggestions": {
-    "strings": "on"
+    //"strings": "on"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",

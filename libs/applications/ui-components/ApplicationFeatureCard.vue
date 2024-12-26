@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-1 p-2 rounded-xl">
-    <p class="font-bold">{{ title }}</p>
+  <div class="flex flex-col p-2 rounded-xl">
+    <p class="font-bold text-sm">{{ title }}</p>
     <p class="text-sm opacity-80">{{ description }}</p>
   </div>
 </template>
