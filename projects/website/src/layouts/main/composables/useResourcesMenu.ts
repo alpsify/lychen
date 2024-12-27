@@ -1,6 +1,7 @@
 import { RoutePageManifest } from '@pages/manifest';
 import { messages, TRANSLATION_KEY } from '../i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { LINK } from '@lychen/util-constants/Link';
 
 export function useResourcesMenu() {
   const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
@@ -9,12 +10,12 @@ export function useResourcesMenu() {
     {
       title: t(`navigation.resources.blog.title`),
       description: t(`navigation.resources.blog.description`),
-      link: 'https://blog.lychen.fr',
+      link: LINK.Blog,
     },
     {
       title: t(`navigation.resources.project_dashboard.title`),
       description: t(`navigation.resources.project_dashboard.description`),
-      link: 'https://huly.app/workbench/lychen',
+      link: LINK.Huly,
     },
     {
       title: t(`navigation.resources.manifest.title`),

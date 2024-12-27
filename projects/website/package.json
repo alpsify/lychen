@@ -18,6 +18,7 @@
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/ui-layouts": "workspace:*",
+    "@lychen/util-constants": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",

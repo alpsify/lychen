@@ -10,6 +10,7 @@
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/ui-layouts/**/*",
+    "../../libs/util-constants/**/*",
     "../../libs/vite/util-ssg/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
@@ -41,6 +42,9 @@
     },
     {
       "path": "../../libs/ui-layouts"
+    },
+    {
+      "path": "../../libs/util-constants"
     },
     {
       "path": "../../libs/vite/util-ssg"
@@ -80,7 +84,8 @@
       "@lychen/vue-router-util-configs/*": ["../../libs/vue/router/util-configs/*"],
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],
       "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"],
-      "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"]
+      "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"],
+      "@lychen/util-constants/*": ["../../libs/util-constants/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

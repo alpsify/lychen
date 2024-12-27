@@ -3,6 +3,7 @@
     <LychenHero
       class="text-surface dark:text-surface-on flex flex-row items-center justify-start gap-4 min-h-dvh"
       overlay
+      :background-image="heroImg"
       overlay-class="bg-surface-on dark:bg-surface opacity-40"
     >
       <div class="flex flex-col md:w-3/5 items-start gap-4">
@@ -22,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import heroImg from './assets/HeroImage.png';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';

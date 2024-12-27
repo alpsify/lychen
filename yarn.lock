@@ -2058,8 +2058,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-website@workspace:projects/tera/website"
   dependencies:
-    "@lychen/applications-ui-components": "workspace:*"
-    "@lychen/applications-util-composables": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/tailwind-util-configs": "workspace:*"
@@ -2160,6 +2158,12 @@ __metadata:
 "@lychen/util-composables@workspace:libs/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/util-composables@workspace:libs/util-composables"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/util-constants@workspace:*, @lychen/util-constants@workspace:libs/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/util-constants@workspace:libs/util-constants"
   languageName: unknown
   linkType: soft
 
@@ -2270,6 +2274,7 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/ui-layouts": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"

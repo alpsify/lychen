@@ -143,6 +143,9 @@
       "path": "libs/util-composables"
     },
     {
+      "path": "libs/util-constants"
+    },
+    {
       "path": "libs/vara/ui-i18n"
     },
     {

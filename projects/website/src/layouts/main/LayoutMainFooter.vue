@@ -6,22 +6,22 @@
         <p class="text-sm opacity-80">
           {{ t(`footer.seo_paragraph`) }}
         </p>
-        <p class="text-sm opacity-60">Prononciation: \li. kɛn\</p>
+        <p class="text-sm opacity-60">Prononciation : \li. kɛn\</p>
       </div>
 
       <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">
-        <p class="font-medium">{{ tGlobal(`email.contact`) }}</p>
+        <p class="font-medium">{{ EMAIL.Bonjour }}</p>
         <p>
           Made with ❤️ by
           <a
             class="underline"
-            href="https://alpsify.com"
+            :href="LINK.Alpsify"
             >@alpsify</a
           >
           and
           <a
             class="underline"
-            href="https://humusandco.fr"
+            :href="LINK.HumusAndCo"
             >@humusandco</a
           >
         </p>
@@ -43,14 +43,12 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
-  messages as globalMessages,
-} from '@lychen/ui-i18n/global';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { LINK } from '@lychen/util-constants/Link';
+import { EMAIL } from '@lychen/util-constants/Email';
 
 const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
 const legalMenus = [
@@ -59,10 +57,5 @@ const legalMenus = [
   { title: 'Mentions légales' },
 ];
 
-const { t: tGlobal } = useI18nExtended({
-  messages: globalMessages,
-  rootKey: GLOBAL_TRANSLATION_KEY,
-  prefixed: true,
-});
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

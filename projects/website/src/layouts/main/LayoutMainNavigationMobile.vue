@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
     <a
-      href="https://tally.so/r/w5EYdZ"
+      :href="LINK.TallyPreregisterForm"
       target="_blank"
     >
       <LychenButton
@@ -98,6 +98,7 @@ import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordion
 import { inject, type Ref } from 'vue';
 import { RoutePageSponsor } from '@pages/sponsor';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import { LINK } from '@lychen/util-constants/Link';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

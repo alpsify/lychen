@@ -27,8 +27,8 @@
 
                       <a
                         class="text-sm underline"
-                        :href="`mailto:${tGlobal(`email.contact`)}`"
-                        >{{ tGlobal(`email.contact`) }}</a
+                        :href="`mailto:${EMAIL.Bonjour}`"
+                        >{{ EMAIL.Bonjour }}</a
                       >
                     </p>
                   </div>
@@ -115,7 +115,7 @@
     <div class="flex flex-row items-center gap-4">
       <LychenThemeSwitcher />
       <a
-        href="https://github.com/alpsify/lychen"
+        :href="SOCIAL_LINK.GitHub"
         target="_blank"
       >
         <LychenIcon
@@ -124,7 +124,7 @@
         />
       </a>
       <a
-        href="https://discord.gg/FSMbXt5gr4"
+        :href="SOCIAL_LINK.Discord"
         target="_blank"
       >
         <LychenIcon
@@ -133,7 +133,7 @@
         />
       </a>
       <a
-        href="https://tally.so/r/w5EYdZ"
+        :href="LINK.TallyPreregisterForm"
         target="_blank"
         class="hidden md:flex"
       >
@@ -156,11 +156,7 @@ import { defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@pages/price';
-
-import {
-  TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
-  messages as globalMessages,
-} from '@lychen/ui-i18n/global';
+import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
@@ -169,6 +165,8 @@ import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import { LINK } from '@lychen/util-constants/Link';
+import { EMAIL } from '@lychen/util-constants/Email';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
@@ -202,11 +200,6 @@ const LychenNavigationMenuTrigger = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue'),
 );
 
-const { t: tGlobal } = useI18nExtended({
-  messages: globalMessages,
-  rootKey: GLOBAL_TRANSLATION_KEY,
-  prefixed: true,
-});
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { opiniatedApplicationsList } = useApplicationsCatalog();

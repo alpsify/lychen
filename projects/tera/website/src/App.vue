@@ -4,10 +4,6 @@ import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '
 import { useHead } from '@unhead/vue';
 import { defineAsyncComponent } from 'vue';
 
-const LychenTooltipProvider = defineAsyncComponent(
-  () => import('@lychen/ui-components/tooltip/LychenTooltipProvider.vue'),
-);
-
 usePreferredColorScheme();
 
 useHead({
@@ -32,7 +28,5 @@ useSchemaOrg([
 </script>
 
 <template>
-  <LychenTooltipProvider>
-    <RouterView />
-  </LychenTooltipProvider>
+  <RouterView />
 </template>
