@@ -2261,6 +2261,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/website-ui-components@workspace:libs/website/ui-components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/website-ui-components@workspace:libs/website/ui-components"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/website-ui-i18n@workspace:libs/website/ui-i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/website-ui-i18n@workspace:libs/website/ui-i18n"
+  dependencies:
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/website-ui-layouts@workspace:libs/website/ui-layouts":
+  version: 0.0.0-use.local
+  resolution: "@lychen/website-ui-layouts@workspace:libs/website/ui-layouts"
+  dependencies:
+    "@lychen/ui-components": "workspace:*"
+    vue: "npm:3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/website@workspace:projects/website":
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"

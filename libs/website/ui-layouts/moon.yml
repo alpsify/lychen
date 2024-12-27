@@ -1,0 +1,8 @@
+dependsOn:
+  - ui-components
+
+id: website-ui-layouts
+
+language: typescript
+
+type: library

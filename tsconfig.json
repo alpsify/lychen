@@ -176,6 +176,15 @@
       "path": "libs/vue/util-composables"
     },
     {
+      "path": "libs/website/ui-components"
+    },
+    {
+      "path": "libs/website/ui-i18n"
+    },
+    {
+      "path": "libs/website/ui-layouts"
+    },
+    {
       "path": "projects/kiro/admin-app"
     },
     {
