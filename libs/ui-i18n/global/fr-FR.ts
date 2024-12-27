@@ -1,6 +1,6 @@
 export default {
-  email: {
-    contact: "bonjour{'@'}lychen.fr",
-    nathandepachtere: "nathan.depachtere{'@'}lychen.fr",
+  lychen: {
+    phonetic: '\\li. kɛn\\',
+    copyright: '© 2024 lychen, tous droits réservés',
   },
 };

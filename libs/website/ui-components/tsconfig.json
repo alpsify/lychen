@@ -1,0 +1,43 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../applications/ui-components/**/*",
+    "../../applications/util-model/**/*",
+    "../../ui-components/**/*",
+    "../../util-constants/**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../../vue/util-composables/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../applications/ui-components"
+    },
+    {
+      "path": "../../applications/util-model"
+    },
+    {
+      "path": "../../ui-components"
+    },
+    {
+      "path": "../../util-constants"
+    },
+    {
+      "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../../vue/util-composables"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/website/ui-components",
+    "paths": {
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/vue-util-composables/*": ["../../vue/util-composables/*"],
+      "@lychen/util-constants/*": ["../../util-constants/*"],
+      "@lychen/applications-ui-components/*": ["../../applications/ui-components/*"],
+      "@lychen/applications-util-model/*": ["../../applications/util-model/*"]
+    }
+  }
+}

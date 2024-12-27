@@ -1,0 +1,13 @@
+dependsOn:
+  - applications-ui-components
+  - applications-util-model
+  - ui-components
+  - util-constants
+  - vue-i18n-util-composables
+  - vue-util-composables
+
+id: website-ui-components
+
+language: typescript
+
+type: library

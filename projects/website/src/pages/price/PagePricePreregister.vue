@@ -1,7 +1,7 @@
 <template>
   <LychenContainer class="flex flex-col items-stretch justify-center">
     <a
-      href="https://tally.so/r/w5EYdZ"
+      :href="LINK.TallyPreregisterForm"
       target="_blank"
     >
       <LychenDivWithBackgroundImage
@@ -40,6 +40,7 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { LINK } from '@lychen/util-constants/Link';
 
 const LychenDivWithBackgroundImage = defineAsyncComponent(
   () => import('@lychen/ui-components/div/LychenDivWithBackgroundImage.vue'),

@@ -137,10 +137,10 @@
       "path": "libs/ui-i18n"
     },
     {
-      "path": "libs/ui-layouts"
+      "path": "libs/util-composables"
     },
     {
-      "path": "libs/util-composables"
+      "path": "libs/util-constants"
     },
     {
       "path": "libs/vara/ui-i18n"
@@ -171,6 +171,15 @@
     },
     {
       "path": "libs/vue/util-composables"
+    },
+    {
+      "path": "libs/website/ui-components"
+    },
+    {
+      "path": "libs/website/ui-i18n"
+    },
+    {
+      "path": "libs/website/ui-layouts"
     },
     {
       "path": "projects/kiro/admin-app"

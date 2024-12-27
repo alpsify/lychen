@@ -1,0 +1,13 @@
+{
+  "name": "@lychen/website-ui-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/applications-ui-components": "workspace:*",
+    "@lychen/applications-util-model": "workspace:*",
+    "@lychen/ui-components": "workspace:*",
+    "@lychen/util-constants": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-util-composables": "workspace:*"
+  }
+}

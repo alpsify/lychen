@@ -1,0 +1,12 @@
+dependsOn:
+  - applications-ui-components
+  - applications-util-model
+  - ui-components
+  - util-constants
+  - website-ui-components
+
+id: website-ui-layouts
+
+language: typescript
+
+type: library

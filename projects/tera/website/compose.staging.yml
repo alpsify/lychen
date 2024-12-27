@@ -1,0 +1,4 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/staging/tera/website:latest
+    restart: unless-stopped

@@ -1,14 +1,44 @@
 dependsOn:
+  - applications-assets
+  - applications-ui-components
+  - tailwind-util-configs
+  - tera-util-constants
+  - tera-util-features
   - ui-components
+  - ui-css
+  - ui-i18n
+  - util-constants
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-router-util-configs
+  - vue-unhead-util-composables
+  - vue-util-composables
+  - website-ui-components
+  - website-ui-layouts
+
+env:
+  DEV_DOMAIN: tera.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/tera-website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: zxQNz6KKFpQuGDXvQyn2F
+  PRODUCTION_DOMAIN: tera.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/tera-website
+  STAGING_DOKPLOY_COMPOSE_ID: GqQZhiUgCs96TZKGZ0h5f
+  STAGING_DOMAIN: staging.tera.lychen.fr
 
 id: tera-website
 
 language: typescript
 
-tasks:
-  dev:
-    command: yarn run dev
-    options:
-      persistent: true
+project:
+  description: 'Presentation site for Tera'
+  metadata:
+    url: tera.lychen.fr
+  name: 'Tera website'
+
+tags:
+  - docker
+  - dokploy
+  - ssg
 
 type: application

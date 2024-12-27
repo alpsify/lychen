@@ -10,12 +10,10 @@ import { useFeatures as useLunaFeatures } from '@lychen/luna-util-features/compo
 import { useFeatures as useKoloFeatures } from '@lychen/kolo-util-features/composables/useFeatures';
 import { useFeatures as useHumuFeatures } from '@lychen/humu-util-features/composables/useFeatures';
 import { useFeatures as useEkoFeatures } from '@lychen/eko-util-features/composables/useFeatures';
-import {
-  OrganizedFeaturesByGroup,
-  UseGenericApplicationsFeatures,
-} from '@lychen/applications-util-generic-composables/useGenericApplicationsFeatures';
+import { UseGenericApplicationsFeatures } from '@lychen/applications-util-generic-composables/useGenericApplicationsFeatures';
 import { ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
 import { ApplicationFeatureGroup } from '@lychen/applications-util-model/ApplicationFeatureGroup';
+import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 
 export function useApplicationsFeatures() {
   const map: {

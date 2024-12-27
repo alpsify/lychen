@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/ui-layouts",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@lychen/ui-components": "workspace:*",
-    "vue": "3.5.13"
-  }
-}

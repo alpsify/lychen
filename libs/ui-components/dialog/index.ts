@@ -1,9 +1,0 @@
-export { default as LychenDialog } from './LychenDialog.vue';
-export { default as LychenDialogClose } from './LychenDialogClose.vue';
-export { default as LychenDialogContent } from './LychenDialogContent.vue';
-export { default as LychenDialogDescription } from './LychenDialogDescription.vue';
-export { default as LychenDialogFooter } from './LychenDialogFooter.vue';
-export { default as LychenDialogHeader } from './LychenDialogHeader.vue';
-export { default as LychenDialogScrollContent } from './LychenDialogScrollContent.vue';
-export { default as LychenDialogTitle } from './LychenDialogTitle.vue';
-export { default as LychenDialogTrigger } from './LychenDialogTrigger.vue';
