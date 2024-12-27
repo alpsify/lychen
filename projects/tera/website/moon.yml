@@ -1,6 +1,8 @@
 dependsOn:
   - applications-assets
+  - applications-ui-components
   - tailwind-util-configs
+  - tera-util-constants
   - ui-components
   - ui-css
   - ui-i18n
@@ -11,6 +13,7 @@ dependsOn:
   - vue-router-util-configs
   - vue-unhead-util-composables
   - vue-util-composables
+  - website-ui-components
   - website-ui-layouts
 
 env:

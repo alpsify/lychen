@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lychen/applications-ui-components": "workspace:*",
+    "@lychen/applications-util-constants": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/tailwind-util-configs": "workspace:*",
+    "@lychen/tera-util-constants": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
@@ -22,6 +25,7 @@
     "@lychen/vue-router-util-configs": "workspace:*",
     "@lychen/vue-unhead-util-composables": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
+    "@lychen/website-ui-components": "workspace:*",
     "@lychen/website-ui-layouts": "workspace:*",
     "@unhead/schema-org": "^1.11.14",
     "@unhead/vue": "^1.11.14",

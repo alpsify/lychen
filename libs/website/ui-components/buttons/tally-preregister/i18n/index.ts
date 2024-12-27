@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'layout';
+export const TRANSLATION_KEY = 'button_tally_preregister';

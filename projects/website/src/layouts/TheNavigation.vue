@@ -132,18 +132,7 @@
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
       </a>
-      <a
-        :href="LINK.TallyPreregisterForm"
-        target="_blank"
-        class="hidden md:flex"
-      >
-        <LychenButton
-          variant="default"
-          size="sm"
-          class="gap-2"
-          data-umami-event="Clicks on pre-register"
-          >{{ t(`navigation.preregister`) }} <LychenIcon icon="rocket-launch" /></LychenButton
-      ></a>
+      <WebsiteButtonTallyPreregister class="hidden md:flex" />
     </div>
   </div>
 </template>
@@ -167,6 +156,7 @@ import { RoutePageSponsor } from '@pages/sponsor';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 import { LINK } from '@lychen/util-constants/Link';
 import { EMAIL } from '@lychen/util-constants/Email';
+import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),

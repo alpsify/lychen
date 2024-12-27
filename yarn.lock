@@ -1641,9 +1641,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/applications-ui-components@workspace:libs/applications/ui-components"
   dependencies:
+    "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/applications-util-model": "workspace:*"
     "@lychen/typescript-util-tailwind": "workspace:*"
     "@lychen/ui-components": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
@@ -2058,9 +2060,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-website@workspace:projects/tera/website"
   dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/applications-util-constants": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/tailwind-util-configs": "workspace:*"
+    "@lychen/tera-util-constants": "workspace:*"
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
@@ -2071,6 +2076,7 @@ __metadata:
     "@lychen/vue-router-util-configs": "workspace:*"
     "@lychen/vue-unhead-util-composables": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
+    "@lychen/website-ui-components": "workspace:*"
     "@lychen/website-ui-layouts": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
@@ -2258,6 +2264,7 @@ __metadata:
   resolution: "@lychen/website-ui-components@workspace:libs/website/ui-components"
   dependencies:
     "@lychen/ui-components": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
   languageName: unknown
@@ -2275,8 +2282,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/website-ui-layouts@workspace:libs/website/ui-layouts"
   dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-util-model": "workspace:*"
     "@lychen/ui-components": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
+    "@lychen/website-ui-components": "workspace:*"
+    "@vueuse/core": "npm:^12.2.0"
     vue: "npm:3.5.13"
+    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -3208,15 +3222,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "@vueuse/core@npm:12.0.0"
+"@vueuse/core@npm:^12.0.0, @vueuse/core@npm:^12.2.0":
+  version: 12.2.0
+  resolution: "@vueuse/core@npm:12.2.0"
   dependencies:
     "@types/web-bluetooth": "npm:^0.0.20"
-    "@vueuse/metadata": "npm:12.0.0"
-    "@vueuse/shared": "npm:12.0.0"
+    "@vueuse/metadata": "npm:12.2.0"
+    "@vueuse/shared": "npm:12.2.0"
     vue: "npm:^3.5.13"
-  checksum: 10c0/416a5d2725069ace3901a77168ff24e0f9aea535b04174edf506bedd97c8f6a14d23105c80e1f58ed3b690c9931fc9089b1e5960e769e6a3e886fa8b9d320cbb
+  checksum: 10c0/fd07f0cae0272e75ec50c14fc7a3ae95720119eee180ab03d04f1e1bd95006b506cd2d0e61d6bd957b3eb3804da78c5d402ef00bd6b4b61c9e40641dac5cf630
   languageName: node
   linkType: hard
 
@@ -3241,10 +3255,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/metadata@npm:12.0.0":
-  version: 12.0.0
-  resolution: "@vueuse/metadata@npm:12.0.0"
-  checksum: 10c0/f67a256fef7961883e9921d2369be334015a4a0193987c3082b9b6386e31ed2d90de555b8d9aca63c5dda6cb3cf8df5d9b7842db77488c1ba638437befffca08
+"@vueuse/metadata@npm:12.2.0":
+  version: 12.2.0
+  resolution: "@vueuse/metadata@npm:12.2.0"
+  checksum: 10c0/251dae24d718b9da1b69313b6e5eeae9b0ce69d0399727750359ff2cdeb6668f623b04838af360c496a5d5bb5a181a9ed27a9628dc716d436ad06496f5009000
   languageName: node
   linkType: hard
 
@@ -3275,12 +3289,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:12.0.0":
-  version: 12.0.0
-  resolution: "@vueuse/shared@npm:12.0.0"
+"@vueuse/shared@npm:12.2.0":
+  version: 12.2.0
+  resolution: "@vueuse/shared@npm:12.2.0"
   dependencies:
     vue: "npm:^3.5.13"
-  checksum: 10c0/7900edc00f636b9cc5fcf96e13ff9e7ec8f4f7efc0960964227cc31a26b3b45123d613a201c6b5d331534b72908b5e754ae2cba4169c5a145255987d3ad7da78
+  checksum: 10c0/98660dbed32415004c7acf50e9a98828322f6f4bf400923a1ed53c68c11232af9e28beb46f676f5b1f8ce2a4c42d4c6dcbfb2bdd47a889231372e01849298470
   languageName: node
   linkType: hard
 

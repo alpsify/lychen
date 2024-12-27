@@ -4,6 +4,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@lychen/ui-components": "workspace:*",
+    "@lychen/util-constants": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*"
   }

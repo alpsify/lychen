@@ -7,7 +7,7 @@
       icon="bullhorn"
       class="fa-2xl"
     />
-    <UluleBanner />
+    <WebsiteBannerUlule />
   </LychenContainer>
 </template>
 
@@ -15,7 +15,7 @@
 import { defineAsyncComponent } from 'vue';
 
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
-import UluleBanner from '../banner/ulule-banner/UluleBanner.vue';
+import WebsiteBannerUlule from '../banner/ulule/WebsiteBannerUlule.vue';
 
 const LychenContainer = defineAsyncComponent(
   () => import('@lychen/ui-components/container/LychenContainer.vue'),

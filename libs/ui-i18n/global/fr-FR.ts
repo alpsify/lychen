@@ -1,6 +1,6 @@
 export default {
   lychen: {
     phonetic: '\\li. kɛn\\',
-    copyright: '© 2024 Lychen, tous droits réservés',
+    copyright: '© 2024 lychen, tous droits réservés',
   },
 };

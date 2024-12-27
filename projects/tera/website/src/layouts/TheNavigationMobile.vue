@@ -1,20 +1,19 @@
 <template>
   <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
-    <a
-      href="https://tally.so/r/w5EYdZ"
-      target="_blank"
-    >
-      <LychenButton
-        variant="default"
-        size="sm"
-        class="gap-2"
-        >{{ t(`navigation.preregister`) }} <LychenIcon icon="rocket-launch" /></LychenButton
-    ></a>
+    <ApplicationBadgeState :state="APP_STATE"></ApplicationBadgeState>
+    <WebsiteButtonTallyPreregister />
     <div class="text-lg font-bold">
       <RouterLink
         :to="RoutePageHome"
         @click="closeMobileMenu"
         >{{ t(`navigation.home.title`) }}
+      </RouterLink>
+    </div>
+    <div class="text-lg font-bold">
+      <RouterLink
+        to="#features"
+        @click="closeMobileMenu"
+        >{{ t(`navigation.features.title`) }}
       </RouterLink>
     </div>
   </div>
@@ -25,7 +24,8 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageHome } from '@pages/home';
 import { inject, type Ref } from 'vue';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import { APP_STATE } from '@lychen/tera-util-constants/App';
+import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -35,5 +35,3 @@ function closeMobileMenu() {
   mobileMenuIsOpen!.value = false;
 }
 </script>
-
-<style lang="css" scoped></style>

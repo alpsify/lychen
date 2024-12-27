@@ -1,10 +1,12 @@
 <template>
   <PageHomeHero />
+  <SectionCrowfunding />
 </template>
 
 <script lang="ts" setup>
 import ogImageUrl from './assets/HomeOgImage.webp';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import SectionCrowfunding from '@lychen/website-ui-components/section/SectionCrowfunding.vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';

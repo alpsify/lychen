@@ -53,7 +53,6 @@ export default {
       title: 'Sponsor',
     },
     soon: 'Bientôt disponible',
-    preregister: 'Pré-inscription',
   },
   footer: {
     seo_paragraph:

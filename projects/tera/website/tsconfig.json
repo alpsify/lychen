@@ -4,9 +4,11 @@
     "**/*",
     "../../../libs/applications/ui-components/**/*",
     "../../../libs/applications/util-composables/**/*",
+    "../../../libs/applications/util-constants/**/*",
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/odd/util-composables/**/*",
     "../../../libs/tailwind/util-configs/**/*",
+    "../../../libs/tera/util-constants/**/*",
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
@@ -17,6 +19,7 @@
     "../../../libs/vue/router/util-configs/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
     "../../../libs/vue/util-composables/**/*",
+    "../../../libs/website/ui-components/**/*",
     "../../../libs/website/ui-layouts/**/*"
   ],
   "references": [
@@ -27,6 +30,9 @@
       "path": "../../../libs/applications/util-composables"
     },
     {
+      "path": "../../../libs/applications/util-constants"
+    },
+    {
       "path": "../../../libs/kiro/ui-components"
     },
     {
@@ -34,6 +40,9 @@
     },
     {
       "path": "../../../libs/tailwind/util-configs"
+    },
+    {
+      "path": "../../../libs/tera/util-constants"
     },
     {
       "path": "../../../libs/ui-components"
@@ -66,6 +75,9 @@
       "path": "../../../libs/vue/util-composables"
     },
     {
+      "path": "../../../libs/website/ui-components"
+    },
+    {
       "path": "../../../libs/website/ui-layouts"
     }
   ],
@@ -91,7 +103,10 @@
       "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
       "@lychen/website-ui-layouts/*": ["../../../libs/website/ui-layouts/*"],
-      "@lychen/util-constants/*": ["../../../libs/util-constants/*"]
+      "@lychen/util-constants/*": ["../../../libs/util-constants/*"],
+      "@lychen/website-ui-components/*": ["../../../libs/website/ui-components/*"],
+      "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
+      "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"]
     }
   }
 }

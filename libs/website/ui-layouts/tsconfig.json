@@ -1,15 +1,43 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../../ui-components/**/*"],
+  "include": [
+    "**/*",
+    "../../applications/ui-components/**/*",
+    "../../applications/util-constants/**/*",
+    "../../applications/util-model/**/*",
+    "../../ui-components/**/*",
+    "../../util-constants/**/*",
+    "../ui-components/**/*"
+  ],
   "references": [
     {
+      "path": "../../applications/ui-components"
+    },
+    {
+      "path": "../../applications/util-constants"
+    },
+    {
+      "path": "../../applications/util-model"
+    },
+    {
       "path": "../../ui-components"
+    },
+    {
+      "path": "../../util-constants"
+    },
+    {
+      "path": "../ui-components"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/website/ui-layouts",
     "paths": {
-      "@lychen/ui-components/*": ["../../ui-components/*"]
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/applications-ui-components/*": ["../../applications/ui-components/*"],
+      "@lychen/applications-util-constants/*": ["../../applications/util-constants/*"],
+      "@lychen/applications-util-model/*": ["../../applications/util-model/*"],
+      "@lychen/util-constants/*": ["../../util-constants/*"],
+      "@lychen/website-ui-components/*": ["../ui-components/*"]
     }
   }
 }

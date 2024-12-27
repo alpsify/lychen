@@ -21,8 +21,15 @@
       />
     </svg>
 
-    <div class="flex flex-col items-start justify-center gap-0 antialiased">
+    <div
+      v-if="!noText"
+      class="flex flex-col items-start justify-center gap-0 antialiased"
+    >
       <p class="font-lexend text-xl font-bold leading-5 tracking-wide antialiased">lychen</p>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const { noText = false } = defineProps<{ noText?: boolean }>();
+</script>

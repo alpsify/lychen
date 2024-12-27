@@ -4,6 +4,8 @@
     "**/*",
     "../../typescript/util-tailwind/**/*",
     "../../ui-components/**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../ui-i18n/**/*",
     "../util-model/**/*"
   ],
   "references": [
@@ -14,6 +16,12 @@
       "path": "../../ui-components"
     },
     {
+      "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../ui-i18n"
+    },
+    {
       "path": "../util-model"
     }
   ],
@@ -22,7 +30,10 @@
     "paths": {
       "@lychen/applications-util-model/*": ["../util-model/*"],
       "@lychen/ui-components/*": ["../../ui-components/*"],
-      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"]
+      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
+      "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"]
     }
   }
 }

@@ -5,7 +5,7 @@ import { RoutePageHome } from '@pages/home';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@layouts/LayoutMain.vue'),
+    component: () => import('@layouts/TheLayout.vue'),
     children: [RoutePageHome],
   },
 ];
