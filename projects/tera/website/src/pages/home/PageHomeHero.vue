@@ -17,6 +17,21 @@
           class="z-20"
           >{{ t('hero.description') }}
         </LychenParagraph>
+
+        <RouterLink
+          to="#features"
+          class="z-20"
+        >
+          <LychenButton
+            class="flex gap-2"
+            data-umami-event="features-button"
+            >{{ t('hero.button.features.label') }}
+            <LychenIcon
+              icon="chevron-down"
+              beat
+            />
+          </LychenButton>
+        </RouterLink>
       </div>
     </LychenHero>
   </LychenDivScalingDown>
@@ -28,6 +43,8 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
 
 const LychenDivScalingDown = defineAsyncComponent(
   () => import('@lychen/ui-components/div/LychenDivScalingDown.vue'),

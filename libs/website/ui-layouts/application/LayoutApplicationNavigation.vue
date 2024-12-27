@@ -1,6 +1,6 @@
 <template>
-  <div class="z-50 flex w-full flex-row gap-4">
-    <div class="text-surface-container-on flex flex-row items-stretch gap-4 rounded-full container">
+  <div class="z-50 flex w-full">
+    <div class="text-surface-container-on flex flex-row gap-4 rounded-full w-full md:container">
       <a
         ref="lychenLogo"
         href="https://lychen.fr"
@@ -23,7 +23,10 @@
           >
             <ApplicationTitle :value="applicationName" />
           </RouterLink>
-          <ApplicationBadgeState :state="applicationState"></ApplicationBadgeState>
+          <ApplicationBadgeState
+            :state="applicationState"
+            class="hidden md:flex"
+          ></ApplicationBadgeState>
         </div>
 
         <div class="flex flex-row items-stretch gap-2">
@@ -42,26 +45,31 @@
             />
           </a>
           <WebsiteButtonTallyPreregister class="hidden md:flex" />
-        </div>
-
-        <div class="flex flex-row items-center lg:hidden">
-          <LychenSheet
-            v-model:open="isOpen"
-            side="right"
-          >
-            <LychenSheetTrigger as-child>
-              <LychenIcon
-                icon="bars-staggered"
-                class="cursor-pointer"
-              />
-            </LychenSheetTrigger>
-            <LychenSheetContent
-              class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg"
+          <div class="flex flex-row items-center lg:hidden">
+            <LychenSheet
+              v-model:open="isOpen"
+              side="right"
             >
-              <template #header><slot name="header"></slot></template>
-              <slot name="mobile"></slot>
-            </LychenSheetContent>
-          </LychenSheet>
+              <LychenSheetTrigger as-child>
+                <LychenIcon
+                  icon="bars-staggered"
+                  class="cursor-pointer"
+                />
+              </LychenSheetTrigger>
+              <LychenSheetContent
+                class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg flex flex-col gap-4"
+              >
+                <template #header>
+                  <div class="flex flex-col gap-1">
+                    <ApplicationTitle :value="applicationName" />
+                    <p>by Lychen</p>
+                  </div></template
+                >
+                <slot name="mobile"></slot>
+                <WebsiteButtonTallyPreregister />
+              </LychenSheetContent>
+            </LychenSheet>
+          </div>
         </div>
       </div>
     </div>
@@ -74,8 +82,6 @@ import { defineAsyncComponent, provide, ref } from 'vue';
 import { useElementHover } from '@vueuse/core';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
-import { LINK } from '@lychen/util-constants/Link';
 import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 
 import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
