@@ -5,7 +5,6 @@
   <PageHomeBento />
   <PageHomeODD />
   <PageHomeOSS />
-
   <PageHomeActors />
 </template>
 
