@@ -145,7 +145,7 @@
             <li>
               <small class="opacity-40">2025</small>
               <a
-                href="https://alpsify.com"
+                :href="LINK.Alpsify"
                 class="flex gap-2 items-center"
                 target="_blank"
                 >alpsify
@@ -157,7 +157,7 @@
             <li>
               <small class="opacity-40">2024</small>
               <a
-                href="https://alpsify.com"
+                :href="LINK.Alpsify"
                 class="flex gap-2 items-center"
                 target="_blank"
                 >alpsify
@@ -179,6 +179,7 @@ import JenniferGeoffroyImage from './assets/JenniferGeoffroy.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { LINK } from '@lychen/util-constants/Link';
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenBadge = defineAsyncComponent(
