@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'layout_main';
+export const TRANSLATION_KEY = 'ulule_banner';

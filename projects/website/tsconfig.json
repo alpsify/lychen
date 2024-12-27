@@ -9,14 +9,15 @@
     "../../libs/ui-components/**/*",
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
-    "../../libs/ui-layouts/**/*",
     "../../libs/util-constants/**/*",
     "../../libs/vite/util-ssg/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/router/util-configs/**/*",
     "../../libs/vue/unhead/util-composables/**/*",
-    "../../libs/vue/util-composables/**/*"
+    "../../libs/vue/util-composables/**/*",
+    "../../libs/website/ui-components/**/*",
+    "../../libs/website/ui-layouts/**/*"
   ],
   "references": [
     {
@@ -41,9 +42,6 @@
       "path": "../../libs/ui-i18n"
     },
     {
-      "path": "../../libs/ui-layouts"
-    },
-    {
       "path": "../../libs/util-constants"
     },
     {
@@ -63,6 +61,12 @@
     },
     {
       "path": "../../libs/vue/util-composables"
+    },
+    {
+      "path": "../../libs/website/ui-components"
+    },
+    {
+      "path": "../../libs/website/ui-layouts"
     }
   ],
   "compilerOptions": {
@@ -74,7 +78,6 @@
       "@lychen/ui-components/*": ["../../libs/ui-components/*"],
       "@lychen/ui-css/*": ["../../libs/ui-css/*"],
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
-      "@lychen/ui-layouts/*": ["../../libs/ui-layouts/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
       "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
@@ -85,7 +88,9 @@
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],
       "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"],
-      "@lychen/util-constants/*": ["../../libs/util-constants/*"]
+      "@lychen/util-constants/*": ["../../libs/util-constants/*"],
+      "@lychen/website-ui-layouts/*": ["../../libs/website/ui-layouts/*"],
+      "@lychen/website-ui-components/*": ["../../libs/website/ui-components/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

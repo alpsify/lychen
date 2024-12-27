@@ -1,8 +1,0 @@
-dependsOn:
-  - ui-components
-
-id: ui-layouts
-
-language: typescript
-
-type: library

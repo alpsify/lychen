@@ -2064,13 +2064,14 @@ __metadata:
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/ui-layouts": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-router-util-configs": "workspace:*"
     "@lychen/vue-unhead-util-composables": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
+    "@lychen/website-ui-layouts": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
@@ -2143,15 +2144,6 @@ __metadata:
   resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
   dependencies:
     "@lychen/vue-i18n-util-composables": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/ui-layouts@workspace:*, @lychen/ui-layouts@workspace:libs/ui-layouts":
-  version: 0.0.0-use.local
-  resolution: "@lychen/ui-layouts@workspace:libs/ui-layouts"
-  dependencies:
-    "@lychen/ui-components": "workspace:*"
-    vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -2261,9 +2253,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/website-ui-components@workspace:libs/website/ui-components":
+"@lychen/website-ui-components@workspace:*, @lychen/website-ui-components@workspace:libs/website/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/website-ui-components@workspace:libs/website/ui-components"
+  dependencies:
+    "@lychen/ui-components": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2275,7 +2271,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/website-ui-layouts@workspace:libs/website/ui-layouts":
+"@lychen/website-ui-layouts@workspace:*, @lychen/website-ui-layouts@workspace:libs/website/ui-layouts":
   version: 0.0.0-use.local
   resolution: "@lychen/website-ui-layouts@workspace:libs/website/ui-layouts"
   dependencies:
@@ -2296,7 +2292,6 @@ __metadata:
     "@lychen/ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/ui-layouts": "workspace:*"
     "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -2304,6 +2299,8 @@ __metadata:
     "@lychen/vue-router-util-configs": "workspace:*"
     "@lychen/vue-unhead-util-composables": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
+    "@lychen/website-ui-components": "workspace:*"
+    "@lychen/website-ui-layouts": "workspace:*"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"

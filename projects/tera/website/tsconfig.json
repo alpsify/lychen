@@ -10,13 +10,14 @@
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
-    "../../../libs/ui-layouts/**/*",
+    "../../../libs/util-constants/**/*",
     "../../../libs/vite/util-ssg/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
     "../../../libs/vue/router/util-configs/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
-    "../../../libs/vue/util-composables/**/*"
+    "../../../libs/vue/util-composables/**/*",
+    "../../../libs/website/ui-layouts/**/*"
   ],
   "references": [
     {
@@ -44,7 +45,7 @@
       "path": "../../../libs/ui-i18n"
     },
     {
-      "path": "../../../libs/ui-layouts"
+      "path": "../../../libs/util-constants"
     },
     {
       "path": "../../../libs/vite/util-ssg"
@@ -63,6 +64,9 @@
     },
     {
       "path": "../../../libs/vue/util-composables"
+    },
+    {
+      "path": "../../../libs/website/ui-layouts"
     }
   ],
   "compilerOptions": {
@@ -80,13 +84,14 @@
       "@lychen/tailwind-util-configs/*": ["../../../libs/tailwind/util-configs/*"],
       "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
       "@lychen/ui-i18n/*": ["../../../libs/ui-i18n/*"],
-      "@lychen/ui-layouts/*": ["../../../libs/ui-layouts/*"],
       "@lychen/vite-util-ssg/*": ["../../../libs/vite/util-ssg/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
       "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],
       "@lychen/vue-router-util-configs/*": ["../../../libs/vue/router/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
-      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"]
+      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
+      "@lychen/website-ui-layouts/*": ["../../../libs/website/ui-layouts/*"],
+      "@lychen/util-constants/*": ["../../../libs/util-constants/*"]
     }
   }
 }

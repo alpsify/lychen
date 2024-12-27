@@ -29,7 +29,7 @@
     </div>
 
     <div class="flex flex-col-reverse items-center justify-between gap-4 lg:flex-row">
-      <small class="text-xs">{{ t(`footer.copyright`) }}</small>
+      <small class="text-xs">{{ tGlobal(`lychen.copyright`) }}</small>
       <ul class="flex flex-row gap-2 text-xs opacity-60">
         <li
           v-for="(menu, _index) in legalMenus"
@@ -46,6 +46,10 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
+import {
+  messages as globalMessages,
+  TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
+} from '@lychen/ui-i18n/global';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { LINK } from '@lychen/util-constants/Link';
 import { EMAIL } from '@lychen/util-constants/Email';
@@ -57,5 +61,10 @@ const legalMenus = [
   { title: 'Mentions légales' },
 ];
 
+const { t: tGlobal } = useI18nExtended({
+  messages: globalMessages,
+  rootKey: GLOBAL_TRANSLATION_KEY,
+  prefixed: true,
+});
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

@@ -8,7 +8,7 @@ import { RoutePageSponsor } from '@pages/sponsor';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@layouts/main/LayoutMain.vue'),
+    component: () => import('@layouts/TheLayout.vue'),
     children: [RoutePageHome, RoutePagePrice, RoutePageManifest, RoutePageSponsor],
   },
 ];

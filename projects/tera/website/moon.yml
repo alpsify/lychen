@@ -4,13 +4,14 @@ dependsOn:
   - ui-components
   - ui-css
   - ui-i18n
-  - ui-layouts
+  - util-constants
   - vite-util-ssg
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
   - vue-unhead-util-composables
   - vue-util-composables
+  - website-ui-layouts
 
 env:
   DEV_DOMAIN: tera.lychen.local

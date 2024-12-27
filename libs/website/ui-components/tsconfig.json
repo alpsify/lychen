@@ -1,9 +1,28 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*"],
-  "references": [],
+  "include": [
+    "**/*",
+    "../../ui-components/**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../../vue/util-composables/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../ui-components"
+    },
+    {
+      "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../../vue/util-composables"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/website/ui-components",
-    "paths": {}
+    "paths": {
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/vue-util-composables/*": ["../../vue/util-composables/*"]
+    }
   }
 }

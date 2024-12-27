@@ -1,6 +1,6 @@
 <template>
-  <div class="lychen-website-layout">
-    <LayoutWebsiteNavigation class="lychen-website-layout-navigation fixed p-2">
+  <div class="website-main-layout">
+    <LayoutMainNavigation class="fixed p-2">
       <slot name="navigation"></slot>
       <template #mobile>
         <slot name="mobile"></slot>
@@ -8,25 +8,25 @@
       <template #header>
         <slot name="header"></slot>
       </template>
-    </LayoutWebsiteNavigation>
+    </LayoutMainNavigation>
     <slot>
       <main class="flex flex-col min-h-dvh">
         <RouterView />
       </main>
     </slot>
-    <LayoutWebsiteFooter class="footer">
+    <LayoutMainFooter class="footer">
       <slot name="footer"></slot>
-    </LayoutWebsiteFooter>
+    </LayoutMainFooter>
   </div>
 </template>
 
 <script setup lang="ts">
-import LayoutWebsiteFooter from './LayoutWebsiteFooter.vue';
-import LayoutWebsiteNavigation from './LayoutWebsiteNavigation.vue';
+import LayoutMainFooter from './LayoutMainFooter.vue';
+import LayoutMainNavigation from './LayoutMainNavigation.vue';
 </script>
 
 <style lang="css" scoped>
-.lychen-website-layout {
+.website-main-layout {
   display: flex;
   flex-direction: column;
 }

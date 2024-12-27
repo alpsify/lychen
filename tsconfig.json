@@ -137,9 +137,6 @@
       "path": "libs/ui-i18n"
     },
     {
-      "path": "libs/ui-layouts"
-    },
-    {
       "path": "libs/util-composables"
     },
     {
