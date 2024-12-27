@@ -15,6 +15,7 @@
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/tailwind-util-configs": "workspace:*",
     "@lychen/tera-util-constants": "workspace:*",
+    "@lychen/tera-util-features": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",

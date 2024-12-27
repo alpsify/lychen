@@ -3,6 +3,7 @@ dependsOn:
   - applications-ui-components
   - tailwind-util-configs
   - tera-util-constants
+  - tera-util-features
   - ui-components
   - ui-css
   - ui-i18n

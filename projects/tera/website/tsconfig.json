@@ -9,6 +9,7 @@
     "../../../libs/odd/util-composables/**/*",
     "../../../libs/tailwind/util-configs/**/*",
     "../../../libs/tera/util-constants/**/*",
+    "../../../libs/tera/util-features/**/*",
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
@@ -43,6 +44,9 @@
     },
     {
       "path": "../../../libs/tera/util-constants"
+    },
+    {
+      "path": "../../../libs/tera/util-features"
     },
     {
       "path": "../../../libs/ui-components"
@@ -106,7 +110,8 @@
       "@lychen/util-constants/*": ["../../../libs/util-constants/*"],
       "@lychen/website-ui-components/*": ["../../../libs/website/ui-components/*"],
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
-      "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"]
+      "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"],
+      "@lychen/tera-util-features/*": ["../../../libs/tera/util-features/*"]
     }
   }
 }

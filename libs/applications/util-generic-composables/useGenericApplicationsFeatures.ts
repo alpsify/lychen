@@ -5,6 +5,7 @@ import {
   ApplicationFeatureList,
   ApplicationFeatureListItem,
 } from '@lychen/applications-util-model/ApplicationFeatureList';
+import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 import {
   UseCustomI18nOptions,
   useI18nExtended,
@@ -17,11 +18,6 @@ export interface UseGenericApplicationsFeatures<
   getList: (group?: G) => ApplicationFeature[];
   getOrganizedFeatures(): OrganizedFeaturesByGroup;
 }
-
-export type OrganizedFeaturesByGroup = Record<
-  ApplicationFeatureGroup,
-  { title: string; features: ApplicationFeature[] }
->;
 
 export function useGenericApplicationsFeatures<
   A extends ApplicationFeatureAlias = ApplicationFeatureAlias,

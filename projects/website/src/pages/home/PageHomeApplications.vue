@@ -71,20 +71,7 @@
             /></LychenButton>
           </a>
         </div>
-        <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-fluid md:grid-rows-1 gap-10">
-          <div
-            v-for="group in features"
-            :key="group"
-          >
-            <p class="text-xl opacity-60 uppercase">{{ group.title }}</p>
-            <ApplicationFeatureCard
-              v-for="feature in group.features"
-              v-bind="feature"
-              :key="feature.alias"
-              class="pl-0"
-            />
-          </div>
-        </div>
+        <ApplicationsGridFeatures :features="features" />
       </LychenDialogContent>
     </LychenDialog>
   </LychenContainer>
@@ -97,7 +84,6 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
 import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
-import ApplicationFeatureCard from '@lychen/applications-ui-components/ApplicationFeatureCard.vue';
 import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
 import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
 import LychenCarouselPrevious from '@lychen/ui-components/carousel/LychenCarouselPrevious.vue';
@@ -106,9 +92,10 @@ import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarousel
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
-import { LychenDialogTrigger } from '@lychen/ui-components/dialog';
+import LychenDialogTrigger from '@lychen/ui-components/dialog/LychenDialogTrigger.vue';
 import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
 import LychenDialogClose from '@lychen/ui-components/dialog/LychenDialogClose.vue';
+import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
 
 const LychenDialog = defineAsyncComponent(
   () => import('@lychen/ui-components/dialog/LychenDialog.vue'),

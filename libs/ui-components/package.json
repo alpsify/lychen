@@ -11,7 +11,7 @@
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/typescript-util-tailwind": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
-    "@vueuse/core": "^12.0.0",
+    "@vueuse/core": "^12.2.0",
     "class-variance-authority": "^0.7.0",
     "embla-carousel-vue": "^8.5.1",
     "radix-vue": "^1.9.6",
