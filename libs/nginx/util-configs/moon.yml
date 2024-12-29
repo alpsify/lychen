@@ -1,0 +1,15 @@
+id: nginx-util-configs
+
+tasks:
+  sync-ssg:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/ssg
+    inputs:
+      - '$projectRoot/ssg/**/*'
+    options:
+      cache: false
+    platform: system
+
+type: library

@@ -1,0 +1,11 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  build:
+    command: yarn build
+    deps:
+      - assets-sync
+      - args: $projectRoot/.nginx-build
+        target: nginx-util-configs:sync-ssg
+    options:
+      cache: false
