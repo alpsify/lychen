@@ -1,0 +1,39 @@
+dependsOn:
+  - applications-assets
+  - applications-ui-components
+  - tailwind-util-configs
+  - ui-components
+  - ui-css
+  - ui-i18n
+  - util-constants
+  - vara-ui-i18n
+  - vara-util-constants
+  - vara-util-features
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-router-util-configs
+  - vue-unhead-util-composables
+  - vue-util-composables
+  - website-ui-components
+  - website-ui-layouts
+
+env:
+  DEV_DOMAIN: vara.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/vara/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: Fd4FNglKvBnj8027lOKeV
+  PRODUCTION_DOMAIN: vara.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/vara/website
+  STAGING_DOKPLOY_COMPOSE_ID: 0CpTebCmUMssFbF8YHUlC
+  STAGING_DOMAIN: staging.vara.lychen.fr
+
+id: vara-website
+
+language: typescript
+
+tags:
+  - docker
+  - dokploy
+  - ssg
+
+type: application

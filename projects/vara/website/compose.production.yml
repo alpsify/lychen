@@ -1,0 +1,4 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/production/vara/website:latest
+    restart: unless-stopped
