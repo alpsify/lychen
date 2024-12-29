@@ -1,5 +1,5 @@
 {
-  "name": "@lychen/tera-website",
+  "name": "@lychen/luna-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,12 +11,12 @@
   "dependencies": {
     "@lychen/applications-ui-components": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/luna-ui-i18n": "workspace:*",
+    "@lychen/luna-util-constants": "workspace:*",
+    "@lychen/luna-util-features": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/tailwind-util-configs": "workspace:*",
-    "@lychen/tera-ui-i18n": "workspace:*",
-    "@lychen/tera-util-constants": "workspace:*",
-    "@lychen/tera-util-features": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",

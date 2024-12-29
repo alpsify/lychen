@@ -1918,6 +1918,46 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/luna-website@workspace:projects/luna/website":
+  version: 0.0.0-use.local
+  resolution: "@lychen/luna-website@workspace:projects/luna/website"
+  dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/luna-ui-i18n": "workspace:*"
+    "@lychen/luna-util-constants": "workspace:*"
+    "@lychen/luna-util-features": "workspace:*"
+    "@lychen/odd-assets": "workspace:*"
+    "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/tailwind-util-configs": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
+    "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-router-util-configs": "workspace:*"
+    "@lychen/vue-unhead-util-composables": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
+    "@lychen/website-ui-components": "workspace:*"
+    "@lychen/website-ui-layouts": "workspace:*"
+    "@unhead/schema-org": "npm:^1.11.14"
+    "@unhead/vue": "npm:^1.11.14"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    autoprefixer: "npm:^10.4.20"
+    postcss: "npm:^8.4.49"
+    tailwindcss: "npm:^3.4.16"
+    unhead: "npm:^1.11.14"
+    vite: "npm:^6.0.3"
+    vite-plugin-mkcert: "npm:^1.17.6"
+    vite-ssg: "npm:^0.24.3"
+    vite-ssg-sitemap: "npm:^0.8.1"
+    vue: "npm:3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/meli-ui-i18n@workspace:*, @lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n"
@@ -2064,6 +2104,7 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/tailwind-util-configs": "workspace:*"
+    "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/tera-util-features": "workspace:*"
     "@lychen/ui-components": "workspace:*"

@@ -1,0 +1,6 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/staging/luna/website:latest
+    labels:
+      - traefik.http.routers.lychen-staging-luna-website-9xgmge-64-websecure.middlewares=ip-allow@file
+    restart: unless-stopped

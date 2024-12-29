@@ -2,6 +2,7 @@ dependsOn:
   - applications-assets
   - applications-ui-components
   - tailwind-util-configs
+  - tera-ui-i18n
   - tera-util-constants
   - tera-util-features
   - ui-components

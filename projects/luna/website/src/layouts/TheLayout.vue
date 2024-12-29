@@ -19,11 +19,10 @@
 
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
-
-import { APP_STATE } from '@lychen/tera-util-constants/App';
-import { TRANSLATION_KEY, messages } from '@lychen/tera-ui-i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { APP_STATE } from '@lychen/luna-util-constants/App';
 import { defineAsyncComponent } from 'vue';
+import { TRANSLATION_KEY, messages } from '@lychen/luna-ui-i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LayoutApplication = defineAsyncComponent(
   () => import('@lychen/website-ui-layouts/application/LayoutApplication.vue'),

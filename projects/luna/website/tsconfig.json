@@ -6,11 +6,11 @@
     "../../../libs/applications/util-composables/**/*",
     "../../../libs/applications/util-constants/**/*",
     "../../../libs/kiro/ui-components/**/*",
+    "../../../libs/luna/ui-i18n/**/*",
+    "../../../libs/luna/util-constants/**/*",
+    "../../../libs/luna/util-features/**/*",
     "../../../libs/odd/util-composables/**/*",
     "../../../libs/tailwind/util-configs/**/*",
-    "../../../libs/tera/ui-i18n/**/*",
-    "../../../libs/tera/util-constants/**/*",
-    "../../../libs/tera/util-features/**/*",
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
@@ -38,19 +38,19 @@
       "path": "../../../libs/kiro/ui-components"
     },
     {
+      "path": "../../../libs/luna/ui-i18n"
+    },
+    {
+      "path": "../../../libs/luna/util-constants"
+    },
+    {
+      "path": "../../../libs/luna/util-features"
+    },
+    {
       "path": "../../../libs/odd/util-composables"
     },
     {
       "path": "../../../libs/tailwind/util-configs"
-    },
-    {
-      "path": "../../../libs/tera/ui-i18n"
-    },
-    {
-      "path": "../../../libs/tera/util-constants"
-    },
-    {
-      "path": "../../../libs/tera/util-features"
     },
     {
       "path": "../../../libs/ui-components"
@@ -90,7 +90,7 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/projects/tera/website",
+    "outDir": "../../../.moon/cache/types/projects/luna/website",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -114,10 +114,10 @@
       "@lychen/util-constants/*": ["../../../libs/util-constants/*"],
       "@lychen/website-ui-components/*": ["../../../libs/website/ui-components/*"],
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
-      "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"],
-      "@lychen/tera-util-features/*": ["../../../libs/tera/util-features/*"],
-      "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
-      "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"]
+      "@lychen/luna-util-constants/*": ["../../../libs/luna/util-constants/*"],
+      "@lychen/luna-util-features/*": ["../../../libs/luna/util-features/*"],
+      "@lychen/luna-ui-i18n": ["../../../libs/luna/ui-i18n/index.ts"],
+      "@lychen/luna-ui-i18n/*": ["../../../libs/luna/ui-i18n/*"]
     }
   }
 }
