@@ -2,5 +2,5 @@ services:
   website:
     image: ghcr.io/alpsify/lychen/staging/meli/website:latest
     labels:
-      - traefik.http.routers.lychen-staging-meli-website-9xgmge-64-websecure.middlewares=ip-allow@file
+      - traefik.http.routers.lychen-staging-meli-website-f3f995-66-websecure.middlewares=ip-allow@file
     restart: unless-stopped

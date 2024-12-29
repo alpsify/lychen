@@ -21,10 +21,10 @@ dependsOn:
 env:
   DEV_DOMAIN: meli.lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/meli/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: apQ-Vg55SAMkY2zoBQ26G
+  PRODUCTION_DOKPLOY_COMPOSE_ID: JAWCjLjIKCVe_5tFH4rkM
   PRODUCTION_DOMAIN: meli.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/meli/website
-  STAGING_DOKPLOY_COMPOSE_ID: jpsYaOd0KIl0zprI5zC53
+  STAGING_DOKPLOY_COMPOSE_ID: PxsHdAdF7U9TZGlWvpYxx
   STAGING_DOMAIN: staging.meli.lychen.fr
 
 id: meli-website
