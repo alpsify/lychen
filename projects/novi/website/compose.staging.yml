@@ -1,0 +1,6 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/staging/novi/website:latest
+    labels:
+      - traefik.http.routers.lychen-staging-novi-website-sdgisy-81-websecure.middlewares=ip-allow@file
+    restart: unless-stopped

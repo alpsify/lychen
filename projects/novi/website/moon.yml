@@ -1,0 +1,39 @@
+dependsOn:
+  - applications-assets
+  - applications-ui-components
+  - novi-ui-i18n
+  - novi-util-constants
+  - novi-util-features
+  - tailwind-util-configs
+  - ui-components
+  - ui-css
+  - ui-i18n
+  - util-constants
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-router-util-configs
+  - vue-unhead-util-composables
+  - vue-util-composables
+  - website-ui-components
+  - website-ui-layouts
+
+env:
+  DEV_DOMAIN: novi.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/novi/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: Nw-l6f1Wo7FP_JZbIfTH1
+  PRODUCTION_DOMAIN: novi.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/novi/website
+  STAGING_DOKPLOY_COMPOSE_ID: oB_TaxMFDMpBnNP4rXoZI
+  STAGING_DOMAIN: staging.novi.lychen.fr
+
+id: novi-website
+
+language: typescript
+
+tags:
+  - docker
+  - dokploy
+  - ssg
+
+type: application
