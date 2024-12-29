@@ -7,5 +7,8 @@ export default {
       title: 'Fonctionnalités',
     },
   },
-  footer: {},
+  footer: {
+    seo_paragraph:
+      'Jardinier amateur ou maraîcher, Tera vous aide à planifier vos cultures, à gérer vos espaces et à collaborer pour un maraîchage durable.',
+  },
 };

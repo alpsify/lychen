@@ -6,3 +6,7 @@ export interface LayoutApplicationNavigationProps {
   applicationName: string;
   routeHome: RouteRecordRaw;
 }
+
+export interface LayoutApplicationFooterProps {
+  applicationName: string;
+}

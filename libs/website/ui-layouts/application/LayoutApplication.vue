@@ -6,12 +6,12 @@
       :application-state
       :route-home
     >
-      <slot name="navigation"></slot>
+      <slot name="navigation" />
       <template #mobile>
-        <slot name="mobile"></slot>
+        <slot name="mobile" />
       </template>
       <template #header>
-        <slot name="header"></slot>
+        <slot name="header" />
       </template>
     </LayoutApplicationNavigation>
     <slot>
@@ -19,8 +19,13 @@
         <RouterView />
       </main>
     </slot>
-    <LayoutApplicationFooter class="footer">
-      <slot name="footer"></slot>
+    <LayoutApplicationFooter
+      class="footer"
+      :application-name
+    >
+      <template #underLogo>
+        <slot name="footerUnderLogo" />
+      </template>
     </LayoutApplicationFooter>
   </div>
 </template>

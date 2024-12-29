@@ -6,7 +6,9 @@
     "../../applications/util-constants/**/*",
     "../../applications/util-model/**/*",
     "../../ui-components/**/*",
+    "../../ui-i18n/**/*",
     "../../util-constants/**/*",
+    "../../vue/i18n/util-composables/**/*",
     "../ui-components/**/*"
   ],
   "references": [
@@ -23,7 +25,13 @@
       "path": "../../ui-components"
     },
     {
+      "path": "../../ui-i18n"
+    },
+    {
       "path": "../../util-constants"
+    },
+    {
+      "path": "../../vue/i18n/util-composables"
     },
     {
       "path": "../ui-components"
@@ -37,7 +45,9 @@
       "@lychen/applications-util-constants/*": ["../../applications/util-constants/*"],
       "@lychen/applications-util-model/*": ["../../applications/util-model/*"],
       "@lychen/util-constants/*": ["../../util-constants/*"],
-      "@lychen/website-ui-components/*": ["../ui-components/*"]
+      "@lychen/website-ui-components/*": ["../ui-components/*"],
+      "@lychen/ui-i18n/*": ["../../ui-i18n/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"]
     }
   }
 }

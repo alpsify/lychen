@@ -11,7 +11,7 @@
     <template #mobile>
       <TheNavigationMobile />
     </template>
-    <template #footer>
+    <template #footerUnderLogo>
       <TheFooter />
     </template>
   </LayoutApplication>

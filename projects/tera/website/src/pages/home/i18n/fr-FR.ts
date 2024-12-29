@@ -7,7 +7,7 @@ export default {
     og_description: '@:page_home.meta.description',
   },
   hero: {
-    title: 'Réinventez le maraîchage avec Tera',
+    title: 'Planifiez vos cultures et connectez-vous avec Tera',
     description:
       'Que vous soyez amateur ou professionnel, Tera vous aide à planifier vos cultures, à gérer vos espaces et à collaborer pour un maraîchage durable.',
     button: {

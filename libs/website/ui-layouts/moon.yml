@@ -2,7 +2,9 @@ dependsOn:
   - applications-ui-components
   - applications-util-model
   - ui-components
+  - ui-i18n
   - util-constants
+  - vue-i18n-util-composables
   - website-ui-components
 
 id: website-ui-layouts
