@@ -3,11 +3,16 @@ id: nginx-util-configs
 tasks:
   sync-ssg:
     command:
-      - ln
-      - -sfn
+      - 'yes'
+      - '|'
+      - cp
+      - -rf
       - $projectRoot/ssg
+      #- ln
+      #- -sfn
+      #- $projectRoot/ssg
     inputs:
-      - '$projectRoot/ssg/**/*'
+      - '$projectRoot/ssg/'
     options:
       cache: false
     platform: system
