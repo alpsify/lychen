@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImg from './assets/HeroImage.png';
+import heroImg from './assets/HeroImage.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
