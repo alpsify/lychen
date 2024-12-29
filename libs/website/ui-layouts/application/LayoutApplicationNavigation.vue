@@ -84,17 +84,32 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
-import { useElementHover } from '@vueuse/core';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 
-import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
-import ApplicationBadgeState from '@lychen/applications-ui-components/ApplicationBadgeState.vue';
 import { LayoutApplicationNavigationProps } from '.';
-import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
-import LychenLogoIconOnly from '@lychen/ui-components/logo/LychenLogoIconOnly.vue';
-import LychenLogoTextOnly from '@lychen/ui-components/logo/LychenLogoTextOnly.vue';
+
+const WebsiteButtonTallyPreregister = defineAsyncComponent(
+  () =>
+    import(
+      '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue'
+    ),
+);
+const LychenLogoIconOnly = defineAsyncComponent(
+  () => import('@lychen/ui-components/logo/LychenLogoIconOnly.vue'),
+);
+
+const LychenLogoTextOnly = defineAsyncComponent(
+  () => import('@lychen/ui-components/logo/LychenLogoTextOnly.vue'),
+);
+
+const ApplicationTitle = defineAsyncComponent(
+  () => import('@lychen/applications-ui-components/ApplicationTitle.vue'),
+);
+const ApplicationBadgeState = defineAsyncComponent(
+  () => import('@lychen/applications-ui-components/ApplicationBadgeState.vue'),
+);
 
 const LychenSheetTrigger = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),
@@ -119,7 +134,6 @@ const isOpen = ref<boolean>(false);
 provide('mobileMenuIsOpen', isOpen);
 
 const lychenLogo = ref();
-const isHovered = useElementHover(lychenLogo);
 
 defineProps<LayoutApplicationNavigationProps>();
 </script>

@@ -1,0 +1,45 @@
+dependsOn:
+  - applications-assets
+  - applications-ui-components
+  - meli-ui-i18n
+  - meli-util-constants
+  - meli-util-features
+  - tailwind-util-configs
+  - ui-components
+  - ui-css
+  - ui-i18n
+  - util-constants
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-router-util-configs
+  - vue-unhead-util-composables
+  - vue-util-composables
+  - website-ui-components
+  - website-ui-layouts
+
+env:
+  DEV_DOMAIN: meli.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/meli/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: apQ-Vg55SAMkY2zoBQ26G
+  PRODUCTION_DOMAIN: meli.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/meli/website
+  STAGING_DOKPLOY_COMPOSE_ID: jpsYaOd0KIl0zprI5zC53
+  STAGING_DOMAIN: staging.meli.lychen.fr
+
+id: meli-website
+
+language: typescript
+
+project:
+  description: 'Presentation site for meli'
+  metadata:
+    url: meli.lychen.fr
+  name: 'Meli website'
+
+tags:
+  - docker
+  - dokploy
+  - ssg
+
+type: application

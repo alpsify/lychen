@@ -8,9 +8,6 @@ tasks:
       - cp
       - -rf
       - $projectRoot/ssg
-      #- ln
-      #- -sfn
-      #- $projectRoot/ssg
     inputs:
       - '$projectRoot/ssg/'
     options:
