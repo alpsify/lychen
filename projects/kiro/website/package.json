@@ -4,19 +4,35 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "dev": "vite --host",
+    "build": "vite-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lychen/kiro-ui-components": "workspace:*",
+    "@lychen/applications-ui-components": "workspace:*",
+    "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/kiro-ui-i18n": "workspace:*",
+    "@lychen/kiro-util-constants": "workspace:*",
+    "@lychen/kiro-util-features": "workspace:*",
+    "@lychen/odd-assets": "workspace:*",
+    "@lychen/odd-util-composables": "workspace:*",
+    "@lychen/tailwind-util-configs": "workspace:*",
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
+    "@lychen/ui-i18n": "workspace:*",
+    "@lychen/util-constants": "workspace:*",
+    "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-router-util-configs": "workspace:*",
+    "@lychen/vue-unhead-util-composables": "workspace:*",
+    "@lychen/vue-util-composables": "workspace:*",
+    "@lychen/website-ui-components": "workspace:*",
+    "@lychen/website-ui-layouts": "workspace:*",
+    "@unhead/schema-org": "^1.11.14",
     "@unhead/vue": "^1.11.14",
-    "radix-vue": "1.9.6",
+    "unhead": "^1.11.14",
     "vue": "3.5.13",
-    "vue-i18n": "^10.0.5",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
@@ -25,6 +41,8 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
     "vite": "^6.0.3",
-    "vite-plugin-mkcert": "^1.17.6"
+    "vite-plugin-mkcert": "^1.17.6",
+    "vite-ssg": "^0.24.3",
+    "vite-ssg-sitemap": "^0.8.1"
   }
 }

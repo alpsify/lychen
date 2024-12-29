@@ -7,6 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+public/logos
+public/fonts
+public/applications-covers
+public/odd-icons
+
 node_modules
 dist
 dist-ssr
@@ -22,3 +28,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vite-ssg-temp
+.nginx-build

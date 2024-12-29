@@ -1,13 +1,35 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
+import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
+import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
+import { useHead } from '@unhead/vue';
+import { TRANSLATION_KEY, messages } from '@lychen/kiro-ui-i18n';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-const LychenTooltipProvider = defineAsyncComponent(
-  () => import('@lychen/ui-components/tooltip/LychenTooltipProvider.vue'),
-);
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+usePreferredColorScheme();
+
+useHead({
+  titleTemplate: `${t('name')} | %s`,
+  templateParams: {
+    schemaOrg: {
+      host: import.meta.env.VITE_UNHEAD_HOST,
+    },
+  },
+});
+
+useSchemaOrg([
+  defineOrganization({
+    name: t('name'),
+    logo: '/logos/lychen/logo-lychen.svg',
+  }),
+  defineWebSite({
+    name: t('name'),
+  }),
+  defineWebPage(),
+]);
 </script>
 
 <template>
-  <LychenTooltipProvider>
-    <RouterView />
-  </LychenTooltipProvider>
+  <RouterView />
 </template>
