@@ -1,10 +1,10 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
+  - humu-ui-i18n
+  - humu-util-constants
+  - humu-util-features
   - tailwind-util-configs
-  - tera-ui-i18n
-  - tera-util-constants
-  - tera-util-features
   - ui-components
   - ui-css
   - ui-i18n
@@ -19,15 +19,15 @@ dependsOn:
   - website-ui-layouts
 
 env:
-  DEV_DOMAIN: tera.lychen.local
-  PRODUCTION_DOCKER_IMAGE: lychen/production/tera/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: zxQNz6KKFpQuGDXvQyn2F
-  PRODUCTION_DOMAIN: tera.lychen.fr
-  STAGING_DOCKER_IMAGE: lychen/staging/tera/website
-  STAGING_DOKPLOY_COMPOSE_ID: GqQZhiUgCs96TZKGZ0h5f
-  STAGING_DOMAIN: staging.tera.lychen.fr
+  DEV_DOMAIN: humu.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/humu/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: lEryzF4zYNVogL3xaVYE6
+  PRODUCTION_DOMAIN: humu.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/humu/website
+  STAGING_DOKPLOY_COMPOSE_ID: GcsVD0vsx7TwZxFmmzWn5
+  STAGING_DOMAIN: staging.humu.lychen.fr
 
-id: tera-website
+id: humu-website
 
 language: typescript
 

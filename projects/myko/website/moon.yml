@@ -31,12 +31,6 @@ id: myko-website
 
 language: typescript
 
-project:
-  description: 'Presentation site for myko'
-  metadata:
-    url: myko.lychen.fr
-  name: 'Myko website'
-
 tags:
   - docker
   - dokploy

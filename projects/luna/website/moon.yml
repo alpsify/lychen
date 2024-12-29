@@ -31,12 +31,6 @@ id: luna-website
 
 language: typescript
 
-project:
-  description: 'Presentation site for luna'
-  metadata:
-    url: luna.lychen.fr
-  name: 'Luna website'
-
 tags:
   - docker
   - dokploy

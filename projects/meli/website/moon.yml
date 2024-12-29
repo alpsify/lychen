@@ -31,12 +31,6 @@ id: meli-website
 
 language: typescript
 
-project:
-  description: 'Presentation site for meli'
-  metadata:
-    url: meli.lychen.fr
-  name: 'Meli website'
-
 tags:
   - docker
   - dokploy

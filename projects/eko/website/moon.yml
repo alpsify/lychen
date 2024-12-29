@@ -31,12 +31,6 @@ id: eko-website
 
 language: typescript
 
-project:
-  description: 'Presentation site for eko'
-  metadata:
-    url: eko.lychen.fr
-  name: 'Eko website'
-
 tags:
   - docker
   - dokploy
