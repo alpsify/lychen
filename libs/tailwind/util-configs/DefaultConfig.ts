@@ -3,7 +3,6 @@ import { colorsConfig } from './colorsConfig';
 import { fontsConfig } from './fontsConfig';
 import { keyframesConfig } from './keyframesConfig';
 import type { Config } from 'tailwindcss';
-import animate from 'tailwindcss-animate';
 import { contentConfig } from './contentConfig';
 import tailwindcssMotion from 'tailwindcss-motion';
 
@@ -32,5 +31,5 @@ export default {
       },
     },
   },
-  plugins: [animate, tailwindcssMotion],
+  plugins: [tailwindcssMotion],
 } satisfies Config;

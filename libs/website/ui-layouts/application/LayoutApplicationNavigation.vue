@@ -5,13 +5,19 @@
         ref="lychenLogo"
         href="https://lychen.fr"
         target="_blank"
-        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg rounded-full bg-surface-container/70 transition-all ease-in-out duration-500"
-        :class="isHovered ? 'h-[56px] w-auto p-4' : 'size-[56px]'"
+        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-full bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-primary-container-on"
       >
-        <LychenLogo
-          class="h-10"
-          :no-text="!isHovered"
-      /></a>
+        <div class="flex flex-col items-end">
+          <div class="flex flex-row items-center">
+            <LychenLogoIconOnly class="h-[1lh]" />
+            <LychenLogoTextOnly class="hidden group-hover:flex" />
+          </div>
+          <small
+            class="flex-row gap-1 hidden group-hover:flex items-center text-xs motion-blur-in-md motion-duration-[1s] motion-ease-spring-smooth"
+            >lychen.fr<LychenIcon icon="arrow-up-right"
+          /></small>
+        </div>
+      </a>
 
       <div
         class="relative backdrop text-surface-container-on flex flex-row items-stretch gap-4 px-6 py-2 rounded-full shadow-lg grow justify-between"
@@ -77,7 +83,6 @@
 </template>
 
 <script lang="ts" setup>
-import LychenLogo from '@lychen/ui-components/logo/LychenLogo.vue';
 import { defineAsyncComponent, provide, ref } from 'vue';
 import { useElementHover } from '@vueuse/core';
 
@@ -88,6 +93,8 @@ import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitl
 import ApplicationBadgeState from '@lychen/applications-ui-components/ApplicationBadgeState.vue';
 import { LayoutApplicationNavigationProps } from '.';
 import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
+import LychenLogoIconOnly from '@lychen/ui-components/logo/LychenLogoIconOnly.vue';
+import LychenLogoTextOnly from '@lychen/ui-components/logo/LychenLogoTextOnly.vue';
 
 const LychenSheetTrigger = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),

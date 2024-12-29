@@ -1,7 +1,11 @@
 <template>
-  <p :class="cn('text-lg font-black font-lexend leading-none tracking-wide', props.class)">
+  <span
+    :class="
+      cn('text-lg font-black font-lexend leading-none tracking-wide antialiased', props.class)
+    "
+  >
     {{ value }}
-  </p>
+  </span>
 </template>
 
 <script setup lang="ts">

@@ -23,7 +23,7 @@
           <LychenParagraph>{{ t('description') }}</LychenParagraph>
         </div>
         <div class="flex flex-row items-center justify-center gap-4">
-          <LychenLogo class="h-14" />
+          <LychenLogoFull class="h-14" />
           <p class="opacity-50">X</p>
           <img
             :src="isDark ? imageUrl : imageUrlLight"
@@ -49,7 +49,9 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 
-const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
+const LychenLogoFull = defineAsyncComponent(
+  () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),
+);
 
 const LychenGlowBorder = defineAsyncComponent(
   () => import('@lychen/ui-components/glow-border/LychenGlowBorder.vue'),

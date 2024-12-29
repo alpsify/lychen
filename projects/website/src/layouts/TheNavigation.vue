@@ -4,7 +4,7 @@
       :to="RoutePageHome"
       class="flex flex-row items-stretch"
     >
-      <LychenLogo class="logo-hover-effect"
+      <LychenLogoFull class="hover:text-primary-container-on"
     /></RouterLink>
     <div class="flex flex-row items-stretch gap-2">
       <LychenNavigationMenu class="hidden lg:flex">
@@ -153,10 +153,9 @@ import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
-import { LINK } from '@lychen/util-constants/Link';
 import { EMAIL } from '@lychen/util-constants/Email';
 import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
+import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
@@ -166,7 +165,6 @@ const LychenThemeSwitcher = defineAsyncComponent(
   () => import('@lychen/ui-components/theme-switcher/LychenThemeSwitcher.vue'),
 );
 
-const LychenLogo = defineAsyncComponent(() => import('@lychen/ui-components/logo/LychenLogo.vue'));
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenNavigationMenu = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenu.vue'),
@@ -197,13 +195,3 @@ const { opiniatedApplicationsList } = useApplicationsCatalog();
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
 </script>
-
-<style lang="css" scoped>
-.logo-hover-effect {
-  transition: color 1s;
-}
-
-.logo-hover-effect:hover {
-  color: rgb(var(--color-on-primary-container));
-}
-</style>
