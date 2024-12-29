@@ -182,6 +182,9 @@
       "path": "libs/website/ui-layouts"
     },
     {
+      "path": "projects/eko/website"
+    },
+    {
       "path": "projects/kiro/admin-app"
     },
     {
