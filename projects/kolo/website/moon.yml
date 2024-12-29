@@ -1,0 +1,39 @@
+dependsOn:
+  - applications-assets
+  - applications-ui-components
+  - kolo-ui-i18n
+  - kolo-util-constants
+  - kolo-util-features
+  - tailwind-util-configs
+  - ui-components
+  - ui-css
+  - ui-i18n
+  - util-constants
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-router-util-configs
+  - vue-unhead-util-composables
+  - vue-util-composables
+  - website-ui-components
+  - website-ui-layouts
+
+env:
+  DEV_DOMAIN: kolo.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/kolo/website
+  PRODUCTION_DOKPLOY_COMPOSE_ID: 1QFwZR5ajTuCT-UzBvuje
+  PRODUCTION_DOMAIN: kolo.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/kolo/website
+  STAGING_DOKPLOY_COMPOSE_ID: gmrpyAdxCTL2P51nlMNLw
+  STAGING_DOMAIN: staging.kolo.lychen.fr
+
+id: kolo-website
+
+language: typescript
+
+tags:
+  - docker
+  - dokploy
+  - ssg
+
+type: application
