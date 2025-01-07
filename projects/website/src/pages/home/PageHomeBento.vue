@@ -32,6 +32,7 @@
         <img
           :src="bentoCentralImageUrl"
           class="rounded-xl w-2/3"
+          alt="number 10 as organic blue and green shapes"
         />
         <p class="text-4xl gradient">Applications</p>
         <p>Inter-connectées</p>

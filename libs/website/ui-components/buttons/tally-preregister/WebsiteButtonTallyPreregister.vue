@@ -8,7 +8,8 @@
       size="sm"
       class="gap-2"
       data-umami-event="Clicks on pre-register"
-      >{{ t(`label`) }} <LychenIcon icon="rocket-launch" /></LychenButton
+      :text="t(`label`)"
+      ><template #append><LychenIcon icon="rocket-launch" /></template></LychenButton
   ></a>
 </template>
 

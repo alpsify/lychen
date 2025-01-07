@@ -92,21 +92,29 @@
               </div>
             </LychenNavigationMenuContent>
           </LychenNavigationMenuItem>
+
           <LychenNavigationMenuItem>
-            <LychenNavigationMenuLink
-              :class="navigationMenuTriggerStyle()"
-              class="hover:bg-primary-container/30 hover:text-primary-container-on"
-            >
-              <RouterLink :to="RoutePagePrice">{{ t(`navigation.price.title`) }} </RouterLink>
-            </LychenNavigationMenuLink>
+            <RouterLink :to="RoutePagePrice">
+              <LychenNavigationMenuLink
+                as="div"
+                :class="navigationMenuTriggerStyle()"
+                class="hover:bg-primary-container/30 hover:text-primary-container-on"
+              >
+                {{ t(`navigation.price.title`) }}
+              </LychenNavigationMenuLink>
+            </RouterLink>
           </LychenNavigationMenuItem>
+
           <LychenNavigationMenuItem>
-            <LychenNavigationMenuLink
-              :class="navigationMenuTriggerStyle()"
-              class="hover:bg-primary-container/30 hover:text-primary-container-on"
-            >
-              <RouterLink :to="RoutePageSponsor">{{ t(`navigation.sponsor.title`) }} </RouterLink>
-            </LychenNavigationMenuLink>
+            <RouterLink :to="RoutePageSponsor">
+              <LychenNavigationMenuLink
+                as="div"
+                :class="navigationMenuTriggerStyle()"
+                class="hover:bg-primary-container/30 hover:text-primary-container-on"
+              >
+                {{ t(`navigation.sponsor.title`) }}
+              </LychenNavigationMenuLink>
+            </RouterLink>
           </LychenNavigationMenuItem>
         </LychenNavigationMenuList>
       </LychenNavigationMenu>
@@ -117,6 +125,7 @@
       <a
         :href="SOCIAL_LINK.GitHub"
         target="_blank"
+        aria-label="GitHub"
       >
         <LychenIcon
           icon="github"
@@ -126,6 +135,7 @@
       <a
         :href="SOCIAL_LINK.Discord"
         target="_blank"
+        aria-label="Discord"
       >
         <LychenIcon
           icon="discord"

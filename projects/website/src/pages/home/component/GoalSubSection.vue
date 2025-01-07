@@ -7,7 +7,7 @@
       <div class="w-full h-2/5 bg-primary rounded-full badge"></div>
     </div>
     <div class="flex flex-col gap-2">
-      <LychenTitle variant="h5">{{ title }}</LychenTitle>
+      <LychenTitle variant="h3">{{ title }}</LychenTitle>
       <LychenParagraph
         class="opacity-80"
         variant="website-default"

@@ -20,7 +20,7 @@
         :key="index"
         class="flex flex-col items-stretch justify-start p-4"
       >
-        <LychenTitle variant="h6">{{ actor.title }}</LychenTitle>
+        <LychenTitle variant="h3">{{ actor.title }}</LychenTitle>
         <div class="opacity-70">{{ actor.text }}</div>
       </LychenCard>
     </div>

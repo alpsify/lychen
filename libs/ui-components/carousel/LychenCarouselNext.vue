@@ -23,6 +23,7 @@ const { orientation, canScrollNext, scrollNext } = useLychenCarousel();
       )
     "
     variant="secondary"
+    aria-label="Suivant"
     @click="scrollNext"
   >
     <slot>

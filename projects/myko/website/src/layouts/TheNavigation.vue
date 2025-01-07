@@ -2,12 +2,15 @@
   <LychenNavigationMenu class="hidden lg:flex">
     <LychenNavigationMenuList>
       <LychenNavigationMenuItem>
-        <LychenNavigationMenuLink
-          :class="navigationMenuTriggerStyle()"
-          class="hover:bg-primary-container/30 hover:text-primary-container-on"
-        >
-          <RouterLink to="#features">{{ t(`navigation.features.title`) }} </RouterLink>
-        </LychenNavigationMenuLink>
+        <RouterLink to="#features">
+          <LychenNavigationMenuLink
+            as="div"
+            :class="navigationMenuTriggerStyle()"
+            class="hover:bg-primary-container/30 hover:text-primary-container-on"
+          >
+            {{ t(`navigation.features.title`) }}
+          </LychenNavigationMenuLink>
+        </RouterLink>
       </LychenNavigationMenuItem>
     </LychenNavigationMenuList>
   </LychenNavigationMenu>

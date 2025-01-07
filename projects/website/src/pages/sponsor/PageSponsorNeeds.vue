@@ -16,10 +16,11 @@
             icon="server"
             class="rounded-full w-1/2 md:w-full"
             :src="NathanDePachtereImage"
+            alt="Portrait de Nathan De Pachtere"
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h6">{{
+          <LychenTitle variant="h3">{{
             t(`section.needs.contributors.nathan_de_pachtere.name`)
           }}</LychenTitle>
           <p class="text-center md:text-left opacity-80">
@@ -36,7 +37,7 @@
             />LinkedIn</a
           >
         </div>
-        <div class="flex flex-col gap-2 border-l-2 border-tertiary p-2">
+        <div class="flex flex-col gap-4 border-l-2 border-tertiary p-2">
           <LychenBadge
             variant="tertiary"
             class="self-start"
@@ -77,10 +78,11 @@
             icon="server"
             class="rounded-full w-1/2 md:w-full"
             :src="JenniferGeoffroyImage"
+            alt="Portrait de Jennifer Geoffroy"
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h6">{{
+          <LychenTitle variant="h3">{{
             t(`section.needs.contributors.jennifer_geoffroy.name`)
           }}</LychenTitle>
           <p class="text-center md:text-left opacity-80">
@@ -97,7 +99,7 @@
             />LinkedIn</a
           >
         </div>
-        <div class="flex flex-col gap-2 border-l-2 border-tertiary p-2">
+        <div class="flex flex-col gap-4 border-l-2 border-tertiary p-2">
           <LychenBadge
             variant="tertiary"
             class="self-start"
@@ -126,7 +128,7 @@
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h6">{{ t(`section.needs.server.title`) }}</LychenTitle>
+          <LychenTitle variant="h3">{{ t(`section.needs.server.title`) }}</LychenTitle>
           <p class="text-center md:text-left opacity-80">
             {{ t(`section.needs.server.description`) }}
           </p>

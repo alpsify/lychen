@@ -14,7 +14,7 @@
             class="break-words"
             >{{ t(`section.${sectionKey}.title`) }}</LychenTitle
           >
-          <LychenParagraph class="opacity-60">{{
+          <LychenParagraph class="opacity-80">{{
             t(`section.${sectionKey}.description`)
           }}</LychenParagraph>
         </div>
@@ -27,7 +27,7 @@
             :key="_index"
             class="flex flex-col gap-1"
           >
-            <LychenTitle variant="h6">{{
+            <LychenTitle variant="h3">{{
               t(`section.${sectionKey}.sub_section.${subSectionKey}.title`)
             }}</LychenTitle>
             <LychenParagraph class="opacity-80">{{

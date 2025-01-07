@@ -14,7 +14,7 @@ export function useExtendedHead(
         rel: 'canonical',
         href:
           options?.canonical ??
-          `${import.meta.env.VITE_UNHEAD_HOST}${router.resolve(route.name ? { name: route.name } : route).path}`,
+          `https://${import.meta.env.VITE_UNHEAD_HOST}${router.resolve(route.name ? { name: route.name } : route).path}`,
       },
     ],
   });

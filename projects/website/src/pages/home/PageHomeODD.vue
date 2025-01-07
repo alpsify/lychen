@@ -22,10 +22,12 @@
             v-if="selectedGoal"
             :src="`odd-icons/${selectedGoal.icon}`"
             class="rounded-2xl h-14 md:h-24 absolute odd-icon z-10"
+            :alt="`Icône de l'objectif de développement durable n° ${selectedGoal.index}`"
           />
           <img
             :key="selectedGoal.index"
             :src="images[selectedGoal.index]"
+            :alt="`Image de l'objectif de développement durable n° ${selectedGoal.index}`"
             class="rounded-2xl motion-preset-slide-left-sm"
           />
         </div>

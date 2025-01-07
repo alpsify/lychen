@@ -3,8 +3,11 @@
     :as="as"
     :as-child="asChild"
     :class="cn(buttonVariants({ variant, size }), props.class)"
+    :aria-label="text"
   >
-    <slot />
+    <slot name="prepend"></slot>
+    <slot>{{ text }}</slot>
+    <slot name="append"></slot>
   </Primitive>
 </template>
 
@@ -19,6 +22,7 @@ interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant'];
   size?: ButtonVariants['size'];
   class?: HTMLAttributes['class'];
+  text?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,5 +30,6 @@ const props = withDefaults(defineProps<Props>(), {
   size: undefined,
   variant: undefined,
   class: undefined,
+  text: undefined,
 });
 </script>

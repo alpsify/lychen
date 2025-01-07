@@ -23,6 +23,7 @@ const { orientation, canScrollPrev, scrollPrev } = useLychenCarousel();
       )
     "
     variant="secondary"
+    aria-label="Précédent"
     @click="scrollPrev"
   >
     <slot>

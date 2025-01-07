@@ -27,8 +27,8 @@
             <LychenButton
               class="flex gap-2"
               data-umami-event="discover-button"
-              >{{ t('hero.discover') }}
-            </LychenButton>
+              :text="t('hero.discover')"
+            />
           </RouterLink>
           <RouterLink
             :to="RoutePageSponsor"

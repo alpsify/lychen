@@ -6,6 +6,7 @@
         href="https://lychen.fr"
         target="_blank"
         class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-full bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-primary-container-on"
+        aria-label="lychen.fr"
       >
         <div class="flex flex-col items-end">
           <div class="flex flex-row items-center">
@@ -44,6 +45,7 @@
           <a
             :href="SOCIAL_LINK.GitHub"
             target="_blank"
+            aria-label="GitHub"
           >
             <LychenIcon
               icon="github"
