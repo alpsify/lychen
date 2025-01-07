@@ -36,6 +36,9 @@ const config: UserConfig = {
       '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
+  build: {
+    sourcemap: true,
+  },
   ssgOptions: {
     script: 'async',
     formatting: 'prettify',
