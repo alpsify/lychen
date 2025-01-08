@@ -1,0 +1,10 @@
+id: tera-api
+
+language: php
+
+tags:
+  - php
+
+tasks:
+  dev:
+    command: docker compose up -d

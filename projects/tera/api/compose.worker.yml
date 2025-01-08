@@ -1,0 +1,8 @@
+services:
+
+volumes:
+  worker_logs: null
+
+networks:
+  dokploy-network:
+    external: true

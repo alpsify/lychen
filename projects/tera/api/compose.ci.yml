@@ -1,0 +1,25 @@
+# Development environment override
+services:
+  php:
+    image: wrongimage/test:${CI_COMMIT_SHA:-latest} #TODO To change
+    build: !reset null
+    volumes:
+      - ./:/app
+      - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
+    extra_hosts:
+      # Ensure that host.docker.internal is correctly defined on Linux
+      - host.docker.internal:host-gateway
+    tty: true
+    environment:
+      DATABASE_URL: mysql://${MYSQL_USER:-usertest}:${MYSQL_PASSWORD:-PasswordForTest!}@database:3306/${MYSQL_DATABASE:-app}?serverVersion=${POSTGRES_VERSION:-16}&charset=${POSTGRES_CHARSET:-utf8}
+
+  database:
+    image: postgres:${POSTGRES_VERSION:-16}-alpine
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-app}
+      # You should definitely change the password in production
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForTest!}
+      - POSTGRES_USER=${POSTGRES_USER:-usertest}
+    ports:
+      - '5432:5432'

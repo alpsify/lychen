@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  security:
+    alias: Symfony\Bundle\SecurityBundle\Security
+
+  nordigen.helper:
+    alias: App\Bank\Service\Nordigen\NordigenHelper
+
+  stripe.subscription.helper:
+    alias: App\Service\Stripe\StripeSubscriptionHelper
+
+  synchronize.processor:
+    alias: App\Bank\Api\Processor\BankAccountLinkRequestSynchronizeProcessor

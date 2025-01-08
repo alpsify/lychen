@@ -1,0 +1,74 @@
+security:
+  access_control:
+    - { path: ^/api/docs, roles: PUBLIC_ACCESS }
+
+  access_decision_manager:
+    allow_if_all_abstain: false
+    strategy: unanimous
+
+  firewalls:
+    api:
+      custom_authenticators:
+        - App\Security\ApiKeyAuthenticator
+      pattern: ^/api
+      provider: all_users_uuid
+      stateless: true
+
+    api_login:
+      json_login:
+        check_path: /api/auth_token/user
+        password_path: password
+        username_path: email
+      login_throttling:
+        max_attempts: 3
+      pattern: ^/api/auth_token/user
+      provider: user
+      stateless: true
+      user_checker: App\Security\UserChecker
+
+    api_token_refresh:
+      pattern: ^/api/refresh_token
+      stateless: true
+
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+  password_hashers:
+    App\Entity\User:
+      algorithm: auto
+
+  providers:
+    all_users_uuid:
+      chain:
+        providers: ['user_uuid', 'api_key_uuid', 'reviewer_uuid']
+
+    user:
+      entity:
+        class: App\Entity\User
+        property: email
+
+    user_uuid:
+      entity:
+        class: App\Entity\User
+        property: uuid
+
+  role_hierarchy:
+    ROLE_ADMIN: ROLE_SERVICE_PROVIDER
+    ROLE_SERVICE_PROVIDER: ROLE_SIGNATORY
+
+    #- { path: ^/api, roles: PUBLIC_ACCESS }
+
+when@test:
+  security:
+    password_hashers:
+      # By default, password hashers are resource intensive and take time. This is
+      # important to generate secure password hashes. In tests however, secure hashes
+      # are not important, waste resources and increase test times. The following
+      # reduces the work factor to the lowest possible values.
+      Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+        algorithm: auto
+        cost: 4 # Lowest possible value for bcrypt
+        memory_cost: 10 # Lowest possible value for argon
+        time_cost: 3 # Lowest possible value for argon
+
