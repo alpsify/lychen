@@ -1,25 +1,25 @@
 services:
   php:
-    image: wrong #TODO To change
-    restart: unless-stopped
     env_file:
       - .env
+    image: wrong #TODO To change
+    ports:
+      - protocol: tcp
+        published: ${HTTP_PORT:-80}
+        target: 80
+      - protocol: tcp
+        published: ${HTTPS_PORT:-443}
+        target: 443
+      - protocol: udp
+        published: ${HTTP3_PORT:-443}
+        target: 443
+    restart: unless-stopped
     volumes:
       - 'caddy_data:/data'
       - 'caddy_config:/config'
       - 'api_logs:/app/var/log'
       - '../files/jwt:/app/config/jwt'
-    ports:
-      - target: 80
-        published: ${HTTP_PORT:-80}
-        protocol: tcp
-      - target: 443
-        published: ${HTTPS_PORT:-443}
-        protocol: tcp
-      - target: 443
-        published: ${HTTP3_PORT:-443}
-        protocol: udp
-
+      
 volumes:
-  caddy_data:
   caddy_config:
+  caddy_data:

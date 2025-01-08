@@ -15,16 +15,11 @@ services:
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
     resource: '../src/*'
 
-  App\Action\:
-    resource: '../src/Action'
-    tags: ['controller.service_arguments']
-
   Aws\S3\S3Client:
     arguments:
       - credentials:
           key: '%env(AWS_S3_ACCESS_ID)%'
           secret: '%env(AWS_S3_ACCESS_SECRET)%'
-
         region: '%env(AWS_S3_REGION)%'
         version: '2006-03-01'
 
@@ -34,19 +29,6 @@ services:
   # default configuration for services in *this* file
   _defaults:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-
     autowire: true # Automatically injects dependencies in your services.
     bind:
-      $collectionProvider: '@api_platform.doctrine.orm.state.collection_provider'
-      $frontUrl: '%env(FRONT_URL)%'
-      $isDebug: '%kernel.debug%'
-      $itemProvider: '@api_platform.doctrine.orm.state.item_provider'
-      $persistProcessor: '@api_platform.doctrine.orm.state.persist_processor'
-      $privateKeyFile: '%env(resolve:CUSTOM_JWT_PRIVATE_KEY)%'
-      $privateKeyPassphrase: '%env(resolve:CUSTOM_JWT_PASSPHRASE_KEY)%'
-      $publicKeyFile: '%env(resolve:CUSTOM_JWT_PUBLIC_KEY)%'
-      $removeProcessor: '@api_platform.doctrine.orm.state.remove_processor'
-      $s3BucketName: '%env(AWS_S3_BUCKET_NAME)%'
-      $signingKey: '%kernel.secret%'
-      $uploadedAssetsBaseUrl: '%uploads_base_url%'
-      $uploadsFilesystem: '@oneup_flysystem.uploads_filesystem_filesystem'
+

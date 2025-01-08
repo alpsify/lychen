@@ -43,6 +43,12 @@ export default [
     languageOptions: { parserOptions: { parser: tseslint.parser } },
   },
   {
+    files: ['**/compose.*.yml', '**/compose.yml'],
+    rules: {
+      'yml/no-empty-mapping-value': ['off'],
+    },
+  },
+  {
     rules: {
       'no-console': 'error',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',

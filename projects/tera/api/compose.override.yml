@@ -1,14 +1,15 @@
 # Development environment override
 services:
+  database:
+    ports:
+      - protocol: tcp
+        published: 5432
+        target: 5432
+
   php:
     build:
       context: .
       target: frankenphp_dev
-    volumes:
-      - ./:/app
-      - ./var:/app/var
-      - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
     environment:
       SERVER_NAME: api.tera.lychen.local
       #MERCURE_EXTRA_DIRECTIVES: demo
@@ -18,9 +19,8 @@ services:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
     tty: true
-
-  database:
-    ports:
-      - target: 5432
-        published: 5432
-        protocol: tcp
+    volumes:
+      - ./:/app
+      - ./var:/app/var
+      - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro

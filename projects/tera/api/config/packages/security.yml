@@ -9,7 +9,7 @@ security:
   firewalls:
     api:
       custom_authenticators:
-        - App\Security\ApiKeyAuthenticator
+        - App\Security\UserAuthenticator
       pattern: ^/api
       provider: all_users_uuid
       stateless: true
@@ -24,7 +24,6 @@ security:
       pattern: ^/api/auth_token/user
       provider: user
       stateless: true
-      user_checker: App\Security\UserChecker
 
     api_token_refresh:
       pattern: ^/api/refresh_token
@@ -41,7 +40,7 @@ security:
   providers:
     all_users_uuid:
       chain:
-        providers: ['user_uuid', 'api_key_uuid', 'reviewer_uuid']
+        providers: ['user_uuid']
 
     user:
       entity:

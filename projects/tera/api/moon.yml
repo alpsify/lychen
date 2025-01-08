@@ -6,5 +6,16 @@ tags:
   - php
 
 tasks:
+  bash:
+    command: docker compose exec php bash
+    options:
+      persistent: true
+
   dev:
-    command: docker compose up -d
+    command: docker compose up --detach
+
+  down:
+    command: docker compose down --remove-orphans
+
+  sh:
+    command: docker compose exec php sh
