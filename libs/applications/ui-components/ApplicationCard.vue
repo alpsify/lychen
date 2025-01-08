@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { Application } from '@lychen/applications-util-model/Application';
+import { type Application } from '@lychen/applications-util-model/Application';
 import { defineAsyncComponent, type HTMLAttributes } from 'vue';
 import ApplicationTitle from './ApplicationTitle.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';

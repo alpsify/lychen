@@ -38,7 +38,10 @@ import {
   messages as lunaMessages,
   TRANSLATION_KEY as LUNA_TRANSLATION_KEY,
 } from '@lychen/luna-ui-i18n';
-import { Application, ApplicationAlias } from '@lychen/applications-util-model/Application';
+import {
+  type Application,
+  type ApplicationAlias,
+} from '@lychen/applications-util-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';

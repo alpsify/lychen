@@ -1,5 +1,5 @@
-import { ApplicationFeatureAlias } from './ApplicationFeatureAlias';
-import { ApplicationFeatureGroup } from './ApplicationFeatureGroup';
+import { type ApplicationFeatureAlias } from './ApplicationFeatureAlias';
+import { type ApplicationFeatureGroup } from './ApplicationFeatureGroup';
 
 export interface ApplicationFeatureListItem<
   A extends ApplicationFeatureAlias,

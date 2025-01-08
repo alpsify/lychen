@@ -1,6 +1,6 @@
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';
-import { ObjectValues } from '@lychen/typescript-util-object/Object';
+import { type ObjectValues } from '@lychen/typescript-util-object/Object';
 
 export interface Application {
   link: string;

@@ -1,4 +1,4 @@
-import { ObjectValues } from '@lychen/typescript-util-object/Object';
+import { type ObjectValues } from '@lychen/typescript-util-object/Object';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { HTMLAttributes } from 'vue';
 

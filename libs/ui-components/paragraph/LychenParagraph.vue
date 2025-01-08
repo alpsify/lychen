@@ -11,7 +11,7 @@ import { Primitive, type PrimitiveProps } from 'radix-vue';
 import { type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { ParagraphVariants, paragraphVariants } from '.';
+import { type ParagraphVariants, paragraphVariants } from '.';
 
 interface Props extends PrimitiveProps {
   variant?: ParagraphVariants['variant'];

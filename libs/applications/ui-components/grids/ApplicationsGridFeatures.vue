@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
+import { type OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 import ApplicationFeatureCard from '../ApplicationFeatureCard.vue';
 
 defineProps<{ features: OrganizedFeaturesByGroup }>();

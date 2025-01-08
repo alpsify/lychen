@@ -2,28 +2,39 @@
   "extends": "tsconfig-moon/tsconfig.json",
   "compilerOptions": {
     "rootDir": "./", //If not setup gener TS6059 error on .vue files import
-    "allowJs": true,
-    "lib": ["esnext", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "target": "esnext",
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "incremental": true,
-    "noEmit": false,
-    "noEmitOnError": true,
+
     "skipLibCheck": true,
-    "verbatimModuleSyntax": false,
-    //QUASAR
-    "forceConsistentCasingInFileNames": true,
-    "sourceMap": true,
-    "strict": true,
-    "jsx": "preserve",
+    "skipDefaultLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+
     "isolatedModules": true,
-    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true,
+    "incremental": true,
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    "sourceMap": true,
+    "composite": true,
+    "declarationMap": true,
+
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true
   }
 }

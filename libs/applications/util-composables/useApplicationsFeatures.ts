@@ -1,5 +1,5 @@
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
-import { ApplicationFeatureList } from '@lychen/applications-util-model/ApplicationFeatureList';
+import { type ApplicationFeatureList } from '@lychen/applications-util-model/ApplicationFeatureList';
 import { useFeatures as useTeraFeatures } from '@lychen/tera-util-features/composables/useFeatures';
 import { useFeatures as useKiroFeatures } from '@lychen/kiro-util-features/composables/useFeatures';
 import { useFeatures as useMeliFeatures } from '@lychen/meli-util-features/composables/useFeatures';
@@ -10,10 +10,10 @@ import { useFeatures as useLunaFeatures } from '@lychen/luna-util-features/compo
 import { useFeatures as useKoloFeatures } from '@lychen/kolo-util-features/composables/useFeatures';
 import { useFeatures as useHumuFeatures } from '@lychen/humu-util-features/composables/useFeatures';
 import { useFeatures as useEkoFeatures } from '@lychen/eko-util-features/composables/useFeatures';
-import { UseGenericApplicationsFeatures } from '@lychen/applications-util-generic-composables/useGenericApplicationsFeatures';
-import { ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
-import { ApplicationFeatureGroup } from '@lychen/applications-util-model/ApplicationFeatureGroup';
-import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
+import { type UseGenericApplicationsFeatures } from '@lychen/applications-util-generic-composables/useGenericApplicationsFeatures';
+import { type ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
+import { type ApplicationFeatureGroup } from '@lychen/applications-util-model/ApplicationFeatureGroup';
+import { type OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 
 export function useApplicationsFeatures() {
   const map: {

@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
-import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
+import { type OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 

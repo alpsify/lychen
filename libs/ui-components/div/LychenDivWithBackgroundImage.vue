@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { DivWithBackgroundImageProps } from '.';
+import { type DivWithBackgroundImageProps } from '.';
 
 const props = withDefaults(defineProps<DivWithBackgroundImageProps>(), {
   is: 'div',

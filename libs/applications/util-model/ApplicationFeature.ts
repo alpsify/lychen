@@ -1,5 +1,5 @@
-import { ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
-import { ApplicationFeatureGroup } from './ApplicationFeatureGroup';
+import { type ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
+import { type ApplicationFeatureGroup } from './ApplicationFeatureGroup';
 
 export interface ApplicationFeature {
   alias: ApplicationFeatureAlias;

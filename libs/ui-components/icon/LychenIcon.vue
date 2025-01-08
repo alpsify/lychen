@@ -11,7 +11,7 @@ import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fon
 
 import { computed } from 'vue';
 
-import { LYCHEN_ICON_FASHION_DEFAULT, LychenIconFashion } from '.';
+import { LYCHEN_ICON_FASHION_DEFAULT, type LychenIconFashion } from '.';
 
 const props = withDefaults(
   defineProps<Omit<FontAwesomeIconProps, 'icon'> & { icon: string; fashion?: LychenIconFashion }>(),

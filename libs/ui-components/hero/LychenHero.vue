@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import LychenDivWithBackgroundImage from '../div/LychenDivWithBackgroundImage.vue';
-import { DivWithBackgroundImageProps } from '../div';
+import { type DivWithBackgroundImageProps } from '../div';
 import { useForwardProps } from 'radix-vue';
 
 const props = defineProps<Omit<DivWithBackgroundImageProps, 'is'>>();

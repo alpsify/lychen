@@ -1,4 +1,4 @@
-import { ApplicationState } from '@lychen/applications-util-model/Application';
+import { type ApplicationState } from '@lychen/applications-util-model/Application';
 import { type RouteRecordRaw } from 'vue-router';
 
 export interface LayoutApplicationNavigationProps {

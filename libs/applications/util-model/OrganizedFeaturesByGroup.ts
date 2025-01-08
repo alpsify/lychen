@@ -1,5 +1,5 @@
-import { ApplicationFeature } from './ApplicationFeature';
-import { ApplicationFeatureGroup } from './ApplicationFeatureGroup';
+import { type ApplicationFeature } from './ApplicationFeature';
+import { type ApplicationFeatureGroup } from './ApplicationFeatureGroup';
 
 export type OrganizedFeaturesByGroup = Record<
   ApplicationFeatureGroup,

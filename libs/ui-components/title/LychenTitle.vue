@@ -11,7 +11,7 @@ import { type AsTag, Primitive, type PrimitiveProps } from 'radix-vue';
 import { type Component, computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { TitleVariants, titleVariants } from '.';
+import { type TitleVariants, titleVariants } from '.';
 
 interface Props extends PrimitiveProps {
   variant?: TitleVariants['variant'];

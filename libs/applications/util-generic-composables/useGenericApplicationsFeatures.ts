@@ -1,13 +1,13 @@
-import { ApplicationFeature } from '@lychen/applications-util-model/ApplicationFeature';
-import { ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
-import { ApplicationFeatureGroup } from '@lychen/applications-util-model/ApplicationFeatureGroup';
+import { type ApplicationFeature } from '@lychen/applications-util-model/ApplicationFeature';
+import { type ApplicationFeatureAlias } from '@lychen/applications-util-model/ApplicationFeatureAlias';
+import { type ApplicationFeatureGroup } from '@lychen/applications-util-model/ApplicationFeatureGroup';
 import {
-  ApplicationFeatureList,
-  ApplicationFeatureListItem,
+  type ApplicationFeatureList,
+  type ApplicationFeatureListItem,
 } from '@lychen/applications-util-model/ApplicationFeatureList';
-import { OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
+import { type OrganizedFeaturesByGroup } from '@lychen/applications-util-model/OrganizedFeaturesByGroup';
 import {
-  UseCustomI18nOptions,
+  type UseCustomI18nOptions,
   useI18nExtended,
 } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 

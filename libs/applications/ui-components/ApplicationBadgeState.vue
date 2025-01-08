@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/applications-ui-i18n';
-import { ApplicationState } from '@lychen/applications-util-model/Application';
+import { type ApplicationState } from '@lychen/applications-util-model/Application';
 import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';
 import LychenBadge from '@lychen/ui-components/badge/LychenBadge.vue';
 
