@@ -11,6 +11,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@layouts/TheLayout.vue'),
     children: [RoutePageHome, RoutePagePrice, RoutePageManifest, RoutePageSponsor],
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: RoutePageHome,
+  },
 ];
 
 export default routes;

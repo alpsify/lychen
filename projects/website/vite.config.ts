@@ -43,7 +43,7 @@ const config: UserConfig = {
     script: 'async',
     formatting: 'prettify',
     onFinished() {
-      generateSitemap();
+      generateSitemap({ hostname: `https://${process.env.VITE_UNHEAD_HOST}` });
     },
   },
 };
