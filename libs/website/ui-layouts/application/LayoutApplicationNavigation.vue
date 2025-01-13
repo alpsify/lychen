@@ -90,7 +90,7 @@ import { defineAsyncComponent, provide, ref } from 'vue';
 import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 
-import { LayoutApplicationNavigationProps } from '.';
+import { type LayoutApplicationNavigationProps } from '.';
 
 const WebsiteButtonTallyPreregister = defineAsyncComponent(
   () =>

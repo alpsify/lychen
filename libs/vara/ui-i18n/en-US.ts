@@ -1,1 +1,4 @@
-export default {};
+export default {
+  name: 'Vara',
+  description: 'Centralizes biodiversity data and informs citizens and associations',
+};

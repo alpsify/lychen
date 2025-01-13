@@ -1,1 +1,4 @@
-export default {};
+export default {
+  name: 'Humu',
+  description: 'Structures biowaste management and develops composting initiatives',
+};

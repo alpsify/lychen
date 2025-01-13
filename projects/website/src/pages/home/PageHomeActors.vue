@@ -20,8 +20,8 @@
         :key="index"
         class="flex flex-col items-stretch justify-start p-4"
       >
-        <LychenTitle variant="h3">{{ actor.title }}</LychenTitle>
-        <div class="opacity-70">{{ actor.text }}</div>
+        <LychenTitle variant="h3">{{ t(`actors.${actor}.title`) }}</LychenTitle>
+        <div class="opacity-70">{{ t(`actors.${actor}.text`) }}</div>
       </LychenCard>
     </div>
   </LychenContainer>
@@ -30,7 +30,6 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 
-import { actors } from '.';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
@@ -46,4 +45,13 @@ const LychenParagraph = defineAsyncComponent(
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+const actors = [
+  'localAuthorities',
+  'citizens',
+  'companies',
+  'associations',
+  'farmers',
+  'researchers',
+];
 </script>

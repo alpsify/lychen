@@ -1,1 +1,4 @@
-export default {};
+export default {
+  name: 'Tera',
+  description: 'Facilitates crop management and connects citizens and farmers to shared spaces',
+};

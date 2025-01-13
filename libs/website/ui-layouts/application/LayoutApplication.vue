@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import LayoutApplicationFooter from './LayoutApplicationFooter.vue';
-import { LayoutApplicationNavigationProps } from '.';
+import { type LayoutApplicationNavigationProps } from '.';
 import LayoutApplicationNavigation from './LayoutApplicationNavigation.vue';
 
 defineProps<LayoutApplicationNavigationProps>();

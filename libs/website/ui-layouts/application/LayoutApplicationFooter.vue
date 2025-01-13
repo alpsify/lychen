@@ -51,7 +51,7 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
-import { LayoutApplicationFooterProps } from '.';
+import { type LayoutApplicationFooterProps } from '.';
 import { EMAIL } from '@lychen/util-constants/Email';
 import { LINK } from '@lychen/util-constants/Link';
 import {

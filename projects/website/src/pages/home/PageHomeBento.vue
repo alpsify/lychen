@@ -6,27 +6,27 @@
           icon="chart-network"
           class="text-5xl"
         />
-        <p class="text-xl">Intégrabilité</p>
+        <p class="text-xl">{{ t('bento.integrability.title') }}</p>
       </div>
       <div class="item justify-between">
-        Objectif
-        <p class="gradient text-5xl">2026</p>
-        v1
+        {{ t('bento.objective.title') }}
+        <p class="gradient text-5xl">{{ t('bento.objective.year') }}</p>
+        {{ t('bento.objective.version') }}
       </div>
       <div class="item justify-between">
-        <p>Valorisé le</p>
-        <p class="text-4xl gradient">local</p>
-        <p>via le numérique</p>
+        <p>{{ t('bento.local_value.title') }}</p>
+        <p class="text-4xl gradient">{{ t('bento.local_value.keyword') }}</p>
+        <p>{{ t('bento.local_value.subtitle') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="gradient text-xl md:text-2xl">Vous êtes propriétaire de vos données</p>
+        <p class="gradient text-xl md:text-2xl">{{ t('bento.data_ownership.title') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="gradient text-4xl">Accessibilité</p>
-        <p>Fluidité et modernité</p>
+        <p class="gradient text-4xl">{{ t('bento.accessibility.title') }}</p>
+        <p>{{ t('bento.accessibility.subtitle') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="text-xl gradient md:text-2xl">Changements citoyens</p>
+        <p class="text-xl gradient md:text-2xl">{{ t('bento.citizen_change.title') }}</p>
       </div>
       <div class="item bg-surface-container-high">
         <img
@@ -34,13 +34,13 @@
           class="rounded-xl w-2/3"
           alt="number 10 as organic blue and green shapes"
         />
-        <p class="text-4xl gradient">Applications</p>
-        <p>Inter-connectées</p>
+        <p class="text-4xl gradient">{{ t('bento.applications.title') }}</p>
+        <p>{{ t('bento.applications.subtitle') }}</p>
       </div>
       <div class="item justify-between">
-        Basé sur les <br />
-        <p class="gradient text-8xl">17</p>
-        ODD européens
+        {{ t('bento.sustainable_development.title') }} <br />
+        <p class="gradient text-8xl">{{ t('bento.sustainable_development.sdg_number') }}</p>
+        {{ t('bento.sustainable_development.subtitle') }}
       </div>
       <div class="item justify-between">
         <div></div>
@@ -49,24 +49,26 @@
             icon="hand-holding-heart"
             class="text-5xl"
           />
-          <p class="text-2xl md:text-4xl gradient">Sponsor</p>
+          <p class="text-2xl md:text-4xl gradient">{{ t('bento.sponsorship.title') }}</p>
         </div>
-        plûtot qu'investisseur
+        {{ t('bento.sponsorship.description') }}
       </div>
       <div class="item justify-center">
-        <p class="text-2xl gradient">Ethique & inclusif</p>
+        <p class="text-2xl gradient">{{ t('bento.ethics_inclusion.title') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="gradient text-5xl">0</p>
-        compromis
+        <p class="gradient text-5xl">{{ t('bento.compromise.title') }}</p>
+        <p>{{ t('bento.compromise.subtitle') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="text-xl gradient md:text-2xl">Faire communiquer les acteurs du territoire</p>
+        <p class="text-xl gradient md:text-2xl">{{ t('bento.communication.title') }}</p>
       </div>
-      <div class="item justify-center"><p class="text-2xl">Petite équipe, grand résultat</p></div>
       <div class="item justify-center">
-        Transparence
-        <p class="gradient text-2xl">Open-Source Software</p>
+        <p class="text-2xl">{{ t('bento.team.title') }}</p>
+      </div>
+      <div class="item justify-center">
+        {{ t('bento.transparency.title') }}
+        <p class="gradient text-2xl">{{ t('bento.transparency.subtitle') }}</p>
       </div>
     </div>
   </LychenContainer>

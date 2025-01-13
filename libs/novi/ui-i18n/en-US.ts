@@ -1,1 +1,4 @@
-export default {};
+export default {
+  name: 'Novi',
+  description: 'Shares scientific knowledge about ecosystems and encourages research',
+};

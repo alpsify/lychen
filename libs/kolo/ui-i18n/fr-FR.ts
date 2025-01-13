@@ -1,4 +1,4 @@
 export default {
   name: 'Kolo',
-  description: 'Gère les magasins de producteurs et connecte citoyens et producteurs locaux',
+  description: 'Manages producer stores and connects citizens with local producers',
 };
