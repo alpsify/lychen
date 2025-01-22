@@ -9,7 +9,7 @@ security:
   firewalls:
     main:
       pattern: ^/
-      provider: zitadel_user_provider
+      provider: user_provider
       stateless: true
       custom_authenticators:
         - App\Security\ZitadelUserAuthenticator
@@ -19,6 +19,8 @@ security:
       security: false
 
   providers:
-    zitadel_user_provider:
-      id: App\Security\ZitadelUserProvider
+    user_provider:
+      entity:
+        class: 'App/Entity/User'
+        property: 'authId'
 

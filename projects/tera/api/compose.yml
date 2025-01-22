@@ -2,7 +2,6 @@ services:
   database:
     environment:
       - POSTGRES_DB=${POSTGRES_DB:-app}
-      # You should definitely change the password in production
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForLocal!}
       - POSTGRES_USER=${POSTGRES_USER:-userlocal}
     healthcheck:
