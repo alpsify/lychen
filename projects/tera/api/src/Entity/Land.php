@@ -3,24 +3,74 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Constant\LandKinds;
+use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use App\Model\Trait\CreatedAtTrait;
+use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Uid\Ulid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource]
-class Land
+#[ORM\HasLifecycleCallbacks]
+class Land extends AbstractIdOrmAndUlidApiIdentified
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    public function getId(): ?int
+    /**
+     * @var Collection<int, LandMember>
+     */
+    #[ORM\OneToMany(targetEntity: LandMember::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landMembers;
+
+    #[ORM\OneToOne(mappedBy: 'land', cascade: ['persist', 'remove'])]
+    private ?LandSetting $landSetting = null;
+
+    /**
+     * @var Collection<int, LandArea>
+     */
+    #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landAreas;
+
+    /**
+     * @var Collection<int, LandTask>
+     */
+    #[ORM\OneToMany(targetEntity: LandTask::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landTasks;
+
+    /**
+     * @var Collection<int, LandMemberInvitation>
+     */
+    #[ORM\OneToMany(targetEntity: LandMemberInvitation::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landMemberInvitations;
+
+    /**
+     * @var Collection<int, LandRole>
+     */
+    #[ORM\OneToMany(targetEntity: LandRole::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landRoles;
+
+    #[ORM\Column(length: 150, options: ['default' => LandKinds::INDIVIDUAL])]
+    #[Assert\Choice(LandKinds::ALL)]
+    private ?string $kind = LandKinds::INDIVIDUAL;
+
+    public function __construct(?Ulid $ulid = null)
     {
-        return $this->id;
+        parent::__construct($ulid);
+        $this->landMembers = new ArrayCollection();
+        $this->setLandSetting(new LandSetting());
+        $this->landAreas = new ArrayCollection();
+        $this->landTasks = new ArrayCollection();
+        $this->landMemberInvitations = new ArrayCollection();
+        $this->landRoles = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -31,6 +81,185 @@ class Land
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandMember>
+     */
+    public function getLandMembers(): Collection
+    {
+        return $this->landMembers;
+    }
+
+    public function addLandMember(LandMember $landMember): static
+    {
+        if (!$this->landMembers->contains($landMember)) {
+            $this->landMembers->add($landMember);
+            $landMember->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandMember(LandMember $landMember): static
+    {
+        if ($this->landMembers->removeElement($landMember)) {
+            // set the owning side to null (unless already changed)
+            if ($landMember->getLand() === $this) {
+                $landMember->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLandSetting(): ?LandSetting
+    {
+        return $this->landSetting;
+    }
+
+    public function setLandSetting(LandSetting $landSetting): static
+    {
+        // set the owning side of the relation if necessary
+        if ($landSetting->getLand() !== $this) {
+            $landSetting->setLand($this);
+        }
+
+        $this->landSetting = $landSetting;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandArea>
+     */
+    public function getLandAreas(): Collection
+    {
+        return $this->landAreas;
+    }
+
+    public function addLandArea(LandArea $landArea): static
+    {
+        if (!$this->landAreas->contains($landArea)) {
+            $this->landAreas->add($landArea);
+            $landArea->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandArea(LandArea $landArea): static
+    {
+        if ($this->landAreas->removeElement($landArea)) {
+            // set the owning side to null (unless already changed)
+            if ($landArea->getLand() === $this) {
+                $landArea->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandTask>
+     */
+    public function getLandTasks(): Collection
+    {
+        return $this->landTasks;
+    }
+
+    public function addLandTask(LandTask $landTask): static
+    {
+        if (!$this->landTasks->contains($landTask)) {
+            $this->landTasks->add($landTask);
+            $landTask->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandTask(LandTask $landTask): static
+    {
+        if ($this->landTasks->removeElement($landTask)) {
+            // set the owning side to null (unless already changed)
+            if ($landTask->getLand() === $this) {
+                $landTask->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandMemberInvitation>
+     */
+    public function getLandMemberInvitations(): Collection
+    {
+        return $this->landMemberInvitations;
+    }
+
+    public function addLandMemberInvitation(LandMemberInvitation $landMemberInvitation): static
+    {
+        if (!$this->landMemberInvitations->contains($landMemberInvitation)) {
+            $this->landMemberInvitations->add($landMemberInvitation);
+            $landMemberInvitation->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandMemberInvitation(LandMemberInvitation $landMemberInvitation): static
+    {
+        if ($this->landMemberInvitations->removeElement($landMemberInvitation)) {
+            // set the owning side to null (unless already changed)
+            if ($landMemberInvitation->getLand() === $this) {
+                $landMemberInvitation->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandRole>
+     */
+    public function getLandRoles(): Collection
+    {
+        return $this->landRoles;
+    }
+
+    public function addLandRole(LandRole $landRole): static
+    {
+        if (!$this->landRoles->contains($landRole)) {
+            $this->landRoles->add($landRole);
+            $landRole->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandRole(LandRole $landRole): static
+    {
+        if ($this->landRoles->removeElement($landRole)) {
+            // set the owning side to null (unless already changed)
+            if ($landRole->getLand() === $this) {
+                $landRole->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getKind(): ?string
+    {
+        return $this->kind;
+    }
+
+    public function setKind(string $kind): static
+    {
+        $this->kind = $kind;
 
         return $this;
     }

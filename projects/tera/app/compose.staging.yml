@@ -1,0 +1,6 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/staging/tera/app:latest
+    #labels:
+    #- traefik.http.routers.lychen-staging-tera-app-bmhhlx-62-websecure.middlewares=ip-allow@file
+    restart: unless-stopped

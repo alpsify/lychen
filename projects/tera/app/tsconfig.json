@@ -1,0 +1,24 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../../../libs/tera/ui-i18n/**/*", "../../../libs/ui-components/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../../libs/tera/ui-i18n"
+    },
+    {
+      "path": "../../../libs/ui-components"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/projects/tera/app",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
+      "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
+      "@lychen/ui-components/*": ["../../../libs/ui-components/*"]
+    }
+  }
+}

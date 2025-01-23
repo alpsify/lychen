@@ -790,18 +790,6 @@
     "zenstruck/assert": {
         "version": "v1.0.0"
     },
-    "zenstruck/browser": {
-        "version": "1.9999999",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "1.9",
-            "ref": "66c5290398734ff02cedddf44dce6eb2002d958c"
-        }
-    },
-    "zenstruck/callback": {
-        "version": "v1.4.0"
-    },
     "zenstruck/foundry": {
         "version": "2.2",
         "recipe": {

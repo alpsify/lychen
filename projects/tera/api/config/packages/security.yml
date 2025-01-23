@@ -21,6 +21,6 @@ security:
   providers:
     user_provider:
       entity:
-        class: 'App/Entity/User'
+        class: 'App/Entity/Person'
         property: 'authId'
 

@@ -2328,6 +2328,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/tera-app@workspace:projects/tera/app":
+  version: 0.0.0-use.local
+  resolution: "@lychen/tera-app@workspace:projects/tera/app"
+  dependencies:
+    "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    autoprefixer: "npm:^10.4.20"
+    postcss: "npm:^8.4.49"
+    tailwindcss: "npm:^3.4.16"
+    vite: "npm:^6.0.3"
+    vite-plugin-mkcert: "npm:^1.17.6"
+    vite-plugin-pwa: "npm:^0.21.1"
+    vue: "npm:3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/tera-ui-i18n@workspace:*, @lychen/tera-ui-i18n@workspace:libs/tera/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-ui-i18n@workspace:libs/tera/ui-i18n"
