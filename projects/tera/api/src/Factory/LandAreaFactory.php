@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Factory;
+
+use App\Entity\LandArea;
+use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
+
+/**
+ * @extends PersistentProxyObjectFactory<LandArea>
+ */
+final class LandAreaFactory extends PersistentProxyObjectFactory
+{
+    /**
+     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
+     */
+    public function __construct()
+    {
+    }
+
+    public static function class(): string
+    {
+        return LandArea::class;
+    }
+
+    /**
+     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
+     */
+    protected function defaults(): array|callable
+    {
+        return [
+            'name' => self::faker()->text(255),
+            'description' => self::faker()->sentences(asText: true),
+        ];
+    }
+
+    /**
+     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
+     */
+    protected function initialize(): static
+    {
+        return $this// ->afterInstantiate(function(LandArea $landArea): void {})
+            ;
+    }
+}
