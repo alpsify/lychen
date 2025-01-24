@@ -1,15 +1,13 @@
 security:
   access_control:
     - { path: ^/api/docs, roles: PUBLIC_ACCESS }
-
-  #access_decision_manager:
-    #allow_if_all_abstain: false
-    #strategy: unanimous
+    - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
 
   firewalls:
     main:
       pattern: ^/
-      provider: user_provider
+      lazy: true
+      provider: zitadel_user_provider
       stateless: true
       custom_authenticators:
         - App\Security\ZitadelUserAuthenticator
@@ -19,8 +17,5 @@ security:
       security: false
 
   providers:
-    user_provider:
-      entity:
-        class: 'App/Entity/Person'
-        property: 'authId'
-
+    zitadel_user_provider:
+      id: App\Security\ZitadelUserProvider

@@ -16,6 +16,10 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 class ZitadelUserAuthenticator extends AbstractAuthenticator
 {
 
+    public function __construct()
+    {
+    }
+
     public function supports(Request $request): ?bool
     {
         return $request->headers->has('Authorization') && str_starts_with($request->headers->get('Authorization'), 'Bearer ');
@@ -23,18 +27,13 @@ class ZitadelUserAuthenticator extends AbstractAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        // TODO: Implement authenticate() method.
         $token = str_replace('Bearer ', '', $request->headers->get('Authorization'));
 
-        if(null === $token) {
+        if (null === $token) {
             throw new CustomUserMessageAuthenticationException('No token provided');
         }
 
-        //TODO Check with Zitadel that the token is valid
-        //TODO
-        $userAuthId = "test";
-
-        return new SelfValidatingPassport(new UserBadge($userAuthId));
+        return new SelfValidatingPassport(new UserBadge($token));
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response

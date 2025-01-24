@@ -134,9 +134,6 @@
     "fakerphp/faker": {
         "version": "v1.15.0"
     },
-    "firebase/php-jwt": {
-        "version": "v6.1.0"
-    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },

@@ -38,6 +38,15 @@ class Person implements UserInterface
     #[ORM\OneToMany(targetEntity: LandResearchRequest::class, mappedBy: 'person', orphanRemoval: true)]
     private Collection $landResearchRequests;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $email = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $givenName = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $familyName = null;
+
     public function __construct()
     {
         $this->landMembers = new ArrayCollection();
@@ -160,6 +169,42 @@ class Person implements UserInterface
                 $landResearchRequest->setPerson(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getGivenName(): ?string
+    {
+        return $this->givenName;
+    }
+
+    public function setGivenName(?string $givenName): static
+    {
+        $this->givenName = $givenName;
+
+        return $this;
+    }
+
+    public function getFamilyName(): ?string
+    {
+        return $this->familyName;
+    }
+
+    public function setFamilyName(?string $familyName): static
+    {
+        $this->familyName = $familyName;
 
         return $this;
     }
