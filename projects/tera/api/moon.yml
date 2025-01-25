@@ -1,3 +1,6 @@
+dependsOn:
+  - lychen-php-util-model
+
 id: tera-api
 
 language: php

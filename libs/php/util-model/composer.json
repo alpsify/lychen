@@ -1,0 +1,22 @@
+{
+  "name": "lychen/util-model",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Lychen\\UtilModel\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Nathan De Pachtere",
+      "email": "nathan.depachtere@alpsify.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "api-platform/core": "^4.0",
+    "symfony/uid": "^7.2",
+    "gedmo/doctrine-extensions": "^3.17"
+  },
+  "minimum-stability": "stable"
+}

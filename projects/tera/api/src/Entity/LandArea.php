@@ -3,11 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
 use App\Repository\LandAreaRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaRepository::class)]

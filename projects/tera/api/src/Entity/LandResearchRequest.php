@@ -8,11 +8,11 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
-use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandResearchRequestRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
 
 #[ORM\Entity(repositoryClass: LandResearchRequestRepository::class)]
 #[ApiResource(operations: [

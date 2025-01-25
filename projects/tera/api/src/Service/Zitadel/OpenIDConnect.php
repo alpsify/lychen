@@ -4,7 +4,7 @@ namespace App\Service\Zitadel;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-readonly class OAuth
+readonly class OpenIDConnect
 {
     public function __construct(private HttpClientInterface $client, private string $domain, private string $clientId, private string $clientSecret)
     {

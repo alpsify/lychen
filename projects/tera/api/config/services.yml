@@ -32,7 +32,7 @@ services:
     autowire: true # Automatically injects dependencies in your services.
     bind:
 
-  App\Service\Zitadel\OAuth:
+  App\Service\Zitadel\OpenIDConnect:
     arguments:
       $domain: '%env(ZITADEL_DOMAIN)%'
       $clientId: '%env(ZITADEL_CLIENT_ID)%'

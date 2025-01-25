@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Model\Abstract;
+namespace Lychen\UtilModel\Abstract;
 
 use ApiPlatform\Metadata\ApiProperty;
-use App\Model\Interface\IdIdentifiedInterface;
-use App\Model\Interface\UlidIdentifiedInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Interface\IdIdentifiedInterface;
+use Lychen\UtilModel\Interface\UlidIdentifiedInterface;
 use Symfony\Bridge\Doctrine\Types\UlidType;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Uid\Ulid;

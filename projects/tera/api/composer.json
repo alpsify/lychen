@@ -61,7 +61,8 @@
     "symfony/uid": "7.2.*",
     "symfony/validator": "7.2.*",
     "symfony/workflow": "7.2.*",
-    "symfony/yaml": "7.2.*"
+    "symfony/yaml": "7.2.*",
+    "lychen/util-model": "*"
   },
   "require-dev": {
     "dama/doctrine-test-bundle": "8.2.*",
@@ -80,7 +81,18 @@
     "zenstruck/foundry": "2.2.*",
     "zenstruck/messenger-test": "1.11.*"
   },
-  "repositories": [],
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../packages/*",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "lychen/util-model": "0.0.0"
+        }
+      }
+    }
+  ],
   "config": {
     "optimize-autoloader": true,
     "preferred-install": {

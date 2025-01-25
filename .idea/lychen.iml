@@ -2,11 +2,40 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/projects/tera/api" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/projects/tera/api/migrations" isTestSource="false" packagePrefix="DoctrineDefaultMigrations" />
+      <sourceFolder url="file://$MODULE_DIR$/projects/tera/api/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/projects/tera/api/var/cache/dev" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/projects/tera/api/var/cache/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/.yarn" />
       <excludeFolder url="file://$MODULE_DIR$/.moon/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/applications" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/eko" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/humu" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/kiro" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/kolo" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/luna" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/meli" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/myko" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/nginx" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/novi" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/odd" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/tailwind" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/tera" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/typescript" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/ui-components" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/ui-css" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/ui-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util-composables" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/util-constants" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/vara" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/vite" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/vue" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/website" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

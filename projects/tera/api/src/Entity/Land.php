@@ -4,13 +4,13 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Constant\LandKinds;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
-use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 

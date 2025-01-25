@@ -4,7 +4,7 @@ namespace App\Security;
 
 use App\Entity\Person;
 use App\Repository\PersonRepository;
-use App\Service\Zitadel\OAuth;
+use App\Service\Zitadel\OpenIDConnect;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 readonly class ZitadelUserProvider implements UserProviderInterface
 {
 
-    public function __construct(private LoggerInterface $logger, private OAuth $oAuth, private PersonRepository $personRepository, private EntityManagerInterface $entityManager)
+    public function __construct(private LoggerInterface $logger, private OpenIDConnect $openIDConnect, private PersonRepository $personRepository, private EntityManagerInterface $entityManager)
     {
     }
 
@@ -39,7 +39,7 @@ readonly class ZitadelUserProvider implements UserProviderInterface
 
     public function loadUserByIdentifier(string $identifier): UserInterface
     {
-        $response = $this->oAuth->introspectToken($identifier);
+        $response = $this->openIDConnect->introspectToken($identifier);
         $this->ensureUserExists($response['sub'], $response);
 
         $user = $this->personRepository->findOneByAuthId($response['sub']);

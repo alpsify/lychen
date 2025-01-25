@@ -15,11 +15,6 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 
 class ZitadelUserAuthenticator extends AbstractAuthenticator
 {
-
-    public function __construct()
-    {
-    }
-
     public function supports(Request $request): ?bool
     {
         return $request->headers->has('Authorization') && str_starts_with($request->headers->get('Authorization'), 'Bearer ');
@@ -29,7 +24,7 @@ class ZitadelUserAuthenticator extends AbstractAuthenticator
     {
         $token = str_replace('Bearer ', '', $request->headers->get('Authorization'));
 
-        if (null === $token) {
+        if (!$token) {
             throw new CustomUserMessageAuthenticationException('No token provided');
         }
 

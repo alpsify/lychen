@@ -3,11 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
-use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandTaskRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
 #[ApiResource]

@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
-use App\Model\Trait\PositionTrait;
-use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandRoleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\PositionTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]

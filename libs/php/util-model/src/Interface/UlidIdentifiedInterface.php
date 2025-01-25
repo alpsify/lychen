@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Interface;
+namespace Lychen\UtilModel\Interface;
 
 use Symfony\Component\Uid\Ulid;
 

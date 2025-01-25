@@ -3,9 +3,9 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use App\Repository\LandAreaSettingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandAreaSettingRepository::class)]
 #[ApiResource]

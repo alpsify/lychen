@@ -6,9 +6,9 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use App\Repository\LandSettingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandSettingRepository::class)]
 #[ApiResource(operations: [

@@ -8,9 +8,10 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use App\Repository\LandMemberRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
@@ -25,7 +26,7 @@ use Symfony\Component\Uid\Ulid;
 class LandMember extends AbstractIdOrmAndUlidApiIdentified
 {
     #[ORM\Column]
-    private ?\DateTimeImmutable $joinedAt = null;
+    private ?DateTimeImmutable $joinedAt = null;
 
     #[ORM\Column]
     private ?bool $owner = null;
@@ -47,12 +48,12 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
         $this->setLandMemberSetting(new LandMemberSetting());
     }
 
-    public function getJoinedAt(): ?\DateTimeImmutable
+    public function getJoinedAt(): ?DateTimeImmutable
     {
         return $this->joinedAt;
     }
 
-    public function setJoinedAt(\DateTimeImmutable $joinedAt): static
+    public function setJoinedAt(DateTimeImmutable $joinedAt): static
     {
         $this->joinedAt = $joinedAt;
 
@@ -62,7 +63,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\PrePersist]
     public function setJoinedAtValue(): void
     {
-        $this->joinedAt = new \DateTimeImmutable();
+        $this->joinedAt = new DateTimeImmutable();
     }
 
     public function isOwner(): ?bool

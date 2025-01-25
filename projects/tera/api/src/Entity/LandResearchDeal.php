@@ -9,13 +9,13 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
-use App\Model\Abstract\AbstractIdOrmAndUlidApiIdentified;
-use App\Model\Trait\CreatedAtTrait;
-use App\Model\Trait\UpdatedAtTrait;
 use App\Repository\LandResearchDealRepository;
 use App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace;
 use App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandResearchDealRepository::class)]
