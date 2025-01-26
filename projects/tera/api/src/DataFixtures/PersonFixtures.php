@@ -3,9 +3,9 @@
 namespace App\DataFixtures;
 
 use App\Factory\PersonFactory;
-use App\Service\Zitadel\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Lychen\UtilZitadelBundle\Services\User;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use function Zenstruck\Foundry\faker;
 

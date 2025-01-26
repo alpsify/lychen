@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b863b22fc051375565f03eb5f7986132",
+    "content-hash": "f757b3730cc75da6e2df6c01f64930dc",
     "packages": [
         {
             "name": "api-platform/core",
@@ -2696,7 +2696,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/util-model",
-                "reference": "ce9239423b7a29ff5d28e6cb7a28d4cbe86033cc"
+                "reference": "0c9e0c15461a25f0436978baa78fb57677bd0900"
             },
             "require": {
                 "api-platform/core": "^4.0",
@@ -2708,6 +2708,39 @@
             "autoload": {
                 "psr-4": {
                     "Lychen\\UtilModel\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Nathan De Pachtere",
+                    "email": "nathan.depachtere@alpsify.com"
+                }
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "lychen/util-zitadel",
+            "version": "0.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../packages/util-zitadel",
+                "reference": "fa94c5e8d518833d2189146d8c9001ddee058708"
+            },
+            "require": {
+                "doctrine/annotations": "^2.0",
+                "symfony/dependency-injection": "^7.2",
+                "symfony/http-client": "^7.2",
+                "symfony/http-foundation": "^7.2",
+                "symfony/http-kernel": "^7.2",
+                "symfony/security-bundle": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lychen\\UtilZitadelBundle\\": "src/"
                 }
             },
             "authors": [

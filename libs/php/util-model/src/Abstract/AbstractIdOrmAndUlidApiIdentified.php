@@ -7,14 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Interface\IdIdentifiedInterface;
 use Lychen\UtilModel\Interface\UlidIdentifiedInterface;
 use Symfony\Bridge\Doctrine\Types\UlidType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Uid\Ulid;
 
 /**
  * Create default $id(int) as ORM\Id and $ulid(ulid) as api identifier. <br/>
  * Possibility to give Ulid through constructor,if null it's auto-generated.
  */
-#[UniqueEntity(fields: ['ulid'], message: 'Ulid already used.', groups: ['Default'])]
 #[ORM\MappedSuperclass]
 abstract class AbstractIdOrmAndUlidApiIdentified implements UlidIdentifiedInterface, IdIdentifiedInterface
 {

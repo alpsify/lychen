@@ -1,5 +1,6 @@
 dependsOn:
   - lychen-php-util-model
+  - lychen-php-util-zitadel
 
 id: tera-api
 

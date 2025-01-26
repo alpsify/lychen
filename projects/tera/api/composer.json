@@ -23,6 +23,8 @@
     "getbrevo/brevo-php": "2.0.*",
     "league/flysystem": "3.29.*",
     "league/flysystem-aws-s3-v3": "3.29.*",
+    "lychen/util-model": "*",
+    "lychen/util-zitadel": "*",
     "nelmio/cors-bundle": "2.5.*",
     "oneup/flysystem-bundle": "4.12.*",
     "phpdocumentor/reflection-docblock": "5.6.*",
@@ -61,8 +63,7 @@
     "symfony/uid": "7.2.*",
     "symfony/validator": "7.2.*",
     "symfony/workflow": "7.2.*",
-    "symfony/yaml": "7.2.*",
-    "lychen/util-model": "*"
+    "symfony/yaml": "7.2.*"
   },
   "require-dev": {
     "dama/doctrine-test-bundle": "8.2.*",
@@ -88,7 +89,8 @@
       "options": {
         "symlink": true,
         "versions": {
-          "lychen/util-model": "0.0.0"
+          "lychen/util-model": "0.0.0",
+          "lychen/util-zitadel": "0.0.0"
         }
       }
     }

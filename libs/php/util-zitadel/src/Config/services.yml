@@ -1,0 +1,31 @@
+services:
+  Lychen\UtilZitadelBundle\Authenticator\ZitadelUserAuthenticator: ~
+  Lychen\UtilZitadelBundle\Services\OpenIDConnect:
+    arguments:
+      $clientId: '%env(ZITADEL_CLIENT_ID)%'
+      $clientSecret: '%env(ZITADEL_CLIENT_SECRET)%'
+      $domain: '%env(ZITADEL_DOMAIN)%'
+  Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider: ~
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+when@dev:
+  services:
+    Lychen\UtilZitadelBundle\Services\User:
+      arguments:
+        $domain: '%env(ZITADEL_DOMAIN)%'
+        $pat: '%env(ZITADEL_MTOM_PAT)%'
+    _defaults:
+      autoconfigure: true
+      autowire: true
+
+when@test:
+  services:
+    Lychen\UtilZitadelBundle\Services\User:
+      arguments:
+        $domain: '%env(ZITADEL_DOMAIN)%'
+        $pat: '%env(ZITADEL_MTOM_PAT)%'
+    _defaults:
+      autoconfigure: true
+      autowire: true

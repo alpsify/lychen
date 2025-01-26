@@ -4,18 +4,18 @@ security:
     - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
 
   firewalls:
-    main:
-      pattern: ^/
-      lazy: true
-      provider: zitadel_user_provider
-      stateless: true
-      custom_authenticators:
-        - App\Security\ZitadelUserAuthenticator
-
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
 
+    main:
+      custom_authenticators:
+        - Lychen\UtilZitadelBundle\Authenticator\ZitadelUserAuthenticator
+      lazy: true
+      pattern: ^/
+      provider: zitadel_user_provider
+      stateless: true
+
   providers:
     zitadel_user_provider:
-      id: App\Security\ZitadelUserProvider
+      id: Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider
