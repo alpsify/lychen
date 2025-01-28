@@ -25,11 +25,11 @@
     >
       <LychenTitle
         variant="h6"
-        class="text-surface-container-on text-xl font-semibold"
+        class="text-on-surface-container text-xl font-semibold"
       >
         {{ title }}
       </LychenTitle>
-      <LychenParagraph class="text-surface-container-on/80 max-w-lg">{{
+      <LychenParagraph class="text-on-surface-container/80 max-w-lg">{{
         description
       }}</LychenParagraph>
     </div>

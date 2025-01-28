@@ -4,7 +4,7 @@ dependsOn:
   - luna-ui-i18n
   - luna-util-constants
   - luna-util-features
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

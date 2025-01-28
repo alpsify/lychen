@@ -1,10 +1,10 @@
 <template>
   <LychenDivScalingDown class="flex flex-col justify-start">
     <LychenHero
-      class="text-surface dark:text-surface-on flex flex-row items-center justify-start gap-4 min-h-dvh"
+      class="text-surface dark:text-on-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
       :background-image="heroUrl"
       overlay
-      overlay-class="bg-surface-on dark:bg-surface opacity-40"
+      overlay-class="bg-on-surface dark:bg-surface opacity-40"
     >
       <div class="flex flex-col md:w-3/5 items-start gap-4">
         <LychenTitle

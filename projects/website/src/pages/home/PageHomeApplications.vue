@@ -17,7 +17,7 @@
           <LychenCarouselItem
             v-for="application in opiniatedApplicationsList"
             :key="application.title"
-            class="sm:basis-1/2 md:basis-1/2 lg:basis-1/4"
+            class="basis-2/3 sm:basis-2/5 md:basis-2/5 lg:basis-2/7"
           >
             <LychenDialogTrigger as-child>
               <ApplicationCard
@@ -43,10 +43,10 @@
         <LychenCarouselNext />
       </LychenCarousel>
       <LychenDialogContent
-        class="bg-surface-container-high/70 backdrop-blur-xl text-surface-container-on md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
+        class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
       >
         <div
-          class="flex flex-col justify-between gap-4 bg-secondary-container text-secondary-container-on rounded-3xl p-4 md:p-6 items-stretch"
+          class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch"
         >
           <div class="flex flex-col gap-2">
             <div class="flex flex-row justify-between items-center">

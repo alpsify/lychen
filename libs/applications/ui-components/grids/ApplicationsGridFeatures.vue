@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-fluid md:grid-rows-1 gap-10">
+  <div class="grid grid-cols-1 grid-rows-auto md:grid-cols-(--grid-fluid) md:grid-rows-1 gap-10">
     <div
       v-for="(group, index) in features"
       :key="index"

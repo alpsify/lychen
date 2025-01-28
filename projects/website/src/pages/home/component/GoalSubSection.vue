@@ -55,7 +55,7 @@ defineProps<Props>();
   transition: all 0.5s ease-in-out;
 
   .badge-track {
-    background: theme('colors.surface.container');
+    background: var(--color-surface-container);
   }
 
   .badge,
@@ -67,7 +67,7 @@ defineProps<Props>();
 
   &:hover {
     .badge-track {
-      background: theme('colors.surface.container-highest');
+      background: var(--color-surface-container-highest);
     }
   }
 }
@@ -82,12 +82,12 @@ defineProps<Props>();
   }
 
   .badge-track {
-    background: theme('colors.surface.container-highest');
+    background: var(--color-surface-container-highest);
   }
 
   &:hover {
     .badge-track {
-      background: theme('colors.surface.container-highest');
+      background: var(--color-surface-container-highest);
     }
   }
 }

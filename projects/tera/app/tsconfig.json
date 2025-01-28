@@ -1,12 +1,28 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../../../libs/tera/ui-i18n/**/*", "../../../libs/ui-components/**/*", "**/*"],
+  "include": [
+    "../../../libs/tera/ui-i18n/**/*",
+    "../../../libs/ui-components/**/*",
+    "../../../libs/ui-css/**/*",
+    "../../../libs/vue/i18n/util-composables/**/*",
+    "../../../libs/vue/util-composables/**/*",
+    "**/*"
+  ],
   "references": [
     {
       "path": "../../../libs/tera/ui-i18n"
     },
     {
       "path": "../../../libs/ui-components"
+    },
+    {
+      "path": "../../../libs/ui-css"
+    },
+    {
+      "path": "../../../libs/vue/i18n/util-composables"
+    },
+    {
+      "path": "../../../libs/vue/util-composables"
     }
   ],
   "compilerOptions": {
@@ -18,7 +34,10 @@
       "@layouts/*": ["src/layouts/*"],
       "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
-      "@lychen/ui-components/*": ["../../../libs/ui-components/*"]
+      "@lychen/ui-components/*": ["../../../libs/ui-components/*"],
+      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
+      "@lychen/ui-css/*": ["../../../libs/ui-css/*"]
     }
   }
 }

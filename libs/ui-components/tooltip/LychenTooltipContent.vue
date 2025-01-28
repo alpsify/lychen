@@ -40,7 +40,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       :side-offset="6"
       :class="
         cn(
-          'z-50 overflow-hidden rounded-xl px-3 py-1.5 text-sm bg-surface-container-highest text-surface-container-highest-on animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+          'z-50 overflow-hidden rounded-xl px-3 py-1.5 text-sm bg-surface-container-highest text-on-surface-container-highest animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
           props.class,
         )
       "

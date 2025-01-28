@@ -23,10 +23,10 @@
     <div
       class="bg-surface/30 pointer-events-none m-2 flex transform-gpu flex-col gap-1 rounded-lg p-6 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-10 group-hover:bg-transparent group-hover:backdrop-blur-none"
     >
-      <h3 class="text-surface-container-on/80 text-xl font-semibold">
+      <h3 class="text-on-surface-container/80 text-xl font-semibold">
         {{ title }}
       </h3>
-      <p class="text-surface-container-on/60 max-w-lg">{{ description }}</p>
+      <p class="text-on-surface-container/60 max-w-lg">{{ description }}</p>
     </div>
 
     <div

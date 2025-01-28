@@ -1,13 +1,23 @@
+import type { ObjectValues } from '@lychen/typescript-util-object/Object';
 import { cva, type VariantProps } from 'class-variance-authority';
 
+export const ICON_POSITION = {
+  Start: 'start',
+  End: 'End',
+} as const;
+
+export type IconPosition = ObjectValues<typeof ICON_POSITION>;
+
 export const buttonVariants = cva(
-  'ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'cursor-pointer ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 gap-2',
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-on hover:bg-primary/90',
-        secondary: 'bg-secondary text-secondary-on hover:bg-secondary/80',
-        ghost: 'hover:bg-surface-container-high hover:text-surface-container-high-on',
+        default: 'bg-primary text-on-primary hover:bg-primary/90',
+        secondary: 'bg-secondary text-on-secondary hover:bg-secondary/80',
+        ghost: 'hover:bg-surface-container-high hover:text-on-surface-container-high',
+        'container-high':
+          'bg-surface-container-high text-on-surface-container-high hover:bg-surface-container-highest hover:text-on-surface-container-highest',
       },
       size: {
         default: 'h-10 px-4 py-2',

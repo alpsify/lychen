@@ -1,8 +1,7 @@
 import path from 'node:path';
 
 import vue from '@vitejs/plugin-vue';
-import autoprefixer from 'autoprefixer';
-import tailwind from 'tailwindcss';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -13,12 +12,9 @@ export default defineConfig({
     https: {},
     port: 8080,
   },
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
+
   plugins: [
+    tailwindcss(),
     mkcert({
       hosts: ['kiro.member.lychen.local'],
     }),

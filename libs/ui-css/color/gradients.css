@@ -1,19 +1,19 @@
 :root {
   --linear-gradient-primary-to-secondary: linear-gradient(
     -45deg,
-    rgb(var(--color-primary) / 1) 0%,
-    rgb(var(--color-secondary) / 1) 100%
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
   );
 
   --linear-gradient-surface-to-surface-container-highest: linear-gradient(
     -45deg,
-    rgb(var(--color-surface) / 1) 0%,
-    rgb(var(--color-surface-container-highest) / 1) 100%
+    var(--color-surface) 0%,
+    var(--color-surface-container-highest) 100%
   );
 
   --linear-gradient-primary-to-tertiary: linear-gradient(
     45deg,
-    rgb(var(--color-primary) / 1) 0%,
-    rgb(var(--color-tertiary) / 1) 100%
+    var(--color-primary) 0%,
+    var(--color-tertiary) 100%
   );
 }

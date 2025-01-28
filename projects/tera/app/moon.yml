@@ -1,6 +1,9 @@
 dependsOn:
   - tera-ui-i18n
   - ui-components
+  - ui-css
+  - vue-i18n-util-composables
+  - vue-util-composables
 
 env:
   DEV_DOMAIN: app.tera.lychen.local

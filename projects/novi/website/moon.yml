@@ -4,7 +4,7 @@ dependsOn:
   - novi-ui-i18n
   - novi-util-constants
   - novi-util-features
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

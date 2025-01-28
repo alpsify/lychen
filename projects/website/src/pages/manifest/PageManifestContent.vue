@@ -7,7 +7,7 @@
     >
       <div class="flex flex-col md:flex-row gap-2 md:gap-8">
         <div
-          class="flex flex-col basis-1/4 gap-2 rounded-3xl bg-tertiary-container text-tertiary-container-on p-4 md:p-6"
+          class="flex flex-col basis-1/4 gap-2 rounded-3xl bg-tertiary-container text-on-tertiary-container p-4 md:p-6"
         >
           <LychenTitle
             variant="h2"

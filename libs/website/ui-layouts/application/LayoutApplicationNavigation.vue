@@ -1,11 +1,11 @@
 <template>
   <div class="z-50 flex w-full">
-    <div class="text-surface-container-on flex flex-row gap-4 rounded-full w-full md:container">
+    <div class="text-on-surface-container flex flex-row gap-4 rounded-full w-full md:container">
       <a
         ref="lychenLogo"
         href="https://lychen.fr"
         target="_blank"
-        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-full bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-primary-container-on"
+        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-full bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-on-primary-container"
         aria-label="lychen.fr"
       >
         <div class="flex flex-col items-end">
@@ -21,7 +21,7 @@
       </a>
 
       <div
-        class="relative backdrop text-surface-container-on flex flex-row items-stretch gap-4 px-6 py-2 rounded-full shadow-lg grow justify-between"
+        class="relative backdrop text-on-surface-container flex flex-row items-stretch gap-4 px-6 py-2 rounded-full shadow-lg grow justify-between"
       >
         <div class="flex flex-row items-center justify-start gap-2">
           <RouterLink
@@ -65,7 +65,7 @@
                 />
               </LychenSheetTrigger>
               <LychenSheetContent
-                class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg flex flex-col gap-4"
+                class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg flex flex-col gap-4"
               >
                 <template #header>
                   <div class="flex flex-col gap-1">
@@ -149,9 +149,9 @@ defineProps<LayoutApplicationNavigationProps>();
   top: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(theme('backdropBlur.lg'));
+  backdrop-filter: blur(var(--blur-lg));
   z-index: -1;
-  background-color: rgb(var(--color-surface-container) / 0.7);
-  border-radius: theme('borderRadius.full');
+  background-color: rgba(var(--lychen-color-surface-container), 0.7);
+  border-radius: calc(infinity * 1px);
 }
 </style>

@@ -4,7 +4,7 @@ dependsOn:
   - kolo-ui-i18n
   - kolo-util-constants
   - kolo-util-features
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

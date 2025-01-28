@@ -2,22 +2,16 @@ import path from 'node:path';
 
 import type { UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import autoprefixer from 'autoprefixer';
-import tailwind from 'tailwindcss';
 import mkcert from 'vite-plugin-mkcert';
 import generateSitemap from 'vite-ssg-sitemap';
-
+import tailwindcss from '@tailwindcss/vite';
 const config: UserConfig = {
   server: {
     https: {},
     port: 8080,
   },
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
   plugins: [
+    tailwindcss(),
     mkcert({
       hosts: ['tera.lychen.local'],
     }),

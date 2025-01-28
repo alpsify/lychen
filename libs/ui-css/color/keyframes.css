@@ -1,0 +1,42 @@
+@theme {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
+
+  @keyframes accordion-down {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    0% {
+      height: var(--radix-accordion-content-height);
+    }
+    100% {
+      height: 0;
+    }
+  }
+
+  @keyframes collapsible-down {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes collapsible-up {
+    0% {
+      height: var(--radix-collapsible-content-height);
+    }
+    100% {
+      height: 0;
+    }
+  }
+}

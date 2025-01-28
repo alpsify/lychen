@@ -1,14 +1,19 @@
-@import 'color/colors.css';
-@import 'color/gradients.css';
-@import 'components/fonts.css';
-@import 'components/scroll.css';
+@import './color/colors.css';
+@import './color/gradients.css';
+@import './color/keyframes.css';
+@import './components/fonts.css';
+@import './components/scroll.css';
+@import './components/container.css';
+@import './components/grid.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
     --radius: 0.5rem;
-  }
 
-  * {
-    min-width: 0;
+    * {
+      min-width: 0;
+    }
   }
 }

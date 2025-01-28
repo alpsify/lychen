@@ -10,7 +10,7 @@
     "../../../libs/kiro/util-constants/**/*",
     "../../../libs/kiro/util-features/**/*",
     "../../../libs/odd/util-composables/**/*",
-    "../../../libs/tailwind/util-configs/**/*",
+
     "../../../libs/ui-components/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
@@ -49,9 +49,7 @@
     {
       "path": "../../../libs/odd/util-composables"
     },
-    {
-      "path": "../../../libs/tailwind/util-configs"
-    },
+
     {
       "path": "../../../libs/ui-components"
     },

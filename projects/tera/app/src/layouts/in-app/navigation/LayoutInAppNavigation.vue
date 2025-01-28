@@ -9,8 +9,20 @@
 </template>
 
 <script setup lang="ts">
+import { RoutePageDashboard } from '@/pages/dashboard';
 import type { LayoutInAppNavigationMenu as MenuType } from '.';
 import LayoutInAppNavigationMenu from './LayoutInAppNavigationMenu.vue';
 
-const menus: MenuType[] = [];
+const menus: MenuType[] = [
+  {
+    icon: 'house',
+    routeName: RoutePageDashboard.name,
+    title: 'Accueil',
+  },
+  {
+    icon: 'clipboard-list-check',
+    routeName: RoutePageDashboard.name,
+    title: 'To Do',
+  },
+];
 </script>

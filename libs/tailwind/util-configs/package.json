@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/tailwind-util-configs",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "devDependencies": {
-    "tailwindcss": "^3.4.16",
-    "tailwindcss-motion": "1.0.0"
-  }
-}

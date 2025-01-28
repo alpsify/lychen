@@ -8,7 +8,7 @@
     >
     <div class="flex flex-col lg:w-2/3 m-auto gap-6">
       <div
-        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-surface-container-on rounded-lg items-center p-6"
+        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-on-surface-container rounded-lg items-center p-6"
       >
         <div class="flex items-center justify-center">
           <img
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div
-        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-surface-container-on rounded-lg items-center p-6"
+        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-on-surface-container rounded-lg items-center p-6"
       >
         <div class="flex items-center justify-center">
           <img
@@ -119,7 +119,7 @@
         </div>
       </div>
       <div
-        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-surface-container-on rounded-lg items-center p-4"
+        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-on-surface-container rounded-lg items-center p-4"
       >
         <div class="flex items-center justify-center">
           <LychenIcon

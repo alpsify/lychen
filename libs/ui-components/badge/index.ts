@@ -5,12 +5,12 @@ export const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-on',
-        secondary: 'bg-secondary text-secondary-on',
-        tertiary: 'bg-tertiary text-tertiary-on',
+        primary: 'bg-primary text-on-primary',
+        secondary: 'bg-secondary text-on-secondary',
+        tertiary: 'bg-tertiary text-on-tertiary',
         negative: 'bg-negative text-negative-on',
         positive: 'bg-positive text-positive-on',
-        outline: 'text-surface-on',
+        outline: 'text-on-surface',
       },
     },
     defaultVariants: {

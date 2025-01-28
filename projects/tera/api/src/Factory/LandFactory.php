@@ -30,7 +30,8 @@ final class LandFactory extends PersistentProxyObjectFactory
     {
         return [
             'name' => self::faker()->text(255),
-            'kind' => self::faker()->randomElement(LandKinds::ALL)
+            'kind' => self::faker()->randomElement(LandKinds::ALL),
+            'surface' => self::faker()->numberBetween(30, 300),
         ];
     }
 

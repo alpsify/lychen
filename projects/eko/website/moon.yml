@@ -4,7 +4,6 @@ dependsOn:
   - eko-ui-i18n
   - eko-util-constants
   - eko-util-features
-  - tailwind-util-configs
   - ui-components
   - ui-css
   - ui-i18n

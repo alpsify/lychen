@@ -3,8 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Constant\LandKinds;
 use App\Repository\LandRepository;
+use App\State\LandsLookingForMemberProvider;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,7 +21,15 @@ use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
-#[ApiResource]
+#[ApiResource(operations: [
+    new GetCollection(uriTemplate: '/lands/looking_for_member', provider: LandsLookingForMemberProvider::class),
+    new Get(),
+    new GetCollection(),
+    new Post(),
+    new Patch(),
+    new Delete()
+]
+)]
 #[ORM\HasLifecycleCallbacks]
 class Land extends AbstractIdOrmAndUlidApiIdentified
 {
@@ -61,6 +75,9 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 150, options: ['default' => LandKinds::INDIVIDUAL])]
     #[Assert\Choice(LandKinds::ALL)]
     private ?string $kind = LandKinds::INDIVIDUAL;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $surface = null;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -260,6 +277,18 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     public function setKind(string $kind): static
     {
         $this->kind = $kind;
+
+        return $this;
+    }
+
+    public function getSurface(): ?int
+    {
+        return $this->surface;
+    }
+
+    public function setSurface(?int $surface): static
+    {
+        $this->surface = $surface;
 
         return $this;
     }

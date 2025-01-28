@@ -22,6 +22,9 @@ import LayoutInAppNavigation from './navigation/LayoutInAppNavigation.vue';
   main {
     grid-area: main;
     overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .navigation {

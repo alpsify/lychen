@@ -1,5 +1,4 @@
 import { animationConfig } from '@lychen/ui-css/tailwind/animationConfig';
-import { colorsConfig } from '@lychen/ui-css/tailwind/colorsConfig';
 import { fontsConfig } from '@lychen/ui-css/tailwind/fontsConfig';
 import { keyframesConfig } from '@lychen/ui-css/tailwind/keyframesConfig';
 import type { Config } from 'tailwindcss';
@@ -22,7 +21,6 @@ export default {
     },
     fontFamily: fontsConfig,
     extend: {
-      colors: colorsConfig,
       keyframes: keyframesConfig,
       animation: animationConfig,
     },

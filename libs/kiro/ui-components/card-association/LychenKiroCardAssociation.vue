@@ -1,7 +1,7 @@
 <template>
   <div
     :data-pw="association.uuid"
-    class="bg-surface-container text-surface-container-on rounded-xl p-4"
+    class="bg-surface-container text-on-surface-container rounded-xl p-4"
   >
     <h3 class="font-bold">
       {{ association.name }}

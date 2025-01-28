@@ -1,7 +1,7 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

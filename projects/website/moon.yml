@@ -3,7 +3,7 @@ dependsOn:
   - applications-util-composables
   - odd-assets
   - odd-util-composables
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

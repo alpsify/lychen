@@ -1,7 +1,7 @@
 <template>
   <div class="z-50 flex h-[70px] w-full">
     <div
-      class="relative backdrop text-surface-container-on container flex flex-row items-stretch gap-4 rounded-full px-6 py-2 shadow-lg"
+      class="relative backdrop text-on-surface-container container flex flex-row items-stretch gap-4 rounded-full px-6 py-2 shadow-lg"
     >
       <slot></slot>
 
@@ -17,7 +17,7 @@
             />
           </LychenSheetTrigger>
           <LychenSheetContent
-            class="bg-surface-container/70 text-surface-container-on w-full backdrop-blur-lg"
+            class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg"
           >
             <template #header><slot name="header"></slot></template>
             <slot name="mobile"></slot>
@@ -59,9 +59,9 @@ provide('mobileMenuIsOpen', isOpen);
   top: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(theme('backdropBlur.lg'));
+  backdrop-filter: blur(var(--blur-lg));
   z-index: -1;
-  background-color: rgb(var(--color-surface-container) / 0.7);
-  border-radius: theme('borderRadius.full');
+  background-color: rgba(var(--lychen-color-surface-container), 0.7);
+  border-radius: calc(infinity * 1px);
 }
 </style>

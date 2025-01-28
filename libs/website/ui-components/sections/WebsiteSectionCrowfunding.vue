@@ -7,7 +7,7 @@
       icon="bullhorn"
       class="fa-2xl"
     />
-    <WebsiteBannerUlule />
+    <WebsiteBannerUlule class="grow" />
   </LychenContainer>
 </template>
 

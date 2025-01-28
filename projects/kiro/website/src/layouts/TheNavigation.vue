@@ -6,7 +6,7 @@
           <LychenNavigationMenuLink
             as="div"
             :class="navigationMenuTriggerStyle()"
-            class="hover:bg-primary-container/30 hover:text-primary-container-on"
+            class="hover:bg-primary-container/30 hover:text-on-primary-container"
           >
             {{ t(`navigation.features.title`) }}
           </LychenNavigationMenuLink>

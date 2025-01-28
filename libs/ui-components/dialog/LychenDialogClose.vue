@@ -9,7 +9,7 @@ const props = defineProps<DialogCloseProps>();
   <DialogClose v-bind="props">
     <slot>
       <LychenIcon
-        class="size-4"
+        class="size-4 cursor-pointer"
         icon="times"
       />
       <span class="sr-only">Close</span>

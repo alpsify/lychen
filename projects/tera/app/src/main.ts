@@ -1,9 +1,8 @@
 import './stylesheet/main.css';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fal } from '@fortawesome/pro-light-svg-icons';
 import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
+import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 
 import zitadelAuth from '@/services/ZitadelAuth';
 
@@ -13,7 +12,7 @@ import router from './router';
 const app = createApp(App);
 
 /* FontAwesome */
-library.add(fal);
+loadFontAwesomeStyles();
 
 /* Router */
 app.use(router);

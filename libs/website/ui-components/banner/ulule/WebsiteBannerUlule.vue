@@ -6,11 +6,7 @@
   >
     <LychenGlowBorder
       class="grow hover:shadow-md rounded-lg cursor-pointer"
-      :color="[
-        'rgb(var(--color-primary))',
-        'rgb(var(--color-secondary))',
-        'rgb(var(--color-tertiary))',
-      ]"
+      :color="['var(--color-primary)', 'var(--color-secondary)', 'var(--color-tertiary)']"
     >
       <div
         class="p-6 rounded-lg bg-surface-container flex flex-col md:grid md:grid-cols-[1fr_30%_20%] gap-4"

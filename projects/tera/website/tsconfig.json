@@ -7,7 +7,7 @@
     "../../../libs/applications/util-constants/**/*",
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/odd/util-composables/**/*",
-    "../../../libs/tailwind/util-configs/**/*",
+
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-features/**/*",
@@ -40,9 +40,7 @@
     {
       "path": "../../../libs/odd/util-composables"
     },
-    {
-      "path": "../../../libs/tailwind/util-configs"
-    },
+
     {
       "path": "../../../libs/tera/ui-i18n"
     },

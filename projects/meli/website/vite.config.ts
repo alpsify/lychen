@@ -2,8 +2,7 @@ import path from 'node:path';
 
 import type { UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import autoprefixer from 'autoprefixer';
-import tailwind from 'tailwindcss';
+import tailwindcss from '@tailwindcss/vite';
 import mkcert from 'vite-plugin-mkcert';
 import generateSitemap from 'vite-ssg-sitemap';
 
@@ -12,12 +11,9 @@ const config: UserConfig = {
     https: {},
     port: 8080,
   },
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
+
   plugins: [
+    tailwindcss(),
     mkcert({
       hosts: ['meli.lychen.local'],
     }),

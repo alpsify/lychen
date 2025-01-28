@@ -4,7 +4,7 @@ dependsOn:
   - humu-ui-i18n
   - humu-util-constants
   - humu-util-features
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n

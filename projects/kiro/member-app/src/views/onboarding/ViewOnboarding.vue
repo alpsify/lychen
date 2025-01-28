@@ -26,10 +26,10 @@
         :key="step"
         class="flex flex-col items-center justify-center gap-4 text-center"
       >
-        <h2 class="font-poppins text-3xl font-bold text-surface-on">
+        <h2 class="font-poppins text-3xl font-bold text-on-surface">
           {{ t(`step.${step}.title`) }}
         </h2>
-        <p class="text-sm text-surface-on/80">
+        <p class="text-sm text-on-surface/80">
           {{ t(`step.${step}.paragraph`) }}
         </p>
         <img :src="imgSrc" />
@@ -91,7 +91,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     cursor: pointer;
 
     .step {
-      background: theme('colors.secondary.DEFAULT');
+      background: var(--color-secondary);
       height: 8px;
       transition: width 500ms ease-in-out;
     }
@@ -102,7 +102,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
     .step:not(.active) {
       width: 12px;
-      background: theme('colors.secondary.DEFAULT' / 50%);
+      background: rgba(var(--lychen-color-secondary), 50%);
     }
   }
 }

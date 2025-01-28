@@ -107,9 +107,6 @@
       "path": "libs/odd/util-model"
     },
     {
-      "path": "libs/tailwind/util-configs"
-    },
-    {
       "path": "libs/tera/ui-i18n"
     },
     {
@@ -120,6 +117,9 @@
     },
     {
       "path": "libs/typescript/util-date"
+    },
+    {
+      "path": "libs/typescript/util-json-ld-hydra"
     },
     {
       "path": "libs/typescript/util-object"

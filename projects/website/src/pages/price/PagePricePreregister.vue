@@ -7,11 +7,11 @@
       <LychenDivWithBackgroundImage
         :background-image="imageUrl"
         overlay
-        overlay-class="bg-surface-on dark:bg-surface opacity-50"
+        overlay-class="bg-on-surface dark:bg-surface opacity-50"
         class="p-8 rounded-3xl py-24 group"
       >
         <div
-          class="relative flex flex-col items-center gap-8 z-10 text-surface dark:text-surface-on"
+          class="relative flex flex-col items-center gap-8 z-10 text-surface dark:text-on-surface"
         >
           <LychenTitle
             variant="h2"
@@ -25,7 +25,7 @@
           >
           <LychenButton
             variant="ghost"
-            class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-primary-on"
+            class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-on-primary"
             >{{ t('preregister.button.label') }} <LychenIcon icon="chevron-right"
           /></LychenButton>
         </div>

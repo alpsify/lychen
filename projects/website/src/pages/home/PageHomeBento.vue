@@ -94,7 +94,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, auto);
-  gap: theme('gap.4');
+  gap: calc(var(--spacing) * 4);
   grid-template-areas:
     'one two three four four five five'
     'six six seven seven seven eight nine'
@@ -142,12 +142,12 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: theme('padding.6') theme('padding.4');
-    border-radius: theme('borderRadius.3xl');
-    background: theme('colors.surface.container');
-    font-weight: theme('fontWeight.bold');
+    padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
+    border-radius: var(--radius-3xl);
+    background: var(--color-surface-container);
+    font-weight: var(--font-weight-bold);
     text-align: center;
-    gap: theme('gap.4');
+    gap: calc(var(--spacing) * 4);
 
     p.gradient {
       background: var(--linear-gradient-primary-to-tertiary);

@@ -1,5 +1,8 @@
 {
   "name": "@lychen/ui-css",
   "version": "0.0.0",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
 }

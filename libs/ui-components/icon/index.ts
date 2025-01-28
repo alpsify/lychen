@@ -6,6 +6,6 @@ export const LYCHEN_ICON_FASHION = {
   Brands: 'fab',
 };
 
-export const LYCHEN_ICON_FASHION_DEFAULT: LychenIconFashion = LYCHEN_ICON_FASHION.DuotoneLight;
+export const LYCHEN_ICON_FASHION_DEFAULT: LychenIconFashion = LYCHEN_ICON_FASHION.Light;
 
 export type LychenIconFashion = ObjectValues<typeof LYCHEN_ICON_FASHION>;

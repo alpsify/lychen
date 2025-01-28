@@ -4,7 +4,7 @@
       :to="RoutePageHome"
       class="flex flex-row items-stretch"
     >
-      <LychenLogoFull class="hover:text-primary-container-on"
+      <LychenLogoFull class="hover:text-on-primary-container"
     /></RouterLink>
     <div class="flex flex-row items-stretch gap-2">
       <LychenNavigationMenu class="hidden lg:flex">
@@ -15,10 +15,10 @@
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
-                class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+                class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <div
-                  class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-surface-container-highest-on"
+                  class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-on-surface-container-highest"
                 >
                   <LychenIcon icon="megaphone" />
                   <div class="flex flex-col gap-0">
@@ -50,7 +50,7 @@
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
-                class="flex flex-row gap-2 md:w-[400px] bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+                class="flex flex-row gap-2 md:w-[400px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
@@ -74,7 +74,7 @@
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
-                class="flex flex-row gap-4 md:w-[400px] bg-surface-container/70 text-surface-container-on backdrop-blur-lg"
+                class="flex flex-row gap-4 md:w-[400px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <div class="flex flex-col items-stretch gap-2 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
@@ -98,7 +98,7 @@
               <LychenNavigationMenuLink
                 as="div"
                 :class="navigationMenuTriggerStyle()"
-                class="hover:bg-primary-container/30 hover:text-primary-container-on"
+                class="hover:bg-primary-container/30 hover:text-on-primary-container"
               >
                 {{ t(`navigation.price.title`) }}
               </LychenNavigationMenuLink>
@@ -110,7 +110,7 @@
               <LychenNavigationMenuLink
                 as="div"
                 :class="navigationMenuTriggerStyle()"
-                class="hover:bg-primary-container/30 hover:text-primary-container-on"
+                class="hover:bg-primary-container/30 hover:text-on-primary-container"
               >
                 {{ t(`navigation.sponsor.title`) }}
               </LychenNavigationMenuLink>

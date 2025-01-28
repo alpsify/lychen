@@ -2,7 +2,7 @@
   <component
     :is="route ? 'RouterLink' : 'a'"
     :to="route ? { name: route.name } : null"
-    class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-container/30 hover:text-primary-container-on focus:bg-primary-container/30 focus:text-primary-container-on"
+    class="cursor-pointer select-none flex flex-col gap-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-container/30 hover:text-on-primary-container focus:bg-primary-container/30 focus:text-on-primary-container"
     :href="link"
     :target="link ? target : '_self'"
     @click="emitCloseIfRoute()"

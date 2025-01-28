@@ -12,6 +12,6 @@ import { TooltipArrow } from 'radix-vue';
 
 <style>
 .TooltipArrow {
-  fill: rgb(var(--color-surface-container-highest));
+  fill: var(--color-surface-container-highest);
 }
 </style>

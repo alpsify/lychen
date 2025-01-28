@@ -4,7 +4,7 @@ dependsOn:
   - meli-ui-i18n
   - meli-util-constants
   - meli-util-features
-  - tailwind-util-configs
+
   - ui-components
   - ui-css
   - ui-i18n
