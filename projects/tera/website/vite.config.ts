@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 import mkcert from 'vite-plugin-mkcert';
 import generateSitemap from 'vite-ssg-sitemap';
 import tailwindcss from '@tailwindcss/vite';
+
 const config: UserConfig = {
   server: {
     https: {},

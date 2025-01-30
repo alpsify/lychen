@@ -5,5 +5,6 @@ set -eo pipefail
 # https://moonrepo.dev/docs/guides/vcs-hooks
 
 moon :format-fix --affected
+moon :lint-fix --affected
 git add -u
 

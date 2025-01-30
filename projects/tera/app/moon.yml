@@ -11,7 +11,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: ''
   PRODUCTION_DOMAIN: app.tera.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/tera/app
-  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOKPLOY_COMPOSE_ID: cblXozRU7dEAQBfWSALH4
   STAGING_DOMAIN: staging.app.tera.lychen.fr
 
 id: tera-app

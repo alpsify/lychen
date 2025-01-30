@@ -2,7 +2,7 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
-import pluginTailwind from 'eslint-plugin-tailwindcss';
+//import pluginTailwind from 'eslint-plugin-tailwindcss';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -33,7 +33,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
-  ...pluginTailwind.configs['flat/recommended'],
+  //...pluginTailwind.configs['flat/recommended'],
   eslintConfigPrettier,
   importPlugin.flatConfigs.recommended,
   ...markdown.configs.processor,
@@ -84,8 +84,8 @@ export default [
       'yml/quotes': ['error', { prefer: 'single', avoidEscape: true }],
       'yml/sort-sequence-values': ['error', { order: { type: 'asc' }, pathPattern: '^dependsOn$' }],
       'yml/no-empty-sequence-entry': ['error'],
-      'tailwindcss/no-custom-classname': 'off',
-      'tailwindcss/classnames-order': 'off',
+      //'tailwindcss/no-custom-classname': 'off',
+      //'tailwindcss/classnames-order': 'off',
     },
   },
 ];

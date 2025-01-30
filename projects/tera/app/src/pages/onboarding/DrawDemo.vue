@@ -99,11 +99,11 @@ const drawEnable = ref(true);
 const drawType = ref('Polygon');
 
 function drawstart(event) {
-  console.log(event);
+  //console.log(event);
 }
 
 function drawend(event) {
-  console.log(event);
+  //console.log(event);
 }
 
 const map = ref(null);
@@ -111,13 +111,13 @@ const view = ref<View>();
 const position = ref([]);
 
 function geoLocChange(event: ObjectEvent) {
-  console.log('AAAAA', event);
+  //console.log('AAAAA', event);
   position.value = event.target.getPosition();
   view.value?.setCenter(event.target?.getPosition());
 }
 
 function success(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
+  //console.log(position.coords.latitude, position.coords.longitude);
 }
 
 function error() {

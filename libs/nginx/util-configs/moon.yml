@@ -14,4 +14,17 @@ tasks:
       cache: false
     platform: system
 
+  sync-pwa:
+    command:
+      - 'yes'
+      - '|'
+      - cp
+      - -rf
+      - $projectRoot/pwa
+    inputs:
+      - '$projectRoot/pwa/'
+    options:
+      cache: false
+    platform: system
+
 type: library
