@@ -8,16 +8,3 @@ language: php
 
 tags:
   - php
-
-tasks:
-  bash:
-    command: docker compose exec php bash
-
-  dev:
-    command: docker compose up --detach
-
-  down:
-    command: docker compose down --remove-orphans
-
-  sh:
-    command: docker compose exec php sh

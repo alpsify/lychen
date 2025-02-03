@@ -28,7 +28,7 @@
           />
         </div>
         <div class="flex flex-col gap-2 justify-center items-end">
-          <p>Le 01/02/2025</p>
+          <p>Le 01/04/2025</p>
           <p class="text-sm text-right font-bold">{{ t('preregister') }}</p>
         </div>
       </div>
