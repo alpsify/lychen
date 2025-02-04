@@ -4,7 +4,7 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
 
-import zitadelAuth from '@/services/ZitadelAuth';
+import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
 
 import App from './App.vue';
 import router from './router';

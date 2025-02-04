@@ -1,5 +1,5 @@
 import { unixDateToDate } from '@lychen/typescript-util-date/UnixDate';
-import { useI18n, type UseI18nOptions } from 'vue-i18n';
+import { useI18n, type TranslateOptions, type UseI18nOptions } from 'vue-i18n';
 
 import { addRootKey } from '@lychen/vue-i18n-util-helpers/RootKeyHelper';
 
@@ -21,12 +21,26 @@ export function useI18nExtended(options?: UseCustomI18nOptions) {
 
   const { n, t, d } = useI18n(options);
 
-  function customT(key: string) {
+  function customT(key: string): string;
+  function customT(key: string, plural: number): string;
+  function customT(key: string, specificOptions: TranslateOptions): string;
+  function customT(key: string, plural: number, specificOptions: TranslateOptions): string;
+  function customT(
+    key: string,
+    pluralOrOptions?: number | TranslateOptions,
+    specificOptions?: TranslateOptions,
+  ): string {
+    let calculatedKey = key;
+
     if (options?.prefixed) {
-      return t(`${options.rootKey}.${key}`);
+      calculatedKey = `${options.rootKey}.${key}`;
     }
 
-    return t(key);
+    if (typeof pluralOrOptions === 'number') {
+      return t(calculatedKey, pluralOrOptions, specificOptions as TranslateOptions);
+    }
+
+    return t(calculatedKey, pluralOrOptions as TranslateOptions);
   }
 
   function customN(value: number, keyOrOptions: string | object): string {

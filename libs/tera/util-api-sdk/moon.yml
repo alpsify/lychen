@@ -1,0 +1,9 @@
+dependsOn:
+  - typescript-util-json-ld-hydra
+  - typescript-util-object
+
+id: tera-util-api-sdk
+
+language: typescript
+
+type: library

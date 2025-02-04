@@ -72,20 +72,7 @@
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
-            <div
-              class="p-6 rounded-3xl bg-surface-container-high text-on-surface-container flex flex-col gap-2 h-full justify-between items-stretch active:bg-surface-container-highest"
-            >
-              <div class="flex flex-row gap-2 items-center justify-between">
-                <LychenBadge class="self-start bg-tertiary-container text-on-tertiary-container">{{
-                  landItem.kind
-                }}</LychenBadge>
-                <LychenIcon :icon="landItem.landMembers.length === 1 ? 'user' : 'users'" />
-              </div>
-              <div class="flex flex-col gap-1">
-                <small class="text-tertiary">{{ landItem.landAreas.length }} zones</small>
-                <LychenTitle variant="h3">{{ landItem.name }}</LychenTitle>
-              </div>
-            </div>
+            <CardTeraLand :land="landItem" />
           </LychenCarouselItem>
         </LychenCarouselContent>
       </LychenCarousel>
@@ -117,93 +104,64 @@
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
-            <div
-              class="p-6 rounded-3xl bg-surface-container-high text-on-surface-container flex flex-col gap-2 h-full justify-between items-stretch active:bg-surface-container-highest"
-            >
-              <div class="flex flex-row gap-2 items-center justify-between">
-                <LychenBadge class="self-start bg-tertiary-container text-on-tertiary-container">{{
-                  landItem.kind
-                }}</LychenBadge>
-                <LychenIcon :icon="landItem.landMembers.length === 1 ? 'user' : 'users'" />
-              </div>
-              <div class="flex flex-col gap-1">
-                <small class="text-tertiary">{{ landItem.landAreas.length }} zones</small>
-                <LychenTitle variant="h3">{{ landItem.name }}</LychenTitle>
-              </div>
-            </div>
+            <CardTeraLand
+              :land="landItem"
+              :variant="VARIANT.LookingForMember"
+            />
           </LychenCarouselItem>
         </LychenCarouselContent>
       </LychenCarousel>
       <LychenButton variant="container-high">Voir toutes les annonces</LychenButton>
     </div>
     <div class="gap-4 flex flex-col">
-      <LychenTitle variant="h4">Resources</LychenTitle>
+      <LychenTitle variant="h4">Ressources</LychenTitle>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import zitadelAuth from '@/services/ZitadelAuth';
+import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
 import { defineAsyncComponent, onBeforeMount, ref } from 'vue';
 import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
 import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
 import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
 import headerImg from './assets/header.webp';
+import LandRepository from '@lychen/tera-util-api-sdk/repositories/LandRepository';
+import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
+import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
-);
-const LychenBadge = defineAsyncComponent(
-  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
 );
 
 const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
-
-const lands = ref();
-
-async function fetchLands() {
-  try {
-    const response = await fetch('https://api.tera.lychen.local/api/lands', {
-      headers: {
-        Authorization: `Bearer ${zitadelAuth.oidcAuth.accessToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    lands.value = await response.json();
-    //console.log(json);
-  } catch (e) {
-    //console.log(e);
-  }
-}
-
 onBeforeMount(() => {
   fetchLands();
   fetchLandsLookingForMember();
 });
 
+const lands = ref();
+
+async function fetchLands() {
+  const response = await LandRepository.getCollection();
+
+  if (response.status === 200) {
+    lands.value = response.data;
+  }
+}
+
 const landsLookingForMember = ref();
 
 async function fetchLandsLookingForMember() {
   try {
-    const response = await fetch('https://api.tera.lychen.local/api/lands/looking_for_member', {
-      headers: {
-        Authorization: `Bearer ${zitadelAuth.oidcAuth.accessToken}`,
-      },
-    });
+    const response = await LandRepository.getCollectionLookingForMember();
 
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
+    if (response.status === 200) {
+      landsLookingForMember.value = response.data;
     }
-
-    landsLookingForMember.value = await response.json();
     //console.log(json);
   } catch (e) {
     //console.log(e);

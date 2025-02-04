@@ -21,9 +21,10 @@ readonly class LandCreationOwnerSetup
     public function postPersist(Land $land, LifecycleEventArgs $event): void
     {
         $person = $this->security->getUser();
+
         if (!$person instanceof Person) {
             return;
-        };
+        }
 
         $landMember = (new LandMember())->setLand($land)->setPerson($person)->setOwner(true);
 

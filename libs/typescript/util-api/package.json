@@ -1,0 +1,10 @@
+{
+  "name": "@lychen/typescript-util-api",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/typescript-util-json-ld-hydra": "workspace:*",
+    "@lychen/typescript-util-zitadel": "workspace:*",
+    "axios": "^1.7.9"
+  }
+}

@@ -107,13 +107,28 @@
       "path": "libs/odd/util-model"
     },
     {
+      "path": "libs/tera/land/ui-components"
+    },
+    {
+      "path": "libs/tera/land/ui-i18n"
+    },
+    {
+      "path": "libs/tera/land/util-composables"
+    },
+    {
       "path": "libs/tera/ui-i18n"
+    },
+    {
+      "path": "libs/tera/util-api-sdk"
     },
     {
       "path": "libs/tera/util-constants"
     },
     {
       "path": "libs/tera/util-features"
+    },
+    {
+      "path": "libs/typescript/util-api"
     },
     {
       "path": "libs/typescript/util-date"
@@ -126,6 +141,9 @@
     },
     {
       "path": "libs/typescript/util-tailwind"
+    },
+    {
+      "path": "libs/typescript/util-zitadel"
     },
     {
       "path": "libs/ui-components"

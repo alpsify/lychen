@@ -1,5 +1,8 @@
 dependsOn:
+  - tera-land-ui-components
   - tera-ui-i18n
+  - tera-util-api-sdk
+  - typescript-util-zitadel
   - ui-components
   - ui-css
   - vue-i18n-util-composables

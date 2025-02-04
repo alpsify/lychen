@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../util-json-ld-hydra/**/*", "../util-zitadel/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../util-json-ld-hydra"
+    },
+    {
+      "path": "../util-zitadel"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/typescript/util-api",
+    "paths": {
+      "@lychen/typescript-util-zitadel/*": ["../util-zitadel/*"],
+      "@lychen/typescript-util-json-ld-hydra/*": ["../util-json-ld-hydra/*"]
+    }
+  }
+}
