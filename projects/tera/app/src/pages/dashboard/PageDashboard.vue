@@ -9,18 +9,18 @@
       >
       <div class="flex flex-row gap-2 items-center">
         <LychenButton
-          variant="container-high"
           icon="bell"
+          variant="container-high"
         />
         <LychenButton
-          variant="container-high"
           icon="gear"
+          variant="container-high"
         />
       </div>
     </div>
     <div
-      class="rounded-3xl min-h-[200px] flex flex-col justify-end p-8 bg-center bg-no-repeat bg-cover"
       :style="{ backgroundImage: `url(${headerImg})` }"
+      class="rounded-3xl min-h-[200px] flex flex-col justify-end p-8 bg-center bg-no-repeat bg-cover"
     ></div>
 
     <div
@@ -32,16 +32,16 @@
       </div>
       <div class="flex flex-row gap-2 items-center">
         <LychenButton
-          variant="container-high"
           icon="camera"
+          variant="container-high"
         />
         <LychenButton
-          variant="container-high"
           icon="microphone"
+          variant="container-high"
         />
         <LychenButton
-          variant="container-high"
           icon="keyboard"
+          variant="container-high"
         />
       </div>
     </div>
@@ -51,12 +51,12 @@
         <LychenTitle variant="h4">Vos espaces de culture</LychenTitle>
         <div class="flex flex-row items-center gap-2">
           <LychenButton
-            variant="secondary"
             icon="plus"
+            variant="secondary"
           />
           <LychenButton
-            variant="container-high"
             icon="list-ul"
+            variant="container-high"
           />
         </div>
       </div>
@@ -72,7 +72,9 @@
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
-            <CardTeraLand :land="landItem" />
+            <RouterLink :to="{ name: RoutePageLand.name, params: { ulid: landItem.ulid } }">
+              <CardTeraLand :land="landItem" />
+            </RouterLink>
           </LychenCarouselItem>
         </LychenCarouselContent>
       </LychenCarousel>
@@ -85,8 +87,8 @@
           <small class="opacity-80">Dîte nous ce que vous recherchez on s'occupe du reste</small>
         </div>
         <LychenButton
-          variant="container-high"
           icon="ellipsis-vertical"
+          variant="container-high"
         />
       </div>
 
@@ -129,6 +131,7 @@ import headerImg from './assets/header.webp';
 import LandRepository from '@lychen/tera-util-api-sdk/repositories/LandRepository';
 import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
 import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
+import { RoutePageLand } from '@pages/land';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),

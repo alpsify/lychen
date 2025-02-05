@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "include": ["../util-composables/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../util-composables"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/libs/vue/tiptap/ui-components",
+    "paths": {
+      "@lychen/vue-tiptap-util-composables/*": ["../util-composables/*"]
+    }
+  }
+}

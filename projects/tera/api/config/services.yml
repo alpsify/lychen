@@ -31,3 +31,10 @@ services:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     autowire: true # Automatically injects dependencies in your services.
     bind:
+
+  land_task.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { dueDate: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: ['api_platform.filter']

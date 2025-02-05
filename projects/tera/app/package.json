@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lychen/tera-land-task-ui-components": "workspace:*",
     "@lychen/tera-land-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
@@ -16,6 +17,7 @@
     "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "ol": "^10.3.1",
     "ol-contextmenu": "^5.5.0",

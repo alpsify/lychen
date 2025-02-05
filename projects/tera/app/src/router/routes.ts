@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
 import { RoutePageDashboard } from '@pages/dashboard';
 import { RoutePageOnboarding } from '@pages/onboarding';
+import { RoutePageLand } from '@pages/land';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -11,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       authName: zitadelAuth.oidcAuth.authName,
     },
-    children: [RoutePageDashboard],
+    children: [RoutePageDashboard, RoutePageLand],
   },
   RoutePageOnboarding,
 ];

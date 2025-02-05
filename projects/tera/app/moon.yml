@@ -1,4 +1,5 @@
 dependsOn:
+  - tera-land-task-ui-components
   - tera-land-ui-components
   - tera-ui-i18n
   - tera-util-api-sdk
@@ -6,6 +7,7 @@ dependsOn:
   - ui-components
   - ui-css
   - vue-i18n-util-composables
+  - vue-i18n-util-configs
   - vue-util-composables
 
 env:

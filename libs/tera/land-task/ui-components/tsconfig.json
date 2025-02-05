@@ -1,0 +1,33 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "include": [
+    "../../../typescript/util-object/**/*",
+    "../../../ui-components/**/*",
+    "../../util-api-sdk/**/*",
+    "../ui-i18n/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../../typescript/util-object"
+    },
+    {
+      "path": "../../../ui-components"
+    },
+    {
+      "path": "../../util-api-sdk"
+    },
+    {
+      "path": "../ui-i18n"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/libs/tera/land-task/ui-components",
+    "paths": {
+      "@lychen/ui-components/*": ["../../../ui-components/*"],
+      "@lychen/tera-util-api-sdk/*": ["../../util-api-sdk/*"],
+      "@lychen/typescript-util-object/*": ["../../../typescript/util-object/*"],
+      "@lychen/tera-land-task-ui-i18n/*": ["../ui-i18n/*"]
+    }
+  }
+}

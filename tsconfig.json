@@ -116,6 +116,15 @@
       "path": "libs/tera/land/util-composables"
     },
     {
+      "path": "libs/tera/land-task/ui-components"
+    },
+    {
+      "path": "libs/tera/land-task/ui-i18n"
+    },
+    {
+      "path": "libs/tera/land-task/util-composables"
+    },
+    {
       "path": "libs/tera/ui-i18n"
     },
     {
@@ -141,6 +150,9 @@
     },
     {
       "path": "libs/typescript/util-tailwind"
+    },
+    {
+      "path": "libs/typescript/util-types"
     },
     {
       "path": "libs/typescript/util-zitadel"
@@ -183,6 +195,12 @@
     },
     {
       "path": "libs/vue/router/util-configs"
+    },
+    {
+      "path": "libs/vue/tiptap/ui-components"
+    },
+    {
+      "path": "libs/vue/tiptap/util-composables"
     },
     {
       "path": "libs/vue/unhead/util-composables"

@@ -1,0 +1,9 @@
+dependsOn:
+  - tera-land-task-ui-i18n
+  - tera-util-api-sdk
+  - typescript-util-object
+  - ui-components
+
+id: tera-land-task-ui-components
+language: typescript
+type: library

@@ -1,0 +1,22 @@
+{
+  "name": "lychen/util-tiptap",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Lychen\\UtilTiptap\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Nathan De Pachtere",
+      "email": "nathan.depachtere@alpsify.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "ueberdosis/tiptap-php": "1.4.*"
+  },
+  "require-dev": {
+    "zenstruck/foundry": "2.2.*"
+  }
+}

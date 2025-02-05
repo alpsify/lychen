@@ -36,6 +36,7 @@ import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
 import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
 import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
 import { faEllipsisVertical } from '@fortawesome/pro-light-svg-icons/faEllipsisVertical';
+import { faCalendarCircleExclamation } from '@fortawesome/pro-light-svg-icons/faCalendarCircleExclamation';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -75,6 +76,7 @@ export function loadFontAwesomeStyles() {
     faKeyboard,
     faCamera,
     faEllipsisVertical,
+    faCalendarCircleExclamation,
   ]);
   library.add(faGithub);
   library.add(faDiscord);

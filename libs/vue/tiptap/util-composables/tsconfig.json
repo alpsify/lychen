@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "include": ["../../../typescript/util-types/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../../typescript/util-types"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/libs/vue/tiptap/util-composables",
+    "paths": {
+      "@lychen/typescript-util-types/*": ["../../../typescript/util-types/*"]
+    }
+  }
+}

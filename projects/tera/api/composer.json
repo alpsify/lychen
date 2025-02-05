@@ -25,6 +25,7 @@
     "league/flysystem-aws-s3-v3": "3.29.*",
     "lychen/util-model": "*",
     "lychen/util-zitadel": "*",
+    "lychen/util-tiptap": "*",
     "nelmio/cors-bundle": "2.5.*",
     "oneup/flysystem-bundle": "4.12.*",
     "phpdocumentor/reflection-docblock": "5.6.*",
@@ -90,7 +91,8 @@
         "symlink": true,
         "versions": {
           "lychen/util-model": "0.0.0",
-          "lychen/util-zitadel": "0.0.0"
+          "lychen/util-zitadel": "0.0.0",
+          "lychen/util-tiptap": "0.0.0"
         }
       }
     }
