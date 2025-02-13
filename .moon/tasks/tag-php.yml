@@ -1,0 +1,38 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  docker-build:
+    command: docker build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest
+    options:
+      cache: false
+    platform: system
+
+  docker-push:
+    command: docker push
+    options:
+      cache: false
+    platform: system
+
+  production-docker-build:
+    env:
+      DOCKER_IMAGE_NAME: 'ghcr.io/alpsify/${PRODUCTION_DOCKER_IMAGE}'
+    extends: docker-build
+
+  production-docker-push:
+    args:
+      - 'ghcr.io/alpsify/${PRODUCTION_DOCKER_IMAGE}'
+    deps:
+      - production-docker-build
+    extends: docker-push
+
+  staging-docker-build:
+    env:
+      DOCKER_IMAGE_NAME: 'ghcr.io/alpsify/${STAGING_DOCKER_IMAGE}'
+    extends: docker-build
+
+  staging-docker-push:
+    args:
+      - 'ghcr.io/alpsify/${STAGING_DOCKER_IMAGE}'
+    deps:
+      - staging-docker-build
+    extends: docker-push

@@ -18,6 +18,9 @@ hasher:
     - '**/*.jpg'
     - '**/*.jpeg'
     - '**/*.ttf'
+    - '**/vendor/**/*'
+    - '**/public/bundles/**/*'
+    - '**/bin/**/*'
   walkStrategy: glob
 
 projects:

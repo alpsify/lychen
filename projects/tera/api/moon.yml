@@ -2,9 +2,23 @@ dependsOn:
   - lychen-php-util-model
   - lychen-php-util-zitadel
 
+env:
+  DEV_DOMAIN: api.tera.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/tera/api
+  PRODUCTION_DOKPLOY_COMPOSE_ID: ''
+  PRODUCTION_DOMAIN: api.tera.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/tera/api
+  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOMAIN: staging.api.tera.lychen.fr
+
 id: tera-api
 
 language: php
+
+project:
+  description: 'Tera API'
+  metadata:
+    test: 'gdfgdf'
 
 tags:
   - php
