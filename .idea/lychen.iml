@@ -16,6 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/libs/ui-css" />
       <excludeFolder url="file://$MODULE_DIR$/libs/ui-i18n" />
       <excludeFolder url="file://$MODULE_DIR$/libs/util-constants" />
+      <excludeFolder url="file://$MODULE_DIR$/projects/tera/api/var" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

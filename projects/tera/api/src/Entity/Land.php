@@ -79,6 +79,24 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(nullable: true)]
     private ?int $surface = null;
 
+    /**
+     * @var Collection<int, LandCultivationPlan>
+     */
+    #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landCultivationPlans;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'yes')]
+    private Collection $seedStocks;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'seedStocks')]
+    private Collection $yes;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -88,6 +106,9 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         $this->landTasks = new ArrayCollection();
         $this->landMemberInvitations = new ArrayCollection();
         $this->landRoles = new ArrayCollection();
+        $this->landCultivationPlans = new ArrayCollection();
+        $this->seedStocks = new ArrayCollection();
+        $this->yes = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -289,6 +310,87 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     public function setSurface(?int $surface): static
     {
         $this->surface = $surface;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandCultivationPlan>
+     */
+    public function getLandCultivationPlans(): Collection
+    {
+        return $this->landCultivationPlans;
+    }
+
+    public function addLandCultivationPlan(LandCultivationPlan $landCultivationPlan): static
+    {
+        if (!$this->landCultivationPlans->contains($landCultivationPlan)) {
+            $this->landCultivationPlans->add($landCultivationPlan);
+            $landCultivationPlan->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandCultivationPlan(LandCultivationPlan $landCultivationPlan): static
+    {
+        if ($this->landCultivationPlans->removeElement($landCultivationPlan)) {
+            // set the owning side to null (unless already changed)
+            if ($landCultivationPlan->getLand() === $this) {
+                $landCultivationPlan->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getSeedStocks(): Collection
+    {
+        return $this->seedStocks;
+    }
+
+    public function addSeedStock(self $seedStock): static
+    {
+        if (!$this->seedStocks->contains($seedStock)) {
+            $this->seedStocks->add($seedStock);
+        }
+
+        return $this;
+    }
+
+    public function removeSeedStock(self $seedStock): static
+    {
+        $this->seedStocks->removeElement($seedStock);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    public function addYe(self $ye): static
+    {
+        if (!$this->yes->contains($ye)) {
+            $this->yes->add($ye);
+            $ye->addSeedStock($this);
+        }
+
+        return $this;
+    }
+
+    public function removeYe(self $ye): static
+    {
+        if ($this->yes->removeElement($ye)) {
+            $ye->removeSeedStock($this);
+        }
 
         return $this;
     }

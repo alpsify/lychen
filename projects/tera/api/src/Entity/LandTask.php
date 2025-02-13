@@ -47,6 +47,9 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $startDate = null;
 
+    #[ORM\ManyToOne(inversedBy: 'landTasks')]
+    private ?landArea $landArea = null;
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -103,6 +106,18 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified
     public function setStartDate(?DateTimeInterface $startDate): static
     {
         $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getLandArea(): ?landArea
+    {
+        return $this->landArea;
+    }
+
+    public function setLandArea(?landArea $landArea): static
+    {
+        $this->landArea = $landArea;
 
         return $this;
     }

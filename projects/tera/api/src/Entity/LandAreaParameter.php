@@ -5,16 +5,12 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandAreaParameterRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandAreaParameterRepository::class)]
 #[ApiResource]
-class LandAreaParameter
+class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?LandArea $landArea = null;
@@ -22,10 +18,11 @@ class LandAreaParameter
     #[ORM\Column]
     private ?bool $aboveGround = false;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    #[ORM\Column(nullable: true)]
+    private ?int $width = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $length = null;
 
     public function getLandArea(): ?LandArea
     {
@@ -47,6 +44,30 @@ class LandAreaParameter
     public function setAboveGround(bool $aboveGround): static
     {
         $this->aboveGround = $aboveGround;
+
+        return $this;
+    }
+
+    public function getWidth(): ?int
+    {
+        return $this->width;
+    }
+
+    public function setWidth(?int $width): static
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    public function getLength(): ?int
+    {
+        return $this->length;
+    }
+
+    public function setLength(?int $length): static
+    {
+        $this->length = $length;
 
         return $this;
     }

@@ -24,10 +24,24 @@ class Person extends AbstractZitadelUser
     #[ORM\OneToMany(targetEntity: LandResearchRequest::class, mappedBy: 'person', orphanRemoval: true)]
     private Collection $landResearchRequests;
 
+    /**
+     * @var Collection<int, PlantCustom>
+     */
+    #[ORM\OneToMany(targetEntity: PlantCustom::class, mappedBy: 'person', orphanRemoval: true)]
+    private Collection $plantCustoms;
+
+    /**
+     * @var Collection<int, SeedStock>
+     */
+    #[ORM\OneToMany(targetEntity: SeedStock::class, mappedBy: 'person', orphanRemoval: true)]
+    private Collection $seedStocks;
+
     public function __construct()
     {
         $this->landMembers = new ArrayCollection();
         $this->landResearchRequests = new ArrayCollection();
+        $this->plantCustoms = new ArrayCollection();
+        $this->seedStocks = new ArrayCollection();
     }
 
     /**
@@ -84,6 +98,66 @@ class Person extends AbstractZitadelUser
             // set the owning side to null (unless already changed)
             if ($landResearchRequest->getPerson() === $this) {
                 $landResearchRequest->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlantCustom>
+     */
+    public function getPlantCustoms(): Collection
+    {
+        return $this->plantCustoms;
+    }
+
+    public function addPlantCustom(PlantCustom $plantCustom): static
+    {
+        if (!$this->plantCustoms->contains($plantCustom)) {
+            $this->plantCustoms->add($plantCustom);
+            $plantCustom->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlantCustom(PlantCustom $plantCustom): static
+    {
+        if ($this->plantCustoms->removeElement($plantCustom)) {
+            // set the owning side to null (unless already changed)
+            if ($plantCustom->getPerson() === $this) {
+                $plantCustom->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SeedStock>
+     */
+    public function getSeedStocks(): Collection
+    {
+        return $this->seedStocks;
+    }
+
+    public function addSeedStock(SeedStock $seedStock): static
+    {
+        if (!$this->seedStocks->contains($seedStock)) {
+            $this->seedStocks->add($seedStock);
+            $seedStock->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeedStock(SeedStock $seedStock): static
+    {
+        if ($this->seedStocks->removeElement($seedStock)) {
+            // set the owning side to null (unless already changed)
+            if ($seedStock->getPerson() === $this) {
+                $seedStock->setPerson(null);
             }
         }
 

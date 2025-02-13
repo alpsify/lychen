@@ -1,26 +1,26 @@
 framework:
   workflows:
     land_research_deal:
-      type: 'state_machine'
       audit_trail:
         enabled: true
-      marking_store:
-        type: 'method'
-        property: 'state'
       initial_marking: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::OPENED
+      marking_store:
+        property: 'state'
+        type: 'method'
+      places: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::PLACES
       supports:
         - App\Entity\LandResearchDeal
-      places: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::PLACES
       transitions:
+        !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition::ACCEPT:
+          from: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::OPENED
+          to: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::ACCEPTED
         !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition::ARCHIVE:
           from:
             - !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::OPENED
             - !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::ACCEPTED
             - !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::REFUSED
           to: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::ARCHIVED
-        !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition::ACCEPT:
-          from: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::OPENED
-          to: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::ACCEPTED
         !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition::REFUSE:
           from: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::OPENED
           to: !php/const App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace::REFUSED
+      type: 'state_machine'
