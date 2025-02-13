@@ -10,7 +10,7 @@ node:
   syncProjectWorkspaceDependencies: true
   version: 20.8.0
   yarn:
-    version: 4.5.1
+    version: 4.6.0
 
 rust:
   bins: []
