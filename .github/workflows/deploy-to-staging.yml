@@ -27,6 +27,7 @@ jobs:
 
   buildandpush:
     name: '${{ matrix.projects }} - Build and push docker images'
+    needs: define-matrix
     strategy:
       matrix:
         color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
@@ -53,7 +54,9 @@ jobs:
   deploy:
     name: 'Deploy to VPS'
     runs-on: ubuntu-latest
-    needs: buildandpush
+    needs:
+      - define-matrix
+      - buildandpush
     strategy:
       matrix:
         color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
