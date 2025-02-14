@@ -41,7 +41,6 @@ tasks:
       - '/libs/assets/fonts/**/*'
     options:
       cache: false
-    platform: system
 
   sync-logos:
     command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public/logos
@@ -51,4 +50,3 @@ tasks:
       - '/libs/assets/logos/**/*'
     options:
       cache: false
-    platform: system

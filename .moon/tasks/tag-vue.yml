@@ -5,13 +5,11 @@ tasks:
     command: docker build $projectRoot --no-cache -t
     options:
       cache: false
-    platform: system
 
   docker-push:
     command: docker push
     options:
       cache: false
-    platform: system
 
   production-docker-build:
     args:

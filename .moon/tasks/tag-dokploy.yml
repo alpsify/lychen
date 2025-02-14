@@ -10,12 +10,10 @@ tasks:
       - "-H 'Content-Type: application/json'"
       - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
       - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}"}'''
-    platform: system
 
   dokploy-compose-update:
     options:
       cache: false
-    platform: system
     script: bash $workspaceRoot/.moon/scripts/dokploy-compose-update-from-file.sh
 
   production-dokploy-compose-deploy:

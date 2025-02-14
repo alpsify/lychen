@@ -12,6 +12,5 @@ tasks:
       - '$projectRoot/icons/'
     options:
       cache: false
-    platform: system
 
 type: library

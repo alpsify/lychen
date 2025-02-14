@@ -12,6 +12,5 @@ tasks:
       - '$projectRoot/covers/'
     options:
       cache: false
-    platform: system
 
 type: library

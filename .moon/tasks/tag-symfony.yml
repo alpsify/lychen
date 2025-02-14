@@ -13,13 +13,11 @@ tasks:
     command: docker build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest
     options:
       cache: false
-    platform: system
 
   docker-push:
     command: docker push
     options:
       cache: false
-    platform: system
 
   down:
     command: docker compose down --remove-orphans

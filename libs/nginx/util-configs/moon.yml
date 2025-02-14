@@ -1,19 +1,6 @@
 id: nginx-util-configs
 
 tasks:
-  sync-ssg:
-    command:
-      - 'yes'
-      - '|'
-      - cp
-      - -rf
-      - $projectRoot/ssg
-    inputs:
-      - '$projectRoot/ssg/'
-    options:
-      cache: false
-    platform: system
-
   sync-pwa:
     command:
       - 'yes'
@@ -25,6 +12,17 @@ tasks:
       - '$projectRoot/pwa/'
     options:
       cache: false
-    platform: system
+
+  sync-ssg:
+    command:
+      - 'yes'
+      - '|'
+      - cp
+      - -rf
+      - $projectRoot/ssg
+    inputs:
+      - '$projectRoot/ssg/'
+    options:
+      cache: false
 
 type: library
