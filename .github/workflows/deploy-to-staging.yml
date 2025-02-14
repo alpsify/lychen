@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   define-matrix:
+    name: 'Define projects to run'
     runs-on: ubuntu-latest
     outputs:
       projects: ${{ steps.projects.outputs.projects }}
