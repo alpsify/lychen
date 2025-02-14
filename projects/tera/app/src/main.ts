@@ -11,7 +11,6 @@ import router from './router';
 
 const app = createApp(App);
 
-/* FontAwesome */
 loadFontAwesomeStyles();
 
 /* Router */
