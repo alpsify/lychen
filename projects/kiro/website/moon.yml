@@ -32,7 +32,7 @@ id: kiro-website
 language: typescript
 
 tags:
-  - docker
+  - vue
   - dokploy
   - ssg
 

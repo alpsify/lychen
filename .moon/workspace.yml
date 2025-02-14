@@ -21,6 +21,7 @@ hasher:
     - '**/vendor/**/*'
     - '**/public/bundles/**/*'
     - '**/bin/**/*'
+    - '**/var/**/*'
   walkStrategy: glob
 
 projects:

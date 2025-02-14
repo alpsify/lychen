@@ -37,7 +37,7 @@ project:
   name: 'Lychen website'
 
 tags:
-  - docker
+  - vue
   - dokploy
   - ssg
 

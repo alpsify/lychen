@@ -16,4 +16,7 @@ id: tera-api
 language: php
 
 tags:
-  - php
+  - symfony
+  - dokploy
+
+type: application

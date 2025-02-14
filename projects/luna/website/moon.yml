@@ -32,7 +32,7 @@ id: luna-website
 language: typescript
 
 tags:
-  - docker
+  - vue
   - dokploy
   - ssg
 

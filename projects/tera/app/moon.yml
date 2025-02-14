@@ -24,7 +24,7 @@ id: tera-app
 language: typescript
 
 tags:
-  - docker
+  - vue
   - dokploy
   - pwa
 
