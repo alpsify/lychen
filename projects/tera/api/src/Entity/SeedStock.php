@@ -32,10 +32,17 @@ class SeedStock extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: SeedStockEntry::class, mappedBy: 'seedStock', orphanRemoval: true)]
     private Collection $seedStockEntries;
 
+    /**
+     * @var Collection<int, Land>
+     */
+    #[ORM\ManyToMany(targetEntity: Land::class, mappedBy: 'seedStocks')]
+    private Collection $lands;
+
     public function __construct()
     {
         parent::__construct();
         $this->seedStockEntries = new ArrayCollection();
+        $this->lands = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -87,6 +94,33 @@ class SeedStock extends AbstractIdOrmAndUlidApiIdentified
             if ($seedStockEntry->getSeedStock() === $this) {
                 $seedStockEntry->setSeedStock(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Land>
+     */
+    public function getLands(): Collection
+    {
+        return $this->lands;
+    }
+
+    public function addLand(Land $land): static
+    {
+        if (!$this->lands->contains($land)) {
+            $this->lands->add($land);
+            $land->addSeedStock($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLand(Land $land): static
+    {
+        if ($this->lands->removeElement($land)) {
+            $land->removeSeedStock($this);
         }
 
         return $this;

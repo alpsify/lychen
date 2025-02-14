@@ -15,10 +15,5 @@ id: tera-api
 
 language: php
 
-project:
-  description: 'Tera API'
-  metadata:
-    test: 'gdfgdf'
-
 tags:
   - php

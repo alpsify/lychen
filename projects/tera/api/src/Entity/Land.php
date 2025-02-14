@@ -86,16 +86,10 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     private Collection $landCultivationPlans;
 
     /**
-     * @var Collection<int, self>
+     * @var Collection<int, SeedStock>
      */
-    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'yes')]
+    #[ORM\ManyToMany(targetEntity: SeedStock::class, inversedBy: 'lands')]
     private Collection $seedStocks;
-
-    /**
-     * @var Collection<int, self>
-     */
-    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'seedStocks')]
-    private Collection $yes;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -108,7 +102,6 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         $this->landRoles = new ArrayCollection();
         $this->landCultivationPlans = new ArrayCollection();
         $this->seedStocks = new ArrayCollection();
-        $this->yes = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -345,14 +338,14 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     }
 
     /**
-     * @return Collection<int, self>
+     * @return Collection<int, SeedStock>
      */
     public function getSeedStocks(): Collection
     {
         return $this->seedStocks;
     }
 
-    public function addSeedStock(self $seedStock): static
+    public function addSeedStock(SeedStock $seedStock): static
     {
         if (!$this->seedStocks->contains($seedStock)) {
             $this->seedStocks->add($seedStock);
@@ -361,36 +354,9 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function removeSeedStock(self $seedStock): static
+    public function removeSeedStock(SeedStock $seedStock): static
     {
         $this->seedStocks->removeElement($seedStock);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, self>
-     */
-    public function getYes(): Collection
-    {
-        return $this->yes;
-    }
-
-    public function addYe(self $ye): static
-    {
-        if (!$this->yes->contains($ye)) {
-            $this->yes->add($ye);
-            $ye->addSeedStock($this);
-        }
-
-        return $this;
-    }
-
-    public function removeYe(self $ye): static
-    {
-        if ($this->yes->removeElement($ye)) {
-            $ye->removeSeedStock($this);
-        }
 
         return $this;
     }
