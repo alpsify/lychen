@@ -7,6 +7,7 @@
     "@eslint/markdown": "^6.2.1",
     "@eslint/plugin-kit": "^0.2.4",
     "@types/eslint": "^9.6.1",
+    "@types/eslint-plugin-tailwindcss": "^3",
     "@types/node": "^22.10.2",
     "clsx": "^2.1.1",
     "eslint": "9.19.0",
@@ -14,7 +15,6 @@
     "eslint-plugin-check-file": "^2.8.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-tailwindcss": "^3.18.0",
     "eslint-plugin-unicorn": "^56.0.0",
     "eslint-plugin-vue": "^9.32.0",
     "eslint-plugin-yml": "^1.16.0",
@@ -31,5 +31,8 @@
   "workspaces": [
     "projects/**/*",
     "libs/**/*"
-  ]
+  ],
+  "dependencies": {
+    "eslint-plugin-tailwindcss": "^3.18.0"
+  }
 }

@@ -3966,7 +3966,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^9.6.1":
+"@types/eslint-plugin-tailwindcss@npm:^3":
+  version: 3.17.0
+  resolution: "@types/eslint-plugin-tailwindcss@npm:3.17.0"
+  dependencies:
+    "@types/eslint": "npm:*"
+  checksum: 10c0/256c720bab11019fe99fc1a60e8d57221e1d4312f43ae05f9526de61be51050d584f3735ba10765e0cfc70ed318acf25743130f5b4f426412550dd68bc095f37
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:*, @types/eslint@npm:^9.6.1":
   version: 9.6.1
   resolution: "@types/eslint@npm:9.6.1"
   dependencies:
@@ -7674,6 +7683,7 @@ __metadata:
     "@eslint/markdown": "npm:^6.2.1"
     "@eslint/plugin-kit": "npm:^0.2.4"
     "@types/eslint": "npm:^9.6.1"
+    "@types/eslint-plugin-tailwindcss": "npm:^3"
     "@types/node": "npm:^22.10.2"
     clsx: "npm:^2.1.1"
     eslint: "npm:9.19.0"
