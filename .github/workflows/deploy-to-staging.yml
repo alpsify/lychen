@@ -45,6 +45,8 @@ jobs:
           fetch-depth: 0
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
+        with:
+          auto-install: true
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
