@@ -31,8 +31,9 @@ jobs:
           echo "projects=$(moon query projects projectType=application | sed 's/ |/|/g' | awk -F '|' '{print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
 
   buildandpush:
-    name: '${{ matrix.projects }} - Build and push docker images'
+    name: '${{ matrix.projects }} | Build and push docker images'
     needs: define-matrix
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:

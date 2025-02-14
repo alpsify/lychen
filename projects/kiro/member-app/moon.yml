@@ -9,4 +9,8 @@ id: kiro-member-app
 
 language: typescript
 
+tags:
+  - vue
+  - pwa
+
 type: application
