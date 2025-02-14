@@ -9,9 +9,9 @@ on:
     branches:
       - main
 
-#concurrency:
-#group: ${{ github.workflow }}-${{ github.ref }}
-#cancel-in-progress: true
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   define-matrix:
@@ -20,15 +20,21 @@ jobs:
       projects: ${{ steps.projects.outputs.projects }}
 
     steps:
+      - uses: 'actions/checkout@v4'
+        with:
+          fetch-depth: 0
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
       - name: Define Projects
         id: projects
         run: |
-          echo 'projects=["eko-website","humu-website","kiro-admin-app","kiro-manager-app","kiro-member-app","kiro-producer-app","kiro-website","kolo-website","luna-website","meli-website","myko-website","novi-website","tera-api","tera-app","tera-website","vara-website","website"]' >> "$GITHUB_OUTPUT"
+          echo "projects=$(moon query projects projectType=application | sed 's/ |/|/g' | awk -F '|' '{print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
 
   buildandpush:
     name: '${{ matrix.projects }} - Build and push docker images'
     needs: define-matrix
     strategy:
+      fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
@@ -58,6 +64,7 @@ jobs:
       - define-matrix
       - buildandpush
     strategy:
+      fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     steps:
