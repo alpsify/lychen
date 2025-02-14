@@ -10,6 +10,8 @@ tasks:
       - "-H 'Content-Type: application/json'"
       - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
       - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}"}'''
+    options:
+      inferInputs: false
 
   dokploy-compose-update:
     options:

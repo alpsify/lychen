@@ -6,8 +6,8 @@
       <LychenBadge
         v-if="variant === VARIANT.LookingForMember"
         class="self-start bg-tertiary-container text-on-tertiary-container"
-        >{{ t(`kind.${land.kind}.default`) }}</LychenBadge
-      >
+        >{{ t(`kind.${land.kind}.default`) }}
+      </LychenBadge>
       <LychenIcon
         v-if="variant === VARIANT.Default"
         :icon="land.landMembers.length === 1 ? 'user' : 'users'"
@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script lang="ts" setup generic="T extends Land">
+<script generic="T extends Land" lang="ts" setup>
 import type { Land } from '@lychen/tera-util-api-sdk/model/Land';
 import { defineAsyncComponent } from 'vue';
 
