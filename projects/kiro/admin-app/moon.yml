@@ -10,4 +10,5 @@ tasks:
     command: yarn run dev
     options:
       persistent: true
+
 type: application

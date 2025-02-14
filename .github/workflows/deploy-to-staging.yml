@@ -9,46 +9,27 @@ on:
     branches:
       - main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+#concurrency:
+#group: ${{ github.workflow }}-${{ github.ref }}
+#cancel-in-progress: true
 
 jobs:
-  #  define-projects:
-  #    runs-on: ubuntu-latest
-  #    outputs:
-  #      projects: ${{ steps.projects.outputs.projects }}
-  #
-  #    steps:
-  #      - name: Define Projects
-  #        id: projects
-  #        run: |
-  #          echo 'colors=["red", "green", "blue"]' >> "$GITHUB_OUTPUT"
+  define-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.projects.outputs.projects }}
+
+    steps:
+      - name: Define Projects
+        id: projects
+        run: |
+          echo 'projects=["eko-website","humu-website","kiro-admin-app","kiro-manager-app","kiro-member-app","kiro-producer-app","kiro-website","kolo-website","luna-website","meli-website","myko-website","novi-website","tera-api","tera-app","tera-website","vara-website","website"]' >> "$GITHUB_OUTPUT"
 
   buildandpush:
     name: '${{ matrix.projects }} - Build and push docker images'
     strategy:
       matrix:
-        projects:
-          [
-            'eko-website',
-            'humu-website',
-            'kiro-admin-app',
-            'kiro-manager-app',
-            'kiro-member-app',
-            'kiro-producer-app',
-            'kiro-website',
-            'kolo-website',
-            'luna-website',
-            'meli-website',
-            'myko-website',
-            'novi-website',
-            'tera-api',
-            'tera-app',
-            'tera-website',
-            'vara-website',
-            'website',
-          ]
+        color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
@@ -75,26 +56,7 @@ jobs:
     needs: buildandpush
     strategy:
       matrix:
-        projects:
-          [
-            'eko-website',
-            'humu-website',
-            'kiro-admin-app',
-            'kiro-manager-app',
-            'kiro-member-app',
-            'kiro-producer-app',
-            'kiro-website',
-            'kolo-website',
-            'luna-website',
-            'meli-website',
-            'myko-website',
-            'novi-website',
-            'tera-api',
-            'tera-app',
-            'tera-website',
-            'vara-website',
-            'website',
-          ]
+        color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     steps:
       - uses: 'actions/checkout@v4'
         with:
