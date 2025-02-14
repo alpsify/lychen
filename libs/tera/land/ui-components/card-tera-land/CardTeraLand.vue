@@ -23,7 +23,6 @@
           class="text-tertiary"
           >{{ t('surface.default', land.surface) }}</small
         >
-
         <small class="text-tertiary opacity-50">{{
           t('land_areas.default', land.landAreas.length)
         }}</small>

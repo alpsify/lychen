@@ -29,7 +29,7 @@ jobs:
       - name: Define Projects
         id: projects
         run: |
-          echo "projects=$(moon query projects projectType=application | sed 's/ |/|/g' | awk -F '|' '{print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+          echo "projects=$(moon query tasks --id staging-dokploy-compose-deploy --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
 
   build-and-push:
     name: '${{ matrix.projects }} | Build and push docker images'
