@@ -13,13 +13,10 @@ const app = createApp(App);
 
 loadFontAwesomeStyles();
 
-/* Router */
 app.use(router);
 
-/* i18n */
 useI18n(app);
 
-/* Zitadel */
 declare module 'vue' {
   interface ComponentCustomProperties {
     $zitadel: typeof zitadelAuth;
