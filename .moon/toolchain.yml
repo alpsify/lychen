@@ -12,11 +12,6 @@ node:
   yarn:
     version: 4.6.0
 
-rust:
-  bins: []
-  syncToolchainConfig: false
-  version: 1.70.0
-
 typescript:
   createMissingConfig: true
   includeProjectReferenceSources: true
