@@ -47,6 +47,7 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
         with:
           auto-install: true
+      - run: yarn --version
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
