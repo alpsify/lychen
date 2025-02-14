@@ -30,7 +30,7 @@ jobs:
     needs: define-matrix
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
+        projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
@@ -59,7 +59,7 @@ jobs:
       - buildandpush
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
+        projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     steps:
       - uses: 'actions/checkout@v4'
         with:
