@@ -44,10 +44,10 @@ import { VARIANT, type Variant } from '.';
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
 );
+const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 const LychenBadge = defineAsyncComponent(
   () => import('@lychen/ui-components/badge/LychenBadge.vue'),
 );
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
 const { variant = VARIANT.Default, land } = defineProps<{
   land: Required<Pick<Land, 'kind' | 'name' | 'landAreas' | 'landMembers' | 'surface'>>;
