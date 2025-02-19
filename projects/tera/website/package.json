@@ -11,6 +11,7 @@
   "dependencies": {
     "@lychen/applications-ui-components": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/diagrams": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
@@ -21,6 +22,7 @@
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/util-constants": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
+    "@lychen/vue-drawio-ui-components": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-router-util-configs": "workspace:*",

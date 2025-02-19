@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "include": ["../vue/drawio/ui-components/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../vue/drawio/ui-components"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/libs/diagrams",
+    "paths": {
+      "@lychen/vue-drawio-ui-components/*": ["../vue/drawio/ui-components/*"]
+    }
+  }
+}

@@ -20,6 +20,9 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/diagrams"
+    },
+    {
       "path": "libs/eko/ui-i18n"
     },
     {
@@ -183,6 +186,9 @@
     },
     {
       "path": "libs/vite/util-ssg"
+    },
+    {
+      "path": "libs/vue/drawio/ui-components"
     },
     {
       "path": "libs/vue/i18n/util-composables"

@@ -74,6 +74,8 @@
         <ApplicationsGridFeatures :features="features" />
       </LychenDialogContent>
     </LychenDialog>
+
+    <LychenGlobal class="hidden md:flex" />
   </LychenContainer>
 </template>
 
@@ -96,6 +98,7 @@ import LychenDialogTrigger from '@lychen/ui-components/dialog/LychenDialogTrigge
 import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
 import LychenDialogClose from '@lychen/ui-components/dialog/LychenDialogClose.vue';
 import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
+import LychenGlobal from '@lychen/diagrams/LychenGlobal.vue';
 
 const LychenDialog = defineAsyncComponent(
   () => import('@lychen/ui-components/dialog/LychenDialog.vue'),

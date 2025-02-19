@@ -1776,6 +1776,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/diagrams@workspace:*, @lychen/diagrams@workspace:libs/diagrams":
+  version: 0.0.0-use.local
+  resolution: "@lychen/diagrams@workspace:libs/diagrams"
+  dependencies:
+    "@lychen/vue-drawio-ui-components": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/eko-ui-i18n@workspace:*, @lychen/eko-ui-i18n@workspace:libs/eko/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/eko-ui-i18n@workspace:libs/eko/ui-i18n"
@@ -2453,6 +2461,7 @@ __metadata:
   dependencies:
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/diagrams": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
@@ -2463,6 +2472,7 @@ __metadata:
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-router-util-configs": "workspace:*"
@@ -2667,6 +2677,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-drawio-ui-components@workspace:*, @lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components"
+  dependencies:
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-i18n-util-composables@workspace:*, @lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-i18n-util-composables@workspace:libs/vue/i18n/util-composables"
@@ -2810,6 +2828,7 @@ __metadata:
   dependencies:
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-composables": "workspace:*"
+    "@lychen/diagrams": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/ui-components": "workspace:*"

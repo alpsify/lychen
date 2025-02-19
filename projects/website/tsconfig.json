@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../libs/applications/ui-components/**/*",
     "../../libs/applications/util-composables/**/*",
+    "../../libs/diagrams/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/tailwind/util-configs/**/*",
     "../../libs/ui-components/**/*",
@@ -17,7 +17,8 @@
     "../../libs/vue/unhead/util-composables/**/*",
     "../../libs/vue/util-composables/**/*",
     "../../libs/website/ui-components/**/*",
-    "../../libs/website/ui-layouts/**/*"
+    "../../libs/website/ui-layouts/**/*",
+    "**/*"
   ],
   "references": [
     {
@@ -25,6 +26,9 @@
     },
     {
       "path": "../../libs/applications/util-composables"
+    },
+    {
+      "path": "../../libs/diagrams"
     },
     {
       "path": "../../libs/odd/util-composables"
@@ -87,7 +91,8 @@
       "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"],
       "@lychen/util-constants/*": ["../../libs/util-constants/*"],
       "@lychen/website-ui-layouts/*": ["../../libs/website/ui-layouts/*"],
-      "@lychen/website-ui-components/*": ["../../libs/website/ui-components/*"]
+      "@lychen/website-ui-components/*": ["../../libs/website/ui-components/*"],
+      "@lychen/diagrams/*": ["../../libs/diagrams/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

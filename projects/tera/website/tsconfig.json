@@ -1,13 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../../libs/applications/ui-components/**/*",
     "../../../libs/applications/util-composables/**/*",
     "../../../libs/applications/util-constants/**/*",
+    "../../../libs/diagrams/**/*",
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/odd/util-composables/**/*",
-
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-features/**/*",
@@ -16,13 +15,15 @@
     "../../../libs/ui-i18n/**/*",
     "../../../libs/util-constants/**/*",
     "../../../libs/vite/util-ssg/**/*",
+    "../../../libs/vue/drawio/ui-components/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
     "../../../libs/vue/router/util-configs/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
     "../../../libs/vue/util-composables/**/*",
     "../../../libs/website/ui-components/**/*",
-    "../../../libs/website/ui-layouts/**/*"
+    "../../../libs/website/ui-layouts/**/*",
+    "**/*"
   ],
   "references": [
     {
@@ -35,12 +36,14 @@
       "path": "../../../libs/applications/util-constants"
     },
     {
+      "path": "../../../libs/diagrams"
+    },
+    {
       "path": "../../../libs/kiro/ui-components"
     },
     {
       "path": "../../../libs/odd/util-composables"
     },
-
     {
       "path": "../../../libs/tera/ui-i18n"
     },
@@ -64,6 +67,9 @@
     },
     {
       "path": "../../../libs/vite/util-ssg"
+    },
+    {
+      "path": "../../../libs/vue/drawio/ui-components"
     },
     {
       "path": "../../../libs/vue/i18n/util-composables"
@@ -114,8 +120,10 @@
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
       "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"],
       "@lychen/tera-util-features/*": ["../../../libs/tera/util-features/*"],
-      "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
-      "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"]
+      "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
+      "@lychen/vue-drawio-ui-components/*": ["../../../libs/vue/drawio/ui-components/*"],
+      "@lychen/diagrams/*": ["../../../libs/diagrams/*"],
+      "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"]
     }
   }
 }

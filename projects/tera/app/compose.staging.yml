@@ -1,5 +1,5 @@
 services:
-  website:
+  app:
     image: ghcr.io/alpsify/lychen/staging/tera/app:latest
     labels:
       - traefik.http.routers.lychen-staging-tera-app-cndkj4-84-websecure.middlewares=ip-allow@file

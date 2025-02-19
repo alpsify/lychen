@@ -1,0 +1,8 @@
+dependsOn:
+  - vue-drawio-ui-components
+
+id: diagrams
+
+language: typescript
+
+type: library
