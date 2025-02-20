@@ -64,6 +64,7 @@ jobs:
   deploy:
     name: '${{ matrix.projects }} | Deploy'
     runs-on: ubuntu-latest
+    environment: prod-manual
     needs:
       - define-matrix
       - build-and-push
