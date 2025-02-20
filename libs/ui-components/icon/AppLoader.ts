@@ -37,6 +37,10 @@ import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
 import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
 import { faEllipsisVertical } from '@fortawesome/pro-light-svg-icons/faEllipsisVertical';
 import { faCalendarCircleExclamation } from '@fortawesome/pro-light-svg-icons/faCalendarCircleExclamation';
+import { faCircleDot } from '@fortawesome/pro-light-svg-icons/faCircleDot';
+import { faCircle } from '@fortawesome/pro-light-svg-icons/faCircle';
+import { faLanguage } from '@fortawesome/pro-light-svg-icons/faLanguage';
+import { faMinus } from '@fortawesome/pro-light-svg-icons/faMinus';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -45,6 +49,10 @@ export function loadFontAwesomeStyles() {
     faRocketLaunch,
     faBullhorn,
     faArrowUpRight,
+    faCircleDot,
+    faCircle,
+    faLanguage,
+    faMinus,
     faArrowRight,
     faArrowLeft,
     faChevronRight,

@@ -25,6 +25,10 @@
             :key="application.title"
             @navigate-to-route="closeMobileMenu"
           />
+          <LychenNavigationMenuSubLink
+            v-bind="robust"
+            @navigate-to-route="closeMobileMenu"
+          />
         </LychenAccordionContent>
       </LychenAccordionItem>
       <LychenAccordionItem value="resources">
@@ -74,6 +78,7 @@
 
 <script setup lang="ts">
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
+import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -86,16 +91,16 @@ import LychenAccordion from '@lychen/ui-components/accordion/LychenAccordion.vue
 import LychenAccordionTrigger from '@lychen/ui-components/accordion/LychenAccordionTrigger.vue';
 import LychenAccordionContent from '@lychen/ui-components/accordion/LychenAccordionContent.vue';
 import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordionItem.vue';
-import { inject, type Ref } from 'vue';
+import { inject, type Ref, computed } from 'vue';
 import { RoutePageSponsor } from '@pages/sponsor';
 import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { opiniatedApplicationsList } = useApplicationsCatalog();
+const { opiniatedApplicationsList, getAppInfo } = useApplicationsCatalog();
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
-
+const robust = computed(() => getAppInfo(APPLICATION_ALIAS.Robust));
 const mobileMenuIsOpen = inject<Ref<boolean>>('mobileMenuIsOpen');
 
 function closeMobileMenu() {

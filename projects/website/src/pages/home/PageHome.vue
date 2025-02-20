@@ -2,6 +2,7 @@
   <PageHomeHero />
   <WebsiteSectionCrowfunding />
   <PageHomeApplications />
+  <PageHomeUseCases />
   <PageHomeBento />
   <PageHomeODD />
   <PageHomeOSS />
@@ -18,6 +19,7 @@ import WebsiteSectionCrowfunding from '@lychen/website-ui-components/sections/We
 import PageHomeODD from './PageHomeODD.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomeOSS from './PageHomeOSS.vue';
+import PageHomeUseCases from './PageHomeUseCases.vue';
 import PageHomeApplications from './PageHomeApplications.vue';
 import PageHomeBento from './PageHomeBento.vue';
 import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';

@@ -17,7 +17,7 @@
               <div
                 class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
-                <div
+                <!--<div
                   class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-on-surface-container-highest"
                 >
                   <LychenIcon icon="megaphone" />
@@ -32,13 +32,35 @@
                       >
                     </p>
                   </div>
-                </div>
-                <div class="grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3 p-6">
-                  <LychenNavigationMenuSubLink
-                    v-for="application in opiniatedApplicationsList"
-                    v-bind="application"
-                    :key="application.title"
-                  />
+                </div>-->
+                <div class="flex flex-row gap-4">
+                  <div
+                    class="basis-2/3 grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-2 p-6"
+                  >
+                    <LychenNavigationMenuSubLink
+                      v-for="application in opiniatedApplicationsList"
+                      v-bind="application"
+                      :key="application.title"
+                    />
+                  </div>
+
+                  <div
+                    class="relative bg-tertiary-container basis-1/3 rounded-3xl flex flex-col gap-2"
+                  >
+                    <img
+                      class="absolute top-0 left-0 w-full h-full rounded-3xl opacity-50"
+                      src="/applications-covers/robust-cover-1.webp"
+                    />
+                    <div
+                      class="absolute bg-gradient-to-br from-tertiary-container to-tertiary-container/20 rounded-3xl top-0 left-0 w-full h-full z-20"
+                    ></div>
+                    <div class="text-on-surface z-20 flex flex-col gap-4 p-8">
+                      <p class="text-md font-black font-lexend leading-none tracking-wide">
+                        {{ robust.title }}
+                      </p>
+                      <p>{{ robust.description }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </LychenNavigationMenuContent>
@@ -50,9 +72,9 @@
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
-                class="flex flex-row gap-2 md:w-[400px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
+                class="flex flex-row gap-2 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
-                <div class="flex flex-col justify-start items-stretch gap-2 basis-1/2 p-6">
+                <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
                     v-for="resourceMenu in resourcesMenuList"
                     v-bind="resourceMenu"
@@ -62,7 +84,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="ResourcesMenuUrl"
-                    class="h-full w-auto"
+                    class="h-full w-auto max-h-[500px]"
                   />
                 </div>
               </div>
@@ -74,9 +96,9 @@
             }}</LychenNavigationMenuTrigger>
             <LychenNavigationMenuContent>
               <div
-                class="flex flex-row gap-4 md:w-[400px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
+                class="flex flex-row gap-4 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
-                <div class="flex flex-col items-stretch gap-2 basis-1/2 p-6">
+                <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
                   <LychenNavigationMenuSubLink
                     v-for="communityMenu in communityMenuList"
                     v-bind="communityMenu"
@@ -86,7 +108,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="CommunityMenuUrl"
-                    class="h-full w-auto"
+                    class="h-full w-auto max-h-[500px]"
                   />
                 </div>
               </div>
@@ -121,6 +143,7 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
+      <LanguageSwitcher />
       <LychenThemeSwitcher />
       <a
         :href="SOCIAL_LINK.GitHub"
@@ -151,7 +174,7 @@
 import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
-import { defineAsyncComponent } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@pages/price';
@@ -163,9 +186,14 @@ import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
-import { EMAIL } from '@lychen/util-constants/Email';
+
 import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
 import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
+import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
+
+const LanguageSwitcher = defineAsyncComponent(
+  () => import('@lychen/ui-components/language-switcher/LanguageSwitcher.vue'),
+);
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
@@ -200,8 +228,10 @@ const LychenNavigationMenuTrigger = defineAsyncComponent(
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { opiniatedApplicationsList } = useApplicationsCatalog();
+const { opiniatedApplicationsList, getAppInfo } = useApplicationsCatalog();
 
 const { communityMenuList } = useCommunityMenu();
 const { resourcesMenuList } = useResourcesMenu();
+
+const robust = computed(() => getAppInfo(APPLICATION_ALIAS.Robust));
 </script>

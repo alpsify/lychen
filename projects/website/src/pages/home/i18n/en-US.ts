@@ -86,8 +86,13 @@ export default {
       12: 'More details',
     },
   },
+  use_cases: {
+    title: 'Solutions tailored to each actor of the territory',
+    description:
+      'Explore how Lychen connects producers, citizens, associations, businesses, communities, and researchers around the Sustainable Development Goals. Click on each actor to discover the specific features that facilitate their engagement and collaboration within the ecosystem.',
+  },
   presentation: {
-    title: 'Together, let’s sow the seeds of a sustainable future.',
+    title: "Together, let's sow the seeds of a sustainable future.",
     description:
       'By integrating initiatives such as organic farming, biodiversity development, organic waste management, and food security, the platform aims to transform our agricultural and food practices.',
     second_description:
@@ -103,7 +108,7 @@ export default {
     },
     citizens: {
       title: 'Citizens',
-      text: 'Citizens are at the heart of the transformation towards sustainable food. Their commitment to environmentally friendly practices and participation in community projects strengthens the platform’s impact.',
+      text: "Citizens are at the heart of the transformation towards sustainable food. Their commitment to environmentally friendly practices and participation in community projects strengthens the platform's impact.",
     },
     companies: {
       title: 'Companies',

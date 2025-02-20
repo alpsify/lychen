@@ -1,9 +1,15 @@
 {
   "extends": "../../../../tsconfig.options.json",
-  "include": ["**/*"],
-  "references": [],
+  "include": ["../../i18n/util-composables/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../i18n/util-composables"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../../../.moon/cache/types/libs/vue/drawio/ui-components",
-    "paths": {}
+    "paths": {
+      "@lychen/vue-i18n-util-composables/*": ["../../i18n/util-composables/*"]
+    }
   }
 }

@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-util-generic-composables
+  - applications-util-model
+  - robust-util-constants
+  - typescript-util-object
+
+id: robust-util-features
+
+language: typescript
+
+type: library

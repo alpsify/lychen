@@ -2,7 +2,7 @@
   <PageHomeHero />
   <WebsiteSectionCrowfunding />
   <WebsiteSectionApplicationFeatures :features="features" />
-  <PageHomeUseCase />
+  <!--<PageHomeUseCase />-->
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +16,6 @@ import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtended
 import WebsiteSectionApplicationFeatures from '@lychen/website-ui-components/sections/application-features/WebsiteSectionApplicationFeatures.vue';
 import { useFeatures } from '@lychen/tera-util-features/composables/useFeatures';
 import { ref } from 'vue';
-import PageHomeUseCase from './PageHomeUseCase.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

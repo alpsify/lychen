@@ -1,6 +1,7 @@
 dependsOn:
   - applications-ui-components
   - applications-util-composables
+  - applications-util-constants
   - diagrams
   - odd-assets
   - odd-util-composables

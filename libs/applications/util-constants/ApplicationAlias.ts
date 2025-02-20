@@ -8,6 +8,7 @@ import { APP_ALIAS as VARA_APP_ALIAS } from '@lychen/vara-util-constants/App';
 import { APP_ALIAS as EKO_APP_ALIAS } from '@lychen/eko-util-constants/App';
 import { APP_ALIAS as NOVI_APP_ALIAS } from '@lychen/novi-util-constants/App';
 import { APP_ALIAS as LUNA_APP_ALIAS } from '@lychen/luna-util-constants/App';
+import { APP_ALIAS as ROBUST_APP_ALIAS } from '@lychen/robust-util-constants/App';
 
 export const APPLICATION_ALIAS = {
   Kiro: KIRO_APP_ALIAS,
@@ -20,4 +21,5 @@ export const APPLICATION_ALIAS = {
   Kolo: KOLO_APP_ALIAS,
   Tera: TERA_APP_ALIAS,
   Myko: MYKO_APP_ALIAS,
+  Robust: ROBUST_APP_ALIAS,
 } as const;

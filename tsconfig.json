@@ -110,6 +110,15 @@
       "path": "libs/odd/util-model"
     },
     {
+      "path": "libs/robust/ui-i18n"
+    },
+    {
+      "path": "libs/robust/util-constants"
+    },
+    {
+      "path": "libs/robust/util-features"
+    },
+    {
       "path": "libs/tera/land/ui-components"
     },
     {

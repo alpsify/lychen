@@ -1,0 +1,5 @@
+export default {
+  name: 'Robust',
+  description:
+    "Facilite la création d'un territoire résilient en connectant les acteurs autour des ODD européens. Permet de visualiser et de promouvoir les interactions entre les différents acteurs.",
+};

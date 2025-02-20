@@ -20,6 +20,8 @@ dependsOn:
   - myko-util-features
   - novi-ui-i18n
   - novi-util-features
+  - robust-ui-i18n
+  - robust-util-features
   - tera-ui-i18n
   - tera-util-features
   - vara-ui-i18n

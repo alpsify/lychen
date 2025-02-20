@@ -1,7 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../eko/util-constants/**/*",
     "../../humu/util-constants/**/*",
     "../../kiro/util-constants/**/*",
@@ -10,10 +9,12 @@
     "../../meli/util-constants/**/*",
     "../../myko/util-constants/**/*",
     "../../novi/util-constants/**/*",
+    "../../robust/util-constants/**/*",
     "../../tera/util-constants/**/*",
     "../../typescript/util-date/**/*",
     "../../typescript/util-object/**/*",
-    "../../vara/util-constants/**/*"
+    "../../vara/util-constants/**/*",
+    "**/*"
   ],
   "references": [
     {
@@ -39,6 +40,9 @@
     },
     {
       "path": "../../novi/util-constants"
+    },
+    {
+      "path": "../../robust/util-constants"
     },
     {
       "path": "../../tera/util-constants"
@@ -67,7 +71,8 @@
       "@lychen/vara-util-constants/*": ["../../vara/util-constants/*"],
       "@lychen/eko-util-constants/*": ["../../eko/util-constants/*"],
       "@lychen/novi-util-constants/*": ["../../novi/util-constants/*"],
-      "@lychen/luna-util-constants/*": ["../../luna/util-constants/*"]
+      "@lychen/luna-util-constants/*": ["../../luna/util-constants/*"],
+      "@lychen/robust-util-constants/*": ["../../robust/util-constants/*"]
     }
   }
 }

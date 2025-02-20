@@ -78,6 +78,11 @@ export default {
     second_title: 'Tous les outils pour le territoire',
     see_features: 'Voir les fonctionnalités',
   },
+  use_cases: {
+    title: 'Des solutions adaptées à chaque acteur du territoire',
+    description:
+      "Explorez comment Lychen connecte les producteurs, citoyens, associations, entreprises, collectivités et chercheurs autour des Objectifs de Développement Durable. Cliquez sur chaque acteur pour découvrir les fonctionnalités spécifiques qui facilitent leur engagement et collaboration au sein de l'écosystème.",
+  },
   goals: {
     title: 'Objectifs de développement durable',
     link_title: {

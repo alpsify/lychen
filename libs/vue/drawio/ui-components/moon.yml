@@ -1,3 +1,6 @@
+dependsOn:
+  - vue-i18n-util-composables
+
 id: vue-drawio-ui-components
 
 language: typescript

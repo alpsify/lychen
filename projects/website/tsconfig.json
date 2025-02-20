@@ -3,6 +3,7 @@
   "include": [
     "../../libs/applications/ui-components/**/*",
     "../../libs/applications/util-composables/**/*",
+    "../../libs/applications/util-constants/**/*",
     "../../libs/diagrams/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/tailwind/util-configs/**/*",
@@ -26,6 +27,9 @@
     },
     {
       "path": "../../libs/applications/util-composables"
+    },
+    {
+      "path": "../../libs/applications/util-constants"
     },
     {
       "path": "../../libs/diagrams"
@@ -92,7 +96,8 @@
       "@lychen/util-constants/*": ["../../libs/util-constants/*"],
       "@lychen/website-ui-layouts/*": ["../../libs/website/ui-layouts/*"],
       "@lychen/website-ui-components/*": ["../../libs/website/ui-components/*"],
-      "@lychen/diagrams/*": ["../../libs/diagrams/*"]
+      "@lychen/diagrams/*": ["../../libs/diagrams/*"],
+      "@lychen/applications-util-constants/*": ["../../libs/applications/util-constants/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

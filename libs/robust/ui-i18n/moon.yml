@@ -1,0 +1,8 @@
+dependsOn:
+  - robust-util-constants
+
+id: robust-ui-i18n
+
+language: typescript
+
+type: library

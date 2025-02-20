@@ -39,6 +39,10 @@ import {
   TRANSLATION_KEY as LUNA_TRANSLATION_KEY,
 } from '@lychen/luna-ui-i18n';
 import {
+  messages as robustMessages,
+  TRANSLATION_KEY as ROBUST_TRANSLATION_KEY,
+} from '@lychen/robust-ui-i18n';
+import {
   type Application,
   type ApplicationAlias,
 } from '@lychen/applications-util-model/Application';
@@ -58,6 +62,7 @@ export function useApplicationsCatalog() {
   useI18nExtended({ messages: ekoMessages, rootKey: EKO_TRANSLATION_KEY });
   useI18nExtended({ messages: noviMessages, rootKey: NOVI_TRANSLATION_KEY });
   useI18nExtended({ messages: lunaMessages, rootKey: LUNA_TRANSLATION_KEY });
+  useI18nExtended({ messages: robustMessages, rootKey: ROBUST_TRANSLATION_KEY });
   const { t } = useI18nExtended();
 
   function generateAppInfo(alias: ApplicationAlias): Application {
@@ -89,11 +94,11 @@ export function useApplicationsCatalog() {
       APPLICATION_ALIAS.Meli,
       APPLICATION_ALIAS.Kiro,
       APPLICATION_ALIAS.Humu,
-      APPLICATION_ALIAS.Luna,
+      //APPLICATION_ALIAS.Luna,
       APPLICATION_ALIAS.Novi,
       APPLICATION_ALIAS.Vara,
       APPLICATION_ALIAS.Kolo,
-      APPLICATION_ALIAS.Eko,
+      //APPLICATION_ALIAS.Eko,
     ];
     return Object.values(customOrder).map((alias) => {
       return generateAppInfo(alias);
@@ -104,5 +109,6 @@ export function useApplicationsCatalog() {
     applicationsList,
     titleSortedApplicationsList,
     opiniatedApplicationsList,
+    getAppInfo: generateAppInfo,
   };
 }

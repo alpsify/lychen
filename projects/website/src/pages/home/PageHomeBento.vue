@@ -75,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import bentoCentralImageUrl from './assets/bento-central.webp';
+import bentoCentralImageUrl from './assets/bento-central-9.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
