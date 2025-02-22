@@ -1,11 +1,6 @@
 name: CI/CD Symfony projects
 
-env:
-  REGISTRY: ghcr.io
-
 on:
-  #push:
-  #branches: ['*']
   pull_request:
   workflow_dispatch: {} # Permet d’exécuter manuellement les jobs de déploiement
 
@@ -36,7 +31,7 @@ jobs:
     needs: define-matrix
     runs-on: ubuntu-latest
     env:
-      TEST_IMAGE_NAME: '${{ env.REGISTRY }}lychen/test/${{ matrix.projects }}'
+      TEST_IMAGE_NAME: 'ghcr.io/lychen/test/${{ matrix.projects }}'
       GITHUB_SHA: ${{ github.sha}}
     steps:
       - uses: 'actions/checkout@v4'
