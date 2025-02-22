@@ -6,11 +6,17 @@ tasks:
     options:
       persistent: true
 
+  check-vulnerabilities:
+    command: ./local-php-security-checker
+
   ci-php-cs-fixer-src:
     command: docker run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
 
   ci-php-cs-fixer-test:
     command: docker run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
+
+  ci-validate-db-schema:
+    command: docker run --rm php bin/console doctrine:schema:validate -n
 
   dev:
     command: docker compose up -d
@@ -67,6 +73,3 @@ tasks:
 
   test-phpunit:
     command: docker compose exec php php -d memory_limit=-1 ./vendor/bin/phpunit
-
-  test-push-docker-image:
-    command: docker push ${TEST_IMAGE_NAME}:${GITHUB_SHA} ${TEST_IMAGE_NAME}:latest
