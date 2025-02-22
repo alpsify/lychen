@@ -10,24 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class PlantCustom extends Plant
 {
-    #[ORM\Column]
-    private ?bool $shared = null;
-
     #[ORM\ManyToOne(inversedBy: 'plantCustoms')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Person $person = null;
 
-    public function isShared(): ?bool
-    {
-        return $this->shared;
-    }
-
-    public function setShared(bool $shared): static
-    {
-        $this->shared = $shared;
-
-        return $this;
-    }
+    #[ORM\OneToOne(mappedBy: 'plantCustom', cascade: ['persist', 'remove'])]
+    private ?PlantConversionRequest $plantConversionRequest = null;
 
     public function getPerson(): ?Person
     {
@@ -37,6 +25,23 @@ class PlantCustom extends Plant
     public function setPerson(?Person $person): static
     {
         $this->person = $person;
+
+        return $this;
+    }
+
+    public function getPlantConversionRequest(): ?PlantConversionRequest
+    {
+        return $this->plantConversionRequest;
+    }
+
+    public function setPlantConversionRequest(PlantConversionRequest $plantConversionRequest): static
+    {
+        // set the owning side of the relation if necessary
+        if ($plantConversionRequest->getPlantCustom() !== $this) {
+            $plantConversionRequest->setPlantCustom($this);
+        }
+
+        $this->plantConversionRequest = $plantConversionRequest;
 
         return $this;
     }

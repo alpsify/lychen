@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Person;
 use App\Factory\LandFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -16,10 +17,10 @@ class LandFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $this->createLandAndAddReference(self::LAND_1, ['name' => 'Champ Du Clos']);
-        $this->createLandAndAddReference(self::LAND_2, ['name' => 'Terrain 3']);
-        $this->createLandAndAddReference(self::LAND_3, ['name' => 'Amazing Forest']);
-        $this->createLandAndAddReference(self::LAND_4, ['name' => 'Yupo Garden']);
+        $this->createLandAndAddReference(self::LAND_1, ['name' => 'Champ Du Clos', 'owner' => $this->getReference(PersonFixtures::PERSON_1, Person::class)]);
+        $this->createLandAndAddReference(self::LAND_2, ['name' => 'Terrain 3', 'owner' => $this->getReference(PersonFixtures::PERSON_2, Person::class)]);
+        $this->createLandAndAddReference(self::LAND_3, ['name' => 'Amazing Forest', 'owner' => $this->getReference(PersonFixtures::PERSON_3, Person::class)]);
+        $this->createLandAndAddReference(self::LAND_4, ['name' => 'Yupo Garden', 'owner' => $this->getReference(PersonFixtures::PERSON_4, Person::class)]);
     }
 
     private function createLandAndAddReference(string $reference, array|callable $attributes = []): void

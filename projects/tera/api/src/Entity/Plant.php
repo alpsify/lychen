@@ -27,12 +27,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: PlantRepository::class)]
 #[ORM\InheritanceType('SINGLE_TABLE')]
 #[ORM\DiscriminatorColumn(name: 'kind', type: Types::STRING)]
-#[ORM\DiscriminatorMap([Plant::KIND_GLOBAL => PlantGlobal::class, Plant::KIND_PERSON => PlantCustom::class])]
+#[ORM\DiscriminatorMap([Plant::KIND_GLOBAL => PlantGlobal::class, Plant::KIND_CUSTOM => PlantCustom::class])]
 #[ORM\HasLifecycleCallbacks]
 abstract class Plant implements IdIdentifiedInterface, UlidIdentifiedInterface
 {
     public const string KIND_GLOBAL = 'global';
-    public const string KIND_PERSON = 'person';
+    public const string KIND_CUSTOM = 'custom';
 
     use CreatedAtTrait;
     use UpdatedAtTrait;
@@ -117,10 +117,17 @@ abstract class Plant implements IdIdentifiedInterface, UlidIdentifiedInterface
     #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'plant', orphanRemoval: true)]
     private Collection $landCultivationPlans;
 
+    /**
+     * @var Collection<int, SeedStockEntry>
+     */
+    #[ORM\OneToMany(targetEntity: SeedStockEntry::class, mappedBy: 'plant', orphanRemoval: true)]
+    private Collection $seedStockEntries;
+
     public function __construct(?Ulid $ulid = null)
     {
         $this->ulid = $ulid ?: new Ulid();
         $this->landCultivationPlans = new ArrayCollection();
+        $this->seedStockEntries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -392,6 +399,36 @@ abstract class Plant implements IdIdentifiedInterface, UlidIdentifiedInterface
             // set the owning side to null (unless already changed)
             if ($landCultivationPlan->getPlant() === $this) {
                 $landCultivationPlan->setPlant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SeedStockEntry>
+     */
+    public function getSeedStockEntries(): Collection
+    {
+        return $this->seedStockEntries;
+    }
+
+    public function addSeedStockEntry(SeedStockEntry $seedStockEntry): static
+    {
+        if (!$this->seedStockEntries->contains($seedStockEntry)) {
+            $this->seedStockEntries->add($seedStockEntry);
+            $seedStockEntry->setPlant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeedStockEntry(SeedStockEntry $seedStockEntry): static
+    {
+        if ($this->seedStockEntries->removeElement($seedStockEntry)) {
+            // set the owning side to null (unless already changed)
+            if ($seedStockEntry->getPlant() === $this) {
+                $seedStockEntry->setPlant(null);
             }
         }
 

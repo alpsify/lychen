@@ -143,7 +143,7 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
-      <LanguageSwitcher />
+      <LychenLanguageSwitcher />
       <LychenThemeSwitcher />
       <a
         :href="SOCIAL_LINK.GitHub"
@@ -191,8 +191,8 @@ import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons
 import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/ui-components/language-switcher/LanguageSwitcher.vue'),
+const LychenLanguageSwitcher = defineAsyncComponent(
+  () => import('@lychen/ui-components/language-switcher/LychenLanguageSwitcher.vue'),
 );
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(

@@ -8,9 +8,11 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Constant\LandKinds;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model;
+use App\Constant\LandKind;
 use App\Repository\LandRepository;
-use App\State\LandsLookingForMemberProvider;
+use ArrayObject;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -21,20 +23,48 @@ use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
-#[ApiResource(operations: [
-    new GetCollection(uriTemplate: '/lands/looking_for_member', provider: LandsLookingForMemberProvider::class),
-    new Get(),
-    new GetCollection(),
-    new Post(),
-    new Patch(),
-    new Delete()
-]
+#[ApiResource()]
+#[Get()]
+#[Patch()]
+#[Delete()]
+#[GetCollection(
+    parameters: [
+        'looking_for_members' => new QueryParameter(
+            schema: ['type' => 'boolean'],
+        )
+    ],
+)]
+#[Post(
+    openapi: new Model\Operation(
+        summary: 'Create a land',
+        requestBody: new Model\RequestBody(
+            content: new ArrayObject([
+                'application/json' => [
+                    'schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'name' => ['type' => 'string'],
+                            'kind' => ['type' => 'string', 'enum' => LandKind::ALL]
+                        ],
+                        'required' => ['name', 'kind']
+                    ],
+                    'example' => [
+                        'name' => 'Wonderful garden',
+                        'kind' => LandKind::INDIVIDUAL
+                    ]
+                ]
+            ])
+        )
+    ),
 )]
 #[ORM\HasLifecycleCallbacks]
 class Land extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
+
+    /** @var Person|null Used by fixtures to create custom land with owner */
+    public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -72,9 +102,9 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: LandRole::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landRoles;
 
-    #[ORM\Column(length: 150, options: ['default' => LandKinds::INDIVIDUAL])]
-    #[Assert\Choice(LandKinds::ALL)]
-    private ?string $kind = LandKinds::INDIVIDUAL;
+    #[ORM\Column(length: 150, options: ['default' => LandKind::INDIVIDUAL])]
+    #[Assert\Choice(LandKind::ALL)]
+    private ?string $kind = LandKind::INDIVIDUAL;
 
     #[ORM\Column(nullable: true)]
     private ?int $surface = null;
@@ -85,11 +115,8 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landCultivationPlans;
 
-    /**
-     * @var Collection<int, SeedStock>
-     */
-    #[ORM\ManyToMany(targetEntity: SeedStock::class, inversedBy: 'lands')]
-    private Collection $seedStocks;
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?LandRole $defaultRole = null;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -101,7 +128,6 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         $this->landMemberInvitations = new ArrayCollection();
         $this->landRoles = new ArrayCollection();
         $this->landCultivationPlans = new ArrayCollection();
-        $this->seedStocks = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -337,26 +363,14 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    /**
-     * @return Collection<int, SeedStock>
-     */
-    public function getSeedStocks(): Collection
+    public function getDefaultRole(): ?LandRole
     {
-        return $this->seedStocks;
+        return $this->defaultRole;
     }
 
-    public function addSeedStock(SeedStock $seedStock): static
+    public function setDefaultRole(?LandRole $defaultRole): static
     {
-        if (!$this->seedStocks->contains($seedStock)) {
-            $this->seedStocks->add($seedStock);
-        }
-
-        return $this;
-    }
-
-    public function removeSeedStock(SeedStock $seedStock): static
-    {
-        $this->seedStocks->removeElement($seedStock);
+        $this->defaultRole = $defaultRole;
 
         return $this;
     }

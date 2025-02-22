@@ -19,6 +19,7 @@
         <server name="SHELL_VERBOSITY" value="-1"/>
         <server name="SYMFONY_DEPRECATIONS_HELPER"
                 value="max[self]=0&amp;max[direct]=0&amp;quiet[]=indirect&amp;quiet[]=other"/>
+        <server name="BROWSER_ALWAYS_START_WEBSERVER" value="1"/>
     </php>
 
     <testsuites>
@@ -35,5 +36,6 @@
 
     <extensions>
         <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+        <bootstrap class="Zenstruck\Browser\Test\BrowserExtension"/>
     </extensions>
 </phpunit>

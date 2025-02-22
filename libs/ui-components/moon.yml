@@ -7,4 +7,8 @@ id: ui-components
 
 language: typescript
 
+tasks:
+  shadcn-add:
+    command: 'npx shadcn-vue@latest add '
+
 type: library

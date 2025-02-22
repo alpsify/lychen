@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Land;
+use App\Entity\LandRole;
 use App\Entity\Person;
 use App\Factory\LandMemberFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -15,14 +16,9 @@ class LandMemberFixtures extends Fixture implements DependentFixtureInterface
     {
         LandMemberFactory::new()->create([
             'land' => $this->getReference(LandFixtures::LAND_1, Land::class),
-            'person' => $this->getReference(PersonFixtures::PERSON_1, Person::class),
-            'owner' => true
-        ]);
-
-        LandMemberFactory::new()->create([
-            'land' => $this->getReference(LandFixtures::LAND_1, Land::class),
             'person' => $this->getReference(PersonFixtures::PERSON_4, Person::class),
             'owner' => false,
+            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
         ]);
 
         LandMemberFactory::new()->create([
@@ -32,27 +28,9 @@ class LandMemberFixtures extends Fixture implements DependentFixtureInterface
         ]);
 
         LandMemberFactory::new()->create([
-            'land' => $this->getReference(LandFixtures::LAND_2, Land::class),
-            'person' => $this->getReference(PersonFixtures::PERSON_2, Person::class),
-            'owner' => true
-        ]);
-
-        LandMemberFactory::new()->create([
-            'land' => $this->getReference(LandFixtures::LAND_3, Land::class),
-            'person' => $this->getReference(PersonFixtures::PERSON_3, Person::class),
-            'owner' => true
-        ]);
-
-        LandMemberFactory::new()->create([
             'land' => $this->getReference(LandFixtures::LAND_3, Land::class),
             'person' => $this->getReference(PersonFixtures::PERSON_1, Person::class),
             'owner' => false
-        ]);
-        
-        LandMemberFactory::new()->create([
-            'land' => $this->getReference(LandFixtures::LAND_4, Land::class),
-            'person' => $this->getReference(PersonFixtures::PERSON_4, Person::class),
-            'owner' => true
         ]);
     }
 

@@ -41,7 +41,7 @@
         </div>
 
         <div class="flex flex-row items-center gap-4">
-          <LanguageSwitcher />
+          <LychenLanguageSwitcher />
           <LychenThemeSwitcher />
           <a
             :href="SOCIAL_LINK.GitHub"
@@ -130,8 +130,8 @@ const LychenSheetContent = defineAsyncComponent(
   () => import('@lychen/ui-components/sheet/LychenSheetContent.vue'),
 );
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/ui-components/language-switcher/LanguageSwitcher.vue'),
+const LychenLanguageSwitcher = defineAsyncComponent(
+  () => import('@lychen/ui-components/language-switcher/LychenLanguageSwitcher.vue'),
 );
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));

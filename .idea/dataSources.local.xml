@@ -17,6 +17,9 @@
             <node kind="database" qname="app">
               <node kind="schema" negative="1" />
             </node>
+            <node kind="database" qname="app_test">
+              <node kind="schema" qname="public" />
+            </node>
           </node>
         </introspection-scope>
       </schema-mapping>

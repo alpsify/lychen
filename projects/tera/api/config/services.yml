@@ -15,6 +15,10 @@ services:
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
     resource: '../src/*'
 
+  App\Serializer\ContextBuilder\DynamicGroupsContextBuilder:
+    autoconfigure: false
+    decorates: 'api_platform.serializer.context_builder'
+
   Aws\S3\S3Client:
     arguments:
       - credentials:

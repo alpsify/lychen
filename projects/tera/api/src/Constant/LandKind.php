@@ -2,7 +2,7 @@
 
 namespace App\Constant;
 
-final class LandKinds
+final class LandKind
 {
     public const string INDIVIDUAL = 'individual';
     public const string SHARED_GARDEN = "shared_garden";

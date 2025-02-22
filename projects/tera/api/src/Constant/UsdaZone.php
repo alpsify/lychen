@@ -2,7 +2,7 @@
 
 namespace App\Constant;
 
-class UsdaZone
+final class UsdaZone
 {
     public const string ZONE_0A = 'zone-0a';
     public const string ZONE_0B = 'zone-0b';

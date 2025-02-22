@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Doctrine;
+namespace App\Doctrine\QueryExtension;
 
 use ApiPlatform\Doctrine\Orm\Extension\QueryCollectionExtensionInterface;
 use ApiPlatform\Doctrine\Orm\Extension\QueryItemExtensionInterface;
@@ -20,7 +20,6 @@ final readonly class LandExtension implements QueryCollectionExtensionInterface,
 
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, ?Operation $operation = null, array $context = []): void
     {
-
         $this->addWhere($queryBuilder, $resourceClass);
     }
 
@@ -38,6 +37,6 @@ final readonly class LandExtension implements QueryCollectionExtensionInterface,
 
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, ?Operation $operation = null, array $context = []): void
     {
-        $this->addWhere($queryBuilder, $resourceClass);
+        //$this->addWhere($queryBuilder, $resourceClass);
     }
 }

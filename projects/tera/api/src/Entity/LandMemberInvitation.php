@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandMemberInvitationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -23,6 +25,18 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 255)]
     #[Assert\Email()]
     private ?string $email = null;
+
+    /**
+     * @var Collection<int, LandRole>
+     */
+    #[ORM\ManyToMany(targetEntity: LandRole::class)]
+    private Collection $landRoles;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->landRoles = new ArrayCollection();
+    }
 
     public function getLand(): ?Land
     {
@@ -44,6 +58,30 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandRole>
+     */
+    public function getLandRoles(): Collection
+    {
+        return $this->landRoles;
+    }
+
+    public function addLandRole(LandRole $landRole): static
+    {
+        if (!$this->landRoles->contains($landRole)) {
+            $this->landRoles->add($landRole);
+        }
+
+        return $this;
+    }
+
+    public function removeLandRole(LandRole $landRole): static
+    {
+        $this->landRoles->removeElement($landRole);
 
         return $this;
     }

@@ -10,6 +10,8 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\LandMemberRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Uid\Ulid;
@@ -42,10 +44,17 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToOne(mappedBy: 'landMember', cascade: ['persist', 'remove'])]
     private ?LandMemberSetting $landMemberSetting = null;
 
+    /**
+     * @var Collection<int, LandRole>
+     */
+    #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
+    private Collection $landRoles;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
         $this->setLandMemberSetting(new LandMemberSetting());
+        $this->landRoles = new ArrayCollection();
     }
 
     public function getJoinedAt(): ?DateTimeImmutable
@@ -115,6 +124,30 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
         }
 
         $this->landMemberSetting = $landMemberSetting;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandRole>
+     */
+    public function getLandRoles(): Collection
+    {
+        return $this->landRoles;
+    }
+
+    public function addLandRole(LandRole $landRole): static
+    {
+        if (!$this->landRoles->contains($landRole)) {
+            $this->landRoles->add($landRole);
+        }
+
+        return $this;
+    }
+
+    public function removeLandRole(LandRole $landRole): static
+    {
+        $this->landRoles->removeElement($landRole);
 
         return $this;
     }

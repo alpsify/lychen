@@ -2,7 +2,7 @@
 
 namespace App\Constant;
 
-class PlantPart
+final class PlantPart
 {
     public const string ROOT = 'root';
     public const string STEM = 'stem';

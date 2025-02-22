@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandRoleRepository;
+use App\Security\Constant\Permissions;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\PositionTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
@@ -28,8 +32,21 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\JoinColumn(nullable: false)]
     private ?Land $land = null;
 
-    #[ORM\Column]
-    private ?bool $canInviteSomeone = false;
+    /**
+     * @var Collection<int, LandMember>
+     */
+    #[ORM\ManyToMany(targetEntity: LandMember::class, mappedBy: 'landRoles')]
+    private Collection $landMembers;
+
+    #[ORM\Column(nullable: true, options: ['jsonb' => true])]
+    #[Assert\Choice(Permissions::ALL, multiple: true)]
+    private ?array $permissions = null;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->landMembers = new ArrayCollection();
+    }
 
     public function getName(): ?string
     {
@@ -55,14 +72,41 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function isCanInviteSomeone(): ?bool
+    /**
+     * @return Collection<int, LandMember>
+     */
+    public function getLandMembers(): Collection
     {
-        return $this->canInviteSomeone;
+        return $this->landMembers;
     }
 
-    public function setCanInviteSomeone(bool $canInviteSomeone): static
+    public function addLandMember(LandMember $landMember): static
     {
-        $this->canInviteSomeone = $canInviteSomeone;
+        if (!$this->landMembers->contains($landMember)) {
+            $this->landMembers->add($landMember);
+            $landMember->addLandRole($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandMember(LandMember $landMember): static
+    {
+        if ($this->landMembers->removeElement($landMember)) {
+            $landMember->removeLandRole($this);
+        }
+
+        return $this;
+    }
+
+    public function getPermissions(): ?array
+    {
+        return $this->permissions;
+    }
+
+    public function setPermissions(?array $permissions): static
+    {
+        $this->permissions = $permissions;
 
         return $this;
     }
