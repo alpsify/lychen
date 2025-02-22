@@ -21,6 +21,13 @@ tasks:
   ci-php-cs-fixer-test:
     command: docker -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
 
+  ci-test-build-docker-image:
+    command: docker build --build-arg BUILDKIT_INLINE_CACHE=1 \
+      --cache-from ${TEST_IMAGE_NAME}:latest \
+      --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} \
+      --tag ${TEST_IMAGE_NAME}:latest \
+      --target frankenphp_test .
+
   ci-test-phpunit:
     command: docker -f compose.yml -f compose.ci.yml exec php php -d memory_limit=-1 ./vendor/bin/phpunit
 
@@ -66,10 +73,3 @@ tasks:
     deps:
       - staging-docker-build
     extends: docker-push
-
-  test-build-docker-image:
-    command: docker build --build-arg BUILDKIT_INLINE_CACHE=1 \
-      --cache-from ${TEST_IMAGE_NAME}:latest \
-      --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} \
-      --tag ${TEST_IMAGE_NAME}:latest \
-      --target frankenphp_test .

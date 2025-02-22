@@ -66,7 +66,7 @@ jobs:
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
 
       - name: Build docker test image
-        run: moon ci ${{ matrix.projects }}:test-build-docker-image
+        run: moon ci ${{ matrix.projects }}:ci-test-build-docker-image
 
       - name: Push docker test image
         run: |
@@ -94,7 +94,7 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
 
       - name: Install vendors
-        run: moon ci ${{ matrix.projects }}:install-vendors
+        run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
@@ -135,7 +135,7 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
 
       - name: Install tools
-        run: moon ci ${{ matrix.projects }}:install-tools
+        run: moon ci ${{ matrix.projects }}:ci-install-tools
 
       - name: Lint src folder
         run: moon ci ${{ matrix.projects }}:ci-php-cs-fixer-src
@@ -203,7 +203,7 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
 
       - name: Check vulnerabilities
-        run: moon ci ${{ matrix.projects }}:check-vulnerabilities
+        run: moon ci ${{ matrix.projects }}:ci-check-vulnerabilities
 
   phpunit:
     name: '${{ matrix.projects }} | PHPUnit'
@@ -234,4 +234,4 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
 
       - name: Test
-        run: moon ci ${{ matrix.projects }}:test-phpunit tests/Functionnal
+        run: moon ci ${{ matrix.projects }}:ci-test-phpunit tests/Functionnal
