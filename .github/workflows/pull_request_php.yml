@@ -4,10 +4,14 @@ env:
   REGISTRY: ghcr.io
 
 on:
-  push:
-    branches: ['*']
+  #push:
+  #branches: ['*']
   pull_request:
   workflow_dispatch: {} # Permet d’exécuter manuellement les jobs de déploiement
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   define-matrix:
@@ -27,7 +31,9 @@ jobs:
           echo "projects=$(moon query projects --tags symfony --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
 
   build_docker_test_image:
+    if: ${{ needs.define-matrix.outputs.projects != '[]' && needs.define-matrix.outputs.projects != '' }}
     name: 'Build docker test image'
+    needs: define-matrix
     runs-on: ubuntu-latest
     env:
       TEST_IMAGE_NAME: '${{ env.REGISTRY }}lychen/test/${{ matrix.projects }}'
