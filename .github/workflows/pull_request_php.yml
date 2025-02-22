@@ -1,5 +1,8 @@
 name: CI/CD Symfony projects
 
+env:
+  REGISTRY: ghcr.io
+
 on:
   push:
     branches: ['*']
