@@ -75,6 +75,7 @@ jobs:
     name: '${{ matrix.projects }} | Install vendors'
     runs-on: ubuntu-latest
     needs:
+      - define-matrix
       - build-and-push-test-image
     strategy:
       fail-fast: false
@@ -103,7 +104,9 @@ jobs:
 
   lint_php:
     name: 'Lint PHP files'
-    needs: build-and-push-test-image
+    needs:
+      - define-matrix
+      - build-and-push-test-image
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
