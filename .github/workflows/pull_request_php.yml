@@ -34,8 +34,9 @@ jobs:
     name: 'Build docker test image'
     needs: define-matrix
     runs-on: ubuntu-latest
-    #env:
-    #TEST_IMAGE_NAME: '$REGISTRY/lychen/test/${{ matrix.projects }}'
+    env:
+      #TEST_IMAGE_NAME: '$REGISTRY/lychen/test/${{ matrix.projects }}'
+      GITHUB_SHA: ${{ github.sha }}
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -56,11 +57,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - run: export TEST_IMAGE_NAME='${{ env.REGISTRY }}/lychen/test/${{ matrix.projects }}'
+
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
 
       - name: Build docker test image
-        env:
-          TEST_IMAGE_NAME: '${{ env.REGISTRY }}/lychen/test/${{ matrix.projects }}'
-          GITHUB_SHA: ${{ github.sha}}
         run: moon ci ${{ matrix.projects }}:test-build-docker-image
