@@ -2,6 +2,7 @@ name: CI/CD Symfony projects
 
 env:
   REGISTRY: ghcr.io/alpsify/lychen/test
+  GITHUB_SHA: ${{ github.sha }}
 
 on:
   pull_request:
@@ -41,7 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -81,7 +81,6 @@ jobs:
       - build-and-push-test-image
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     strategy:
       fail-fast: false
       matrix:
@@ -119,7 +118,6 @@ jobs:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -157,7 +155,6 @@ jobs:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -189,7 +186,6 @@ jobs:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -221,7 +217,6 @@ jobs:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     env:
       TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
