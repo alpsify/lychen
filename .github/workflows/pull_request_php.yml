@@ -1,5 +1,8 @@
 name: CI/CD Symfony projects
 
+env:
+  REGISTRY: ghcr.io
+
 on:
   pull_request:
   workflow_dispatch: {} # Permet d’exécuter manuellement les jobs de déploiement
@@ -24,6 +27,7 @@ jobs:
         id: projects
         run: |
           echo "projects=$(moon query projects --tags symfony --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+      - run: echo ${{ steps.projects.outputs.projects }}
 
   build_docker_test_image:
     if: ${{ needs.define-matrix.outputs.projects != '[]' && needs.define-matrix.outputs.projects != '' }}
@@ -31,7 +35,7 @@ jobs:
     needs: define-matrix
     runs-on: ubuntu-latest
     env:
-      TEST_IMAGE_NAME: 'ghcr.io/lychen/test/${{ matrix.projects }}'
+      TEST_IMAGE_NAME: '$REGISTRY/lychen/test/${{ matrix.projects }}'
       GITHUB_SHA: ${{ github.sha}}
     steps:
       - uses: 'actions/checkout@v4'
