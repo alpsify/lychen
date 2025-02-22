@@ -6,6 +6,12 @@ tasks:
     options:
       persistent: true
 
+  ci-php-cs-fixer-src:
+    command: docker run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
+
+  ci-php-cs-fixer-test:
+    command: docker run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
+
   dev:
     command: docker compose up -d
 
@@ -21,6 +27,12 @@ tasks:
 
   down:
     command: docker compose down --remove-orphans
+
+  install-tools:
+    command: docker run --rm php composer install --no-interaction --working-dir=tools/
+
+  install-vendors:
+    command: docker run --rm php composer install --no-interaction
 
   production-docker-build:
     env:
