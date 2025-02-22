@@ -118,15 +118,15 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
 
       - name: Install tools
-        run: run: moon ci ${{ matrix.projects }}:install-tools
-      
+        run: moon ci ${{ matrix.projects }}:install-tools
+
       - name: Lint src folder
-        run: run: moon ci ${{ matrix.projects }}:ci-php-cs-fixer-src
+        run: moon ci ${{ matrix.projects }}:ci-php-cs-fixer-src
 
       - name: Lint test folder
-        run: run: moon ci ${{ matrix.projects }}:ci-php-cs-fixer-test
+        run: moon ci ${{ matrix.projects }}:ci-php-cs-fixer-test
