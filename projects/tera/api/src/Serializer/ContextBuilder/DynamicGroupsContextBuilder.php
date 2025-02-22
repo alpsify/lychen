@@ -43,10 +43,6 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
 
         ];
 
-        /*if ($resourceClassShortName === 'Land') {
-            dd($groups);
-        }*/
-
         return $groups;
     }
 }

@@ -8,32 +8,31 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model;
 use App\Constant\LandKind;
+use App\Processor\DebugProcessor;
+use App\Provider\LandsLookingForMemberProvider;
 use App\Repository\LandRepository;
 use ArrayObject;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Get()]
 #[Patch()]
-#[Delete()]
-#[GetCollection(
-    parameters: [
-        'looking_for_members' => new QueryParameter(
-            schema: ['type' => 'boolean'],
-        )
-    ],
-)]
+#[Delete(processor: DebugProcessor::class)]
+#[GetCollection(uriTemplate: '/lands/looking_for_members', name: 'looking-for-members', provider: LandsLookingForMemberProvider::class)]
+#[Get()]
+#[GetCollection()]
 #[Post(
     openapi: new Model\Operation(
         summary: 'Create a land',
@@ -67,6 +66,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?string $name = null;
 
     /**
@@ -96,17 +96,13 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: LandMemberInvitation::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landMemberInvitations;
 
-    /**
-     * @var Collection<int, LandRole>
-     */
-    #[ORM\OneToMany(targetEntity: LandRole::class, mappedBy: 'land', orphanRemoval: true)]
-    private Collection $landRoles;
-
     #[ORM\Column(length: 150, options: ['default' => LandKind::INDIVIDUAL])]
     #[Assert\Choice(LandKind::ALL)]
+    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?string $kind = LandKind::INDIVIDUAL;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?int $surface = null;
 
     /**
@@ -115,7 +111,13 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landCultivationPlans;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    /**
+     * @var Collection<int, LandRole>
+     */
+    #[ORM\OneToMany(targetEntity: LandRole::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landRoles;
+
+    #[ORM\OneToOne(cascade: ['persist'])]
     private ?LandRole $defaultRole = null;
 
     public function __construct(?Ulid $ulid = null)
@@ -140,6 +142,24 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         $this->name = $name;
 
         return $this;
+    }
+
+    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
+    #[Groups(["user:land:get", "user:land:patch"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["user:land:get", "user:land:patch"])]
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 
     /**

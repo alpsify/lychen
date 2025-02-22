@@ -1,0 +1,62 @@
+name: CI/CD Symfony projects
+
+on:
+  push:
+    branches: ['*']
+  pull_request:
+  workflow_dispatch: {} # Permet d’exécuter manuellement les jobs de déploiement
+
+env:
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: '/certs'
+
+jobs:
+  define-matrix:
+    name: 'Gather affected projects'
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.projects.outputs.projects }}
+    steps:
+      - uses: 'actions/checkout@v4'
+        with:
+          fetch-depth: 0
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
+      - name: Define Projects
+        id: projects
+        run: |
+          echo "projects=$(moon query projects --tags symfony --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+
+  build_docker_test_image:
+    name: 'Build docker test image'
+    #if: ${{ !startsWith(github.ref, 'refs/tags/') && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    env:
+      TEST_IMAGE_NAME: '${{ env.REGISTRY }}/lychen/test/${{ matrix.projects }}'
+      GITHUB_SHA: ${{ github.sha}}
+    steps:
+      - uses: 'actions/checkout@v4'
+        with:
+          fetch-depth: 0
+
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
+        with:
+          auto-install: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull test image if exists
+        run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
+
+      - name: Build docker test image
+        run: moon ci ${{ matrix.projects }}:test-build-docker-image

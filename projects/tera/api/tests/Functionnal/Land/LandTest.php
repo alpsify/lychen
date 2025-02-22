@@ -12,16 +12,23 @@ class LandTest extends AbstractApiTestCase
     public function testPost()
     {
         $owner1 = $this->createPerson();
+
+        $name = faker()->name();
+        $surface = faker()->numberBetween(10, 200);
+        $kind = LandKind::INDIVIDUAL;
+
         $this->browser()->actingAs($owner1)
             ->post('/api/lands', ['json' => [
-                'name' => faker()->name(),
-                'kind' => LandKind::INDIVIDUAL
+                'name' => $name,
+                'kind' => LandKind::INDIVIDUAL,
+                'surface' => $surface
             ]])
             ->assertStatus(201)
+            ->assertJsonMatches('name', $name)
+            ->assertJsonMatches('kind', $kind)
+            ->assertJsonMatches('surface', $surface)
             ->use(function (Json $json) {
-                $json->assertThat('defaultRole', fn(Json $json) => $json->isNotNull());
-                $json->assertThat('landRoles', fn(Json $json) => $json->hasCount(1));
-                $json->assertThat('landMembers', fn(Json $json) => $json->hasCount(1));
+                $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
 
     }
@@ -38,7 +45,14 @@ class LandTest extends AbstractApiTestCase
         $this->browser()->actingAs($owner1)
             ->get('/api/lands/' . $land1->getUlid()->toString())
             ->assertSuccessful()
-            ->assertJsonMatches('ulid', $land1->getUlid()->toString());
+            ->assertJsonMatches('ulid', $land1->getUlid()->toString())
+            ->assertJsonMatches('name', $land1->getName())
+            ->assertJsonMatches('kind', $land1->getKind())
+            ->assertJsonMatches('surface', $land1->getSurface())
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
+            });
     }
 
     public function testPatch()
@@ -48,12 +62,24 @@ class LandTest extends AbstractApiTestCase
         $this->createLand($owner1);
 
         $newName = faker()->name();
+        $newSurface = faker()->numberBetween(10, 200);
 
         $this->browser()->actingAs($owner1)
-            ->patch('/api/lands/' . $land1->getUlid()->toString(), ['json' => ['name' => faker()->name()]])
+            ->patch('/api/lands/' . $land1->getUlid()->toString(), [
+                'json' => [
+                    'name' => $newName,
+                    'surface' => $newSurface
+                ]
+            ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $land1->getUlid()->toString())
-            ->assertJsonMatches('name', $newName);
+            ->assertJsonMatches('name', $newName)
+            ->assertJsonMatches('kind', $land1->getKind())
+            ->assertJsonMatches('surface', $newSurface)
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
+            });
     }
 
     public function testDelete()
@@ -67,7 +93,7 @@ class LandTest extends AbstractApiTestCase
             ->assertStatus(204);
     }
 
-    public function testGetCollection()
+    public function testCollection()
     {
         $owner1 = $this->createPerson();
         $land1 = $this->createLand($owner1);
@@ -80,10 +106,12 @@ class LandTest extends AbstractApiTestCase
             ->get('/api/lands')
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
-            ->assertJsonMatches('member[0].ulid', $land1->getUlid()->toString());
+            ->assertJsonMatches('member[0].ulid', $land1->getUlid()->toString())
+            ->assertJsonMatches('member[0].name', $land1->getName())
+            ->assertJsonMatches('member[0].surface', $land1->getSurface());
     }
 
-    public function testGetCollectionLookingForMember()
+    public function testLookingForMember()
     {
         $owner1 = $this->createPerson();
         $land1 = $this->createLand($owner1);
@@ -98,10 +126,14 @@ class LandTest extends AbstractApiTestCase
         $land2->_save();
 
         $this->browser()->actingAs($owner1)
-            ->get('/api/lands', ['query' => ['looking_for_member' => true]])
+            ->get('/api/lands/looking_for_members')
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
             ->assertJsonMatches('member[0].ulid', $land1->getUlid()->toString())
-            ->assertJsonMatches('member[1].ulid', $land2->getUlid()->toString());
+            ->assertJsonMatches('member[0].name', $land1->getName())
+            ->assertJsonMatches('member[0].surface', $land1->getSurface())
+            ->assertJsonMatches('member[1].ulid', $land2->getUlid()->toString())
+            ->assertJsonMatches('member[1].name', $land2->getName())
+            ->assertJsonMatches('member[1].surface', $land2->getSurface());
     }
 }

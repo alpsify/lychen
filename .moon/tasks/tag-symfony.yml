@@ -45,3 +45,16 @@ tasks:
     deps:
       - staging-docker-build
     extends: docker-push
+
+  test-build-docker-image:
+    command: docker build --build-arg BUILDKIT_INLINE_CACHE=1 \
+      --cache-from ${TEST_IMAGE_NAME}:latest \
+      --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} \
+      --tag ${TEST_IMAGE_NAME}:latest \
+      --target frankenphp_test .
+
+  test-phpunit:
+    command: docker compose exec php php -d memory_limit=-1 ./vendor/bin/phpunit
+
+  test-push-docker-image:
+    command: docker push ${{ env.TEST_IMAGE_NAME }}:${{ github.sha }} ${{ env.TEST_IMAGE_NAME }}:latest
