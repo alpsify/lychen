@@ -218,10 +218,10 @@ jobs:
           name: ${{ matrix.projects }}-vendors
           path: ${{ steps.project-paths.outputs.project_path }}
 
+      - run: moon ci ${{ matrix.projects }}:ci-install-vendors
+
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
-
-      - run: docker compose -f projects/tera/api/compose.yml -f projects/tera/api/compose.ci.yml up php database -d
 
       - name: Create DB
         run: moon ci ${{ matrix.projects }}:ci-create-db
