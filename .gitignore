@@ -24,5 +24,3 @@ node_modules/
 # Moon
 .moon/cache
 .moon/dts
-
-*.env

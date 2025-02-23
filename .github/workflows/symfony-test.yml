@@ -108,8 +108,6 @@ jobs:
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
-      - run: echo "${{ env.TEST_IMAGE_NAME }}"
-
       - name: Install vendors
         run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
@@ -149,6 +147,9 @@ jobs:
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
 
+      - name: Set IMAGE_NAME for this project
+        run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
+
       - name: Install tools
         run: moon ci ${{ matrix.projects }}:ci-install-tools
 
@@ -184,6 +185,9 @@ jobs:
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
 
+      - name: Set IMAGE_NAME for this project
+        run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
+
       - name: Validate DB
         run: moon ci ${{ matrix.projects }}:ci-validate-db-schema
 
@@ -213,6 +217,9 @@ jobs:
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
 
+      - name: Set IMAGE_NAME for this project
+        run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
+
       - name: Check vulnerabilities
         run: moon ci ${{ matrix.projects }}:ci-check-vulnerabilities
 
@@ -238,6 +245,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set IMAGE_NAME for this project
+        run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
