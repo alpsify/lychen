@@ -7,6 +7,7 @@ use ApiPlatform\State\ProcessorInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 
+/** Only for dev */
 class DebugProcessor implements ProcessorInterface
 {
 
@@ -23,7 +24,7 @@ class DebugProcessor implements ProcessorInterface
             if (method_exists($e, 'getCycle')) {
                 $cycleNodes = $e->getCycle();
                 // Affiche ou traite le cycle
-                dd($cycleNodes);
+                //dd($cycleNodes);
             }
             throw $e; // ou gère autrement l'exception
         }

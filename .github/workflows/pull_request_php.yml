@@ -39,8 +39,6 @@ jobs:
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -60,6 +58,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculate IMAGE_NAME
+        run: echo "TEST_IMAGE_NAME=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_ENV
 
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true

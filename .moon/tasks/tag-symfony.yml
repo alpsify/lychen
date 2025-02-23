@@ -19,7 +19,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
 
   ci-php-cs-fixer-test:
-    command: docker -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
 
   ci-test-build-docker-image:
     command: docker build --build-arg BUILDKIT_INLINE_CACHE=1 \
