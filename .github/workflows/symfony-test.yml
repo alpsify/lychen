@@ -108,6 +108,11 @@ jobs:
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
+      - name: Copy libs PHP inside project
+        run: cp libs/php ${{ steps.project-paths.outputs.project_path }}/packages
+
+      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/packages
+
       - name: Install vendors
         run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
