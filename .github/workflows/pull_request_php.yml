@@ -60,7 +60,12 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Calculate IMAGE_NAME
-        run: echo "TEST_IMAGE_NAME=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_ENV
+        id: set-image
+        run: |
+          # Set for current job
+          echo "TEST_IMAGE_NAME=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_ENV
+          # Set for other jobs
+          echo "matrix_image_names=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_OUTPUT
 
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
@@ -97,6 +102,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set IMAGE_NAME for this project
+        run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
       - run: echo "${{ env.TEST_IMAGE_NAME }}"
 
