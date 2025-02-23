@@ -1,4 +1,4 @@
-name: Pull Request
+name: Linting checks
 
 env:
   FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}

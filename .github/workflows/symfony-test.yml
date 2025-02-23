@@ -1,4 +1,4 @@
-name: CI/CD Symfony projects
+name: Tests Symfony projects
 
 env:
   REGISTRY: ghcr.io/alpsify/lychen/test
@@ -260,17 +260,56 @@ jobs:
       - name: Validate DB
         run: moon ci ${{ matrix.projects }}:ci-validate-db-schema
 
-  phpunit:
-    name: '${{ matrix.projects }} | PHPUnit'
-    needs:
-      - define-matrix
-      - build-and-push-test-image
-      - install-vendors
+  build-test-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      test_matrix: ${{ steps.set-matrix.outputs.test_matrix }}
     strategy:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Moon Toolchain
+        uses: 'moonrepo/setup-toolchain@v0'
+
+      - name: Get project path
+        id: project-paths
+        run: |
+          PROJECT_PATH=$(moon project ${{ matrix.projects }} --json | jq -r '.source')
+          echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
+
+      - name: Get test folders for each project
+        id: set-matrix
+        run: |
+          # Initialize matrix
+          echo "test_matrix=$(
+            # List test folders if they exist
+            if [ -d "${{ steps.project-paths.outputs.project_path }}/tests/Functional" ]; then
+              # Get all directories in tests/Functional
+              for folder in ${{ steps.project-paths.outputs.project_path }}/tests/Functional/*/; do
+                folder_name=$(basename $folder)
+                # Output project and folder combination
+                echo "{\"project\":\"${{ matrix.projects }}\",\"test_folder\":\"$folder_name\"}"
+              done
+            fi | jq -s '.'
+          )" >> $GITHUB_OUTPUT
+
+  phpunit:
+    name: '${{ matrix.projects }} | PHPUnit'
+    needs:
+      - build-and-push-test-image
+      - install-vendors
+      - define-test-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.build-test-matrix.outputs.test_matrix) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -305,5 +344,8 @@ jobs:
       - name: Check folder
         run: ls -als projects/tera/api
 
-      - name: Test
-        run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Functional
+      #- name: Security tests
+      # run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Security
+
+      - name: Functional tests
+        run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Functional/${{ matrix.test_folder }}
