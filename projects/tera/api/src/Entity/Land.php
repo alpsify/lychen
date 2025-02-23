@@ -102,6 +102,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     private ?string $kind = LandKind::INDIVIDUAL;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\GreaterThanOrEqual(0)]
     #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?int $surface = null;
 

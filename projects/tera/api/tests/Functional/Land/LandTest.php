@@ -2,25 +2,24 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Constant\LandKind;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Zenstruck\Browser\Json;
 use function Zenstruck\Foundry\faker;
 
 class LandTest extends AbstractApiTestCase
 {
-    public function testPost()
+    #[DataProvider('landDataProvider')]
+    public function testPost(int $surface, string $kind)
     {
         $owner1 = $this->createPerson();
 
         $name = faker()->name();
-        $surface = faker()->numberBetween(10, 200);
-        $kind = LandKind::INDIVIDUAL;
 
         $this->browser()->actingAs($owner1)
             ->post('/api/lands', ['json' => [
                 'name' => $name,
-                'kind' => LandKind::INDIVIDUAL,
+                'kind' => $kind,
                 'surface' => $surface
             ]])
             ->assertStatus(201)
@@ -82,6 +81,20 @@ class LandTest extends AbstractApiTestCase
             });
     }
 
+    public function testPatchWithInvalidSurface()
+    {
+        $owner1 = $this->createPerson();
+        $land1 = $this->createLand($owner1);
+
+        $this->browser()->actingAs($owner1)
+            ->patch('/api/lands/' . $land1->getUlid()->toString(), [
+                'json' => [
+                    'surface' => -1 // Invalid surface
+                ]
+            ])
+            ->assertStatus(422);
+    }
+
     public function testDelete()
     {
         $owner1 = $this->createPerson();
@@ -109,6 +122,20 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].ulid', $land1->getUlid()->toString())
             ->assertJsonMatches('member[0].name', $land1->getName())
             ->assertJsonMatches('member[0].surface', $land1->getSurface());
+    }
+
+    public function testCollectionPagination()
+    {
+        $owner = $this->createPerson();
+        $lands = array_map(fn() => $this->createLand($owner), range(1, 25));
+
+        $this->browser()->actingAs($owner)
+            ->get('/api/lands?page=2&itemsPerPage=10')
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 25)
+            ->use(function (Json $json) {
+                $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
+            });
     }
 
     public function testLookingForMember()
