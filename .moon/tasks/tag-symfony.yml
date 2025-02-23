@@ -32,7 +32,7 @@ tasks:
       --target frankenphp_test .
 
   ci-test-phpunit:
-    command: docker compose -f compose.yml -f compose.ci.yml exec php php -d memory_limit=-1 ./vendor/bin/phpunit
+    command: docker compose -f compose.yml -f compose.ci.yml exec php php -d memory_limit=-1 ./vendor/bin/phpunit $projectRoot/tests/
 
   ci-update-db:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update -e test --force
