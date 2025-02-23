@@ -10,7 +10,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php ./local-php-security-checker
 
   ci-create-db:
-    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -e test -n --if-not-exists
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -n --if-not-exists
 
   ci-install-tools:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
@@ -35,10 +35,10 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php php -d memory_limit=-1 ./vendor/bin/phpunit
 
   ci-update-db:
-    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update -e test --force
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update --force
 
   ci-validate-db-schema:
-    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -e test -n
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -n
 
   dev:
     command: docker compose up -d

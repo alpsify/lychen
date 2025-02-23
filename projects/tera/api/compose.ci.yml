@@ -12,6 +12,7 @@ services:
     image: ${TEST_IMAGE_NAME}:${GITHUB_SHA:-latest}
     tty: true
     volumes:
+      - ../../../libs/php:/packages
       - ./:/app
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
