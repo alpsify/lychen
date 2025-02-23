@@ -6,8 +6,11 @@ tasks:
     options:
       persistent: true
 
-  check-vulnerabilities:
+  ci-check-vulnerabilities:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php ./local-php-security-checker
+
+  ci-create-db:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -n --if-not-exists
 
   ci-install-tools:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
@@ -30,6 +33,9 @@ tasks:
 
   ci-test-phpunit:
     command: docker compose -f compose.yml -f compose.ci.yml exec php php -d memory_limit=-1 ./vendor/bin/phpunit
+
+  ci-update-db:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update --force
 
   ci-validate-db-schema:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -n
