@@ -125,8 +125,6 @@ jobs:
 
           echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
 
-      - run: ls -als ${{ steps.project-paths.outputs.cache_paths }}/packages
-
       - name: Install vendors
         run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
@@ -222,6 +220,8 @@ jobs:
         with:
           name: ${{ matrix.projects }}-vendors
           path: ${{ steps.project-paths.outputs.project_path }}
+
+      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/packages
 
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
