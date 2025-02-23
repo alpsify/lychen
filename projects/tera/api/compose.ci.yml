@@ -2,7 +2,7 @@
 services:
   database:
     environment:
-      - POSTGRES_DB=${POSTGRES_DB:-app}
+      - POSTGRES_DB=${POSTGRES_DB:-app_test}
       # You should definitely change the password in production
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForTest!}
       - POSTGRES_USER=${POSTGRES_USER:-usertest}
