@@ -79,8 +79,6 @@ jobs:
     needs:
       - define-matrix
       - build-and-push-test-image
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     strategy:
       fail-fast: false
       matrix:
@@ -123,8 +121,6 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -160,8 +156,6 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -191,8 +185,6 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -222,8 +214,6 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
-    env:
-      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
