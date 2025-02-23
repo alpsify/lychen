@@ -1,19 +1,11 @@
 # Development environment override
 services:
   database:
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB:-app_test}
-      # You should definitely change the password in production
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForTest!}
-      - POSTGRES_USER=${POSTGRES_USER:-usertest}
-    image: postgres:${POSTGRES_VERSION:-16}-alpine
     ports:
       - '5432:5432'
 
   php:
     build: !reset null
-    environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER:-usertest}:${POSTGRES_PASSWORD:-PasswordForTest!}@database:5432/${POSTGRES_DB:-app_test}?serverVersion=${POSTGRES_VERSION:-16}&charset=${POSTGRES_CHARSET:-utf8}
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
