@@ -72,8 +72,8 @@ jobs:
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
 
-      - name: Copy libs PHP inside project
-        run: moon ci ${{ matrix.projects }}:ci-copy-packages
+      #- name: Copy libs PHP inside project
+      #  run: moon ci ${{ matrix.projects }}:ci-copy-packages
 
       - name: Build docker test image
         run: moon ci ${{ matrix.projects }}:ci-test-build-docker-image
@@ -220,8 +220,6 @@ jobs:
         with:
           name: ${{ matrix.projects }}-vendors
           path: ${{ steps.project-paths.outputs.project_path }}
-
-      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/packages
 
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
