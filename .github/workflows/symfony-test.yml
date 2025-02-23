@@ -136,10 +136,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.projects }}-
 
-      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/vendor
-
-      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/vendor/lychen
-
       - name: Upload vendor directories
         uses: actions/upload-artifact@v4
         with:
