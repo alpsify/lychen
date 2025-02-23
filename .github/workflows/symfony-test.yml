@@ -163,6 +163,7 @@ jobs:
     name: '${{ matrix.projects }} | Validate DB schema'
     needs:
       - define-matrix
+      - build-and-push-test-image
       - install-vendors
     runs-on: ubuntu-latest
     strategy:
@@ -195,6 +196,7 @@ jobs:
     name: '${{ matrix.projects }} | Check packages vulnerabilities'
     needs:
       - define-matrix
+      - build-and-push-test-image
       - install-vendors
     runs-on: ubuntu-latest
     strategy:
@@ -227,6 +229,7 @@ jobs:
     name: '${{ matrix.projects }} | PHPUnit'
     needs:
       - define-matrix
+      - build-and-push-test-image
       - install-vendors
     runs-on: ubuntu-latest
     strategy:
