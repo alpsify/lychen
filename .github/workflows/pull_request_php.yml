@@ -41,7 +41,7 @@ jobs:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
     env:
-      TEST_IMAGE_NAME: '$REGISTRY/${{ matrix.projects }}'
+      TEST_IMAGE_NAME: '${REGISTRY}/${{ matrix.projects }}'
     steps:
       - uses: 'actions/checkout@v4'
         with:
