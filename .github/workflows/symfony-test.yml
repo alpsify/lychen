@@ -121,15 +121,6 @@ jobs:
           echo "cache_paths<<EOF" >> $GITHUB_OUTPUT
           echo "$PROJECT_PATH/vendor" >> $GITHUB_OUTPUT
           echo "$PROJECT_PATH/tools/vendor" >> $GITHUB_OUTPUT
-          echo "$PROJECT_PATH/node_modules" >> $GITHUB_OUTPUT
-          echo "$PROJECT_PATH/.cache" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-          # Set all possible lock files
-          echo "lock_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$PROJECT_PATH/composer.lock" >> $GITHUB_OUTPUT
-          echo "$PROJECT_PATH/tools/composer.lock" >> $GITHUB_OUTPUT
-          echo "$PROJECT_PATH/package-lock.json" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
           echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
@@ -138,9 +129,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.project-paths.outputs.cache_paths }}
-          key: ${{ runner.os }}-${{ matrix.projects }}-${{ hashFiles(fromJSON(steps.project-paths.outputs.lock_files)) }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.projects }}-
+          key: ${{ runner.os }}-${{ matrix.projects }}-${{ hashFiles('**/composer.lock') }}
+          #restore-keys: ${{ runner.os }}-${{ matrix.projects }}-
 
   lint-php:
     name: '${{ matrix.projects }} | Lint PHP files'
