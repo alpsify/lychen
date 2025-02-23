@@ -38,7 +38,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update -e test --force
 
   ci-validate-db-schema:
-    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -n
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -e test -n
 
   dev:
     command: docker compose up -d

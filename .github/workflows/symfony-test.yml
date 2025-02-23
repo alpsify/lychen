@@ -207,11 +207,11 @@ jobs:
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
-      #- name: Create DB
-      # run: moon ci ${{ matrix.projects }}:ci-create-db
+      - name: Create DB
+        run: moon ci ${{ matrix.projects }}:ci-create-db
 
-      #- name: Update DB
-      #  run: moon ci ${{ matrix.projects }}:ci-update-db
+      - name: Update DB
+        run: moon ci ${{ matrix.projects }}:ci-update-db
 
       - name: Validate DB
         run: moon ci ${{ matrix.projects }}:ci-validate-db-schema
