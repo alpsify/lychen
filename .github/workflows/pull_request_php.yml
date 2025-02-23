@@ -98,6 +98,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - run: echo "${{ env.TEST_IMAGE_NAME }}"
+
       - name: Install vendors
         run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
