@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN set -eux; \
 	install-php-extensions \
@@ -28,15 +29,9 @@ RUN set -eux; \
 ###> recipes ###
 ###> doctrine/doctrine-bundle ###
 RUN set -eux; \
-install-php-extensions pdo_pgsql
+	install-php-extensions pdo_pgsql
 ###< doctrine/doctrine-bundle ###
 ###< recipes ###
-
-# Mandatory to install chromium through package manager for arm64
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-
-ENV COMPOSER_ALLOW_SUPERUSER=1
 
 ENV PHP_INI_SCAN_DIR=":$PHP_INI_DIR/app.conf.d"
 
@@ -82,10 +77,8 @@ CMD [ "frankenphp", "run", "--config", "/etc/caddy/Caddyfile" ]
 FROM frankenphp_base AS frankenphp_prod
 
 ENV APP_ENV=prod
-#ENV DATABASE_URL=""
 
 ENV FRANKENPHP_CONFIG="import worker.Caddyfile"
-ENV NODE_ENV=production
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
