@@ -130,7 +130,8 @@ jobs:
         with:
           path: ${{ steps.project-paths.outputs.cache_paths }}
           key: ${{ runner.os }}-${{ matrix.projects }}-${{ hashFiles('**/composer.lock') }}
-          #restore-keys: ${{ runner.os }}-${{ matrix.projects }}-
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.projects }}-
 
   lint-php:
     name: '${{ matrix.projects }} | Lint PHP files'
