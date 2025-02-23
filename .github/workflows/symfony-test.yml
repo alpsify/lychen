@@ -72,6 +72,9 @@ jobs:
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
 
+      - name: Copy libs PHP inside project
+        run: moon ci ${{ matrix.projects }}:ci-copy-packages
+
       - name: Build docker test image
         run: moon ci ${{ matrix.projects }}:ci-test-build-docker-image
 
@@ -108,14 +111,6 @@ jobs:
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
-      - name: Copy libs PHP inside project
-        run: cp libs/php ${{ steps.project-paths.outputs.project_path }}/packages
-
-      - run: ls -als ${{ steps.project-paths.outputs.project_path }}/packages
-
-      - name: Install vendors
-        run: moon ci ${{ matrix.projects }}:ci-install-vendors
-
       - name: Set project paths
         id: project-paths
         run: |
@@ -129,6 +124,11 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
           echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
+
+      - run: ls -als ${{ steps.project-paths.outputs.cache_paths }}/packages
+
+      - name: Install vendors
+        run: moon ci ${{ matrix.projects }}:ci-install-vendors
 
       - name: Cache dependencies
         uses: actions/cache@v4

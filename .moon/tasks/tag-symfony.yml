@@ -9,6 +9,9 @@ tasks:
   ci-check-vulnerabilities:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php ./local-php-security-checker
 
+  ci-copy-packages:
+    command: cp -R $workspaceRoot/libs/php $projectRoot/packages
+
   ci-create-db:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -n --if-not-exists
 
