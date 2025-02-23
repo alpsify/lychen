@@ -19,7 +19,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
 
   ci-install-vendors:
-    command: docker compose -f compose.yml -f compose.ci.yml run --rm COMPOSER_MIRROR_PATH_REPOS=1 php composer install --no-interaction
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-interaction
 
   ci-php-cs-fixer-src:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
