@@ -67,7 +67,7 @@ jobs:
           # Set for current job
           echo "TEST_IMAGE_NAME=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_ENV
           # Set for other jobs
-          echo "matrix_image_names=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_OUTPUT
+          echo "matrix_test_image_name=${{ env.REGISTRY }}/${{ matrix.projects }}" >> $GITHUB_OUTPUT
 
       - name: Pull test image if exists
         run: docker pull ${{ env.TEST_IMAGE_NAME }}:latest || true
@@ -132,6 +132,14 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.projects }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.projects }}-
+
+      - name: Upload vendor directories
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.projects }}-vendors
+          path: |
+            ${{ steps.project-paths.outputs.project_path }}/vendor
+            ${{ steps.project-paths.outputs.project_path }}/tools/vendor
 
   lint-php:
     name: '${{ matrix.projects }} | Lint PHP files'
@@ -274,6 +282,18 @@ jobs:
 
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
+
+      - name: Get project path
+        id: project-paths
+        run: |
+          PROJECT_PATH=$(moon project ${{ matrix.projects }} --json | jq -r '.source')
+          echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
+
+      - name: Download vendor directories
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.projects }}-vendors
+          path: ${{ steps.project-paths.outputs.project_path }}
 
       - name: Check folder
         run: ls -als projects/tera/api
