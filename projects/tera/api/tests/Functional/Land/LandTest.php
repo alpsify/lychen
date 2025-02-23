@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Functionnal\Land;
+namespace App\Tests\Functional\Land;
 
 use App\Constant\LandKind;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
