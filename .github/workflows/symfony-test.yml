@@ -206,6 +206,18 @@ jobs:
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
 
+      - name: Get project path
+        id: project-paths
+        run: |
+          PROJECT_PATH=$(moon project ${{ matrix.projects }} --json | jq -r '.source')
+          echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
+
+      - name: Download vendor directories
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.projects }}-vendors
+          path: ${{ steps.project-paths.outputs.project_path }}
+
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
