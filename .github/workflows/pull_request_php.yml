@@ -38,6 +38,8 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
+    outputs:
+      matrix_test_image_name: ${{ steps.set-image.outputs.matrix_image_names }}
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v4'
