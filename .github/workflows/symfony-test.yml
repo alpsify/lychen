@@ -311,4 +311,4 @@ jobs:
         run: ls -als projects/tera/api
 
       - name: Test
-        run: moon ci ${{ matrix.projects }}:ci-test-phpunit -- tests/Functional
+        run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Functional
