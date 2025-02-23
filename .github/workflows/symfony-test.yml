@@ -201,7 +201,7 @@ jobs:
       - name: Set IMAGE_NAME for this project
         run: echo "TEST_IMAGE_NAME=${{ needs.build-and-push-test-image.outputs.matrix_test_image_name }}" >> $GITHUB_ENV
 
-      - run: docker compose up php database
+      - run: docker compose -f compose.yml -f compose.ci.yml up php database
 
       - name: Create DB
         run: moon ci ${{ matrix.projects }}:ci-create-db
