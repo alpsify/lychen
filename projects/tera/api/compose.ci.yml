@@ -2,24 +2,27 @@
 services:
   database:
     environment:
-      - POSTGRES_DB=${POSTGRES_DB:-app}
-      # You should definitely change the password in production
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForTest!}
-      - POSTGRES_USER=${POSTGRES_USER:-usertest}
-    image: postgres:${POSTGRES_VERSION:-16}-alpine
+      - POSTGRES_DB=${POSTGRES_DB:-app_test}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForLocal!}
+      - POSTGRES_USER=${POSTGRES_USER:-userlocal}
+    healthcheck:
+      retries: 5
+      start_period: 60s
+      test:
+        ['CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app_test}', '-U', '${POSTGRES_USER:-userlocal}']
+      timeout: 5s
     ports:
       - '5432:5432'
 
   php:
     build: !reset null
-    environment:
-      DATABASE_URL: postgresql://${MYSQL_USER:-usertest}:${MYSQL_PASSWORD:-PasswordForTest!}@database:5432/${MYSQL_DATABASE:-app}?serverVersion=${POSTGRES_VERSION:-16}&charset=${POSTGRES_CHARSET:-utf8}
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
-    image: wrongimage/test:${CI_COMMIT_SHA:-latest} #TODO To change
+    image: ${TEST_IMAGE_NAME}:${GITHUB_SHA:-latest}
     tty: true
     volumes:
       - ./:/app
+      - ../../../libs/php:/packages
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro

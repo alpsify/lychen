@@ -6,6 +6,43 @@ tasks:
     options:
       persistent: true
 
+  ci-check-vulnerabilities:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php ./local-php-security-checker
+
+  ci-copy-packages:
+    command: cp -R $workspaceRoot/libs/php $projectRoot/packages && find $projectRoot/packages -name "moon.yml" -type f -delete
+
+  ci-create-db:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -n --if-not-exists
+
+  ci-install-tools:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
+
+  ci-install-vendors:
+    command: docker compose -f compose.yml -f compose.ci.yml run -e COMPOSER_MIRROR_PATH_REPOS=1 --rm php composer install --no-interaction
+
+  ci-php-cs-fixer-src:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
+
+  ci-php-cs-fixer-test:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
+
+  ci-test-build-docker-image:
+    command: docker build --build-arg BUILDKIT_INLINE_CACHE=1 \
+      --cache-from ${TEST_IMAGE_NAME}:latest \
+      --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} \
+      --tag ${TEST_IMAGE_NAME}:latest \
+      --target frankenphp_test .
+
+  ci-test-phpunit:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php php -d memory_limit=-1 ./vendor/bin/phpunit
+
+  ci-update-db:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:update --force
+
+  ci-validate-db-schema:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -n
+
   dev:
     command: docker compose up -d
 

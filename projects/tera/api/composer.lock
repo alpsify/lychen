@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b4c4de3f03f7b10dd15e6ac65063f9d",
+    "content-hash": "a6fae2bd9902c050b3a624805b1d5ad8",
     "packages": [
         {
             "name": "api-platform/core",
@@ -2696,7 +2696,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/util-model",
-                "reference": "9655ade8620017572666c9314ca71328d703a0ba"
+                "reference": "933f125215f48bd6acb7b9399b0ba3b0b42f9593"
             },
             "require": {
                 "api-platform/core": "^4.0",
@@ -2710,6 +2710,11 @@
                     "Lychen\\UtilModel\\": "src/"
                 }
             },
+            "archive": {
+                "exclude": [
+                    "/moon.yml"
+                ]
+            },
             "authors": [
                 {
                     "name": "Nathan De Pachtere",
@@ -2717,7 +2722,7 @@
                 }
             ],
             "transport-options": {
-                "symlink": true,
+                "symlink": false,
                 "relative": true
             }
         },
@@ -2727,7 +2732,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/util-tiptap",
-                "reference": "d889f7ac9070f8badfaf065c090bdbeb31b5102c"
+                "reference": "e18c86401cda2308283127c063664ee32ba1f73f"
             },
             "require": {
                 "ueberdosis/tiptap-php": "1.4.*"
@@ -2741,6 +2746,11 @@
                     "Lychen\\UtilTiptap\\": "src/"
                 }
             },
+            "archive": {
+                "exclude": [
+                    "/moon.yml"
+                ]
+            },
             "authors": [
                 {
                     "name": "Nathan De Pachtere",
@@ -2748,7 +2758,7 @@
                 }
             ],
             "transport-options": {
-                "symlink": true,
+                "symlink": false,
                 "relative": true
             }
         },
@@ -2758,7 +2768,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/util-zitadel",
-                "reference": "4ffa72334988b1e8d984e28d3dd50267f5b8fddb"
+                "reference": "04c3da269aacc46833384b35d067819440baa1e2"
             },
             "require": {
                 "doctrine/annotations": "^2.0",
@@ -2774,6 +2784,11 @@
                     "Lychen\\UtilZitadelBundle\\": "src/"
                 }
             },
+            "archive": {
+                "exclude": [
+                    "/moon.yml"
+                ]
+            },
             "authors": [
                 {
                     "name": "Nathan De Pachtere",
@@ -2781,7 +2796,7 @@
                 }
             ],
             "transport-options": {
-                "symlink": true,
+                "symlink": false,
                 "relative": true
             }
         },

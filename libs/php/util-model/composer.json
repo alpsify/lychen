@@ -18,5 +18,10 @@
     "symfony/uid": "^7.2",
     "gedmo/doctrine-extensions": "^3.17"
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "archive": {
+    "exclude": [
+      "/moon.yml"
+    ]
+  }
 }

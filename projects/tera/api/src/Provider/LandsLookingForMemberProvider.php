@@ -1,6 +1,6 @@
 <?php
 
-namespace App\State;
+namespace App\Provider;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;

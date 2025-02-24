@@ -18,5 +18,10 @@
   },
   "require-dev": {
     "zenstruck/foundry": "2.2.*"
+  },
+  "archive": {
+    "exclude": [
+      "/moon.yml"
+    ]
   }
 }

@@ -23,7 +23,7 @@ trait UpdatedAtTrait
         return $this;
     }
 
-    #[ORM\PostUpdate]
+    #[ORM\PreUpdate]
     public function changeUpdatedAtValue(): void
     {
         $this->updatedAt = new DateTime();
