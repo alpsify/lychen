@@ -40,40 +40,7 @@
       </div>
     </div>
   </LychenContainer>
-  <LychenContainer>
-    <div
-      class="flex flex-row bg-secondary-container text-on-secondary-container rounded-3xl items-center p-20"
-    >
-      <div class="md:basis-1/2 flex flex-col gap-6">
-        <LychenTitle variant="h2">Solidifier le maillage territorial.</LychenTitle>
-        <LychenParagraph variant="website-highlight"
-          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt
-          mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-          euismod.</LychenParagraph
-        >
-        <div class="flex flex-col gap-4">
-          <div class="bg-secondary/90 p-4 rounded-xl text-on-secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt
-            mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-            euismod.
-          </div>
-          <div class="bg-secondary/70 p-4 rounded-xl text-on-secondary md:translate-x-2/10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt
-            mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-            euismod.
-          </div>
-          <div class="bg-secondary/50 p-4 rounded-xl text-on-secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt
-            mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-            euismod.
-          </div>
-        </div>
-      </div>
-      <div>
-        <img />
-      </div>
-    </div>
-  </LychenContainer>
+  <PageHomeMesh />
   <LychenContainer class="flex md:flex-row flex-col justify-start items-center">
     <div
       class="bg-tertiary-container text-on-tertiary-container rounded-3xl basis-1/2 p-8 flex flex-col gap-6"
@@ -156,6 +123,7 @@ import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
 import LychenTextHighlight from '@lychen/ui-components/text-highlight/LychenTextHighlight.vue';
 import PageHomeIntro from './PageHomeIntro.vue';
+import PageHomeMesh from './PageHomeMesh.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

@@ -28,12 +28,12 @@
         class="rounded-3xl"
       />
       <div
-        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/4 flex flex-col gap-4 items-center -mt-40"
+        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/3 flex flex-col gap-4 items-center -mt-40"
       >
         <div
           class="flex flex-col items-center backdrop-blur-lg px-4 py-2 bg-surface-container/50 text-on-surface-container rounded-xl"
         >
-          <p class="text-md font-medium">Inpirez les autres</p>
+          <p class="text-md font-medium">Inpire les autres</p>
           <LychenIcon icon="chevron-down" />
         </div>
         <div
@@ -87,7 +87,8 @@
         <div
           class="flex flex-row items-center backdrop-blur-lg px-4 py-2 bg-surface-container/50 text-on-surface-container rounded-xl"
         >
-          <p class="text-md font-medium">Gagnez des succès</p>
+          <p class="text-md font-medium">Gagne des succès</p>
+
           <LychenIcon
             icon="chevron-right"
             class="w-8"
