@@ -45,6 +45,9 @@ export default {
             'The entire ecosystem is under development and seeking funding. Contact us for more information: ',
         },
       },
+      robust: {
+        button: 'Discover',
+      },
     },
     price: {
       title: 'Pricing',
