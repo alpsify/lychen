@@ -9,6 +9,6 @@ export default {
   },
   footer: {
     seo_paragraph:
-      "Novi offre une plateforme pour explorer les données environnementales et partager les connaissances scientifiques. Collaborez avec des experts pour protéger l'écosystème.",
+      'La solution pour un territoire robuste et durable. Découvrez le maillage local qui dynamise votre région.',
   },
 };

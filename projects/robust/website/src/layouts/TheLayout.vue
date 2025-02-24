@@ -19,9 +19,9 @@
 
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
-import { APP_STATE } from '@lychen/novi-util-constants/App';
+import { APP_STATE } from '@lychen/robust-util-constants/App';
 import { defineAsyncComponent } from 'vue';
-import { TRANSLATION_KEY, messages } from '@lychen/novi-ui-i18n';
+import { TRANSLATION_KEY, messages } from '@lychen/robust-ui-i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 const LayoutApplication = defineAsyncComponent(

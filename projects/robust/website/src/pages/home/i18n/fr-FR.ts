@@ -1,15 +1,15 @@
 export default {
   meta: {
-    title: 'Partagez et explorez les données scientifiques avec Novi',
+    title: 'Connecte, valorise et engage les Acteurs de ton territoire avec Robust',
     description:
-      "Novi offre une plateforme pour explorer les données environnementales et partager les connaissances scientifiques. Collaborez avec des experts pour protéger l'écosystème.",
+      "Découvrez Robust, l'application innovante qui met en relation les acteurs locaux, valorise leurs actions grâce à la gamification et fait rayonner leurs engagements pour un territoire dynamique.",
     og_title: '@:page_home.meta.title',
     og_description: '@:page_home.meta.description',
   },
   hero: {
-    title: 'Donnez un sens à la science avec Novi',
+    title: 'Agis. Connecte. Inspire.',
     description:
-      "Novi connecte scientifiques, citoyens et communautés grâce à des données interactives et des outils collaboratifs. Explorez les informations, partagez vos découvertes et agissez pour l'environnement.",
+      "Plonge au cœur d'un territoire en mouvement. Avec Robust, chaque initiative compte et transforme ton environnement. Découvre comment tes actions, et celles des autres, créent ensemble un futur local innovant et solidaire.",
     button: {
       features: {
         label: 'Voir les fonctionnalités',

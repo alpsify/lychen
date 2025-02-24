@@ -41,6 +41,7 @@ import { faCircleDot } from '@fortawesome/pro-light-svg-icons/faCircleDot';
 import { faCircle } from '@fortawesome/pro-light-svg-icons/faCircle';
 import { faLanguage } from '@fortawesome/pro-light-svg-icons/faLanguage';
 import { faMinus } from '@fortawesome/pro-light-svg-icons/faMinus';
+import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -48,6 +49,7 @@ export function loadFontAwesomeStyles() {
   library.add([
     faRocketLaunch,
     faBullhorn,
+    faCheck,
     faArrowUpRight,
     faCircleDot,
     faCircle,

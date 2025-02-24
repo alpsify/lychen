@@ -13,7 +13,7 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';
 import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
 import WebsiteSectionApplicationFeatures from '@lychen/website-ui-components/sections/application-features/WebsiteSectionApplicationFeatures.vue';
-import { useFeatures } from '@lychen/novi-util-features/composables/useFeatures';
+import { useFeatures } from '@lychen/robust-util-features/composables/useFeatures';
 import { ref } from 'vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

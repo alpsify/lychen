@@ -9,7 +9,7 @@
     </div>
     <div class="text-lg font-bold">
       <RouterLink
-        to="#features"
+        :to="{ path: RoutePageHome.path, hash: '#features' }"
         @click="closeMobileMenu"
         >{{ t(`navigation.features.title`) }}
       </RouterLink>
