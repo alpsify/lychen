@@ -12,7 +12,7 @@ export default {
       'Dive into the heart of a territory in motion. With Robust, every initiative counts and transforms your environment. Discover how your actions, and those of others, together create an innovative and united local future.',
     button: {
       features: {
-        label: 'See features',
+        label: 'Discover',
       },
     },
   },

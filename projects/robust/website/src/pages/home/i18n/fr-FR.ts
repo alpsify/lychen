@@ -12,7 +12,7 @@ export default {
       "Plonge au cœur d'un territoire en mouvement. Avec Robust, chaque initiative compte et transforme ton environnement. Découvre comment tes actions, et celles des autres, créent ensemble un futur local innovant et solidaire.",
     button: {
       features: {
-        label: 'Voir les fonctionnalités',
+        label: 'Découvrir',
       },
     },
   },

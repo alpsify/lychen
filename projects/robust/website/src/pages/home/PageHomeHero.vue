@@ -2,7 +2,7 @@
   <LychenDivScalingDown class="flex flex-col justify-start">
     <LychenHero
       class="text-surface dark:text-on-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
-      overlay
+      :overlay="true"
       :background-image="heroImg"
       overlay-class="bg-on-surface dark:bg-surface opacity-40"
     >
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImg from './assets/HeroImage.webp';
+import heroImg from './assets/HeroImage2.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';

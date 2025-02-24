@@ -1,7 +1,6 @@
 <template>
   <PageHomeHero />
   <WebsiteSectionCrowfunding />
-  <WebsiteSectionApplicationFeatures :features="features" />
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +11,6 @@ import WebsiteSectionCrowfunding from '@lychen/website-ui-components/sections/We
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';
 import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
-import WebsiteSectionApplicationFeatures from '@lychen/website-ui-components/sections/application-features/WebsiteSectionApplicationFeatures.vue';
 import { useFeatures } from '@lychen/robust-util-features/composables/useFeatures';
 import { ref } from 'vue';
 
