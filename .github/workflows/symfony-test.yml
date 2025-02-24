@@ -262,6 +262,8 @@ jobs:
 
   build-test-matrix:
     runs-on: ubuntu-latest
+    needs:
+      - define-matrix
     outputs:
       test_matrix: ${{ steps.set-matrix.outputs.test_matrix }}
     strategy:
@@ -332,13 +334,13 @@ jobs:
       - name: Get project path
         id: project-paths
         run: |
-          PROJECT_PATH=$(moon project ${{ matrix.projects }} --json | jq -r '.source')
+          PROJECT_PATH=$(moon project ${{ matrix.project }} --json | jq -r '.source')
           echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
 
       - name: Download vendor directories
         uses: actions/download-artifact@v4
         with:
-          name: ${{ matrix.projects }}-vendors
+          name: ${{ matrix.project }}-vendors
           path: ${{ steps.project-paths.outputs.project_path }}
 
       - name: Check folder
@@ -348,4 +350,4 @@ jobs:
       # run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Security
 
       - name: Functional tests
-        run: moon ${{ matrix.projects }}:ci-test-phpunit -- tests/Functional/${{ matrix.test_folder }}
+        run: moon ${{ matrix.project }}:ci-test-phpunit -- tests/Functional/${{ matrix.test_folder }}
