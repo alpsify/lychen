@@ -19,7 +19,7 @@
         </LychenParagraph>
 
         <RouterLink
-          to="#features"
+          to="#discover"
           class="z-20"
         >
           <LychenButton
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImg from './assets/HeroImage2.webp';
+import heroImg from './assets/HeroImage3.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';

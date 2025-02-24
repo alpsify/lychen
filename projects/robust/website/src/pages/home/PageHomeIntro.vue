@@ -28,7 +28,7 @@
         class="rounded-3xl"
       />
       <div
-        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/3 flex flex-col gap-4 items-center -mt-40"
+        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/3 flex flex-col gap-4 items-center -mt-40 z-30"
       >
         <div
           class="flex flex-col items-center backdrop-blur-lg px-4 py-2 bg-surface-container/50 text-on-surface-container rounded-xl"
@@ -37,7 +37,7 @@
           <LychenIcon icon="chevron-down" />
         </div>
         <div
-          class="self-stretch md:self-center rounded-xl p-6 bg-surface-container/80 backdrop-blur-lg shadow-2xl md:w-[300px] flex flex-col gap-4 shadow-primary/50 dark:shadow-primary-container/50 outline outline-offset-4 outline-surface/50"
+          class="self-stretch md:self-center rounded-xl p-6 bg-surface-container/80 backdrop-blur-lg md:w-[300px] flex flex-col gap-4 shadow-2xl shadow-primary/50 dark:shadow-primary-container/50 outline outline-offset-4 outline-surface/50"
         >
           <div class="flex flex-row justify-between items-center gap-6">
             <img
