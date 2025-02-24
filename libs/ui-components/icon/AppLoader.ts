@@ -42,12 +42,14 @@ import { faCircle } from '@fortawesome/pro-light-svg-icons/faCircle';
 import { faLanguage } from '@fortawesome/pro-light-svg-icons/faLanguage';
 import { faMinus } from '@fortawesome/pro-light-svg-icons/faMinus';
 import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+import { faStar } from '@fortawesome/pro-light-svg-icons/faStar';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export function loadFontAwesomeStyles() {
   library.add([
     faRocketLaunch,
+    faStar,
     faBullhorn,
     faCheck,
     faArrowUpRight,

@@ -7,7 +7,7 @@ export default {
     og_description: '@:page_home.meta.description',
   },
   hero: {
-    title: 'Agis. Connecte. Inspire.',
+    title: 'Développe la robustesse des territoires.',
     description:
       "Plonge au cœur d'un territoire en mouvement. Avec Robust, chaque initiative compte et transforme ton environnement. Découvre comment tes actions, et celles des autres, créent ensemble un futur local innovant et solidaire.",
     button: {
