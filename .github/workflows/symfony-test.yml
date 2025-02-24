@@ -265,7 +265,6 @@ jobs:
     needs:
       - build-and-push-test-image
       - install-vendors
-      - build-test-matrix
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -293,7 +292,7 @@ jobs:
       - name: Get project path
         id: project-paths
         run: |
-          PROJECT_PATH=$(moon project ${{ matrix.project }} --json | jq -r '.source')
+          PROJECT_PATH=$(moon project ${{ matrix.projects }} --json | jq -r '.source')
           echo "project_path=$PROJECT_PATH" >> $GITHUB_OUTPUT
 
       - name: Download vendor directories
