@@ -3,8 +3,6 @@ export default {
     title: 'Tarifs éthiques et responsables',
     description:
       "Lychen, l'écosystème d'applications pour connecter les utilisateurs autour de projets collectifs et locaux est centré sur la biodiversité.",
-    og_title: '@:page_price.meta.title',
-    og_description: '@:page_price.meta.description',
   },
 
   title: 'Tarifs éthiques et responsables',

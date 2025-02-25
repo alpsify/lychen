@@ -3,8 +3,6 @@ export default {
     title: 'Planifiez vos cultures et connectez-vous avec Tera',
     description:
       "Tera est l'application indispensable pour jardiniers et maraîchers. Organisez vos espaces de culture, suivez vos récoltes, et partagez vos ressources en toute simplicité.",
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Planifiez vos cultures et connectez-vous avec Tera',

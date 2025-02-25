@@ -3,8 +3,6 @@ export default {
     title: 'Soutenir Lychen',
     description:
       "Découvrez comment vous pouvez soutenir Lychen et contribuer à la création d'un écosystème ouvert et éthique.",
-    og_title: '@:page_sponsor.meta.title',
-    og_description: '@:page_sponsor.meta.description',
   },
   section: {
     intro: {

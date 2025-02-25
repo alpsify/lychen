@@ -3,8 +3,6 @@ export default {
     title: 'Discover Ancestral Knowledge with Luna',
     description:
       'Luna connects citizens and professionals with ancestral farming practices. Plan your crops following lunar cycles and discover local knowledge.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Explore Ancestral Knowledge for Sustainable Farming',

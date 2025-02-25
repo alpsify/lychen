@@ -1,9 +1,6 @@
 <template>
   <PageHomeHero />
-  <PageHomeIntro
-    id="discover"
-    class="pt-30"
-  />
+  <PageHomeIntro id="discover" />
   <PageHomeEngage />
   <PageHomeMesh />
   <PageHomePeople />
@@ -21,8 +18,6 @@ import WebsiteSectionCrowfunding from '@lychen/website-ui-components/sections/We
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';
 import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
-import { useFeatures } from '@lychen/robust-util-features/composables/useFeatures';
-import { ref } from 'vue';
 import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
 import PageHomeIntro from './PageHomeIntro.vue';
@@ -33,11 +28,6 @@ import PageHomePeople from './PageHomePeople.vue';
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 useExtendedHead(t, { ogImage: ogImageUrl });
-
-const { getOrganizedFeatures } = useFeatures();
-const features = ref();
-
-features.value = getOrganizedFeatures();
 </script>
 
 <style lang="css" scoped></style>

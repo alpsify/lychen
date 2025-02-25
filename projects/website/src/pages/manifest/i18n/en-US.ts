@@ -2,8 +2,6 @@ export default {
   meta: {
     title: 'Manifesto',
     description: 'An overview of the values and actions guiding the Lychen ecosystem.',
-    og_title: '@:page_manifest.meta.title',
-    og_description: '@:page_manifest.meta.description',
   },
   section: {
     human: {

@@ -3,8 +3,6 @@ export default {
     title: "Gérer vos ruchers et découvrir l'apiculture avec Meli",
     description:
       "Meli est l'application idéale pour apiculteurs amateurs et professionnels. Gérez vos ruchers, suivez vos récoltes, traitez les données et collaborez avec d'autres acteurs du territoire.",
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: "Simplifiez l'apiculture et connectez-vous à votre territoire",

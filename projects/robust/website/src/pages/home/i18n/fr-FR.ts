@@ -3,8 +3,6 @@ export default {
     title: 'Connecte, valorise et engage les Acteurs de ton territoire avec Robust',
     description:
       "Découvrez Robust, l'application innovante qui met en relation les acteurs locaux, valorise leurs actions grâce à la gamification et fait rayonner leurs engagements pour un territoire dynamique.",
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Développe la robustesse des territoires.',
@@ -16,4 +14,8 @@ export default {
       },
     },
   },
+  intro: {},
+  engage: {},
+  mesh: {},
+  people: {},
 };

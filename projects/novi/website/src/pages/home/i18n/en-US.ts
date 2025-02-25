@@ -3,8 +3,6 @@ export default {
     title: 'Share and Explore Scientific Data with Novi',
     description:
       'Novi provides a platform to explore environmental data and share scientific knowledge. Collaborate with experts to protect the ecosystem.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Give Meaning to Science with Novi',
