@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col md:flex-row items-center gap-8">
+  <LychenContainer class="flex flex-col xl:flex-row items-center gap-8 xl:mb-20">
     <div class="md:basis-1/3 flex flex-col gap-6">
       <LychenTitle class="text-5xl md:text-8xl"
         >Agis. <br />
@@ -28,7 +28,7 @@
         class="rounded-3xl"
       />
       <div
-        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/3 flex flex-col gap-4 items-center -mt-40 z-30"
+        class="w-8/10 md:w-auto md:absolute lg:left-1/5 lg:-bottom-1/3 xl:-bottom-3/5 flex flex-col gap-4 items-center -mt-40 z-30"
       >
         <div
           class="flex flex-col items-center backdrop-blur-lg px-4 py-2 bg-surface-container/50 text-on-surface-container rounded-xl"
@@ -112,7 +112,7 @@
       </div>
 
       <div
-        class="hidden md:flex md:absolute lg:bottom-30 lg:right-10 bg-surface-container/80 backdrop-blur-lg shadow-xl shadow-primary/50 dark:shadow-primary-container/50 p-6 rounded-xl flex-col gap-2 justify-center items-center"
+        class="hidden md:flex md:absolute lg:bottom-20 lg:right-10 bg-surface-container/80 backdrop-blur-lg shadow-xl shadow-primary/50 dark:shadow-primary-container/50 p-6 rounded-xl flex-col gap-2 justify-center items-center"
       >
         <img
           :src="CompanyImageUrl"

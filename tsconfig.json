@@ -286,5 +286,6 @@
     {
       "path": "projects/website"
     }
-  ]
+  ],
+  "exclude": ["**/vendor/*"]
 }

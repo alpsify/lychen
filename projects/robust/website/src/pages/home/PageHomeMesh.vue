@@ -1,7 +1,7 @@
 <template>
   <LychenContainer>
     <div
-      class="flex flex-col-reverse md:flex-row bg-secondary-container text-on-secondary-container rounded-3xl items-stretch outline outline-offset-4 outline-secondary-container"
+      class="flex flex-col-reverse xl:flex-row bg-secondary-container text-on-secondary-container rounded-3xl items-stretch outline outline-offset-4 outline-secondary-container"
     >
       <div class="md:basis-1/2 flex flex-col gap-6 md:p-20 p-8">
         <LychenTitle variant="h2">Solidifier le maillage territorial.</LychenTitle>
@@ -16,7 +16,7 @@
             mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
             euismod.
           </div>
-          <div class="bg-secondary/70 p-4 rounded-xl text-on-secondary md:translate-x-2/10">
+          <div class="bg-secondary/70 p-4 rounded-xl text-on-secondary xl:translate-x-1/10">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt
             mauris, a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
             euismod.
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div
-        class="h-[300px] md:h-auto md:basis-1/2 flex flex-col items-center justify-center bg-cover md:rounded-br-3xl rounded-tr-3xl rounded-tl-3xl md:rounded-tl-none"
+        class="h-[300px] xl:h-auto xl:basis-1/2 flex flex-col items-center justify-center bg-cover xl:rounded-br-3xl rounded-tr-3xl rounded-tl-3xl xl:rounded-tl-none"
         :style="`background-image: url('${ImageUrl}');`"
       ></div>
     </div>

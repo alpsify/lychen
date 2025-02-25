@@ -1,11 +1,17 @@
 <template>
   <LychenContainer
     wrapper-class="bg-gradient-to-b from-surface-container to-surface"
-    class="flex flex-col items-center"
+    class="flex flex-col"
   >
-    <div class="md:w-2/3 text-center flex flex-col gap-6">
-      <LychenTitle variant="h2">S'engager et inspirer localement.</LychenTitle>
-      <LychenParagraph variant="website-highlight"
+    <div class="text-center flex flex-col gap-8 items-center">
+      <LychenTitle
+        variant="h2"
+        class="md:w-2/3"
+        >S'engager et inspirer localement.</LychenTitle
+      >
+      <LychenParagraph
+        variant="website-highlight"
+        class="md:w-2/3"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt mauris,
         a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
         euismod.</LychenParagraph

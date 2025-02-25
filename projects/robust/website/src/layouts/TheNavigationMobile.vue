@@ -7,13 +7,6 @@
         >{{ t(`navigation.home.title`) }}
       </RouterLink>
     </div>
-    <div class="text-lg font-bold">
-      <RouterLink
-        :to="{ path: RoutePageHome.path, hash: '#features' }"
-        @click="closeMobileMenu"
-        >{{ t(`navigation.features.title`) }}
-      </RouterLink>
-    </div>
   </div>
 </template>
 
