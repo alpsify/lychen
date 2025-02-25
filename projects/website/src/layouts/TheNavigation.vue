@@ -59,6 +59,13 @@
                         {{ robust.title }}
                       </p>
                       <p>{{ robust.description }}</p>
+
+                      <a href="https://robust.lychen.fr">
+                        <LychenButton
+                          :text="t('navigation.app.robust.button')"
+                          icon="arrow-up-right"
+                          class="self-start"
+                      /></a>
                     </div>
                   </div>
                 </div>
@@ -190,6 +197,7 @@ import { RoutePageSponsor } from '@pages/sponsor';
 import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
 import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
+import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
 const LychenLanguageSwitcher = defineAsyncComponent(
   () => import('@lychen/ui-components/language-switcher/LychenLanguageSwitcher.vue'),

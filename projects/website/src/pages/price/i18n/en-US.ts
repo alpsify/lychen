@@ -3,8 +3,6 @@ export default {
     title: 'Ethical and Responsible Pricing',
     description:
       'Lychen, the ecosystem of applications designed to connect users around collective and local projects, focuses on biodiversity.',
-    og_title: '@:page_price.meta.title',
-    og_description: '@:page_price.meta.description',
   },
 
   title: 'Ethical and Responsible Pricing',

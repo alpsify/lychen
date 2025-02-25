@@ -22,11 +22,11 @@ export function useExtendedHead(
   useSeoMeta({
     title: t('meta.title'),
     description: t('meta.description'),
-    ogDescription: t('meta.og_description'),
-    ogTitle: t('meta.og_title'),
+    ogDescription: t('meta.description'),
+    ogTitle: t('meta.title'),
     ogImage: options?.ogImage,
     twitterCard: 'summary_large_image',
-    twitterTitle: t('meta.og_title'),
-    twitterDescription: t('meta.og_description'),
+    twitterTitle: t('meta.title'),
+    twitterDescription: t('meta.description'),
   });
 }

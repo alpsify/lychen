@@ -9,6 +9,6 @@ language: typescript
 
 tasks:
   shadcn-add:
-    command: 'npx shadcn-vue@latest add '
+    command: 'npx shadcn-vue@radix add '
 
 type: library

@@ -1,0 +1,46 @@
+{
+  "name": "@lychen/robust-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite-ssg build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lychen/applications-ui-components": "workspace:*",
+    "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/odd-assets": "workspace:*",
+    "@lychen/odd-util-composables": "workspace:*",
+    "@lychen/robust-ui-i18n": "workspace:*",
+    "@lychen/robust-util-constants": "workspace:*",
+    "@lychen/robust-util-features": "workspace:*",
+    "@lychen/ui-components": "workspace:*",
+    "@lychen/ui-css": "workspace:*",
+    "@lychen/ui-i18n": "workspace:*",
+    "@lychen/util-constants": "workspace:*",
+    "@lychen/vite-util-ssg": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-router-util-configs": "workspace:*",
+    "@lychen/vue-unhead-util-composables": "workspace:*",
+    "@lychen/vue-util-composables": "workspace:*",
+    "@lychen/website-ui-components": "workspace:*",
+    "@lychen/website-ui-layouts": "workspace:*",
+    "@unhead/schema-org": "^1.11.14",
+    "@unhead/vue": "^1.11.14",
+    "unhead": "^1.11.14",
+    "vue": "3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.9",
+    "vite-plugin-mkcert": "^1.17.6",
+    "vite-ssg": "^0.24.3",
+    "vite-ssg-sitemap": "^0.8.1"
+  }
+}

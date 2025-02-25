@@ -3,8 +3,6 @@ export default {
     title: 'Découvrez et soutenez les magasins de producteurs avec Kolo',
     description:
       'Kolo connecte citoyens et producteurs grâce à une plateforme interactive. Trouvez des magasins locaux, participez à des initiatives solidaires, et gérez vos produits en toute simplicité.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: "Soutenez l'économie locale avec Kolo",

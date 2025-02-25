@@ -3,8 +3,6 @@ export default {
     title: 'Manage Your Apiaries and Discover Beekeeping with Meli',
     description:
       'Meli is the ideal application for amateur and professional beekeepers. Manage your apiaries, track your harvests, process data, and collaborate with other local stakeholders.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Simplify Beekeeping and Connect with Your Territory',

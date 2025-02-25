@@ -269,6 +269,9 @@
       "path": "projects/novi/website"
     },
     {
+      "path": "projects/robust/website"
+    },
+    {
       "path": "projects/tera/api"
     },
     {
@@ -283,5 +286,6 @@
     {
       "path": "projects/website"
     }
-  ]
+  ],
+  "exclude": ["**/vendor/*"]
 }

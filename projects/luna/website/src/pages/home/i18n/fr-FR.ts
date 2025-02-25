@@ -3,8 +3,6 @@ export default {
     title: 'Découvrez les savoirs ancestraux avec Luna',
     description:
       'Luna connecte les citoyens et professionnels aux pratiques maraîchères ancestrales. Planifiez vos cultures en suivant les cycles lunaires et découvrez des savoirs locaux.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Explorez les savoirs ancestraux pour un maraîchage durable',

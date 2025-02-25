@@ -3,8 +3,6 @@ export default {
     title: 'Develop the resilience of territories',
     description:
       'Lychen, the ecosystem of applications designed to connect users around collective and local projects, focuses on biodiversity.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: {

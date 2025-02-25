@@ -45,6 +45,9 @@ export default {
             "Tout l'écosystème est en cours de développement et en recherche de financement. Vous pouvez nous contacter pour obtenir plus de renseignements : ",
         },
       },
+      robust: {
+        button: 'Découvrir',
+      },
     },
     price: {
       title: 'Tarifs',

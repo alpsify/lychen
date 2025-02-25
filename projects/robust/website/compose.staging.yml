@@ -1,0 +1,6 @@
+services:
+  website:
+    image: ghcr.io/alpsify/lychen/staging/robust/website:latest
+    labels:
+      - traefik.http.routers.lychen-staging-robust-website-m5thxz-101-websecure.middlewares=ip-allow@file
+    restart: unless-stopped

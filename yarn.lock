@@ -2386,6 +2386,44 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/robust-website@workspace:projects/robust/website":
+  version: 0.0.0-use.local
+  resolution: "@lychen/robust-website@workspace:projects/robust/website"
+  dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/odd-assets": "workspace:*"
+    "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/robust-ui-i18n": "workspace:*"
+    "@lychen/robust-util-constants": "workspace:*"
+    "@lychen/robust-util-features": "workspace:*"
+    "@lychen/ui-components": "workspace:*"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/util-constants": "workspace:*"
+    "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-router-util-configs": "workspace:*"
+    "@lychen/vue-unhead-util-composables": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
+    "@lychen/website-ui-components": "workspace:*"
+    "@lychen/website-ui-layouts": "workspace:*"
+    "@tailwindcss/vite": "npm:^4.0.0"
+    "@unhead/schema-org": "npm:^1.11.14"
+    "@unhead/vue": "npm:^1.11.14"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    tailwindcss: "npm:^4.0.0"
+    unhead: "npm:^1.11.14"
+    vite: "npm:^6.0.9"
+    vite-plugin-mkcert: "npm:^1.17.6"
+    vite-ssg: "npm:^0.24.3"
+    vite-ssg-sitemap: "npm:^0.8.1"
+    vue: "npm:3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/tera-app@workspace:projects/tera/app":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"

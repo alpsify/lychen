@@ -3,8 +3,6 @@ export default {
     title: 'Organize Your AMAPs with Kiro',
     description:
       'Kiro simplifies AMAP management: registrations, distributions, and community life. Support food security and connect producers and citizens.',
-    og_title: '@:page_home.meta.title',
-    og_description: '@:page_home.meta.description',
   },
   hero: {
     title: 'Simplify AMAP Management with Kiro',
