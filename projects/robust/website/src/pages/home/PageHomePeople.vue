@@ -38,10 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import CitizenImageUrl from './assets/Citizen.jpg';
-import CityImageUrl from './assets/City.png';
-import CompanyImageUrl from './assets/Company.jpg';
-import AssociationImageUrl from './assets/Association.jpg';
+import CitizenImageUrl from './assets/Citizen.webp';
+import CityImageUrl from './assets/City.webp';
+import CompanyImageUrl from './assets/Company.webp';
+import AssociationImageUrl from './assets/Association.webp';
 import { messages, TRANSLATION_KEY } from './i18n';
 import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';

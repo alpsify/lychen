@@ -131,7 +131,7 @@
 </template>
 
 <script lang="ts" setup>
-import ImageUrl from './assets/WomanJumping.jpg';
+import ImageUrl from './assets/WomanJumping.webp';
 import DudeImageUrl from './assets/dude.jpg';
 import AwardImageUrl from './assets/award.png';
 import RewardsImageUrl from './assets/rewards.png';

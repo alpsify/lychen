@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import ImageUrl from './assets/Collaborate.jpg';
+import ImageUrl from './assets/Collaborate.webp';
 import { messages, TRANSLATION_KEY } from './i18n';
 import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
