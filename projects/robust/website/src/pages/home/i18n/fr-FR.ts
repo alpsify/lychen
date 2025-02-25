@@ -66,7 +66,7 @@ export default {
     description:
       "Que vous soyez un particulier, une association, une entreprise ou une collectivité, Robust s'adapte à tous pour construire ensemble un futur local solide et épanouissant.",
     citizen: 'Citoyen·ne·s',
-    association: 'Associations',
+    associations: 'Associations',
     companies: 'Entreprises',
     cities: 'Collectivités',
   },

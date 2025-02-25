@@ -27,7 +27,7 @@
       />
       <CardActor
         :background-image="CompanyImageUrl"
-        :title="t('people.companiies')"
+        :title="t('people.companies')"
       />
       <CardActor
         :background-image="CityImageUrl"
