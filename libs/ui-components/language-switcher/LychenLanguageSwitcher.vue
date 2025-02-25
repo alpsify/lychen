@@ -14,6 +14,7 @@ const { locale } = useI18n();
       <LychenIcon
         icon="language"
         class="cursor-pointer"
+        aria-label="Select language"
       />
     </LychenPopoverTrigger>
     <LychenPopoverContent
@@ -24,20 +25,21 @@ const { locale } = useI18n();
       <LychenRadioGroup
         v-model="locale"
         :orientation="'vertical'"
+        aria-label="Select language"
       >
         <div class="flex items-center space-x-2">
           <LychenRadioGroupItem
             id="r1"
             value="fr-FR"
           />
-          <Label for="r1">Français</Label>
+          <label for="r1">Français</label>
         </div>
         <div class="flex items-center space-x-2">
           <LychenRadioGroupItem
             id="r2"
             value="en-US"
           />
-          <Label for="r2">English</Label>
+          <label for="r2">English</label>
         </div>
       </LychenRadioGroup>
     </LychenPopoverContent>
