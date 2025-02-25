@@ -7,41 +7,36 @@
       <LychenTitle
         variant="h2"
         class="md:w-2/3"
-        >S'engager et inspirer localement.</LychenTitle
+        >{{ t('engage.main_title') }}</LychenTitle
       >
       <LychenParagraph
         variant="website-highlight"
         class="md:w-2/3"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt mauris,
-        a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-        euismod.</LychenParagraph
+        >{{ t('engage.highlight_text') }}</LychenParagraph
       >
       <div class="flex md:flex-row gap-8 flex-col">
         <div
           class="md:basis-1/3 p-8 rounded-2xl bg-gradient-to-tr from-primary to-primary/60 shadow-2xl shadow-primary/50 dark:shadow-primary-container/50 text-on-primary outline-1 outline-offset-4 outline-primary-container/90 flex flex-col items-center justify-center gap-4"
         >
-          <LychenTitle variant="h4">Votre ecosystème</LychenTitle>
+          <LychenTitle variant="h4">{{ t('engage.ecosystem.title') }}</LychenTitle>
           <p>
-            La où vous vivez et la où votre impact est très important. Améliorer votre espace de
-            vie, tout le monde en bénéficiera.
+            {{ t('engage.ecosystem.text') }}
           </p>
         </div>
         <div
           class="md:basis-1/3 p-8 rounded-2xl bg-surface-container-high outline-1 outline-offset-4 outline-surface-container-high/50 flex flex-col items-center justify-center gap-4"
         >
-          <LychenTitle variant="h4">Vos connections</LychenTitle>
+          <LychenTitle variant="h4">{{ t('engage.connections.title') }}</LychenTitle>
           <p>
-            Connecte toi directement avec tes partenaires, acteurs, voisins et entreprises locales.
-            Plus d'intermédiaire.
+            {{ t('engage.connections.text') }}
           </p>
         </div>
         <div
           class="md:basis-1/3 p-8 rounded-2xl bg-surface-container-high outline-1 outline-offset-4 outline-surface-container-high/50 flex flex-col items-center justify-center gap-4"
         >
-          <LychenTitle variant="h4">Vos engagements</LychenTitle>
+          <LychenTitle variant="h4">{{ t('engage.commitments.title') }}</LychenTitle>
           <p>
-            Choisi et construit tes engagements pour chaque cause et partenaire. Plus besoin de
-            faire comme tout le monde.
+            {{ t('engage.commitments.text') }}
           </p>
         </div>
       </div>

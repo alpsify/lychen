@@ -6,14 +6,12 @@
       <LychenTitle
         variant="h2"
         class="md:w-1/2"
-        >Pour tout le monde.</LychenTitle
+        >{{ t('people.title') }}</LychenTitle
       >
       <LychenParagraph
         variant="website-highlight"
         class="md:w-1/2"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tincidunt mauris,
-        a volutpat sem. Etiam eget nisl sapien. Suspendisse cursus nibh vitae venenatis
-        euismod.</LychenParagraph
+        >{{ t('people.description') }}</LychenParagraph
       >
     </div>
     <div
@@ -21,19 +19,19 @@
     >
       <CardActor
         :background-image="CitizenImageUrl"
-        title="Citoyen·nes"
+        :title="t('people.citizen')"
       />
       <CardActor
         :background-image="AssociationImageUrl"
-        title="Associations"
+        :title="t('people.associations')"
       />
       <CardActor
         :background-image="CompanyImageUrl"
-        title="Entreprises"
+        :title="t('people.companiies')"
       />
       <CardActor
         :background-image="CityImageUrl"
-        title="Collectivités"
+        :title="t('people.cities')"
       />
     </div>
   </LychenContainer>
