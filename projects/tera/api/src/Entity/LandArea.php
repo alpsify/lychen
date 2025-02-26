@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandAreaRepository;
+use App\Security\Interface\LandAwareInterface;
 use App\Workflow\LandArea\LandAreaWorkflowPlace;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -18,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandAreaRepository::class)]
 #[ApiResource]
 #[ORM\HasLifecycleCallbacks]
-class LandArea extends AbstractIdOrmAndUlidApiIdentified
+class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;

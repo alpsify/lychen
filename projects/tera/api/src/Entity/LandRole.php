@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandRoleRepository;
 use App\Security\Constant\Permissions;
+use App\Security\Interface\LandAwareInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
 #[ORM\HasLifecycleCallbacks]
-class LandRole extends AbstractIdOrmAndUlidApiIdentified
+class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;

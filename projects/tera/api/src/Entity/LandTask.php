@@ -9,6 +9,7 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\QueryParameter;
 use App\Repository\LandTaskRepository;
+use App\Security\Interface\LandAwareInterface;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     ])
 ])]
 #[ORM\HasLifecycleCallbacks]
-class LandTask extends AbstractIdOrmAndUlidApiIdentified
+class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;

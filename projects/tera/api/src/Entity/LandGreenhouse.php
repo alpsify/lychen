@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandGreenhouseRepository;
+use App\Security\Interface\LandAwareInterface;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -16,11 +17,11 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 #[ORM\Entity(repositoryClass: LandGreenhouseRepository::class)]
 #[ApiResource]
 #[ORM\HasLifecycleCallbacks]
-class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified
+class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
-    
+
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 

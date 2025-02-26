@@ -4,12 +4,13 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\LandAreaParameterRepository;
+use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandAreaParameterRepository::class)]
 #[ApiResource]
-class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified
+class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -23,18 +24,6 @@ class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(nullable: true)]
     private ?int $length = null;
-
-    public function getLandArea(): ?LandArea
-    {
-        return $this->landArea;
-    }
-
-    public function setLandArea(LandArea $landArea): static
-    {
-        $this->landArea = $landArea;
-
-        return $this;
-    }
 
     public function isAboveGround(): ?bool
     {
@@ -68,6 +57,23 @@ class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified
     public function setLength(?int $length): static
     {
         $this->length = $length;
+
+        return $this;
+    }
+
+    public function getLand(): ?Land
+    {
+        return $this->getLandArea()->getLand();
+    }
+
+    public function getLandArea(): ?LandArea
+    {
+        return $this->landArea;
+    }
+
+    public function setLandArea(LandArea $landArea): static
+    {
+        $this->landArea = $landArea;
 
         return $this;
     }
