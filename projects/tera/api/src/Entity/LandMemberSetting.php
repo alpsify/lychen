@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandMemberSettingRepository::class)]
+//TODO Voter specific to Person link by this LandMember
 #[ApiResource(operations: [
     new Get(),
     new GetCollection(),

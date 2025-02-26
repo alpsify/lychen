@@ -2,6 +2,7 @@
 
 namespace App\Security\Voter;
 
+use App\Security\Constant\Permissions;
 use App\Security\Helper\PermissionManager;
 use App\Security\Interface\LandAwareInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -18,7 +19,9 @@ class LandAwareVoter extends Voter
     {
         $subjectIsLandAware = $subject instanceof LandAwareInterface;
 
-        return $subjectIsLandAware;
+        $attributeIsSupported = in_array($attribute, Permissions::ALL);
+
+        return $subjectIsLandAware && $attributeIsSupported;
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
