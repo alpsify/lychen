@@ -1,6 +1,6 @@
 <?php
 
-namespace App\tests\Security;
+namespace App\Tests\Security;
 
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use function Zenstruck\Foundry\faker;
@@ -27,14 +27,14 @@ class LandSecurityTest extends AbstractApiTestCase
 
         $this->browser()->actingAs($owner2)
             ->get('/api/lands/' . $land1->getUlid()->toString())
-            ->assertStatus(401);
+            ->assertStatus(403);
 
         $this->browser()->actingAs($owner2)
             ->patch('/api/lands/' . $land1->getUlid()->toString(), ['json' => ['name' => faker()->name()]])
-            ->assertStatus(401);
+            ->assertStatus(403);
 
         $this->browser()->actingAs($owner2)
             ->delete('/api/lands/' . $land1->getUlid()->toString())
-            ->assertStatus(401);
+            ->assertStatus(403);
     }
 }

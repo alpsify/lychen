@@ -10,6 +10,7 @@ use App\Security\Interface\LandAwareInterface;
 use Lychen\UtilModel\Interface\UlidIdentifiedInterface;
 use PHPUnit\Framework\Exception;
 use Psr\Log\LoggerInterface;
+use ReflectionClass;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class PermissionManager

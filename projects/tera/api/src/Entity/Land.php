@@ -13,6 +13,8 @@ use App\Constant\LandKind;
 use App\Processor\DebugProcessor;
 use App\Provider\LandsLookingForMemberProvider;
 use App\Repository\LandRepository;
+use App\Security\Constant\LandPermission;
+use App\Security\Interface\LandAwareInterface;
 use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -28,10 +30,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Patch()]
-#[Delete(processor: DebugProcessor::class)]
+#[Patch(security: "is_granted('" . LandPermission::UPDATE . "', object)")]
+#[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)", processor: DebugProcessor::class)]
 #[GetCollection(uriTemplate: '/lands/looking_for_members', name: 'looking-for-members', provider: LandsLookingForMemberProvider::class)]
-#[Get()]
+#[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
 #[GetCollection()]
 #[Post(
     openapi: new Model\Operation(
@@ -57,7 +59,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     ),
 )]
 #[ORM\HasLifecycleCallbacks]
-class Land extends AbstractIdOrmAndUlidApiIdentified
+class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
@@ -190,6 +192,11 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
             }
         }
 
+        return $this;
+    }
+
+    public function getLand(): static
+    {
         return $this;
     }
 
