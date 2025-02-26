@@ -34,6 +34,10 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
     #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'landGreenhouse')]
     private Collection $landAreas;
 
+    #[ORM\ManyToOne(inversedBy: 'landGreenhouses')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Land $land = null;
+
     public function __construct()
     {
         parent::__construct();
@@ -90,6 +94,18 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
                 $landArea->setLandGreenhouse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLand(): ?Land
+    {
+        return $this->land;
+    }
+
+    public function setLand(?Land $land): static
+    {
+        $this->land = $land;
 
         return $this;
     }

@@ -123,6 +123,12 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     #[ORM\OneToOne(cascade: ['persist'])]
     private ?LandRole $defaultRole = null;
 
+    /**
+     * @var Collection<int, LandGreenhouse>
+     */
+    #[ORM\OneToMany(targetEntity: LandGreenhouse::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landGreenhouses;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -133,6 +139,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         $this->landMemberInvitations = new ArrayCollection();
         $this->landRoles = new ArrayCollection();
         $this->landCultivationPlans = new ArrayCollection();
+        $this->landGreenhouses = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -399,6 +406,36 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public function setDefaultRole(?LandRole $defaultRole): static
     {
         $this->defaultRole = $defaultRole;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandGreenhouse>
+     */
+    public function getLandGreenhouses(): Collection
+    {
+        return $this->landGreenhouses;
+    }
+
+    public function addLandGreenhouse(LandGreenhouse $landGreenhouse): static
+    {
+        if (!$this->landGreenhouses->contains($landGreenhouse)) {
+            $this->landGreenhouses->add($landGreenhouse);
+            $landGreenhouse->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandGreenhouse(LandGreenhouse $landGreenhouse): static
+    {
+        if ($this->landGreenhouses->removeElement($landGreenhouse)) {
+            // set the owning side to null (unless already changed)
+            if ($landGreenhouse->getLand() === $this) {
+                $landGreenhouse->setLand(null);
+            }
+        }
 
         return $this;
     }

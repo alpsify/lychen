@@ -6,7 +6,7 @@ use App\Security\Helper\PermissionManager;
 
 final readonly class PlantConversionRequestPermission
 {
-    public const string PREFIX = 'person' . PermissionManager::SEPARATOR;
+    public const string PREFIX = 'plant_conversion_request' . PermissionManager::SEPARATOR;
 
     public const string READ = self::PREFIX . 'read';
     public const string UPDATE = self::PREFIX . 'update';
