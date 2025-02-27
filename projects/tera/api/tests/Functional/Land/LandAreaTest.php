@@ -32,7 +32,7 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Member with permissions
         $landRole = $this->createLandRole($context->land, [LandAreaPermission::CREATE]);
-        $this->addMember($context, [$landRole]);
+        $this->addLandMember($context, [$landRole]);
 
         $name = faker()->name();
         $description = faker()->text();
@@ -78,7 +78,7 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Member with permissions
         $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
-        $this->addMember($context, [$landRole]);
+        $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->get($this->getIriFromResource($landArea))
@@ -120,7 +120,7 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Member with permissions
         $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
-        $this->addMember($context, [$landRole]);
+        $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
@@ -163,7 +163,7 @@ class LandAreaTest extends AbstractApiTestCase
         // Member with permissions
         $this->addOneLandArea($context);
         $landRole = $this->createLandRole($context->land, [LandAreaPermission::DELETE]);
-        $this->addMember($context, [$landRole]);
+        $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->delete($this->getIriFromResource($context->landAreas[1]))

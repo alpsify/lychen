@@ -61,13 +61,21 @@ trait ContextTrait
         return $landTestContext;
     }
 
-    protected function addMember(LandTestContext $landTestContext, ?array $roles = null, Person|Proxy|null $person = null): LandTestContext
+    protected function addLandMember(LandTestContext $landTestContext, ?array $roles = null, Person|Proxy|null $person = null): LandTestContext
     {
         if (!$person) {
             $person = $this->createPerson();
         }
         $landMember = $this->createLandMember($landTestContext->land, $person, $roles);
         $landTestContext->addLandMember($landMember);
+
+        return $landTestContext;
+    }
+
+    protected function addOneLandMemberInvitation(LandTestContext $landTestContext, ?array $roles = null, ?string $email = null): LandTestContext
+    {
+        $landMemberInvitation = $this->createLandMemberInvitation($landTestContext->land, $email, $roles);
+        $landTestContext->addLandMemberInvitation($landMemberInvitation);
 
         return $landTestContext;
     }

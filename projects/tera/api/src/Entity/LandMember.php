@@ -29,7 +29,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
     private ?DateTimeImmutable $joinedAt = null;
 
     #[ORM\Column]
-    private ?bool $owner = null;
+    private ?bool $owner = false;
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
@@ -132,6 +132,13 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
     public function getLandRoles(): Collection
     {
         return $this->landRoles;
+    }
+
+    public function setLandRoles(Collection $landRoles): static
+    {
+        $this->landRoles = $landRoles;
+
+        return $this;
     }
 
     public function addLandRole(LandRole $landRole): static

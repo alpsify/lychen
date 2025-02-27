@@ -39,7 +39,7 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot create a LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
-        $this->addMember($context1, [$landRole]);
+        $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->post('/api/land_areas', ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
@@ -77,7 +77,7 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot patch a LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
-        $this->addMember($context1, [$landRole]);
+        $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => []])
             ->assertStatus(403);
@@ -102,7 +102,7 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot get a LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
-        $this->addMember($context1, [$landRole]);
+        $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->get($this->getIriFromResource($context1->landAreas[0]))
             ->assertStatus(403);
@@ -126,7 +126,7 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot delete a LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
-        $this->addMember($context1, [$landRole]);
+        $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->delete($this->getIriFromResource($context1->landAreas[0]))
             ->assertStatus(403);
@@ -155,7 +155,7 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot list LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
-        $this->addMember($context1, [$landRole]);
+        $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);

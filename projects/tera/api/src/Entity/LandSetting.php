@@ -6,14 +6,15 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandSettingRepository;
+use App\Security\Constant\LandSettingPermission;
 use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandSettingRepository::class)]
 #[ApiResource()]
-#[Get()]
-#[Patch()]
+#[Patch(security: "is_granted('" . LandSettingPermission::UPDATE . "', object)")]
+#[Get(security: "is_granted('" . LandSettingPermission::READ . "', object)")]
 class LandSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landSetting', cascade: ['persist', 'remove'])]

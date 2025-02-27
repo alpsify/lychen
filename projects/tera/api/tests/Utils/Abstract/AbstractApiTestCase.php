@@ -7,6 +7,7 @@ use App\Tests\Utils\Trait\ContextTrait;
 use App\Tests\Utils\Trait\LandAreaTrait;
 use App\Tests\Utils\Trait\LandCultivationPlanTrait;
 use App\Tests\Utils\Trait\LandGreenhouseTrait;
+use App\Tests\Utils\Trait\LandMemberInvitationTrait;
 use App\Tests\Utils\Trait\LandMemberTrait;
 use App\Tests\Utils\Trait\LandRoleTrait;
 use App\Tests\Utils\Trait\LandTaskTrait;
@@ -37,6 +38,7 @@ class AbstractApiTestCase extends ApiTestCase
     use LandCultivationPlanTrait;
     use LandRoleTrait;
     use LandMemberTrait;
+    use LandMemberInvitationTrait;
     use LandTaskTrait;
     use ContextTrait;
 

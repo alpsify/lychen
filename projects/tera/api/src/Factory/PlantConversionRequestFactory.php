@@ -2,18 +2,18 @@
 
 namespace App\Factory;
 
-use App\Entity\Person;
-use Symfony\Component\Uid\Uuid;
+use App\Entity\PlantConversionRequest;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
-use function Zenstruck\Foundry\faker;
 
 /**
- * @extends PersistentProxyObjectFactory<Person>
+ * @extends PersistentProxyObjectFactory<PlantConversionRequest>
  */
-final class PersonFactory extends PersistentProxyObjectFactory
+final class PlantConversionRequestFactory extends PersistentProxyObjectFactory
 {
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
+     *
+     * @todo inject services if required
      */
     public function __construct()
     {
@@ -21,17 +21,18 @@ final class PersonFactory extends PersistentProxyObjectFactory
 
     public static function class(): string
     {
-        return Person::class;
+        return PlantConversionRequest::class;
     }
 
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
+     *
+     * @todo add your default values here
      */
     protected function defaults(): array|callable
     {
         return [
-            'authId' => Uuid::v4(),
-            'email' => faker()->email()
+            'plantCustom' => PlantCustomFactory::new(),
         ];
     }
 
@@ -40,7 +41,7 @@ final class PersonFactory extends PersistentProxyObjectFactory
      */
     protected function initialize(): static
     {
-        return $this// ->afterInstantiate(function(Person $person): void {})
+        return $this// ->afterInstantiate(function(PlantConversionRequest $plantConversionRequest): void {})
             ;
     }
 }
