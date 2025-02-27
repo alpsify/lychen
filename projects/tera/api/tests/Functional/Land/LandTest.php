@@ -100,7 +100,7 @@ class LandTest extends AbstractApiTestCase
         $context1 = $this->createLandContext();
         $this->createLand($context1->owner);
 
-        $this->createLandContext();
+        $this->createLandContext(); // It is mandatory to ensure that lands are filtered based on the user
 
         $this->browser()->actingAs($context1->owner)
             ->get('/api/lands')
@@ -125,7 +125,7 @@ class LandTest extends AbstractApiTestCase
             });
     }
 
-    public function testLookingForMember()
+    public function testLookingForMembers()
     {
         $context1 = $this->createLandContext();
         $context1->land->getLandSetting()->setLookingForMember(true);
@@ -139,11 +139,40 @@ class LandTest extends AbstractApiTestCase
             ->get('/api/lands/looking_for_members')
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
+            ->use(function (Json $json) {
+                $json->assertThat('view', fn(Json $json) => $json->isNotNull());
+            })
             ->assertJsonMatches('member[0].ulid', $context1->land->getUlid()->toString())
             ->assertJsonMatches('member[0].name', $context1->land->getName())
             ->assertJsonMatches('member[0].surface', $context1->land->getSurface())
             ->assertJsonMatches('member[1].ulid', $context2->land->getUlid()->toString())
             ->assertJsonMatches('member[1].name', $context2->land->getName())
             ->assertJsonMatches('member[1].surface', $context2->land->getSurface());
+    }
+
+    public function testLookingForMembersPagination()
+    {
+        $context = $this->createLandContext();
+        $lands = [];
+        for ($i = 0; $i < 25; $i++) {
+            $land = $this->createLand($context->owner);
+            $land->getLandSetting()->setLookingForMember(true);
+            $lands[] = $land;
+        }
+
+        $context2 = $this->createLandContext();
+        $context2->land->getLandSetting()->setLookingForMember(true);
+        $context2->land->_save();
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/lands/looking_for_members', ['query' => ['itemsPerPage' => 10, 'page' => 2]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 26)
+            ->use(function (Json $json) {
+                $json->assertThat('view', fn(Json $json) => $json->isNotNull());
+            })
+            ->use(function (Json $json) {
+                $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
+            });
     }
 }

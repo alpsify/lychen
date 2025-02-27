@@ -7,11 +7,16 @@ use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandAreaSecurityTest extends AbstractApiTestCase
 {
-    public function testPutDoesNotExist()
+    public function testPut()
     {
         $context = $this->createLandContext();
         $this->addOneLandArea($context);
 
+        $this->browser()
+            ->put($this->getIriFromResource($context->landAreas[0]))
+            ->assertStatus(405);
+
+        // Does not exist
         $this->browser()->actingAs($context->owner)
             ->put($this->getIriFromResource($context->landAreas[0]))
             ->assertStatus(405);
@@ -22,7 +27,12 @@ class LandAreaSecurityTest extends AbstractApiTestCase
         $context1 = $this->createLandContext();
         $context2 = $this->createLandContext();
 
-        // User can't create a LandArea for a Land they are not a member of
+        // User cannot create a LandArea if they are not authenticated
+        $this->browser()
+            ->post('/api/land_areas', ['json' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->assertStatus(401);
+
+        // User cannot create a LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
             ->post('/api/land_areas', ['json' => ['land' => $this->getIriFromResource($context1->land)]])
             ->assertStatus(403);
@@ -41,12 +51,17 @@ class LandAreaSecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
         $this->addOneLandArea($context1);
 
-        // User can't patch a LandArea for a Land they are not a member of
+        // User cannot patch a LandArea if they are not authenticated
+        $this->browser()
+            ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => []])
+            ->assertStatus(401);
+
+        // User cannot patch a LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
             ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => []])
             ->assertStatus(403);
 
-        // User can't patch a LandArea with a Land they are not a member of
+        // User cannot patch a LandArea with a Land they are not a member of
         $this->browser()->actingAs($context1->owner)
             ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]]);
 
@@ -74,7 +89,12 @@ class LandAreaSecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
         $this->addOneLandArea($context1);
 
-        // User can't get a LandArea for a Land they are not a member of
+        // User cannot get a LandArea if they are not authenticated
+        $this->browser()
+            ->get($this->getIriFromResource($context1->landAreas[0]))
+            ->assertStatus(401);
+
+        // User cannot get a LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
             ->get($this->getIriFromResource($context1->landAreas[0]))
             ->assertStatus(403);
@@ -93,7 +113,12 @@ class LandAreaSecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
         $this->addOneLandArea($context1);
 
-        // User can't delete a LandArea for a Land they are not a member of
+        // User cannot delete a Land if they are not authenticated
+        $this->browser()
+            ->delete($this->getIriFromResource($context1->landAreas[0]))
+            ->assertStatus(401);
+
+        // User cannot delete a LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
             ->delete($this->getIriFromResource($context1->landAreas[0]))
             ->assertStatus(403);
@@ -112,12 +137,17 @@ class LandAreaSecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
         $this->addOneLandArea($context1);
 
-        // User can't list LandArea without a Land query parameter
+        // User cannot list LandArea if they are not authenticated
+        $this->browser()
+            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->assertStatus(401);
+
+        // User cannot list LandArea without a Land query parameter
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_areas', ['query' => ['land' => '']])
             ->assertStatus(422);
 
-        // User can't list LandArea for a Land they are not a member of
+        // User cannot list LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
             ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
             ->assertStatus(403);

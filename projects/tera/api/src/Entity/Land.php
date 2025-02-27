@@ -10,7 +10,7 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model;
 use App\Constant\LandKind;
-use App\Provider\LandsLookingForMemberProvider;
+use App\Provider\LandsLookingForMembersProvider;
 use App\Repository\LandRepository;
 use App\Security\Constant\LandPermission;
 use App\Security\Interface\LandAwareInterface;
@@ -31,7 +31,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[Patch(security: "is_granted('" . LandPermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
-#[GetCollection(uriTemplate: '/lands/looking_for_members', name: 'looking-for-members', provider: LandsLookingForMemberProvider::class)]
+#[GetCollection(uriTemplate: '/lands/looking_for_members', paginationFetchJoinCollection: true, name: 'looking-for-members', provider: LandsLookingForMembersProvider::class)]
 #[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
 #[GetCollection()]
 #[Post(
