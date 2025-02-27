@@ -3,8 +3,20 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
+use App\Security\Constant\LandAreaPermission;
+use App\Security\Interface\LandAwareInterface;
 use App\Workflow\LandArea\LandAreaWorkflowPlace;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -12,50 +24,68 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandAreaRepository::class)]
-#[ApiResource]
+#[ApiResource()]
+#[Post(securityPostDenormalize: "is_granted('" . LandAreaPermission::CREATE . "', object)")]
+#[Patch(security: "is_granted('" . LandAreaPermission::UPDATE . "', object)")]
+#[Delete(security: "is_granted('" . LandAreaPermission::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandAreaPermission::READ . "', object)")]
+#[GetCollection(security: "is_granted('" . LandAreaPermission::READ . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+])]
 #[ORM\HasLifecycleCallbacks]
-class LandArea extends AbstractIdOrmAndUlidApiIdentified
+class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
+    #[Assert\NotBlank()]
     private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'landAreas')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_area:get", "user:land_area:post"])]
     private ?Land $land = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
     private ?string $description = null;
 
     #[ORM\OneToOne(mappedBy: 'landArea', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private ?LandAreaSetting $landAreaSetting = null;
 
     #[ORM\OneToOne(mappedBy: 'landArea', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private ?LandAreaParameter $landAreaParameter = null;
 
     #[ORM\ManyToOne(inversedBy: 'landAreas')]
+    #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private ?LandGreenhouse $landGreenhouse = null;
 
     /**
      * @var Collection<int, LandTask>
      */
     #[ORM\OneToMany(targetEntity: LandTask::class, mappedBy: 'landArea')]
+    #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private Collection $landTasks;
 
     #[Assert\Choice(LandAreaWorkflowPlace::PLACES)]
     #[ORM\Column(length: 255)]
+    #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
     private ?string $state = LandAreaWorkflowPlace::ACTIVE;
 
     /**
      * @var Collection<int, LandCultivationPlan>
      */
     #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'landArea')]
+    #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private Collection $landCultivationPlans;
 
     public function __construct(?Ulid $ulid = null)
@@ -77,6 +107,24 @@ class LandArea extends AbstractIdOrmAndUlidApiIdentified
         $this->name = $name;
 
         return $this;
+    }
+
+    #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
+    #[Groups(["user:land_area:get", "user:land_area:patch"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["user:land_area:get", "user:land_area:patch"])]
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 
     public function getLand(): ?Land

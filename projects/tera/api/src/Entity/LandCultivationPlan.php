@@ -3,56 +3,114 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandCultivationPlanRepository;
+use App\Security\Constant\LandCultivationPlanPermission;
+use App\Security\Interface\LandAwareInterface;
+use App\Workflow\LandCultivationPlan\LandCultivationPlanWorkflowPlace;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandCultivationPlanRepository::class)]
 #[ApiResource]
-class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified
+#[Post(securityPostDenormalize: "is_granted('" . LandCultivationPlanPermission::CREATE . "', object)")]
+#[Patch(security: "is_granted('" . LandCultivationPlanPermission::UPDATE . "', object)")]
+#[Delete(security: "is_granted('" . LandCultivationPlanPermission::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandCultivationPlanPermission::READ . "', object)")]
+#[GetCollection(security: "is_granted('" . LandCultivationPlanPermission::READ . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+])]
+#[ORM\HasLifecycleCallbacks]
+class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $startDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $endDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedSowingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $sowingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedPlantingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $plantingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedHarvestingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $harvestingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?DateTimeInterface $forecastedEndDate = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $state = null;
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get"])]
+    private ?string $state = LandCultivationPlanWorkflowPlace::DRAFT;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?Plant $plant = null;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?Land $land = null;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
     private ?LandArea $landArea = null;
+
+    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
+    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:patch"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:patch"])]
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
 
     public function getStartDate(): ?DateTimeInterface
     {

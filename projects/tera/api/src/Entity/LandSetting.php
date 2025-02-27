@@ -4,20 +4,17 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandSettingRepository;
+use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandSettingRepository::class)]
-#[ApiResource(operations: [
-    new Get(),
-    new GetCollection(),
-    new Patch()
-]
-)]
-class LandSetting extends AbstractIdOrmAndUlidApiIdentified
+#[ApiResource()]
+#[Get()]
+#[Patch()]
+class LandSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]

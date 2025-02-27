@@ -7,8 +7,8 @@ use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
-use ApiPlatform\Metadata\Post;
 use App\Repository\LandMemberRepository;
+use App\Security\Interface\LandAwareInterface;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -17,15 +17,13 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
-#[ApiResource(operations: [
-    new Patch(),
-    new GetCollection(),
-    new Get(),
-    new Post(),
-    new Delete()
-])]
+#[ApiResource()]
+#[GetCollection()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
-class LandMember extends AbstractIdOrmAndUlidApiIdentified
+class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\Column]
     private ?DateTimeImmutable $joinedAt = null;
