@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\LandCultivationPlanRepository;
 use App\Security\Interface\LandAwareInterface;
 use DateTimeInterface;
@@ -12,6 +17,11 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandCultivationPlanRepository::class)]
 #[ApiResource]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]

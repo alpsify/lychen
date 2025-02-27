@@ -23,7 +23,7 @@ final class LandRoleFactory extends PersistentProxyObjectFactory
     {
         return [
             'name' => self::faker()->text(255),
-            'position' => self::faker()->randomNumber(),
+            //'permissions' => []
         ];
     }
 

@@ -19,13 +19,12 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 //TODO Voter specific to Person link by this LandMember
-#[ApiResource(operations: [
-    new Patch(),
-    new GetCollection(),
-    new Get(),
-    new Post(),
-    new Delete()
-])]
+#[ApiResource()]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

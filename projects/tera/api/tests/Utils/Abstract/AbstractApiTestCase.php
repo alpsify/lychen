@@ -3,6 +3,10 @@
 namespace App\Tests\Utils\Abstract;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
+use App\Tests\Utils\Trait\ContextTrait;
+use App\Tests\Utils\Trait\LandAreaTrait;
+use App\Tests\Utils\Trait\LandMemberTrait;
+use App\Tests\Utils\Trait\LandRoleTrait;
 use App\Tests\Utils\Trait\LandTrait;
 use App\Tests\Utils\Trait\PersonTrait;
 use DAMA\DoctrineTestBundle\Doctrine\DBAL\StaticDriver;
@@ -25,6 +29,10 @@ class AbstractApiTestCase extends ApiTestCase
 
     use LandTrait;
     use PersonTrait;
+    use LandAreaTrait;
+    use LandRoleTrait;
+    use LandMemberTrait;
+    use ContextTrait;
 
     protected function browser(array $options = [], array $server = []): KernelBrowser
     {

@@ -10,7 +10,6 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model;
 use App\Constant\LandKind;
-use App\Processor\DebugProcessor;
 use App\Provider\LandsLookingForMemberProvider;
 use App\Repository\LandRepository;
 use App\Security\Constant\LandPermission;
@@ -31,7 +30,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
 #[Patch(security: "is_granted('" . LandPermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)", processor: DebugProcessor::class)]
+#[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
 #[GetCollection(uriTemplate: '/lands/looking_for_members', name: 'looking-for-members', provider: LandsLookingForMemberProvider::class)]
 #[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
 #[GetCollection()]

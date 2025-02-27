@@ -7,6 +7,7 @@ use App\Entity\LandMember;
 use App\Entity\Person;
 use App\Repository\LandMemberRepository;
 use App\Security\Interface\LandAwareInterface;
+use Deprecated;
 use Lychen\UtilModel\Interface\UlidIdentifiedInterface;
 use PHPUnit\Framework\Exception;
 use Psr\Log\LoggerInterface;
@@ -62,6 +63,7 @@ class PermissionManager
         if ($landMember->isOwner()) {
             return true;
         }
+
         return in_array($permission, $this->getLandMemberEffectivePermissions($landMember));
     }
 
@@ -70,17 +72,19 @@ class PermissionManager
         $roles = $landMember->getLandRoles();
         $effectiveRights = [];
         foreach ($roles as $role) {
-            $effectiveRights = array_merge($effectiveRights, $role->getPermissions());
+            if ($role->getPermissions()) {
+                $effectiveRights = array_merge($effectiveRights, $role->getPermissions());
+            }
         }
 
         return array_unique($effectiveRights);
     }
 
+    #[Deprecated]
     public function buildPermissionFromContext(string $action, mixed $subject): string
     {
         $entityName = strtolower((new ReflectionClass($subject))->getShortName());
 
-        // Construire la permission complète, par exemple "read_land" ou "write_task"
         return sprintf('%s%s%s', $entityName, self::SEPARATOR, $action);
     }
 }

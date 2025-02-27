@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandMemberSettingRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,12 +11,9 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandMemberSettingRepository::class)]
 //TODO Voter specific to Person link by this LandMember
-#[ApiResource(operations: [
-    new Get(),
-    new GetCollection(),
-    new Patch()
-]
-)]
+#[ApiResource()]
+#[Get()]
+#[Patch()]
 class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified
 {
     #[ORM\OneToOne(inversedBy: 'landMemberSetting', cascade: ['persist', 'remove'])]

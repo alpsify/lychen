@@ -6,7 +6,11 @@ use ApiPlatform\Doctrine\Common\Filter\SearchFilterInterface;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
 use App\Repository\LandTaskRepository;
 use App\Security\Interface\LandAwareInterface;
@@ -19,11 +23,15 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
-#[ApiResource(operations: [
-    new GetCollection(parameters: [
-        'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
-    ])
+#[ApiResource()]
+#[ApiResource()]
+#[GetCollection(parameters: [
+    'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
 ])]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
 class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

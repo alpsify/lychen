@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\LandRoleRepository;
 use App\Security\Constant\Permissions;
 use App\Security\Interface\LandAwareInterface;
@@ -18,6 +23,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
 class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

@@ -3,7 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\LandGreenhouseRepository;
+use App\Security\Constant\LandGreenhousePermission;
 use App\Security\Interface\LandAwareInterface;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,6 +22,11 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseRepository::class)]
 #[ApiResource]
+#[GetCollection()]
+#[Post(securityPostDenormalize: "is_granted('" . LandGreenhousePermission::CREATE . "', object)")]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
 class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

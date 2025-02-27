@@ -3,13 +3,18 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Patch;
 use App\Repository\LandAreaParameterRepository;
+use App\Security\Constant\LandAreaParameterPermission;
 use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 
 #[ORM\Entity(repositoryClass: LandAreaParameterRepository::class)]
 #[ApiResource]
+#[Patch(security: "is_granted('" . LandAreaParameterPermission::UPDATE . "', object)")]
+#[Get(security: "is_granted('" . LandAreaParameterPermission::READ . "', object)")]
 class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]

@@ -18,7 +18,6 @@ class LandAwareVoter extends Voter
     protected function supports(string $attribute, mixed $subject): bool
     {
         $subjectIsLandAware = $subject instanceof LandAwareInterface;
-
         $attributeIsSupported = in_array($attribute, Permissions::ALL);
 
         return $subjectIsLandAware && $attributeIsSupported;
@@ -26,8 +25,6 @@ class LandAwareVoter extends Voter
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
     {
-        $requiredPermission = $this->permissionManager->buildPermissionFromContext($attribute, $subject);
-
-        return $this->permissionManager->can($requiredPermission, $subject);
+        return $this->permissionManager->can($attribute, $subject);
     }
 }

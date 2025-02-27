@@ -2,8 +2,171 @@
 
 namespace App\Tests\Functional\Land;
 
+use App\Security\Constant\LandAreaPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
+use Zenstruck\Browser\Json;
+use function Zenstruck\Foundry\faker;
 
 class LandAreaTest extends AbstractApiTestCase
 {
+    public function testPost()
+    {
+        $context = $this->createLandContext();
+
+        $name = faker()->name();
+        $description = faker()->text();
+
+        // Owner
+        $this->browser()->actingAs($context->owner)
+            ->post('/api/land_areas', ['json' => [
+                'name' => $name,
+                'description' => $description,
+                'land' => $this->getIriFromResource($context->land)
+            ]])
+            ->assertStatus(201)
+            ->assertJsonMatches('name', $name)
+            ->assertJsonMatches('description', $description)
+            ->use(function (Json $json) {
+                $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
+            });
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandAreaPermission::CREATE]);
+        $this->addMember($context, [$landRole]);
+
+        $name = faker()->name();
+        $description = faker()->text();
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->post('/api/land_areas', ['json' => [
+                'name' => $name,
+                'description' => $description,
+                'land' => $this->getIriFromResource($context->land->_real())
+            ]])
+            ->assertStatus(201)
+            ->assertJsonMatches('name', $name)
+            ->assertJsonMatches('description', $description)
+            ->use(function (Json $json) {
+                $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
+            });
+    }
+
+    public function testGet()
+    {
+        $context = $this->createLandContext();
+        $this->addOneLandArea($context);
+
+        $landArea = $context->landAreas[0];
+
+        // Owner
+        $this->browser()->actingAs($context->owner)
+            ->get($this->getIriFromResource($landArea))
+            ->assertSuccessful()
+            ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
+            ->assertJsonMatches('name', $landArea->getName())
+            ->assertJsonMatches('description', $landArea->getDescription())
+            ->assertJsonMatches('state', $landArea->getState())
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
+                $json->assertThat('landAreaSetting', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('landAreaParameter', fn(Json $json) => $json->isNotNull());
+                $json->doesNotContain('landCultivationPlans');
+                $json->doesNotContain('landTasks');
+                $json->doesNotContain('landGreenhouse');
+            });
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
+        $this->addMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->get($this->getIriFromResource($landArea))
+            ->assertSuccessful()
+            ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
+            ->assertJsonMatches('name', $landArea->getName())
+            ->assertJsonMatches('description', $landArea->getDescription())
+            ->assertJsonMatches('state', $landArea->getState())
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
+                $json->assertThat('landAreaSetting', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('landAreaParameter', fn(Json $json) => $json->isNotNull());
+                $json->doesNotContain('landCultivationPlans');
+                $json->doesNotContain('landTasks');
+                $json->doesNotContain('landGreenhouse');
+            });
+    }
+
+    public function testCollection()
+    {
+        $context = $this->createLandContext();
+        $this->addOneLandArea($context);
+        $this->addOneLandArea($context);
+
+        // Owner
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', count($context->landAreas))
+            ->assertJsonMatches('member[0].ulid', $context->landAreas[0]->getUlid()->toString())
+            ->assertJsonMatches('member[0].name', $context->landAreas[0]->getName())
+            ->assertJsonMatches('member[0].description', $context->landAreas[0]->getDescription())
+            ->assertJsonMatches('member[0].state', $context->landAreas[0]->getState())
+            ->assertJsonMatches('member[1].ulid', $context->landAreas[1]->getUlid()->toString())
+            ->assertJsonMatches('member[1].name', $context->landAreas[1]->getName())
+            ->assertJsonMatches('member[1].description', $context->landAreas[1]->getDescription())
+            ->assertJsonMatches('member[1].state', $context->landAreas[1]->getState());
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
+        $this->addMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', count($context->landAreas))
+            ->assertJsonMatches('member[0].ulid', $context->landAreas[0]->getUlid()->toString())
+            ->assertJsonMatches('member[0].name', $context->landAreas[0]->getName())
+            ->assertJsonMatches('member[0].description', $context->landAreas[0]->getDescription())
+            ->assertJsonMatches('member[0].state', $context->landAreas[0]->getState())
+            ->assertJsonMatches('member[1].ulid', $context->landAreas[1]->getUlid()->toString())
+            ->assertJsonMatches('member[1].name', $context->landAreas[1]->getName())
+            ->assertJsonMatches('member[1].description', $context->landAreas[1]->getDescription())
+            ->assertJsonMatches('member[1].state', $context->landAreas[1]->getState());
+    }
+
+    public function testCollectionPagination()
+    {
+        $context = $this->createLandContext();
+        array_map(fn() => $this->addOneLandArea($context), range(1, 25));
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 25)
+            ->use(function (Json $json) {
+                $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
+            });
+    }
+
+    public function testDelete()
+    {
+        $context = $this->createLandContext();
+        $this->addOneLandArea($context);
+
+        // Owner
+        $this->browser()->actingAs($context->owner)
+            ->delete($this->getIriFromResource($context->landAreas[0]))
+            ->assertStatus(204);
+
+        // Member with permissions
+        $this->addOneLandArea($context);
+        $landRole = $this->createLandRole($context->land, [LandAreaPermission::DELETE]);
+        $this->addMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->delete($this->getIriFromResource($context->landAreas[1]))
+            ->assertStatus(204);
+    }
 }

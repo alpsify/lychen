@@ -10,11 +10,9 @@ final readonly class LandAreaSettingPermission
 
     public const string READ = self::PREFIX . 'read';
     public const string UPDATE = self::PREFIX . 'update';
-    public const string DELETE = self::PREFIX . 'delete';
 
     public const array ALL = [
         self::READ,
         self::UPDATE,
-        self::DELETE,
     ];
 }
