@@ -7,24 +7,40 @@ use App\Entity\Person;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsEntityListener;
 use Doctrine\ORM\Events;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
+use Psr\Log\LoggerInterface;
+use Throwable;
 
 #[AsEntityListener(event: Events::postPersist, method: 'onNewPerson', entity: Person::class)]
 #[AsEntityListener(event: Events::postPersist, method: 'onNewMemberInvitation', entity: LandMemberInvitation::class)]
 class LandMemberInvitationAutoLink
 {
+    public function __construct(private readonly LoggerInterface $logger)
+    {
+    }
+
     public function onNewPerson(Person $person, LifecycleEventArgs $event): void
     {
         $entityManager = $event->getObjectManager();
         $landMemberInvitationRepository = $entityManager->getRepository(LandMemberInvitation::class);
 
-        $landMemberInvitations = $landMemberInvitationRepository->findBy(['email' => $person->getEmail()]);
+        try {
+            $landMemberInvitations = $landMemberInvitationRepository->findBy(['email' => $person->getEmail()]);
 
-        foreach ($landMemberInvitations as $landMemberInvitation) {
-            $landMemberInvitation->setPerson($person);
-            $entityManager->persist($landMemberInvitation);
+            foreach ($landMemberInvitations as $landMemberInvitation) {
+                $landMemberInvitation->setPerson($person);
+                $entityManager->persist($landMemberInvitation);
+            }
+
+            $entityManager->flush();
+        } catch (Throwable $e) {
+            // Log the error (replace with your logger instance)
+            if (isset($this->logger)) {
+                $this->logger->error('An error occurred while linking LandMemberInvitations to Person', [
+                    'exception' => $e,
+                    'email' => $person->getEmail(),
+                ]);
+            }
         }
-
-        $entityManager->flush();
     }
 
     public function onNewMemberInvitation(LandMemberInvitation $landMemberInvitation, LifecycleEventArgs $event): void
@@ -32,12 +48,21 @@ class LandMemberInvitationAutoLink
         $entityManager = $event->getObjectManager();
         $personRepository = $entityManager->getRepository(Person::class);
 
-        $person = $personRepository->findOneBy(['email' => $landMemberInvitation->getEmail()]);
+        try {
+            $person = $personRepository->findOneBy(['email' => $landMemberInvitation->getEmail()]);
 
-        if ($person) {
-            $landMemberInvitation->setPerson($person);
-            $entityManager->persist($landMemberInvitation);
-            $entityManager->flush();
+            if ($person) {
+                $landMemberInvitation->setPerson($person);
+                $entityManager->persist($landMemberInvitation);
+                $entityManager->flush();
+            }
+        } catch (Throwable $e) {
+            if (isset($this->logger)) {
+                $this->logger->error('An error occurred while linking Person to LandMemberInvitation', [
+                    'exception' => $e,
+                    'email' => $landMemberInvitation->getEmail(),
+                ]);
+            }
         }
     }
 }
