@@ -25,6 +25,42 @@ trait ContextTrait
         return $landTestContext;
     }
 
+    protected function addOneLandGreenhouse(LandTestContext $landTestContext): LandTestContext
+    {
+        $landGreenhouse = $this->createLandGreenhouse($landTestContext->land);
+
+        $landTestContext->addLandGreenhouse($landGreenhouse);
+
+        return $landTestContext;
+    }
+
+    protected function addOneLandCultivationPlan(LandTestContext $landTestContext): LandTestContext
+    {
+        $landCultivationPlan = $this->createLandCultivationPlan($landTestContext->land);
+
+        $landTestContext->addLandCultivationPlan($landCultivationPlan);
+
+        return $landTestContext;
+    }
+
+    protected function addOneLandTask(LandTestContext $landTestContext): LandTestContext
+    {
+        $landTask = $this->createLandTask($landTestContext->land);
+
+        $landTestContext->addLandTask($landTask);
+
+        return $landTestContext;
+    }
+
+    protected function addOneLandRole(LandTestContext $landTestContext): LandTestContext
+    {
+        $landRole = $this->createLandRole($landTestContext->land);
+
+        $landTestContext->addLandRole($landRole);
+
+        return $landTestContext;
+    }
+
     protected function addMember(LandTestContext $landTestContext, ?array $roles = null, Person|Proxy|null $person = null): LandTestContext
     {
         if (!$person) {

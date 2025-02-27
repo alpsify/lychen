@@ -3,7 +3,6 @@
 namespace App\Factory;
 
 use App\Entity\PlantCustom;
-use DateTimeImmutable;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
@@ -34,11 +33,9 @@ final class PlantCustomFactory extends PersistentProxyObjectFactory
     {
         return [
             'bio' => self::faker()->boolean(),
-            'createdAt' => DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
             'maturity' => self::faker()->text(255),
             'name' => self::faker()->text(255),
             'perpetual' => self::faker()->boolean(),
-            'person' => PersonFactory::new(),
             'shared' => self::faker()->boolean(),
         ];
     }

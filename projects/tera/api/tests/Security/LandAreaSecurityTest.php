@@ -61,9 +61,10 @@ class LandAreaSecurityTest extends AbstractApiTestCase
             ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => []])
             ->assertStatus(403);
 
-        // User cannot patch a LandArea with a Land they are not a member of
+        // User cannot patch a LandArea with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]]);
+            ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
             ->get($this->getIriFromResource($context1->landAreas[0]))

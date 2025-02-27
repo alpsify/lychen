@@ -7,7 +7,6 @@ use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
-use ApiPlatform\Metadata\Post;
 use App\Repository\LandMemberRepository;
 use App\Security\Interface\LandAwareInterface;
 use DateTimeImmutable;
@@ -18,10 +17,8 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
-//TODO Voter specific to Person link by this LandMember
 #[ApiResource()]
 #[GetCollection()]
-#[Post()]
 #[Patch()]
 #[Delete()]
 #[Get()]

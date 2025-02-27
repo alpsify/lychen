@@ -16,5 +16,6 @@ final readonly class Permissions
         ...LandMemberPermission::ALL,
         ...LandTaskPermission::ALL,
         ...LandCultivationPlanPermission::ALL,
+        ...LandRolePermission::ALL,
     ];
 }

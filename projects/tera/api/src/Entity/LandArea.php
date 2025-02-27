@@ -121,7 +121,7 @@ class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         return $this->createdAt;
     }
 
-    #[Groups(["user:land:get", "user:land:patch"])]
+    #[Groups(["user:land_area:get", "user:land_area:patch"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;

@@ -8,9 +8,15 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandRoleRepository;
+use App\Security\Constant\LandRolePermission;
 use App\Security\Constant\Permissions;
 use App\Security\Interface\LandAwareInterface;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,15 +25,19 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\PositionTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
-#[GetCollection()]
-#[Post()]
-#[Patch()]
-#[Delete()]
-#[Get()]
+#[Post(securityPostDenormalize: "is_granted('" . LandRolePermission::CREATE . "', object)")]
+#[Patch(security: "is_granted('" . LandRolePermission::UPDATE . "', object)")]
+#[Delete(security: "is_granted('" . LandRolePermission::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandRolePermission::READ . "', object)")]
+#[GetCollection(security: "is_granted('" . LandRolePermission::READ . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
+])]
 #[ORM\HasLifecycleCallbacks]
 class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
@@ -36,27 +46,50 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use PositionTrait;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[Assert\NotBlank()]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'landRoles')]
     #[Gedmo\SortableGroup()]
+    #[ORM\ManyToOne(inversedBy: 'landRoles')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_role:get", "user:land_role:post"])]
     private ?Land $land = null;
 
     /**
      * @var Collection<int, LandMember>
      */
     #[ORM\ManyToMany(targetEntity: LandMember::class, mappedBy: 'landRoles')]
+    #[Groups(["user:land_role:collection", "user:land_role:get"])]
     private Collection $landMembers;
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(Permissions::ALL, multiple: true)]
+    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
     private ?array $permissions = null;
 
     public function __construct()
     {
         parent::__construct();
         $this->landMembers = new ArrayCollection();
+    }
+
+    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
+    #[Groups(["user:land_role:get", "user:land_role:patch"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["user:land_role:get", "user:land_role:patch"])]
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 
     public function getName(): ?string
