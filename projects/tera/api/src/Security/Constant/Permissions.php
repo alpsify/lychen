@@ -7,9 +7,11 @@ final readonly class Permissions
     public const array ALL = [
         ...LandPermission::ALL,
         ...LandAreaPermission::ALL,
-        ...LandGreenhousePermission::ALL,
         ...LandAreaParameterPermission::ALL,
         ...LandAreaSettingPermission::ALL,
+        ...LandGreenhousePermission::ALL,
+        ...LandGreenhouseParameterPermission::ALL,
+        ...LandGreenhouseSettingPermission::ALL,
         ...PlantCustomPermission::ALL,
         ...SeedStockPermission::ALL,
         ...SeedStockEntryPermission::ALL,
@@ -24,8 +26,10 @@ final readonly class Permissions
 
     public const array LAND_MEMBER_RELATED = [
         ...LandPermission::ALL,
-        ...LandAreaPermission::ALL,
         ...LandGreenhousePermission::ALL,
+        ...LandGreenhouseParameterPermission::ALL,
+        ...LandGreenhouseSettingPermission::ALL,
+        ...LandAreaPermission::ALL,
         ...LandAreaParameterPermission::ALL,
         ...LandAreaSettingPermission::ALL,
         ...PlantCustomPermission::ALL,

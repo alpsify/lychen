@@ -63,10 +63,20 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
     #[Groups(["user:land_greenhouse:get", "user:land_greenhouse:post"])]
     private ?Land $land = null;
 
+    #[ORM\OneToOne(mappedBy: 'landGreenhouse', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get"])]
+    private ?LandGreenhouseParameter $landGreenhouseParameter = null;
+
+    #[ORM\OneToOne(mappedBy: 'landGreenhouse', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get"])]
+    private ?LandGreenhouseSetting $landGreenhouseSetting = null;
+
     public function __construct()
     {
         parent::__construct();
         $this->landAreas = new ArrayCollection();
+        $this->setLandGreenhouseSetting(new LandGreenhouseSetting());
+        $this->setLandGreenhouseParameter(new LandGreenhouseParameter());
     }
 
     #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get", "user:land_greenhouse:patch", "user:land_greenhouse:post"])]
@@ -149,6 +159,40 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
     public function setLand(?Land $land): static
     {
         $this->land = $land;
+
+        return $this;
+    }
+
+    public function getLandGreenhouseParameter(): ?LandGreenhouseParameter
+    {
+        return $this->landGreenhouseParameter;
+    }
+
+    public function setLandGreenhouseParameter(LandGreenhouseParameter $landGreenhouseParameter): static
+    {
+        // set the owning side of the relation if necessary
+        if ($landGreenhouseParameter->getLandGreenhouse() !== $this) {
+            $landGreenhouseParameter->setLandGreenhouse($this);
+        }
+
+        $this->landGreenhouseParameter = $landGreenhouseParameter;
+
+        return $this;
+    }
+
+    public function getLandGreenhouseSetting(): ?LandGreenhouseSetting
+    {
+        return $this->landGreenhouseSetting;
+    }
+
+    public function setLandGreenhouseSetting(LandGreenhouseSetting $landGreenhouseSetting): static
+    {
+        // set the owning side of the relation if necessary
+        if ($landGreenhouseSetting->getLandGreenhouse() !== $this) {
+            $landGreenhouseSetting->setLandGreenhouse($this);
+        }
+
+        $this->landGreenhouseSetting = $landGreenhouseSetting;
 
         return $this;
     }
