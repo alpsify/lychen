@@ -18,7 +18,7 @@ class LandMemberInvitationManager
     public function linkToAuthenticatedPerson(LandMemberInvitation &$landMemberInvitation): LandMemberInvitation
     {
         $person = $this->security->getUser();
-        
+
         if ($person === null) {
             throw new Exception('User should be authenticated to link a LandMemberInvitation to a person');
         }

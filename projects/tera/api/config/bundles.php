@@ -20,4 +20,5 @@ return [
     Sentry\SentryBundle\SentryBundle::class => ['prod' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
     Lychen\UtilZitadelBundle\UtilZitadelBundle::class => ['all' => true],
+    Lychen\CoreBundle\CoreBundle::class => ['all' => true],
 ];

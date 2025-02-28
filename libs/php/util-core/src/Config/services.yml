@@ -1,0 +1,19 @@
+services:
+  Lychen\CoreBundle\Service\EmailObfuscator: ~
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+when@dev:
+  services:
+    Lychen\CoreBundle\Service\EmailObfuscator: ~
+    _defaults:
+      autoconfigure: true
+      autowire: true
+
+when@test:
+  services:
+    Lychen\CoreBundle\Service\EmailObfuscator: ~
+    _defaults:
+      autoconfigure: true
+      autowire: true

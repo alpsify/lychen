@@ -10,6 +10,8 @@ use App\Security\Constant\LandAreaSettingPermission;
 use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaSettingRepository::class)]
 #[ApiResource]
@@ -22,7 +24,14 @@ class LandAreaSetting extends AbstractIdOrmAndUlidApiIdentified implements LandA
     private ?LandArea $landArea = null;
 
     #[ORM\Column]
+    #[Groups(["user:land_area_setting:get", "user:land_area_setting:patch"])]
     private ?bool $rotationActivated = false;
+
+    #[Groups(["user:land_area_setting:patch", "user:land_area_setting:get"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
 
     public function isRotationActivated(): ?bool
     {

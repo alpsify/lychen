@@ -1,4 +1,5 @@
 dependsOn:
+  - lychen-php-util-core
   - lychen-php-util-model
   - lychen-php-util-zitadel
 

@@ -12,9 +12,9 @@ use Throwable;
 
 #[AsEntityListener(event: Events::postPersist, method: 'onNewPerson', entity: Person::class)]
 #[AsEntityListener(event: Events::postPersist, method: 'onNewMemberInvitation', entity: LandMemberInvitation::class)]
-class LandMemberInvitationAutoLink
+readonly class LandMemberInvitationAutoLink
 {
-    public function __construct(private readonly LoggerInterface $logger)
+    public function __construct(private LoggerInterface $logger)
     {
     }
 
@@ -33,13 +33,10 @@ class LandMemberInvitationAutoLink
 
             $entityManager->flush();
         } catch (Throwable $e) {
-            // Log the error (replace with your logger instance)
-            if (isset($this->logger)) {
-                $this->logger->error('An error occurred while linking LandMemberInvitations to Person', [
-                    'exception' => $e,
-                    'email' => $person->getEmail(),
-                ]);
-            }
+            $this->logger->error('An error occurred while linking LandMemberInvitations to Person', [
+                'exception' => $e,
+                'personId' => $person->getId(),
+            ]);
         }
     }
 
@@ -57,12 +54,12 @@ class LandMemberInvitationAutoLink
                 $entityManager->flush();
             }
         } catch (Throwable $e) {
-            if (isset($this->logger)) {
-                $this->logger->error('An error occurred while linking Person to LandMemberInvitation', [
-                    'exception' => $e,
-                    'email' => $landMemberInvitation->getEmail(),
-                ]);
-            }
+
+            $this->logger->error('An error occurred while linking Person to LandMemberInvitation', [
+                'exception' => $e,
+                'landMemberInvitationId' => $landMemberInvitation->getId(),
+            ]);
+
         }
     }
 }

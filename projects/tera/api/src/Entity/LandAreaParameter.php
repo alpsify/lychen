@@ -10,6 +10,8 @@ use App\Security\Constant\LandAreaParameterPermission;
 use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaParameterRepository::class)]
 #[ApiResource]
@@ -22,13 +24,22 @@ class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements Lan
     private ?LandArea $landArea = null;
 
     #[ORM\Column]
+    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
     private ?bool $aboveGround = false;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
     private ?int $width = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
     private ?int $length = null;
+
+    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
 
     public function isAboveGround(): ?bool
     {

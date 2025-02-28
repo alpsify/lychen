@@ -16,7 +16,7 @@ trait LandMemberTrait
             'land' => $land,
             'person' => $person,
             'owner' => false,
-            'landRoles' => $roles,
+            'landRoles' => $roles ?? [],
         ]);
     }
 }
