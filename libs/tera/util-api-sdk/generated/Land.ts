@@ -1,0 +1,281 @@
+/* eslint-disable */
+/* tslint:disable */
+/*
+ * ---------------------------------------------------------------
+ * ## THIS FILE WAS GENERATED VIA SWAGGER-TYPESCRIPT-API        ##
+ * ##                                                           ##
+ * ## AUTHOR: acacode                                           ##
+ * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
+ * ---------------------------------------------------------------
+ */
+
+import type {
+  ApiLandsGetCollectionParams,
+  ApiLandsPostPayload,
+  Land,
+  LandJsonld,
+  LookingForMembersParams,
+} from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
+
+export class Land<SecurityDataType = unknown> {
+  http: HttpClient<SecurityDataType>;
+
+  constructor(http: HttpClient<SecurityDataType>) {
+    this.http = http;
+  }
+
+  /**
+ * @description Retrieves the collection of Land resources.
+ *
+ * @tags Land
+ * @name ApiLandsGetCollection
+ * @summary Retrieves the collection of Land resources.
+ * @request GET:/api/lands
+ * @secure
+ * @response `200` `{
+    member: (LandJsonld)[],
+    search?: {
+    "@type"?: string,
+    mapping?: ({
+    "@type"?: string,
+    property?: string | null,
+    required?: boolean,
+    variable?: string,
+
+})[],
+    template?: string,
+    variableRepresentation?: string,
+
+},
+  \** @min 0 *\
+    totalItems?: number,
+  \** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} *\
+    view?: {
+  \** @format iri-reference *\
+    "@id"?: string,
+    "@type"?: string,
+  \** @format iri-reference *\
+    first?: string,
+  \** @format iri-reference *\
+    last?: string,
+  \** @format iri-reference *\
+    next?: string,
+  \** @format iri-reference *\
+    previous?: string,
+
+},
+
+}` Land collection
+ */
+  apiLandsGetCollection = (query: ApiLandsGetCollectionParams, params: RequestParams = {}) =>
+    this.http.request<
+      {
+        member: LandJsonld[];
+        search?: {
+          '@type'?: string;
+          mapping?: {
+            '@type'?: string;
+            property?: string | null;
+            required?: boolean;
+            variable?: string;
+          }[];
+          template?: string;
+          variableRepresentation?: string;
+        };
+        /** @min 0 */
+        totalItems?: number;
+        /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
+        view?: {
+          /** @format iri-reference */
+          '@id'?: string;
+          '@type'?: string;
+          /** @format iri-reference */
+          first?: string;
+          /** @format iri-reference */
+          last?: string;
+          /** @format iri-reference */
+          next?: string;
+          /** @format iri-reference */
+          previous?: string;
+        };
+      },
+      any
+    >({
+      path: `/api/lands`,
+      method: 'GET',
+      query: query,
+      secure: true,
+      format: 'json',
+      ...params,
+    });
+  /**
+   * @description Creates a Land resource.
+   *
+   * @tags Land
+   * @name ApiLandsPost
+   * @summary Create a land
+   * @request POST:/api/lands
+   * @secure
+   * @response `201` `LandJsonld` Land resource created
+   * @response `400` `void` Invalid input
+   * @response `422` `void` Unprocessable entity
+   */
+  apiLandsPost = (data?: ApiLandsPostPayload, params: RequestParams = {}) =>
+    this.http.request<LandJsonld, void>({
+      path: `/api/lands`,
+      method: 'POST',
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: 'json',
+      ...params,
+    });
+  /**
+ * @description Retrieves the collection of Land resources.
+ *
+ * @tags Land
+ * @name LookingForMembers
+ * @summary Retrieves the collection of Land resources.
+ * @request GET:/api/lands/looking_for_members
+ * @secure
+ * @response `200` `{
+    member: (LandJsonld)[],
+    search?: {
+    "@type"?: string,
+    mapping?: ({
+    "@type"?: string,
+    property?: string | null,
+    required?: boolean,
+    variable?: string,
+
+})[],
+    template?: string,
+    variableRepresentation?: string,
+
+},
+  \** @min 0 *\
+    totalItems?: number,
+  \** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} *\
+    view?: {
+  \** @format iri-reference *\
+    "@id"?: string,
+    "@type"?: string,
+  \** @format iri-reference *\
+    first?: string,
+  \** @format iri-reference *\
+    last?: string,
+  \** @format iri-reference *\
+    next?: string,
+  \** @format iri-reference *\
+    previous?: string,
+
+},
+
+}` Land collection
+ */
+  lookingForMembers = (query: LookingForMembersParams, params: RequestParams = {}) =>
+    this.http.request<
+      {
+        member: LandJsonld[];
+        search?: {
+          '@type'?: string;
+          mapping?: {
+            '@type'?: string;
+            property?: string | null;
+            required?: boolean;
+            variable?: string;
+          }[];
+          template?: string;
+          variableRepresentation?: string;
+        };
+        /** @min 0 */
+        totalItems?: number;
+        /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
+        view?: {
+          /** @format iri-reference */
+          '@id'?: string;
+          '@type'?: string;
+          /** @format iri-reference */
+          first?: string;
+          /** @format iri-reference */
+          last?: string;
+          /** @format iri-reference */
+          next?: string;
+          /** @format iri-reference */
+          previous?: string;
+        };
+      },
+      any
+    >({
+      path: `/api/lands/looking_for_members`,
+      method: 'GET',
+      query: query,
+      secure: true,
+      format: 'json',
+      ...params,
+    });
+  /**
+   * @description Retrieves a Land resource.
+   *
+   * @tags Land
+   * @name ApiLandsUlidGet
+   * @summary Retrieves a Land resource.
+   * @request GET:/api/lands/{ulid}
+   * @secure
+   * @response `200` `LandJsonld` Land resource
+   * @response `403` `void` Forbidden
+   * @response `404` `void` Resource not found
+   */
+  apiLandsUlidGet = (ulid: string, params: RequestParams = {}) =>
+    this.http.request<LandJsonld, void>({
+      path: `/api/lands/${ulid}`,
+      method: 'GET',
+      secure: true,
+      format: 'json',
+      ...params,
+    });
+  /**
+   * @description Removes the Land resource.
+   *
+   * @tags Land
+   * @name ApiLandsUlidDelete
+   * @summary Removes the Land resource.
+   * @request DELETE:/api/lands/{ulid}
+   * @secure
+   * @response `204` `void` Land resource deleted
+   * @response `403` `void` Forbidden
+   * @response `404` `void` Resource not found
+   */
+  apiLandsUlidDelete = (ulid: string, params: RequestParams = {}) =>
+    this.http.request<void, void>({
+      path: `/api/lands/${ulid}`,
+      method: 'DELETE',
+      secure: true,
+      ...params,
+    });
+  /**
+   * @description Updates the Land resource.
+   *
+   * @tags Land
+   * @name ApiLandsUlidPatch
+   * @summary Updates the Land resource.
+   * @request PATCH:/api/lands/{ulid}
+   * @secure
+   * @response `200` `LandJsonld` Land resource updated
+   * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
+   * @response `404` `void` Resource not found
+   * @response `422` `void` Unprocessable entity
+   */
+  apiLandsUlidPatch = (ulid: string, data: Land, params: RequestParams = {}) =>
+    this.http.request<LandJsonld, void>({
+      path: `/api/lands/${ulid}`,
+      method: 'PATCH',
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: 'json',
+      ...params,
+    });
+}

@@ -2,8 +2,16 @@
   "name": "@lychen/tera-util-api-sdk",
   "version": "0.0.0",
   "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "generate-api": "node --loader ts-node/esm generate-api.mts"
+  },
   "dependencies": {
     "@lychen/typescript-util-json-ld-hydra": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*"
+  },
+  "devDependencies": {
+    "swagger-typescript-api": "^13.0.23",
+    "ts-node": "10.9.2"
   }
 }

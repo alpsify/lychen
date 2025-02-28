@@ -1,0 +1,64 @@
+import path from 'path';
+import { generateApi } from 'swagger-typescript-api';
+import { execSync } from 'child_process';
+
+async function main() {
+  try {
+    console.log('Start generating apis');
+    await generateApi({
+      name: 'TeraApi.ts',
+      apiClassName: 'TeraApi',
+      output: path.resolve('./generated'),
+      input: path.resolve('../../../projects/tera/api/docs.json'),
+      templates: path.resolve('./swagger/templates'),
+      generateClient: true,
+      httpClientType: 'fetch',
+      modular: true,
+      cleanOutput: true,
+      defaultResponseAsSuccess: false,
+      generateRouteTypes: false,
+      generateResponses: true,
+      toJS: false,
+      extractRequestParams: true,
+      extractRequestBody: true,
+      extractEnums: true,
+      unwrapResponseData: false,
+      defaultResponseType: 'void',
+      singleHttpClient: true,
+      enumNamesAsValues: true,
+      moduleNameFirstTag: true,
+      generateUnionEnums: false,
+      typePrefix: '',
+      typeSuffix: '',
+      enumKeyPrefix: '',
+      enumKeySuffix: '',
+      addReadonly: false,
+      sortTypes: true,
+      extractingOptions: {
+        requestBodySuffix: ['Payload', 'Body', 'Input'],
+        requestParamsSuffix: ['Params'],
+        responseBodySuffix: ['Data', 'Result', 'Output'],
+        responseErrorSuffix: ['Error', 'Fail', 'Fails', 'ErrorData', 'HttpError', 'BadResponse'],
+      },
+      extraTemplates: [],
+      fixInvalidTypeNamePrefix: 'Type',
+      fixInvalidEnumKeyPrefix: 'Value',
+      primitiveTypeConstructs: (constructs) => ({
+        ...constructs,
+      }),
+    });
+    console.log('Api successfully generated');
+
+    // Execute the index generation script
+    console.log('Generating index.ts...');
+    execSync('node --loader ts-node/esm generate-index.mts', {
+      stdio: 'inherit',
+    });
+    console.log('Index.ts generated.');
+  } catch (error) {
+    console.error('Error during API generation:', error);
+    process.exit(1); // Exit with an error code
+  }
+}
+
+main();

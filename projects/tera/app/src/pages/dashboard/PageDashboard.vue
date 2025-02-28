@@ -132,6 +132,7 @@ import LandRepository from '@lychen/tera-util-api-sdk/repositories/LandRepositor
 import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
 import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -146,13 +147,15 @@ onBeforeMount(() => {
   fetchLandsLookingForMember();
 });
 
+const landApi = useTeraApi('Land');
 const lands = ref();
 
 async function fetchLands() {
-  const response = await LandRepository.getCollection();
-
-  if (response.status === 200) {
+  try {
+    const response = await landApi.apiLandsGetCollection({});
     lands.value = response.data;
+  } catch (e) {
+    // console.log(e);
   }
 }
 
