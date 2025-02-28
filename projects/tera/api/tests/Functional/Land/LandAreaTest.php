@@ -98,6 +98,53 @@ class LandAreaTest extends AbstractApiTestCase
             });
     }
 
+    public function testPatch()
+    {
+        $context = $this->createLandContext();
+        $this->addOneLandArea($context);
+
+        $landArea = $context->landAreas[0];
+
+        $newName = faker()->name();
+        $newDescription = faker()->paragraph();
+
+        $this->browser()->actingAs($context->owner)
+            ->patch($this->getIriFromResource($landArea), [
+                'json' => [
+                    'name' => $newName,
+                    'description' => $newDescription
+                ]
+            ])
+            ->assertStatus(200)
+            ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
+            ->assertJsonMatches('name', $newName)
+            ->assertJsonMatches('description', $newDescription)
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
+            });
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandAreaPermission::UPDATE]);
+        $this->addLandMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->patch($this->getIriFromResource($landArea), [
+                'json' => [
+                    'name' => $newName,
+                    'description' => $newDescription
+                ]
+            ])
+            ->assertStatus(200)
+            ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
+            ->assertJsonMatches('name', $newName)
+            ->assertJsonMatches('description', $newDescription)
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
+            });
+    }
+
     public function testCollection()
     {
         $context = $this->createLandContext();

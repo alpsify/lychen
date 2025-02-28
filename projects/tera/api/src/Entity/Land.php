@@ -77,12 +77,14 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     private Collection $landMembers;
 
     #[ORM\OneToOne(mappedBy: 'land', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?LandSetting $landSetting = null;
 
     /**
      * @var Collection<int, LandArea>
      */
     #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'land', orphanRemoval: true)]
+    #[Groups(["user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private Collection $landAreas;
 
     /**

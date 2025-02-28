@@ -2,6 +2,8 @@
 
 namespace App\Tests\Functional\Land;
 
+use App\Constant\LandKind;
+use App\Security\Constant\LandPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Zenstruck\Browser\Json;
@@ -12,11 +14,11 @@ class LandTest extends AbstractApiTestCase
     #[DataProvider('landDataProvider')]
     public function testPost(int $surface, string $kind)
     {
-        $owner = $this->createPerson();
+        $person = $this->createPerson();
 
         $name = faker()->name();
 
-        $this->browser()->actingAs($owner)
+        $this->browser()->actingAs($person)
             ->post('/api/lands', ['json' => [
                 'name' => $name,
                 'kind' => $kind,
@@ -46,6 +48,23 @@ class LandTest extends AbstractApiTestCase
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
             });
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandPermission::READ]);
+        $this->addLandMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->get($this->getIriFromResource($context->land->_real()))
+            ->assertSuccessful()
+            ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
+            ->assertJsonMatches('name', $context->land->getName())
+            ->assertJsonMatches('kind', $context->land->getKind())
+            ->assertJsonMatches('surface', $context->land->getSurface())
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
+                $json->assertThat('landSetting', fn(Json $json) => $json->isNotNull());
+            });
     }
 
     public function testPatch()
@@ -54,18 +73,46 @@ class LandTest extends AbstractApiTestCase
 
         $newName = faker()->name();
         $newSurface = faker()->numberBetween(10, 200);
+        $newKind = LandKind::MARKET_GARDEN;
 
         $this->browser()->actingAs($context->owner)
             ->patch($this->getIriFromResource($context->land), [
                 'json' => [
                     'name' => $newName,
-                    'surface' => $newSurface
+                    'surface' => $newSurface,
+                    'kind' => $newKind
                 ]
             ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
-            ->assertJsonMatches('kind', $context->land->getKind())
+            ->assertJsonMatches('kind', $newKind)
+            ->assertJsonMatches('surface', $newSurface)
+            ->use(function (Json $json) {
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
+            });
+
+        // Member with permissions
+        $landRole = $this->createLandRole($context->land, [LandPermission::UPDATE]);
+        $this->addLandMember($context, [$landRole]);
+
+        $newName = faker()->name();
+        $newSurface = faker()->numberBetween(10, 200);
+        $newKind = LandKind::SHARED_GARDEN;
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->patch($this->getIriFromResource($context->land->_real()), [
+                'json' => [
+                    'name' => $newName,
+                    'surface' => $newSurface,
+                    'kind' => $newKind
+                ]
+            ])
+            ->assertStatus(200)
+            ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
+            ->assertJsonMatches('name', $newName)
+            ->assertJsonMatches('kind', $newKind)
             ->assertJsonMatches('surface', $newSurface)
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -92,6 +139,15 @@ class LandTest extends AbstractApiTestCase
 
         $this->browser()->actingAs($context->owner)
             ->delete($this->getIriFromResource($context->land))
+            ->assertStatus(204);
+
+        // Member with permissions
+        $context = $this->createLandContext();
+        $landRole = $this->createLandRole($context->land, [LandPermission::DELETE]);
+        $this->addLandMember($context, [$landRole]);
+
+        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->delete($this->getIriFromResource($context->land->_real()))
             ->assertStatus(204);
     }
 
@@ -140,7 +196,7 @@ class LandTest extends AbstractApiTestCase
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
             ->use(function (Json $json) {
-                $json->assertThat('view', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('view', fn(Json $json) => $json->isNull());
             })
             ->assertJsonMatches('member[0].ulid', $context1->land->getUlid()->toString())
             ->assertJsonMatches('member[0].name', $context1->land->getName())
