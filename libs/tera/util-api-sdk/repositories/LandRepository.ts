@@ -10,7 +10,7 @@ class LandRepository<T extends Resource = Land> extends Repository<T> {
     config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<Collection<T>>> {
     return await this.axiosInstance.get<Collection<T>>(
-      this.urlExtension + '/looking_for_member',
+      this.urlExtension + '/looking_for_members',
       config,
     );
   }
