@@ -7,31 +7,38 @@ use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
-use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandMemberRepository;
+use App\Security\Constant\LandMemberPermission;
+use App\Security\Interface\LandAwareInterface;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
-#[ApiResource(operations: [
-    new Patch(),
-    new GetCollection(),
-    new Get(),
-    new Post(),
-    new Delete()
+#[ApiResource()]
+#[Patch(security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
+#[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
+#[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
+#[GetCollection(security: "is_granted('" . LandMemberPermission::READ . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
-class LandMember extends AbstractIdOrmAndUlidApiIdentified
+class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\Column]
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
     private ?DateTimeImmutable $joinedAt = null;
 
     #[ORM\Column]
-    private ?bool $owner = null;
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    private ?bool $owner = false;
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
@@ -39,15 +46,18 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
     private ?Person $person = null;
 
     #[ORM\OneToOne(mappedBy: 'landMember', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
     private ?LandMemberSetting $landMemberSetting = null;
 
     /**
      * @var Collection<int, LandRole>
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
+    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
     private Collection $landRoles;
 
     public function __construct(?Ulid $ulid = null)
@@ -55,6 +65,12 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
         parent::__construct($ulid);
         $this->setLandMemberSetting(new LandMemberSetting());
         $this->landRoles = new ArrayCollection();
+    }
+
+    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
     }
 
     public function getJoinedAt(): ?DateTimeImmutable
@@ -134,6 +150,15 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified
     public function getLandRoles(): Collection
     {
         return $this->landRoles;
+    }
+
+    public function setLandRoles(Collection $landRoles): static
+    {
+        foreach ($landRoles as $landRole) {
+            $this->addLandRole($landRole);
+        }
+
+        return $this;
     }
 
     public function addLandRole(LandRole $landRole): static

@@ -3,39 +3,132 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Operation;
+use ApiPlatform\OpenApi\Model\Parameter;
+use ApiPlatform\OpenApi\Model\RequestBody;
+use App\Doctrine\Filter\LandFilter;
+use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandMemberInvitationRepository;
+use App\Security\Constant\LandMemberInvitationPermission;
+use App\Security\Interface\LandAwareInterface;
+use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
+use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
+use ArrayObject;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberInvitationRepository::class)]
 #[ApiResource]
+#[Post(securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
+#[Patch(security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
+#[Patch(
+    uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
+    options: ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
+    openapi: new Operation(
+        summary: 'Accept the invitation',
+        requestBody: new RequestBody(
+            content: new ArrayObject([
+                'application/merge-patch+json' => [
+                    'schema' => [
+                        'type' => 'object',
+                        'properties' => [],
+                    ],
+                ],
+            ])
+        )
+    ),
+    security: "is_granted('" . LandMemberInvitationPermission::ACCEPT . "', object)",
+    name: 'accept',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
+    options: ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
+    openapi: new Operation(
+        summary: 'Refuse the invitation',
+        requestBody: new RequestBody(
+            content: new ArrayObject([
+                'application/merge-patch+json' => [
+                    'schema' => [
+                        'type' => 'object',
+                        'properties' => [],
+                    ],
+                ],
+            ])
+        )
+    ),
+    security: "is_granted('" . LandMemberInvitationPermission::REFUSE . "', object)",
+    name: 'refuse',
+    processor: WorkflowTransitionProcessor::class)]
+#[Delete(security: "is_granted('" . LandMemberInvitationPermission::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)")]
+#[GetCollection(security: "is_granted('" . LandMemberInvitationPermission::READ . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+])]
 #[ORM\HasLifecycleCallbacks]
-class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified
+class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
 
     #[ORM\ManyToOne(inversedBy: 'landMemberInvitations')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:post"])]
     private ?Land $land = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Email()]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
     private ?string $email = null;
 
     /**
      * @var Collection<int, LandRole>
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class)]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
     private Collection $landRoles;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get"])]
+    #[Assert\Choice(LandMemberInvitationWorkflowPlace::PLACES)]
+    private ?string $state = LandMemberInvitationWorkflowPlace::PENDING;
+
+    #[ORM\ManyToOne(inversedBy: 'landMemberInvitations')]
+    private ?Person $person = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?DateTimeImmutable $acceptedAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?DateTimeImmutable $refusedAt = null;
 
     public function __construct()
     {
         parent::__construct();
         $this->landRoles = new ArrayCollection();
+    }
+
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
+    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:patch"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
     }
 
     public function getLand(): ?Land
@@ -82,6 +175,54 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified
     public function removeLandRole(LandRole $landRole): static
     {
         $this->landRoles->removeElement($landRole);
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): static
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    public function getPerson(): ?Person
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?Person $person): static
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    public function getAcceptedAt(): ?DateTimeImmutable
+    {
+        return $this->acceptedAt;
+    }
+
+    public function setAcceptedAt(?DateTimeImmutable $acceptedAt): static
+    {
+        $this->acceptedAt = $acceptedAt;
+
+        return $this;
+    }
+
+    public function getRefusedAt(): ?DateTimeImmutable
+    {
+        return $this->refusedAt;
+    }
+
+    public function setRefusedAt(?DateTimeImmutable $refusedAt): static
+    {
+        $this->refusedAt = $refusedAt;
 
         return $this;
     }

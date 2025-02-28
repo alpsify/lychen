@@ -26,6 +26,7 @@
     "lychen/util-model": "*",
     "lychen/util-tiptap": "*",
     "lychen/util-zitadel": "*",
+    "lychen/util-core": "*",
     "martin-georgiev/postgresql-for-doctrine": "^2.8",
     "nelmio/cors-bundle": "2.5.*",
     "oneup/flysystem-bundle": "4.12.*",
@@ -94,7 +95,8 @@
         "versions": {
           "lychen/util-model": "0.0.0",
           "lychen/util-zitadel": "0.0.0",
-          "lychen/util-tiptap": "0.0.0"
+          "lychen/util-tiptap": "0.0.0",
+          "lychen/util-core": "0.0.0"
         }
       }
     }

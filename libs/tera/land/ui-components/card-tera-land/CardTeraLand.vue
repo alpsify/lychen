@@ -10,7 +10,7 @@
       </LychenBadge>
       <LychenIcon
         v-if="variant === VARIANT.Default"
-        :icon="land.landMembers.length === 1 ? 'user' : 'users'"
+        :icon="land.numberOfMembers === 1 ? 'user' : 'users'"
       />
     </div>
     <div class="flex flex-col gap-1">
@@ -24,7 +24,7 @@
           >{{ t('surface.default', land.surface) }}</small
         >
         <small class="text-tertiary opacity-50">{{
-          t('land_areas.default', land.landAreas.length)
+          t('land_areas.default', land.numberOfArea)
         }}</small>
       </div>
 
@@ -50,7 +50,13 @@ const LychenBadge = defineAsyncComponent(
 );
 
 const { variant = VARIANT.Default, land } = defineProps<{
-  land: Required<Pick<Land, 'kind' | 'name' | 'landAreas' | 'landMembers' | 'surface'>>;
+  land: {
+    kind: string;
+    name: string;
+    surface: number;
+    numberOfArea: number;
+    numberOfMembers: number;
+  };
   variant?: Variant;
 }>();
 

@@ -8,7 +8,7 @@ class TipTapFaker
 {
     public static function randomContent(): ?array
     {
-        return faker()->boolean ? TipTapFaker::sentences() : TipTapFaker::paragraphs();
+        return faker()->boolean() ? TipTapFaker::sentences() : TipTapFaker::paragraphs();
     }
 
     public static function sentences($min = 1, $max = 3, $random = true): ?array

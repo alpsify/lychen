@@ -10,6 +10,7 @@ use Lychen\UtilZitadelBundle\Abstract\AbstractZitadelUser;
 
 #[ORM\Entity(repositoryClass: PersonRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_AUTH_ID', fields: ['authId'])]
+#[ORM\HasLifecycleCallbacks]
 class Person extends AbstractZitadelUser
 {
     /**
@@ -36,12 +37,19 @@ class Person extends AbstractZitadelUser
     #[ORM\OneToMany(targetEntity: SeedStock::class, mappedBy: 'person', orphanRemoval: true)]
     private Collection $seedStocks;
 
+    /**
+     * @var Collection<int, LandMemberInvitation>
+     */
+    #[ORM\OneToMany(targetEntity: LandMemberInvitation::class, mappedBy: 'person')]
+    private Collection $landMemberInvitations;
+
     public function __construct()
     {
         $this->landMembers = new ArrayCollection();
         $this->landResearchRequests = new ArrayCollection();
         $this->plantCustoms = new ArrayCollection();
         $this->seedStocks = new ArrayCollection();
+        $this->landMemberInvitations = new ArrayCollection();
     }
 
     /**
@@ -158,6 +166,36 @@ class Person extends AbstractZitadelUser
             // set the owning side to null (unless already changed)
             if ($seedStock->getPerson() === $this) {
                 $seedStock->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandMemberInvitation>
+     */
+    public function getLandMemberInvitations(): Collection
+    {
+        return $this->landMemberInvitations;
+    }
+
+    public function addLandMemberInvitation(LandMemberInvitation $landMemberInvitation): static
+    {
+        if (!$this->landMemberInvitations->contains($landMemberInvitation)) {
+            $this->landMemberInvitations->add($landMemberInvitation);
+            $landMemberInvitation->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandMemberInvitation(LandMemberInvitation $landMemberInvitation): static
+    {
+        if ($this->landMemberInvitations->removeElement($landMemberInvitation)) {
+            // set the owning side to null (unless already changed)
+            if ($landMemberInvitation->getPerson() === $this) {
+                $landMemberInvitation->setPerson(null);
             }
         }
 

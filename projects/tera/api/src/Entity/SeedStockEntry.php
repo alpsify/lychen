@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\SeedStockEntryRepository;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -13,6 +18,11 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 
 #[ORM\Entity(repositoryClass: SeedStockEntryRepository::class)]
 #[ApiResource]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Get()]
 #[ORM\HasLifecycleCallbacks]
 class SeedStockEntry extends AbstractIdOrmAndUlidApiIdentified
 {
