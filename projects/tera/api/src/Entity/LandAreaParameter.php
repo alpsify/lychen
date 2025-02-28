@@ -21,6 +21,7 @@ class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements Lan
 {
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_area_parameter:get"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column]

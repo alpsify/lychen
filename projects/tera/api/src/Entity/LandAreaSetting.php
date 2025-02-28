@@ -21,6 +21,7 @@ class LandAreaSetting extends AbstractIdOrmAndUlidApiIdentified implements LandA
 {
     #[ORM\OneToOne(inversedBy: 'landAreaSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_area_setting:get"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column]

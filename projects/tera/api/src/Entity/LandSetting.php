@@ -10,6 +10,8 @@ use App\Security\Constant\LandSettingPermission;
 use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandSettingRepository::class)]
 #[ApiResource()]
@@ -19,10 +21,18 @@ class LandSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAware
 {
     #[ORM\OneToOne(inversedBy: 'landSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_setting:get"])]
     private ?Land $land = null;
 
     #[ORM\Column]
+    #[Groups(["user:land_setting:get", "user:land_setting:patch"])]
     private ?bool $lookingForMember = false;
+
+    #[Groups(["user:land_setting:patch", "user:land_setting:get"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
 
     public function getLand(): ?Land
     {
