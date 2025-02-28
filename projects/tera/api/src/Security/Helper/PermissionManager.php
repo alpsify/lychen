@@ -7,7 +7,7 @@ use App\Entity\LandMember;
 use App\Entity\Person;
 use App\Repository\LandMemberRepository;
 use App\Security\Interface\LandAwareInterface;
-use Deprecated;
+use JetBrains\PhpStorm\Deprecated;
 use Lychen\UtilModel\Interface\UlidIdentifiedInterface;
 use PHPUnit\Framework\Exception;
 use Psr\Log\LoggerInterface;
@@ -63,7 +63,7 @@ class PermissionManager
         if ($landMember->isOwner()) {
             return true;
         }
-
+        
         return in_array($permission, $this->getLandMemberEffectivePermissions($landMember));
     }
 

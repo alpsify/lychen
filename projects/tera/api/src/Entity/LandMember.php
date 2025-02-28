@@ -24,8 +24,8 @@ use Symfony\Component\Uid\Ulid;
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
 #[Patch(security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandMemberPermission::READ . "', object)")]
+#[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
+#[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
 #[GetCollection(security: "is_granted('" . LandMemberPermission::READ . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
 ])]
@@ -50,13 +50,14 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
     private ?Person $person = null;
 
     #[ORM\OneToOne(mappedBy: 'landMember', cascade: ['persist', 'remove'])]
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
     private ?LandMemberSetting $landMemberSetting = null;
 
     /**
      * @var Collection<int, LandRole>
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
     private Collection $landRoles;
 
     public function __construct(?Ulid $ulid = null)
@@ -66,7 +67,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
@@ -153,7 +154,9 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
 
     public function setLandRoles(Collection $landRoles): static
     {
-        $this->landRoles = $landRoles;
+        foreach ($landRoles as $landRole) {
+            $this->addLandRole($landRole);
+        }
 
         return $this;
     }

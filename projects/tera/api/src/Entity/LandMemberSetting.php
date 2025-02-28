@@ -6,23 +6,30 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandMemberSettingRepository;
-use App\Security\Constant\LandMemberSettingPermission;
-use App\Security\Interface\LandAwareInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberSettingRepository::class)]
 #[ApiResource()]
-#[Patch(security: "is_granted('" . LandMemberSettingPermission::UPDATE . "', object)")] //TODO Secure by user
-#[Get(security: "is_granted('" . LandMemberSettingPermission::READ . "', object)")] //TODO Secure by user
-class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
+#[Patch(security: "object.getLandMember().getPerson() == user")]
+#[Get(security: "object.getLandMember().getPerson() == user")]
+class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified
 {
     #[ORM\OneToOne(inversedBy: 'landMemberSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?LandMember $landMember = null;
 
     #[ORM\Column]
+    #[Groups(["user:land_member_setting:get", "user:land_member_setting:patch"])]
     private ?bool $emailNotificationActivated = false;
+
+    #[Groups(["user:land_member_setting:get", "user:land_member_setting:patch"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
 
     public function isEmailNotificationActivated(): ?bool
     {
@@ -34,11 +41,6 @@ class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified implements Lan
         $this->emailNotificationActivated = $emailNotificationActivated;
 
         return $this;
-    }
-
-    public function getLand(): ?Land
-    {
-        return $this->getLandMember()->getLand();
     }
 
     public function getLandMember(): ?LandMember

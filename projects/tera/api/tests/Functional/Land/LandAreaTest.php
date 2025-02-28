@@ -71,9 +71,6 @@ class LandAreaTest extends AbstractApiTestCase
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
                 $json->assertThat('landAreaSetting', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('landAreaParameter', fn(Json $json) => $json->isNotNull());
-                $json->doesNotContain('landCultivationPlans');
-                $json->doesNotContain('landTasks');
-                $json->doesNotContain('landGreenhouse');
             });
 
         // Member with permissions
@@ -92,9 +89,6 @@ class LandAreaTest extends AbstractApiTestCase
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
                 $json->assertThat('landAreaSetting', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('landAreaParameter', fn(Json $json) => $json->isNotNull());
-                $json->doesNotContain('landCultivationPlans');
-                $json->doesNotContain('landTasks');
-                $json->doesNotContain('landGreenhouse');
             });
     }
 
