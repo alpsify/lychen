@@ -9,11 +9,17 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
+use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
+use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandTaskRepository;
 use App\Security\Constant\LandTaskPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Workflow\LandTask\LandTaskWorkflowPlace;
+use App\Workflow\LandTask\LandTaskWorkflowTransition;
+use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -35,6 +41,44 @@ use Symfony\Component\Validator\Constraints as Assert;
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
     'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
 ])]
+#[Patch(
+    uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_DONE,
+    options: ['transition' => LandTaskWorkflowTransition::MARK_AS_DONE],
+    openapi: new Operation(
+        summary: 'Mark as done',
+        requestBody: new RequestBody(
+            content: new ArrayObject([
+                'application/merge-patch+json' => [
+                    'schema' => [
+                        'type' => 'object',
+                        'properties' => [],
+                    ],
+                ],
+            ])
+        )
+    ),
+    security: "is_granted('" . LandTaskPermission::MARK_AS_DONE . "', object)",
+    name: 'mark-as-done',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS,
+    options: ['transition' => LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS],
+    openapi: new Operation(
+        summary: 'Mark as done',
+        requestBody: new RequestBody(
+            content: new ArrayObject([
+                'application/merge-patch+json' => [
+                    'schema' => [
+                        'type' => 'object',
+                        'properties' => [],
+                    ],
+                ],
+            ])
+        )
+    ),
+    security: "is_granted('" . LandTaskPermission::MARK_AS_IN_PROGRESS . "', object)",
+    name: 'mark-as-in-progress',
+    processor: WorkflowTransitionProcessor::class)]
 #[ORM\HasLifecycleCallbacks]
 class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
@@ -48,7 +92,6 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
 
     #[ORM\ManyToOne(inversedBy: 'landTasks')]
     #[ORM\JoinColumn(nullable: false)]
-    //#[ApiFilter(SearchFilter::class, strategy: SearchFilterInterface::STRATEGY_EXACT)]
     #[Groups(["user:land_task:get", "user:land_task:post"])]
     private ?Land $land = null;
 
@@ -68,6 +111,11 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[ORM\ManyToOne(inversedBy: 'landTasks')]
     #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
     private ?landArea $landArea = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(["user:land_task:collection", "user:land_task:get"])]
+    #[Assert\Choice(LandTaskWorkflowPlace::PLACES)]
+    private ?string $state = LandTaskWorkflowPlace::TO_BE_DONE;
 
     #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
     public function getUlid(): Ulid
@@ -155,6 +203,19 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     public function setLandArea(?landArea $landArea): static
     {
         $this->landArea = $landArea;
+
+        return $this;
+    }
+
+    #[Groups(["user:land_task:patch", "user:land_task:post"])]
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): static
+    {
+        $this->state = $state;
 
         return $this;
     }
