@@ -2,8 +2,19 @@ dependsOn:
   - typescript-util-json-ld-hydra
   - typescript-util-object
 
+env:
+  OPENAPI_SCHEMA_JSON: ../../../projects/tera/api/openapi_docs.json
+
 id: tera-util-api-sdk
 
 language: typescript
+
+tasks:
+  generate-api:
+    command: yarn run generate-api
+    deps:
+      - tera-api:export-openapi
+    options:
+      cache: false
 
 type: library

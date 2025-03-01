@@ -31,7 +31,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[Patch(security: "is_granted('" . LandPermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
-#[GetCollection(uriTemplate: '/lands/looking_for_members', paginationFetchJoinCollection: true, name: 'looking-for-members', provider: LandsLookingForMembersProvider::class)]
+#[GetCollection(uriTemplate: '/lands/looking_for_members', paginationFetchJoinCollection: true, name: 'get-collection-looking-for-members', provider: LandsLookingForMembersProvider::class)]
 #[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
 #[GetCollection()]
 #[Post(
@@ -67,7 +67,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?string $name = null;
 
     /**
@@ -101,12 +101,12 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
 
     #[ORM\Column(length: 150, options: ['default' => LandKind::INDIVIDUAL])]
     #[Assert\Choice(LandKind::ALL)]
-    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?string $kind = LandKind::INDIVIDUAL;
 
     #[ORM\Column(nullable: true)]
     #[Assert\GreaterThanOrEqual(0)]
-    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?int $surface = null;
 
     /**
@@ -155,7 +155,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         return $this;
     }
 
-    #[Groups(["user:land:looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

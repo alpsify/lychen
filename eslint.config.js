@@ -21,6 +21,7 @@ export default [
       '**/.nuxt/**',
       '**/cache/**',
       '.github',
+      '**/*.mts',
     ],
   },
   {

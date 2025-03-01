@@ -42,13 +42,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { Land } from '@lychen/tera-util-api-sdk/model/Land';
 import { defineAsyncComponent, onBeforeMount, ref } from 'vue';
-import LandRepository from '@lychen/tera-util-api-sdk/repositories/LandRepository';
 import { useRoute, useRouter } from 'vue-router';
-import LandTaskRepository from '@lychen/tera-util-api-sdk/repositories/LandTaskRepository';
 import CardTeraLandTask from '@lychen/tera-land-task-ui-components/card-tera-land-task/CardTeraLandTask.vue';
 import { RoutePageDashboard } from '@pages/dashboard';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { OrderDueDateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -58,13 +57,16 @@ const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 
-const land = ref<Land>();
+const landApi = useTeraApi('Land');
+const landTaskApi = useTeraApi('LandTask');
+
+const land = ref();
 const route = useRoute();
 const router = useRouter();
 
 async function fetchLand() {
   try {
-    const response = await LandRepository.get(route.params.ulid);
+    const response = await landApi.get(<string>route.params.ulid);
 
     if (response.status === 200) {
       land.value = response.data;
@@ -84,8 +86,9 @@ onBeforeMount(async () => {
 const landTasks = ref();
 
 async function fetchLandTasks() {
-  const response = await LandTaskRepository.getCollection({
-    params: { land: land.value?.['@id'], 'order[dueDate]': 'asc' },
+  const response = await landTaskApi.getCollection({
+    land: land.value?.['@id'],
+    'order[dueDate]': OrderDueDateEnum.Asc,
   });
 
   if (response.status === 200) {

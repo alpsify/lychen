@@ -28,4 +28,9 @@ tags:
   - dokploy
   - pwa
 
+tasks:
+  dev:
+    deps:
+      - tera-util-api-sdk:generate-api
+
 type: application

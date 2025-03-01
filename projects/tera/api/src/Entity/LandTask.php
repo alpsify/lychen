@@ -33,10 +33,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
 #[ApiResource()]
-#[Post(securityPostDenormalize: "is_granted('" . LandTaskPermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandTaskPermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandTaskPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandTaskPermission::READ . "', object)")]
+#[Post(openapi: new Operation(operationId: 'post'), securityPostDenormalize: "is_granted('" . LandTaskPermission::CREATE . "', object)")]
+#[Patch(openapi: new Operation(operationId: 'patch'), security: "is_granted('" . LandTaskPermission::UPDATE . "', object)")]
+#[Delete(openapi: new Operation(operationId: 'delete'), security: "is_granted('" . LandTaskPermission::DELETE . "', object)")]
+#[Get(openapi: new Operation(operationId: 'get'), security: "is_granted('" . LandTaskPermission::READ . "', object)")]
 #[GetCollection(security: "is_granted('" . LandTaskPermission::READ . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
     'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
@@ -64,7 +64,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS,
     options: ['transition' => LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS],
     openapi: new Operation(
-        summary: 'Mark as done',
+        summary: 'Mark as in progress',
         requestBody: new RequestBody(
             content: new ArrayObject([
                 'application/merge-patch+json' => [
@@ -110,7 +110,7 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
 
     #[ORM\ManyToOne(inversedBy: 'landTasks')]
     #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
-    private ?landArea $landArea = null;
+    private ?LandArea $landArea = null;
 
     #[ORM\Column(length: 255)]
     #[Groups(["user:land_task:collection", "user:land_task:get"])]
@@ -195,12 +195,12 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         return $this;
     }
 
-    public function getLandArea(): ?landArea
+    public function getLandArea(): ?LandArea
     {
         return $this->landArea;
     }
 
-    public function setLandArea(?landArea $landArea): static
+    public function setLandArea(?LandArea $landArea): static
     {
         $this->landArea = $landArea;
 

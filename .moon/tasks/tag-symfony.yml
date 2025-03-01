@@ -15,6 +15,9 @@ tasks:
   ci-create-db:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:database:create -n --if-not-exists
 
+  ci-export-openapi:
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console api:openapi:export --spec-version=3.0.0 --output=openapi_docs.json
+
   ci-install-tools:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
 
@@ -58,6 +61,9 @@ tasks:
 
   down:
     command: docker compose down --remove-orphans
+
+  export-openapi:
+    command: docker compose run --rm php bin/console api:openapi:export --spec-version=3.0.0 --output=openapi_docs.json
 
   production-docker-build:
     env:
