@@ -10,7 +10,7 @@
  */
 
 import type {
-  ApiLandResearchRequestsGetCollectionParams,
+  GetCollectionParams14,
   LandResearchRequest,
   LandResearchRequestJsonld,
 } from './data-contracts';
@@ -27,7 +27,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandResearchRequest resources.
  *
  * @tags LandResearchRequest
- * @name ApiLandResearchRequestsGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandResearchRequest resources.
  * @request GET:/api/land_research_requests
  * @secure
@@ -66,10 +66,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
 
 }` LandResearchRequest collection
  */
-  apiLandResearchRequestsGetCollection = (
-    query: ApiLandResearchRequestsGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams14, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandResearchRequestJsonld[];
@@ -114,7 +111,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @description Creates a LandResearchRequest resource.
    *
    * @tags LandResearchRequest
-   * @name ApiLandResearchRequestsPost
+   * @name Post
    * @summary Creates a LandResearchRequest resource.
    * @request POST:/api/land_research_requests
    * @secure
@@ -122,7 +119,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchRequestsPost = (data: LandResearchRequestJsonld, params: RequestParams = {}) =>
+  post = (data: LandResearchRequestJsonld, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests`,
       method: 'POST',
@@ -136,14 +133,14 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @description Retrieves a LandResearchRequest resource.
    *
    * @tags LandResearchRequest
-   * @name ApiLandResearchRequestsUlidGet
+   * @name Get
    * @summary Retrieves a LandResearchRequest resource.
    * @request GET:/api/land_research_requests/{ulid}
    * @secure
    * @response `200` `LandResearchRequestJsonld` LandResearchRequest resource
    * @response `404` `void` Resource not found
    */
-  apiLandResearchRequestsUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests/${ulid}`,
       method: 'GET',
@@ -155,14 +152,14 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @description Removes the LandResearchRequest resource.
    *
    * @tags LandResearchRequest
-   * @name ApiLandResearchRequestsUlidDelete
+   * @name Delete
    * @summary Removes the LandResearchRequest resource.
    * @request DELETE:/api/land_research_requests/{ulid}
    * @secure
    * @response `204` `void` LandResearchRequest resource deleted
    * @response `404` `void` Resource not found
    */
-  apiLandResearchRequestsUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_research_requests/${ulid}`,
       method: 'DELETE',
@@ -173,7 +170,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @description Updates the LandResearchRequest resource.
    *
    * @tags LandResearchRequest
-   * @name ApiLandResearchRequestsUlidPatch
+   * @name Patch
    * @summary Updates the LandResearchRequest resource.
    * @request PATCH:/api/land_research_requests/{ulid}
    * @secure
@@ -182,11 +179,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchRequestsUlidPatch = (
-    ulid: string,
-    data: LandResearchRequest,
-    params: RequestParams = {},
-  ) =>
+  patch = (ulid: string, data: LandResearchRequest, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests/${ulid}`,
       method: 'PATCH',

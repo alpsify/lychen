@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -8,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { ApiLandRolesGetCollectionParams, LandRole, LandRoleJsonld } from './data-contracts';
+import type { GetCollectionParams16, LandRole, LandRoleJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandRole<SecurityDataType = unknown> {
@@ -22,7 +23,7 @@ export class LandRole<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandRole resources.
  *
  * @tags LandRole
- * @name ApiLandRolesGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandRole resources.
  * @request GET:/api/land_roles
  * @secure
@@ -62,10 +63,7 @@ export class LandRole<SecurityDataType = unknown> {
 }` LandRole collection
  * @response `403` `void` Forbidden
  */
-  apiLandRolesGetCollection = (
-    query: ApiLandRolesGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams16, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandRoleJsonld[];
@@ -110,7 +108,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Creates a LandRole resource.
    *
    * @tags LandRole
-   * @name ApiLandRolesPost
+   * @name Post
    * @summary Creates a LandRole resource.
    * @request POST:/api/land_roles
    * @secure
@@ -118,7 +116,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandRolesPost = (data: LandRoleJsonld, params: RequestParams = {}) =>
+  post = (data: LandRoleJsonld, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles`,
       method: 'POST',
@@ -132,7 +130,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Retrieves a LandRole resource.
    *
    * @tags LandRole
-   * @name ApiLandRolesUlidGet
+   * @name Get
    * @summary Retrieves a LandRole resource.
    * @request GET:/api/land_roles/{ulid}
    * @secure
@@ -140,7 +138,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandRolesUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'GET',
@@ -152,7 +150,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Removes the LandRole resource.
    *
    * @tags LandRole
-   * @name ApiLandRolesUlidDelete
+   * @name Delete
    * @summary Removes the LandRole resource.
    * @request DELETE:/api/land_roles/{ulid}
    * @secure
@@ -160,7 +158,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandRolesUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'DELETE',
@@ -171,7 +169,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Updates the LandRole resource.
    *
    * @tags LandRole
-   * @name ApiLandRolesUlidPatch
+   * @name Patch
    * @summary Updates the LandRole resource.
    * @request PATCH:/api/land_roles/{ulid}
    * @secure
@@ -181,7 +179,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandRolesUlidPatch = (ulid: string, data: LandRole, params: RequestParams = {}) =>
+  patch = (ulid: string, data: LandRole, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'PATCH',

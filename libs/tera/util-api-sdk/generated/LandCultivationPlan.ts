@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -9,7 +10,7 @@
  */
 
 import type {
-  ApiLandCultivationPlansGetCollectionParams,
+  GetCollectionParams4,
   LandCultivationPlan,
   LandCultivationPlanJsonld,
 } from './data-contracts';
@@ -26,7 +27,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandCultivationPlan resources.
  *
  * @tags LandCultivationPlan
- * @name ApiLandCultivationPlansGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandCultivationPlan resources.
  * @request GET:/api/land_cultivation_plans
  * @secure
@@ -66,10 +67,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
 }` LandCultivationPlan collection
  * @response `403` `void` Forbidden
  */
-  apiLandCultivationPlansGetCollection = (
-    query: ApiLandCultivationPlansGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams4, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandCultivationPlanJsonld[];
@@ -114,7 +112,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @description Creates a LandCultivationPlan resource.
    *
    * @tags LandCultivationPlan
-   * @name ApiLandCultivationPlansPost
+   * @name Post
    * @summary Creates a LandCultivationPlan resource.
    * @request POST:/api/land_cultivation_plans
    * @secure
@@ -122,7 +120,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandCultivationPlansPost = (data: LandCultivationPlanJsonld, params: RequestParams = {}) =>
+  post = (data: LandCultivationPlanJsonld, params: RequestParams = {}) =>
     this.http.request<LandCultivationPlanJsonld, void>({
       path: `/api/land_cultivation_plans`,
       method: 'POST',
@@ -136,7 +134,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @description Retrieves a LandCultivationPlan resource.
    *
    * @tags LandCultivationPlan
-   * @name ApiLandCultivationPlansUlidGet
+   * @name Get
    * @summary Retrieves a LandCultivationPlan resource.
    * @request GET:/api/land_cultivation_plans/{ulid}
    * @secure
@@ -144,7 +142,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandCultivationPlansUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandCultivationPlanJsonld, void>({
       path: `/api/land_cultivation_plans/${ulid}`,
       method: 'GET',
@@ -156,7 +154,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @description Removes the LandCultivationPlan resource.
    *
    * @tags LandCultivationPlan
-   * @name ApiLandCultivationPlansUlidDelete
+   * @name Delete
    * @summary Removes the LandCultivationPlan resource.
    * @request DELETE:/api/land_cultivation_plans/{ulid}
    * @secure
@@ -164,7 +162,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandCultivationPlansUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_cultivation_plans/${ulid}`,
       method: 'DELETE',
@@ -175,7 +173,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @description Updates the LandCultivationPlan resource.
    *
    * @tags LandCultivationPlan
-   * @name ApiLandCultivationPlansUlidPatch
+   * @name Patch
    * @summary Updates the LandCultivationPlan resource.
    * @request PATCH:/api/land_cultivation_plans/{ulid}
    * @secure
@@ -185,11 +183,7 @@ export class LandCultivationPlan<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandCultivationPlansUlidPatch = (
-    ulid: string,
-    data: LandCultivationPlan,
-    params: RequestParams = {},
-  ) =>
+  patch = (ulid: string, data: LandCultivationPlan, params: RequestParams = {}) =>
     this.http.request<LandCultivationPlanJsonld, void>({
       path: `/api/land_cultivation_plans/${ulid}`,
       method: 'PATCH',

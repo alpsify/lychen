@@ -9,11 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  ApiSeedStockEntriesGetCollectionParams,
-  SeedStockEntry,
-  SeedStockEntryJsonld,
-} from './data-contracts';
+import type { GetCollectionParams30, SeedStockEntry, SeedStockEntryJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class SeedStockEntry<SecurityDataType = unknown> {
@@ -27,7 +23,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
  * @description Retrieves the collection of SeedStockEntry resources.
  *
  * @tags SeedStockEntry
- * @name ApiSeedStockEntriesGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of SeedStockEntry resources.
  * @request GET:/api/seed_stock_entries
  * @secure
@@ -66,10 +62,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
 
 }` SeedStockEntry collection
  */
-  apiSeedStockEntriesGetCollection = (
-    query: ApiSeedStockEntriesGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams30, params: RequestParams = {}) =>
     this.http.request<
       {
         member: SeedStockEntryJsonld[];
@@ -114,7 +107,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @description Creates a SeedStockEntry resource.
    *
    * @tags SeedStockEntry
-   * @name ApiSeedStockEntriesPost
+   * @name Post
    * @summary Creates a SeedStockEntry resource.
    * @request POST:/api/seed_stock_entries
    * @secure
@@ -122,7 +115,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiSeedStockEntriesPost = (data: SeedStockEntryJsonld, params: RequestParams = {}) =>
+  post = (data: SeedStockEntryJsonld, params: RequestParams = {}) =>
     this.http.request<SeedStockEntryJsonld, void>({
       path: `/api/seed_stock_entries`,
       method: 'POST',
@@ -136,14 +129,14 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @description Retrieves a SeedStockEntry resource.
    *
    * @tags SeedStockEntry
-   * @name ApiSeedStockEntriesUlidGet
+   * @name Get
    * @summary Retrieves a SeedStockEntry resource.
    * @request GET:/api/seed_stock_entries/{ulid}
    * @secure
    * @response `200` `SeedStockEntryJsonld` SeedStockEntry resource
    * @response `404` `void` Resource not found
    */
-  apiSeedStockEntriesUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<SeedStockEntryJsonld, void>({
       path: `/api/seed_stock_entries/${ulid}`,
       method: 'GET',
@@ -155,14 +148,14 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @description Removes the SeedStockEntry resource.
    *
    * @tags SeedStockEntry
-   * @name ApiSeedStockEntriesUlidDelete
+   * @name Delete
    * @summary Removes the SeedStockEntry resource.
    * @request DELETE:/api/seed_stock_entries/{ulid}
    * @secure
    * @response `204` `void` SeedStockEntry resource deleted
    * @response `404` `void` Resource not found
    */
-  apiSeedStockEntriesUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/seed_stock_entries/${ulid}`,
       method: 'DELETE',
@@ -173,7 +166,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @description Updates the SeedStockEntry resource.
    *
    * @tags SeedStockEntry
-   * @name ApiSeedStockEntriesUlidPatch
+   * @name Patch
    * @summary Updates the SeedStockEntry resource.
    * @request PATCH:/api/seed_stock_entries/{ulid}
    * @secure
@@ -182,7 +175,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiSeedStockEntriesUlidPatch = (ulid: string, data: SeedStockEntry, params: RequestParams = {}) =>
+  patch = (ulid: string, data: SeedStockEntry, params: RequestParams = {}) =>
     this.http.request<SeedStockEntryJsonld, void>({
       path: `/api/seed_stock_entries/${ulid}`,
       method: 'PATCH',

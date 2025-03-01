@@ -9,11 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  ApiPlantCustomsGetCollectionParams,
-  PlantCustom,
-  PlantCustomJsonld,
-} from './data-contracts';
+import type { GetCollectionParams24, PlantCustom, PlantCustomJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class PlantCustom<SecurityDataType = unknown> {
@@ -27,7 +23,7 @@ export class PlantCustom<SecurityDataType = unknown> {
  * @description Retrieves the collection of PlantCustom resources.
  *
  * @tags PlantCustom
- * @name ApiPlantCustomsGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of PlantCustom resources.
  * @request GET:/api/plant_customs
  * @secure
@@ -66,10 +62,7 @@ export class PlantCustom<SecurityDataType = unknown> {
 
 }` PlantCustom collection
  */
-  apiPlantCustomsGetCollection = (
-    query: ApiPlantCustomsGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams24, params: RequestParams = {}) =>
     this.http.request<
       {
         member: PlantCustomJsonld[];
@@ -114,7 +107,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Creates a PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name ApiPlantCustomsPost
+   * @name Post
    * @summary Creates a PlantCustom resource.
    * @request POST:/api/plant_customs
    * @secure
@@ -122,7 +115,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiPlantCustomsPost = (data: PlantCustomJsonld, params: RequestParams = {}) =>
+  post = (data: PlantCustomJsonld, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs`,
       method: 'POST',
@@ -136,14 +129,14 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Retrieves a PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name ApiPlantCustomsUlidGet
+   * @name Get
    * @summary Retrieves a PlantCustom resource.
    * @request GET:/api/plant_customs/{ulid}
    * @secure
    * @response `200` `PlantCustomJsonld` PlantCustom resource
    * @response `404` `void` Resource not found
    */
-  apiPlantCustomsUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'GET',
@@ -155,14 +148,14 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Removes the PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name ApiPlantCustomsUlidDelete
+   * @name Delete
    * @summary Removes the PlantCustom resource.
    * @request DELETE:/api/plant_customs/{ulid}
    * @secure
    * @response `204` `void` PlantCustom resource deleted
    * @response `404` `void` Resource not found
    */
-  apiPlantCustomsUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'DELETE',
@@ -173,7 +166,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Updates the PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name ApiPlantCustomsUlidPatch
+   * @name Patch
    * @summary Updates the PlantCustom resource.
    * @request PATCH:/api/plant_customs/{ulid}
    * @secure
@@ -182,7 +175,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiPlantCustomsUlidPatch = (ulid: string, data: PlantCustom, params: RequestParams = {}) =>
+  patch = (ulid: string, data: PlantCustom, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'PATCH',

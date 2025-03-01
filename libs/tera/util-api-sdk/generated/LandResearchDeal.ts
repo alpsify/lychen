@@ -10,7 +10,7 @@
  */
 
 import type {
-  ApiLandResearchDealsGetCollectionParams,
+  GetCollectionParams12,
   LandResearchDeal,
   LandResearchDealJsonld,
 } from './data-contracts';
@@ -27,7 +27,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandResearchDeal resources.
  *
  * @tags LandResearchDeal
- * @name ApiLandResearchDealsGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandResearchDeal resources.
  * @request GET:/api/land_research_deals
  * @secure
@@ -66,10 +66,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
 
 }` LandResearchDeal collection
  */
-  apiLandResearchDealsGetCollection = (
-    query: ApiLandResearchDealsGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams12, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandResearchDealJsonld[];
@@ -114,7 +111,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Creates a LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsPost
+   * @name Post
    * @summary Creates a LandResearchDeal resource.
    * @request POST:/api/land_research_deals
    * @secure
@@ -122,7 +119,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchDealsPost = (data: LandResearchDealJsonld, params: RequestParams = {}) =>
+  post = (data: LandResearchDealJsonld, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals`,
       method: 'POST',
@@ -136,14 +133,14 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Retrieves a LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsUlidGet
+   * @name Get
    * @summary Retrieves a LandResearchDeal resource.
    * @request GET:/api/land_research_deals/{ulid}
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource
    * @response `404` `void` Resource not found
    */
-  apiLandResearchDealsUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}`,
       method: 'GET',
@@ -155,14 +152,14 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Removes the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsUlidDelete
+   * @name Delete
    * @summary Removes the LandResearchDeal resource.
    * @request DELETE:/api/land_research_deals/{ulid}
    * @secure
    * @response `204` `void` LandResearchDeal resource deleted
    * @response `404` `void` Resource not found
    */
-  apiLandResearchDealsUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_research_deals/${ulid}`,
       method: 'DELETE',
@@ -173,7 +170,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsUlidacceptPatch
+   * @name Patch
    * @summary Accept the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/accept
    * @secure
@@ -182,11 +179,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchDealsUlidacceptPatch = (
-    ulid: string,
-    data: LandResearchDeal,
-    params: RequestParams = {},
-  ) =>
+  patch = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/accept`,
       method: 'PATCH',
@@ -200,20 +193,18 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsUlidarchivePatch
+   * @name Patch2
    * @summary Archive the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/archive
+   * @originalName patch
+   * @duplicate
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource updated
    * @response `400` `void` Invalid input
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchDealsUlidarchivePatch = (
-    ulid: string,
-    data: LandResearchDeal,
-    params: RequestParams = {},
-  ) =>
+  patch2 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/archive`,
       method: 'PATCH',
@@ -227,20 +218,18 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name ApiLandResearchDealsUlidrefusePatch
+   * @name Patch3
    * @summary Refuse the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/refuse
+   * @originalName patch
+   * @duplicate
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource updated
    * @response `400` `void` Invalid input
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandResearchDealsUlidrefusePatch = (
-    ulid: string,
-    data: LandResearchDeal,
-    params: RequestParams = {},
-  ) =>
+  patch3 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/refuse`,
       method: 'PATCH',

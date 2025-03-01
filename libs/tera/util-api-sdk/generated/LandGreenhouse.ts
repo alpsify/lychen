@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -8,11 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  ApiLandGreenhousesGetCollectionParams,
-  LandGreenhouse,
-  LandGreenhouseJsonld,
-} from './data-contracts';
+import type { GetCollectionParams6, LandGreenhouse, LandGreenhouseJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandGreenhouse<SecurityDataType = unknown> {
@@ -26,7 +23,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandGreenhouse resources.
  *
  * @tags LandGreenhouse
- * @name ApiLandGreenhousesGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandGreenhouse resources.
  * @request GET:/api/land_greenhouses
  * @secure
@@ -66,10 +63,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
 }` LandGreenhouse collection
  * @response `403` `void` Forbidden
  */
-  apiLandGreenhousesGetCollection = (
-    query: ApiLandGreenhousesGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams6, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandGreenhouseJsonld[];
@@ -114,7 +108,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @description Creates a LandGreenhouse resource.
    *
    * @tags LandGreenhouse
-   * @name ApiLandGreenhousesPost
+   * @name Post
    * @summary Creates a LandGreenhouse resource.
    * @request POST:/api/land_greenhouses
    * @secure
@@ -122,7 +116,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandGreenhousesPost = (data: LandGreenhouseJsonld, params: RequestParams = {}) =>
+  post = (data: LandGreenhouseJsonld, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses`,
       method: 'POST',
@@ -136,7 +130,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @description Retrieves a LandGreenhouse resource.
    *
    * @tags LandGreenhouse
-   * @name ApiLandGreenhousesUlidGet
+   * @name Get
    * @summary Retrieves a LandGreenhouse resource.
    * @request GET:/api/land_greenhouses/{ulid}
    * @secure
@@ -144,7 +138,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandGreenhousesUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses/${ulid}`,
       method: 'GET',
@@ -156,7 +150,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @description Removes the LandGreenhouse resource.
    *
    * @tags LandGreenhouse
-   * @name ApiLandGreenhousesUlidDelete
+   * @name Delete
    * @summary Removes the LandGreenhouse resource.
    * @request DELETE:/api/land_greenhouses/{ulid}
    * @secure
@@ -164,7 +158,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandGreenhousesUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_greenhouses/${ulid}`,
       method: 'DELETE',
@@ -175,7 +169,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @description Updates the LandGreenhouse resource.
    *
    * @tags LandGreenhouse
-   * @name ApiLandGreenhousesUlidPatch
+   * @name Patch
    * @summary Updates the LandGreenhouse resource.
    * @request PATCH:/api/land_greenhouses/{ulid}
    * @secure
@@ -185,7 +179,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandGreenhousesUlidPatch = (ulid: string, data: LandGreenhouse, params: RequestParams = {}) =>
+  patch = (ulid: string, data: LandGreenhouse, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses/${ulid}`,
       method: 'PATCH',

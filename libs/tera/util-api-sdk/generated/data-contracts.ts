@@ -11,7 +11,39 @@
 
 export type AcceptPayload = object;
 
-export interface ApiLandAreasGetCollectionParams {
+export interface GetCollectionLookingForMembersParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams10 {
   /**
    * The number of items per page
    * @min 0
@@ -29,7 +61,39 @@ export interface ApiLandAreasGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiLandCultivationPlansGetCollectionParams {
+export interface GetCollectionParams12 {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams14 {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams16 {
   /**
    * The number of items per page
    * @min 0
@@ -47,111 +111,7 @@ export interface ApiLandCultivationPlansGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiLandGreenhousesGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandMemberInvitationsGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandMembersGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandResearchDealsGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandResearchRequestsGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandRolesGetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface ApiLandTasksGetCollectionParams {
+export interface GetCollectionParams18 {
   /** @default "asc" */
   'order[dueDate]'?: OrderDueDateEnum;
   /**
@@ -172,12 +132,30 @@ export interface ApiLandTasksGetCollectionParams {
 }
 
 /** @default "asc" */
-export enum ApiLandTasksGetCollectionParams1OrderDueDateEnum {
+export enum GetCollectionParams19OrderDueDateEnum {
   Asc = 'asc',
   Desc = 'desc',
 }
 
-export interface ApiLandsGetCollectionParams {
+export interface GetCollectionParams2 {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams20 {
   /**
    * The number of items per page
    * @min 0
@@ -193,18 +171,7 @@ export interface ApiLandsGetCollectionParams {
   pagination?: boolean;
 }
 
-export enum ApiLandsPostKindEnum {
-  Individual = 'individual',
-  SharedGarden = 'shared_garden',
-  MarketGarden = 'market_garden',
-}
-
-export interface ApiLandsPostPayload {
-  kind: ApiLandsPostKindEnum;
-  name: string;
-}
-
-export interface ApiPlantConversionRequestsGetCollectionParams {
+export interface GetCollectionParams22 {
   /**
    * The number of items per page
    * @min 0
@@ -220,7 +187,7 @@ export interface ApiPlantConversionRequestsGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiPlantCustomsGetCollectionParams {
+export interface GetCollectionParams24 {
   /**
    * The number of items per page
    * @min 0
@@ -236,7 +203,7 @@ export interface ApiPlantCustomsGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiPlantGlobalsGetCollectionParams {
+export interface GetCollectionParams26 {
   /**
    * The number of items per page
    * @min 0
@@ -252,7 +219,7 @@ export interface ApiPlantGlobalsGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiPlantsGetCollectionParams {
+export interface GetCollectionParams28 {
   /**
    * The number of items per page
    * @min 0
@@ -268,7 +235,7 @@ export interface ApiPlantsGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiSeedStockEntriesGetCollectionParams {
+export interface GetCollectionParams30 {
   /**
    * The number of items per page
    * @min 0
@@ -284,13 +251,51 @@ export interface ApiSeedStockEntriesGetCollectionParams {
   pagination?: boolean;
 }
 
-export interface ApiSeedStocksGetCollectionParams {
+export interface GetCollectionParams4 {
   /**
    * The number of items per page
    * @min 0
    * @default 30
    */
   itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams6 {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface GetCollectionParams8 {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
   /**
    * The collection page number
    * @default 1
@@ -1346,22 +1351,6 @@ export enum LandTaskStateEnum {
   Done = 'done',
 }
 
-export interface LookingForMembersParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
 export type MarkAsDonePayload = object;
 
 export type MarkAsInProgressPayload = object;
@@ -1977,6 +1966,17 @@ export enum PlantSpeciesEnum {
   DaucusCarota = 'daucus-carota',
   PhaseolusVulgaris = 'phaseolus-vulgaris',
   CucumisSativus = 'cucumis-sativus',
+}
+
+export enum PostKindEnum {
+  Individual = 'individual',
+  SharedGarden = 'shared_garden',
+  MarketGarden = 'market_garden',
+}
+
+export interface PostPayload {
+  kind: PostKindEnum;
+  name: string;
 }
 
 export type RefusePayload = object;

@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -9,7 +10,7 @@
  */
 
 import type {
-  ApiLandTasksGetCollectionParams,
+  GetCollectionParams18,
   LandTask,
   LandTaskJsonld,
   MarkAsDonePayload,
@@ -28,7 +29,7 @@ export class LandTask<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandTask resources.
  *
  * @tags LandTask
- * @name ApiLandTasksGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandTask resources.
  * @request GET:/api/land_tasks
  * @secure
@@ -68,10 +69,7 @@ export class LandTask<SecurityDataType = unknown> {
 }` LandTask collection
  * @response `403` `void` Forbidden
  */
-  apiLandTasksGetCollection = (
-    query: ApiLandTasksGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams18, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandTaskJsonld[];
@@ -116,7 +114,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @description Creates a LandTask resource.
    *
    * @tags LandTask
-   * @name ApiLandTasksPost
+   * @name Post
    * @summary Creates a LandTask resource.
    * @request POST:/api/land_tasks
    * @secure
@@ -124,7 +122,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandTasksPost = (data: LandTaskJsonld, params: RequestParams = {}) =>
+  post = (data: LandTaskJsonld, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks`,
       method: 'POST',
@@ -138,7 +136,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @description Retrieves a LandTask resource.
    *
    * @tags LandTask
-   * @name ApiLandTasksUlidGet
+   * @name Get
    * @summary Retrieves a LandTask resource.
    * @request GET:/api/land_tasks/{ulid}
    * @secure
@@ -146,7 +144,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandTasksUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}`,
       method: 'GET',
@@ -158,7 +156,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @description Removes the LandTask resource.
    *
    * @tags LandTask
-   * @name ApiLandTasksUlidDelete
+   * @name Delete
    * @summary Removes the LandTask resource.
    * @request DELETE:/api/land_tasks/{ulid}
    * @secure
@@ -166,7 +164,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandTasksUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_tasks/${ulid}`,
       method: 'DELETE',
@@ -177,7 +175,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @description Updates the LandTask resource.
    *
    * @tags LandTask
-   * @name ApiLandTasksUlidPatch
+   * @name Patch
    * @summary Updates the LandTask resource.
    * @request PATCH:/api/land_tasks/{ulid}
    * @secure
@@ -187,7 +185,7 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandTasksUlidPatch = (ulid: string, data: LandTask, params: RequestParams = {}) =>
+  patch = (ulid: string, data: LandTask, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}`,
       method: 'PATCH',
@@ -226,7 +224,7 @@ export class LandTask<SecurityDataType = unknown> {
    *
    * @tags LandTask
    * @name MarkAsInProgress
-   * @summary Mark as done
+   * @summary Mark as in progress
    * @request PATCH:/api/land_tasks/{ulid}/mark_as_in_progress
    * @secure
    * @response `200` `LandTaskJsonld` LandTask resource updated

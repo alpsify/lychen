@@ -1,5 +1,5 @@
 {
-    "openapi": "3.1.0",
+    "openapi": "3.0.0",
     "info": {
         "title": "Tera API",
         "description": "Tera API",
@@ -12,9 +12,19 @@
         }
     ],
     "paths": {
+        "/api/errors/{status}": {
+            "get": {
+                "operationId": "apierrors_status_get"
+            }
+        },
+        "/api/validation_errors/{id}": {
+            "get": {
+                "operationId": "apivalidation_errors_id_get"
+            }
+        },
         "/api/lands": {
             "get": {
-                "operationId": "api_lands_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "Land"
                 ],
@@ -170,7 +180,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_lands_post",
+                "operationId": "post",
                 "tags": [
                     "Land"
                 ],
@@ -233,7 +243,7 @@
         },
         "/api/lands/looking_for_members": {
             "get": {
-                "operationId": "looking-for-members",
+                "operationId": "get-collection-looking-for-members",
                 "tags": [
                     "Land"
                 ],
@@ -391,7 +401,7 @@
         },
         "/api/lands/{ulid}": {
             "get": {
-                "operationId": "api_lands_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "Land"
                 ],
@@ -434,7 +444,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_lands_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "Land"
                 ],
@@ -470,7 +480,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_lands_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "Land"
                 ],
@@ -533,7 +543,7 @@
         },
         "/api/land_areas": {
             "get": {
-                "operationId": "api_land_areas_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandArea"
                 ],
@@ -706,7 +716,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_areas_post",
+                "operationId": "post",
                 "tags": [
                     "LandArea"
                 ],
@@ -748,7 +758,7 @@
         },
         "/api/land_areas/{ulid}": {
             "get": {
-                "operationId": "api_land_areas_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandArea"
                 ],
@@ -791,7 +801,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_areas_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandArea"
                 ],
@@ -827,7 +837,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_areas_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandArea"
                 ],
@@ -890,7 +900,7 @@
         },
         "/api/land_area_parameters/{ulid}": {
             "get": {
-                "operationId": "api_land_area_parameters_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandAreaParameter"
                 ],
@@ -933,7 +943,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_area_parameters_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandAreaParameter"
                 ],
@@ -996,7 +1006,7 @@
         },
         "/api/land_area_settings/{ulid}": {
             "get": {
-                "operationId": "api_land_area_settings_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandAreaSetting"
                 ],
@@ -1039,7 +1049,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_area_settings_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandAreaSetting"
                 ],
@@ -1102,7 +1112,7 @@
         },
         "/api/land_cultivation_plans": {
             "get": {
-                "operationId": "api_land_cultivation_plans_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1275,7 +1285,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_cultivation_plans_post",
+                "operationId": "post",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1317,7 +1327,7 @@
         },
         "/api/land_cultivation_plans/{ulid}": {
             "get": {
-                "operationId": "api_land_cultivation_plans_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1360,7 +1370,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_cultivation_plans_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1396,7 +1406,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_cultivation_plans_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1459,7 +1469,7 @@
         },
         "/api/land_greenhouses": {
             "get": {
-                "operationId": "api_land_greenhouses_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1632,7 +1642,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_greenhouses_post",
+                "operationId": "post",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1674,7 +1684,7 @@
         },
         "/api/land_greenhouses/{ulid}": {
             "get": {
-                "operationId": "api_land_greenhouses_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1717,7 +1727,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_greenhouses_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1753,7 +1763,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_greenhouses_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1816,7 +1826,7 @@
         },
         "/api/land_greenhouse_parameters/{ulid}": {
             "get": {
-                "operationId": "api_land_greenhouse_parameters_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandGreenhouseParameter"
                 ],
@@ -1859,7 +1869,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_greenhouse_parameters_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandGreenhouseParameter"
                 ],
@@ -1922,7 +1932,7 @@
         },
         "/api/land_greenhouse_settings/{ulid}": {
             "get": {
-                "operationId": "api_land_greenhouse_settings_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandGreenhouseSetting"
                 ],
@@ -1965,7 +1975,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_greenhouse_settings_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandGreenhouseSetting"
                 ],
@@ -2028,7 +2038,7 @@
         },
         "/api/land_members": {
             "get": {
-                "operationId": "api_land_members_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandMember"
                 ],
@@ -2203,7 +2213,7 @@
         },
         "/api/land_members/{ulid}": {
             "get": {
-                "operationId": "api_land_members_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandMember"
                 ],
@@ -2246,7 +2256,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_members_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandMember"
                 ],
@@ -2282,7 +2292,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_members_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandMember"
                 ],
@@ -2345,7 +2355,7 @@
         },
         "/api/land_member_invitations": {
             "get": {
-                "operationId": "api_land_member_invitations_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2518,7 +2528,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_member_invitations_post",
+                "operationId": "post",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2560,7 +2570,7 @@
         },
         "/api/land_member_invitations/{ulid}": {
             "get": {
-                "operationId": "api_land_member_invitations_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2603,7 +2613,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_member_invitations_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2639,7 +2649,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_member_invitations_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2830,7 +2840,7 @@
         },
         "/api/land_member_settings/{ulid}": {
             "get": {
-                "operationId": "api_land_member_settings_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandMemberSetting"
                 ],
@@ -2873,7 +2883,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_member_settings_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandMemberSetting"
                 ],
@@ -2936,7 +2946,7 @@
         },
         "/api/land_research_deals": {
             "get": {
-                "operationId": "api_land_research_deals_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3092,7 +3102,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_research_deals_post",
+                "operationId": "post",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3134,7 +3144,7 @@
         },
         "/api/land_research_deals/{ulid}": {
             "get": {
-                "operationId": "api_land_research_deals_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3174,7 +3184,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_research_deals_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3209,7 +3219,7 @@
         },
         "/api/land_research_deals/{ulid}/accept": {
             "patch": {
-                "operationId": "api_land_research_deals_ulidaccept_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3269,7 +3279,7 @@
         },
         "/api/land_research_deals/{ulid}/archive": {
             "patch": {
-                "operationId": "api_land_research_deals_ulidarchive_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3329,7 +3339,7 @@
         },
         "/api/land_research_deals/{ulid}/refuse": {
             "patch": {
-                "operationId": "api_land_research_deals_ulidrefuse_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3389,7 +3399,7 @@
         },
         "/api/land_research_requests": {
             "get": {
-                "operationId": "api_land_research_requests_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3545,7 +3555,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_research_requests_post",
+                "operationId": "post",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3587,7 +3597,7 @@
         },
         "/api/land_research_requests/{ulid}": {
             "get": {
-                "operationId": "api_land_research_requests_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3627,7 +3637,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_research_requests_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3660,7 +3670,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_research_requests_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3720,7 +3730,7 @@
         },
         "/api/land_roles": {
             "get": {
-                "operationId": "api_land_roles_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandRole"
                 ],
@@ -3893,7 +3903,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_roles_post",
+                "operationId": "post",
                 "tags": [
                     "LandRole"
                 ],
@@ -3935,7 +3945,7 @@
         },
         "/api/land_roles/{ulid}": {
             "get": {
-                "operationId": "api_land_roles_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandRole"
                 ],
@@ -3978,7 +3988,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_roles_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandRole"
                 ],
@@ -4014,7 +4024,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_roles_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandRole"
                 ],
@@ -4077,7 +4087,7 @@
         },
         "/api/land_settings/{ulid}": {
             "get": {
-                "operationId": "api_land_settings_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandSetting"
                 ],
@@ -4120,7 +4130,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_settings_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandSetting"
                 ],
@@ -4183,7 +4193,7 @@
         },
         "/api/land_tasks": {
             "get": {
-                "operationId": "api_land_tasks_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "LandTask"
                 ],
@@ -4375,7 +4385,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_tasks_post",
+                "operationId": "post",
                 "tags": [
                     "LandTask"
                 ],
@@ -4417,7 +4427,7 @@
         },
         "/api/land_tasks/{ulid}": {
             "get": {
-                "operationId": "api_land_tasks_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "LandTask"
                 ],
@@ -4460,7 +4470,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_tasks_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "LandTask"
                 ],
@@ -4496,7 +4506,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_tasks_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "LandTask"
                 ],
@@ -4652,7 +4662,7 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Mark as done",
+                "summary": "Mark as in progress",
                 "description": "Updates the LandTask resource.",
                 "parameters": [
                     {
@@ -4687,7 +4697,7 @@
         },
         "/api/plants": {
             "get": {
-                "operationId": "api_plants_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "Plant"
                 ],
@@ -4843,7 +4853,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_plants_post",
+                "operationId": "post",
                 "tags": [
                     "Plant"
                 ],
@@ -4885,7 +4895,7 @@
         },
         "/api/plants/{ulid}": {
             "get": {
-                "operationId": "api_plants_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "Plant"
                 ],
@@ -4925,7 +4935,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_plants_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "Plant"
                 ],
@@ -4958,7 +4968,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_plants_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "Plant"
                 ],
@@ -5018,7 +5028,7 @@
         },
         "/api/plant_conversion_requests": {
             "get": {
-                "operationId": "api_plant_conversion_requests_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5174,7 +5184,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_plant_conversion_requests_post",
+                "operationId": "post",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5216,7 +5226,7 @@
         },
         "/api/plant_conversion_requests/{ulid}": {
             "get": {
-                "operationId": "api_plant_conversion_requests_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5256,7 +5266,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_plant_conversion_requests_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5289,7 +5299,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_plant_conversion_requests_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5349,7 +5359,7 @@
         },
         "/api/plant_customs": {
             "get": {
-                "operationId": "api_plant_customs_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5505,7 +5515,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_plant_customs_post",
+                "operationId": "post",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5547,7 +5557,7 @@
         },
         "/api/plant_customs/{ulid}": {
             "get": {
-                "operationId": "api_plant_customs_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5587,7 +5597,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_plant_customs_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5620,7 +5630,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_plant_customs_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5680,7 +5690,7 @@
         },
         "/api/plant_globals": {
             "get": {
-                "operationId": "api_plant_globals_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "PlantGlobal"
                 ],
@@ -5838,7 +5848,7 @@
         },
         "/api/plant_globals/{ulid}": {
             "get": {
-                "operationId": "api_plant_globals_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "PlantGlobal"
                 ],
@@ -5880,7 +5890,7 @@
         },
         "/api/seed_stocks": {
             "get": {
-                "operationId": "api_seed_stocks_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6036,7 +6046,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_seed_stocks_post",
+                "operationId": "post",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6078,7 +6088,7 @@
         },
         "/api/seed_stocks/{ulid}": {
             "get": {
-                "operationId": "api_seed_stocks_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6118,7 +6128,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_seed_stocks_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6151,7 +6161,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_seed_stocks_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6211,7 +6221,7 @@
         },
         "/api/seed_stock_entries": {
             "get": {
-                "operationId": "api_seed_stock_entries_get_collection",
+                "operationId": "get-collection",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6367,7 +6377,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_seed_stock_entries_post",
+                "operationId": "post",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6409,7 +6419,7 @@
         },
         "/api/seed_stock_entries/{ulid}": {
             "get": {
-                "operationId": "api_seed_stock_entries_ulid_get",
+                "operationId": "get",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6449,7 +6459,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_seed_stock_entries_ulid_delete",
+                "operationId": "delete",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6482,7 +6492,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_seed_stock_entries_ulid_patch",
+                "operationId": "patch",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6571,12 +6581,16 @@
                         }
                     },
                     "landSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreas": {
                         "type": "array",
@@ -6614,9 +6628,13 @@
                     },
                     "surface": {
                         "minimum": 0,
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -6636,12 +6654,16 @@
                         }
                     },
                     "defaultRole": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouses": {
                         "type": "array",
@@ -6664,11 +6686,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "land": {
                         "readOnly": true,
@@ -6739,12 +6765,16 @@
                         }
                     },
                     "landSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreas": {
                         "type": "array",
@@ -6782,9 +6812,13 @@
                     },
                     "surface": {
                         "minimum": 0,
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -6804,12 +6838,16 @@
                         }
                     },
                     "defaultRole": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouses": {
                         "type": "array",
@@ -6832,11 +6870,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "land": {
                         "readOnly": true,
@@ -6861,34 +6903,50 @@
                         "example": "https://example.com/"
                     },
                     "description": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landAreaSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreaParameter": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouse": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landTasks": {
                         "type": "array",
@@ -6928,11 +6986,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -6988,34 +7050,50 @@
                         "example": "https://example.com/"
                     },
                     "description": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landAreaSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreaParameter": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouse": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landTasks": {
                         "type": "array",
@@ -7055,11 +7133,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7077,15 +7159,23 @@
                         "type": "boolean"
                     },
                     "width": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "length": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "id": {
@@ -7098,12 +7188,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7156,15 +7250,23 @@
                         "type": "boolean"
                     },
                     "width": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "length": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "id": {
@@ -7177,12 +7279,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7209,12 +7315,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7276,12 +7386,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7291,67 +7405,103 @@
                 "deprecated": false,
                 "properties": {
                     "startDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "endDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedSowingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "sowingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedPlantingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedHarvestingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "forecastedEndDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "state": {
                         "default": "draft",
@@ -7369,12 +7519,16 @@
                         "example": "https://example.com/"
                     },
                     "landArea": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -7389,11 +7543,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7438,67 +7596,103 @@
                         ]
                     },
                     "startDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "endDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedSowingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "sowingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedPlantingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "expectedHarvestingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "forecastedEndDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "state": {
                         "default": "draft",
@@ -7516,12 +7710,16 @@
                         "example": "https://example.com/"
                     },
                     "landArea": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -7536,11 +7734,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7556,11 +7758,15 @@
                         "type": "string"
                     },
                     "constructionDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreas": {
                         "type": "array",
@@ -7576,20 +7782,28 @@
                         "example": "https://example.com/"
                     },
                     "landGreenhouseParameter": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouseSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -7604,11 +7818,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7659,11 +7877,15 @@
                         "type": "string"
                     },
                     "constructionDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landAreas": {
                         "type": "array",
@@ -7679,20 +7901,28 @@
                         "example": "https://example.com/"
                     },
                     "landGreenhouseParameter": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landGreenhouseSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -7707,11 +7937,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7735,12 +7969,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7799,12 +8037,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7828,12 +8070,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7892,12 +8138,16 @@
                     },
                     "land": {
                         "readOnly": true,
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -7922,12 +8172,16 @@
                         "$ref": "#/components/schemas/Person"
                     },
                     "landMemberSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landRoles": {
                         "type": "array",
@@ -8003,12 +8257,16 @@
                         "$ref": "#/components/schemas/Person.jsonld"
                     },
                     "landMemberSetting": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landRoles": {
                         "type": "array",
@@ -8074,18 +8332,26 @@
                         ]
                     },
                     "acceptedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "refusedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -8182,18 +8448,26 @@
                         ]
                     },
                     "acceptedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "refusedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -8319,11 +8593,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8391,11 +8669,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8420,11 +8702,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8484,11 +8770,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8517,13 +8807,17 @@
                         }
                     },
                     "permissions": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -8538,11 +8832,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "position": {
                         "type": "integer"
@@ -8609,13 +8907,17 @@
                         }
                     },
                     "permissions": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -8630,11 +8932,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "position": {
                         "type": "integer"
@@ -8739,35 +9045,51 @@
                         "example": "https://example.com/"
                     },
                     "content": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "dueDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "startDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landArea": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "state": {
                         "enum": [
@@ -8792,11 +9114,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8852,35 +9178,51 @@
                         "example": "https://example.com/"
                     },
                     "content": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "dueDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "startDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "landArea": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "state": {
                         "enum": [
@@ -8905,11 +9247,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -8963,21 +9309,33 @@
                         "type": "integer"
                     },
                     "email": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "givenName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "familyName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "userIdentifier": {
@@ -9071,21 +9429,33 @@
                         "type": "integer"
                     },
                     "email": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "givenName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "familyName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "userIdentifier": {
@@ -9111,55 +9481,83 @@
                         "type": "string"
                     },
                     "latinName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "perpetual": {
                         "type": "boolean"
                     },
                     "daysToGerminationAverage": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "variety": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMinimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingOptimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "bio": {
                         "type": "boolean"
@@ -9189,9 +9587,13 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "exposure": {
@@ -9204,27 +9606,43 @@
                         ],
                         "default": "full-sun",
                         "example": "full-sun",
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "vegetationThreshold": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMin": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMax": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "species": {
@@ -9236,24 +9654,36 @@
                             "phaseolus-vulgaris",
                             "cucumis-sativus"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "family": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingSpacingInCm": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -9277,11 +9707,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -9337,55 +9771,83 @@
                         "type": "string"
                     },
                     "latinName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "perpetual": {
                         "type": "boolean"
                     },
                     "daysToGerminationAverage": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "variety": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMinimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingOptimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "bio": {
                         "type": "boolean"
@@ -9415,9 +9877,13 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "exposure": {
@@ -9430,27 +9896,43 @@
                         ],
                         "default": "full-sun",
                         "example": "full-sun",
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "vegetationThreshold": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMin": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMax": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "species": {
@@ -9462,24 +9944,36 @@
                             "phaseolus-vulgaris",
                             "cucumis-sativus"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "family": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingSpacingInCm": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -9503,11 +9997,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -9532,17 +10030,25 @@
                         "type": "string"
                     },
                     "mergeCandidate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "message": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "id": {
@@ -9558,11 +10064,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -9622,17 +10132,25 @@
                         "type": "string"
                     },
                     "mergeCandidate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "message": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "id": {
@@ -9648,11 +10166,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -9665,12 +10187,16 @@
                         "$ref": "#/components/schemas/Person"
                     },
                     "plantConversionRequest": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -9684,55 +10210,83 @@
                         "type": "string"
                     },
                     "latinName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "perpetual": {
                         "type": "boolean"
                     },
                     "daysToGerminationAverage": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "variety": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMinimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingOptimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "bio": {
                         "type": "boolean"
@@ -9762,9 +10316,13 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "exposure": {
@@ -9777,27 +10335,43 @@
                         ],
                         "default": "full-sun",
                         "example": "full-sun",
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "vegetationThreshold": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMin": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMax": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "createdAt": {
@@ -9805,11 +10379,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "species": {
                         "enum": [
@@ -9820,24 +10398,36 @@
                             "phaseolus-vulgaris",
                             "cucumis-sativus"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "family": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingSpacingInCm": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -9902,12 +10492,16 @@
                         "$ref": "#/components/schemas/Person.jsonld"
                     },
                     "plantConversionRequest": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
                         "format": "iri-reference",
-                        "example": "https://example.com/"
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -9921,55 +10515,83 @@
                         "type": "string"
                     },
                     "latinName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "perpetual": {
                         "type": "boolean"
                     },
                     "daysToGerminationAverage": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "variety": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMinimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingOptimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "bio": {
                         "type": "boolean"
@@ -9999,9 +10621,13 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "exposure": {
@@ -10014,27 +10640,43 @@
                         ],
                         "default": "full-sun",
                         "example": "full-sun",
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "vegetationThreshold": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMin": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMax": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "createdAt": {
@@ -10042,11 +10684,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "species": {
                         "enum": [
@@ -10057,24 +10703,36 @@
                             "phaseolus-vulgaris",
                             "cucumis-sativus"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "family": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingSpacingInCm": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -10155,55 +10813,83 @@
                         "type": "string"
                     },
                     "latinName": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "perpetual": {
                         "type": "boolean"
                     },
                     "daysToGerminationAverage": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "variety": {
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMinimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingOptimalTemperature": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "sowingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "harvestingMonths": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "bio": {
                         "type": "boolean"
@@ -10233,9 +10919,13 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "exposure": {
@@ -10248,27 +10938,43 @@
                         ],
                         "default": "full-sun",
                         "example": "full-sun",
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "vegetationThreshold": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMin": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "daysToHarvestMax": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "createdAt": {
@@ -10276,11 +10982,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "species": {
                         "enum": [
@@ -10291,24 +11001,36 @@
                             "phaseolus-vulgaris",
                             "cucumis-sativus"
                         ],
-                        "type": [
-                            "string",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "family": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "plantingSpacingInCm": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "landCultivationPlans": {
@@ -10361,11 +11083,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -10436,11 +11162,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -10455,23 +11185,35 @@
                         "example": "https://example.com/"
                     },
                     "quantityInGram": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "quantityInNumberOfSeed": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "purchaseDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "publiclyShared": {
                         "type": "boolean"
@@ -10494,11 +11236,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
@@ -10548,23 +11294,35 @@
                         "example": "https://example.com/"
                     },
                     "quantityInGram": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "quantityInNumberOfSeed": {
-                        "type": [
-                            "integer",
-                            "null"
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "purchaseDate": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "publiclyShared": {
                         "type": "boolean"
@@ -10587,11 +11345,15 @@
                         "format": "date-time"
                     },
                     "updatedAt": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "format": "date-time"
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },

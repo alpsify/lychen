@@ -5,11 +5,19 @@ import { execSync } from 'child_process';
 async function main() {
   try {
     console.log('Start generating apis');
+
+    // Get the OpenAPI schema path from the environment variable
+    const openApiPath = process.env.OPENAPI_SCHEMA_JSON;
+
+    if (!openApiPath) {
+      throw new Error('OPENAPI_SCHEMA_JSON environment variable is not set.');
+    }
+
     await generateApi({
       name: 'TeraApi.ts',
       apiClassName: 'TeraApi',
       output: path.resolve('./generated'),
-      input: path.resolve('../../../projects/tera/api/docs.json'),
+      input: path.resolve(openApiPath), // Use the path from the environment variable
       templates: path.resolve('./swagger/templates'),
       generateClient: true,
       httpClientType: 'fetch',

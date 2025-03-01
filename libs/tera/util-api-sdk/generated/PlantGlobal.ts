@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { ApiPlantGlobalsGetCollectionParams, PlantGlobalJsonld } from './data-contracts';
+import type { GetCollectionParams26, PlantGlobalJsonld } from './data-contracts';
 import type { HttpClient, RequestParams } from './http-client';
 
 export class PlantGlobal<SecurityDataType = unknown> {
@@ -23,7 +23,7 @@ export class PlantGlobal<SecurityDataType = unknown> {
  * @description Retrieves the collection of PlantGlobal resources.
  *
  * @tags PlantGlobal
- * @name ApiPlantGlobalsGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of PlantGlobal resources.
  * @request GET:/api/plant_globals
  * @secure
@@ -62,10 +62,7 @@ export class PlantGlobal<SecurityDataType = unknown> {
 
 }` PlantGlobal collection
  */
-  apiPlantGlobalsGetCollection = (
-    query: ApiPlantGlobalsGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams26, params: RequestParams = {}) =>
     this.http.request<
       {
         member: PlantGlobalJsonld[];
@@ -110,14 +107,14 @@ export class PlantGlobal<SecurityDataType = unknown> {
    * @description Retrieves a PlantGlobal resource.
    *
    * @tags PlantGlobal
-   * @name ApiPlantGlobalsUlidGet
+   * @name Get
    * @summary Retrieves a PlantGlobal resource.
    * @request GET:/api/plant_globals/{ulid}
    * @secure
    * @response `200` `PlantGlobalJsonld` PlantGlobal resource
    * @response `404` `void` Resource not found
    */
-  apiPlantGlobalsUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantGlobalJsonld, void>({
       path: `/api/plant_globals/${ulid}`,
       method: 'GET',

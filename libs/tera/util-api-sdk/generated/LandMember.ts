@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -8,11 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  ApiLandMembersGetCollectionParams,
-  LandMember,
-  LandMemberJsonld,
-} from './data-contracts';
+import type { GetCollectionParams8, LandMember, LandMemberJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandMember<SecurityDataType = unknown> {
@@ -26,7 +23,7 @@ export class LandMember<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandMember resources.
  *
  * @tags LandMember
- * @name ApiLandMembersGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandMember resources.
  * @request GET:/api/land_members
  * @secure
@@ -66,10 +63,7 @@ export class LandMember<SecurityDataType = unknown> {
 }` LandMember collection
  * @response `403` `void` Forbidden
  */
-  apiLandMembersGetCollection = (
-    query: ApiLandMembersGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams8, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandMemberJsonld[];
@@ -114,7 +108,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @description Retrieves a LandMember resource.
    *
    * @tags LandMember
-   * @name ApiLandMembersUlidGet
+   * @name Get
    * @summary Retrieves a LandMember resource.
    * @request GET:/api/land_members/{ulid}
    * @secure
@@ -122,7 +116,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandMembersUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
       method: 'GET',
@@ -134,7 +128,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @description Removes the LandMember resource.
    *
    * @tags LandMember
-   * @name ApiLandMembersUlidDelete
+   * @name Delete
    * @summary Removes the LandMember resource.
    * @request DELETE:/api/land_members/{ulid}
    * @secure
@@ -142,7 +136,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandMembersUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_members/${ulid}`,
       method: 'DELETE',
@@ -153,7 +147,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @description Updates the LandMember resource.
    *
    * @tags LandMember
-   * @name ApiLandMembersUlidPatch
+   * @name Patch
    * @summary Updates the LandMember resource.
    * @request PATCH:/api/land_members/{ulid}
    * @secure
@@ -163,7 +157,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandMembersUlidPatch = (ulid: string, data: LandMember, params: RequestParams = {}) =>
+  patch = (ulid: string, data: LandMember, params: RequestParams = {}) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
       method: 'PATCH',

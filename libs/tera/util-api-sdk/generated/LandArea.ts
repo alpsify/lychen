@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -8,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { ApiLandAreasGetCollectionParams, LandArea, LandAreaJsonld } from './data-contracts';
+import type { GetCollectionParams2, LandArea, LandAreaJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandArea<SecurityDataType = unknown> {
@@ -22,7 +23,7 @@ export class LandArea<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandArea resources.
  *
  * @tags LandArea
- * @name ApiLandAreasGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of LandArea resources.
  * @request GET:/api/land_areas
  * @secure
@@ -62,10 +63,7 @@ export class LandArea<SecurityDataType = unknown> {
 }` LandArea collection
  * @response `403` `void` Forbidden
  */
-  apiLandAreasGetCollection = (
-    query: ApiLandAreasGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  getCollection = (query: GetCollectionParams2, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandAreaJsonld[];
@@ -110,7 +108,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Creates a LandArea resource.
    *
    * @tags LandArea
-   * @name ApiLandAreasPost
+   * @name Post
    * @summary Creates a LandArea resource.
    * @request POST:/api/land_areas
    * @secure
@@ -118,7 +116,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiLandAreasPost = (data: LandAreaJsonld, params: RequestParams = {}) =>
+  post = (data: LandAreaJsonld, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas`,
       method: 'POST',
@@ -132,7 +130,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Retrieves a LandArea resource.
    *
    * @tags LandArea
-   * @name ApiLandAreasUlidGet
+   * @name Get
    * @summary Retrieves a LandArea resource.
    * @request GET:/api/land_areas/{ulid}
    * @secure
@@ -140,7 +138,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandAreasUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'GET',
@@ -152,7 +150,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Removes the LandArea resource.
    *
    * @tags LandArea
-   * @name ApiLandAreasUlidDelete
+   * @name Delete
    * @summary Removes the LandArea resource.
    * @request DELETE:/api/land_areas/{ulid}
    * @secure
@@ -160,7 +158,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  apiLandAreasUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'DELETE',
@@ -171,7 +169,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Updates the LandArea resource.
    *
    * @tags LandArea
-   * @name ApiLandAreasUlidPatch
+   * @name Patch
    * @summary Updates the LandArea resource.
    * @request PATCH:/api/land_areas/{ulid}
    * @secure
@@ -181,7 +179,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiLandAreasUlidPatch = (ulid: string, data: LandArea, params: RequestParams = {}) =>
+  patch = (ulid: string, data: LandArea, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'PATCH',

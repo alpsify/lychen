@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { ApiPlantsGetCollectionParams, Plant, PlantJsonld } from './data-contracts';
+import type { GetCollectionParams20, Plant, PlantJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class Plant<SecurityDataType = unknown> {
@@ -23,7 +23,7 @@ export class Plant<SecurityDataType = unknown> {
  * @description Retrieves the collection of Plant resources.
  *
  * @tags Plant
- * @name ApiPlantsGetCollection
+ * @name GetCollection
  * @summary Retrieves the collection of Plant resources.
  * @request GET:/api/plants
  * @secure
@@ -62,7 +62,7 @@ export class Plant<SecurityDataType = unknown> {
 
 }` Plant collection
  */
-  apiPlantsGetCollection = (query: ApiPlantsGetCollectionParams, params: RequestParams = {}) =>
+  getCollection = (query: GetCollectionParams20, params: RequestParams = {}) =>
     this.http.request<
       {
         member: PlantJsonld[];
@@ -107,7 +107,7 @@ export class Plant<SecurityDataType = unknown> {
    * @description Creates a Plant resource.
    *
    * @tags Plant
-   * @name ApiPlantsPost
+   * @name Post
    * @summary Creates a Plant resource.
    * @request POST:/api/plants
    * @secure
@@ -115,7 +115,7 @@ export class Plant<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  apiPlantsPost = (data: PlantJsonld, params: RequestParams = {}) =>
+  post = (data: PlantJsonld, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants`,
       method: 'POST',
@@ -129,14 +129,14 @@ export class Plant<SecurityDataType = unknown> {
    * @description Retrieves a Plant resource.
    *
    * @tags Plant
-   * @name ApiPlantsUlidGet
+   * @name Get
    * @summary Retrieves a Plant resource.
    * @request GET:/api/plants/{ulid}
    * @secure
    * @response `200` `PlantJsonld` Plant resource
    * @response `404` `void` Resource not found
    */
-  apiPlantsUlidGet = (ulid: string, params: RequestParams = {}) =>
+  get = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants/${ulid}`,
       method: 'GET',
@@ -148,14 +148,14 @@ export class Plant<SecurityDataType = unknown> {
    * @description Removes the Plant resource.
    *
    * @tags Plant
-   * @name ApiPlantsUlidDelete
+   * @name Delete
    * @summary Removes the Plant resource.
    * @request DELETE:/api/plants/{ulid}
    * @secure
    * @response `204` `void` Plant resource deleted
    * @response `404` `void` Resource not found
    */
-  apiPlantsUlidDelete = (ulid: string, params: RequestParams = {}) =>
+  delete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plants/${ulid}`,
       method: 'DELETE',
@@ -166,7 +166,7 @@ export class Plant<SecurityDataType = unknown> {
    * @description Updates the Plant resource.
    *
    * @tags Plant
-   * @name ApiPlantsUlidPatch
+   * @name Patch
    * @summary Updates the Plant resource.
    * @request PATCH:/api/plants/{ulid}
    * @secure
@@ -175,7 +175,7 @@ export class Plant<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  apiPlantsUlidPatch = (ulid: string, data: Plant, params: RequestParams = {}) =>
+  patch = (ulid: string, data: Plant, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants/${ulid}`,
       method: 'PATCH',
