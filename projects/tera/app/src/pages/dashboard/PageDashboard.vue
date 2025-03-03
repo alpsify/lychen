@@ -128,10 +128,10 @@ import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
 import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
 import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
 import headerImg from './assets/header.webp';
-import LandRepository from '@lychen/tera-util-api-sdk/repositories/LandRepository';
 import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
 import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -146,13 +146,15 @@ onBeforeMount(() => {
   fetchLandsLookingForMember();
 });
 
+const landApi = useTeraApi('Land');
 const lands = ref();
 
 async function fetchLands() {
-  const response = await LandRepository.getCollection();
-
-  if (response.status === 200) {
+  try {
+    const response = await landApi.getCollection({});
     lands.value = response.data;
+  } catch (e) {
+    // console.log(e);
   }
 }
 
@@ -160,7 +162,7 @@ const landsLookingForMember = ref();
 
 async function fetchLandsLookingForMember() {
   try {
-    const response = await LandRepository.getCollectionLookingForMember();
+    const response = await landApi.getCollectionLookingForMembers({});
 
     if (response.status === 200) {
       landsLookingForMember.value = response.data;

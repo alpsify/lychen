@@ -2,8 +2,9 @@
   "name": "@lychen/tera-util-api-sdk",
   "version": "0.0.0",
   "license": "UNLICENSED",
-  "dependencies": {
-    "@lychen/typescript-util-json-ld-hydra": "workspace:*",
-    "@lychen/typescript-util-object": "workspace:*"
+  "type": "module",
+  "devDependencies": {
+    "swagger-typescript-api": "^13.0.23",
+    "ts-node": "10.9.2"
   }
 }
