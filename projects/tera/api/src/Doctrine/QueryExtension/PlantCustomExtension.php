@@ -6,12 +6,11 @@ use ApiPlatform\Doctrine\Orm\Extension\QueryCollectionExtensionInterface;
 use ApiPlatform\Doctrine\Orm\Extension\QueryItemExtensionInterface;
 use ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use ApiPlatform\Metadata\Operation;
-use App\Entity\Land;
-use Doctrine\ORM\Query\Expr\Join;
+use App\Entity\PlantCustom;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bundle\SecurityBundle\Security;
 
-final readonly class LandExtension implements QueryCollectionExtensionInterface, QueryItemExtensionInterface
+final readonly class PlantCustomExtension implements QueryCollectionExtensionInterface, QueryItemExtensionInterface
 {
 
     public function __construct(private Security $security)
@@ -25,13 +24,12 @@ final readonly class LandExtension implements QueryCollectionExtensionInterface,
 
     private function addWhere(QueryBuilder $queryBuilder, string $resourceClass): void
     {
-        if (Land::class !== $resourceClass || $this->security->isGranted('ROLE_ADMIN') || null === $user = $this->security->getUser()) {
+        if (PlantCustom::class !== $resourceClass || $this->security->isGranted('ROLE_ADMIN') || null === $user = $this->security->getUser()) {
             return;
         }
 
         $rootAlias = $queryBuilder->getRootAliases()[0];
-        $queryBuilder->innerJoin(sprintf('%s.landMembers', $rootAlias), 'lm', Join::WITH, $rootAlias . '.id = lm.land');
-        $queryBuilder->andWhere('lm.person = :current_user');
+        $queryBuilder->where('lm.person = :current_user');
         $queryBuilder->setParameter('current_user', $user->getId());
     }
 

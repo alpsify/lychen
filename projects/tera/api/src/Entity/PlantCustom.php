@@ -15,9 +15,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 #[GetCollection()]
 #[Post()]
-#[Patch()]
-#[Delete()]
-#[Get()]
+#[Patch(security: 'object.person == user')]
+#[Delete(security: 'object.person == user')]
+#[Get(security: 'object.person == user')]
 class PlantCustom extends Plant
 {
     #[ORM\ManyToOne(inversedBy: 'plantCustoms')]

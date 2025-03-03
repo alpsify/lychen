@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource]
 #[ORM\Entity(repositoryClass: PlantRepository::class)]
-#[ORM\InheritanceType('SINGLE_TABLE')]
+#[ORM\InheritanceType('JOINED')]
 #[ORM\DiscriminatorColumn(name: 'kind', type: Types::STRING)]
 #[ORM\DiscriminatorMap([Plant::KIND_GLOBAL => PlantGlobal::class, Plant::KIND_CUSTOM => PlantCustom::class])]
 #[ORM\HasLifecycleCallbacks]
