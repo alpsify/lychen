@@ -9,10 +9,12 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\LandResearchRequestRepository;
+use App\Workflow\LandResearchRequest\LandResearchRequestWorkflowPlace;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandResearchRequestRepository::class)]
 #[ApiResource(operations: [
@@ -32,6 +34,13 @@ class LandResearchRequest extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\JoinColumn(nullable: false)]
     private ?Person $person = null;
 
+    #[ORM\Column(length: 255)]
+    #[Assert\Choice(LandResearchRequestWorkflowPlace::PLACES)]
+    private ?string $state = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $message = null;
+
     public function getPerson(): ?Person
     {
         return $this->person;
@@ -40,6 +49,30 @@ class LandResearchRequest extends AbstractIdOrmAndUlidApiIdentified
     public function setPerson(?Person $person): static
     {
         $this->person = $person;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): static
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    public function getMessage(): ?array
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?array $message): static
+    {
+        $this->message = $message;
 
         return $this;
     }

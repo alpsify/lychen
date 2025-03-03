@@ -12,16 +12,6 @@
         }
     ],
     "paths": {
-        "/api/errors/{status}": {
-            "get": {
-                "operationId": "apierrors_status_get"
-            }
-        },
-        "/api/validation_errors/{id}": {
-            "get": {
-                "operationId": "apivalidation_errors_id_get"
-            }
-        },
         "/api/lands": {
             "get": {
                 "operationId": "get-collection",
@@ -8689,6 +8679,27 @@
                     "person": {
                         "$ref": "#/components/schemas/Person"
                     },
+                    "state": {
+                        "enum": [
+                            "draft",
+                            "published",
+                            "archived"
+                        ],
+                        "type": "string"
+                    },
+                    "message": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
                     "id": {
                         "readOnly": true,
                         "type": "integer"
@@ -8756,6 +8767,27 @@
                     },
                     "person": {
                         "$ref": "#/components/schemas/Person.jsonld"
+                    },
+                    "state": {
+                        "enum": [
+                            "draft",
+                            "published",
+                            "archived"
+                        ],
+                        "type": "string"
+                    },
+                    "message": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,

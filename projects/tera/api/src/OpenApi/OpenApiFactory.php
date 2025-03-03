@@ -3,6 +3,7 @@
 namespace App\OpenApi;
 
 use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Error;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\HttpOperation;
@@ -48,6 +49,10 @@ class OpenApiFactory implements OpenApiFactoryInterface
             foreach ($resourceMetadataCollection as $resourceMetadata) {
                 foreach ($resourceMetadata->getOperations() as $operation) {
                     if (!($operation instanceof HttpOperation)) {
+                        continue;
+                    }
+
+                    if ($operation instanceof Error) {
                         continue;
                     }
 

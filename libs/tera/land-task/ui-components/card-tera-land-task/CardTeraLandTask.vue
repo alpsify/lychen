@@ -29,25 +29,29 @@
   </div>
 </template>
 
-<script generic="T extends Land" lang="ts" setup>
-import type { Land } from '@lychen/tera-util-api-sdk/model/Land';
+<script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-land-ui-i18n/property';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
-import type { LandTask } from '@lychen/tera-util-api-sdk/model/LandTask';
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
 const { variant = VARIANT.Default, landTask } = defineProps<{
-  landTask: Required<Pick<LandTask, 'title' | 'content' | 'dueDate' | 'startDate'>>;
+  landTask: {
+    title: string;
+    content: string;
+    dueDate?: string;
+    startDate?: string;
+  };
   variant?: Variant;
 }>();
 
 const { t, d } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const overdue = computed<boolean>(() => {
+  if (!landTask.dueDate) return false;
   return new Date(landTask.dueDate) < new Date();
 });
 </script>

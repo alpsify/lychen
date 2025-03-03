@@ -2465,6 +2465,7 @@ __metadata:
     "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
+    "@tanstack/vue-query": "npm:^5.66.11"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     ol: "npm:^10.3.1"
     ol-contextmenu: "npm:^5.5.0"
@@ -3691,10 +3692,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/match-sorter-utils@npm:^8.19.4":
+  version: 8.19.4
+  resolution: "@tanstack/match-sorter-utils@npm:8.19.4"
+  dependencies:
+    remove-accents: "npm:0.5.0"
+  checksum: 10c0/935022e3d639f19472131d289f3e1202253ff34301717c337e9bac0eeae6a0bd56450ed8ae2f7eb7ac9dfefa7ceaa7d126d8c5441021968b4a9eabc3ac4f8ba1
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.66.11":
+  version: 5.66.11
+  resolution: "@tanstack/query-core@npm:5.66.11"
+  checksum: 10c0/0d8b6356fc282b11e731be9fecdcd0f9571b202bcacd079bf30274a3b951ff45c136b9892a1b93ae426782f7cb8d82f06028bbae0b1eb46a578318ab07ac081e
+  languageName: node
+  linkType: hard
+
 "@tanstack/virtual-core@npm:3.13.0":
   version: 3.13.0
   resolution: "@tanstack/virtual-core@npm:3.13.0"
   checksum: 10c0/88ff5fbd59b449e2ec2cafa9cac1ea6f449d84a593fb869ad9e8a467813e9060d4065517c5657c2de765c165453bb336751641cf670cb27143d51791bbfedc3a
+  languageName: node
+  linkType: hard
+
+"@tanstack/vue-query@npm:^5.66.11":
+  version: 5.66.11
+  resolution: "@tanstack/vue-query@npm:5.66.11"
+  dependencies:
+    "@tanstack/match-sorter-utils": "npm:^8.19.4"
+    "@tanstack/query-core": "npm:5.66.11"
+    "@vue/devtools-api": "npm:^6.6.3"
+    vue-demi: "npm:^0.14.10"
+  peerDependencies:
+    "@vue/composition-api": ^1.1.2
+    vue: ^2.6.0 || ^3.3.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  checksum: 10c0/7a16c3e655da2f95b2c27c5372794d8df5444745f63805e86312a989f7e6971f6285c98125f777927aa03dfb083d8ec0f3622984afc77f152b1df20bee55208c
   languageName: node
   linkType: hard
 
@@ -4519,7 +4554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.5.0, @vue/devtools-api@npm:^6.6.4":
+"@vue/devtools-api@npm:^6.5.0, @vue/devtools-api@npm:^6.6.3, @vue/devtools-api@npm:^6.6.4":
   version: 6.6.4
   resolution: "@vue/devtools-api@npm:6.6.4"
   checksum: 10c0/0a993ae23618166e1bee5a7c14cebd8312752b93c143cbdd48fb2d0f7ade070d0e6baf757cd920d4681fef8f9acf29515162160f38cc7410f9a684d2df21b6de
@@ -9909,6 +9944,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remove-accents@npm:0.5.0":
+  version: 0.5.0
+  resolution: "remove-accents@npm:0.5.0"
+  checksum: 10c0/a75321aa1b53d9abe82637115a492770bfe42bb38ed258be748bf6795871202bc8b4badff22013494a7029f5a241057ad8d3f72adf67884dbe15a9e37e87adc4
+  languageName: node
+  linkType: hard
+
 "require-directory@npm:^2.1.1":
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
@@ -11585,7 +11627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:>=0.13.0, vue-demi@npm:>=0.14.8":
+"vue-demi@npm:>=0.13.0, vue-demi@npm:>=0.14.8, vue-demi@npm:^0.14.10":
   version: 0.14.10
   resolution: "vue-demi@npm:0.14.10"
   peerDependencies:

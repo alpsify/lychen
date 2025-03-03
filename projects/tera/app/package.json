@@ -19,6 +19,7 @@
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
+    "@tanstack/vue-query": "^5.66.11",
     "ol": "^10.3.1",
     "ol-contextmenu": "^5.5.0",
     "ol-ext": "^4.0.25",

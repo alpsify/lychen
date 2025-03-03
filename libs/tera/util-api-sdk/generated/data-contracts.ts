@@ -1137,7 +1137,9 @@ export interface LandResearchRequest {
   /** @format date-time */
   createdAt?: string;
   id?: number;
+  message?: any[] | null;
   person?: Person;
+  state?: LandResearchRequestStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
@@ -1157,7 +1159,9 @@ export interface LandResearchRequestJsonld {
   /** @format date-time */
   createdAt?: string;
   id?: number;
+  message?: any[] | null;
   person?: PersonJsonld;
+  state?: LandResearchRequestJsonldStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
@@ -1166,6 +1170,18 @@ export interface LandResearchRequestJsonld {
 
 export enum LandResearchRequestJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export enum LandResearchRequestJsonldStateEnum {
+  Draft = 'draft',
+  Published = 'published',
+  Archived = 'archived',
+}
+
+export enum LandResearchRequestStateEnum {
+  Draft = 'draft',
+  Published = 'published',
+  Archived = 'archived',
 }
 
 export interface LandRole {
