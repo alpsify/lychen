@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { GetCollectionParams2, LandArea, LandAreaJsonld } from './data-contracts';
+import type { LandArea, LandAreaGetCollectionParams, LandAreaJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandArea<SecurityDataType = unknown> {
@@ -23,7 +23,7 @@ export class LandArea<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandArea resources.
  *
  * @tags LandArea
- * @name GetCollection
+ * @name LandAreaGetCollection
  * @summary Retrieves the collection of LandArea resources.
  * @request GET:/api/land_areas
  * @secure
@@ -63,7 +63,7 @@ export class LandArea<SecurityDataType = unknown> {
 }` LandArea collection
  * @response `403` `void` Forbidden
  */
-  getCollection = (query: GetCollectionParams2, params: RequestParams = {}) =>
+  landAreaGetCollection = (query: LandAreaGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandAreaJsonld[];
@@ -108,7 +108,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Creates a LandArea resource.
    *
    * @tags LandArea
-   * @name Post
+   * @name LandAreaPost
    * @summary Creates a LandArea resource.
    * @request POST:/api/land_areas
    * @secure
@@ -116,7 +116,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data: LandAreaJsonld, params: RequestParams = {}) =>
+  landAreaPost = (data: LandAreaJsonld, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas`,
       method: 'POST',
@@ -130,7 +130,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Retrieves a LandArea resource.
    *
    * @tags LandArea
-   * @name Get
+   * @name LandAreaGet
    * @summary Retrieves a LandArea resource.
    * @request GET:/api/land_areas/{ulid}
    * @secure
@@ -138,7 +138,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landAreaGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'GET',
@@ -150,7 +150,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Removes the LandArea resource.
    *
    * @tags LandArea
-   * @name Delete
+   * @name LandAreaDelete
    * @summary Removes the LandArea resource.
    * @request DELETE:/api/land_areas/{ulid}
    * @secure
@@ -158,7 +158,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  landAreaDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'DELETE',
@@ -169,7 +169,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @description Updates the LandArea resource.
    *
    * @tags LandArea
-   * @name Patch
+   * @name LandAreaPatch
    * @summary Updates the LandArea resource.
    * @request PATCH:/api/land_areas/{ulid}
    * @secure
@@ -179,7 +179,7 @@ export class LandArea<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandArea, params: RequestParams = {}) =>
+  landAreaPatch = (ulid: string, data: LandArea, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
       method: 'PATCH',

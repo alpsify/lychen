@@ -6,7 +6,7 @@
       <LychenBadge
         v-if="variant === VARIANT.LookingForMember"
         class="self-start bg-tertiary-container text-on-tertiary-container"
-        >{{ t(`kind.${land.kind}.default`) }}
+        >{{ t(`property.kind.${land.kind}.default`) }}
       </LychenBadge>
       <LychenIcon
         v-if="variant === VARIANT.Default"
@@ -21,10 +21,10 @@
         <small
           v-if="land.surface"
           class="text-tertiary"
-          >{{ t('surface.default', land.surface) }}</small
+          >{{ t('property.surface.default', land.surface) }}</small
         >
         <small class="text-tertiary opacity-50">{{
-          t('land_areas.default', land.numberOfArea)
+          t('property.land_areas.default', land.numberOfArea)
         }}</small>
       </div>
 
@@ -37,7 +37,7 @@
 import type { Land } from '@lychen/tera-util-api-sdk/model/Land';
 import { defineAsyncComponent } from 'vue';
 
-import { messages, TRANSLATION_KEY } from '@lychen/tera-land-ui-i18n/property';
+import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 

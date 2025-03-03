@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lychen/tera-land-task-ui-components": "workspace:*",
-    "@lychen/tera-land-ui-components": "workspace:*",
+    "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",

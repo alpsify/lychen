@@ -2454,8 +2454,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
   dependencies:
-    "@lychen/tera-land-task-ui-components": "workspace:*"
-    "@lychen/tera-land-ui-components": "workspace:*"
+    "@lychen/tera-ui-components": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-api-sdk": "workspace:*"
     "@lychen/typescript-util-zitadel": "workspace:*"
@@ -2480,37 +2479,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-land-task-ui-components@workspace:*, @lychen/tera-land-task-ui-components@workspace:libs/tera/land-task/ui-components":
+"@lychen/tera-ui-components@workspace:*, @lychen/tera-ui-components@workspace:libs/tera/ui-components":
   version: 0.0.0-use.local
-  resolution: "@lychen/tera-land-task-ui-components@workspace:libs/tera/land-task/ui-components"
+  resolution: "@lychen/tera-ui-components@workspace:libs/tera/ui-components"
   dependencies:
-    "@lychen/tera-land-task-ui-i18n": "workspace:*"
-    "@lychen/tera-util-api-sdk": "workspace:*"
+    "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/ui-components": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-land-task-ui-i18n@workspace:*, @lychen/tera-land-task-ui-i18n@workspace:libs/tera/land-task/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-land-task-ui-i18n@workspace:libs/tera/land-task/ui-i18n"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-land-ui-components@workspace:*, @lychen/tera-land-ui-components@workspace:libs/tera/land/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-land-ui-components@workspace:libs/tera/land/ui-components"
-  dependencies:
-    "@lychen/tera-land-ui-i18n": "workspace:*"
-    "@lychen/tera-util-api-sdk": "workspace:*"
-    "@lychen/typescript-util-object": "workspace:*"
-    "@lychen/ui-components": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-land-ui-i18n@workspace:*, @lychen/tera-land-ui-i18n@workspace:libs/tera/land/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-land-ui-i18n@workspace:libs/tera/land/ui-i18n"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
   languageName: unknown
   linkType: soft
 

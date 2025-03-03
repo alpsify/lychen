@@ -53,6 +53,23 @@
           />
         </div>
       </div>
+
+      <LychenCarousel
+        v-if="landAreas"
+        :opts="{
+          align: 'start',
+        }"
+      >
+        <LychenCarouselContent>
+          <LychenCarouselItem
+            v-for="(item, index) in landAreas.member"
+            :key="index"
+            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
+          >
+            <CardTeraLandArea :land-area="item" />
+          </LychenCarouselItem>
+        </LychenCarouselContent>
+      </LychenCarousel>
     </div>
 
     <div class="flex flex-col gap-4">
@@ -69,6 +86,23 @@
           />
         </div>
       </div>
+
+      <LychenCarousel
+        v-if="landGreenhouses"
+        :opts="{
+          align: 'start',
+        }"
+      >
+        <LychenCarouselContent>
+          <LychenCarouselItem
+            v-for="(item, index) in landGreenhouses.member"
+            :key="index"
+            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
+          >
+            <CardTeraLandGreenhouse :land-greenhouse="item" />
+          </LychenCarouselItem>
+        </LychenCarouselContent>
+      </LychenCarousel>
     </div>
   </section>
 </template>
@@ -76,11 +110,16 @@
 <script lang="ts" setup>
 import { defineAsyncComponent, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import CardTeraLandTask from '@lychen/tera-land-task-ui-components/card-tera-land-task/CardTeraLandTask.vue';
+import CardTeraLandTask from '@lychen/tera-ui-components/card-tera-land-task/CardTeraLandTask.vue';
+import CardTeraLandGreenhouse from '@lychen/tera-ui-components/card-tera-land-greenhouse/CardTeraLandGreenhouse.vue';
+import CardTeraLandArea from '@lychen/tera-ui-components/card-tera-land-area/CardTeraLandArea.vue';
 import { RoutePageDashboard } from '@pages/dashboard';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { OrderDueDateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useQuery } from '@tanstack/vue-query';
+import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
+import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
+import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -93,12 +132,12 @@ const LychenButton = defineAsyncComponent(
 const route = useRoute();
 const router = useRouter();
 
-const landApi = useTeraApi('Land');
+const api = useAllTeraApi();
 
 const { data: land } = useQuery({
   queryKey: ['land'],
   queryFn: async () => {
-    const response = await landApi.get(<string>route.params.ulid);
+    const response = await api.Land.landGet(<string>route.params.ulid);
 
     if (response.status !== 200) {
       return Promise.reject(router.push(RoutePageDashboard));
@@ -109,14 +148,13 @@ const { data: land } = useQuery({
 });
 
 const landId = computed(() => land.value?.['@id']);
-const enabled = computed(() => !!land.value?.['@id']);
+const enabled = computed(() => !!landId.value);
 
-const landTaskApi = useTeraApi('LandTask');
 const { data: landTasks } = useQuery({
   queryKey: ['landTasks', landId],
   queryFn: async () => {
-    const response = await landTaskApi.getCollection({
-      land: landId.value,
+    const response = await api.LandTask.landTaskGetCollection({
+      land: landId.value!,
       'order[dueDate]': OrderDueDateEnum.Asc,
     });
 
@@ -125,12 +163,23 @@ const { data: landTasks } = useQuery({
   enabled,
 });
 
-const landAreaApi = useTeraApi('LandArea');
 const { data: landAreas } = useQuery({
   queryKey: ['landAreas', landId],
   queryFn: async () => {
-    const response = await landAreaApi.getCollection({
-      land: landId.value,
+    const response = await api.LandArea.landAreaGetCollection({
+      land: landId.value!,
+    });
+
+    return response.data;
+  },
+  enabled,
+});
+
+const { data: landGreenhouses } = useQuery({
+  queryKey: ['landAreas', landId],
+  queryFn: async () => {
+    const response = await api.LandGreenhouse.landGreenhouseGetCollection({
+      land: landId.value!,
     });
 
     return response.data;

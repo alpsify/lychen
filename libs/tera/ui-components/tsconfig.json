@@ -1,0 +1,34 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../typescript/util-object/**/*",
+    "../../ui-components/**/*",
+    "../../vue/i18n/util-composables/**/*",
+    "../ui-i18n/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../typescript/util-object"
+    },
+    {
+      "path": "../../ui-components"
+    },
+    {
+      "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../ui-i18n"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/tera/ui-components",
+    "paths": {
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/tera-ui-i18n": ["../ui-i18n/index.ts"],
+      "@lychen/tera-ui-i18n/*": ["../ui-i18n/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"]
+    }
+  }
+}

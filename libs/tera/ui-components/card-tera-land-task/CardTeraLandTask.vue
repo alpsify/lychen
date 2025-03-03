@@ -32,7 +32,7 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue';
 
-import { messages, TRANSLATION_KEY } from '@lychen/tera-land-ui-i18n/property';
+import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 

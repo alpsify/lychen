@@ -1,8 +1,7 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "../../../libs/tera/land/ui-components/**/*",
-    "../../../libs/tera/land-task/ui-components/**/*",
+    "../../../libs/tera/ui-components/**/*",
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-api-sdk/**/*",
     "../../../libs/typescript/util-zitadel/**/*",
@@ -15,10 +14,7 @@
   ],
   "references": [
     {
-      "path": "../../../libs/tera/land/ui-components"
-    },
-    {
-      "path": "../../../libs/tera/land-task/ui-components"
+      "path": "../../../libs/tera/ui-components"
     },
     {
       "path": "../../../libs/tera/ui-i18n"
@@ -59,10 +55,9 @@
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
       "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
       "@lychen/typescript-util-zitadel/*": ["../../../libs/typescript/util-zitadel/*"],
-      "@lychen/tera-land-ui-components/*": ["../../../libs/tera/land/ui-components/*"],
       "@lychen/tera-util-api-sdk/*": ["../../../libs/tera/util-api-sdk/*"],
-      "@lychen/tera-land-task-ui-components/*": ["../../../libs/tera/land-task/ui-components/*"],
-      "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"]
+      "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],
+      "@lychen/tera-ui-components/*": ["../../../libs/tera/ui-components/*"]
     }
   }
 }

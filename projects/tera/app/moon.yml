@@ -1,6 +1,5 @@
 dependsOn:
-  - tera-land-task-ui-components
-  - tera-land-ui-components
+  - tera-ui-components
   - tera-ui-i18n
   - tera-util-api-sdk
   - typescript-util-zitadel

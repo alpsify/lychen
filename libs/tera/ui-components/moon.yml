@@ -1,9 +1,9 @@
 dependsOn:
-  - tera-land-ui-i18n
-  - tera-util-api-sdk
+  - tera-ui-i18n
   - typescript-util-object
   - ui-components
+  - vue-i18n-util-composables
 
-id: tera-land-ui-components
+id: tera-ui-components
 language: typescript
 type: library

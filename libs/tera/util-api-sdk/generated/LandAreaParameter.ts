@@ -23,7 +23,7 @@ export class LandAreaParameter<SecurityDataType = unknown> {
    * @description Retrieves a LandAreaParameter resource.
    *
    * @tags LandAreaParameter
-   * @name Get
+   * @name LandAreaParameterGet
    * @summary Retrieves a LandAreaParameter resource.
    * @request GET:/api/land_area_parameters/{ulid}
    * @secure
@@ -31,7 +31,7 @@ export class LandAreaParameter<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landAreaParameterGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandAreaParameterJsonld, void>({
       path: `/api/land_area_parameters/${ulid}`,
       method: 'GET',
@@ -43,7 +43,7 @@ export class LandAreaParameter<SecurityDataType = unknown> {
    * @description Updates the LandAreaParameter resource.
    *
    * @tags LandAreaParameter
-   * @name Patch
+   * @name LandAreaParameterPatch
    * @summary Updates the LandAreaParameter resource.
    * @request PATCH:/api/land_area_parameters/{ulid}
    * @secure
@@ -53,7 +53,7 @@ export class LandAreaParameter<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandAreaParameter, params: RequestParams = {}) =>
+  landAreaParameterPatch = (ulid: string, data: LandAreaParameter, params: RequestParams = {}) =>
     this.http.request<LandAreaParameterJsonld, void>({
       path: `/api/land_area_parameters/${ulid}`,
       method: 'PATCH',

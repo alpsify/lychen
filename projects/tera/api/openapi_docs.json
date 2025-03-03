@@ -14,7 +14,7 @@
     "paths": {
         "/api/lands": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "Land_get-collection",
                 "tags": [
                     "Land"
                 ],
@@ -170,7 +170,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "Land_post",
                 "tags": [
                     "Land"
                 ],
@@ -233,7 +233,7 @@
         },
         "/api/lands/looking_for_members": {
             "get": {
-                "operationId": "get-collection-looking-for-members",
+                "operationId": "Land_get-collection-looking-for-members",
                 "tags": [
                     "Land"
                 ],
@@ -391,7 +391,7 @@
         },
         "/api/lands/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "Land_get",
                 "tags": [
                     "Land"
                 ],
@@ -434,7 +434,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "Land_delete",
                 "tags": [
                     "Land"
                 ],
@@ -470,7 +470,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "Land_patch",
                 "tags": [
                     "Land"
                 ],
@@ -533,7 +533,7 @@
         },
         "/api/land_areas": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandArea_get-collection",
                 "tags": [
                     "LandArea"
                 ],
@@ -706,7 +706,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandArea_post",
                 "tags": [
                     "LandArea"
                 ],
@@ -748,7 +748,7 @@
         },
         "/api/land_areas/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandArea_get",
                 "tags": [
                     "LandArea"
                 ],
@@ -791,7 +791,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandArea_delete",
                 "tags": [
                     "LandArea"
                 ],
@@ -827,7 +827,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandArea_patch",
                 "tags": [
                     "LandArea"
                 ],
@@ -890,7 +890,7 @@
         },
         "/api/land_area_parameters/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandAreaParameter_get",
                 "tags": [
                     "LandAreaParameter"
                 ],
@@ -933,7 +933,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandAreaParameter_patch",
                 "tags": [
                     "LandAreaParameter"
                 ],
@@ -996,7 +996,7 @@
         },
         "/api/land_area_settings/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandAreaSetting_get",
                 "tags": [
                     "LandAreaSetting"
                 ],
@@ -1039,7 +1039,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandAreaSetting_patch",
                 "tags": [
                     "LandAreaSetting"
                 ],
@@ -1102,7 +1102,7 @@
         },
         "/api/land_cultivation_plans": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandCultivationPlan_get-collection",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1275,7 +1275,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandCultivationPlan_post",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1317,7 +1317,7 @@
         },
         "/api/land_cultivation_plans/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandCultivationPlan_get",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1360,7 +1360,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandCultivationPlan_delete",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1396,7 +1396,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandCultivationPlan_patch",
                 "tags": [
                     "LandCultivationPlan"
                 ],
@@ -1459,7 +1459,7 @@
         },
         "/api/land_greenhouses": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandGreenhouse_get-collection",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1632,7 +1632,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandGreenhouse_post",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1674,7 +1674,7 @@
         },
         "/api/land_greenhouses/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandGreenhouse_get",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1717,7 +1717,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandGreenhouse_delete",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1753,7 +1753,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandGreenhouse_patch",
                 "tags": [
                     "LandGreenhouse"
                 ],
@@ -1816,7 +1816,7 @@
         },
         "/api/land_greenhouse_parameters/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandGreenhouseParameter_get",
                 "tags": [
                     "LandGreenhouseParameter"
                 ],
@@ -1859,7 +1859,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandGreenhouseParameter_patch",
                 "tags": [
                     "LandGreenhouseParameter"
                 ],
@@ -1922,7 +1922,7 @@
         },
         "/api/land_greenhouse_settings/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandGreenhouseSetting_get",
                 "tags": [
                     "LandGreenhouseSetting"
                 ],
@@ -1965,7 +1965,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandGreenhouseSetting_patch",
                 "tags": [
                     "LandGreenhouseSetting"
                 ],
@@ -2028,7 +2028,7 @@
         },
         "/api/land_members": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandMember_get-collection",
                 "tags": [
                     "LandMember"
                 ],
@@ -2203,7 +2203,7 @@
         },
         "/api/land_members/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandMember_get",
                 "tags": [
                     "LandMember"
                 ],
@@ -2246,7 +2246,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandMember_delete",
                 "tags": [
                     "LandMember"
                 ],
@@ -2282,7 +2282,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandMember_patch",
                 "tags": [
                     "LandMember"
                 ],
@@ -2345,7 +2345,7 @@
         },
         "/api/land_member_invitations": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandMemberInvitation_get-collection",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2518,7 +2518,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandMemberInvitation_post",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2560,7 +2560,7 @@
         },
         "/api/land_member_invitations/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandMemberInvitation_get",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2603,7 +2603,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandMemberInvitation_delete",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2639,7 +2639,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandMemberInvitation_patch",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2702,7 +2702,7 @@
         },
         "/api/land_member_invitations/{ulid}/accept": {
             "patch": {
-                "operationId": "accept",
+                "operationId": "LandMemberInvitation_accept",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2766,7 +2766,7 @@
         },
         "/api/land_member_invitations/{ulid}/refuse": {
             "patch": {
-                "operationId": "refuse",
+                "operationId": "LandMemberInvitation_refuse",
                 "tags": [
                     "LandMemberInvitation"
                 ],
@@ -2830,7 +2830,7 @@
         },
         "/api/land_member_settings/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandMemberSetting_get",
                 "tags": [
                     "LandMemberSetting"
                 ],
@@ -2873,7 +2873,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandMemberSetting_patch",
                 "tags": [
                     "LandMemberSetting"
                 ],
@@ -2936,7 +2936,7 @@
         },
         "/api/land_research_deals": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandResearchDeal_get-collection",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3092,7 +3092,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandResearchDeal_post",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3134,7 +3134,7 @@
         },
         "/api/land_research_deals/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandResearchDeal_get",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3174,7 +3174,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandResearchDeal_delete",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3209,7 +3209,7 @@
         },
         "/api/land_research_deals/{ulid}/accept": {
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandResearchDeal_patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3269,7 +3269,7 @@
         },
         "/api/land_research_deals/{ulid}/archive": {
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandResearchDeal_patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3329,7 +3329,7 @@
         },
         "/api/land_research_deals/{ulid}/refuse": {
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandResearchDeal_patch",
                 "tags": [
                     "LandResearchDeal"
                 ],
@@ -3389,7 +3389,7 @@
         },
         "/api/land_research_requests": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandResearchRequest_get-collection",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3545,7 +3545,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandResearchRequest_post",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3587,7 +3587,7 @@
         },
         "/api/land_research_requests/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandResearchRequest_get",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3627,7 +3627,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandResearchRequest_delete",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3660,7 +3660,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandResearchRequest_patch",
                 "tags": [
                     "LandResearchRequest"
                 ],
@@ -3720,7 +3720,7 @@
         },
         "/api/land_roles": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandRole_get-collection",
                 "tags": [
                     "LandRole"
                 ],
@@ -3893,7 +3893,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandRole_post",
                 "tags": [
                     "LandRole"
                 ],
@@ -3935,7 +3935,7 @@
         },
         "/api/land_roles/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandRole_get",
                 "tags": [
                     "LandRole"
                 ],
@@ -3978,7 +3978,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandRole_delete",
                 "tags": [
                     "LandRole"
                 ],
@@ -4014,7 +4014,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandRole_patch",
                 "tags": [
                     "LandRole"
                 ],
@@ -4077,7 +4077,7 @@
         },
         "/api/land_settings/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandSetting_get",
                 "tags": [
                     "LandSetting"
                 ],
@@ -4120,7 +4120,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandSetting_patch",
                 "tags": [
                     "LandSetting"
                 ],
@@ -4183,7 +4183,7 @@
         },
         "/api/land_tasks": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "LandTask_get-collection",
                 "tags": [
                     "LandTask"
                 ],
@@ -4375,7 +4375,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "LandTask_post",
                 "tags": [
                     "LandTask"
                 ],
@@ -4417,7 +4417,7 @@
         },
         "/api/land_tasks/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "LandTask_get",
                 "tags": [
                     "LandTask"
                 ],
@@ -4460,7 +4460,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "LandTask_delete",
                 "tags": [
                     "LandTask"
                 ],
@@ -4496,7 +4496,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "LandTask_patch",
                 "tags": [
                     "LandTask"
                 ],
@@ -4559,7 +4559,7 @@
         },
         "/api/land_tasks/{ulid}/mark_as_done": {
             "patch": {
-                "operationId": "mark-as-done",
+                "operationId": "LandTask_mark-as-done",
                 "tags": [
                     "LandTask"
                 ],
@@ -4623,7 +4623,7 @@
         },
         "/api/land_tasks/{ulid}/mark_as_in_progress": {
             "patch": {
-                "operationId": "mark-as-in-progress",
+                "operationId": "LandTask_mark-as-in-progress",
                 "tags": [
                     "LandTask"
                 ],
@@ -4687,7 +4687,7 @@
         },
         "/api/plants": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "Plant_get-collection",
                 "tags": [
                     "Plant"
                 ],
@@ -4843,7 +4843,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "Plant_post",
                 "tags": [
                     "Plant"
                 ],
@@ -4885,7 +4885,7 @@
         },
         "/api/plants/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "Plant_get",
                 "tags": [
                     "Plant"
                 ],
@@ -4925,7 +4925,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "Plant_delete",
                 "tags": [
                     "Plant"
                 ],
@@ -4958,7 +4958,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "Plant_patch",
                 "tags": [
                     "Plant"
                 ],
@@ -5018,7 +5018,7 @@
         },
         "/api/plant_conversion_requests": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "PlantConversionRequest_get-collection",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5174,7 +5174,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "PlantConversionRequest_post",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5216,7 +5216,7 @@
         },
         "/api/plant_conversion_requests/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "PlantConversionRequest_get",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5256,7 +5256,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "PlantConversionRequest_delete",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5289,7 +5289,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "PlantConversionRequest_patch",
                 "tags": [
                     "PlantConversionRequest"
                 ],
@@ -5349,7 +5349,7 @@
         },
         "/api/plant_customs": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "PlantCustom_get-collection",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5505,7 +5505,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "PlantCustom_post",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5547,7 +5547,7 @@
         },
         "/api/plant_customs/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "PlantCustom_get",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5587,7 +5587,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "PlantCustom_delete",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5620,7 +5620,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "PlantCustom_patch",
                 "tags": [
                     "PlantCustom"
                 ],
@@ -5680,7 +5680,7 @@
         },
         "/api/plant_globals": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "PlantGlobal_get-collection",
                 "tags": [
                     "PlantGlobal"
                 ],
@@ -5838,7 +5838,7 @@
         },
         "/api/plant_globals/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "PlantGlobal_get",
                 "tags": [
                     "PlantGlobal"
                 ],
@@ -5880,7 +5880,7 @@
         },
         "/api/seed_stocks": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "SeedStock_get-collection",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6036,7 +6036,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "SeedStock_post",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6078,7 +6078,7 @@
         },
         "/api/seed_stocks/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "SeedStock_get",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6118,7 +6118,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "SeedStock_delete",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6151,7 +6151,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "SeedStock_patch",
                 "tags": [
                     "SeedStock"
                 ],
@@ -6211,7 +6211,7 @@
         },
         "/api/seed_stock_entries": {
             "get": {
-                "operationId": "get-collection",
+                "operationId": "SeedStockEntry_get-collection",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6367,7 +6367,7 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "post",
+                "operationId": "SeedStockEntry_post",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6409,7 +6409,7 @@
         },
         "/api/seed_stock_entries/{ulid}": {
             "get": {
-                "operationId": "get",
+                "operationId": "SeedStockEntry_get",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6449,7 +6449,7 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "delete",
+                "operationId": "SeedStockEntry_delete",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6482,7 +6482,7 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "patch",
+                "operationId": "SeedStockEntry_patch",
                 "tags": [
                     "SeedStockEntry"
                 ],
@@ -6881,7 +6881,8 @@
                 "description": "",
                 "deprecated": false,
                 "required": [
-                    "name"
+                    "name",
+                    "state"
                 ],
                 "properties": {
                     "name": {
@@ -6993,7 +6994,8 @@
                 "description": "",
                 "deprecated": false,
                 "required": [
-                    "name"
+                    "name",
+                    "state"
                 ],
                 "properties": {
                     "@id": {
