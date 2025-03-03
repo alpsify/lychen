@@ -1,6 +1,6 @@
+import { execSync } from 'child_process';
 import path from 'path';
 import { generateApi } from 'swagger-typescript-api';
-import { execSync } from 'child_process';
 
 async function main() {
   try {
@@ -18,7 +18,7 @@ async function main() {
       apiClassName: 'TeraApi',
       output: path.resolve('./generated'),
       input: path.resolve(openApiPath), // Use the path from the environment variable
-      templates: path.resolve('./swagger/templates'),
+      templates: path.resolve('./scripts/swagger/templates'),
       generateClient: true,
       httpClientType: 'fetch',
       modular: true,
@@ -59,7 +59,7 @@ async function main() {
 
     // Execute the index generation script
     console.log('Generating index.ts...');
-    execSync('node --loader ts-node/esm generate-index.mts', {
+    execSync('node --loader ts-node/esm ./scripts/generate-index.mts', {
       stdio: 'inherit',
     });
     console.log('Index.ts generated.');

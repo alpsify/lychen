@@ -2525,8 +2525,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-util-api-sdk@workspace:libs/tera/util-api-sdk"
   dependencies:
-    "@lychen/typescript-util-json-ld-hydra": "workspace:*"
-    "@lychen/typescript-util-object": "workspace:*"
     swagger-typescript-api: "npm:^13.0.23"
     ts-node: "npm:10.9.2"
   languageName: unknown

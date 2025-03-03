@@ -1,7 +1,3 @@
-dependsOn:
-  - typescript-util-json-ld-hydra
-  - typescript-util-object
-
 env:
   OPENAPI_SCHEMA_JSON: ../../../projects/tera/api/openapi_docs.json
 
@@ -11,7 +7,7 @@ language: typescript
 
 tasks:
   generate-api:
-    command: yarn run generate-api
+    command: node --loader ts-node/esm ./scripts/generate-api.mts
     deps:
       - tera-api:export-openapi
     options:
