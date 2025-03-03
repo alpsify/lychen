@@ -19,7 +19,6 @@ final readonly class LandsLookingForMembersProvider implements ProviderInterface
 
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): object|array|null
     {
-        dump($operation);
         [$page, , $limit] = $this->pagination->getPagination($operation, $context);
 
         return new Paginator($this->landRepository->findLookingForMembers($page, $limit));
