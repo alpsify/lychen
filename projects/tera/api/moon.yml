@@ -1,6 +1,7 @@
 dependsOn:
   - lychen-php-util-core
   - lychen-php-util-model
+  - lychen-php-util-tiptap
   - lychen-php-util-zitadel
 
 env:
