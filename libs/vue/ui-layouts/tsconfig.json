@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../ui-components-core/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../ui-components-core"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/ui-layouts",
+    "paths": {
+      "@lychen/vue-ui-components-core/*": ["../ui-components-core/*"]
+    }
+  }
+}

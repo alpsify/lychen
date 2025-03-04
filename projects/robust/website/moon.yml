@@ -4,8 +4,6 @@ dependsOn:
   - robust-ui-i18n
   - robust-util-constants
   - robust-util-features
-
-  - ui-components
   - ui-css
   - ui-i18n
   - util-constants
@@ -13,10 +11,11 @@ dependsOn:
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
+  - vue-ui-components-core
+  - vue-ui-components-website
+  - vue-ui-layouts
   - vue-unhead-util-composables
   - vue-util-composables
-  - website-ui-components
-  - website-ui-layouts
 
 env:
   DEV_DOMAIN: robust.lychen.local

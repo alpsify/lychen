@@ -69,7 +69,7 @@ const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 const LychenTooltip = defineAsyncComponent(
-  () => import('@lychen/ui-components/tooltip/LychenTooltip.vue'),
+  () => import('@lychen/vue-ui-components-core/tooltip/LychenTooltip.vue'),
 );
 
 const step = ref(0);

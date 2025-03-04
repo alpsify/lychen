@@ -1,12 +1,13 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../typescript/util-tailwind/**/*",
     "../../ui-components/**/*",
     "../../vue/i18n/util-composables/**/*",
+    "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
-    "../util-model/**/*"
+    "../util-model/**/*",
+    "**/*"
   ],
   "references": [
     {
@@ -17,6 +18,9 @@
     },
     {
       "path": "../../vue/i18n/util-composables"
+    },
+    {
+      "path": "../../vue/ui-components-core"
     },
     {
       "path": "../ui-i18n"
@@ -33,7 +37,8 @@
       "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
       "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
-      "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"]
+      "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"],
+      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
     }
   }
 }

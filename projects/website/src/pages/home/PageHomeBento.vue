@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col items-center">
+  <Container class="flex flex-col items-center">
     <div class="bento-grid self-stretch mt-8">
       <div class="item justify-center">
         <LychenIcon
@@ -71,7 +71,7 @@
         <p class="gradient text-2xl">{{ t('bento.transparency.subtitle') }}</p>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -82,8 +82,8 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

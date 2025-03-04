@@ -4,6 +4,7 @@
     "../../typescript/util-object/**/*",
     "../../ui-components/**/*",
     "../../vue/i18n/util-composables/**/*",
+    "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
     "**/*"
   ],
@@ -18,6 +19,9 @@
       "path": "../../vue/i18n/util-composables"
     },
     {
+      "path": "../../vue/ui-components-core"
+    },
+    {
       "path": "../ui-i18n"
     }
   ],
@@ -28,7 +32,8 @@
       "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
       "@lychen/tera-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../ui-i18n/*"],
-      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"]
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
+      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
     }
   }
 }

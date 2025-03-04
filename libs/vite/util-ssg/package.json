@@ -6,6 +6,7 @@
     "@lychen/ui-components": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-router-util-configs": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

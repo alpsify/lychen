@@ -1,5 +1,5 @@
 <template>
-  <LayoutApplication
+  <LayoutWebsiteApplication
     :application-name="t('name')"
     :application-state="APP_STATE"
     :route-home="RoutePageHome"
@@ -14,7 +14,7 @@
     <template #footerUnderLogo>
       <TheFooter />
     </template>
-  </LayoutApplication>
+  </LayoutWebsiteApplication>
 </template>
 
 <script lang="ts" setup>
@@ -25,8 +25,8 @@ import { TRANSLATION_KEY, messages } from '@lychen/tera-ui-i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { defineAsyncComponent } from 'vue';
 
-const LayoutApplication = defineAsyncComponent(
-  () => import('@lychen/website-ui-layouts/application/LayoutApplication.vue'),
+const LayoutWebsiteApplication = defineAsyncComponent(
+  () => import('@lychen/vue-ui-layouts/website-app/LayoutWebsiteApplication.vue'),
 );
 const LychenLogoFull = defineAsyncComponent(
   () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),

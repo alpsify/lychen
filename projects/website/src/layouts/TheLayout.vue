@@ -17,7 +17,7 @@
 import { defineAsyncComponent } from 'vue';
 
 const LayoutMain = defineAsyncComponent(
-  () => import('@lychen/website-ui-layouts/main/LayoutMain.vue'),
+  () => import('@lychen/vue-ui-layouts/website-main/LayoutWebsiteMain.vue'),
 );
 const LychenLogoFull = defineAsyncComponent(
   () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),

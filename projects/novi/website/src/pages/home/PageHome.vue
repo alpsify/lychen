@@ -1,18 +1,18 @@
 <template>
   <PageHomeHero />
-  <WebsiteSectionCrowfunding />
-  <WebsiteSectionApplicationFeatures :features="features" />
+  <SectionCrowdfunding />
+  <SectionApplicationFeatures :features="features" />
 </template>
 
 <script lang="ts" setup>
 import ogImageUrl from './assets/HomeOgImage.webp';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import WebsiteSectionCrowfunding from '@lychen/website-ui-components/sections/WebsiteSectionCrowfunding.vue';
+import SectionCrowdfunding from '@lychen/vue-ui-components-website/section-crowdfunding/SectionCrowdfunding.vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';
 import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
-import WebsiteSectionApplicationFeatures from '@lychen/website-ui-components/sections/application-features/WebsiteSectionApplicationFeatures.vue';
+import SectionApplicationFeatures from '@lychen/vue-ui-components-website/section-application-features/SectionApplicationFeatures.vue';
 import { useFeatures } from '@lychen/novi-util-features/composables/useFeatures';
 import { ref } from 'vue';
 

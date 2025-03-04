@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col gap-4 lg:w-1/2 md:py-20">
+  <Container class="flex flex-col gap-4 lg:w-1/2 md:py-20">
     <LychenTitle variant="h2">{{ t(`section.how_we_use_funds.title`) }}</LychenTitle>
     <LychenParagraph variant="website-highlight">{{
       t(`section.how_we_use_funds.description`)
@@ -15,7 +15,7 @@
         />{{ t(`section.how_we_use_funds.points.${pointKey}.title`) }}
       </li>
     </ul>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -25,8 +25,8 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const LychenTitle = defineAsyncComponent(

@@ -150,8 +150,8 @@
     </div>
 
     <div class="flex flex-row items-center gap-4">
-      <LychenLanguageSwitcher />
-      <LychenThemeSwitcher />
+      <LanguageSwitcher />
+      <ThemeSwitcher />
       <a
         :href="SOCIAL_LINK.GitHub"
         target="_blank"
@@ -172,7 +172,7 @@
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
       </a>
-      <WebsiteButtonTallyPreregister class="hidden md:flex" />
+      <ButtonTallyPreregister class="hidden md:flex" />
     </div>
   </div>
 </template>
@@ -194,21 +194,21 @@ import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
 
-import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
+import ButtonTallyPreregister from '@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
 import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
 import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
 
-const LychenLanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/ui-components/language-switcher/LychenLanguageSwitcher.vue'),
+const LanguageSwitcher = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue'),
 );
 
 const LychenNavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
 );
 
-const LychenThemeSwitcher = defineAsyncComponent(
-  () => import('@lychen/ui-components/theme-switcher/LychenThemeSwitcher.vue'),
+const ThemeSwitcher = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
 const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));

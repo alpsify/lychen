@@ -9,6 +9,7 @@
     "../../../libs/ui-css/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
+    "../../../libs/vue/ui-components-core/**/*",
     "../../../libs/vue/util-composables/**/*",
     "**/*"
   ],
@@ -38,6 +39,9 @@
       "path": "../../../libs/vue/i18n/util-configs"
     },
     {
+      "path": "../../../libs/vue/ui-components-core"
+    },
+    {
       "path": "../../../libs/vue/util-composables"
     }
   ],
@@ -57,7 +61,8 @@
       "@lychen/typescript-util-zitadel/*": ["../../../libs/typescript/util-zitadel/*"],
       "@lychen/tera-util-api-sdk/*": ["../../../libs/tera/util-api-sdk/*"],
       "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],
-      "@lychen/tera-ui-components/*": ["../../../libs/tera/ui-components/*"]
+      "@lychen/tera-ui-components/*": ["../../../libs/tera/ui-components/*"],
+      "@lychen/vue-ui-components-core/*": ["../../../libs/vue/ui-components-core/*"]
     }
   }
 }

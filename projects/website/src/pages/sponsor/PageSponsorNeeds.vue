@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col gap-4 items-center md:py-20">
+  <Container class="flex flex-col gap-4 items-center md:py-20">
     <LychenTitle variant="h2">{{ t(`section.needs.title`) }}</LychenTitle>
     <LychenParagraph
       variant="website-highlight"
@@ -172,7 +172,7 @@
         </div>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -192,8 +192,8 @@ const LychenRainbowBox = defineAsyncComponent(
   () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const LychenTitle = defineAsyncComponent(

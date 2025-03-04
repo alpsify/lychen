@@ -1,6 +1,6 @@
 <template>
-  <LychenDivScalingDown class="flex flex-col justify-start">
-    <LychenHero
+  <DivScalingDown class="flex flex-col justify-start">
+    <Hero
       class="text-surface dark:text-on-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
       :background-image="heroUrl"
       overlay
@@ -44,8 +44,8 @@
           </RouterLink>
         </div>
       </div>
-    </LychenHero>
-  </LychenDivScalingDown>
+    </Hero>
+  </DivScalingDown>
 </template>
 
 <script setup lang="ts">
@@ -56,11 +56,11 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageSponsor } from '../sponsor';
 
-const LychenDivScalingDown = defineAsyncComponent(
-  () => import('@lychen/ui-components/div/LychenDivScalingDown.vue'),
+const DivScalingDown = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
-const LychenHero = defineAsyncComponent(() => import('@lychen/ui-components/hero/LychenHero.vue'));
+const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));
 const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
 );

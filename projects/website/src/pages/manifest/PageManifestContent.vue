@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-4">
-    <LychenContainer
+    <Container
       v-for="(sectionKey, index) in Object.keys(messages['fr-FR'].section)"
       :key="index"
       class="md:py-10"
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-    </LychenContainer>
+    </Container>
   </div>
 </template>
 
@@ -53,8 +53,8 @@ const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

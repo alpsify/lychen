@@ -11,7 +11,7 @@ export function ViteSSGScaffold(app: Component, routes: RouteRecordRaw[]) {
     app,
     buildConfigObject(routes),
     ({ app, router, routes, isClient, initialState }) => {
-      loadFontAwesomeStyles();
+      loadFontAwesomeStyles(); //TODO To remove and also the dependencies
       useI18n(app);
     },
   );

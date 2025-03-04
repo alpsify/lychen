@@ -1,14 +1,14 @@
 <template>
-  <LychenContainer class="flex flex-col xl:flex-row items-center gap-8 xl:mb-20">
+  <Container class="flex flex-col xl:flex-row items-center gap-8 xl:mb-20">
     <div class="md:basis-1/3 flex flex-col gap-6">
       <LychenTitle class="text-5xl md:text-8xl"
         >{{ t('intro.title.1') }} <br />
         {{ t('intro.title.2') }} <br />
 
-        <LychenTextHighlight
+        <TextHighlight
           class="bg-gradient-to-r from-indigo-300 to-purple-300 rounded-lg md:text-8xl"
           text-end-color="var(--color-surface)"
-          >{{ t('intro.title.3') }}</LychenTextHighlight
+          >{{ t('intro.title.3') }}</TextHighlight
         ></LychenTitle
       >
       <LychenTitle
@@ -127,7 +127,7 @@
         </div>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script lang="ts" setup>
@@ -140,10 +140,10 @@ import CompanyImageUrl from './assets/CompanyLogo.png';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
+import Container from '@lychen/vue-ui-components-website/container/Container.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
-import LychenTextHighlight from '@lychen/ui-components/text-highlight/LychenTextHighlight.vue';
+import { TextHighlight } from '@lychen/vue-ui-components-extra/text-highlight';
 import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

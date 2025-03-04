@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col items-center gap-4">
+  <Container class="flex flex-col items-center gap-4">
     <LychenTitle
       variant="h2"
       class="text-center md:w-2/3"
@@ -12,7 +12,7 @@
       {{ t('use_cases.description') }}
     </LychenParagraph>
     <LychenGlobal />
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -30,8 +30,8 @@ const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

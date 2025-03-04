@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer
+  <Container
     wrapper-class="bg-gradient-to-b from-surface-container to-surface"
     class="flex flex-col"
   >
@@ -41,12 +41,12 @@
         </div>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
 import { messages, TRANSLATION_KEY } from './i18n';
-import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
+import Container from '@lychen/vue-ui-components-website/container/Container.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

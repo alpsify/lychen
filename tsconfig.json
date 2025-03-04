@@ -155,7 +155,16 @@
       "path": "libs/typescript/util-zitadel"
     },
     {
+      "path": "libs/ui-base-components"
+    },
+    {
       "path": "libs/ui-components"
+    },
+    {
+      "path": "libs/ui-components-core"
+    },
+    {
+      "path": "libs/ui-components-extra"
     },
     {
       "path": "libs/ui-css"
@@ -203,19 +212,25 @@
       "path": "libs/vue/tiptap/util-composables"
     },
     {
+      "path": "libs/vue/ui-components-core"
+    },
+    {
+      "path": "libs/vue/ui-components-extra"
+    },
+    {
+      "path": "libs/vue/ui-components-website"
+    },
+    {
+      "path": "libs/vue/ui-layouts"
+    },
+    {
       "path": "libs/vue/unhead/util-composables"
     },
     {
       "path": "libs/vue/util-composables"
     },
     {
-      "path": "libs/website/ui-components"
-    },
-    {
       "path": "libs/website/ui-i18n"
-    },
-    {
-      "path": "libs/website/ui-layouts"
     },
     {
       "path": "projects/eko/website"
@@ -272,7 +287,5 @@
       "path": "projects/website"
     }
   ],
-  "exclude": [
-    "**/vendor/*"
-  ]
+  "exclude": ["**/vendor/*"]
 }

@@ -1,7 +1,7 @@
 dependsOn:
-  - ui-components
   - vue-i18n-util-configs
   - vue-router-util-configs
+  - vue-ui-components-core
 
 id: vite-util-ssg
 

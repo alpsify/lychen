@@ -1,10 +1,10 @@
 <template>
-  <LychenContainer class="flex flex-col items-stretch justify-center">
+  <Container class="flex flex-col items-stretch justify-center">
     <a
       :href="LINK.TallyPreregisterForm"
       target="_blank"
     >
-      <LychenDivWithBackgroundImage
+      <DivWithBackgroundImg
         :background-image="imageUrl"
         overlay
         overlay-class="bg-on-surface dark:bg-surface opacity-50"
@@ -29,9 +29,9 @@
             >{{ t('preregister.button.label') }} <LychenIcon icon="chevron-right"
           /></LychenButton>
         </div>
-      </LychenDivWithBackgroundImage>
+      </DivWithBackgroundImg>
     </a>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -42,8 +42,8 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { LINK } from '@lychen/util-constants/Link';
 
-const LychenDivWithBackgroundImage = defineAsyncComponent(
-  () => import('@lychen/ui-components/div/LychenDivWithBackgroundImage.vue'),
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img'),
 );
 
 const LychenButton = defineAsyncComponent(
@@ -59,8 +59,8 @@ const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

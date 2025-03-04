@@ -1,0 +1,38 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../typescript/util-tailwind/**/*",
+    "../i18n/util-composables/**/*",
+    "../ui-components-core/**/*",
+    "../ui-components-extra/**/*",
+    "../util-composables/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../typescript/util-tailwind"
+    },
+    {
+      "path": "../i18n/util-composables"
+    },
+    {
+      "path": "../ui-components-core"
+    },
+    {
+      "path": "../ui-components-extra"
+    },
+    {
+      "path": "../util-composables"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/ui-components-website",
+    "paths": {
+      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
+      "@lychen/vue-i18n-util-composables/*": ["../i18n/util-composables/*"],
+      "@lychen/vue-ui-components-core/*": ["../ui-components-core/*"],
+      "@lychen/vue-ui-components-extra/*": ["../ui-components-extra/*"],
+      "@lychen/vue-util-composables/*": ["../util-composables/*"]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <template>
-  <LychenContainer class="flex flex-col items-stretch justify-center">
+  <Container class="flex flex-col items-stretch justify-center">
     <RouterLink :to="RoutePageManifest">
-      <LychenDivWithBackgroundImage
+      <DivWithBackgroundImg
         :background-image="ossUrl"
         overlay
         overlay-class="bg-on-surface dark:bg-surface opacity-50"
@@ -26,9 +26,9 @@
             >{{ t('oss.button.label') }} <LychenIcon icon="chevron-right"
           /></LychenButton>
         </div>
-      </LychenDivWithBackgroundImage>
+      </DivWithBackgroundImg>
     </RouterLink>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -39,8 +39,8 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { RoutePageManifest } from '../manifest';
 
-const LychenDivWithBackgroundImage = defineAsyncComponent(
-  () => import('@lychen/ui-components/div/LychenDivWithBackgroundImage.vue'),
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img'),
 );
 
 const LychenButton = defineAsyncComponent(
@@ -56,8 +56,8 @@ const LychenParagraph = defineAsyncComponent(
   () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

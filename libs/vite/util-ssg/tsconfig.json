@@ -4,6 +4,7 @@
     "../../ui-components/**/*",
     "../../vue/i18n/util-configs/**/*",
     "../../vue/router/util-configs/**/*",
+    "../../vue/ui-components-core/**/*",
     "**/*"
   ],
   "references": [
@@ -15,6 +16,9 @@
     },
     {
       "path": "../../vue/router/util-configs"
+    },
+    {
+      "path": "../../vue/ui-components-core"
     }
   ],
   "compilerOptions": {
@@ -22,7 +26,8 @@
     "paths": {
       "@lychen/ui-components/*": ["../../ui-components/*"],
       "@lychen/vue-i18n-util-configs/*": ["../../vue/i18n/util-configs/*"],
-      "@lychen/vue-router-util-configs/*": ["../../vue/router/util-configs/*"]
+      "@lychen/vue-router-util-configs/*": ["../../vue/router/util-configs/*"],
+      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
     }
   }
 }

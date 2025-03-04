@@ -1,9 +1,17 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../../ui-components/**/*", "../util-sdk/**/*"],
+  "include": [
+    "../../ui-components/**/*",
+    "../../vue/ui-components-core/**/*",
+    "../util-sdk/**/*",
+    "**/*"
+  ],
   "references": [
     {
       "path": "../../ui-components"
+    },
+    {
+      "path": "../../vue/ui-components-core"
     },
     {
       "path": "../util-sdk"
@@ -13,7 +21,8 @@
     "outDir": "../../../.moon/cache/types/libs/kiro/ui-components",
     "paths": {
       "@lychen/kiro-util-sdk/*": ["../util-sdk/*"],
-      "@lychen/ui-components/*": ["../../ui-components/*"]
+      "@lychen/ui-components/*": ["../../ui-components/*"],
+      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4 flex w-full flex-col items-stretch justify-start gap-2">
-    <WebsiteButtonTallyPreregister />
+    <ButtonTallyPreregister />
     <div class="text-lg font-bold">
       <RouterLink
         :to="RoutePageHome"
@@ -8,17 +8,17 @@
         >{{ t(`navigation.home.title`) }}
       </RouterLink>
     </div>
-    <LychenAccordion
+    <Accordion
       type="single"
       class="w-full"
       collapsible
       :default-value="'resources'"
     >
-      <LychenAccordionItem value="applications">
-        <LychenAccordionTrigger class="text-lg font-bold">{{
+      <AccordionItem value="applications">
+        <AccordionTrigger class="text-lg font-bold">{{
           t(`navigation.app.title`)
-        }}</LychenAccordionTrigger>
-        <LychenAccordionContent>
+        }}</AccordionTrigger>
+        <AccordionContent>
           <LychenNavigationMenuSubLink
             v-for="application in opiniatedApplicationsList"
             v-bind="application"
@@ -29,35 +29,35 @@
             v-bind="robust"
             @navigate-to-route="closeMobileMenu"
           />
-        </LychenAccordionContent>
-      </LychenAccordionItem>
-      <LychenAccordionItem value="resources">
-        <LychenAccordionTrigger class="text-lg font-bold">{{
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="resources">
+        <AccordionTrigger class="text-lg font-bold">{{
           t(`navigation.resources.title`)
-        }}</LychenAccordionTrigger>
-        <LychenAccordionContent>
+        }}</AccordionTrigger>
+        <AccordionContent>
           <LychenNavigationMenuSubLink
             v-for="resourceMenu in resourcesMenuList"
             v-bind="resourceMenu"
             :key="resourceMenu.title"
             @navigate-to-route="closeMobileMenu"
           />
-        </LychenAccordionContent>
-      </LychenAccordionItem>
-      <LychenAccordionItem value="community">
-        <LychenAccordionTrigger class="text-lg font-bold">{{
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="community">
+        <AccordionTrigger class="text-lg font-bold">{{
           t(`navigation.community.title`)
-        }}</LychenAccordionTrigger>
-        <LychenAccordionContent>
+        }}</AccordionTrigger>
+        <AccordionContent>
           <LychenNavigationMenuSubLink
             v-for="communityMenu in communityMenuList"
             v-bind="communityMenu"
             :key="communityMenu.title"
             @navigate-to-route="closeMobileMenu"
           />
-        </LychenAccordionContent>
-      </LychenAccordionItem>
-    </LychenAccordion>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
 
     <div class="text-lg font-bold">
       <RouterLink
@@ -87,13 +87,13 @@ import { RoutePageHome } from '@pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import LychenNavigationMenuSubLink from '@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue';
-import LychenAccordion from '@lychen/ui-components/accordion/LychenAccordion.vue';
-import LychenAccordionTrigger from '@lychen/ui-components/accordion/LychenAccordionTrigger.vue';
-import LychenAccordionContent from '@lychen/ui-components/accordion/LychenAccordionContent.vue';
-import LychenAccordionItem from '@lychen/ui-components/accordion/LychenAccordionItem.vue';
+import Accordion from '@lychen/vue-ui-components-core/accordion/Accordion.vue';
+import AccordionTrigger from '@lychen/vue-ui-components-core/accordion/AccordionTrigger.vue';
+import AccordionContent from '@lychen/vue-ui-components-core/accordion/AccordionContent.vue';
+import AccordionItem from '@lychen/vue-ui-components-core/accordion/AccordionItem.vue';
 import { inject, type Ref, computed } from 'vue';
 import { RoutePageSponsor } from '@pages/sponsor';
-import WebsiteButtonTallyPreregister from '@lychen/website-ui-components/buttons/tally-preregister/WebsiteButtonTallyPreregister.vue';
+import ButtonTallyPreregister from '@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

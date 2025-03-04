@@ -6,6 +6,7 @@
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/ui-components": "workspace:*",
-    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*"
   }
 }

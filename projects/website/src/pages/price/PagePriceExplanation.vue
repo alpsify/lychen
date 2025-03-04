@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col items-stretch justify-center gap-4">
+  <Container class="flex flex-col items-stretch justify-center gap-4">
     <LychenTitle variant="h2">{{ t('explanation.title') }}</LychenTitle>
     <LychenParagraph
       class="md:w-4/6"
@@ -31,7 +31,7 @@
         >A·lfred</a
       >
     </LychenParagraph>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script lang="ts" setup>
@@ -50,8 +50,8 @@ const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

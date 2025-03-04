@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer class="flex flex-col gap-10">
+  <Container class="flex flex-col gap-10">
     <div class="flex flex-col items-center justify-between gap-4 lg:flex-row lg:justify-center">
       <LychenTitle
         variant="h2"
@@ -24,7 +24,7 @@
         <div class="opacity-70">{{ t(`actors.${actor}.text`) }}</div>
       </LychenCard>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -36,8 +36,8 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
 );
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 const LychenCard = defineAsyncComponent(() => import('@lychen/ui-components/card/LychenCard.vue'));
 const LychenParagraph = defineAsyncComponent(

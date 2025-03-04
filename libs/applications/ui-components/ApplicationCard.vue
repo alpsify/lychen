@@ -1,5 +1,5 @@
 <template>
-  <LychenDivWithBackgroundImage
+  <DivWithBackgroundImg
     :class="cn('flex flex-col gap-2 p-6 rounded-xl group justify-between', $props.class)"
     :background-image="`${backgroundImageFolder}/${application.alias}-cover-1.webp`"
     overlay
@@ -16,7 +16,7 @@
       <p class="opacity-80 text-balance">{{ application.description }}</p>
     </div>
     <slot name="footer" />
-  </LychenDivWithBackgroundImage>
+  </DivWithBackgroundImg>
 </template>
 
 <script setup lang="ts">
@@ -24,7 +24,7 @@ import { type Application } from '@lychen/applications-util-model/Application';
 import { defineAsyncComponent, type HTMLAttributes } from 'vue';
 import ApplicationTitle from './ApplicationTitle.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import LychenDivWithBackgroundImage from '@lychen/ui-components/div/LychenDivWithBackgroundImage.vue';
+import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
 
 const LychenBadge = defineAsyncComponent(
   () => import('@lychen/ui-components/badge/LychenBadge.vue'),

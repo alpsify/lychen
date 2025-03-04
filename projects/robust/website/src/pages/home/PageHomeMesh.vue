@@ -1,5 +1,5 @@
 <template>
-  <LychenContainer>
+  <Container>
     <div
       class="flex flex-col-reverse xl:flex-row bg-secondary-container text-on-secondary-container rounded-3xl items-stretch outline outline-offset-4 outline-secondary-container"
     >
@@ -25,13 +25,13 @@
         :style="`background-image: url('${ImageUrl}');`"
       ></div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
 import ImageUrl from './assets/Collaborate.webp';
 import { messages, TRANSLATION_KEY } from './i18n';
-import LychenContainer from '@lychen/ui-components/container/LychenContainer.vue';
+import Container from '@lychen/vue-ui-components-website/container/Container.vue';
 import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
 import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

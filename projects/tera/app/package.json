@@ -17,6 +17,7 @@
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
     "@tanstack/vue-query": "^5.66.11",
     "ol": "^10.3.1",

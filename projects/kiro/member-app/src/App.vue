@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 
-const LychenTooltipProvider = defineAsyncComponent(
-  () => import('@lychen/ui-components/tooltip/LychenTooltipProvider.vue'),
+const TooltipProvider = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/tooltip/TooltipProvider.vue'),
 );
 </script>
 
 <template>
-  <LychenTooltipProvider>
+  <TooltipProvider>
     <RouterView />
-  </LychenTooltipProvider>
+  </TooltipProvider>
 </template>

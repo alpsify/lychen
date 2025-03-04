@@ -1,0 +1,15 @@
+dependsOn:
+  - typescript-util-object
+  - typescript-util-tailwind
+
+id: vue-ui-components-core
+
+language: typescript
+
+tasks:
+  shadcn-add:
+    command: 'npx shadcn-vue@latest add '
+    options:
+      interactive: true
+
+type: library

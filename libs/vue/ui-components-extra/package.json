@@ -1,0 +1,13 @@
+{
+  "name": "@lychen/vue-ui-components-extra",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/typescript-util-tailwind": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
+    "@vueuse/core": "^12.7.0",
+    "class-variance-authority": "^0.7.1",
+    "reka-ui": "^2.0.2",
+    "vue": "^3.5.13"
+  }
+}
