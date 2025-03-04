@@ -123,15 +123,16 @@
 
 <script lang="ts" setup>
 import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
-import { defineAsyncComponent, onBeforeMount, ref } from 'vue';
+import { defineAsyncComponent } from 'vue';
 import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
 import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
 import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
 import headerImg from './assets/header.webp';
-import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
-import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
+import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
+import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useQuery } from '@tanstack/vue-query';
 
 const LychenTitle = defineAsyncComponent(
   () => import('@lychen/ui-components/title/LychenTitle.vue'),
@@ -141,37 +142,23 @@ const LychenButton = defineAsyncComponent(
   () => import('@lychen/ui-components/button/LychenButton.vue'),
 );
 
-onBeforeMount(() => {
-  fetchLands();
-  fetchLandsLookingForMember();
+const api = useTeraApi('Land');
+
+const { data: lands } = useQuery({
+  queryKey: ['land'],
+  queryFn: async () => {
+    const response = await api.landGetCollection({});
+    return response.data;
+  },
 });
 
-const landApi = useTeraApi('Land');
-const lands = ref();
-
-async function fetchLands() {
-  try {
-    const response = await landApi.getCollection({});
-    lands.value = response.data;
-  } catch (e) {
-    // console.log(e);
-  }
-}
-
-const landsLookingForMember = ref();
-
-async function fetchLandsLookingForMember() {
-  try {
-    const response = await landApi.getCollectionLookingForMembers({});
-
-    if (response.status === 200) {
-      landsLookingForMember.value = response.data;
-    }
-    //console.log(json);
-  } catch (e) {
-    //console.log(e);
-  }
-}
+const { data: landsLookingForMember } = useQuery({
+  queryKey: ['landsLookingForMember'],
+  queryFn: async () => {
+    const response = await api.landGetCollectionLookingForMembers({});
+    return response.data;
+  },
+});
 </script>
 
 <style lang="css" scoped></style>

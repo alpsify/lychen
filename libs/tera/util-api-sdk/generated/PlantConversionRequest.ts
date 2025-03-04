@@ -10,8 +10,8 @@
  */
 
 import type {
-  GetCollectionParams22,
   PlantConversionRequest,
+  PlantConversionRequestGetCollectionParams,
   PlantConversionRequestJsonld,
 } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
@@ -27,7 +27,7 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
  * @description Retrieves the collection of PlantConversionRequest resources.
  *
  * @tags PlantConversionRequest
- * @name GetCollection
+ * @name PlantConversionRequestGetCollection
  * @summary Retrieves the collection of PlantConversionRequest resources.
  * @request GET:/api/plant_conversion_requests
  * @secure
@@ -66,7 +66,10 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
 
 }` PlantConversionRequest collection
  */
-  getCollection = (query: GetCollectionParams22, params: RequestParams = {}) =>
+  plantConversionRequestGetCollection = (
+    query: PlantConversionRequestGetCollectionParams,
+    params: RequestParams = {},
+  ) =>
     this.http.request<
       {
         member: PlantConversionRequestJsonld[];
@@ -111,7 +114,7 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @description Creates a PlantConversionRequest resource.
    *
    * @tags PlantConversionRequest
-   * @name Post
+   * @name PlantConversionRequestPost
    * @summary Creates a PlantConversionRequest resource.
    * @request POST:/api/plant_conversion_requests
    * @secure
@@ -119,7 +122,7 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data: PlantConversionRequestJsonld, params: RequestParams = {}) =>
+  plantConversionRequestPost = (data: PlantConversionRequestJsonld, params: RequestParams = {}) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests`,
       method: 'POST',
@@ -133,14 +136,14 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @description Retrieves a PlantConversionRequest resource.
    *
    * @tags PlantConversionRequest
-   * @name Get
+   * @name PlantConversionRequestGet
    * @summary Retrieves a PlantConversionRequest resource.
    * @request GET:/api/plant_conversion_requests/{ulid}
    * @secure
    * @response `200` `PlantConversionRequestJsonld` PlantConversionRequest resource
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  plantConversionRequestGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
       method: 'GET',
@@ -152,14 +155,14 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @description Removes the PlantConversionRequest resource.
    *
    * @tags PlantConversionRequest
-   * @name Delete
+   * @name PlantConversionRequestDelete
    * @summary Removes the PlantConversionRequest resource.
    * @request DELETE:/api/plant_conversion_requests/{ulid}
    * @secure
    * @response `204` `void` PlantConversionRequest resource deleted
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  plantConversionRequestDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
       method: 'DELETE',
@@ -170,7 +173,7 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @description Updates the PlantConversionRequest resource.
    *
    * @tags PlantConversionRequest
-   * @name Patch
+   * @name PlantConversionRequestPatch
    * @summary Updates the PlantConversionRequest resource.
    * @request PATCH:/api/plant_conversion_requests/{ulid}
    * @secure
@@ -179,7 +182,11 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: PlantConversionRequest, params: RequestParams = {}) =>
+  plantConversionRequestPatch = (
+    ulid: string,
+    data: PlantConversionRequest,
+    params: RequestParams = {},
+  ) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
       method: 'PATCH',

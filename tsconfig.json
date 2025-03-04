@@ -119,22 +119,7 @@
       "path": "libs/robust/util-features"
     },
     {
-      "path": "libs/tera/land/ui-components"
-    },
-    {
-      "path": "libs/tera/land/ui-i18n"
-    },
-    {
-      "path": "libs/tera/land/util-composables"
-    },
-    {
-      "path": "libs/tera/land-task/ui-components"
-    },
-    {
-      "path": "libs/tera/land-task/ui-i18n"
-    },
-    {
-      "path": "libs/tera/land-task/util-composables"
+      "path": "libs/tera/ui-components"
     },
     {
       "path": "libs/tera/ui-i18n"
@@ -287,5 +272,7 @@
       "path": "projects/website"
     }
   ],
-  "exclude": ["**/vendor/*"]
+  "exclude": [
+    "**/vendor/*"
+  ]
 }

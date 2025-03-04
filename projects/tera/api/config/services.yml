@@ -35,10 +35,11 @@ services:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     autowire: true # Automatically injects dependencies in your services.
     bind:
+      $zitadelProjectId: '%env(ZITADEL_PROJECT_ID)%'
 
   land_task.order_filter:
     arguments:
       $orderParameterName: order
       $properties: { dueDate: ~ }
     parent: 'api_platform.doctrine.orm.order_filter'
-    tags: ['api_platform.filter']
+    tags: [ 'api_platform.filter' ]

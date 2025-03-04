@@ -10,8 +10,8 @@
  */
 
 import type {
-  GetCollectionParams12,
   LandResearchDeal,
+  LandResearchDealGetCollectionParams,
   LandResearchDealJsonld,
 } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
@@ -27,7 +27,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandResearchDeal resources.
  *
  * @tags LandResearchDeal
- * @name GetCollection
+ * @name LandResearchDealGetCollection
  * @summary Retrieves the collection of LandResearchDeal resources.
  * @request GET:/api/land_research_deals
  * @secure
@@ -66,7 +66,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
 
 }` LandResearchDeal collection
  */
-  getCollection = (query: GetCollectionParams12, params: RequestParams = {}) =>
+  landResearchDealGetCollection = (
+    query: LandResearchDealGetCollectionParams,
+    params: RequestParams = {},
+  ) =>
     this.http.request<
       {
         member: LandResearchDealJsonld[];
@@ -111,7 +114,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Creates a LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Post
+   * @name LandResearchDealPost
    * @summary Creates a LandResearchDeal resource.
    * @request POST:/api/land_research_deals
    * @secure
@@ -119,7 +122,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data: LandResearchDealJsonld, params: RequestParams = {}) =>
+  landResearchDealPost = (data: LandResearchDealJsonld, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals`,
       method: 'POST',
@@ -133,14 +136,14 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Retrieves a LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Get
+   * @name LandResearchDealGet
    * @summary Retrieves a LandResearchDeal resource.
    * @request GET:/api/land_research_deals/{ulid}
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landResearchDealGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}`,
       method: 'GET',
@@ -152,14 +155,14 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Removes the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Delete
+   * @name LandResearchDealDelete
    * @summary Removes the LandResearchDeal resource.
    * @request DELETE:/api/land_research_deals/{ulid}
    * @secure
    * @response `204` `void` LandResearchDeal resource deleted
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  landResearchDealDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_research_deals/${ulid}`,
       method: 'DELETE',
@@ -170,7 +173,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Patch
+   * @name LandResearchDealPatch
    * @summary Accept the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/accept
    * @secure
@@ -179,7 +182,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
+  landResearchDealPatch = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/accept`,
       method: 'PATCH',
@@ -193,10 +196,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Patch2
+   * @name LandResearchDealPatch2
    * @summary Archive the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/archive
-   * @originalName patch
+   * @originalName landResearchDealPatch
    * @duplicate
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource updated
@@ -204,7 +207,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch2 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
+  landResearchDealPatch2 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/archive`,
       method: 'PATCH',
@@ -218,10 +221,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @description Updates the LandResearchDeal resource.
    *
    * @tags LandResearchDeal
-   * @name Patch3
+   * @name LandResearchDealPatch3
    * @summary Refuse the LandResearchDeal resource.
    * @request PATCH:/api/land_research_deals/{ulid}/refuse
-   * @originalName patch
+   * @originalName landResearchDealPatch
    * @duplicate
    * @secure
    * @response `200` `LandResearchDealJsonld` LandResearchDeal resource updated
@@ -229,7 +232,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch3 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
+  landResearchDealPatch3 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/refuse`,
       method: 'PATCH',

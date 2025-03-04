@@ -2,9 +2,11 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Person;
 use App\Factory\PersonFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Lychen\UtilZitadelBundle\Services\ProjectMember;
 use Lychen\UtilZitadelBundle\Services\User;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use function Zenstruck\Foundry\faker;
@@ -21,8 +23,9 @@ class PersonFixtures extends Fixture
     public const string PERSON_5 = 'person-5';
     public const string PERSON_6 = 'person-6';
     public const string PERSON_7 = 'person-7';
+    public const string ADMIN_1 = 'admin-1';
 
-    public function __construct(private readonly User $user)
+    public function __construct(private readonly User $user, private readonly ProjectMember $projectMember, private readonly string $zitadelProjectId)
     {
     }
 
@@ -35,9 +38,10 @@ class PersonFixtures extends Fixture
         $this->createUserOnZitadel(self::PERSON_5);
         $this->createUserOnZitadel(self::PERSON_6);
         $this->createUserOnZitadel(self::PERSON_7);
+        $this->createAdminOnZitadel(self::ADMIN_1);
     }
 
-    private function createUserOnZitadel(string $reference): void
+    private function createUserOnZitadel(string $reference): Person
     {
         $userEmail = $this->buildUserEmail($reference);
         $data = null;
@@ -62,7 +66,7 @@ class PersonFixtures extends Fixture
             }
         }
 
-        $this->createPersonAndAddReference($reference, ['authId' => $data['userId']]);
+        return $this->createPersonAndAddReference($reference, ['authId' => $data['userId']]);
     }
 
     private function buildUserEmail(string $reference): string
@@ -70,9 +74,22 @@ class PersonFixtures extends Fixture
         return $reference . self::DEFAULT_EMAIL_DOMAIN;
     }
 
-    private function createPersonAndAddReference(string $reference, array|callable $attributes = []): void
+    private function createPersonAndAddReference(string $reference, array|callable $attributes = []): Person
     {
         $person = PersonFactory::new()->create($attributes);
         $this->addReference($reference, $person->_real());
+
+        return $person;
+    }
+
+    private function createAdminOnZitadel(string $reference): Person
+    {
+        $person = $this->createUserOnZitadel($reference);
+        try {
+            $this->user->addUserGrants($person->getAuthId(), $this->zitadelProjectId, ['roleKeys' => ['role.tera.admin']]);
+        } catch (ClientException $exception) {
+
+        }
+        return $person;
     }
 }

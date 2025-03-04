@@ -79,6 +79,7 @@ class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[Assert\Choice(LandAreaWorkflowPlace::PLACES)]
     #[ORM\Column(length: 255)]
     #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
+    #[Assert\NotBlank()]
     private ?string $state = LandAreaWorkflowPlace::ACTIVE;
 
     /**

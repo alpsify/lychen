@@ -10,7 +10,7 @@ readonly class OpenIDConnect
     {
     }
 
-    public function introspectToken(string $token): array
+    public function introspectToken(string $token, string $scope): array
     {
         $response = $this->client->request(
             'POST',
@@ -21,7 +21,26 @@ readonly class OpenIDConnect
                     'Authorization' => 'Basic ' . base64_encode($this->clientId . ':' . $this->clientSecret),
                 ],
                 'body' => [
-                    'token' => $token
+                    'token' => $token,
+                ],
+                'query' => [
+                    'scope' => $scope,
+                ]
+            ]
+        );
+        return $response->toArray();
+    }
+
+    public function userinfo(string $token) {
+        $response = $this->client->request(
+            'GET',
+            $this->domain . '/oidc/v1/userinfo',
+            [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                ],
+                'query' => [
+                    'scope' => 'openid email profile urn:zitadel:iam:org:project:id:zitadel:aud urn:zitadel:iam:org:project:roles',
                 ]
             ]
         );

@@ -6,4 +6,5 @@ use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class PlantCustomTest extends AbstractApiTestCase
 {
+
 }

@@ -12,7 +12,7 @@ use Throwable;
 
 #[AsEntityListener(event: Events::postPersist, method: 'onNewPerson', entity: Person::class)]
 #[AsEntityListener(event: Events::postPersist, method: 'onNewMemberInvitation', entity: LandMemberInvitation::class)]
-readonly class LandMemberInvitationAutoLink
+final readonly class LandMemberInvitationAutoLink
 {
     public function __construct(private LoggerInterface $logger)
     {

@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -22,7 +23,7 @@ export class LandMemberSetting<SecurityDataType = unknown> {
    * @description Retrieves a LandMemberSetting resource.
    *
    * @tags LandMemberSetting
-   * @name Get
+   * @name LandMemberSettingGet
    * @summary Retrieves a LandMemberSetting resource.
    * @request GET:/api/land_member_settings/{ulid}
    * @secure
@@ -30,7 +31,7 @@ export class LandMemberSetting<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landMemberSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandMemberSettingJsonld, void>({
       path: `/api/land_member_settings/${ulid}`,
       method: 'GET',
@@ -42,7 +43,7 @@ export class LandMemberSetting<SecurityDataType = unknown> {
    * @description Updates the LandMemberSetting resource.
    *
    * @tags LandMemberSetting
-   * @name Patch
+   * @name LandMemberSettingPatch
    * @summary Updates the LandMemberSetting resource.
    * @request PATCH:/api/land_member_settings/{ulid}
    * @secure
@@ -52,7 +53,7 @@ export class LandMemberSetting<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandMemberSetting, params: RequestParams = {}) =>
+  landMemberSettingPatch = (ulid: string, data: LandMemberSetting, params: RequestParams = {}) =>
     this.http.request<LandMemberSettingJsonld, void>({
       path: `/api/land_member_settings/${ulid}`,
       method: 'PATCH',

@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lychen/tera-land-task-ui-components": "workspace:*",
-    "@lychen/tera-land-ui-components": "workspace:*",
+    "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",
@@ -19,6 +18,7 @@
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-util-composables": "workspace:*",
+    "@tanstack/vue-query": "^5.66.11",
     "ol": "^10.3.1",
     "ol-contextmenu": "^5.5.0",
     "ol-ext": "^4.0.25",

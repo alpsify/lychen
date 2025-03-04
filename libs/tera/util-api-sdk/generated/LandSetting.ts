@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -22,7 +23,7 @@ export class LandSetting<SecurityDataType = unknown> {
    * @description Retrieves a LandSetting resource.
    *
    * @tags LandSetting
-   * @name Get
+   * @name LandSettingGet
    * @summary Retrieves a LandSetting resource.
    * @request GET:/api/land_settings/{ulid}
    * @secure
@@ -30,7 +31,7 @@ export class LandSetting<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandSettingJsonld, void>({
       path: `/api/land_settings/${ulid}`,
       method: 'GET',
@@ -42,7 +43,7 @@ export class LandSetting<SecurityDataType = unknown> {
    * @description Updates the LandSetting resource.
    *
    * @tags LandSetting
-   * @name Patch
+   * @name LandSettingPatch
    * @summary Updates the LandSetting resource.
    * @request PATCH:/api/land_settings/{ulid}
    * @secure
@@ -52,7 +53,7 @@ export class LandSetting<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandSetting, params: RequestParams = {}) =>
+  landSettingPatch = (ulid: string, data: LandSetting, params: RequestParams = {}) =>
     this.http.request<LandSettingJsonld, void>({
       path: `/api/land_settings/${ulid}`,
       method: 'PATCH',

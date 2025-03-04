@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -8,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import type { GetCollectionParams16, LandRole, LandRoleJsonld } from './data-contracts';
+import type { LandRole, LandRoleGetCollectionParams, LandRoleJsonld } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandRole<SecurityDataType = unknown> {
@@ -22,7 +23,7 @@ export class LandRole<SecurityDataType = unknown> {
  * @description Retrieves the collection of LandRole resources.
  *
  * @tags LandRole
- * @name GetCollection
+ * @name LandRoleGetCollection
  * @summary Retrieves the collection of LandRole resources.
  * @request GET:/api/land_roles
  * @secure
@@ -62,7 +63,7 @@ export class LandRole<SecurityDataType = unknown> {
 }` LandRole collection
  * @response `403` `void` Forbidden
  */
-  getCollection = (query: GetCollectionParams16, params: RequestParams = {}) =>
+  landRoleGetCollection = (query: LandRoleGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandRoleJsonld[];
@@ -107,7 +108,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Creates a LandRole resource.
    *
    * @tags LandRole
-   * @name Post
+   * @name LandRolePost
    * @summary Creates a LandRole resource.
    * @request POST:/api/land_roles
    * @secure
@@ -115,7 +116,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data: LandRoleJsonld, params: RequestParams = {}) =>
+  landRolePost = (data: LandRoleJsonld, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles`,
       method: 'POST',
@@ -129,7 +130,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Retrieves a LandRole resource.
    *
    * @tags LandRole
-   * @name Get
+   * @name LandRoleGet
    * @summary Retrieves a LandRole resource.
    * @request GET:/api/land_roles/{ulid}
    * @secure
@@ -137,7 +138,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landRoleGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'GET',
@@ -149,7 +150,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Removes the LandRole resource.
    *
    * @tags LandRole
-   * @name Delete
+   * @name LandRoleDelete
    * @summary Removes the LandRole resource.
    * @request DELETE:/api/land_roles/{ulid}
    * @secure
@@ -157,7 +158,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  landRoleDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'DELETE',
@@ -168,7 +169,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @description Updates the LandRole resource.
    *
    * @tags LandRole
-   * @name Patch
+   * @name LandRolePatch
    * @summary Updates the LandRole resource.
    * @request PATCH:/api/land_roles/{ulid}
    * @secure
@@ -178,7 +179,7 @@ export class LandRole<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandRole, params: RequestParams = {}) =>
+  landRolePatch = (ulid: string, data: LandRole, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
       method: 'PATCH',

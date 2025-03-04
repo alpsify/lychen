@@ -69,4 +69,21 @@ readonly class User
         );
         return $response->toArray()['result'][0];
     }
+
+    public function addUserGrants(string $userId, string $projectId, array $attributes): array
+    {
+        $response = $this->client->request(
+            'POST',
+            $this->domain . '/management/v1/users/'.$userId.'/grants',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                    'Authorization' => 'Bearer ' . $this->pat,
+                ],
+                'json' => [...$attributes, 'projectId' => $projectId]
+            ]
+        );
+        return $response->toArray();
+    }
 }
