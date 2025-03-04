@@ -996,6 +996,10 @@ export interface LandResearchRequest {
   id?: number;
   message?: any[] | null;
   person?: Person;
+  /**
+   * @default "draft"
+   * @example "draft"
+   */
   state?: LandResearchRequestStateEnum;
   /** @format ulid */
   ulid?: string;
@@ -1034,6 +1038,10 @@ export interface LandResearchRequestJsonld {
   id?: number;
   message?: any[] | null;
   person?: PersonJsonld;
+  /**
+   * @default "draft"
+   * @example "draft"
+   */
   state?: LandResearchRequestJsonldStateEnum;
   /** @format ulid */
   ulid?: string;
@@ -1045,12 +1053,20 @@ export enum LandResearchRequestJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+/**
+ * @default "draft"
+ * @example "draft"
+ */
 export enum LandResearchRequestJsonldStateEnum {
   Draft = 'draft',
   Published = 'published',
   Archived = 'archived',
 }
 
+/**
+ * @default "draft"
+ * @example "draft"
+ */
 export enum LandResearchRequestStateEnum {
   Draft = 'draft',
   Published = 'published',
@@ -1718,6 +1734,58 @@ export interface PlantGetCollectionParams {
   pagination?: boolean;
 }
 
+export interface PlantGlobal {
+  bio?: boolean;
+  /** @format date-time */
+  createdAt?: string;
+  daysToGerminationAverage?: number | null;
+  daysToHarvestMax?: number | null;
+  daysToHarvestMin?: number | null;
+  /**
+   * @default "full-sun"
+   * @example "full-sun"
+   */
+  exposure?: PlantGlobalExposureEnum;
+  family?: any[] | null;
+  harvestingMonths?: any[] | null;
+  id?: number;
+  landCultivationPlans?: string[];
+  latinName?: string | null;
+  /**
+   * @default "standard"
+   * @example "standard"
+   */
+  maturity?: PlantGlobalMaturityEnum;
+  name?: string;
+  perpetual?: boolean;
+  plantConversionRequests?: string[];
+  plantingSpacingInCm?: number | null;
+  seedStockEntries?: string[];
+  soilType?: PlantGlobalSoilTypeEnum;
+  sowingMinimalTemperature?: number | null;
+  sowingMonths?: any[] | null;
+  sowingOptimalTemperature?: number | null;
+  species?: PlantGlobalSpeciesEnum;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+  variety?: string | null;
+  vegetationThreshold?: number | null;
+}
+
+/**
+ * @default "full-sun"
+ * @example "full-sun"
+ */
+export enum PlantGlobalExposureEnum {
+  FullSun = 'full-sun',
+  PartialShade = 'partial-shade',
+  Shade = 'shade',
+  BrightIndirect = 'bright-indirect',
+  Adaptable = 'adaptable',
+}
+
 export interface PlantGlobalGetCollectionParams {
   /**
    * The number of items per page
@@ -1825,6 +1893,40 @@ export enum PlantGlobalJsonldSoilTypeEnum {
 }
 
 export enum PlantGlobalJsonldSpeciesEnum {
+  LactucaSativa = 'lactuca-sativa',
+  BrassicaOleracea = 'brassica-oleracea',
+  SolanumLycopersicum = 'solanum-lycopersicum',
+  DaucusCarota = 'daucus-carota',
+  PhaseolusVulgaris = 'phaseolus-vulgaris',
+  CucumisSativus = 'cucumis-sativus',
+}
+
+/**
+ * @default "standard"
+ * @example "standard"
+ */
+export enum PlantGlobalMaturityEnum {
+  VeryEarly = 'very_early',
+  Early = 'early',
+  MidEarly = 'mid-early',
+  Standard = 'standard',
+  MidLate = 'mid-late',
+  Late = 'late',
+  VeryLate = 'very_late',
+}
+
+export enum PlantGlobalSoilTypeEnum {
+  Sandy = 'sandy',
+  HumusRich = 'humus-rich',
+  Clay = 'clay',
+  Silty = 'silty',
+  Loamy = 'loamy',
+  Stony = 'stony',
+  Peaty = 'peaty',
+  Chalky = 'chalky',
+}
+
+export enum PlantGlobalSpeciesEnum {
   LactucaSativa = 'lactuca-sativa',
   BrassicaOleracea = 'brassica-oleracea',
   SolanumLycopersicum = 'solanum-lycopersicum',

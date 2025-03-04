@@ -36,7 +36,7 @@ class LandResearchRequest extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(length: 255)]
     #[Assert\Choice(LandResearchRequestWorkflowPlace::PLACES)]
-    private ?string $state = null;
+    private ?string $state = LandResearchRequestWorkflowPlace::DRAFT;
 
     #[ORM\Column(nullable: true)]
     private ?array $message = null;

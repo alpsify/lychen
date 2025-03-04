@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityRepository;
 use Exception;
 use Lychen\UtilZitadelBundle\Interface\AuthIdIdentifiedInterface;
 use Lychen\UtilZitadelBundle\Interface\HasEmailInterface;
+use Lychen\UtilZitadelBundle\Interface\HasRolesInterface;
 use Lychen\UtilZitadelBundle\Interface\NamedEntityInterface;
 use Lychen\UtilZitadelBundle\Services\OpenIDConnect;
 use Psr\Log\LoggerInterface;
@@ -18,6 +19,8 @@ use Throwable;
 
 readonly class ZitadelUserProvider implements UserProviderInterface
 {
+    const ROLES_CLAIM = 'urn:zitadel:iam:org:project:roles';
+    const SCOPES = ['openid', 'profile', 'email', self::ROLES_CLAIM];
 
     private EntityRepository $repository;
 
@@ -46,7 +49,8 @@ readonly class ZitadelUserProvider implements UserProviderInterface
 
     public function loadUserByIdentifier(string $identifier): UserInterface
     {
-        $response = $this->openIDConnect->introspectToken($identifier);
+        $response = $this->openIDConnect->userinfo($identifier);
+
         $this->ensureUserExists($response['sub'], $response);
 
         $user = $this->repository->findOneBy(['authId' => $response['sub']]);
@@ -64,7 +68,6 @@ readonly class ZitadelUserProvider implements UserProviderInterface
             'sub' => $userData['sub'],
             'given_name' => $userData['given_name'],
             'family_name' => $userData['family_name'],
-            #'roles' => $userData->getUserData(self::ROLES_CLAIM),
         ]);
         try {
             $user = $this->repository->findOneBy(['authId' => $userIdentifier]);
@@ -79,12 +82,23 @@ readonly class ZitadelUserProvider implements UserProviderInterface
         }
     }
 
-    private function updateUserEntity(AuthIdIdentifiedInterface & NamedEntityInterface & HasEmailInterface &$user, array $userData): void
+    private function updateUserEntity(AuthIdIdentifiedInterface & NamedEntityInterface & HasRolesInterface & HasEmailInterface &$user, array $userData): void
     {
         $user->setAuthId($userData['sub']);
         $user->setEmail($userData['email']);
         $user->setGivenName($userData['given_name']);
         $user->setFamilyName($userData['family_name']);
-        #$user->setRoles($this->parseZitadelRoles($userData->getUserDataArray(self::ROLES_CLAIM)));
+        $user->setRoles($this->parseZitadelRoles($userData));
+    }
+
+    private function parseZitadelRoles(array $userData): array
+    {
+        $roles = [];
+        if (isset($userData[self::ROLES_CLAIM]) && is_array($userData[self::ROLES_CLAIM])) {
+            foreach ($userData[self::ROLES_CLAIM] as $roleKey => $orgData) {
+                $roles[] = $roleKey;
+            }
+        }
+        return $roles;
     }
 }

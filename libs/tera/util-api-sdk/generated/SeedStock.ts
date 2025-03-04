@@ -134,6 +134,7 @@ export class SeedStock<SecurityDataType = unknown> {
    * @request GET:/api/seed_stocks/{ulid}
    * @secure
    * @response `200` `SeedStockJsonld` SeedStock resource
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   seedStockGet = (ulid: string, params: RequestParams = {}) =>
@@ -153,6 +154,7 @@ export class SeedStock<SecurityDataType = unknown> {
    * @request DELETE:/api/seed_stocks/{ulid}
    * @secure
    * @response `204` `void` SeedStock resource deleted
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   seedStockDelete = (ulid: string, params: RequestParams = {}) =>
@@ -172,6 +174,7 @@ export class SeedStock<SecurityDataType = unknown> {
    * @secure
    * @response `200` `SeedStockJsonld` SeedStock resource updated
    * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */

@@ -138,6 +138,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @request GET:/api/plant_customs/{ulid}
    * @secure
    * @response `200` `PlantCustomJsonld` PlantCustom resource
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   plantCustomGet = (ulid: string, params: RequestParams = {}) =>
@@ -157,6 +158,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @request DELETE:/api/plant_customs/{ulid}
    * @secure
    * @response `204` `void` PlantCustom resource deleted
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   plantCustomDelete = (ulid: string, params: RequestParams = {}) =>
@@ -176,6 +178,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @secure
    * @response `200` `PlantCustomJsonld` PlantCustom resource updated
    * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */

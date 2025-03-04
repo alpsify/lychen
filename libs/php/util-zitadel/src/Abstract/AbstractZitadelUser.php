@@ -5,12 +5,13 @@ namespace Lychen\UtilZitadelBundle\Abstract;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilZitadelBundle\Interface\AuthIdIdentifiedInterface;
 use Lychen\UtilZitadelBundle\Interface\HasEmailInterface;
+use Lychen\UtilZitadelBundle\Interface\HasRolesInterface;
 use Lychen\UtilZitadelBundle\Interface\NamedEntityInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 
 #[ORM\MappedSuperclass]
-class AbstractZitadelUser implements AuthIdIdentifiedInterface, UserInterface, NamedEntityInterface, HasEmailInterface
+class AbstractZitadelUser implements AuthIdIdentifiedInterface, UserInterface, NamedEntityInterface, HasEmailInterface, HasRolesInterface
 {
     #[ORM\Column(length: 180)]
     protected ?string $authId = null;
@@ -49,8 +50,6 @@ class AbstractZitadelUser implements AuthIdIdentifiedInterface, UserInterface, N
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }

@@ -5562,6 +5562,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Forbidden"
+                    },
                     "404": {
                         "description": "Resource not found"
                     }
@@ -5594,6 +5597,9 @@
                 "responses": {
                     "204": {
                         "description": "PlantCustom resource deleted"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Resource not found"
@@ -5641,6 +5647,9 @@
                     },
                     "422": {
                         "description": "Unprocessable entity"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Resource not found"
@@ -5834,6 +5843,49 @@
                     }
                 ],
                 "deprecated": false
+            },
+            "post": {
+                "operationId": "PlantGlobal_post",
+                "tags": [
+                    "PlantGlobal"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "PlantGlobal resource created",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantGlobal.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "summary": "Creates a PlantGlobal resource.",
+                "description": "Creates a PlantGlobal resource.",
+                "parameters": [],
+                "requestBody": {
+                    "description": "The new PlantGlobal resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlantGlobal.jsonld"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
             }
         },
         "/api/plant_globals/{ulid}": {
@@ -5875,6 +5927,103 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "PlantGlobal_delete",
+                "tags": [
+                    "PlantGlobal"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "PlantGlobal resource deleted"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the PlantGlobal resource.",
+                "description": "Removes the PlantGlobal resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "PlantGlobal identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "PlantGlobal_patch",
+                "tags": [
+                    "PlantGlobal"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PlantGlobal resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantGlobal.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the PlantGlobal resource.",
+                "description": "Updates the PlantGlobal resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "PlantGlobal identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated PlantGlobal resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlantGlobal"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             }
         },
@@ -6093,6 +6242,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Forbidden"
+                    },
                     "404": {
                         "description": "Resource not found"
                     }
@@ -6125,6 +6277,9 @@
                 "responses": {
                     "204": {
                         "description": "SeedStock resource deleted"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Resource not found"
@@ -6172,6 +6327,9 @@
                     },
                     "422": {
                         "description": "Unprocessable entity"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Resource not found"
@@ -8687,6 +8845,8 @@
                             "published",
                             "archived"
                         ],
+                        "default": "draft",
+                        "example": "draft",
                         "type": "string"
                     },
                     "message": {
@@ -8776,6 +8936,8 @@
                             "published",
                             "archived"
                         ],
+                        "default": "draft",
+                        "example": "draft",
                         "type": "string"
                     },
                     "message": {
@@ -10536,6 +10698,269 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "latinName": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "perpetual": {
+                        "type": "boolean"
+                    },
+                    "daysToGerminationAverage": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "variety": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "sowingMinimalTemperature": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "sowingOptimalTemperature": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "sowingMonths": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "harvestingMonths": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "bio": {
+                        "type": "boolean"
+                    },
+                    "maturity": {
+                        "enum": [
+                            "very_early",
+                            "early",
+                            "mid-early",
+                            "standard",
+                            "mid-late",
+                            "late",
+                            "very_late"
+                        ],
+                        "default": "standard",
+                        "example": "standard",
+                        "type": "string"
+                    },
+                    "soilType": {
+                        "enum": [
+                            "sandy",
+                            "humus-rich",
+                            "clay",
+                            "silty",
+                            "loamy",
+                            "stony",
+                            "peaty",
+                            "chalky"
+                        ],
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "exposure": {
+                        "enum": [
+                            "full-sun",
+                            "partial-shade",
+                            "shade",
+                            "bright-indirect",
+                            "adaptable"
+                        ],
+                        "default": "full-sun",
+                        "example": "full-sun",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "vegetationThreshold": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "daysToHarvestMin": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "daysToHarvestMax": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "species": {
+                        "enum": [
+                            "lactuca-sativa",
+                            "brassica-oleracea",
+                            "solanum-lycopersicum",
+                            "daucus-carota",
+                            "phaseolus-vulgaris",
+                            "cucumis-sativus"
+                        ],
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "family": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "plantingSpacingInCm": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "landCultivationPlans": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
+                    "seedStockEntries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    }
+                }
+            },
+            "PlantGlobal": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "plantConversionRequests": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "id": {
                         "readOnly": true,
