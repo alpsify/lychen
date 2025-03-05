@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandSetting, LandSettingJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import type { LandSetting, LandSettingJsonld } from "./data-contracts";
+import type { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class LandSetting<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -34,9 +34,9 @@ export class LandSetting<SecurityDataType = unknown> {
   landSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandSettingJsonld, void>({
       path: `/api/land_settings/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -56,11 +56,11 @@ export class LandSetting<SecurityDataType = unknown> {
   landSettingPatch = (ulid: string, data: LandSetting, params: RequestParams = {}) =>
     this.http.request<LandSettingJsonld, void>({
       path: `/api/land_settings/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

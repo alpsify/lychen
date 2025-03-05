@@ -15,8 +15,8 @@ import type {
   LandMemberInvitationGetCollectionParams,
   LandMemberInvitationJsonld,
   LandMemberInvitationRefusePayload,
-} from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+} from "./data-contracts";
+import type { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class LandMemberInvitation<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -69,17 +69,14 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
 }` LandMemberInvitation collection
  * @response `403` `void` Forbidden
  */
-  landMemberInvitationGetCollection = (
-    query: LandMemberInvitationGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  landMemberInvitationGetCollection = (query: LandMemberInvitationGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandMemberInvitationJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -92,8 +89,8 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -107,10 +104,10 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_member_invitations`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -128,11 +125,11 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
   landMemberInvitationPost = (data: LandMemberInvitationJsonld, params: RequestParams = {}) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -150,9 +147,9 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
   landMemberInvitationGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -170,7 +167,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
   landMemberInvitationDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_member_invitations/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       ...params,
     });
@@ -188,18 +185,14 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landMemberInvitationPatch = (
-    ulid: string,
-    data: LandMemberInvitation,
-    params: RequestParams = {},
-  ) =>
+  landMemberInvitationPatch = (ulid: string, data: LandMemberInvitation, params: RequestParams = {}) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -216,18 +209,14 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landMemberInvitationAccept = (
-    ulid: string,
-    data?: LandMemberInvitationAcceptPayload,
-    params: RequestParams = {},
-  ) =>
+  landMemberInvitationAccept = (ulid: string, data?: LandMemberInvitationAcceptPayload, params: RequestParams = {}) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations/${ulid}/accept`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -244,18 +233,14 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landMemberInvitationRefuse = (
-    ulid: string,
-    data?: LandMemberInvitationRefusePayload,
-    params: RequestParams = {},
-  ) =>
+  landMemberInvitationRefuse = (ulid: string, data?: LandMemberInvitationRefusePayload, params: RequestParams = {}) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations/${ulid}/refuse`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

@@ -13,8 +13,8 @@ import type {
   LandResearchRequest,
   LandResearchRequestGetCollectionParams,
   LandResearchRequestJsonld,
-} from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+} from "./data-contracts";
+import type { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class LandResearchRequest<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -66,17 +66,14 @@ export class LandResearchRequest<SecurityDataType = unknown> {
 
 }` LandResearchRequest collection
  */
-  landResearchRequestGetCollection = (
-    query: LandResearchRequestGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  landResearchRequestGetCollection = (query: LandResearchRequestGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandResearchRequestJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -89,8 +86,8 @@ export class LandResearchRequest<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -104,10 +101,10 @@ export class LandResearchRequest<SecurityDataType = unknown> {
       any
     >({
       path: `/api/land_research_requests`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -125,11 +122,11 @@ export class LandResearchRequest<SecurityDataType = unknown> {
   landResearchRequestPost = (data: LandResearchRequestJsonld, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -146,9 +143,9 @@ export class LandResearchRequest<SecurityDataType = unknown> {
   landResearchRequestGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -165,7 +162,7 @@ export class LandResearchRequest<SecurityDataType = unknown> {
   landResearchRequestDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_research_requests/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       ...params,
     });
@@ -182,18 +179,14 @@ export class LandResearchRequest<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landResearchRequestPatch = (
-    ulid: string,
-    data: LandResearchRequest,
-    params: RequestParams = {},
-  ) =>
+  landResearchRequestPatch = (ulid: string, data: LandResearchRequest, params: RequestParams = {}) =>
     this.http.request<LandResearchRequestJsonld, void>({
       path: `/api/land_research_requests/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

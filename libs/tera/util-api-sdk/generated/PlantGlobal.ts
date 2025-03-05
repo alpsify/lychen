@@ -9,12 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  PlantGlobal,
-  PlantGlobalGetCollectionParams,
-  PlantGlobalJsonld,
-} from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import type { PlantGlobal, PlantGlobalGetCollectionParams, PlantGlobalJsonld } from "./data-contracts";
+import type { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class PlantGlobal<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -71,9 +67,9 @@ export class PlantGlobal<SecurityDataType = unknown> {
       {
         member: PlantGlobalJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -86,8 +82,8 @@ export class PlantGlobal<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -101,10 +97,10 @@ export class PlantGlobal<SecurityDataType = unknown> {
       any
     >({
       path: `/api/plant_globals`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -123,11 +119,11 @@ export class PlantGlobal<SecurityDataType = unknown> {
   plantGlobalPost = (data: PlantGlobalJsonld, params: RequestParams = {}) =>
     this.http.request<PlantGlobalJsonld, void>({
       path: `/api/plant_globals`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -144,9 +140,9 @@ export class PlantGlobal<SecurityDataType = unknown> {
   plantGlobalGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantGlobalJsonld, void>({
       path: `/api/plant_globals/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -164,7 +160,7 @@ export class PlantGlobal<SecurityDataType = unknown> {
   plantGlobalDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plant_globals/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       ...params,
     });
@@ -185,11 +181,11 @@ export class PlantGlobal<SecurityDataType = unknown> {
   plantGlobalPatch = (ulid: string, data: PlantGlobal, params: RequestParams = {}) =>
     this.http.request<PlantGlobalJsonld, void>({
       path: `/api/plant_globals/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

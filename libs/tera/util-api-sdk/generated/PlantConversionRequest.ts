@@ -13,8 +13,8 @@ import type {
   PlantConversionRequest,
   PlantConversionRequestGetCollectionParams,
   PlantConversionRequestJsonld,
-} from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+} from "./data-contracts";
+import type { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class PlantConversionRequest<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -74,9 +74,9 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
       {
         member: PlantConversionRequestJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -89,8 +89,8 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -104,10 +104,10 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
       any
     >({
       path: `/api/plant_conversion_requests`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -125,11 +125,11 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
   plantConversionRequestPost = (data: PlantConversionRequestJsonld, params: RequestParams = {}) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -146,9 +146,9 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
   plantConversionRequestGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
   /**
@@ -165,7 +165,7 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
   plantConversionRequestDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       ...params,
     });
@@ -182,18 +182,14 @@ export class PlantConversionRequest<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  plantConversionRequestPatch = (
-    ulid: string,
-    data: PlantConversionRequest,
-    params: RequestParams = {},
-  ) =>
+  plantConversionRequestPatch = (ulid: string, data: PlantConversionRequest, params: RequestParams = {}) =>
     this.http.request<PlantConversionRequestJsonld, void>({
       path: `/api/plant_conversion_requests/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

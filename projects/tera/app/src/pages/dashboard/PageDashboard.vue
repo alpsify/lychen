@@ -7,16 +7,7 @@
           zitadelAuth.oidcAuth.userProfile.given_name
         }}</span></Title
       >
-      <div class="flex flex-row gap-2 items-center">
-        <Button
-          :icon="faBell"
-          variant="container-high"
-        />
-        <Button
-          :icon="faGear"
-          variant="container-high"
-        />
-      </div>
+      <div class="flex flex-row gap-2 items-center"></div>
     </div>
     <div
       :style="{ backgroundImage: `url(${headerImg})` }"
@@ -115,9 +106,6 @@
       </Carousel>
       <Button variant="container-high">Voir toutes les annonces</Button>
     </div>
-    <div class="gap-4 flex flex-col">
-      <Title variant="h4">Ressources</Title>
-    </div>
   </section>
 </template>
 
@@ -133,8 +121,6 @@ import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
-import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
 import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';

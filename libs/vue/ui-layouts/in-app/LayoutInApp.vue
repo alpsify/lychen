@@ -39,6 +39,10 @@
           variant="container-high"
         />
         <Button
+          :icon="faBell"
+          variant="container-high"
+        />
+        <Button
           :icon="faGear"
           variant="container-high"
         />
@@ -69,6 +73,7 @@ import AvatarFallback from '@lychen/vue-ui-components-core/avatar/AvatarFallback
 import type { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
 import Separator from '@lychen/vue-ui-components-core/separator/Separator.vue';
+import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
 
 interface Props {
   application: {

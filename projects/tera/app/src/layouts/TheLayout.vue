@@ -12,7 +12,15 @@ import { faClipboardListCheck } from '@fortawesome/pro-light-svg-icons/faClipboa
 import { faCalendarDays } from '@fortawesome/pro-light-svg-icons/faCalendarDays';
 import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
 import { faBagSeedling } from '@fortawesome/pro-light-svg-icons/faBagSeedling';
+import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
+import { faSunPlantWilt } from '@fortawesome/pro-light-svg-icons/faSunPlantWilt';
 import { RoutePageDashboard } from '@/pages/dashboard';
+import { faNotebook } from '@fortawesome/pro-light-svg-icons/faNotebook';
+import { faBuildingMemo } from '@fortawesome/pro-light-svg-icons/faBuildingMemo';
+import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
+import { faPeopleCarryBox } from '@fortawesome/pro-light-svg-icons/faPeopleCarryBox';
+import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple';
+import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
 
 const navigation = {
   first: {
@@ -27,9 +35,19 @@ const navigation = {
   main: {
     list: [
       {
-        icon: faClipboardListCheck,
+        icon: faFence,
         to: RoutePageDashboard.name,
         title: 'Espaces de culture',
+      },
+      {
+        icon: faSunPlantWilt,
+        to: RoutePageDashboard.name,
+        title: 'Itinéraires de culture',
+      },
+      {
+        icon: faNotebook,
+        to: RoutePageDashboard.name,
+        title: 'Journal',
       },
       {
         icon: faClipboardListCheck,
@@ -39,22 +57,47 @@ const navigation = {
       {
         icon: faCalendarDays,
         to: RoutePageDashboard.name,
-        title: 'Calendrier',
+        title: 'Calendriers',
       },
     ],
   },
   resources: {
-    title: 'Resources',
+    title: 'Ressources',
     list: [
       {
         icon: faSeedling,
         to: RoutePageDashboard.name,
-        title: 'Herbier',
+        title: 'Plantes',
       },
       {
         icon: faBagSeedling,
         to: RoutePageDashboard.name,
         title: 'Grainothèque',
+      },
+    ],
+  },
+  actions: {
+    title: 'Territoire',
+    list: [
+      {
+        icon: faPeopleSimple,
+        to: RoutePageDashboard.name,
+        title: 'Co-jardiner',
+      },
+      {
+        icon: faBuildingWheat,
+        to: RoutePageDashboard.name,
+        title: 'Jardins partagés',
+      },
+      {
+        icon: faBuildingMemo,
+        to: RoutePageDashboard.name,
+        title: 'Permis de végétaliser',
+      },
+      {
+        icon: faHandHoldingHeart,
+        to: RoutePageDashboard.name,
+        title: 'Donner',
       },
     ],
   },
