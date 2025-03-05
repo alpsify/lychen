@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { toggleVariants } from '@//toggle';
+import type { toggleVariants } from '../toggle';
 import type { VariantProps } from 'class-variance-authority';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import {
