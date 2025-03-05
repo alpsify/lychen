@@ -3,7 +3,7 @@ import {
   NavigationMenuIndicator,
   type NavigationMenuIndicatorProps,
   useForwardProps,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';

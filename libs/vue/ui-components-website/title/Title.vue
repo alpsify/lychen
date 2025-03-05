@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type AsTag, Primitive, type PrimitiveProps } from 'radix-vue';
+import { type AsTag, Primitive, type PrimitiveProps } from 'reka-ui';
 import { type Component, computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';

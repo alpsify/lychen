@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'radix-vue';
+import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 import Icon from '../icon/Icon.vue';

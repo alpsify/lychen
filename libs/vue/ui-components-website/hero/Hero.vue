@@ -13,7 +13,7 @@ import {
   DivWithBackgroundImg,
   type DivWithBackgroundImgProps,
 } from '@lychen/vue-ui-components-extra/div-with-background-img';
-import { useForwardProps } from 'radix-vue';
+import { useForwardProps } from 'reka-ui';
 
 const props = defineProps<Omit<DivWithBackgroundImgProps, 'is'>>();
 const forwarded = useForwardProps(props);

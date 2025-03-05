@@ -9,13 +9,13 @@
       height: 0;
     }
     100% {
-      height: var(--radix-accordion-content-height);
+      height: var(--reka-accordion-content-height);
     }
   }
 
   @keyframes accordion-up {
     0% {
-      height: var(--radix-accordion-content-height);
+      height: var(--reka-accordion-content-height);
     }
     100% {
       height: 0;
@@ -27,13 +27,13 @@
       height: 0;
     }
     100% {
-      height: var(--radix-collapsible-content-height);
+      height: var(--reka-collapsible-content-height);
     }
   }
 
   @keyframes collapsible-up {
     0% {
-      height: var(--radix-collapsible-content-height);
+      height: var(--reka-collapsible-content-height);
     }
     100% {
       height: 0;

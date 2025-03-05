@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'radix-vue';
+import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import Icon from '../icon/Icon.vue';
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { AccordionContent, type AccordionContentProps } from 'radix-vue';
+import { AccordionContent, type AccordionContentProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 const props = defineProps<AccordionContentProps & { class?: HTMLAttributes['class'] }>();

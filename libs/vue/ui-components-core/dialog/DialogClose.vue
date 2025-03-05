@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DialogClose, type DialogCloseProps } from 'radix-vue';
+import { DialogClose, type DialogCloseProps } from 'reka-ui';
 import Icon from '../icon/Icon.vue';
 
 const props = defineProps<DialogCloseProps>();

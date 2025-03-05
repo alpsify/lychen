@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'radix-vue';
+import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';

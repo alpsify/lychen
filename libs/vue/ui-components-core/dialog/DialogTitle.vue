@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { DialogTitle, type DialogTitleProps, useForwardProps } from 'radix-vue';
+import { DialogTitle, type DialogTitleProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 const props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>();

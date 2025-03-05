@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  NavigationMenuViewport,
-  type NavigationMenuViewportProps,
-  useForwardProps,
-} from 'radix-vue';
+import { NavigationMenuViewport, type NavigationMenuViewportProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
@@ -25,7 +21,7 @@ const forwardedProps = useForwardProps(delegatedProps);
       v-bind="forwardedProps"
       :class="
         cn(
-          'origin-top-center relative mt-3 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-3xl shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
+          'origin-top-center relative mt-3 h-[var(--reka-navigation-menu-viewport-height)] w-full overflow-hidden rounded-3xl shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--reka-navigation-menu-viewport-width)]',
           props.class,
         )
       "

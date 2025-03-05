@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useForwardProps } from 'radix-vue';
+import { useForwardProps } from 'reka-ui';
 import { FontAwesomeIcon, type FontAwesomeIconProps } from '@fortawesome/vue-fontawesome';
 
 import { computed } from 'vue';
