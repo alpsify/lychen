@@ -41,7 +41,7 @@ readonly class Role
                 'json' => [
                     "queries" => [[
                         'keyQuery' => [
-                            "key" => $key,
+                            "key" => $roleKey,
                             "method" => "TEXT_QUERY_METHOD_EQUALS"
                         ]
                     ]]
