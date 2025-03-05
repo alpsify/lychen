@@ -10,7 +10,7 @@
       </Badge>
       <Icon
         v-if="variant === VARIANT.Default"
-        :icon="land.numberOfMembers === 1 ? 'user' : 'users'"
+        :icon="land.numberOfMembers === 1 ? faUser : faUsers"
       />
     </div>
     <div class="flex flex-col gap-1">
@@ -39,6 +39,8 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
+import { faUser } from '@fortawesome/pro-light-svg-icons/faUser';
+import { faUsers } from '@fortawesome/pro-light-svg-icons/faUsers';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

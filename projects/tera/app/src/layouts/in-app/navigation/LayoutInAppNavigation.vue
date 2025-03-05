@@ -12,15 +12,17 @@
 import { RoutePageDashboard } from '@/pages/dashboard';
 import type { LayoutInAppNavigationMenu as MenuType } from '.';
 import LayoutInAppNavigationMenu from './LayoutInAppNavigationMenu.vue';
+import { faHouse } from '@fortawesome/pro-light-svg-icons/faHouse';
+import { faClipboardListCheck } from '@fortawesome/pro-light-svg-icons/faClipboardListCheck';
 
 const menus: MenuType[] = [
   {
-    icon: 'house',
+    icon: faHouse,
     routeName: RoutePageDashboard.name,
     title: 'Accueil',
   },
   {
-    icon: 'clipboard-list-check',
+    icon: faClipboardListCheck,
     routeName: RoutePageDashboard.name,
     title: 'To Do',
   },

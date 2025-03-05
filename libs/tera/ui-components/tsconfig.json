@@ -2,7 +2,6 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "../../typescript/util-object/**/*",
-    "../../ui-components/**/*",
     "../../vue/i18n/util-composables/**/*",
     "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
@@ -11,9 +10,6 @@
   "references": [
     {
       "path": "../../typescript/util-object"
-    },
-    {
-      "path": "../../ui-components"
     },
     {
       "path": "../../vue/i18n/util-composables"
