@@ -1,9 +1,0 @@
-{
-  "extends": "../../../../tsconfig.options.json",
-  "include": ["**/*"],
-  "references": [],
-  "compilerOptions": {
-    "outDir": "../../../../.moon/cache/types/libs/tera/land-task/util-composables",
-    "paths": {}
-  }
-}

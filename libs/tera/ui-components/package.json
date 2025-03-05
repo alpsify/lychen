@@ -1,0 +1,11 @@
+{
+  "name": "@lychen/tera-ui-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/tera-ui-i18n": "workspace:*",
+    "@lychen/typescript-util-object": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*"
+  }
+}

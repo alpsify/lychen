@@ -9,8 +9,12 @@
  * ---------------------------------------------------------------
  */
 
-import type { GetCollectionParams26, PlantGlobalJsonld } from './data-contracts';
-import type { HttpClient, RequestParams } from './http-client';
+import type {
+  PlantGlobal,
+  PlantGlobalGetCollectionParams,
+  PlantGlobalJsonld,
+} from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class PlantGlobal<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -23,7 +27,7 @@ export class PlantGlobal<SecurityDataType = unknown> {
  * @description Retrieves the collection of PlantGlobal resources.
  *
  * @tags PlantGlobal
- * @name GetCollection
+ * @name PlantGlobalGetCollection
  * @summary Retrieves the collection of PlantGlobal resources.
  * @request GET:/api/plant_globals
  * @secure
@@ -62,7 +66,7 @@ export class PlantGlobal<SecurityDataType = unknown> {
 
 }` PlantGlobal collection
  */
-  getCollection = (query: GetCollectionParams26, params: RequestParams = {}) =>
+  plantGlobalGetCollection = (query: PlantGlobalGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: PlantGlobalJsonld[];
@@ -104,21 +108,87 @@ export class PlantGlobal<SecurityDataType = unknown> {
       ...params,
     });
   /**
+   * @description Creates a PlantGlobal resource.
+   *
+   * @tags PlantGlobal
+   * @name PlantGlobalPost
+   * @summary Creates a PlantGlobal resource.
+   * @request POST:/api/plant_globals
+   * @secure
+   * @response `201` `PlantGlobalJsonld` PlantGlobal resource created
+   * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
+   * @response `422` `void` Unprocessable entity
+   */
+  plantGlobalPost = (data: PlantGlobalJsonld, params: RequestParams = {}) =>
+    this.http.request<PlantGlobalJsonld, void>({
+      path: `/api/plant_globals`,
+      method: 'POST',
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: 'json',
+      ...params,
+    });
+  /**
    * @description Retrieves a PlantGlobal resource.
    *
    * @tags PlantGlobal
-   * @name Get
+   * @name PlantGlobalGet
    * @summary Retrieves a PlantGlobal resource.
    * @request GET:/api/plant_globals/{ulid}
    * @secure
    * @response `200` `PlantGlobalJsonld` PlantGlobal resource
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  plantGlobalGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantGlobalJsonld, void>({
       path: `/api/plant_globals/${ulid}`,
       method: 'GET',
       secure: true,
+      format: 'json',
+      ...params,
+    });
+  /**
+   * @description Removes the PlantGlobal resource.
+   *
+   * @tags PlantGlobal
+   * @name PlantGlobalDelete
+   * @summary Removes the PlantGlobal resource.
+   * @request DELETE:/api/plant_globals/{ulid}
+   * @secure
+   * @response `204` `void` PlantGlobal resource deleted
+   * @response `403` `void` Forbidden
+   * @response `404` `void` Resource not found
+   */
+  plantGlobalDelete = (ulid: string, params: RequestParams = {}) =>
+    this.http.request<void, void>({
+      path: `/api/plant_globals/${ulid}`,
+      method: 'DELETE',
+      secure: true,
+      ...params,
+    });
+  /**
+   * @description Updates the PlantGlobal resource.
+   *
+   * @tags PlantGlobal
+   * @name PlantGlobalPatch
+   * @summary Updates the PlantGlobal resource.
+   * @request PATCH:/api/plant_globals/{ulid}
+   * @secure
+   * @response `200` `PlantGlobalJsonld` PlantGlobal resource updated
+   * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
+   * @response `404` `void` Resource not found
+   * @response `422` `void` Unprocessable entity
+   */
+  plantGlobalPatch = (ulid: string, data: PlantGlobal, params: RequestParams = {}) =>
+    this.http.request<PlantGlobalJsonld, void>({
+      path: `/api/plant_globals/${ulid}`,
+      method: 'PATCH',
+      body: data,
+      secure: true,
+      type: ContentType.Json,
       format: 'json',
       ...params,
     });

@@ -2,15 +2,15 @@
 import { defineAsyncComponent } from 'vue';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 
-const LychenTooltipProvider = defineAsyncComponent(
-  () => import('@lychen/ui-components/tooltip/LychenTooltipProvider.vue'),
+const TooltipProvider = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/tooltip/TooltipProvider.vue'),
 );
 
 usePreferredColorScheme();
 </script>
 
 <template>
-  <LychenTooltipProvider>
+  <TooltipProvider>
     <RouterView />
-  </LychenTooltipProvider>
+  </TooltipProvider>
 </template>

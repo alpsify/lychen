@@ -5,18 +5,18 @@ dependsOn:
   - kolo-util-constants
   - kolo-util-features
 
-  - ui-components
+  - typescript-util-constants
   - ui-css
   - ui-i18n
-  - util-constants
   - vite-util-ssg
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
+  - vue-ui-components-core
+  - vue-ui-components-website
+  - vue-ui-layouts
   - vue-unhead-util-composables
   - vue-util-composables
-  - website-ui-components
-  - website-ui-layouts
 
 env:
   DEV_DOMAIN: kolo.lychen.local

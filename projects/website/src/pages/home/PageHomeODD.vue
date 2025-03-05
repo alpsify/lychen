@@ -1,8 +1,8 @@
 <template>
-  <LychenContainer class="flex flex-col items-center gap-4">
+  <Container class="flex flex-col items-center gap-4">
     <div class="flex flex-col-reverse md:grid md:grid-cols-[30%_1fr] gap-8 mt-10 w-full">
       <div class="flex flex-col justify-between gap-10">
-        <LychenTitle variant="h2">{{ t('goals.title') }}</LychenTitle>
+        <Title variant="h2">{{ t('goals.title') }}</Title>
         <GoalSubSection
           v-for="goal in goals"
           :key="goal.index"
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -49,12 +49,12 @@ const GoalSubSection = defineAsyncComponent(
   () => import('@pages/home/component/GoalSubSection.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

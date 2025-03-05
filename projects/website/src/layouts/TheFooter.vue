@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4">
     <div class="flex flex-col items-stretch justify-between gap-4 lg:flex-row">
       <div class="flex basis-1/3 flex-col gap-2">
-        <LychenLogoFull class="h-14" />
+        <LogoLychenFull class="h-14" />
         <p class="text-sm opacity-80">
           {{ t(`footer.seo_paragraph`) }}
         </p>
@@ -51,11 +51,11 @@ import {
   TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
 } from '@lychen/ui-i18n/global';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/util-constants/Link';
-import { EMAIL } from '@lychen/util-constants/Email';
+import { LINK } from '@lychen/typescript-util-constants/Link';
+import { EMAIL } from '@lychen/typescript-util-constants/Email';
 
-const LychenLogoFull = defineAsyncComponent(
-  () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),
+const LogoLychenFull = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),
 );
 const legalMenus = [
   { title: "Conditions générales d'utilisation" },

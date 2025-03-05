@@ -1,0 +1,17 @@
+{
+  "name": "@lychen/vue-ui-components-website",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
+    "@lychen/typescript-util-tailwind": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
+    "@lychen/vue-ui-components-extra": "workspace:*",
+    "@lychen/vue-util-composables": "workspace:*",
+    "@vueuse/core": "^12.7.0",
+    "class-variance-authority": "^0.7.1",
+    "reka-ui": "^2.0.2",
+    "vue": "^3.5.13"
+  }
+}

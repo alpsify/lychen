@@ -1,13 +1,12 @@
 dependsOn:
-  - tera-land-task-ui-components
-  - tera-land-ui-components
+  - tera-ui-components
   - tera-ui-i18n
   - tera-util-api-sdk
   - typescript-util-zitadel
-  - ui-components
   - ui-css
   - vue-i18n-util-composables
   - vue-i18n-util-configs
+  - vue-ui-components-core
   - vue-util-composables
 
 env:

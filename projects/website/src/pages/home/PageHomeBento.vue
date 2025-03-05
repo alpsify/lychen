@@ -1,9 +1,9 @@
 <template>
-  <LychenContainer class="flex flex-col items-center">
+  <Container class="flex flex-col items-center">
     <div class="bento-grid self-stretch mt-8">
       <div class="item justify-center">
-        <LychenIcon
-          icon="chart-network"
+        <Icon
+          :icon="faChartNetwork"
           class="text-5xl"
         />
         <p class="text-xl">{{ t('bento.integrability.title') }}</p>
@@ -45,8 +45,8 @@
       <div class="item justify-between">
         <div></div>
         <div>
-          <LychenIcon
-            icon="hand-holding-heart"
+          <Icon
+            :icon="faHandHoldingHeart"
             class="text-5xl"
           />
           <p class="text-2xl md:text-4xl gradient">{{ t('bento.sponsorship.title') }}</p>
@@ -71,7 +71,7 @@
         <p class="gradient text-2xl">{{ t('bento.transparency.subtitle') }}</p>
       </div>
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -79,11 +79,13 @@ import bentoCentralImageUrl from './assets/bento-central-9.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { faChartNetwork } from '@fortawesome/pro-light-svg-icons/faChartNetwork';
+import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

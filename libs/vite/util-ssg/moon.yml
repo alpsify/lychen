@@ -1,5 +1,4 @@
 dependsOn:
-  - ui-components
   - vue-i18n-util-configs
   - vue-router-util-configs
 

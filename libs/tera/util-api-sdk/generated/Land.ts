@@ -10,11 +10,11 @@
  */
 
 import type {
-  GetCollectionLookingForMembersParams,
-  GetCollectionParams,
   Land,
+  LandGetCollectionLookingForMembersParams,
+  LandGetCollectionParams,
   LandJsonld,
-  PostPayload,
+  LandPostPayload,
 } from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
@@ -29,7 +29,7 @@ export class Land<SecurityDataType = unknown> {
  * @description Retrieves the collection of Land resources.
  *
  * @tags Land
- * @name GetCollection
+ * @name LandGetCollection
  * @summary Retrieves the collection of Land resources.
  * @request GET:/api/lands
  * @secure
@@ -68,7 +68,7 @@ export class Land<SecurityDataType = unknown> {
 
 }` Land collection
  */
-  getCollection = (query: GetCollectionParams, params: RequestParams = {}) =>
+  landGetCollection = (query: LandGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandJsonld[];
@@ -113,7 +113,7 @@ export class Land<SecurityDataType = unknown> {
    * @description Creates a Land resource.
    *
    * @tags Land
-   * @name Post
+   * @name LandPost
    * @summary Create a land
    * @request POST:/api/lands
    * @secure
@@ -121,7 +121,7 @@ export class Land<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data?: PostPayload, params: RequestParams = {}) =>
+  landPost = (data?: LandPostPayload, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands`,
       method: 'POST',
@@ -135,7 +135,7 @@ export class Land<SecurityDataType = unknown> {
  * @description Retrieves the collection of Land resources.
  *
  * @tags Land
- * @name GetCollectionLookingForMembers
+ * @name LandGetCollectionLookingForMembers
  * @summary Retrieves the collection of Land resources.
  * @request GET:/api/lands/looking_for_members
  * @secure
@@ -174,8 +174,8 @@ export class Land<SecurityDataType = unknown> {
 
 }` Land collection
  */
-  getCollectionLookingForMembers = (
-    query: GetCollectionLookingForMembersParams,
+  landGetCollectionLookingForMembers = (
+    query: LandGetCollectionLookingForMembersParams,
     params: RequestParams = {},
   ) =>
     this.http.request<
@@ -222,7 +222,7 @@ export class Land<SecurityDataType = unknown> {
    * @description Retrieves a Land resource.
    *
    * @tags Land
-   * @name Get
+   * @name LandGet
    * @summary Retrieves a Land resource.
    * @request GET:/api/lands/{ulid}
    * @secure
@@ -230,7 +230,7 @@ export class Land<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands/${ulid}`,
       method: 'GET',
@@ -242,7 +242,7 @@ export class Land<SecurityDataType = unknown> {
    * @description Removes the Land resource.
    *
    * @tags Land
-   * @name Delete
+   * @name LandDelete
    * @summary Removes the Land resource.
    * @request DELETE:/api/lands/{ulid}
    * @secure
@@ -250,7 +250,7 @@ export class Land<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  landDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/lands/${ulid}`,
       method: 'DELETE',
@@ -261,7 +261,7 @@ export class Land<SecurityDataType = unknown> {
    * @description Updates the Land resource.
    *
    * @tags Land
-   * @name Patch
+   * @name LandPatch
    * @summary Updates the Land resource.
    * @request PATCH:/api/lands/{ulid}
    * @secure
@@ -271,7 +271,7 @@ export class Land<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: Land, params: RequestParams = {}) =>
+  landPatch = (ulid: string, data: Land, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands/${ulid}`,
       method: 'PATCH',

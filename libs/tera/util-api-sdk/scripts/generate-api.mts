@@ -14,8 +14,6 @@ async function main() {
     }
 
     await generateApi({
-      name: 'TeraApi.ts',
-      apiClassName: 'TeraApi',
       output: path.resolve('./generated'),
       input: path.resolve(openApiPath), // Use the path from the environment variable
       templates: path.resolve('./scripts/swagger/templates'),

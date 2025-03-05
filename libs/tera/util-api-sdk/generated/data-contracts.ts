@@ -9,302 +9,6 @@
  * ---------------------------------------------------------------
  */
 
-export type AcceptPayload = object;
-
-export interface GetCollectionLookingForMembersParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams10 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams12 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams14 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams16 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams18 {
-  /** @default "asc" */
-  'order[dueDate]'?: OrderDueDateEnum;
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-/** @default "asc" */
-export enum GetCollectionParams19OrderDueDateEnum {
-  Asc = 'asc',
-  Desc = 'desc',
-}
-
-export interface GetCollectionParams2 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams20 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams22 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams24 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams26 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams28 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams30 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams4 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams6 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
-export interface GetCollectionParams8 {
-  /**
-   * The number of items per page
-   * @min 0
-   * @default 30
-   */
-  itemsPerPage?: number;
-  /** Filter by land */
-  land: string;
-  /**
-   * The collection page number
-   * @default 1
-   */
-  page?: number;
-  /** Enable or disable pagination */
-  pagination?: boolean;
-}
-
 export interface Land {
   /** @format date-time */
   createdAt?: string;
@@ -375,11 +79,29 @@ export interface LandArea {
    * @default "active"
    * @example "active"
    */
-  state?: LandAreaStateEnum;
+  state: LandAreaStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
   updatedAt?: string | null;
+}
+
+export interface LandAreaGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandAreaJsonld {
@@ -423,7 +145,7 @@ export interface LandAreaJsonld {
    * @default "active"
    * @example "active"
    */
-  state?: LandAreaJsonldStateEnum;
+  state: LandAreaJsonldStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
@@ -598,6 +320,24 @@ export interface LandCultivationPlan {
   updatedAt?: string | null;
 }
 
+export interface LandCultivationPlanGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface LandCultivationPlanJsonld {
   '@context'?:
     | string
@@ -659,6 +399,38 @@ export enum LandCultivationPlanJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+export interface LandGetCollectionLookingForMembersParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface LandGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface LandGreenhouse {
   /** @format date-time */
   constructionDate?: string | null;
@@ -686,6 +458,24 @@ export interface LandGreenhouse {
   ulid?: string;
   /** @format date-time */
   updatedAt?: string | null;
+}
+
+export interface LandGreenhouseGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandGreenhouseJsonld {
@@ -912,6 +702,24 @@ export interface LandMember {
   ulid?: string;
 }
 
+export interface LandMemberGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface LandMemberInvitation {
   /** @format date-time */
   acceptedAt?: string | null;
@@ -936,6 +744,26 @@ export interface LandMemberInvitation {
   state?: LandMemberInvitationStateEnum;
   /** @format ulid */
   ulid?: string;
+}
+
+export type LandMemberInvitationAcceptPayload = object;
+
+export interface LandMemberInvitationGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandMemberInvitationJsonld {
@@ -986,6 +814,8 @@ export enum LandMemberInvitationJsonldStateEnum {
   Accepted = 'accepted',
   Refused = 'refused',
 }
+
+export type LandMemberInvitationRefusePayload = object;
 
 /**
  * @default "pending"
@@ -1068,6 +898,17 @@ export enum LandMemberSettingJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+export enum LandPostKindEnum {
+  Individual = 'individual',
+  SharedGarden = 'shared_garden',
+  MarketGarden = 'market_garden',
+}
+
+export interface LandPostPayload {
+  kind: LandPostKindEnum;
+  name: string;
+}
+
 export interface LandResearchDeal {
   /** @format date-time */
   createdAt?: string;
@@ -1081,6 +922,22 @@ export interface LandResearchDeal {
   ulid?: string;
   /** @format date-time */
   updatedAt?: string | null;
+}
+
+export interface LandResearchDealGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandResearchDealJsonld {
@@ -1137,11 +994,33 @@ export interface LandResearchRequest {
   /** @format date-time */
   createdAt?: string;
   id?: number;
+  message?: any[] | null;
   person?: Person;
+  /**
+   * @default "draft"
+   * @example "draft"
+   */
+  state?: LandResearchRequestStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
   updatedAt?: string | null;
+}
+
+export interface LandResearchRequestGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandResearchRequestJsonld {
@@ -1157,7 +1036,13 @@ export interface LandResearchRequestJsonld {
   /** @format date-time */
   createdAt?: string;
   id?: number;
+  message?: any[] | null;
   person?: PersonJsonld;
+  /**
+   * @default "draft"
+   * @example "draft"
+   */
+  state?: LandResearchRequestJsonldStateEnum;
   /** @format ulid */
   ulid?: string;
   /** @format date-time */
@@ -1166,6 +1051,26 @@ export interface LandResearchRequestJsonld {
 
 export enum LandResearchRequestJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+/**
+ * @default "draft"
+ * @example "draft"
+ */
+export enum LandResearchRequestJsonldStateEnum {
+  Draft = 'draft',
+  Published = 'published',
+  Archived = 'archived',
+}
+
+/**
+ * @default "draft"
+ * @example "draft"
+ */
+export enum LandResearchRequestStateEnum {
+  Draft = 'draft',
+  Published = 'published',
+  Archived = 'archived',
 }
 
 export interface LandRole {
@@ -1185,6 +1090,24 @@ export interface LandRole {
   ulid?: string;
   /** @format date-time */
   updatedAt?: string | null;
+}
+
+export interface LandRoleGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface LandRoleJsonld {
@@ -1287,6 +1210,32 @@ export interface LandTask {
   updatedAt?: string | null;
 }
 
+export interface LandTaskGetCollectionParams {
+  /** @default "asc" */
+  'order[dueDate]'?: OrderDueDateEnum;
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /** Filter by land */
+  land: string;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+/** @default "asc" */
+export enum LandTaskGetCollectionParams1OrderDueDateEnum {
+  Asc = 'asc',
+  Desc = 'desc',
+}
+
 export interface LandTaskJsonld {
   '@context'?:
     | string
@@ -1341,6 +1290,10 @@ export enum LandTaskJsonldStateEnum {
   Done = 'done',
 }
 
+export type LandTaskMarkAsDonePayload = object;
+
+export type LandTaskMarkAsInProgressPayload = object;
+
 /**
  * @default "to_be_done"
  * @example "to_be_done"
@@ -1350,10 +1303,6 @@ export enum LandTaskStateEnum {
   InProgress = 'in_progress',
   Done = 'done',
 }
-
-export type MarkAsDonePayload = object;
-
-export type MarkAsInProgressPayload = object;
 
 /** @default "asc" */
 export enum OrderDueDateEnum {
@@ -1471,6 +1420,22 @@ export interface PlantConversionRequest {
   updatedAt?: string | null;
 }
 
+export interface PlantConversionRequestGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface PlantConversionRequestJsonld {
   '@context'?:
     | string
@@ -1585,6 +1550,22 @@ export enum PlantCustomExposureEnum {
   Shade = 'shade',
   BrightIndirect = 'bright-indirect',
   Adaptable = 'adaptable',
+}
+
+export interface PlantCustomGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface PlantCustomJsonld {
@@ -1737,6 +1718,90 @@ export enum PlantExposureEnum {
   Adaptable = 'adaptable',
 }
 
+export interface PlantGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
+export interface PlantGlobal {
+  bio?: boolean;
+  /** @format date-time */
+  createdAt?: string;
+  daysToGerminationAverage?: number | null;
+  daysToHarvestMax?: number | null;
+  daysToHarvestMin?: number | null;
+  /**
+   * @default "full-sun"
+   * @example "full-sun"
+   */
+  exposure?: PlantGlobalExposureEnum;
+  family?: any[] | null;
+  harvestingMonths?: any[] | null;
+  id?: number;
+  landCultivationPlans?: string[];
+  latinName?: string | null;
+  /**
+   * @default "standard"
+   * @example "standard"
+   */
+  maturity?: PlantGlobalMaturityEnum;
+  name?: string;
+  perpetual?: boolean;
+  plantConversionRequests?: string[];
+  plantingSpacingInCm?: number | null;
+  seedStockEntries?: string[];
+  soilType?: PlantGlobalSoilTypeEnum;
+  sowingMinimalTemperature?: number | null;
+  sowingMonths?: any[] | null;
+  sowingOptimalTemperature?: number | null;
+  species?: PlantGlobalSpeciesEnum;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+  variety?: string | null;
+  vegetationThreshold?: number | null;
+}
+
+/**
+ * @default "full-sun"
+ * @example "full-sun"
+ */
+export enum PlantGlobalExposureEnum {
+  FullSun = 'full-sun',
+  PartialShade = 'partial-shade',
+  Shade = 'shade',
+  BrightIndirect = 'bright-indirect',
+  Adaptable = 'adaptable',
+}
+
+export interface PlantGlobalGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface PlantGlobalJsonld {
   '@context'?:
     | string
@@ -1828,6 +1893,40 @@ export enum PlantGlobalJsonldSoilTypeEnum {
 }
 
 export enum PlantGlobalJsonldSpeciesEnum {
+  LactucaSativa = 'lactuca-sativa',
+  BrassicaOleracea = 'brassica-oleracea',
+  SolanumLycopersicum = 'solanum-lycopersicum',
+  DaucusCarota = 'daucus-carota',
+  PhaseolusVulgaris = 'phaseolus-vulgaris',
+  CucumisSativus = 'cucumis-sativus',
+}
+
+/**
+ * @default "standard"
+ * @example "standard"
+ */
+export enum PlantGlobalMaturityEnum {
+  VeryEarly = 'very_early',
+  Early = 'early',
+  MidEarly = 'mid-early',
+  Standard = 'standard',
+  MidLate = 'mid-late',
+  Late = 'late',
+  VeryLate = 'very_late',
+}
+
+export enum PlantGlobalSoilTypeEnum {
+  Sandy = 'sandy',
+  HumusRich = 'humus-rich',
+  Clay = 'clay',
+  Silty = 'silty',
+  Loamy = 'loamy',
+  Stony = 'stony',
+  Peaty = 'peaty',
+  Chalky = 'chalky',
+}
+
+export enum PlantGlobalSpeciesEnum {
   LactucaSativa = 'lactuca-sativa',
   BrassicaOleracea = 'brassica-oleracea',
   SolanumLycopersicum = 'solanum-lycopersicum',
@@ -1968,19 +2067,6 @@ export enum PlantSpeciesEnum {
   CucumisSativus = 'cucumis-sativus',
 }
 
-export enum PostKindEnum {
-  Individual = 'individual',
-  SharedGarden = 'shared_garden',
-  MarketGarden = 'market_garden',
-}
-
-export interface PostPayload {
-  kind: PostKindEnum;
-  name: string;
-}
-
-export type RefusePayload = object;
-
 export interface SeedStock {
   /** @format date-time */
   createdAt?: string;
@@ -2019,6 +2105,22 @@ export interface SeedStockEntry {
   updatedAt?: string | null;
 }
 
+export interface SeedStockEntryGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
+}
+
 export interface SeedStockEntryJsonld {
   '@context'?:
     | string
@@ -2055,6 +2157,22 @@ export interface SeedStockEntryJsonld {
 
 export enum SeedStockEntryJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface SeedStockGetCollectionParams {
+  /**
+   * The number of items per page
+   * @min 0
+   * @default 30
+   */
+  itemsPerPage?: number;
+  /**
+   * The collection page number
+   * @default 1
+   */
+  page?: number;
+  /** Enable or disable pagination */
+  pagination?: boolean;
 }
 
 export interface SeedStockJsonld {

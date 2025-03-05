@@ -20,9 +20,9 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 #[ApiResource]
 #[GetCollection()]
 #[Post()]
-#[Patch()]
-#[Delete()]
-#[Get()]
+#[Patch(security: 'object.person == user')]
+#[Delete(security: 'object.person == user')]
+#[Get(security: 'object.person == user')]
 #[ORM\HasLifecycleCallbacks]
 class SeedStock extends AbstractIdOrmAndUlidApiIdentified
 {

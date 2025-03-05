@@ -1,19 +1,19 @@
 <template>
   <section class="flex flex-col p-8 gap-6">
     <div class="flex flex-row gap-4 items-center justify-between">
-      <LychenTitle variant="h2"
+      <Title variant="h2"
         >Bonjour,
         <span class="text-on-surface/70">{{
           zitadelAuth.oidcAuth.userProfile.given_name
-        }}</span></LychenTitle
+        }}</span></Title
       >
       <div class="flex flex-row gap-2 items-center">
-        <LychenButton
-          icon="bell"
+        <Button
+          :icon="faBell"
           variant="container-high"
         />
-        <LychenButton
-          icon="gear"
+        <Button
+          :icon="faGear"
           variant="container-high"
         />
       </div>
@@ -27,20 +27,20 @@
       class="-mt-16 flex flex-row justify-between items-center bg-surface-container-low p-4 rounded-3xl shadow-md"
     >
       <div class="flex flex-col gap-0">
-        <LychenTitle variant="h5">Note rapide</LychenTitle>
+        <Title variant="h5">Note rapide</Title>
         <small>Journalisez vos observations</small>
       </div>
       <div class="flex flex-row gap-2 items-center">
-        <LychenButton
-          icon="camera"
+        <Button
+          :icon="faCamera"
           variant="container-high"
         />
-        <LychenButton
-          icon="microphone"
+        <Button
+          :icon="faMicrophone"
           variant="container-high"
         />
-        <LychenButton
-          icon="keyboard"
+        <Button
+          :icon="faKeyboard"
           variant="container-high"
         />
       </div>
@@ -48,26 +48,26 @@
 
     <div class="flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
-        <LychenTitle variant="h4">Vos espaces de culture</LychenTitle>
+        <Title variant="h4">Vos espaces de culture</Title>
         <div class="flex flex-row items-center gap-2">
-          <LychenButton
-            icon="plus"
+          <Button
+            :icon="faPlus"
             variant="secondary"
           />
-          <LychenButton
-            icon="list-ul"
+          <Button
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
       </div>
-      <LychenCarousel
+      <Carousel
         v-if="lands"
         :opts="{
           align: 'start',
         }"
       >
-        <LychenCarouselContent>
-          <LychenCarouselItem
+        <CarouselContent>
+          <CarouselItem
             v-for="(landItem, index) in lands.member"
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
@@ -75,33 +75,33 @@
             <RouterLink :to="{ name: RoutePageLand.name, params: { ulid: landItem.ulid } }">
               <CardTeraLand :land="landItem" />
             </RouterLink>
-          </LychenCarouselItem>
-        </LychenCarouselContent>
-      </LychenCarousel>
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
     </div>
 
     <div class="gap-4 flex flex-col">
       <div class="flex flex-row gap-4 justify-between items-start">
         <div class="flex flex-col gap-1">
-          <LychenTitle variant="h4">Trouver un espace de culture</LychenTitle>
+          <Title variant="h4">Trouver un espace de culture</Title>
           <small class="opacity-80">Dîte nous ce que vous recherchez on s'occupe du reste</small>
         </div>
-        <LychenButton
-          icon="ellipsis-vertical"
+        <Button
+          :icon="faEllipsisVertical"
           variant="container-high"
         />
       </div>
 
-      <LychenButton>Créer une demande</LychenButton>
+      <Button>Créer une demande</Button>
 
-      <LychenCarousel
+      <Carousel
         v-if="lands"
         :opts="{
           align: 'start',
         }"
       >
-        <LychenCarouselContent>
-          <LychenCarouselItem
+        <CarouselContent>
+          <CarouselItem
             v-for="(landItem, index) in landsLookingForMember.member"
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
@@ -110,68 +110,63 @@
               :land="landItem"
               :variant="VARIANT.LookingForMember"
             />
-          </LychenCarouselItem>
-        </LychenCarouselContent>
-      </LychenCarousel>
-      <LychenButton variant="container-high">Voir toutes les annonces</LychenButton>
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
+      <Button variant="container-high">Voir toutes les annonces</Button>
     </div>
     <div class="gap-4 flex flex-col">
-      <LychenTitle variant="h4">Ressources</LychenTitle>
+      <Title variant="h4">Ressources</Title>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
-import { defineAsyncComponent, onBeforeMount, ref } from 'vue';
-import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
-import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
-import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
+import { defineAsyncComponent } from 'vue';
+import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
+import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import headerImg from './assets/header.webp';
-import CardTeraLand from '@lychen/tera-land-ui-components/card-tera-land/CardTeraLand.vue';
-import { VARIANT } from '@lychen/tera-land-ui-components/card-tera-land';
+import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
+import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useQuery } from '@tanstack/vue-query';
+import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
+import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
+import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
+import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
+import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
+import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
+import { faEllipsisVertical } from '@fortawesome/pro-light-svg-icons/faEllipsisVertical';
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenButton = defineAsyncComponent(
-  () => import('@lychen/ui-components/button/LychenButton.vue'),
+const Button = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 
-onBeforeMount(() => {
-  fetchLands();
-  fetchLandsLookingForMember();
+const api = useTeraApi('Land');
+
+const { data: lands } = useQuery({
+  queryKey: ['land'],
+  queryFn: async () => {
+    const response = await api.landGetCollection({});
+    return response.data;
+  },
 });
 
-const landApi = useTeraApi('Land');
-const lands = ref();
-
-async function fetchLands() {
-  try {
-    const response = await landApi.getCollection({});
-    lands.value = response.data;
-  } catch (e) {
-    // console.log(e);
-  }
-}
-
-const landsLookingForMember = ref();
-
-async function fetchLandsLookingForMember() {
-  try {
-    const response = await landApi.getCollectionLookingForMembers({});
-
-    if (response.status === 200) {
-      landsLookingForMember.value = response.data;
-    }
-    //console.log(json);
-  } catch (e) {
-    //console.log(e);
-  }
-}
+const { data: landsLookingForMember } = useQuery({
+  queryKey: ['landsLookingForMember'],
+  queryFn: async () => {
+    const response = await api.landGetCollectionLookingForMembers({});
+    return response.data;
+  },
+});
 </script>
 
 <style lang="css" scoped></style>

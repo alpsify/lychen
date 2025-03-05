@@ -12,12 +12,11 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/pro-light-svg-icons": "^6.6.0",
     "@lychen/kiro-ui-components": "workspace:*",
-    "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
     "@vueuse/core": "^12.2.0",
     "@zitadel/vue": "1.1.1",
-    "radix-vue": "1.9.6",
     "vue": "3.5.13",
     "vue-i18n": "^10.0.5",
     "vue-router": "^4.5.0"

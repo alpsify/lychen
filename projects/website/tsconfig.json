@@ -7,18 +7,19 @@
     "../../libs/diagrams/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/tailwind/util-configs/**/*",
-    "../../libs/ui-components/**/*",
+    "../../libs/typescript/util-constants/**/*",
     "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
-    "../../libs/util-constants/**/*",
     "../../libs/vite/util-ssg/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/router/util-configs/**/*",
+    "../../libs/vue/ui-components-core/**/*",
+    "../../libs/vue/ui-components-extra/**/*",
+    "../../libs/vue/ui-components-website/**/*",
+    "../../libs/vue/ui-layouts/**/*",
     "../../libs/vue/unhead/util-composables/**/*",
     "../../libs/vue/util-composables/**/*",
-    "../../libs/website/ui-components/**/*",
-    "../../libs/website/ui-layouts/**/*",
     "**/*"
   ],
   "references": [
@@ -38,16 +39,13 @@
       "path": "../../libs/odd/util-composables"
     },
     {
-      "path": "../../libs/ui-components"
+      "path": "../../libs/typescript/util-constants"
     },
     {
       "path": "../../libs/ui-css"
     },
     {
       "path": "../../libs/ui-i18n"
-    },
-    {
-      "path": "../../libs/util-constants"
     },
     {
       "path": "../../libs/vite/util-ssg"
@@ -62,16 +60,22 @@
       "path": "../../libs/vue/router/util-configs"
     },
     {
+      "path": "../../libs/vue/ui-components-core"
+    },
+    {
+      "path": "../../libs/vue/ui-components-extra"
+    },
+    {
+      "path": "../../libs/vue/ui-components-website"
+    },
+    {
+      "path": "../../libs/vue/ui-layouts"
+    },
+    {
       "path": "../../libs/vue/unhead/util-composables"
     },
     {
       "path": "../../libs/vue/util-composables"
-    },
-    {
-      "path": "../../libs/website/ui-components"
-    },
-    {
-      "path": "../../libs/website/ui-layouts"
     }
   ],
   "compilerOptions": {
@@ -80,7 +84,6 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lychen/ui-components/*": ["../../libs/ui-components/*"],
       "@lychen/ui-css/*": ["../../libs/ui-css/*"],
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
@@ -93,11 +96,13 @@
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],
       "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"],
-      "@lychen/util-constants/*": ["../../libs/util-constants/*"],
-      "@lychen/website-ui-layouts/*": ["../../libs/website/ui-layouts/*"],
-      "@lychen/website-ui-components/*": ["../../libs/website/ui-components/*"],
+      "@lychen/typescript-util-constants/*": ["../../libs/typescript/util-constants/*"],
       "@lychen/diagrams/*": ["../../libs/diagrams/*"],
-      "@lychen/applications-util-constants/*": ["../../libs/applications/util-constants/*"]
+      "@lychen/applications-util-constants/*": ["../../libs/applications/util-constants/*"],
+      "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
+      "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
+      "@lychen/vue-ui-layouts/*": ["../../libs/vue/ui-layouts/*"],
+      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

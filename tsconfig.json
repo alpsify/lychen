@@ -119,22 +119,7 @@
       "path": "libs/robust/util-features"
     },
     {
-      "path": "libs/tera/land/ui-components"
-    },
-    {
-      "path": "libs/tera/land/ui-i18n"
-    },
-    {
-      "path": "libs/tera/land/util-composables"
-    },
-    {
-      "path": "libs/tera/land-task/ui-components"
-    },
-    {
-      "path": "libs/tera/land-task/ui-i18n"
-    },
-    {
-      "path": "libs/tera/land-task/util-composables"
+      "path": "libs/tera/ui-components"
     },
     {
       "path": "libs/tera/ui-i18n"
@@ -152,7 +137,13 @@
       "path": "libs/typescript/util-api"
     },
     {
+      "path": "libs/typescript/util-constants"
+    },
+    {
       "path": "libs/typescript/util-date"
+    },
+    {
+      "path": "libs/typescript/util-fontawesome"
     },
     {
       "path": "libs/typescript/util-json-ld-hydra"
@@ -170,19 +161,10 @@
       "path": "libs/typescript/util-zitadel"
     },
     {
-      "path": "libs/ui-components"
-    },
-    {
       "path": "libs/ui-css"
     },
     {
       "path": "libs/ui-i18n"
-    },
-    {
-      "path": "libs/util-composables"
-    },
-    {
-      "path": "libs/util-constants"
     },
     {
       "path": "libs/vara/ui-i18n"
@@ -218,19 +200,22 @@
       "path": "libs/vue/tiptap/util-composables"
     },
     {
+      "path": "libs/vue/ui-components-core"
+    },
+    {
+      "path": "libs/vue/ui-components-extra"
+    },
+    {
+      "path": "libs/vue/ui-components-website"
+    },
+    {
+      "path": "libs/vue/ui-layouts"
+    },
+    {
       "path": "libs/vue/unhead/util-composables"
     },
     {
       "path": "libs/vue/util-composables"
-    },
-    {
-      "path": "libs/website/ui-components"
-    },
-    {
-      "path": "libs/website/ui-i18n"
-    },
-    {
-      "path": "libs/website/ui-layouts"
     },
     {
       "path": "projects/eko/website"
@@ -287,5 +272,7 @@
       "path": "projects/website"
     }
   ],
-  "exclude": ["**/vendor/*"]
+  "exclude": [
+    "**/vendor/*"
+  ]
 }

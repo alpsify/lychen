@@ -1,8 +1,8 @@
 <template>
-  <LychenBadge
+  <Badge
     variant="tertiary"
     class="self-center"
-    >{{ t(`state.${state}`) }}</LychenBadge
+    >{{ t(`state.${state}`) }}</Badge
   >
 </template>
 
@@ -11,7 +11,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { messages, TRANSLATION_KEY } from '@lychen/applications-ui-i18n';
 import { type ApplicationState } from '@lychen/applications-util-model/Application';
 import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';
-import LychenBadge from '@lychen/ui-components/badge/LychenBadge.vue';
+import Badge from '@lychen/vue-ui-components-core/badge/Badge.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

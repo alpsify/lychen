@@ -7,18 +7,18 @@
       <div class="w-full h-2/5 bg-primary rounded-full badge"></div>
     </div>
     <div class="flex flex-col gap-2">
-      <LychenTitle variant="h3">{{ title }}</LychenTitle>
-      <LychenParagraph
+      <Title variant="h3">{{ title }}</Title>
+      <Paragraph
         class="opacity-80"
         variant="website-default"
-        >{{ description }}</LychenParagraph
+        >{{ description }}</Paragraph
       >
       <a
         :href="link.href"
         class="flex flex-row gap-2 text-primary items-center link"
         target="_blank"
         ><span class="underline">{{ link.title }}</span>
-        <LychenIcon icon="arrow-up-right" />
+        <Icon :icon="faArrowUpRight" />
       </a>
     </div>
   </div>
@@ -26,14 +26,15 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
+import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
 interface Props {
   title: string;

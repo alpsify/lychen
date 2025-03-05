@@ -3,6 +3,7 @@
 namespace App\OpenApi;
 
 use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Error;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\HttpOperation;
@@ -41,13 +42,16 @@ class OpenApiFactory implements OpenApiFactoryInterface
     public function __invoke(array $context = []): OpenApi
     {
         $openApi = $this->decorated->__invoke($context);
-
         foreach ($this->resourceNameCollectionFactory->create() as $resourceClass) {
             $resourceMetadataCollection = $this->resourceMetadataCollectionFactory->create($resourceClass);
 
             foreach ($resourceMetadataCollection as $resourceMetadata) {
                 foreach ($resourceMetadata->getOperations() as $operation) {
                     if (!($operation instanceof HttpOperation)) {
+                        continue;
+                    }
+
+                    if ($operation instanceof Error) {
                         continue;
                     }
 
@@ -95,28 +99,30 @@ class OpenApiFactory implements OpenApiFactoryInterface
 
     private function generateOperationId(OperationMetadata $operation, string $resourceClass, string $path, string $method): string
     {
+        $prefix = $operation->getShortName() . '_';
+
         if ($operation->getName() && !str_starts_with($operation->getName(), '_api_')) {
-            return $operation->getName();
+            return $prefix . $operation->getName();
         }
 
         if ($operation instanceof GetCollection) {
-            return 'get-collection';
+            return $prefix . 'get-collection';
         }
 
         if ($operation instanceof Get) {
-            return 'get';
+            return $prefix . 'get';
         }
 
         if ($operation instanceof Post) {
-            return 'post';
+            return $prefix . 'post';
         }
 
         if ($operation instanceof Patch) {
-            return 'patch';
+            return $prefix . 'patch';
         }
 
         if ($operation instanceof Delete) {
-            return 'delete';
+            return $prefix . 'delete';
         }
 
         return $this->normalizeOperationName($path . '_' . $method);

@@ -1,9 +1,9 @@
 dependsOn:
   - kiro-ui-components
-  #- kiro-util-sdk
-  - ui-components
   - ui-css
   - vue-i18n-util-composables
+  #- kiro-util-sdk
+  - vue-ui-components-core
 
 id: kiro-member-app
 

@@ -4,10 +4,10 @@
     class="flex flex-col p-8 gap-6"
   >
     <div class="flex flex-row gap-4 items-center justify-between">
-      <LychenTitle variant="h2">{{ land.name }}</LychenTitle>
+      <Title variant="h2">{{ land.name }}</Title>
       <div class="flex flex-row gap-2 items-center">
-        <LychenButton
-          icon="gear"
+        <Button
+          :icon="faGear"
           variant="container-high"
         />
       </div>
@@ -15,14 +15,14 @@
 
     <div class="flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
-        <LychenTitle variant="h4">Vos tâches</LychenTitle>
+        <Title variant="h4">Vos tâches</Title>
         <div class="flex flex-row gap-2">
-          <LychenButton
-            icon="plus"
+          <Button
+            :icon="faPlus"
             variant="container-high"
           />
-          <LychenButton
-            icon="list-ul"
+          <Button
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
@@ -38,63 +38,157 @@
         />
       </div>
     </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row justify-between items-center">
+        <Title variant="h4">Zones</Title>
+        <div class="flex flex-row gap-2">
+          <Button
+            :icon="faPlus"
+            variant="container-high"
+          />
+          <Button
+            :icon="faListUl"
+            variant="container-high"
+          />
+        </div>
+      </div>
+
+      <Carousel
+        v-if="landAreas"
+        :opts="{
+          align: 'start',
+        }"
+      >
+        <CarouselContent>
+          <CarouselItem
+            v-for="(item, index) in landAreas.member"
+            :key="index"
+            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
+          >
+            <CardTeraLandArea :land-area="item" />
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row justify-between items-center">
+        <Title variant="h4">Serres</Title>
+        <div class="flex flex-row gap-2">
+          <Button
+            :icon="faPlus"
+            variant="container-high"
+          />
+          <Button
+            :icon="faListUl"
+            variant="container-high"
+          />
+        </div>
+      </div>
+
+      <Carousel
+        v-if="landGreenhouses"
+        :opts="{
+          align: 'start',
+        }"
+      >
+        <CarouselContent>
+          <CarouselItem
+            v-for="(item, index) in landGreenhouses.member"
+            :key="index"
+            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
+          >
+            <CardTeraLandGreenhouse :land-greenhouse="item" />
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
+    </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent, onBeforeMount, ref } from 'vue';
+import { defineAsyncComponent, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import CardTeraLandTask from '@lychen/tera-land-task-ui-components/card-tera-land-task/CardTeraLandTask.vue';
+import CardTeraLandTask from '@lychen/tera-ui-components/card-tera-land-task/CardTeraLandTask.vue';
+import CardTeraLandGreenhouse from '@lychen/tera-ui-components/card-tera-land-greenhouse/CardTeraLandGreenhouse.vue';
+import CardTeraLandArea from '@lychen/tera-ui-components/card-tera-land-area/CardTeraLandArea.vue';
 import { RoutePageDashboard } from '@pages/dashboard';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { OrderDueDateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import { useQuery } from '@tanstack/vue-query';
+import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
+import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
+import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
+import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenButton = defineAsyncComponent(
-  () => import('@lychen/ui-components/button/LychenButton.vue'),
+const Button = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 
-const landApi = useTeraApi('Land');
-const landTaskApi = useTeraApi('LandTask');
-
-const land = ref();
 const route = useRoute();
 const router = useRouter();
 
-async function fetchLand() {
-  try {
-    const response = await landApi.get(<string>route.params.ulid);
+const api = useAllTeraApi();
 
-    if (response.status === 200) {
-      land.value = response.data;
-    }
-  } catch (e) {
-    if (e.response.status === 404) {
-      router.push(RoutePageDashboard);
-    }
-  }
-}
+const { data: land } = useQuery({
+  queryKey: ['land'],
+  queryFn: async () => {
+    const response = await api.Land.landGet(<string>route.params.ulid);
 
-onBeforeMount(async () => {
-  await fetchLand();
-  await fetchLandTasks();
+    if (response.status !== 200) {
+      return Promise.reject(router.push(RoutePageDashboard));
+    }
+
+    return response.data;
+  },
 });
 
-const landTasks = ref();
+const landId = computed(() => land.value?.['@id']);
+const enabled = computed(() => !!landId.value);
 
-async function fetchLandTasks() {
-  const response = await landTaskApi.getCollection({
-    land: land.value?.['@id'],
-    'order[dueDate]': OrderDueDateEnum.Asc,
-  });
+const { data: landTasks } = useQuery({
+  queryKey: ['landTasks', landId],
+  queryFn: async () => {
+    const response = await api.LandTask.landTaskGetCollection({
+      land: landId.value!,
+      'order[dueDate]': OrderDueDateEnum.Asc,
+    });
 
-  if (response.status === 200) {
-    landTasks.value = response.data;
-  }
-}
+    return response.data;
+  },
+  enabled,
+});
+
+const { data: landAreas } = useQuery({
+  queryKey: ['landAreas', landId],
+  queryFn: async () => {
+    const response = await api.LandArea.landAreaGetCollection({
+      land: landId.value!,
+    });
+
+    return response.data;
+  },
+  enabled,
+});
+
+const { data: landGreenhouses } = useQuery({
+  queryKey: ['landAreas', landId],
+  queryFn: async () => {
+    const response = await api.LandGreenhouse.landGreenhouseGetCollection({
+      land: landId.value!,
+    });
+
+    return response.data;
+  },
+  enabled,
+});
 </script>
 
 <style lang="css" scoped></style>

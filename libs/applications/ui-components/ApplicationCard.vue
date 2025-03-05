@@ -1,5 +1,5 @@
 <template>
-  <LychenDivWithBackgroundImage
+  <DivWithBackgroundImg
     :class="cn('flex flex-col gap-2 p-6 rounded-xl group justify-between', $props.class)"
     :background-image="`${backgroundImageFolder}/${application.alias}-cover-1.webp`"
     overlay
@@ -9,14 +9,14 @@
       class="flex flex-col gap-2 bg-primary/10 dark:bg-primary-container/20 rounded-3xl backdrop-blur-lg z-10 p-4 text-surface dark:text-on-surface"
     >
       <div class="flex flex-row justify-between self-stretch">
-        <ApplicationTitle :value="application.title" /><LychenBadge v-if="displayState">{{
+        <ApplicationTitle :value="application.title" /><Badge v-if="displayState">{{
           application.state
-        }}</LychenBadge>
+        }}</Badge>
       </div>
       <p class="opacity-80 text-balance">{{ application.description }}</p>
     </div>
     <slot name="footer" />
-  </LychenDivWithBackgroundImage>
+  </DivWithBackgroundImg>
 </template>
 
 <script setup lang="ts">
@@ -24,11 +24,9 @@ import { type Application } from '@lychen/applications-util-model/Application';
 import { defineAsyncComponent, type HTMLAttributes } from 'vue';
 import ApplicationTitle from './ApplicationTitle.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import LychenDivWithBackgroundImage from '@lychen/ui-components/div/LychenDivWithBackgroundImage.vue';
+import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
 
-const LychenBadge = defineAsyncComponent(
-  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
-);
+const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
 const { displayState = false } = defineProps<{
   class?: HTMLAttributes['class'];

@@ -1,15 +1,13 @@
 <template>
-  <LychenContainer class="flex flex-col-reverse items-center gap-4 lg:flex-row">
+  <Container class="flex flex-col-reverse items-center gap-4 lg:flex-row">
     <div class="flex basis-1/2 flex-col gap-2">
-      <LychenTitle variant="h2">{{ t('presentation.title') }}</LychenTitle>
-      <LychenParagraph variant="website-default">{{
-        t('presentation.description')
-      }}</LychenParagraph>
-      <LychenParagraph
+      <Title variant="h2">{{ t('presentation.title') }}</Title>
+      <Paragraph variant="website-default">{{ t('presentation.description') }}</Paragraph>
+      <Paragraph
         variant="website-default"
         class="opacity-60"
         >{{ t('presentation.second_description') }}
-      </LychenParagraph>
+      </Paragraph>
     </div>
     <div class="basis-1/2">
       <img
@@ -19,7 +17,7 @@
         class="rounded-lg"
       />
     </div>
-  </LychenContainer>
+  </Container>
 </template>
 
 <script setup lang="ts">
@@ -29,14 +27,14 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-const LychenContainer = defineAsyncComponent(
-  () => import('@lychen/ui-components/container/LychenContainer.vue'),
+const Container = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

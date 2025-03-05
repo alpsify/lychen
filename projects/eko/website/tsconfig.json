@@ -1,28 +1,27 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../../libs/applications/ui-components/**/*",
     "../../../libs/applications/util-composables/**/*",
     "../../../libs/applications/util-constants/**/*",
-    "../../../libs/kiro/ui-components/**/*",
     "../../../libs/eko/ui-i18n/**/*",
     "../../../libs/eko/util-constants/**/*",
     "../../../libs/eko/util-features/**/*",
+    "../../../libs/kiro/ui-components/**/*",
     "../../../libs/odd/util-composables/**/*",
-
-    "../../../libs/ui-components/**/*",
+    "../../../libs/typescript/util-constants/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
-    "../../../libs/util-constants/**/*",
     "../../../libs/vite/util-ssg/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
     "../../../libs/vue/router/util-configs/**/*",
+    "../../../libs/vue/ui-components-core/**/*",
+    "../../../libs/vue/ui-components-website/**/*",
+    "../../../libs/vue/ui-layouts/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
     "../../../libs/vue/util-composables/**/*",
-    "../../../libs/website/ui-components/**/*",
-    "../../../libs/website/ui-layouts/**/*"
+    "**/*"
   ],
   "references": [
     {
@@ -35,9 +34,6 @@
       "path": "../../../libs/applications/util-constants"
     },
     {
-      "path": "../../../libs/kiro/ui-components"
-    },
-    {
       "path": "../../../libs/eko/ui-i18n"
     },
     {
@@ -47,11 +43,13 @@
       "path": "../../../libs/eko/util-features"
     },
     {
+      "path": "../../../libs/kiro/ui-components"
+    },
+    {
       "path": "../../../libs/odd/util-composables"
     },
-
     {
-      "path": "../../../libs/ui-components"
+      "path": "../../../libs/typescript/util-constants"
     },
     {
       "path": "../../../libs/ui-css"
@@ -59,9 +57,7 @@
     {
       "path": "../../../libs/ui-i18n"
     },
-    {
-      "path": "../../../libs/util-constants"
-    },
+
     {
       "path": "../../../libs/vite/util-ssg"
     },
@@ -75,16 +71,19 @@
       "path": "../../../libs/vue/router/util-configs"
     },
     {
+      "path": "../../../libs/vue/ui-components-core"
+    },
+    {
+      "path": "../../../libs/vue/ui-components-website"
+    },
+    {
+      "path": "../../../libs/vue/ui-layouts"
+    },
+    {
       "path": "../../../libs/vue/unhead/util-composables"
     },
     {
       "path": "../../../libs/vue/util-composables"
-    },
-    {
-      "path": "../../../libs/website/ui-components"
-    },
-    {
-      "path": "../../../libs/website/ui-layouts"
     }
   ],
   "compilerOptions": {
@@ -95,7 +94,6 @@
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-      "@lychen/ui-components/*": ["../../../libs/ui-components/*"],
       "@lychen/applications-ui-components/*": ["../../../libs/applications/ui-components/*"],
       "@lychen/applications-util-composables/*": ["../../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../../libs/odd/util-composables/*"],
@@ -108,14 +106,15 @@
       "@lychen/vue-router-util-configs/*": ["../../../libs/vue/router/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
-      "@lychen/website-ui-layouts/*": ["../../../libs/website/ui-layouts/*"],
-      "@lychen/util-constants/*": ["../../../libs/util-constants/*"],
-      "@lychen/website-ui-components/*": ["../../../libs/website/ui-components/*"],
+      "@lychen/typescript-util-constants/*": ["../../../libs/typescript/util-constants/*"],
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
       "@lychen/eko-util-constants/*": ["../../../libs/eko/util-constants/*"],
       "@lychen/eko-util-features/*": ["../../../libs/eko/util-features/*"],
       "@lychen/eko-ui-i18n": ["../../../libs/eko/ui-i18n/index.ts"],
-      "@lychen/eko-ui-i18n/*": ["../../../libs/eko/ui-i18n/*"]
+      "@lychen/eko-ui-i18n/*": ["../../../libs/eko/ui-i18n/*"],
+      "@lychen/vue-ui-components-core/*": ["../../../libs/vue/ui-components-core/*"],
+      "@lychen/vue-ui-components-website/*": ["../../../libs/vue/ui-components-website/*"],
+      "@lychen/vue-ui-layouts/*": ["../../../libs/vue/ui-layouts/*"]
     }
   }
 }

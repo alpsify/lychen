@@ -2,10 +2,9 @@ dependsOn:
   - applications-assets
   - applications-ui-components
 
-  - ui-components
+  - typescript-util-constants
   - ui-css
   - ui-i18n
-  - util-constants
   - vara-ui-i18n
   - vara-util-constants
   - vara-util-features
@@ -13,10 +12,11 @@ dependsOn:
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
+  - vue-ui-components-core
+  - vue-ui-components-website
+  - vue-ui-layouts
   - vue-unhead-util-composables
   - vue-util-composables
-  - website-ui-components
-  - website-ui-layouts
 
 env:
   DEV_DOMAIN: vara.lychen.local

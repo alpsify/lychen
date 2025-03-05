@@ -1,6 +1,6 @@
 <template>
   <PageHomeHero />
-  <WebsiteSectionCrowfunding />
+  <SectionCrowdfunding />
   <PageHomeApplications />
   <PageHomeUseCases />
   <PageHomeBento />
@@ -15,7 +15,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
-import WebsiteSectionCrowfunding from '@lychen/website-ui-components/sections/WebsiteSectionCrowfunding.vue';
+import SectionCrowdfunding from '@lychen/vue-ui-components-website/section-crowdfunding/SectionCrowdfunding.vue';
 import PageHomeODD from './PageHomeODD.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomeOSS from './PageHomeOSS.vue';

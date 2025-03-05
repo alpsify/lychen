@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -22,7 +23,7 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
    * @description Retrieves a LandGreenhouseSetting resource.
    *
    * @tags LandGreenhouseSetting
-   * @name Get
+   * @name LandGreenhouseSettingGet
    * @summary Retrieves a LandGreenhouseSetting resource.
    * @request GET:/api/land_greenhouse_settings/{ulid}
    * @secure
@@ -30,7 +31,7 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  landGreenhouseSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseSettingJsonld, void>({
       path: `/api/land_greenhouse_settings/${ulid}`,
       method: 'GET',
@@ -42,7 +43,7 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
    * @description Updates the LandGreenhouseSetting resource.
    *
    * @tags LandGreenhouseSetting
-   * @name Patch
+   * @name LandGreenhouseSettingPatch
    * @summary Updates the LandGreenhouseSetting resource.
    * @request PATCH:/api/land_greenhouse_settings/{ulid}
    * @secure
@@ -52,7 +53,11 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: LandGreenhouseSetting, params: RequestParams = {}) =>
+  landGreenhouseSettingPatch = (
+    ulid: string,
+    data: LandGreenhouseSetting,
+    params: RequestParams = {},
+  ) =>
     this.http.request<LandGreenhouseSettingJsonld, void>({
       path: `/api/land_greenhouse_settings/${ulid}`,
       method: 'PATCH',

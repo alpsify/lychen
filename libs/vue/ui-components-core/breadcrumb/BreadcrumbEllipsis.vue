@@ -1,0 +1,26 @@
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import Icon from '../icon/Icon.vue';
+import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>
+
+<template>
+  <span
+    role="presentation"
+    aria-hidden="true"
+    :class="cn('flex h-9 w-9 items-center justify-center', props.class)"
+  >
+    <slot>
+      <Icon
+        :icon="faEllipsis"
+        class="h-4 w-4"
+      />
+    </slot>
+    <span class="sr-only">More</span>
+  </span>
+</template>

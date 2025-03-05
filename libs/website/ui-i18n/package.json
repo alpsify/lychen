@@ -1,8 +1,0 @@
-{
-  "name": "@lychen/website-ui-i18n",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@lychen/vue-i18n-util-composables": "workspace:*"
-  }
-}

@@ -9,7 +9,11 @@
  * ---------------------------------------------------------------
  */
 
-import type { GetCollectionParams24, PlantCustom, PlantCustomJsonld } from './data-contracts';
+import type {
+  PlantCustom,
+  PlantCustomGetCollectionParams,
+  PlantCustomJsonld,
+} from './data-contracts';
 import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class PlantCustom<SecurityDataType = unknown> {
@@ -23,7 +27,7 @@ export class PlantCustom<SecurityDataType = unknown> {
  * @description Retrieves the collection of PlantCustom resources.
  *
  * @tags PlantCustom
- * @name GetCollection
+ * @name PlantCustomGetCollection
  * @summary Retrieves the collection of PlantCustom resources.
  * @request GET:/api/plant_customs
  * @secure
@@ -62,7 +66,7 @@ export class PlantCustom<SecurityDataType = unknown> {
 
 }` PlantCustom collection
  */
-  getCollection = (query: GetCollectionParams24, params: RequestParams = {}) =>
+  plantCustomGetCollection = (query: PlantCustomGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: PlantCustomJsonld[];
@@ -107,7 +111,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Creates a PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name Post
+   * @name PlantCustomPost
    * @summary Creates a PlantCustom resource.
    * @request POST:/api/plant_customs
    * @secure
@@ -115,7 +119,7 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  post = (data: PlantCustomJsonld, params: RequestParams = {}) =>
+  plantCustomPost = (data: PlantCustomJsonld, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs`,
       method: 'POST',
@@ -129,14 +133,15 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Retrieves a PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name Get
+   * @name PlantCustomGet
    * @summary Retrieves a PlantCustom resource.
    * @request GET:/api/plant_customs/{ulid}
    * @secure
    * @response `200` `PlantCustomJsonld` PlantCustom resource
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  get = (ulid: string, params: RequestParams = {}) =>
+  plantCustomGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'GET',
@@ -148,14 +153,15 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Removes the PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name Delete
+   * @name PlantCustomDelete
    * @summary Removes the PlantCustom resource.
    * @request DELETE:/api/plant_customs/{ulid}
    * @secure
    * @response `204` `void` PlantCustom resource deleted
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
-  delete = (ulid: string, params: RequestParams = {}) =>
+  plantCustomDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'DELETE',
@@ -166,16 +172,17 @@ export class PlantCustom<SecurityDataType = unknown> {
    * @description Updates the PlantCustom resource.
    *
    * @tags PlantCustom
-   * @name Patch
+   * @name PlantCustomPatch
    * @summary Updates the PlantCustom resource.
    * @request PATCH:/api/plant_customs/{ulid}
    * @secure
    * @response `200` `PlantCustomJsonld` PlantCustom resource updated
    * @response `400` `void` Invalid input
+   * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  patch = (ulid: string, data: PlantCustom, params: RequestParams = {}) =>
+  plantCustomPatch = (ulid: string, data: PlantCustom, params: RequestParams = {}) =>
     this.http.request<PlantCustomJsonld, void>({
       path: `/api/plant_customs/${ulid}`,
       method: 'PATCH',
