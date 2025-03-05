@@ -8,7 +8,7 @@ import { RoutePageLand } from '@pages/land';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@layouts/in-app/LayoutInApp.vue'),
+    component: () => import('@layouts/TheLayout.vue'),
     meta: {
       authName: zitadelAuth.oidcAuth.authName,
     },

@@ -2462,6 +2462,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/tera-ui-components": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-api-sdk": "workspace:*"
@@ -2470,6 +2471,7 @@ __metadata:
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@tanstack/vue-query": "npm:^5.66.11"
@@ -2891,6 +2893,7 @@ __metadata:
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-ui-components-website": "workspace:*"
     vue: "npm:^3.5.13"
+    vue-router: "npm:^4.1.1"
   languageName: unknown
   linkType: soft
 
@@ -2926,7 +2929,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/typescript-util-fontawesome": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
@@ -11659,7 +11661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.5.0":
+"vue-router@npm:^4.1.1, vue-router@npm:^4.5.0":
   version: 4.5.0
   resolution: "vue-router@npm:4.5.0"
   dependencies:
