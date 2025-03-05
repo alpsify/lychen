@@ -6,7 +6,6 @@ dependsOn:
   - odd-assets
   - odd-util-composables
   - typescript-util-constants
-  - typescript-util-fontawesome
   - ui-css
   - ui-i18n
   - vite-util-ssg

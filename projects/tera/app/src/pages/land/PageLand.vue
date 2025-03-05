@@ -7,7 +7,7 @@
       <Title variant="h2">{{ land.name }}</Title>
       <div class="flex flex-row gap-2 items-center">
         <Button
-          icon="gear"
+          :icon="faGear"
           variant="container-high"
         />
       </div>
@@ -18,11 +18,11 @@
         <Title variant="h4">Vos tâches</Title>
         <div class="flex flex-row gap-2">
           <Button
-            icon="plus"
+            :icon="faPlus"
             variant="container-high"
           />
           <Button
-            icon="list-ul"
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
@@ -44,11 +44,11 @@
         <Title variant="h4">Zones</Title>
         <div class="flex flex-row gap-2">
           <Button
-            icon="plus"
+            :icon="faPlus"
             variant="container-high"
           />
           <Button
-            icon="list-ul"
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
@@ -77,11 +77,11 @@
         <Title variant="h4">Serres</Title>
         <div class="flex flex-row gap-2">
           <Button
-            icon="plus"
+            :icon="faPlus"
             variant="container-high"
           />
           <Button
-            icon="list-ul"
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
@@ -120,6 +120,9 @@ import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
 import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
+import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
+import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

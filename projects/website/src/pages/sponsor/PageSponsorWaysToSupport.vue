@@ -10,7 +10,7 @@
         :key="index"
       >
         <Icon
-          icon="arrow-right"
+          :icon="faArrowRight"
           class="mr-2"
         />
         <p class="font-bold">{{ t(`section.ways_to_support.options.${pointKey}.title`) }}</p>
@@ -26,6 +26,7 @@
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/container/Container.vue'),

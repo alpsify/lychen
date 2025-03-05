@@ -13,7 +13,6 @@
         <div class="flex items-center justify-center">
           <img
             loading="lazy"
-            icon="server"
             class="rounded-full w-1/2 md:w-full"
             :src="NathanDePachtereImage"
             alt="Portrait de Nathan De Pachtere"
@@ -71,7 +70,6 @@
         <div class="flex items-center justify-center">
           <img
             loading="lazy"
-            icon="server"
             class="rounded-full w-1/2 md:w-full"
             :src="JenniferGeoffroyImage"
             alt="Portrait de Jennifer Geoffroy"

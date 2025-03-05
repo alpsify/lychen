@@ -18,7 +18,6 @@
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
-    "@lychen/typescript-util-fontawesome": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",

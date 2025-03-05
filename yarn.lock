@@ -1842,6 +1842,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/eko-website@workspace:projects/eko/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/eko-ui-i18n": "workspace:*"
@@ -1905,6 +1906,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/humu-website@workspace:projects/humu/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/humu-ui-i18n": "workspace:*"
@@ -2009,6 +2011,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/kiro-ui-i18n": "workspace:*"
@@ -2072,6 +2075,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kolo-website@workspace:projects/kolo/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/kolo-ui-i18n": "workspace:*"
@@ -2135,6 +2139,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/luna-website@workspace:projects/luna/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/luna-ui-i18n": "workspace:*"
@@ -2198,6 +2203,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/meli-website@workspace:projects/meli/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/meli-ui-i18n": "workspace:*"
@@ -2261,6 +2267,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/myko-website@workspace:projects/myko/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/myko-ui-i18n": "workspace:*"
@@ -2324,6 +2331,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/novi-website@workspace:projects/novi/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/novi-ui-i18n": "workspace:*"
@@ -2415,6 +2423,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/robust-website@workspace:projects/robust/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
@@ -2527,6 +2536,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-website@workspace:projects/tera/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/diagrams": "workspace:*"
@@ -2675,6 +2685,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vara-website@workspace:projects/vara/website"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/odd-assets": "workspace:*"

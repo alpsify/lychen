@@ -9,11 +9,11 @@
       >
       <div class="flex flex-row gap-2 items-center">
         <Button
-          icon="bell"
+          :icon="faBell"
           variant="container-high"
         />
         <Button
-          icon="gear"
+          :icon="faGear"
           variant="container-high"
         />
       </div>
@@ -32,15 +32,15 @@
       </div>
       <div class="flex flex-row gap-2 items-center">
         <Button
-          icon="camera"
+          :icon="faCamera"
           variant="container-high"
         />
         <Button
-          icon="microphone"
+          :icon="faMicrophone"
           variant="container-high"
         />
         <Button
-          icon="keyboard"
+          :icon="faKeyboard"
           variant="container-high"
         />
       </div>
@@ -51,11 +51,11 @@
         <Title variant="h4">Vos espaces de culture</Title>
         <div class="flex flex-row items-center gap-2">
           <Button
-            icon="plus"
+            :icon="faPlus"
             variant="secondary"
           />
           <Button
-            icon="list-ul"
+            :icon="faListUl"
             variant="container-high"
           />
         </div>
@@ -87,7 +87,7 @@
           <small class="opacity-80">Dîte nous ce que vous recherchez on s'occupe du reste</small>
         </div>
         <Button
-          icon="ellipsis-vertical"
+          :icon="faEllipsisVertical"
           variant="container-high"
         />
       </div>
@@ -133,6 +133,14 @@ import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
 import { RoutePageLand } from '@pages/land';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
+import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
+import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
+import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
+import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
+import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
+import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
+import { faEllipsisVertical } from '@fortawesome/pro-light-svg-icons/faEllipsisVertical';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

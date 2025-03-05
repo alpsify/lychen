@@ -27,7 +27,7 @@
             data-umami-event="features-button"
             >{{ t('hero.button.features.label') }}
             <Icon
-              icon="chevron-down"
+              :icon="faChevronDown"
               beat
             />
           </Button>
@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import heroImg from './assets/HeroImage.webp';
 import { defineAsyncComponent } from 'vue';
-
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';

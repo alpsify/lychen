@@ -8,13 +8,14 @@
       {{ association.description }}
     </h3>
     <div class="flex gap-4">
-      <span>4 <Icon icon="user" /></span>
+      <span>4 <Icon :icon="faUser" /></span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
+import { faUser } from '@fortawesome/pro-light-svg-icons/faUser';
 
 import { Props } from '.';
 
