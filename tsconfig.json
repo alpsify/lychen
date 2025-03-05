@@ -137,6 +137,9 @@
       "path": "libs/typescript/util-api"
     },
     {
+      "path": "libs/typescript/util-constants"
+    },
+    {
       "path": "libs/typescript/util-date"
     },
     {
@@ -155,19 +158,10 @@
       "path": "libs/typescript/util-zitadel"
     },
     {
-      "path": "libs/ui-base-components"
-    },
-    {
       "path": "libs/ui-css"
     },
     {
       "path": "libs/ui-i18n"
-    },
-    {
-      "path": "libs/util-composables"
-    },
-    {
-      "path": "libs/util-constants"
     },
     {
       "path": "libs/vara/ui-i18n"
@@ -219,9 +213,6 @@
     },
     {
       "path": "libs/vue/util-composables"
-    },
-    {
-      "path": "libs/website/ui-i18n"
     },
     {
       "path": "projects/eko/website"
@@ -278,5 +269,7 @@
       "path": "projects/website"
     }
   ],
-  "exclude": ["**/vendor/*"]
+  "exclude": [
+    "**/vendor/*"
+  ]
 }

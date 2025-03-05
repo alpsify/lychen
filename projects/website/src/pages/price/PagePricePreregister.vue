@@ -40,7 +40,7 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/util-constants/Link';
+import { LINK } from '@lychen/typescript-util-constants/Link';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),

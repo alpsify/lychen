@@ -177,7 +177,7 @@ import JenniferGeoffroyImage from './assets/JenniferGeoffroy.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/util-constants/Link';
+import { LINK } from '@lychen/typescript-util-constants/Link';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));

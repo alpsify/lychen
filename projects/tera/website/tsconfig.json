@@ -10,7 +10,7 @@
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-features/**/*",
-
+    "../../../libs/typescript/util-constants/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
     "../../../libs/util-constants/**/*",
@@ -24,7 +24,6 @@
     "../../../libs/vue/ui-layouts/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
     "../../../libs/vue/util-composables/**/*",
-
     "**/*"
   ],
   "references": [
@@ -55,7 +54,9 @@
     {
       "path": "../../../libs/tera/util-features"
     },
-
+    {
+      "path": "../../../libs/typescript/util-constants"
+    },
     {
       "path": "../../../libs/ui-css"
     },
@@ -104,7 +105,6 @@
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-
       "@lychen/applications-ui-components/*": ["../../../libs/applications/ui-components/*"],
       "@lychen/applications-util-composables/*": ["../../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../../libs/odd/util-composables/*"],
@@ -117,9 +117,7 @@
       "@lychen/vue-router-util-configs/*": ["../../../libs/vue/router/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
-
-      "@lychen/util-constants/*": ["../../../libs/util-constants/*"],
-
+      "@lychen/typescript-util-constants/*": ["../../../libs/typescript/util-constants/*"],
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
       "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"],
       "@lychen/tera-util-features/*": ["../../../libs/tera/util-features/*"],

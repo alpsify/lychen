@@ -179,7 +179,7 @@ import { computed, defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@pages/price';
-import { SOCIAL_LINK } from '@lychen/util-constants/Social';
+import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 

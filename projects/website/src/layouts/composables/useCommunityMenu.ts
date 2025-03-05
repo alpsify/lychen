@@ -1,7 +1,7 @@
-import { SOCIAL_LINK } from '@lychen/util-constants/Social';
+import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
 import { messages, TRANSLATION_KEY } from '../i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/util-constants/Link';
+import { LINK } from '@lychen/typescript-util-constants/Link';
 
 export function useCommunityMenu() {
   const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

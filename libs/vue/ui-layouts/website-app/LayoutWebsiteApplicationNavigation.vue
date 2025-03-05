@@ -89,7 +89,7 @@
 import { defineAsyncComponent, provide, ref } from 'vue';
 
 import { LYCHEN_ICON_FASHION } from '@lychen/vue-ui-components-core/icon';
-import { SOCIAL_LINK } from '@lychen/util-constants/Social';
+import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
 

@@ -1849,9 +1849,9 @@ __metadata:
     "@lychen/eko-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -1912,9 +1912,9 @@ __metadata:
     "@lychen/humu-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2017,9 +2017,9 @@ __metadata:
     "@lychen/kiro-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2080,9 +2080,9 @@ __metadata:
     "@lychen/kolo-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2143,9 +2143,9 @@ __metadata:
     "@lychen/luna-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2206,9 +2206,9 @@ __metadata:
     "@lychen/meli-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2269,9 +2269,9 @@ __metadata:
     "@lychen/myko-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2332,9 +2332,9 @@ __metadata:
     "@lychen/novi-util-features": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2423,9 +2423,9 @@ __metadata:
     "@lychen/robust-ui-i18n": "workspace:*"
     "@lychen/robust-util-constants": "workspace:*"
     "@lychen/robust-util-features": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2536,9 +2536,9 @@ __metadata:
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/tera-util-features": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -2571,6 +2571,12 @@ __metadata:
     "@lychen/typescript-util-json-ld-hydra": "workspace:*"
     "@lychen/typescript-util-zitadel": "workspace:*"
     axios: "npm:^1.7.9"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/typescript-util-constants@workspace:*, @lychen/typescript-util-constants@workspace:libs/typescript/util-constants":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-util-constants@workspace:libs/typescript/util-constants"
   languageName: unknown
   linkType: soft
 
@@ -2633,12 +2639,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/util-constants@workspace:*, @lychen/util-constants@workspace:libs/util-constants":
-  version: 0.0.0-use.local
-  resolution: "@lychen/util-constants@workspace:libs/util-constants"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/vara-ui-i18n@workspace:*, @lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n"
@@ -2672,9 +2672,9 @@ __metadata:
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
     "@lychen/vara-util-constants": "workspace:*"
     "@lychen/vara-util-features": "workspace:*"
@@ -2862,7 +2862,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-ui-layouts@workspace:libs/vue/ui-layouts"
   dependencies:
+    "@lychen/applications-ui-components": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@lychen/vue-ui-components-website": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2896,9 +2902,9 @@ __metadata:
     "@lychen/diagrams": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
+    "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
-    "@lychen/util-constants": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"

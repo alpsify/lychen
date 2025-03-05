@@ -51,8 +51,8 @@ import {
   TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,
 } from '@lychen/ui-i18n/global';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/util-constants/Link';
-import { EMAIL } from '@lychen/util-constants/Email';
+import { LINK } from '@lychen/typescript-util-constants/Link';
+import { EMAIL } from '@lychen/typescript-util-constants/Email';
 
 const LogoLychenFull = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),

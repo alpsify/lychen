@@ -52,8 +52,8 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 import { type LayoutWebsiteApplicationFooterProps } from '.';
-import { EMAIL } from '@lychen/util-constants/Email';
-import { LINK } from '@lychen/util-constants/Link';
+import { EMAIL } from '@lychen/typescript-util-constants/Email';
+import { LINK } from '@lychen/typescript-util-constants/Link';
 import {
   messages as globalMessages,
   TRANSLATION_KEY as GLOBAL_TRANSLATION_KEY,

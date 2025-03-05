@@ -2,9 +2,9 @@ dependsOn:
   - applications-assets
   - applications-ui-components
 
+  - typescript-util-constants
   - ui-css
   - ui-i18n
-  - util-constants
   - vara-ui-i18n
   - vara-util-constants
   - vara-util-features

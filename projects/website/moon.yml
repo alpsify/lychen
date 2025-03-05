@@ -5,9 +5,9 @@ dependsOn:
   - diagrams
   - odd-assets
   - odd-util-composables
+  - typescript-util-constants
   - ui-css
   - ui-i18n
-  - util-constants
   - vite-util-ssg
   - vue-i18n-util-composables
   - vue-i18n-util-configs
