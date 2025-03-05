@@ -13,6 +13,7 @@ import { computed, type HTMLAttributes } from 'vue';
 import Icon from '../icon/Icon.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { type SheetVariants, sheetVariants } from '.';
+import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 
 interface SheetContentProps extends DialogContentProps {
   class?: HTMLAttributes['class'];
@@ -51,7 +52,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
           class="focus:ring-ring data-[state=open]:bg-secondary rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-offset-2 disabled:pointer-events-none"
         >
           <Icon
-            icon="times"
+            :icon="faTimes"
             class="size-4"
           />
         </DialogClose>

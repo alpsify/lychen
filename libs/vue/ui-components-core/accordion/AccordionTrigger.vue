@@ -3,6 +3,7 @@ import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import Icon from '../icon/Icon.vue';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 
 const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>();
 
@@ -27,7 +28,7 @@ const delegatedProps = computed(() => {
       <slot />
       <slot name="icon">
         <Icon
-          icon="chevron-down"
+          :icon="faChevronDown"
           class="size-4 shrink-0 transition-transform duration-200"
         />
       </slot>

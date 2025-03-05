@@ -3,7 +3,7 @@
     <div class="bento-grid self-stretch mt-8">
       <div class="item justify-center">
         <Icon
-          icon="chart-network"
+          :icon="faChartNetwork"
           class="text-5xl"
         />
         <p class="text-xl">{{ t('bento.integrability.title') }}</p>
@@ -46,7 +46,7 @@
         <div></div>
         <div>
           <Icon
-            icon="hand-holding-heart"
+            :icon="faHandHoldingHeart"
             class="text-5xl"
           />
           <p class="text-2xl md:text-4xl gradient">{{ t('bento.sponsorship.title') }}</p>
@@ -79,6 +79,8 @@ import bentoCentralImageUrl from './assets/bento-central-9.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { faChartNetwork } from '@fortawesome/pro-light-svg-icons/faChartNetwork';
+import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 

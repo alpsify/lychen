@@ -15,22 +15,6 @@
               <div
                 class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
-                <!--<div
-                  class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-on-surface-container-highest"
-                >
-                  <Icon icon="megaphone" />
-                  <div class="flex flex-col gap-0">
-                    <p class="text-sm">
-                      {{ t(`navigation.app.menu.disclaimer.paragraph`) }}
-
-                      <a
-                        class="text-sm underline"
-                        :href="`mailto:${EMAIL.Bonjour}`"
-                        >{{ EMAIL.Bonjour }}</a
-                      >
-                    </p>
-                  </div>
-                </div>-->
                 <div class="flex flex-row gap-4">
                   <div
                     class="basis-2/3 grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-2 p-6"
@@ -61,7 +45,7 @@
                       <a href="https://robust.lychen.fr">
                         <Button
                           :text="t('navigation.app.robust.button')"
-                          icon="arrow-up-right"
+                          :icon="faArrowUpRight"
                           class="self-start"
                       /></a>
                     </div>
@@ -151,20 +135,14 @@
         target="_blank"
         aria-label="GitHub"
       >
-        <Icon
-          icon="github"
-          :fashion="LYCHEN_ICON_FASHION.Brands"
-        />
+        <Icon :icon="faGithub" />
       </a>
       <a
         :href="SOCIAL_LINK.Discord"
         target="_blank"
         aria-label="Discord"
       >
-        <Icon
-          icon="discord"
-          :fashion="LYCHEN_ICON_FASHION.Brands"
-        />
+        <Icon :icon="faDiscord" />
       </a>
       <ButtonTallyPreregister class="hidden md:flex" />
     </div>
@@ -172,6 +150,8 @@
 </template>
 
 <script setup lang="ts">
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/vue-ui-components-core/navigation-menu';
@@ -182,8 +162,8 @@ import { RoutePagePrice } from '@pages/price';
 import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
-import { LYCHEN_ICON_FASHION } from '@lychen/vue-ui-components-core/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';

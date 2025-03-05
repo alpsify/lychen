@@ -12,7 +12,7 @@
         >
           <SheetTrigger as-child>
             <Icon
-              icon="bars-staggered"
+              :icon="faBarsStaggered"
               class="cursor-pointer"
             />
           </SheetTrigger>
@@ -30,6 +30,7 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
+import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
 
 const SheetTrigger = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/sheet/SheetTrigger.vue'),

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { Check } from 'lucide-vue-next';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
+import Icon from '../icon/Icon.vue';
+import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 
 const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<CheckboxRootEmits>();
@@ -29,7 +30,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   >
     <CheckboxIndicator class="flex h-full w-full items-center justify-center text-current">
       <slot>
-        <Check class="h-4 w-4" />
+        <Icon
+          :icon="faCheck"
+          class="h-4 w-4"
+        />
       </slot>
     </CheckboxIndicator>
   </CheckboxRoot>

@@ -1,7 +1,15 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../../typescript/util-object/**/*", "../../typescript/util-tailwind/**/*", "**/*"],
+  "include": [
+    "../../typescript/util-fontawesome/**/*",
+    "../../typescript/util-object/**/*",
+    "../../typescript/util-tailwind/**/*",
+    "**/*"
+  ],
   "references": [
+    {
+      "path": "../../typescript/util-fontawesome"
+    },
     {
       "path": "../../typescript/util-object"
     },
@@ -14,7 +22,8 @@
     "paths": {
       "@/*": ["./*"],
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
-      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"]
+      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
+      "@lychen/typescript-util-fontawesome/*": ["../../typescript/util-fontawesome/*"]
     }
   }
 }

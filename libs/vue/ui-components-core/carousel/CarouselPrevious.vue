@@ -4,6 +4,7 @@ import Button from '../button/Button.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { useCarousel } from './useCarousel';
 import Icon from '../icon/Icon.vue';
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons/faArrowLeft';
 
 const props = defineProps<WithClassAsProps>();
 
@@ -28,7 +29,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
   >
     <slot>
       <Icon
-        icon="arrow-left"
+        :icon="faArrowLeft"
         class="size-4 text-current"
       />
     </slot>

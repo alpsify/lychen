@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { NumberFieldIncrementProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { Plus } from 'lucide-vue-next';
 import { NumberFieldIncrement, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
+import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
+import Icon from '../icon/Icon.vue';
 
 const props = defineProps<NumberFieldIncrementProps & { class?: HTMLAttributes['class'] }>();
 
@@ -28,7 +29,10 @@ const forwarded = useForwardProps(delegatedProps);
     "
   >
     <slot>
-      <Plus class="h-4 w-4" />
+      <Icon
+        :icon="faPlus"
+        class="h-4 w-4"
+      />
     </slot>
   </NumberFieldIncrement>
 </template>

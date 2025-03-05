@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/typescript-util-tailwind": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@vueuse/core": "^12.7.0",

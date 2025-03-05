@@ -9,7 +9,6 @@
     "../../../libs/typescript/util-constants/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
-    "../../../libs/util-constants/**/*",
     "../../../libs/vara/ui-i18n/**/*",
     "../../../libs/vara/util-constants/**/*",
     "../../../libs/vara/util-features/**/*",
@@ -49,9 +48,7 @@
     {
       "path": "../../../libs/ui-i18n"
     },
-    {
-      "path": "../../../libs/util-constants"
-    },
+
     {
       "path": "../../../libs/vara/ui-i18n"
     },

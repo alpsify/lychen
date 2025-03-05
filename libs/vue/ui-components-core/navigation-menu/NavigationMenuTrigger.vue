@@ -5,6 +5,7 @@ import { computed, type HTMLAttributes } from 'vue';
 import Icon from '../icon/Icon.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { navigationMenuTriggerStyle } from '.';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 
 const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>();
 
@@ -24,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps);
   >
     <slot />
     <Icon
-      icon="chevron-down"
+      :icon="faChevronDown"
       class="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
       aria-hidden="true"
     />

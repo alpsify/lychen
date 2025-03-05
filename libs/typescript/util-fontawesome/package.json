@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/typescript-util-fontawesome",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2"
+  }
+}

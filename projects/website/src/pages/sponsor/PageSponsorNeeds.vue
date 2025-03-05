@@ -29,8 +29,7 @@
             target="_blank"
             class="underline"
             ><Icon
-              icon="linkedin"
-              fashion="fab"
+              :icon="faLinkedin"
               class="mr-2"
             />LinkedIn</a
           >
@@ -47,7 +46,7 @@
           >
             <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
               <Icon
-                icon="coffee"
+                :icon="faCoffee"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.nathan_de_pachtere.call_to_action_kofi`) }}
             </RainbowBox>
@@ -59,8 +58,7 @@
           >
             <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
               <Icon
-                icon="github"
-                fashion="fab"
+                :icon="faGithub"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.nathan_de_pachtere.call_to_action_github`) }}
             </RainbowBox>
@@ -89,8 +87,7 @@
             target="_blank"
             class="underline"
             ><Icon
-              icon="linkedin"
-              fashion="fab"
+              :icon="faLinkedin"
               class="mr-2"
             />LinkedIn</a
           >
@@ -107,7 +104,7 @@
           >
             <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
               <Icon
-                icon="coffee"
+                :icon="faCoffee"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.jennifer_geoffroy.call_to_action_kofi`) }}
             </RainbowBox>
@@ -119,7 +116,7 @@
       >
         <div class="flex items-center justify-center">
           <Icon
-            icon="server"
+            :icon="faServer"
             class="fa-xl"
           />
         </div>
@@ -148,7 +145,7 @@
                 target="_blank"
                 >alpsify
                 <Icon
-                  icon="arrow-up-right"
+                  :icon="faArrowUpRight"
                   class="opacity-50"
               /></a>
             </li>
@@ -160,7 +157,7 @@
                 target="_blank"
                 >alpsify
                 <Icon
-                  icon="arrow-up-right"
+                  :icon="faArrowUpRight"
                   class="opacity-50"
               /></a>
             </li>
@@ -178,6 +175,11 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-util-constants/Link';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
+import { faCoffee } from '@fortawesome/pro-light-svg-icons/faCoffee';
+import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
+import { faServer } from '@fortawesome/pro-light-svg-icons/faServer';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));

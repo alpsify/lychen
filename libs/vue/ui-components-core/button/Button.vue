@@ -29,13 +29,14 @@ import { computed, type HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { type ButtonVariants, buttonVariants, ICON_POSITION, type IconPosition } from '.';
 import Icon from '../icon/Icon.vue';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface Props {
   variant?: ButtonVariants['variant'];
   size?: ButtonVariants['size'];
   class?: HTMLAttributes['class'];
   text?: string;
-  icon?: string;
+  icon?: IconDefinition;
   iconPosition?: IconPosition;
 }
 

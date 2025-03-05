@@ -37,7 +37,7 @@
             <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
               {{ t('hero.sponsor_us')
               }}<Icon
-                icon="hands-holding-heart"
+                :icon="faHandsHoldingHeart"
                 class="fa-lg"
               />
             </RainbowBox>
@@ -51,6 +51,7 @@
 <script setup lang="ts">
 import heroUrl from './assets/hero-2.webp';
 import { defineAsyncComponent } from 'vue';
+import { faHandsHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandsHoldingHeart';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

@@ -4,6 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-ui-componen
 import RadioGroup from '@lychen/vue-ui-components-core/radio-group/RadioGroup.vue';
 import RadioGroupItem from '@lychen/vue-ui-components-core/radio-group/RadioGroupItem.vue';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import { faLanguage } from '@fortawesome/pro-light-svg-icons/faLanguage';
 
 const { locale } = useI18n();
 </script>
@@ -12,7 +13,7 @@ const { locale } = useI18n();
   <Popover>
     <PopoverTrigger as-child>
       <Icon
-        icon="language"
+        :icon="faLanguage"
         class="cursor-pointer"
         aria-label="Select language"
       />

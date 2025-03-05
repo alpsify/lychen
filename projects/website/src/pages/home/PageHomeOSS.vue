@@ -23,7 +23,7 @@
           <Button
             variant="ghost"
             class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-on-primary"
-            >{{ t('oss.button.label') }} <Icon icon="chevron-right"
+            >{{ t('oss.button.label') }} <Icon :icon="faChevronRight"
           /></Button>
         </div>
       </DivWithBackgroundImg>
@@ -34,6 +34,7 @@
 <script setup lang="ts">
 import ossUrl from './assets/oss.webp';
 import { defineAsyncComponent } from 'vue';
+import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

@@ -4,7 +4,7 @@
     class="flex flex-col md:flex-row gap-6 items-stretch md:items-center md:py-10"
   >
     <Icon
-      icon="bullhorn"
+      :icon="faBullhorn"
       class="fa-2xl"
     />
     <BannerUlule class="grow" />
@@ -16,6 +16,8 @@ import { defineAsyncComponent } from 'vue';
 
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import BannerUlule from '../banner-ulule/BannerUlule.vue';
+
+import { faBullhorn } from '@fortawesome/pro-light-svg-icons/faBullhorn';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/container/Container.vue'),

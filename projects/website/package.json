@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/applications-ui-components": "workspace:*",
     "@lychen/applications-util-composables": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
@@ -16,6 +18,7 @@
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
+    "@lychen/typescript-util-fontawesome": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",

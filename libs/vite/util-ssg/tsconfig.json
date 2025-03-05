@@ -1,28 +1,19 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../vue/i18n/util-configs/**/*",
-    "../../vue/router/util-configs/**/*",
-    "../../vue/ui-components-core/**/*",
-    "**/*"
-  ],
+  "include": ["../../vue/i18n/util-configs/**/*", "../../vue/router/util-configs/**/*", "**/*"],
   "references": [
     {
       "path": "../../vue/i18n/util-configs"
     },
     {
       "path": "../../vue/router/util-configs"
-    },
-    {
-      "path": "../../vue/ui-components-core"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/vite/util-ssg",
     "paths": {
       "@lychen/vue-i18n-util-configs/*": ["../../vue/i18n/util-configs/*"],
-      "@lychen/vue-router-util-configs/*": ["../../vue/router/util-configs/*"],
-      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
+      "@lychen/vue-router-util-configs/*": ["../../vue/router/util-configs/*"]
     }
   }
 }

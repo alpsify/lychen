@@ -143,6 +143,9 @@
       "path": "libs/typescript/util-date"
     },
     {
+      "path": "libs/typescript/util-fontawesome"
+    },
+    {
       "path": "libs/typescript/util-json-ld-hydra"
     },
     {

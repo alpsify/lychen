@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { MoreHorizontal } from 'lucide-vue-next';
+import Icon from '../icon/Icon.vue';
+import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];
@@ -15,7 +16,10 @@ const props = defineProps<{
     :class="cn('flex h-9 w-9 items-center justify-center', props.class)"
   >
     <slot>
-      <MoreHorizontal class="h-4 w-4" />
+      <Icon
+        :icon="faEllipsis"
+        class="h-4 w-4"
+      />
     </slot>
     <span class="sr-only">More</span>
   </span>

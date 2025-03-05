@@ -15,7 +15,7 @@
           </div>
           <small
             class="flex-row gap-1 hidden group-hover:flex items-center text-xs motion-blur-in-md motion-duration-[1s] motion-ease-spring-smooth"
-            >lychen.fr<Icon icon="arrow-up-right"
+            >lychen.fr<Icon :icon="faArrowUpRight"
           /></small>
         </div>
       </a>
@@ -48,10 +48,7 @@
             target="_blank"
             aria-label="GitHub"
           >
-            <Icon
-              icon="github"
-              :fashion="LYCHEN_ICON_FASHION.Brands"
-            />
+            <Icon :icon="faGithub" />
           </a>
           <ButtonTallyPreregister class="hidden md:flex" />
           <div class="flex flex-row items-center lg:hidden">
@@ -61,7 +58,7 @@
             >
               <SheetTrigger as-child>
                 <Icon
-                  icon="bars-staggered"
+                  :icon="faBarsStaggered"
                   class="cursor-pointer"
                 />
               </SheetTrigger>
@@ -87,8 +84,9 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
-
-import { LYCHEN_ICON_FASHION } from '@lychen/vue-ui-components-core/icon';
+import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';

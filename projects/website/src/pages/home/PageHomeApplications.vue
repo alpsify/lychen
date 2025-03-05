@@ -67,7 +67,7 @@
               class="flex flex-row gap-2"
               size="sm"
               variant="secondary"
-              >Site web <Icon icon="link"
+              >Site web <Icon :icon="faLink"
             /></Button>
           </a>
         </div>
@@ -96,6 +96,7 @@ import DialogTrigger from '@lychen/vue-ui-components-core/dialog/DialogTrigger.v
 import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
+import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
 
 const Dialog = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/dialog/Dialog.vue'),

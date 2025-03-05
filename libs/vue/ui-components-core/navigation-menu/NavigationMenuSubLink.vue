@@ -14,7 +14,7 @@
       <div class="text-xs">
         <Icon
           v-if="link"
-          icon="arrow-up-right"
+          :icon="faArrowUpRight"
           class="opacity-60"
         />
       </div>
@@ -28,6 +28,7 @@
 <script lang="ts" setup>
 import { EVENT_NavigateToRoute } from '.';
 import Icon from '../icon/Icon.vue';
+import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
 interface Props {
   title: string;

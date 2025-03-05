@@ -13,7 +13,6 @@
     "../../../libs/typescript/util-constants/**/*",
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
-    "../../../libs/util-constants/**/*",
     "../../../libs/vite/util-ssg/**/*",
     "../../../libs/vue/drawio/ui-components/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
@@ -63,9 +62,7 @@
     {
       "path": "../../../libs/ui-i18n"
     },
-    {
-      "path": "../../../libs/util-constants"
-    },
+
     {
       "path": "../../../libs/vite/util-ssg"
     },

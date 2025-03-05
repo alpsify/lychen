@@ -11,6 +11,7 @@ import {
 } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import Icon from '../icon/Icon.vue';
+import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 
 const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<DialogContentEmits>();
@@ -56,7 +57,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
           class="absolute top-3 right-3 p-0.5 transition-colors rounded-md hover:bg-secondary"
         >
           <Icon
-            icon="times"
+            :icon="faTimes"
             class="size-4"
           />
           <span class="sr-only">Close</span>

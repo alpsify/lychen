@@ -1,4 +1,5 @@
 dependsOn:
+  - typescript-util-fontawesome
   - typescript-util-object
   - typescript-util-tailwind
 

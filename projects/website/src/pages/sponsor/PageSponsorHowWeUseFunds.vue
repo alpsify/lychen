@@ -10,7 +10,7 @@
         :key="index"
       >
         <Icon
-          icon="arrow-right"
+          :icon="faArrowRight"
           class="mr-2"
         />{{ t(`section.how_we_use_funds.points.${pointKey}.title`) }}
       </li>
@@ -22,6 +22,7 @@
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 

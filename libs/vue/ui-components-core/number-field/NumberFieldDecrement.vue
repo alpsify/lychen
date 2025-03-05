@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { NumberFieldDecrementProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { Minus } from 'lucide-vue-next';
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
+import { faMinus } from '@fortawesome/pro-light-svg-icons/faMinus';
+import Icon from '../icon/Icon.vue';
 
 const props = defineProps<NumberFieldDecrementProps & { class?: HTMLAttributes['class'] }>();
 
@@ -28,7 +29,10 @@ const forwarded = useForwardProps(delegatedProps);
     "
   >
     <slot>
-      <Minus class="h-4 w-4" />
+      <Icon
+        :icon="faMinus"
+        class="h-4 w-4"
+      />
     </slot>
   </NumberFieldDecrement>
 </template>
