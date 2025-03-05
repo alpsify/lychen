@@ -12,7 +12,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/pro-light-svg-icons": "^6.6.0",
     "@lychen/kiro-ui-components": "workspace:*",
-    "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",

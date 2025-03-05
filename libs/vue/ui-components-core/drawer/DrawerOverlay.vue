@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { DialogOverlayProps } from 'reka-ui';
-import { cn } from '@/lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { DrawerOverlay } from 'vaul-vue';
 import { computed, type HtmlHTMLAttributes } from 'vue';
 

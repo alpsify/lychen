@@ -3,7 +3,7 @@
     :href="LINK.TallyPreregisterForm"
     target="_blank"
   >
-    <LychenButton
+    <Button
       variant="default"
       size="sm"
       class="gap-2"
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { LINK } from '@lychen/util-constants/Link';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

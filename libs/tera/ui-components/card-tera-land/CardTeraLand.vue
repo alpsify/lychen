@@ -3,12 +3,12 @@
     class="p-6 rounded-3xl bg-surface-container-high text-on-surface-container flex flex-col gap-2 h-full justify-between items-stretch active:bg-surface-container-highest"
   >
     <div class="flex flex-row gap-2 items-center">
-      <LychenBadge
+      <Badge
         v-if="variant === VARIANT.LookingForMember"
         class="self-start bg-tertiary-container text-on-tertiary-container"
         >{{ t(`property.kind.${land.kind}.default`) }}
-      </LychenBadge>
-      <LychenIcon
+      </Badge>
+      <Icon
         v-if="variant === VARIANT.Default"
         :icon="land.numberOfMembers === 1 ? 'user' : 'users'"
       />
@@ -28,26 +28,23 @@
         }}</small>
       </div>
 
-      <LychenTitle variant="h3">{{ land.name }}</LychenTitle>
+      <Title variant="h3">{{ land.name }}</Title>
     </div>
   </div>
 </template>
 
-<script generic="T extends Land" lang="ts" setup>
-import type { Land } from '@lychen/tera-util-api-sdk/model/Land';
+<script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
-const LychenBadge = defineAsyncComponent(
-  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
-);
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
 const { variant = VARIANT.Default, land } = defineProps<{
   land: {

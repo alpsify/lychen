@@ -3,15 +3,15 @@
     <div
       class="bg-tertiary-container text-on-tertiary-container rounded-3xl xl:w-1/2 p-8 flex flex-col gap-6"
     >
-      <LychenTitle
+      <Title
         variant="h2"
         class="md:w-1/2"
-        >{{ t('people.title') }}</LychenTitle
+        >{{ t('people.title') }}</Title
       >
-      <LychenParagraph
+      <Paragraph
         variant="website-highlight"
         class="md:w-1/2"
-        >{{ t('people.description') }}</LychenParagraph
+        >{{ t('people.description') }}</Paragraph
       >
     </div>
     <div
@@ -44,8 +44,8 @@ import CompanyImageUrl from './assets/Company.webp';
 import AssociationImageUrl from './assets/Association.webp';
 import { messages, TRANSLATION_KEY } from './i18n';
 import Container from '@lychen/vue-ui-components-website/container/Container.vue';
-import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
-import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
+import Title from '@lychen/vue-ui-components-website/title/Title.vue';
+import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import CardActor from '@/components/CardActor.vue';
 

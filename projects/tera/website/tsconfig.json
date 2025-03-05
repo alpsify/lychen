@@ -10,7 +10,7 @@
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-features/**/*",
-    "../../../libs/ui-components/**/*",
+
     "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
     "../../../libs/util-constants/**/*",
@@ -55,9 +55,7 @@
     {
       "path": "../../../libs/tera/util-features"
     },
-    {
-      "path": "../../../libs/ui-components"
-    },
+
     {
       "path": "../../../libs/ui-css"
     },
@@ -106,7 +104,7 @@
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-      "@lychen/ui-components/*": ["../../../libs/ui-components/*"],
+
       "@lychen/applications-ui-components/*": ["../../../libs/applications/ui-components/*"],
       "@lychen/applications-util-composables/*": ["../../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../../libs/odd/util-composables/*"],

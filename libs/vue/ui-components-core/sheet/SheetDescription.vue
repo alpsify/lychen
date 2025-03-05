@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import { DialogDescription, type DialogDescriptionProps } from 'reka-ui';
+import { DialogDescription, type DialogDescriptionProps } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';
+
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes['class'] }>();
 

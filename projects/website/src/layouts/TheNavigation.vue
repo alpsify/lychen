@@ -4,23 +4,21 @@
       :to="RoutePageHome"
       class="flex flex-row items-stretch"
     >
-      <LychenLogoFull class="hover:text-on-primary-container"
+      <LogoLychenFull class="hover:text-on-primary-container"
     /></RouterLink>
     <div class="flex flex-row items-stretch gap-2">
-      <LychenNavigationMenu class="hidden lg:flex">
-        <LychenNavigationMenuList>
-          <LychenNavigationMenuItem>
-            <LychenNavigationMenuTrigger>{{
-              t(`navigation.app.title`)
-            }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent>
+      <NavigationMenu class="hidden lg:flex">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{{ t(`navigation.app.title`) }}</NavigationMenuTrigger>
+            <NavigationMenuContent>
               <div
                 class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <!--<div
                   class="flex flex-row items-center gap-4 bg-surface-container-highest p-4 text-on-surface-container-highest"
                 >
-                  <LychenIcon icon="megaphone" />
+                  <Icon icon="megaphone" />
                   <div class="flex flex-col gap-0">
                     <p class="text-sm">
                       {{ t(`navigation.app.menu.disclaimer.paragraph`) }}
@@ -37,7 +35,7 @@
                   <div
                     class="basis-2/3 grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-2 p-6"
                   >
-                    <LychenNavigationMenuSubLink
+                    <NavigationMenuSubLink
                       v-for="application in opiniatedApplicationsList"
                       v-bind="application"
                       :key="application.title"
@@ -61,7 +59,7 @@
                       <p>{{ robust.description }}</p>
 
                       <a href="https://robust.lychen.fr">
-                        <LychenButton
+                        <Button
                           :text="t('navigation.app.robust.button')"
                           icon="arrow-up-right"
                           class="self-start"
@@ -70,19 +68,17 @@
                   </div>
                 </div>
               </div>
-            </LychenNavigationMenuContent>
-          </LychenNavigationMenuItem>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-          <LychenNavigationMenuItem>
-            <LychenNavigationMenuTrigger>{{
-              t(`navigation.resources.title`)
-            }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{{ t(`navigation.resources.title`) }}</NavigationMenuTrigger>
+            <NavigationMenuContent>
               <div
                 class="flex flex-row gap-2 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
-                  <LychenNavigationMenuSubLink
+                  <NavigationMenuSubLink
                     v-for="resourceMenu in resourcesMenuList"
                     v-bind="resourceMenu"
                     :key="resourceMenu.title"
@@ -95,18 +91,16 @@
                   />
                 </div>
               </div>
-            </LychenNavigationMenuContent>
-          </LychenNavigationMenuItem>
-          <LychenNavigationMenuItem>
-            <LychenNavigationMenuTrigger>{{
-              t(`navigation.community.title`)
-            }}</LychenNavigationMenuTrigger>
-            <LychenNavigationMenuContent>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{{ t(`navigation.community.title`) }}</NavigationMenuTrigger>
+            <NavigationMenuContent>
               <div
                 class="flex flex-row gap-4 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
               >
                 <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
-                  <LychenNavigationMenuSubLink
+                  <NavigationMenuSubLink
                     v-for="communityMenu in communityMenuList"
                     v-bind="communityMenu"
                     :key="communityMenu.title"
@@ -119,34 +113,34 @@
                   />
                 </div>
               </div>
-            </LychenNavigationMenuContent>
-          </LychenNavigationMenuItem>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-          <LychenNavigationMenuItem>
+          <NavigationMenuItem>
             <RouterLink :to="RoutePagePrice">
-              <LychenNavigationMenuLink
+              <NavigationMenuLink
                 as="div"
                 :class="navigationMenuTriggerStyle()"
                 class="hover:bg-primary-container/30 hover:text-on-primary-container"
               >
                 {{ t(`navigation.price.title`) }}
-              </LychenNavigationMenuLink>
+              </NavigationMenuLink>
             </RouterLink>
-          </LychenNavigationMenuItem>
+          </NavigationMenuItem>
 
-          <LychenNavigationMenuItem>
+          <NavigationMenuItem>
             <RouterLink :to="RoutePageSponsor">
-              <LychenNavigationMenuLink
+              <NavigationMenuLink
                 as="div"
                 :class="navigationMenuTriggerStyle()"
                 class="hover:bg-primary-container/30 hover:text-on-primary-container"
               >
                 {{ t(`navigation.sponsor.title`) }}
-              </LychenNavigationMenuLink>
+              </NavigationMenuLink>
             </RouterLink>
-          </LychenNavigationMenuItem>
-        </LychenNavigationMenuList>
-      </LychenNavigationMenu>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </div>
 
     <div class="flex flex-row items-center gap-4">
@@ -157,7 +151,7 @@
         target="_blank"
         aria-label="GitHub"
       >
-        <LychenIcon
+        <Icon
           icon="github"
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
@@ -167,7 +161,7 @@
         target="_blank"
         aria-label="Discord"
       >
-        <LychenIcon
+        <Icon
           icon="discord"
           :fashion="LYCHEN_ICON_FASHION.Brands"
         />
@@ -180,7 +174,7 @@
 <script setup lang="ts">
 import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
-import { navigationMenuTriggerStyle } from '@lychen/ui-components/navigation-menu';
+import { navigationMenuTriggerStyle } from '@lychen/vue-ui-components-core/navigation-menu';
 import { computed, defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
@@ -189,49 +183,49 @@ import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
+import { LYCHEN_ICON_FASHION } from '@lychen/vue-ui-components-core/icon';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
 
 import ButtonTallyPreregister from '@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
-import LychenLogoFull from '@lychen/ui-components/logo/LychenLogoFull.vue';
+import LogoLychenFull from '@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue';
 import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 
 const LanguageSwitcher = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue'),
 );
 
-const LychenNavigationMenuSubLink = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue'),
+const NavigationMenuSubLink = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuSubLink.vue'),
 );
 
 const ThemeSwitcher = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
-const LychenNavigationMenu = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenu.vue'),
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const NavigationMenu = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenu.vue'),
 );
-const LychenNavigationMenuContent = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuContent.vue'),
+const NavigationMenuContent = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuContent.vue'),
 );
-const LychenNavigationMenuItem = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuItem.vue'),
-);
-
-const LychenNavigationMenuLink = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuLink.vue'),
+const NavigationMenuItem = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuItem.vue'),
 );
 
-const LychenNavigationMenuList = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuList.vue'),
+const NavigationMenuLink = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuLink.vue'),
 );
 
-const LychenNavigationMenuTrigger = defineAsyncComponent(
-  () => import('@lychen/ui-components/navigation-menu/LychenNavigationMenuTrigger.vue'),
+const NavigationMenuList = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuList.vue'),
+);
+
+const NavigationMenuTrigger = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuTrigger.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

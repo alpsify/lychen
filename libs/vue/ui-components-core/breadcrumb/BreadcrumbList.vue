@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@/lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];

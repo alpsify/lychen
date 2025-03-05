@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { Separator, type SeparatorProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

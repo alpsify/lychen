@@ -10,12 +10,12 @@
       >
         <div class="flex flex-col items-end">
           <div class="flex flex-row items-center">
-            <LychenLogoIconOnly class="h-[1lh]" />
-            <LychenLogoTextOnly class="hidden group-hover:flex" />
+            <LogoLychenIconOnly class="h-[1lh]" />
+            <LogoLychenTextOnly class="hidden group-hover:flex" />
           </div>
           <small
             class="flex-row gap-1 hidden group-hover:flex items-center text-xs motion-blur-in-md motion-duration-[1s] motion-ease-spring-smooth"
-            >lychen.fr<LychenIcon icon="arrow-up-right"
+            >lychen.fr<Icon icon="arrow-up-right"
           /></small>
         </div>
       </a>
@@ -48,24 +48,24 @@
             target="_blank"
             aria-label="GitHub"
           >
-            <LychenIcon
+            <Icon
               icon="github"
               :fashion="LYCHEN_ICON_FASHION.Brands"
             />
           </a>
           <ButtonTallyPreregister class="hidden md:flex" />
           <div class="flex flex-row items-center lg:hidden">
-            <LychenSheet
+            <Sheet
               v-model:open="isOpen"
               side="right"
             >
-              <LychenSheetTrigger as-child>
-                <LychenIcon
+              <SheetTrigger as-child>
+                <Icon
                   icon="bars-staggered"
                   class="cursor-pointer"
                 />
-              </LychenSheetTrigger>
-              <LychenSheetContent
+              </SheetTrigger>
+              <SheetContent
                 class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg flex flex-col gap-4"
               >
                 <template #header>
@@ -76,8 +76,8 @@
                 >
                 <slot name="mobile"></slot>
                 <ButtonTallyPreregister />
-              </LychenSheetContent>
-            </LychenSheet>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
 
-import { LYCHEN_ICON_FASHION } from '@lychen/ui-components/icon';
+import { LYCHEN_ICON_FASHION } from '@lychen/vue-ui-components-core/icon';
 import { SOCIAL_LINK } from '@lychen/util-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
@@ -97,12 +97,12 @@ const ButtonTallyPreregister = defineAsyncComponent(
   () =>
     import('@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue'),
 );
-const LychenLogoIconOnly = defineAsyncComponent(
-  () => import('@lychen/ui-components/logo/LychenLogoIconOnly.vue'),
+const LogoLychenIconOnly = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenIconOnly.vue'),
 );
 
-const LychenLogoTextOnly = defineAsyncComponent(
-  () => import('@lychen/ui-components/logo/LychenLogoTextOnly.vue'),
+const LogoLychenTextOnly = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenTextOnly.vue'),
 );
 
 const ApplicationTitle = defineAsyncComponent(
@@ -112,27 +112,25 @@ const ApplicationBadgeState = defineAsyncComponent(
   () => import('@lychen/applications-ui-components/ApplicationBadgeState.vue'),
 );
 
-const LychenSheetTrigger = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),
+const SheetTrigger = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/sheet/SheetTrigger.vue'),
 );
 
 const ThemeSwitcher = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
-const LychenSheet = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheet.vue'),
-);
+const Sheet = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/sheet/Sheet.vue'));
 
-const LychenSheetContent = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheetContent.vue'),
+const SheetContent = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/sheet/SheetContent.vue'),
 );
 
 const LanguageSwitcher = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue'),
 );
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
 const isOpen = ref<boolean>(false);
 

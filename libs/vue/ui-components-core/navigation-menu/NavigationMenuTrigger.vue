@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import { ChevronDown } from 'lucide-vue-next';
-import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'reka-ui';
+import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';
+
+import Icon from '../icon/Icon.vue';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { navigationMenuTriggerStyle } from '.';
 
 const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>();
@@ -22,8 +23,9 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="cn(navigationMenuTriggerStyle(), 'group', props.class)"
   >
     <slot />
-    <ChevronDown
-      class="relative top-px ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+    <Icon
+      icon="chevron-down"
+      class="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
       aria-hidden="true"
     />
   </NavigationMenuTrigger>

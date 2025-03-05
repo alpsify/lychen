@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'reka-ui';
+import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'radix-vue';
 import { computed, type HTMLAttributes } from 'vue';
+
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = defineProps<NavigationMenuListProps & { class?: HTMLAttributes['class'] }>();
 

@@ -5,16 +5,16 @@
     overlay
     overlay-class="bg-gradient-to-tr from-surface/80 to-surface/10"
   >
-    <LychenTitle
+    <Title
       variant="h3"
       class="z-2"
-      >{{ title }}</LychenTitle
+      >{{ title }}</Title
     >
   </DivWithBackgroundImg>
 </template>
 
 <script setup lang="ts">
-import LychenTitle from '@lychen/ui-components/title/LychenTitle.vue';
+import Title from '@lychen/vue-ui-components-website/title/Title.vue';
 import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
 
 withDefaults(defineProps<{ backgroundImage: string; title: string }>(), {

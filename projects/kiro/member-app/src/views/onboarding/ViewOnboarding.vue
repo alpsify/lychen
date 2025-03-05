@@ -37,23 +37,23 @@
     </Transition>
     <div class="flex flex-col gap-4">
       <template v-if="step < 2">
-        <LychenButton @click="step++">
+        <Button @click="step++">
           {{ t(`continue`) }}
-        </LychenButton>
+        </Button>
       </template>
       <template v-else>
         <LychenTooltip :content="t('register_tooltip')">
-          <LychenButton @click.prevent="$zitadel.oidcAuth.signIn({ prompt: 'create' })">
+          <Button @click.prevent="$zitadel.oidcAuth.signIn({ prompt: 'create' })">
             {{ t('register') }}
-          </LychenButton>
+          </Button>
         </LychenTooltip>
-        <LychenButton
+        <Button
           class="text-secondary"
           variant="ghost"
           @click.prevent="$zitadel.oidcAuth.signIn"
         >
           {{ t('login') }}
-        </LychenButton>
+        </Button>
       </template>
     </div>
   </div>
@@ -65,8 +65,8 @@ import { computed, defineAsyncComponent, ref } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-const LychenButton = defineAsyncComponent(
-  () => import('@lychen/ui-components/button/LychenButton.vue'),
+const Button = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 const LychenTooltip = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/tooltip/LychenTooltip.vue'),

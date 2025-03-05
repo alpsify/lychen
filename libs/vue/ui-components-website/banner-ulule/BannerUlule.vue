@@ -16,10 +16,10 @@
             :words="t('title')"
             class="text-xl font-bold opacity-90"
           />
-          <LychenParagraph>{{ t('description') }}</LychenParagraph>
+          <Paragraph>{{ t('description') }}</Paragraph>
         </div>
         <div class="flex flex-row items-center justify-center gap-4">
-          <LychenLogoFull class="h-14" />
+          <LogoLychenFull class="h-14" />
           <p class="opacity-50">X</p>
           <img
             :src="isDark ? imageUrl : imageUrlLight"

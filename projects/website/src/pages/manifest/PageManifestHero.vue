@@ -4,8 +4,8 @@
       class="dark:text-on-surface text-surface flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center bg-gradient-to-tr from-[#141E30] to-[#243B55] rounded-b-3xl pt-20"
     >
       <div class="flex flex-col basis-3/4 gap-4 items-center">
-        <LychenTitle variant="h1">{{ t(`meta.title`) }}</LychenTitle>
-        <LychenParagraph variant="website-highlight">{{ t(`meta.description`) }}</LychenParagraph>
+        <Title variant="h1">{{ t(`meta.title`) }}</Title>
+        <Paragraph variant="website-highlight">{{ t(`meta.description`) }}</Paragraph>
       </div>
     </Hero>
   </DivScalingDown>
@@ -20,12 +20,12 @@ const DivScalingDown = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 
 const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));

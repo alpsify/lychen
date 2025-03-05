@@ -4,9 +4,9 @@
     class="flex flex-col p-8 gap-6"
   >
     <div class="flex flex-row gap-4 items-center justify-between">
-      <LychenTitle variant="h2">{{ land.name }}</LychenTitle>
+      <Title variant="h2">{{ land.name }}</Title>
       <div class="flex flex-row gap-2 items-center">
-        <LychenButton
+        <Button
           icon="gear"
           variant="container-high"
         />
@@ -15,13 +15,13 @@
 
     <div class="flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
-        <LychenTitle variant="h4">Vos tâches</LychenTitle>
+        <Title variant="h4">Vos tâches</Title>
         <div class="flex flex-row gap-2">
-          <LychenButton
+          <Button
             icon="plus"
             variant="container-high"
           />
-          <LychenButton
+          <Button
             icon="list-ul"
             variant="container-high"
           />
@@ -41,68 +41,68 @@
 
     <div class="flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
-        <LychenTitle variant="h4">Zones</LychenTitle>
+        <Title variant="h4">Zones</Title>
         <div class="flex flex-row gap-2">
-          <LychenButton
+          <Button
             icon="plus"
             variant="container-high"
           />
-          <LychenButton
+          <Button
             icon="list-ul"
             variant="container-high"
           />
         </div>
       </div>
 
-      <LychenCarousel
+      <Carousel
         v-if="landAreas"
         :opts="{
           align: 'start',
         }"
       >
-        <LychenCarouselContent>
-          <LychenCarouselItem
+        <CarouselContent>
+          <CarouselItem
             v-for="(item, index) in landAreas.member"
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
             <CardTeraLandArea :land-area="item" />
-          </LychenCarouselItem>
-        </LychenCarouselContent>
-      </LychenCarousel>
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
     </div>
 
     <div class="flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
-        <LychenTitle variant="h4">Serres</LychenTitle>
+        <Title variant="h4">Serres</Title>
         <div class="flex flex-row gap-2">
-          <LychenButton
+          <Button
             icon="plus"
             variant="container-high"
           />
-          <LychenButton
+          <Button
             icon="list-ul"
             variant="container-high"
           />
         </div>
       </div>
 
-      <LychenCarousel
+      <Carousel
         v-if="landGreenhouses"
         :opts="{
           align: 'start',
         }"
       >
-        <LychenCarouselContent>
-          <LychenCarouselItem
+        <CarouselContent>
+          <CarouselItem
             v-for="(item, index) in landGreenhouses.member"
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
             <CardTeraLandGreenhouse :land-greenhouse="item" />
-          </LychenCarouselItem>
-        </LychenCarouselContent>
-      </LychenCarousel>
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
     </div>
   </section>
 </template>
@@ -117,16 +117,16 @@ import { RoutePageDashboard } from '@pages/dashboard';
 import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { OrderDueDateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useQuery } from '@tanstack/vue-query';
-import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
-import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
-import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
+import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
+import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenButton = defineAsyncComponent(
-  () => import('@lychen/ui-components/button/LychenButton.vue'),
+const Button = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 
 const route = useRoute();

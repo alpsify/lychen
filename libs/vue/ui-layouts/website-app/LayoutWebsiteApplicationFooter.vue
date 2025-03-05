@@ -14,7 +14,7 @@
           </div>
 
           <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">
-            <LychenLogoFull class="h-8" />
+            <LogoLychenFull class="h-8" />
             <p class="font-medium">{{ EMAIL.Bonjour }}</p>
             <p>
               Made with ❤️ by
@@ -64,8 +64,8 @@ const ApplicationTitle = defineAsyncComponent(
   () => import('@lychen/applications-ui-components/ApplicationTitle.vue'),
 );
 
-const LychenLogoFull = defineAsyncComponent(
-  () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),
+const LogoLychenFull = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),
 );
 
 const { t: tGlobal } = useI18nExtended({

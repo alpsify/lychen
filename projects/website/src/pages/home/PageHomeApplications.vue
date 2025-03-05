@@ -1,25 +1,25 @@
 <template>
   <Container class="flex flex-col items-center gap-4">
-    <LychenTitle variant="h2">{{ t('applications.title') }}</LychenTitle>
-    <LychenTitle
+    <Title variant="h2">{{ t('applications.title') }}</Title>
+    <Title
       variant="h2"
       class="opacity-80 text-center"
-      >{{ t('applications.second_title') }}</LychenTitle
+      >{{ t('applications.second_title') }}</Title
     >
-    <LychenDialog v-model:open="isOpen">
-      <LychenCarousel
+    <Dialog v-model:open="isOpen">
+      <Carousel
         class="w-[85%] sm:w-[90%] mt-10"
         :opts="{
           align: 'start',
         }"
       >
-        <LychenCarouselContent>
-          <LychenCarouselItem
+        <CarouselContent>
+          <CarouselItem
             v-for="application in opiniatedApplicationsList"
             :key="application.title"
             class="basis-2/3 sm:basis-2/5 md:basis-2/5 lg:basis-2/7"
           >
-            <LychenDialogTrigger as-child>
+            <DialogTrigger as-child>
               <ApplicationCard
                 :application="application"
                 background-image-folder="applications-covers"
@@ -28,21 +28,21 @@
                 @click="selectedApplication = application"
               >
                 <template #footer
-                  ><LychenButton
+                  ><Button
                     class="text-sm self-center z-10 justify-end animate-in slide-in-from-bottom-4 duration-300 md:hidden md:group-hover:flex"
                     size="sm"
                   >
                     {{ t('applications.see_features') }}
-                  </LychenButton></template
+                  </Button></template
                 >
               </ApplicationCard>
-            </LychenDialogTrigger>
-          </LychenCarouselItem>
-        </LychenCarouselContent>
-        <LychenCarouselPrevious />
-        <LychenCarouselNext />
-      </LychenCarousel>
-      <LychenDialogContent
+            </DialogTrigger>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <DialogContent
         class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
       >
         <div
@@ -54,26 +54,26 @@
                 class="text-3xl"
                 :value="selectedApplication.title"
               />
-              <LychenDialogClose />
+              <DialogClose />
             </div>
 
-            <LychenParagraph>{{ selectedApplication.description }}</LychenParagraph>
+            <Paragraph>{{ selectedApplication.description }}</Paragraph>
           </div>
           <a
             :href="selectedApplication.link"
             target="_blank"
           >
-            <LychenButton
+            <Button
               class="flex flex-row gap-2"
               size="sm"
               variant="secondary"
-              >Site web <LychenIcon icon="link"
-            /></LychenButton>
+              >Site web <Icon icon="link"
+            /></Button>
           </a>
         </div>
         <ApplicationsGridFeatures :features="features" />
-      </LychenDialogContent>
-    </LychenDialog>
+      </DialogContent>
+    </Dialog>
   </Container>
 </template>
 
@@ -84,29 +84,29 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
 import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
 import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
-import LychenCarousel from '@lychen/ui-components/carousel/LychenCarousel.vue';
-import LychenCarouselItem from '@lychen/ui-components/carousel/LychenCarouselItem.vue';
-import LychenCarouselPrevious from '@lychen/ui-components/carousel/LychenCarouselPrevious.vue';
-import LychenCarouselNext from '@lychen/ui-components/carousel/LychenCarouselNext.vue';
-import LychenCarouselContent from '@lychen/ui-components/carousel/LychenCarouselContent.vue';
-import LychenParagraph from '@lychen/ui-components/paragraph/LychenParagraph.vue';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
-import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
-import LychenDialogTrigger from '@lychen/ui-components/dialog/LychenDialogTrigger.vue';
+import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
+import CarouselPrevious from '@lychen/vue-ui-components-core/carousel/CarouselPrevious.vue';
+import CarouselNext from '@lychen/vue-ui-components-core/carousel/CarouselNext.vue';
+import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
+import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import DialogTrigger from '@lychen/vue-ui-components-core/dialog/DialogTrigger.vue';
 import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
-import LychenDialogClose from '@lychen/ui-components/dialog/LychenDialogClose.vue';
+import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
 
-const LychenDialog = defineAsyncComponent(
-  () => import('@lychen/ui-components/dialog/LychenDialog.vue'),
+const Dialog = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/dialog/Dialog.vue'),
 );
 
-const LychenDialogContent = defineAsyncComponent(
-  () => import('@lychen/ui-components/dialog/LychenDialogContent.vue'),
+const DialogContent = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/dialog/DialogContent.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
 const Container = defineAsyncComponent(

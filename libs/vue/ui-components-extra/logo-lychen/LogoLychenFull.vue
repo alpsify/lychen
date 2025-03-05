@@ -1,14 +1,14 @@
 <template>
   <div :class="cn('flex flex-row items-center justify-start gap-1', props.class)">
-    <LychenLogoIconOnly :class="cn('h-[1lh]', iconClass)" />
-    <LychenLogoTextOnly :class="textClass" />
+    <LogoLychenIconOnly :class="cn('h-[1lh]', iconClass)" />
+    <LogoLychenTextOnly :class="textClass" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { type HTMLAttributes } from 'vue';
-import LychenLogoIconOnly from './LychenLogoIconOnly.vue';
-import LychenLogoTextOnly from './LychenLogoTextOnly.vue';
+import LogoLychenIconOnly from './LogoLychenIconOnly.vue';
+import LogoLychenTextOnly from './LogoLychenTextOnly.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 const props = defineProps<{

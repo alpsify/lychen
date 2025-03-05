@@ -16,7 +16,6 @@
     "@lychen/myko-util-features": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
-    "@lychen/ui-components": "workspace:*",
     "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/util-constants": "workspace:*",

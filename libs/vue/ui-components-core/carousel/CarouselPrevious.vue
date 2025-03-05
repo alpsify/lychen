@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from './interface';
-import { cn } from '@/lib/utils';
-import { Button } from '@//button';
-import { ArrowLeft } from 'lucide-vue-next';
+import Button from '../button/Button.vue';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { useCarousel } from './useCarousel';
+import Icon from '../icon/Icon.vue';
 
 const props = defineProps<WithClassAsProps>();
 
@@ -22,12 +22,15 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
         props.class,
       )
     "
-    variant="outline"
+    variant="secondary"
+    aria-label="Précédent"
     @click="scrollPrev"
   >
     <slot>
-      <ArrowLeft class="h-4 w-4 text-current" />
-      <span class="sr-only">Previous Slide</span>
+      <Icon
+        icon="arrow-left"
+        class="size-4 text-current"
+      />
     </slot>
   </Button>
 </template>

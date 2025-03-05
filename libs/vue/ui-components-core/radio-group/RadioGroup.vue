@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import {
-  RadioGroupRoot,
-  type RadioGroupRootEmits,
-  type RadioGroupRootProps,
-  useForwardPropsEmits,
-} from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
+import type { RadioGroupRootEmits, RadioGroupRootProps } from 'radix-vue';
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { RadioGroupRoot, useForwardPropsEmits } from 'radix-vue';
+import { computed } from 'vue';
 
 const props = defineProps<RadioGroupRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<RadioGroupRootEmits>();

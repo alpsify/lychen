@@ -13,6 +13,7 @@ dependsOn:
   - vue-i18n-util-configs
   - vue-router-util-configs
   - vue-ui-components-core
+  - vue-ui-components-extra
   - vue-ui-components-website
   - vue-ui-layouts
   - vue-unhead-util-composables

@@ -3,7 +3,7 @@
     id="features"
     class="flex flex-col gap-8 items-stretch"
   >
-    <LychenTitle variant="h2">{{ t('title') }}</LychenTitle>
+    <Title variant="h2">{{ t('title') }}</Title>
     <ApplicationsGridFeatures :features />
   </Container>
 </template>
@@ -18,8 +18,8 @@ const ApplicationsGridFeatures = defineAsyncComponent(
   () => import('@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
 const Container = defineAsyncComponent(

@@ -1,16 +1,16 @@
 <template>
   <Container class="flex flex-col items-center gap-4">
-    <LychenTitle
+    <Title
       variant="h2"
       class="text-center md:w-2/3"
-      >{{ t('use_cases.title') }}</LychenTitle
+      >{{ t('use_cases.title') }}</Title
     >
-    <LychenParagraph
+    <Paragraph
       variant="website-highlight"
       class="text-center opacity-80 md:w-2/3"
     >
       {{ t('use_cases.description') }}
-    </LychenParagraph>
+    </Paragraph>
     <LychenGlobal />
   </Container>
 </template>
@@ -22,12 +22,12 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 const LychenGlobal = defineAsyncComponent(() => import('@lychen/diagrams/LychenGlobal.vue'));
 
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
 const Container = defineAsyncComponent(

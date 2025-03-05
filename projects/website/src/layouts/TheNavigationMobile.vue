@@ -19,13 +19,13 @@
           t(`navigation.app.title`)
         }}</AccordionTrigger>
         <AccordionContent>
-          <LychenNavigationMenuSubLink
+          <NavigationMenuSubLink
             v-for="application in opiniatedApplicationsList"
             v-bind="application"
             :key="application.title"
             @navigate-to-route="closeMobileMenu"
           />
-          <LychenNavigationMenuSubLink
+          <NavigationMenuSubLink
             v-bind="robust"
             @navigate-to-route="closeMobileMenu"
           />
@@ -36,7 +36,7 @@
           t(`navigation.resources.title`)
         }}</AccordionTrigger>
         <AccordionContent>
-          <LychenNavigationMenuSubLink
+          <NavigationMenuSubLink
             v-for="resourceMenu in resourcesMenuList"
             v-bind="resourceMenu"
             :key="resourceMenu.title"
@@ -49,7 +49,7 @@
           t(`navigation.community.title`)
         }}</AccordionTrigger>
         <AccordionContent>
-          <LychenNavigationMenuSubLink
+          <NavigationMenuSubLink
             v-for="communityMenu in communityMenuList"
             v-bind="communityMenu"
             :key="communityMenu.title"
@@ -86,7 +86,7 @@ import { RoutePagePrice } from '@pages/price';
 import { RoutePageHome } from '@pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
-import LychenNavigationMenuSubLink from '@lychen/ui-components/navigation-menu/LychenNavigationMenuSubLink.vue';
+import NavigationMenuSubLink from '@lychen/vue-ui-components-core/navigation-menu/NavigationMenuSubLink.vue';
 import Accordion from '@lychen/vue-ui-components-core/accordion/Accordion.vue';
 import AccordionTrigger from '@lychen/vue-ui-components-core/accordion/AccordionTrigger.vue';
 import AccordionContent from '@lychen/vue-ui-components-core/accordion/AccordionContent.vue';

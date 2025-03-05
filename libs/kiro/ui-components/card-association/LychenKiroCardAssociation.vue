@@ -8,7 +8,7 @@
       {{ association.description }}
     </h3>
     <div class="flex gap-4">
-      <span>4 <LychenIcon icon="user" /></span>
+      <span>4 <Icon icon="user" /></span>
     </div>
   </div>
 </template>
@@ -20,5 +20,5 @@ import { Props } from '.';
 
 defineProps<Props>();
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 </script>

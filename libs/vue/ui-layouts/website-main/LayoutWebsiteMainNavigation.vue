@@ -6,23 +6,23 @@
       <slot></slot>
 
       <div class="flex flex-row items-center lg:hidden">
-        <LychenSheet
+        <Sheet
           v-model:open="isOpen"
           side="right"
         >
-          <LychenSheetTrigger as-child>
-            <LychenIcon
+          <SheetTrigger as-child>
+            <Icon
               icon="bars-staggered"
               class="cursor-pointer"
             />
-          </LychenSheetTrigger>
-          <LychenSheetContent
+          </SheetTrigger>
+          <SheetContent
             class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg"
           >
             <template #header><slot name="header"></slot></template>
             <slot name="mobile"></slot>
-          </LychenSheetContent>
-        </LychenSheet>
+          </SheetContent>
+        </Sheet>
       </div>
     </div>
   </div>
@@ -31,19 +31,17 @@
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
 
-const LychenSheetTrigger = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheetTrigger.vue'),
+const SheetTrigger = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/sheet/SheetTrigger.vue'),
 );
 
-const LychenSheet = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheet.vue'),
+const Sheet = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/sheet/Sheet.vue'));
+
+const SheetContent = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-core/sheet/SheetContent.vue'),
 );
 
-const LychenSheetContent = defineAsyncComponent(
-  () => import('@lychen/ui-components/sheet/LychenSheetContent.vue'),
-);
-
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
 const isOpen = ref<boolean>(false);
 

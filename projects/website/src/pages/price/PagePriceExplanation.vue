@@ -1,26 +1,26 @@
 <template>
   <Container class="flex flex-col items-stretch justify-center gap-4">
-    <LychenTitle variant="h2">{{ t('explanation.title') }}</LychenTitle>
-    <LychenParagraph
+    <Title variant="h2">{{ t('explanation.title') }}</Title>
+    <Paragraph
       class="md:w-4/6"
       variant="website-highlight"
       >{{ t('explanation.paragraph') }}
-    </LychenParagraph>
-    <LychenParagraph
+    </Paragraph>
+    <Paragraph
       class="md:w-4/6"
       variant="website-highlight"
       >{{ t('explanation.paragraph_second') }}
-    </LychenParagraph>
-    <LychenParagraph
+    </Paragraph>
+    <Paragraph
       class="md:w-4/6"
       variant="website-highlight"
       >{{ t('explanation.paragraph_complement') }}
-    </LychenParagraph>
+    </Paragraph>
 
-    <LychenParagraph
+    <Paragraph
       class="md:w-4/6 text-tertiary"
       variant="website-default"
-      ><LychenIcon
+      ><Icon
         icon="arrow-right"
         class="mr-2"
       />{{ t('explanation.flexible')
@@ -30,7 +30,7 @@
         class="underline"
         >A·lfred</a
       >
-    </LychenParagraph>
+    </Paragraph>
   </Container>
 </template>
 
@@ -40,14 +40,14 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
 const Container = defineAsyncComponent(

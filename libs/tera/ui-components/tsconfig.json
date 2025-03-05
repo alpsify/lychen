@@ -28,7 +28,6 @@
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/tera/ui-components",
     "paths": {
-      "@lychen/ui-components/*": ["../../ui-components/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
       "@lychen/tera-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../ui-i18n/*"],

@@ -1,6 +1,6 @@
 import { ViteSSG } from 'vite-ssg';
 
-import { loadFontAwesomeStyles } from '@lychen/ui-components/icon/AppLoader';
+import { loadFontAwesomeStyles } from '@lychen/vue-ui-components-core/icon/AppLoader';
 import { useI18n } from '@lychen/vue-i18n-util-configs/useI18n';
 import { buildConfigObject } from '@lychen/vue-router-util-configs/DefaultConfig';
 import { type Component } from 'vue';

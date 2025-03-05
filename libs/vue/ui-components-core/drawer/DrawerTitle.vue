@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { DrawerTitleProps } from 'vaul-vue';
-import { cn } from '@/lib/utils';
+import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { DrawerTitle } from 'vaul-vue';
 import { computed, type HtmlHTMLAttributes } from 'vue';
 

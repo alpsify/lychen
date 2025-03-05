@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-ui-components-core/popover';
-import LychenIcon from '../icon/LychenIcon.vue';
 import RadioGroup from '@lychen/vue-ui-components-core/radio-group/RadioGroup.vue';
 import RadioGroupItem from '@lychen/vue-ui-components-core/radio-group/RadioGroupItem.vue';
+import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 
 const { locale } = useI18n();
 </script>
@@ -11,7 +11,7 @@ const { locale } = useI18n();
 <template>
   <Popover>
     <PopoverTrigger as-child>
-      <LychenIcon
+      <Icon
         icon="language"
         class="cursor-pointer"
         aria-label="Select language"

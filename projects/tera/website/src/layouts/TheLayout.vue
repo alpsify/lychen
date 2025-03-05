@@ -7,7 +7,7 @@
     <template #navigation>
       <TheNavigation />
     </template>
-    <template #header><LychenLogoFull class="h-10" /></template>
+    <template #header><LogoLychenFull class="h-10" /></template>
     <template #mobile>
       <TheNavigationMobile />
     </template>
@@ -28,8 +28,8 @@ import { defineAsyncComponent } from 'vue';
 const LayoutWebsiteApplication = defineAsyncComponent(
   () => import('@lychen/vue-ui-layouts/website-app/LayoutWebsiteApplication.vue'),
 );
-const LychenLogoFull = defineAsyncComponent(
-  () => import('@lychen/ui-components/logo/LychenLogoFull.vue'),
+const LogoLychenFull = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),
 );
 
 const TheNavigation = defineAsyncComponent(() => import('./TheNavigation.vue'));

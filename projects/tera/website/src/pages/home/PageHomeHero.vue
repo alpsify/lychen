@@ -7,30 +7,30 @@
       overlay-class="bg-on-surface dark:bg-surface opacity-40"
     >
       <div class="flex flex-col md:w-3/5 items-start gap-4">
-        <LychenTitle
+        <Title
           variant="h1"
           class="text-balance z-20"
-          >{{ t('hero.title') }}</LychenTitle
+          >{{ t('hero.title') }}</Title
         >
-        <LychenParagraph
+        <Paragraph
           variant="website-highlight"
           class="z-20"
           >{{ t('hero.description') }}
-        </LychenParagraph>
+        </Paragraph>
 
         <RouterLink
           to="#features"
           class="z-20"
         >
-          <LychenButton
+          <Button
             class="flex gap-2"
             data-umami-event="features-button"
             >{{ t('hero.button.features.label') }}
-            <LychenIcon
+            <Icon
               icon="chevron-down"
               beat
             />
-          </LychenButton>
+          </Button>
         </RouterLink>
       </div>
     </Hero>
@@ -43,19 +43,19 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import LychenButton from '@lychen/ui-components/button/LychenButton.vue';
-import LychenIcon from '@lychen/ui-components/icon/LychenIcon.vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 
 const DivScalingDown = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
 const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

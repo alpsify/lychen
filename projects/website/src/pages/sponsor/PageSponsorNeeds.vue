@@ -1,10 +1,10 @@
 <template>
   <Container class="flex flex-col gap-4 items-center md:py-20">
-    <LychenTitle variant="h2">{{ t(`section.needs.title`) }}</LychenTitle>
-    <LychenParagraph
+    <Title variant="h2">{{ t(`section.needs.title`) }}</Title>
+    <Paragraph
       variant="website-highlight"
       class="text-center md:w-3/5"
-      >{{ t(`section.needs.description`) }}</LychenParagraph
+      >{{ t(`section.needs.description`) }}</Paragraph
     >
     <div class="flex flex-col lg:w-2/3 m-auto gap-6">
       <div
@@ -20,9 +20,7 @@
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h3">{{
-            t(`section.needs.contributors.nathan_de_pachtere.name`)
-          }}</LychenTitle>
+          <Title variant="h3">{{ t(`section.needs.contributors.nathan_de_pachtere.name`) }}</Title>
           <p class="text-center md:text-left opacity-80">
             {{ t(`section.needs.contributors.nathan_de_pachtere.description`) }}
           </p>
@@ -30,7 +28,7 @@
             href="https://www.linkedin.com/in/nathandepachtere/"
             target="_blank"
             class="underline"
-            ><LychenIcon
+            ><Icon
               icon="linkedin"
               fashion="fab"
               class="mr-2"
@@ -38,34 +36,34 @@
           >
         </div>
         <div class="flex flex-col gap-4 border-l-2 border-tertiary p-2">
-          <LychenBadge
+          <Badge
             variant="tertiary"
             class="self-start"
-            >{{ t(`section.needs.need_backers`) }}</LychenBadge
+            >{{ t(`section.needs.need_backers`) }}</Badge
           >
           <a
             href="https://ko-fi.com/nathandepachtere"
             target="_blank"
           >
-            <LychenRainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
-              <LychenIcon
+            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+              <Icon
                 icon="coffee"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.nathan_de_pachtere.call_to_action_kofi`) }}
-            </LychenRainbowBox>
+            </RainbowBox>
           </a>
 
           <a
             href="https://github.com/sponsors/nathan-de-pachtere"
             target="_blank"
           >
-            <LychenRainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
-              <LychenIcon
+            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+              <Icon
                 icon="github"
                 fashion="fab"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.nathan_de_pachtere.call_to_action_github`) }}
-            </LychenRainbowBox>
+            </RainbowBox>
           </a>
         </div>
       </div>
@@ -82,9 +80,7 @@
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h3">{{
-            t(`section.needs.contributors.jennifer_geoffroy.name`)
-          }}</LychenTitle>
+          <Title variant="h3">{{ t(`section.needs.contributors.jennifer_geoffroy.name`) }}</Title>
           <p class="text-center md:text-left opacity-80">
             {{ t(`section.needs.contributors.jennifer_geoffroy.description`) }}
           </p>
@@ -92,7 +88,7 @@
             href="https://www.linkedin.com/in/jennifer-geoffroy/"
             target="_blank"
             class="underline"
-            ><LychenIcon
+            ><Icon
               icon="linkedin"
               fashion="fab"
               class="mr-2"
@@ -100,21 +96,21 @@
           >
         </div>
         <div class="flex flex-col gap-4 border-l-2 border-tertiary p-2">
-          <LychenBadge
+          <Badge
             variant="tertiary"
             class="self-start"
-            >{{ t(`section.needs.need_backers`) }}</LychenBadge
+            >{{ t(`section.needs.need_backers`) }}</Badge
           >
           <a
             href="https://ko-fi.com/jennifergeoffroy"
             target="_blank"
           >
-            <LychenRainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
-              <LychenIcon
+            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+              <Icon
                 icon="coffee"
                 class="fa-lg"
               />{{ t(`section.needs.contributors.jennifer_geoffroy.call_to_action_kofi`) }}
-            </LychenRainbowBox>
+            </RainbowBox>
           </a>
         </div>
       </div>
@@ -122,21 +118,21 @@
         class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-on-surface-container rounded-lg items-center p-4"
       >
         <div class="flex items-center justify-center">
-          <LychenIcon
+          <Icon
             icon="server"
             class="fa-xl"
           />
         </div>
         <div class="flex flex-col justify-center md:items-start items-center gap-2">
-          <LychenTitle variant="h3">{{ t(`section.needs.server.title`) }}</LychenTitle>
+          <Title variant="h3">{{ t(`section.needs.server.title`) }}</Title>
           <p class="text-center md:text-left opacity-80">
             {{ t(`section.needs.server.description`) }}
           </p>
         </div>
         <div class="flex-col gap-2 border-l-2 border-green-500 p-2">
-          <LychenBadge class="bg-green-500 whitespace-nowrap">{{
+          <Badge class="bg-green-500 whitespace-nowrap">{{
             t(`section.needs.fully_backed`)
-          }}</LychenBadge>
+          }}</Badge>
           <p
             variant="h6"
             class="opacity-60 whitespace-nowrap"
@@ -151,7 +147,7 @@
                 class="flex gap-2 items-center"
                 target="_blank"
                 >alpsify
-                <LychenIcon
+                <Icon
                   icon="arrow-up-right"
                   class="opacity-50"
               /></a>
@@ -163,7 +159,7 @@
                 class="flex gap-2 items-center"
                 target="_blank"
                 >alpsify
-                <LychenIcon
+                <Icon
                   icon="arrow-up-right"
                   class="opacity-50"
               /></a>
@@ -183,25 +179,23 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { LINK } from '@lychen/util-constants/Link';
 
-const LychenIcon = defineAsyncComponent(() => import('@lychen/ui-components/icon/LychenIcon.vue'));
-const LychenBadge = defineAsyncComponent(
-  () => import('@lychen/ui-components/badge/LychenBadge.vue'),
-);
+const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-const LychenRainbowBox = defineAsyncComponent(
-  () => import('@lychen/ui-components/rainbow-box/LychenRainbowBox.vue'),
+const RainbowBox = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/rainbow-box/RainbowBox.vue'),
 );
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/container/Container.vue'),
 );
 
-const LychenTitle = defineAsyncComponent(
-  () => import('@lychen/ui-components/title/LychenTitle.vue'),
+const Title = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
 );
 
-const LychenParagraph = defineAsyncComponent(
-  () => import('@lychen/ui-components/paragraph/LychenParagraph.vue'),
+const Paragraph = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>
