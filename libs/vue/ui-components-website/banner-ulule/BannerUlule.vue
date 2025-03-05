@@ -46,6 +46,7 @@ import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferr
 
 import { GlowBorder } from '@lychen/vue-ui-components-extra/glow-border';
 import { TextGenerateEffect } from '@lychen/vue-ui-components-extra/text-generate-effect';
+import { LogoLychenFull } from '@lychen/vue-ui-components-extra/logo-lychen';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
