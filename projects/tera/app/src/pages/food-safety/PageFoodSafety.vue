@@ -1,9 +1,9 @@
 <template>
-  <section class="flex flex-col">
-    <h1>Food Safety</h1>
-  </section>
+  <SectionTwoThird title="Food Safety"> </SectionTwoThird>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SectionTwoThird from '@lychen/vue-ui-components-app/section-two-third/SectionTwoThird.vue';
+</script>
 
 <style lang="css" scoped></style>

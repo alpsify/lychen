@@ -200,6 +200,9 @@
       "path": "libs/vue/tiptap/util-composables"
     },
     {
+      "path": "libs/vue/ui-components-app"
+    },
+    {
       "path": "libs/vue/ui-components-core"
     },
     {

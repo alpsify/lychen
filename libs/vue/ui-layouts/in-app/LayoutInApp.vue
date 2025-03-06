@@ -34,28 +34,70 @@
     <header class="py-2 p-4 flex flex-row justify-between items-center gap-4">
       <div class="flex flex-row gap-2 justify-end items-center"></div>
       <div class="flex flex-row gap-2 justify-end items-center">
-        <Button
-          :icon="faCircleQuestion"
-          variant="container-high"
-        />
-        <Button
-          :icon="faBell"
-          variant="container-high"
-        />
+        <Popover>
+          <PopoverTrigger as-child>
+            <Button
+              :icon="faCircleQuestion"
+              variant="container-high"
+            />
+          </PopoverTrigger>
+          <PopoverContent
+            class="w-auto bg-surface-container-highest/80 rounded-xl mr-4"
+            side="bottom"
+            align="center"
+            :side-offset="12"
+          >
+            Aides
+          </PopoverContent>
+        </Popover>
+        <Popover>
+          <PopoverTrigger as-child>
+            <Button
+              :icon="faBell"
+              variant="container-high"
+            />
+          </PopoverTrigger>
+          <PopoverContent
+            class="w-auto bg-surface-container-highest/80 rounded-xl mr-4"
+            side="bottom"
+            align="center"
+            :side-offset="12"
+          >
+            Notifications
+          </PopoverContent>
+        </Popover>
         <Button
           :icon="faGear"
           variant="container-high"
         />
-        <Button
-          :icon="faGridRound"
-          variant="container-high"
-        />
+        <Popover>
+          <PopoverTrigger as-child>
+            <Button
+              :icon="faGridRound"
+              variant="container-high"
+            />
+          </PopoverTrigger>
+          <PopoverContent
+            class="w-auto bg-surface-container-highest/80 rounded-xl mr-4"
+            side="bottom"
+            align="center"
+            :side-offset="12"
+          >
+            <div
+              class="bg-surface-container rounded-full p-4 justify-between flex flex-row items-center gap-4 cursor-pointer"
+            >
+              Décrouvrir lychen
+              <Icon :icon="faArrowRight" />
+            </div>
+          </PopoverContent>
+        </Popover>
+
         <Avatar class="hover:outline-1 outline-offset-2 outline-secondary/30 cursor-pointer">
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
     </header>
-    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-md">
+    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-md p-6">
       <RouterView />
     </main>
   </div>
@@ -73,6 +115,8 @@ import AvatarFallback from '@lychen/vue-ui-components-core/avatar/AvatarFallback
 import type { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
 import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
+import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
+import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-ui-components-core/popover';
 
 interface Props {
   application: {

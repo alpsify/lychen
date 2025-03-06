@@ -2470,6 +2470,7 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-ui-components-app": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
@@ -2821,6 +2822,23 @@ __metadata:
   resolution: "@lychen/vue-tiptap-util-composables@workspace:libs/vue/tiptap/util-composables"
   dependencies:
     "@lychen/typescript-util-types": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-ui-components-app@workspace:*, @lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/typescript-util-tailwind": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
+    "@vueuse/core": "npm:^12.7.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.0.2"
+    vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
 
