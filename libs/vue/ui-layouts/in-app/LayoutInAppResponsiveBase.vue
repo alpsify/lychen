@@ -15,7 +15,15 @@
             side="left"
             class="bg-surface-container/70 text-on-surface-container w-2/3 backdrop-blur-lg flex flex-col"
           >
-            <template #header><ApplicationTitle :value="application.name" /></template>
+            <template #header
+              ><div class="flex flex-row items-center gap-4">
+                <ApplicationTitle :value="application.name" />
+                <SheetClose as-child
+                  ><Button
+                    :icon="faGear"
+                    variant="container-high"
+                /></SheetClose></div
+            ></template>
             <SheetClose as-child>
               <div class="flex flex-col gap-4 justify-between grow">
                 <LayoutInAppNavigationMenus :menu-structure="menuStructure" />
@@ -55,7 +63,10 @@
     </nav>
     <header class="py-2 p-4 flex flex-row justify-between items-center gap-4">
       <slot name="header">
-        <div class="flex flex-row gap-2 justify-end items-center"></div>
+        <div class="flex flex-row gap-4 justify-end items-center">
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+        </div>
         <div class="flex flex-row gap-2 justify-end items-center">
           <Popover>
             <PopoverTrigger>
@@ -144,6 +155,8 @@ import {
 } from '@lychen/vue-ui-components-core/sheet';
 import type { MenuStructure } from '.';
 import LayoutInAppNavigationMenus from './LayoutInAppNavigationMenus.vue';
+import ThemeSwitcher from '@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue';
+import LanguageSwitcher from '@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue';
 
 interface Props {
   application: {

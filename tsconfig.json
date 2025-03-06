@@ -20,6 +20,9 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/css/ui-app"
+    },
+    {
       "path": "libs/diagrams"
     },
     {

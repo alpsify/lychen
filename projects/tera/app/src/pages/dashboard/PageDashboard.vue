@@ -36,76 +36,6 @@
         />
       </div>
     </div>
-
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-row justify-between items-center">
-        <Title variant="h4">Vos espaces de culture</Title>
-        <div class="flex flex-row items-center gap-2">
-          <Button
-            :icon="faPlus"
-            variant="secondary"
-          />
-          <Button
-            :icon="faListUl"
-            variant="container-high"
-          />
-        </div>
-      </div>
-      <Carousel
-        v-if="lands"
-        :opts="{
-          align: 'start',
-        }"
-      >
-        <CarouselContent>
-          <CarouselItem
-            v-for="(landItem, index) in lands.member"
-            :key="index"
-            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
-          >
-            <RouterLink :to="{ name: RoutePageLand.name, params: { ulid: landItem.ulid } }">
-              <CardTeraLand :land="landItem" />
-            </RouterLink>
-          </CarouselItem>
-        </CarouselContent>
-      </Carousel>
-    </div>
-
-    <div class="gap-4 flex flex-col">
-      <div class="flex flex-row gap-4 justify-between items-start">
-        <div class="flex flex-col gap-1">
-          <Title variant="h4">Trouver un espace de culture</Title>
-          <small class="opacity-80">Dîte nous ce que vous recherchez on s'occupe du reste</small>
-        </div>
-        <Button
-          :icon="faEllipsisVertical"
-          variant="container-high"
-        />
-      </div>
-
-      <Button>Créer une demande</Button>
-
-      <Carousel
-        v-if="lands"
-        :opts="{
-          align: 'start',
-        }"
-      >
-        <CarouselContent>
-          <CarouselItem
-            v-for="(landItem, index) in landsLookingForMember.member"
-            :key="index"
-            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
-          >
-            <CardTeraLand
-              :land="landItem"
-              :variant="VARIANT.LookingForMember"
-            />
-          </CarouselItem>
-        </CarouselContent>
-      </Carousel>
-      <Button variant="container-high">Voir toutes les annonces</Button>
-    </div>
   </section>
 </template>
 
@@ -117,7 +47,7 @@ import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.v
 import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import headerImg from './assets/header.webp';
 import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
-import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
+
 import { RoutePageLand } from '@pages/land';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
@@ -135,24 +65,6 @@ const Title = defineAsyncComponent(
 const Button = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
-
-const api = useTeraApi('Land');
-
-const { data: lands } = useQuery({
-  queryKey: ['land'],
-  queryFn: async () => {
-    const response = await api.landGetCollection({});
-    return response.data;
-  },
-});
-
-const { data: landsLookingForMember } = useQuery({
-  queryKey: ['landsLookingForMember'],
-  queryFn: async () => {
-    const response = await api.landGetCollectionLookingForMembers({});
-    return response.data;
-  },
-});
 </script>
 
 <style lang="css" scoped></style>
