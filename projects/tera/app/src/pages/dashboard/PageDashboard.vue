@@ -42,21 +42,10 @@
 <script lang="ts" setup>
 import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
 import { defineAsyncComponent } from 'vue';
-import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
-import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
-import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import headerImg from './assets/header.webp';
-import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
-
-import { RoutePageLand } from '@pages/land';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { useQuery } from '@tanstack/vue-query';
-import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
 import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
 import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
-import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import { faEllipsisVertical } from '@fortawesome/pro-light-svg-icons/faEllipsisVertical';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),
