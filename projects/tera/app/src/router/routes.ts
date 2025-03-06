@@ -12,7 +12,7 @@ import { RoutePageCoGardening } from '@/pages/co-gardening';
 import { RoutePageDiary } from '@/pages/diary';
 import { RoutePageData } from '@/pages/data';
 import { RoutePageGrainLibrary } from '@/pages/grain-library';
-import { RoutePagePlants } from '@/pages/plants';
+import { RoutePageHerbarium } from '@/pages/herbarium';
 import { RoutePageSharedGardens } from '@/pages/shared-gardens';
 import { RoutePageTasks } from '@/pages/tasks';
 import { RoutePageLands } from '@/pages/lands';
@@ -35,13 +35,17 @@ const routes: RouteRecordRaw[] = [
       RoutePageDiary,
       RoutePageData,
       RoutePageGrainLibrary,
-      RoutePagePlants,
+      RoutePageHerbarium,
       RoutePageSharedGardens,
       RoutePageTasks,
       RoutePageLands,
     ],
   },
   RoutePageOnboarding,
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: RoutePageDashboard,
+  },
 ];
 
 export default routes;

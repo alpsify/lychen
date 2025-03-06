@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'page_plants';
+export const TRANSLATION_KEY = 'page_herbarium';

@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col">
+  <section class="flex flex-col gap-6">
     <slot name="title">
       <BaseHeading variant="h1">{{ title }}</BaseHeading>
     </slot>

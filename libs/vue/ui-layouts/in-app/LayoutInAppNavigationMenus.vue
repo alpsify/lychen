@@ -3,11 +3,11 @@
     <div
       v-for="(menuSection, sectionName) in menuStructure"
       :key="sectionName"
-      class="flex flex-col gap-0"
+      class="flex flex-col gap-2"
     >
       <h3
         v-if="menuSection.title"
-        class="text-on-surface-container-low/50 uppercase font-medium text-sm"
+        class="text-on-surface-container-low/40 uppercase font-medium text-xs"
       >
         {{ menuSection.title }}
       </h3>
@@ -15,9 +15,12 @@
         v-for="(menu, index) in menuSection.list"
         :key="index"
         :to="menu.to"
-        class="flex flex-row items-center gap-2 px-4 py-2 rounded-md hover:bg-surface-container-highest"
+        class="menu-item flex flex-row items-center justify-start gap-4 px-4 py-2 rounded-xl hover:bg-surface-container-highest"
       >
-        <Icon :icon="menu.icon" />
+        <Icon
+          :icon="menu.icon"
+          class="w-5 h-5 shrink-0"
+        />
         <span>{{ menu.title }}</span>
       </RouterLink>
     </div>
@@ -32,3 +35,9 @@ defineProps<{
   menuStructure: MenuStructure;
 }>();
 </script>
+
+<style>
+.menu-item.router-link-active {
+  background-color: var(--color-surface);
+}
+</style>
