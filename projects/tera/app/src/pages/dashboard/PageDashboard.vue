@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col p-8 gap-6">
+  <section class="flex flex-col gap-6">
     <div class="flex flex-row gap-4 items-center justify-between">
       <Title variant="h2"
         >Bonjour,

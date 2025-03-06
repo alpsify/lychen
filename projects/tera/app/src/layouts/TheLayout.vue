@@ -1,6 +1,6 @@
 <template>
   <LayoutInApp
-    :menus="navigation"
+    :menu-structure="navigation"
     :application="{ name: 'Tera' }"
   ></LayoutInApp>
 </template>
@@ -22,8 +22,6 @@ import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWhea
 import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
 
 import { RoutePageDashboard } from '@pages/dashboard';
-import { RoutePageOnboarding } from '@pages/onboarding';
-import { RoutePageLand } from '@pages/land';
 import { RoutePageFoodSafety } from '../pages/food-safety';
 import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageCalendars } from '@/pages/calendars';
