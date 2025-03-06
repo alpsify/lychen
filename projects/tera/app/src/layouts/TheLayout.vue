@@ -14,7 +14,6 @@ import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
 import { faBagSeedling } from '@fortawesome/pro-light-svg-icons/faBagSeedling';
 import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
 import { faSunPlantWilt } from '@fortawesome/pro-light-svg-icons/faSunPlantWilt';
-import { RoutePageDashboard } from '@/pages/dashboard';
 import { faNotebook } from '@fortawesome/pro-light-svg-icons/faNotebook';
 import { faBuildingMemo } from '@fortawesome/pro-light-svg-icons/faBuildingMemo';
 import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
@@ -22,12 +21,28 @@ import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple'
 import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
 import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
 
+import { RoutePageDashboard } from '@pages/dashboard';
+import { RoutePageOnboarding } from '@pages/onboarding';
+import { RoutePageLand } from '@pages/land';
+import { RoutePageFoodSafety } from '../pages/food-safety';
+import { RoutePageGreeningPermit } from '@/pages/greening-permit';
+import { RoutePageCalendars } from '@/pages/calendars';
+import { RoutePageCultureItinaries } from '@/pages/culture-itinaries';
+import { RoutePageCoGardening } from '@/pages/co-gardening';
+import { RoutePageDiary } from '@/pages/diary';
+import { RoutePageData } from '@/pages/data';
+import { RoutePageGrainLibrary } from '@/pages/grain-library';
+import { RoutePagePlants } from '@/pages/plants';
+import { RoutePageSharedGardens } from '@/pages/shared-gardens';
+import { RoutePageTasks } from '@/pages/tasks';
+import { RoutePageLands } from '@/pages/lands';
+
 const navigation = {
   first: {
     list: [
       {
         icon: faHouse,
-        to: RoutePageDashboard.name,
+        to: RoutePageDashboard,
         title: 'Tableaux de bord',
       },
     ],
@@ -36,27 +51,27 @@ const navigation = {
     list: [
       {
         icon: faFence,
-        to: RoutePageDashboard.name,
+        to: RoutePageLands,
         title: 'Espaces de culture',
       },
       {
         icon: faSunPlantWilt,
-        to: RoutePageDashboard.name,
+        to: RoutePageCultureItinaries,
         title: 'Itinéraires de culture',
       },
       {
         icon: faNotebook,
-        to: RoutePageDashboard.name,
+        to: RoutePageDiary,
         title: 'Journal',
       },
       {
         icon: faClipboardListCheck,
-        to: RoutePageDashboard.name,
+        to: RoutePageTasks,
         title: 'A faire',
       },
       {
         icon: faCalendarDays,
-        to: RoutePageDashboard.name,
+        to: RoutePageCalendars,
         title: 'Calendriers',
       },
     ],
@@ -66,12 +81,12 @@ const navigation = {
     list: [
       {
         icon: faSeedling,
-        to: RoutePageDashboard.name,
+        to: RoutePagePlants,
         title: 'Plantes',
       },
       {
         icon: faBagSeedling,
-        to: RoutePageDashboard.name,
+        to: RoutePageGrainLibrary,
         title: 'Grainothèque',
       },
     ],
@@ -81,27 +96,27 @@ const navigation = {
     list: [
       {
         icon: faPeopleSimple,
-        to: RoutePageDashboard.name,
+        to: RoutePageCoGardening,
         title: 'Co-jardiner',
       },
       {
         icon: faBuildingWheat,
-        to: RoutePageDashboard.name,
+        to: RoutePageSharedGardens,
         title: 'Jardins partagés',
       },
       {
         icon: faBuildingMemo,
-        to: RoutePageDashboard.name,
+        to: RoutePageGreeningPermit,
         title: 'Permis de végétaliser',
       },
       {
         icon: faHandHoldingHeart,
-        to: RoutePageDashboard.name,
+        to: RoutePageFoodSafety,
         title: 'Sécurité alimentaire',
       },
       {
         icon: faChartSimple,
-        to: RoutePageDashboard.name,
+        to: RoutePageData,
         title: 'Données',
       },
     ],

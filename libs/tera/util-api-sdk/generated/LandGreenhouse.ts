@@ -9,8 +9,12 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandGreenhouse, LandGreenhouseGetCollectionParams, LandGreenhouseJsonld } from "./data-contracts";
-import type { ContentType, HttpClient, RequestParams } from "./http-client";
+import type {
+  LandGreenhouse,
+  LandGreenhouseGetCollectionParams,
+  LandGreenhouseJsonld,
+} from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandGreenhouse<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -63,14 +67,17 @@ export class LandGreenhouse<SecurityDataType = unknown> {
 }` LandGreenhouse collection
  * @response `403` `void` Forbidden
  */
-  landGreenhouseGetCollection = (query: LandGreenhouseGetCollectionParams, params: RequestParams = {}) =>
+  landGreenhouseGetCollection = (
+    query: LandGreenhouseGetCollectionParams,
+    params: RequestParams = {},
+  ) =>
     this.http.request<
       {
         member: LandGreenhouseJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -83,8 +90,8 @@ export class LandGreenhouse<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -98,10 +105,10 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_greenhouses`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -119,11 +126,11 @@ export class LandGreenhouse<SecurityDataType = unknown> {
   landGreenhousePost = (data: LandGreenhouseJsonld, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -141,9 +148,9 @@ export class LandGreenhouse<SecurityDataType = unknown> {
   landGreenhouseGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -161,7 +168,7 @@ export class LandGreenhouse<SecurityDataType = unknown> {
   landGreenhouseDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_greenhouses/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       ...params,
     });
@@ -182,11 +189,11 @@ export class LandGreenhouse<SecurityDataType = unknown> {
   landGreenhousePatch = (ulid: string, data: LandGreenhouse, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseJsonld, void>({
       path: `/api/land_greenhouses/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

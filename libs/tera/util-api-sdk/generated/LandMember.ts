@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandMember, LandMemberGetCollectionParams, LandMemberJsonld } from "./data-contracts";
-import type { ContentType, HttpClient, RequestParams } from "./http-client";
+import type { LandMember, LandMemberGetCollectionParams, LandMemberJsonld } from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandMember<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -68,9 +68,9 @@ export class LandMember<SecurityDataType = unknown> {
       {
         member: LandMemberJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -83,8 +83,8 @@ export class LandMember<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -98,10 +98,10 @@ export class LandMember<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_members`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -119,9 +119,9 @@ export class LandMember<SecurityDataType = unknown> {
   landMemberGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -139,7 +139,7 @@ export class LandMember<SecurityDataType = unknown> {
   landMemberDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_members/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       ...params,
     });
@@ -160,11 +160,11 @@ export class LandMember<SecurityDataType = unknown> {
   landMemberPatch = (ulid: string, data: LandMember, params: RequestParams = {}) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

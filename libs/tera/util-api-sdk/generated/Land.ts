@@ -15,8 +15,8 @@ import type {
   LandGetCollectionParams,
   LandJsonld,
   LandPostPayload,
-} from "./data-contracts";
-import type { ContentType, HttpClient, RequestParams } from "./http-client";
+} from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class Land<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -73,9 +73,9 @@ export class Land<SecurityDataType = unknown> {
       {
         member: LandJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -88,8 +88,8 @@ export class Land<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -103,10 +103,10 @@ export class Land<SecurityDataType = unknown> {
       any
     >({
       path: `/api/lands`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -124,11 +124,11 @@ export class Land<SecurityDataType = unknown> {
   landPost = (data?: LandPostPayload, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -174,14 +174,17 @@ export class Land<SecurityDataType = unknown> {
 
 }` Land collection
  */
-  landGetCollectionLookingForMembers = (query: LandGetCollectionLookingForMembersParams, params: RequestParams = {}) =>
+  landGetCollectionLookingForMembers = (
+    query: LandGetCollectionLookingForMembersParams,
+    params: RequestParams = {},
+  ) =>
     this.http.request<
       {
         member: LandJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -194,8 +197,8 @@ export class Land<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -209,10 +212,10 @@ export class Land<SecurityDataType = unknown> {
       any
     >({
       path: `/api/lands/looking_for_members`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -230,9 +233,9 @@ export class Land<SecurityDataType = unknown> {
   landGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -250,7 +253,7 @@ export class Land<SecurityDataType = unknown> {
   landDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/lands/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       ...params,
     });
@@ -271,11 +274,11 @@ export class Land<SecurityDataType = unknown> {
   landPatch = (ulid: string, data: Land, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

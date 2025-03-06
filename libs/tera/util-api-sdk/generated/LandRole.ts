@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandRole, LandRoleGetCollectionParams, LandRoleJsonld } from "./data-contracts";
-import type { ContentType, HttpClient, RequestParams } from "./http-client";
+import type { LandRole, LandRoleGetCollectionParams, LandRoleJsonld } from './data-contracts';
+import type { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class LandRole<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -68,9 +68,9 @@ export class LandRole<SecurityDataType = unknown> {
       {
         member: LandRoleJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -83,8 +83,8 @@ export class LandRole<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -98,10 +98,10 @@ export class LandRole<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_roles`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -119,11 +119,11 @@ export class LandRole<SecurityDataType = unknown> {
   landRolePost = (data: LandRoleJsonld, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -141,9 +141,9 @@ export class LandRole<SecurityDataType = unknown> {
   landRoleGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -161,7 +161,7 @@ export class LandRole<SecurityDataType = unknown> {
   landRoleDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_roles/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       ...params,
     });
@@ -182,11 +182,11 @@ export class LandRole<SecurityDataType = unknown> {
   landRolePatch = (ulid: string, data: LandRole, params: RequestParams = {}) =>
     this.http.request<LandRoleJsonld, void>({
       path: `/api/land_roles/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }
