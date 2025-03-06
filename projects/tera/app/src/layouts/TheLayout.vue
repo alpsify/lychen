@@ -18,9 +18,9 @@ import { RoutePageDashboard } from '@/pages/dashboard';
 import { faNotebook } from '@fortawesome/pro-light-svg-icons/faNotebook';
 import { faBuildingMemo } from '@fortawesome/pro-light-svg-icons/faBuildingMemo';
 import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
-import { faPeopleCarryBox } from '@fortawesome/pro-light-svg-icons/faPeopleCarryBox';
 import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple';
 import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
+import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
 
 const navigation = {
   first: {
@@ -97,7 +97,12 @@ const navigation = {
       {
         icon: faHandHoldingHeart,
         to: RoutePageDashboard.name,
-        title: 'Donner',
+        title: 'Sécurité alimentaire',
+      },
+      {
+        icon: faChartSimple,
+        to: RoutePageDashboard.name,
+        title: 'Données',
       },
     ],
   },

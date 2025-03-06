@@ -1,14 +1,14 @@
 <template>
   <div class="layout-in-app bg-surface-container-low">
-    <div class="corner h-[var(--header-size)] flex flex-row items-center gap-4 p-6">
+    <div class="corner h-[var(--header-size)] flex flex-row items-center p-6">
       <ApplicationTitle :value="application.name" />
     </div>
     <nav class="flex flex-col justify-between py-4 px-6">
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-6">
         <div
           v-for="(menuSection, sectionName) in menus"
           :key="sectionName"
-          class="flex flex-col gap-2"
+          class="flex flex-col gap-0"
         >
           <h3
             v-if="menuSection.title"
@@ -72,7 +72,6 @@ import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import AvatarFallback from '@lychen/vue-ui-components-core/avatar/AvatarFallback.vue';
 import type { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
-import Separator from '@lychen/vue-ui-components-core/separator/Separator.vue';
 import { faBell } from '@fortawesome/pro-light-svg-icons/faBell';
 
 interface Props {
@@ -121,7 +120,37 @@ const Button = defineAsyncComponent(
 
   nav {
     grid-area: navigation;
-    background-color: var(--);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  header {
+    grid-area: header;
+  }
+  nav {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+    }
+  }
+  main {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+    }
   }
 
   .corner {
