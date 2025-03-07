@@ -40,6 +40,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(security: "is_granted('" . LandTaskPermission::READ . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
     'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
+    new QueryParameter(key: 'state', schema: ['type' => 'string'], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_task.state_filter'),
 ])]
 #[Patch(
     uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_DONE,

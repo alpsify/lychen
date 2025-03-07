@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\LandTask;
+use App\Workflow\LandTask\LandTaskWorkflowPlace;
 use Lychen\UtilTiptap\Service\TipTapFaker;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
@@ -33,7 +34,8 @@ final class LandTaskFactory extends PersistentProxyObjectFactory
             'title' => self::faker()->text(100),
             'content' => TipTapFaker::randomContent(),
             'dueDate' => self::faker()->boolean() ? self::faker()->dateTimeBetween($startDate, '+1 year') : null,
-            'startDate' => $startDate
+            'startDate' => $startDate,
+            'state' => self::faker()->randomElement(LandTaskWorkflowPlace::PLACES)
         ];
     }
 
