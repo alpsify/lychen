@@ -26,17 +26,16 @@
         >
       </span>
     </div>
+    {{ landTask.state }}
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, defineAsyncComponent } from 'vue';
+import { computed } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
-
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
 const { variant = VARIANT.Default, landTask } = defineProps<{
   landTask: {
@@ -44,6 +43,7 @@ const { variant = VARIANT.Default, landTask } = defineProps<{
     content: string;
     dueDate?: string;
     startDate?: string;
+    state: string;
   };
   variant?: Variant;
 }>();
