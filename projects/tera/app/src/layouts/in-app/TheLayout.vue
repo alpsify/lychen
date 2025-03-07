@@ -18,49 +18,46 @@
       ></Button>
     </div>
   </Teleport>
-  <Teleport
-    to="#main-menu-section"
-    defer
-  >
-    <Accordion
-      v-if="lands?.member"
-      class="w-full"
-      collapsible
-      type="single"
-      :default-value="lands.member[0]?.ulid"
-    >
-      <AccordionItem
-        v-for="land in lands.member"
-        :key="land.ulid"
-        :value="land.ulid"
-      >
-        <RouterLink
-          :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
-          class="accordion-menu-item"
-        >
-          <AccordionTrigger
-            class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl"
-          >
-            {{ land.name }}
-          </AccordionTrigger>
-        </RouterLink>
-
-        <AccordionContent class="flex flex-col gap-1 p-2">
-          <LayoutInAppNavigationMenuItem
-            v-for="(menu, index) in mainMenus"
-            :key="index"
-            :to="{ name: menu.to.name, params: { landUlid: land.ulid } }"
-            :icon="menu.icon"
-            :title="menu.title"
-          />
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  </Teleport>
   <LayoutInApp
     :menu-structure="navigation"
     :application="{ name: 'Tera' }"
-  ></LayoutInApp>
+  >
+    <template #main-menu-section>
+      <Accordion
+        v-if="lands?.member"
+        class="w-full"
+        collapsible
+        type="single"
+        :default-value="lands.member[0]?.ulid"
+      >
+        <AccordionItem
+          v-for="land in lands.member"
+          :key="land.ulid"
+          :value="land.ulid"
+        >
+          <RouterLink
+            :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
+            class="accordion-menu-item"
+          >
+            <AccordionTrigger
+              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl"
+            >
+              {{ land.name }}
+            </AccordionTrigger>
+          </RouterLink>
+
+          <AccordionContent class="flex flex-col gap-1 p-2">
+            <LayoutInAppNavigationMenuItem
+              v-for="(menu, index) in mainMenus"
+              :key="index"
+              :to="{ name: menu.to.name, params: { landUlid: land.ulid } }"
+              :icon="menu.icon"
+              :title="menu.title"
+            />
+          </AccordionContent>
+        </AccordionItem> </Accordion
+    ></template>
+  </LayoutInApp>
 </template>
 
 <script setup lang="ts">

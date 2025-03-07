@@ -11,7 +11,7 @@
 import { RoutePageDashboard } from '@/pages/dashboard';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import { provide } from 'vue';
+import { provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { INJECT_LAND_KEY } from '.';
 
@@ -19,7 +19,7 @@ const route = useRoute();
 const router = useRouter();
 const api = useTeraApi('Land');
 
-const { data: land } = useQuery({
+const { data: land, refetch } = useQuery({
   queryKey: ['land'],
   queryFn: async () => {
     try {
@@ -33,6 +33,11 @@ const { data: land } = useQuery({
 });
 
 provide(INJECT_LAND_KEY, land);
+
+watch(
+  () => route.params.landUlid,
+  () => refetch(),
+);
 </script>
 
 <style lang="css" scoped></style>

@@ -3,6 +3,13 @@
     :application="application"
     :menu-structure="menuStructure"
   >
+    <template
+      v-for="(menuSection, sectionName) in menuStructure"
+      :key="sectionName"
+      #[`${sectionName}-menu-section`]
+    >
+      <slot :name="`${sectionName}-menu-section`" />
+    </template>
     <template #main><RouterView /></template>
     <template #avatar>
       <Popover>

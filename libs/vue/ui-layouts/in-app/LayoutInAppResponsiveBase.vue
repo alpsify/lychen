@@ -29,7 +29,15 @@
             ></template>
             <SheetClose as-child>
               <div class="flex flex-col gap-4 justify-between grow">
-                <LayoutInAppNavigationMenus :menu-structure="menuStructure" />
+                <LayoutInAppNavigationMenus :menu-structure="menuStructure">
+                  <template
+                    v-for="(menuSection, sectionName) in menuStructure"
+                    :key="sectionName"
+                    #[`${sectionName}-menu-section`]
+                  >
+                    <slot :name="`${sectionName}-menu-section`" />
+                  </template>
+                </LayoutInAppNavigationMenus>
                 <div class="flex flex-row justify-center items-center">
                   <LogoLychenFull />
                 </div>
@@ -61,7 +69,15 @@
     </div>
     <nav class="flex flex-col justify-between py-4 px-3">
       <slot name="navigation"
-        ><LayoutInAppNavigationMenus :menu-structure="menuStructure" />
+        ><LayoutInAppNavigationMenus :menu-structure="menuStructure">
+          <template
+            v-for="(menuSection, sectionName) in menuStructure"
+            :key="sectionName"
+            #[`${sectionName}-menu-section`]
+          >
+            <slot :name="`${sectionName}-menu-section`" />
+          </template>
+        </LayoutInAppNavigationMenus>
         <div class="flex flex-row justify-center items-center">
           <LogoLychenFull />
         </div>

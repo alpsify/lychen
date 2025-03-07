@@ -18,11 +18,13 @@
         :id="`${sectionName}-menu-section`"
         class="flex flex-col gap-2"
       >
-        <LayoutInAppNavigationMenuItem
-          v-for="(menu, index) in menuSection.list"
-          :key="index"
-          v-bind="menu"
-        />
+        <slot :name="`${sectionName}-menu-section`">
+          <LayoutInAppNavigationMenuItem
+            v-for="(menu, index) in menuSection.list"
+            :key="index"
+            v-bind="menu"
+          />
+        </slot>
       </div>
     </div>
   </div>
