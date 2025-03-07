@@ -1,5 +1,8 @@
 <template>
-  <div class="lg:hidden flex flex-col layout-in-app-mobile bg-surface">
+  <div
+    v-if="!largerThanMd"
+    class="flex flex-col layout-in-app-mobile bg-surface"
+  >
     <nav
       class="p-2 m-4 bg-surface-container-low rounded-xl flex flex-row justify-between items-center gap-4"
     >
@@ -47,13 +50,16 @@
       <slot name="main" />
     </main>
   </div>
-  <div class="hidden layout-in-app bg-surface-container-low lg:grid">
+  <div
+    v-else
+    class="layout-in-app bg-surface-container-low grid"
+  >
     <div class="corner h-[var(--header-size)] flex flex-row items-center p-6">
       <slot name="corner">
         <ApplicationTitle :value="application.name" />
       </slot>
     </div>
-    <nav class="flex flex-col justify-between py-4 px-6">
+    <nav class="flex flex-col justify-between py-4 px-3">
       <slot name="navigation"
         ><LayoutInAppNavigationMenus :menu-structure="menuStructure" />
         <div class="flex flex-row justify-center items-center">
@@ -63,10 +69,10 @@
     </nav>
     <header class="py-2 p-4 flex flex-row justify-between items-center gap-4">
       <slot name="header">
-        <div class="flex flex-row gap-4 justify-end items-center">
-          <ThemeSwitcher />
-          <LanguageSwitcher />
-        </div>
+        <div
+          id="breadcrumb"
+          class="flex flex-row gap-4 justify-end items-center"
+        ></div>
         <div class="flex flex-row gap-2 justify-end items-center">
           <Popover>
             <PopoverTrigger>
@@ -100,10 +106,28 @@
               Notifications
             </PopoverContent>
           </Popover>
-          <Button
-            :icon="faGear"
-            variant="container-high"
-          />
+          <Popover>
+            <PopoverTrigger>
+              <Button
+                :icon="faGear"
+                variant="container-high"
+              />
+            </PopoverTrigger>
+            <PopoverContent
+              class="w-auto bg-surface-container-highest/80 rounded-xl mr-4 flex flex-col gap-4"
+              side="bottom"
+              align="center"
+              :side-offset="12"
+            >
+              <div class="flex flex-row justify-between items-center gap-4">
+                <ThemeSwitcher />
+                <LanguageSwitcher />
+              </div>
+              <RouterLink>
+                <Button variant="container-high"> Tous les réglages </Button></RouterLink
+              >
+            </PopoverContent>
+          </Popover>
           <Popover>
             <PopoverTrigger>
               <Button
@@ -158,6 +182,8 @@ import LayoutInAppNavigationMenus from './LayoutInAppNavigationMenus.vue';
 import ThemeSwitcher from '@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue';
 import LanguageSwitcher from '@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue';
 
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+
 interface Props {
   application: {
     name: string;
@@ -165,6 +191,10 @@ interface Props {
   menuStructure: MenuStructure;
 }
 defineProps<Props>();
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+
+const largerThanMd = breakpoints.greater('lg');
 </script>
 <style lang="css" scoped>
 .layout-in-app-mobile {

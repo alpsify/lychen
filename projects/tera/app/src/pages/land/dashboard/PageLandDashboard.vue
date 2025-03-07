@@ -140,7 +140,7 @@ const api = useAllTeraApi();
 const { data: land } = useQuery({
   queryKey: ['land'],
   queryFn: async () => {
-    const response = await api.Land.landGet(<string>route.params.ulid);
+    const response = await api.Land.landGet(<string>route.params.landUlid);
 
     if (response.status !== 200) {
       return Promise.reject(router.push(RoutePageDashboard));

@@ -4,10 +4,12 @@ import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 
 export interface MenuStructure {
   [key: string]: {
     title?: string;
-    list: {
-      to: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
-      icon: IconDefinition;
-      title: string;
-    }[];
+    list?: MenuItem[];
   };
+}
+
+export interface MenuItem {
+  to: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
+  icon: IconDefinition;
+  title: string;
 }

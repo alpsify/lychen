@@ -25,7 +25,9 @@
             :key="index"
             class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
           >
-            <RouterLink :to="{ name: RoutePageLand.name, params: { ulid: landItem.ulid } }">
+            <RouterLink
+              :to="{ name: RoutePageLandDashboard.name, params: { landUlid: landItem.ulid } }"
+            >
               <CardTeraLand :land="landItem" />
             </RouterLink>
           </CarouselItem>
@@ -40,8 +42,8 @@ import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
 import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
-
-import { RoutePageLand } from '@pages/land';
+import { RoutePageLandDashboard } from '@pages/land/dashboard';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
