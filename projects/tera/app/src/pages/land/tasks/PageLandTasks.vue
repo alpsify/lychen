@@ -1,13 +1,29 @@
 <template>
   <section class="flex flex-col">
-    <Tabs default-value="kanban">
+    <Tabs default-value="list">
       <TabsList>
-        <TabsTrigger value="list"> Liste </TabsTrigger>
-        <TabsTrigger value="kanban"> Tableau </TabsTrigger>
-        <TabsTrigger value="gantt"> Gantt </TabsTrigger>
+        <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
+        <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
+        <TabsTrigger value="gantt"><Icon :icon="faArrowProgress" /> Gantt </TabsTrigger>
       </TabsList>
 
-      <TabsContent value="list"> </TabsContent>
+      <TabsContent
+        value="list"
+        class="flex flex-col gap-6"
+      >
+        <template
+          v-for="(state, index) in states"
+          :key="index"
+        >
+          <template v-if="tasksQueries[index]?.data?.member">
+            <DataTableLandTask
+              :data="tasksQueries[index].data.member"
+              :state="state"
+              :total-items="tasksQueries[index]?.data?.totalItems"
+            />
+          </template>
+        </template>
+      </TabsContent>
       <TabsContent value="kanban">
         <Kanban>
           <KanbanColumn
@@ -17,7 +33,7 @@
             :total-items="tasksQueries[index]?.data?.totalItems"
           >
             <template
-              v-if="state === 'to_be_done'"
+              v-if="state === LandTaskStateEnum.ToBeDone"
               #actions
             >
               <Button
@@ -51,7 +67,10 @@ import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-ui-components/card-tera-land-task/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { OrderDueDateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import {
+  LandTaskStateEnum,
+  OrderDueDateEnum,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
@@ -60,6 +79,11 @@ import { computed, inject } from 'vue';
 import KanbanItem from '@lychen/vue-ui-components-extra/kanban/KanbanItem.vue';
 import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
 import TabsContent from '@lychen/vue-ui-components-core/tabs/TabsContent.vue';
+import { faChartKanban } from '@fortawesome/pro-light-svg-icons/faChartKanban';
+import { Icon } from '@lychen/vue-ui-components-core/icon';
+import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
+import DataTableLandTask from './DataTableLandTask.vue';
 
 const land = inject(INJECT_LAND_KEY);
 
@@ -68,7 +92,7 @@ const enabled = computed(() => !!landId.value);
 
 const api = useTeraApi('LandTask');
 
-const states = computed(() => ['to_be_done', 'in_progress', 'done']);
+const states = computed(() => Object.values(LandTaskStateEnum));
 
 const queries = computed(() =>
   states.value.map((state) => {

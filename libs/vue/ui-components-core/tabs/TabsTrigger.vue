@@ -24,7 +24,7 @@ const forwardedProps = useForwardProps(delegatedProps);
       )
     "
   >
-    <span class="truncate">
+    <span class="flex flex-row items-center truncate gap-2">
       <slot />
     </span>
   </TabsTrigger>

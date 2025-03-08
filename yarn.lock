@@ -2485,6 +2485,7 @@ __metadata:
     "@lychen/vue-util-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@tanstack/vue-query": "npm:^5.66.11"
+    "@tanstack/vue-table": "npm:^8.21.2"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     ol: "npm:^10.3.1"
     ol-contextmenu: "npm:^5.5.0"
@@ -3739,6 +3740,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/table-core@npm:8.21.2":
+  version: 8.21.2
+  resolution: "@tanstack/table-core@npm:8.21.2"
+  checksum: 10c0/836326c6aef7e0b9b4566f9b2ade5ea73b90ce94f2b0cc35a3b3e1f44a9b3512d5507e4818c509824443b3d0488f2026df54e7a9f8f0cdccae6040347e6ff079
+  languageName: node
+  linkType: hard
+
 "@tanstack/virtual-core@npm:3.13.2":
   version: 3.13.2
   resolution: "@tanstack/virtual-core@npm:3.13.2"
@@ -3761,6 +3769,17 @@ __metadata:
     "@vue/composition-api":
       optional: true
   checksum: 10c0/7a16c3e655da2f95b2c27c5372794d8df5444745f63805e86312a989f7e6971f6285c98125f777927aa03dfb083d8ec0f3622984afc77f152b1df20bee55208c
+  languageName: node
+  linkType: hard
+
+"@tanstack/vue-table@npm:^8.21.2":
+  version: 8.21.2
+  resolution: "@tanstack/vue-table@npm:8.21.2"
+  dependencies:
+    "@tanstack/table-core": "npm:8.21.2"
+  peerDependencies:
+    vue: ">=3.2"
+  checksum: 10c0/fa97631c0012437ac5a6d5a800a3934ad2f4faa8fe43fe2382d152986bd911cb741f35fb47fcb5955c7ef1a1c4ca26044de60c6351466b79c151b9489f442e37
   languageName: node
   linkType: hard
 
