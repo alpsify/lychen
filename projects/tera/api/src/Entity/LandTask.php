@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -40,7 +41,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(security: "is_granted('" . LandTaskPermission::READ . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
     'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
-    new QueryParameter(key: 'state', schema: ['type' => 'string'], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_task.state_filter'),
+    new QueryParameter(key: 'state', schema: ['type' => 'string', 'enum' => LandTaskWorkflowPlace::PLACES, 'example' => LandTaskWorkflowPlace::TO_BE_DONE], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_task.state_filter'),
 ])]
 #[Patch(
     uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_DONE,
@@ -116,6 +117,7 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[ORM\Column(length: 255)]
     #[Groups(["user:land_task:collection", "user:land_task:get"])]
     #[Assert\Choice(LandTaskWorkflowPlace::PLACES)]
+    #[ApiProperty(openapiContext: ['type' => 'string', 'enum' => LandTaskWorkflowPlace::PLACES, 'example' => LandTaskWorkflowPlace::TO_BE_DONE])]
     private ?string $state = LandTaskWorkflowPlace::TO_BE_DONE;
 
     #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
