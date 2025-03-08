@@ -1213,6 +1213,7 @@ export interface LandTask {
 export interface LandTaskGetCollectionParams {
   /** @default "asc" */
   'order[dueDate]'?: OrderDueDateEnum;
+  'state[]'?: string[];
   /**
    * The number of items per page
    * @min 0
@@ -1228,6 +1229,7 @@ export interface LandTaskGetCollectionParams {
   page?: number;
   /** Enable or disable pagination */
   pagination?: boolean;
+  state?: string;
 }
 
 /** @default "asc" */

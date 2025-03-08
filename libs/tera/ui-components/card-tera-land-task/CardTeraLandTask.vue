@@ -1,9 +1,9 @@
 <template>
   <div
-    class="p-4 rounded-3xl bg-surface-container-high text-on-surface-container flex flex-row gap-4 justify-between items-center active:bg-surface-container-highest"
+    class="p-4 flex flex-row gap-4 justify-between items-center active:bg-surface-container-highest"
   >
     <div class="flex flex-col gap-1">
-      <span class="whitespace-nowrap overflow-hidden text-ellipsis text-sm"
+      <span class="whitespace-nowrap overflow-hidden text-ellipsis text-sm font-bold"
         >{{ landTask.title }}
       </span>
       <span
@@ -26,25 +26,32 @@
         >
       </span>
     </div>
+    <div v-if="!noState">
+      {{ landTask.state }}
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, defineAsyncComponent } from 'vue';
+import { computed } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
-
-const { variant = VARIANT.Default, landTask } = defineProps<{
+const {
+  variant = VARIANT.Default,
+  landTask,
+  noState = false,
+} = defineProps<{
   landTask: {
     title: string;
     content: string;
     dueDate?: string;
     startDate?: string;
+    state: string;
   };
+  noState?: boolean;
   variant?: Variant;
 }>();
 

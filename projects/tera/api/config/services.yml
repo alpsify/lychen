@@ -43,3 +43,9 @@ services:
       $properties: { dueDate: ~ }
     parent: 'api_platform.doctrine.orm.order_filter'
     tags: [ 'api_platform.filter' ]
+
+  land_task.state_filter:
+    arguments:
+      $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: [ 'api_platform.filter' ]

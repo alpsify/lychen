@@ -2,6 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
+use App\Factory\LandTaskFactory;
 use App\Repository\LandTaskRepository;
 use App\Security\Constant\LandTaskPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
@@ -192,6 +193,38 @@ class LandTaskTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
             });
+    }
+
+    public function testCollectionFilterPerState()
+    {
+        $context = $this->createLandContext();
+        LandTaskFactory::new()->many(3)->create([
+            'land' => $context->land,
+            'state' => LandTaskWorkflowPlace::TO_BE_DONE
+        ]);
+        LandTaskFactory::new()->many(12)->create([
+            'land' => $context->land,
+            'state' => LandTaskWorkflowPlace::IN_PROGRESS
+        ]);
+        LandTaskFactory::new()->many(6)->create([
+            'land' => $context->land,
+            'state' => LandTaskWorkflowPlace::DONE
+        ]);
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::TO_BE_DONE]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 3);
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::IN_PROGRESS]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 12);
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::DONE]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 6);
     }
 
     public function testDelete()

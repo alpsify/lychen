@@ -1,7 +1,1 @@
-export { default as PageLand } from './PageLand.vue';
-
-export const RoutePageLand = {
-  path: '/land/:ulid',
-  component: () => import('./PageLand.vue'),
-  name: 'land',
-};
+export const LAND_ROUTE_PATH = 'land/:landUlid';
