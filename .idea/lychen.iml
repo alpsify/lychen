@@ -13,11 +13,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.yarn" />
       <excludeFolder url="file://$MODULE_DIR$/.moon/cache" />
       <excludeFolder url="file://$MODULE_DIR$/libs/tailwind" />
-      <excludeFolder url="file://$MODULE_DIR$/libs/ui-css" />
-      <excludeFolder url="file://$MODULE_DIR$/libs/ui-i18n" />
       <excludeFolder url="file://$MODULE_DIR$/libs/util-constants" />
       <excludeFolder url="file://$MODULE_DIR$/projects/tera/api/var" />
     </content>
+    <content url="file://$MODULE_DIR$/node_modules" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

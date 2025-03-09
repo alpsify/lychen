@@ -1,5 +1,6 @@
 dependsOn:
   - tera-ui-i18n
+  - tera-util-api-sdk
   - typescript-util-object
   - vue-i18n-util-composables
   - vue-ui-components-core

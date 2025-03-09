@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/tera-ui-i18n": "workspace:*",
+    "@lychen/tera-util-api-sdk": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*"
