@@ -1,8 +1,12 @@
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex flex-row gap-2 items-center justify-between">
-      <div>
-        <Badge>{{ state }}</Badge> <small class="opacity-50">{{ totalItems }}</small>
+      <div class="flex flex-row gap-2 items-center">
+        <BadgeTeraLandTaskState
+          v-if="state"
+          :state
+        />
+        <small class="opacity-50">{{ totalItems }}</small>
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
@@ -145,6 +149,7 @@ import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/Dr
 import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
 import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import BadgeTeraLandTaskState from '../badge-tera-land-task-state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 
 const { d } = useI18nExtended();

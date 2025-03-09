@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col">
-    <Tabs default-value="list">
+    <Tabs default-value="gantt">
       <TabsList>
         <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
         <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
@@ -16,7 +16,7 @@
           :key="index"
         >
           <template v-if="tasksQueries[index]?.data?.member">
-            <DataTableLandTask
+            <DataTableTeraLandTask
               :data="tasksQueries[index].data.member"
               :state="state"
               :total-items="tasksQueries[index]?.data?.totalItems"
@@ -32,6 +32,9 @@
             :state="state"
             :total-items="tasksQueries[index]?.data?.totalItems"
           >
+            <template #state>
+              <BadgeTeraLandTaskState :state />
+            </template>
             <template
               v-if="state === LandTaskStateEnum.ToBeDone"
               #actions
@@ -57,7 +60,14 @@
           </KanbanColumn>
         </Kanban>
       </TabsContent>
-      <TabsContent value="gantt"> </TabsContent>
+      <TabsContent value="gantt">
+        <Gantt
+          :tasks="[
+            { id: 1, name: 'Task A', start: '2025-03-01', end: '2025-03-05' },
+            { id: 2, name: 'Task B', start: '2025-03-03', end: '2025-03-10' },
+          ]"
+        />
+      </TabsContent>
     </Tabs>
   </section>
 </template>
@@ -83,7 +93,9 @@ import { faChartKanban } from '@fortawesome/pro-light-svg-icons/faChartKanban';
 import { Icon } from '@lychen/vue-ui-components-core/icon';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
-import DataTableLandTask from './DataTableLandTask.vue';
+import DataTableTeraLandTask from '@lychen/tera-ui-components/data-table-tera-land-task/DataTableTeraLandTask.vue';
+import BadgeTeraLandTaskState from '@lychen/tera-ui-components/badge-tera-land-task-state/BadgeTeraLandTaskState.vue';
+import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 
 const land = inject(INJECT_LAND_KEY);
 
