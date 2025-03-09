@@ -8,14 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <th
-    :class="
-      cn(
-        'px-2 py-2 text-left align-middle font-medium text-on-surface/50 [&:has([role=checkbox])]:pr-0',
-        props.class,
-      )
-    "
-  >
+  <span :class="cn('ml-auto text-xs tracking-widest opacity-60', props.class)">
     <slot />
-  </th>
+  </span>
 </template>

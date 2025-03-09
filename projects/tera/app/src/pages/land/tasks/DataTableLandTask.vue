@@ -1,8 +1,39 @@
 <template>
   <div class="flex flex-col gap-2">
-    <div class="flex flex-row gap-2 items-center">
-      <Badge>{{ state }}</Badge>
-      <small class="opacity-50">{{ totalItems }}</small>
+    <div class="flex flex-row gap-2 items-center justify-between">
+      <div>
+        <Badge>{{ state }}</Badge> <small class="opacity-50">{{ totalItems }}</small>
+      </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button
+            variant="container-high"
+            class="ml-auto"
+            size="sm"
+          >
+            Columns
+            <Icon
+              :icon="faChevronDown"
+              class="ml-2 h-4 w-4"
+            />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuCheckboxItem
+            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+            :key="column.id"
+            class="capitalize"
+            :model-value="column.getIsVisible()"
+            @update:model-value="
+              (value) => {
+                column.toggleVisibility(!!value);
+              }
+            "
+          >
+            {{ column.id }}
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
     <Table>
       <TableHeader>
@@ -78,7 +109,6 @@
 import { type LandTaskJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { h, ref, computed } from 'vue';
-import { Icon } from '@lychen/vue-ui-components-core/icon';
 import {
   Table,
   TableBody,
@@ -110,6 +140,12 @@ import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { Badge } from '@lychen/vue-ui-components-core/badge';
+import { DropdownMenu } from '@lychen/vue-ui-components-core/dropdown-menu';
+import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuTrigger.vue';
+import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
+import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
+import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 
 const { d } = useI18nExtended();
 
@@ -145,32 +181,58 @@ const columns = [
   }),
   columnHelper.accessor('title', {
     header: ({ column }) => {
-      return h(
-        Button,
-        {
+      return h('div', { class: 'flex flex-row items-center gap-2' }, [
+        'Nom',
+        h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-        },
-        () => ['Title', h(Icon, { icon: faSort, class: 'ml-2 h-4 w-4' })],
-      );
+          icon: faSort,
+          size: 'xs',
+        }),
+      ]);
     },
     cell: ({ row }) => h('div', { class: 'lowercase font-medium' }, row.getValue('title')),
   }),
-  columnHelper.accessor('dueDate', {
+  columnHelper.accessor('startDate', {
     header: ({ column }) =>
-      h(
-        Button,
-        {
+      h('div', { class: 'flex flex-row items-center gap-2' }, [
+        'Début',
+        h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-        },
-        () => ["Date d'échéance", h(Icon, { icon: faSort, class: 'ml-2 h-4 w-4' })],
-      ),
+          icon: faSort,
+          size: 'xs',
+        }),
+      ]),
+    cell: ({ row }) => {
+      // Format the amount as a dollar amount
+      const formatted = row.getValue('startDate') ? d(row.getValue('startDate'), 'short') : '';
+
+      return h('div', { class: '' }, formatted);
+    },
+  }),
+  columnHelper.accessor('dueDate', {
+    header: ({ column }) =>
+      h('div', { class: 'flex flex-row items-center gap-2' }, [
+        'Échéance',
+        h(Button, {
+          variant: 'ghost',
+          onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
+          icon: faSort,
+          size: 'xs',
+        }),
+      ]),
     cell: ({ row }) => {
       // Format the amount as a dollar amount
       const formatted = row.getValue('dueDate') ? d(row.getValue('dueDate'), 'short') : '';
 
-      return h('div', { class: 'text-right' }, formatted);
+      return h('div', { class: '' }, formatted);
+    },
+  }),
+  columnHelper.accessor('ulid', {
+    header: ({ column }) => h('div', { class: 'flex flex-row items-center gap-2' }, ['ID']),
+    cell: ({ row }) => {
+      return h('div', { class: 'truncate w-30' }, row.getValue('ulid'));
     },
   }),
   columnHelper.display({
