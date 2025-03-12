@@ -2,7 +2,6 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
-//import pluginTailwind from 'eslint-plugin-tailwindcss';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -34,7 +33,6 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
-  //...pluginTailwind.configs['flat/recommended'],
   eslintConfigPrettier,
   importPlugin.flatConfigs.recommended,
   ...markdown.configs.processor,
