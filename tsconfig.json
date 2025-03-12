@@ -20,6 +20,9 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/css/ui-app"
+    },
+    {
       "path": "libs/diagrams"
     },
     {
@@ -200,6 +203,9 @@
       "path": "libs/vue/tiptap/util-composables"
     },
     {
+      "path": "libs/vue/ui-components-app"
+    },
+    {
       "path": "libs/vue/ui-components-core"
     },
     {
@@ -271,8 +277,5 @@
     {
       "path": "projects/website"
     }
-  ],
-  "exclude": [
-    "**/vendor/*"
   ]
 }

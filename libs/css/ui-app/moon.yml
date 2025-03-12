@@ -1,0 +1,5 @@
+id: css-ui-app
+
+language: typescript
+
+type: library

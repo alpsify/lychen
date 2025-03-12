@@ -1599,7 +1599,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:10.0.5, @intlify/core-base@npm:^10.0.4":
+"@intlify/core-base@npm:10.0.6":
+  version: 10.0.6
+  resolution: "@intlify/core-base@npm:10.0.6"
+  dependencies:
+    "@intlify/message-compiler": "npm:10.0.6"
+    "@intlify/shared": "npm:10.0.6"
+  checksum: 10c0/84af28b63bf658876802812f8df2325112fb165803fe43e45f88d91a842d7237085af21d0929fe4bfafc5fdb7b36a2676a82a273c6c03075779f7140de3ebf29
+  languageName: node
+  linkType: hard
+
+"@intlify/core-base@npm:^10.0.4":
   version: 10.0.5
   resolution: "@intlify/core-base@npm:10.0.5"
   dependencies:
@@ -1619,10 +1629,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@intlify/message-compiler@npm:10.0.6":
+  version: 10.0.6
+  resolution: "@intlify/message-compiler@npm:10.0.6"
+  dependencies:
+    "@intlify/shared": "npm:10.0.6"
+    source-map-js: "npm:^1.0.2"
+  checksum: 10c0/58e73233b6b9362559119e1cd72bf9e7efc522cc1dd02a8944c876527d98ab21ff8589f987230bb3d5d9f34cdbd44bfa1edd9dd7612ddec7aae1e0f6f24a3145
+  languageName: node
+  linkType: hard
+
 "@intlify/shared@npm:10.0.5":
   version: 10.0.5
   resolution: "@intlify/shared@npm:10.0.5"
   checksum: 10c0/4435a714e4a324fd2f40c01be3f55abc7bd87e6280b25e6fce720178f8cf5e01fece538c2fbd72fca64471589f46531dd89bc772455ffad831c7e43f01655097
+  languageName: node
+  linkType: hard
+
+"@intlify/shared@npm:10.0.6":
+  version: 10.0.6
+  resolution: "@intlify/shared@npm:10.0.6"
+  checksum: 10c0/cd90aeee74a2906516f11ad4d0a50de2b462c2a29a7b469c83e6078bd5fbe3bd99a9e1b11af7961570d29b8608beb8b9c67d7f4846b7c50707e00368888cd11f
   languageName: node
   linkType: hard
 
@@ -1805,6 +1832,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/css-ui-app@workspace:libs/css/ui-app":
+  version: 0.0.0-use.local
+  resolution: "@lychen/css-ui-app@workspace:libs/css/ui-app"
+  dependencies:
+    tailwindcss: "npm:^4.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/diagrams@workspace:*, @lychen/diagrams@workspace:libs/diagrams":
   version: 0.0.0-use.local
   resolution: "@lychen/diagrams@workspace:libs/diagrams"
@@ -1960,7 +1995,7 @@ __metadata:
     vite-plugin-mkcert: "npm:^1.17.6"
     vite-plugin-pwa: "npm:^0.21.1"
     vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
+    vue-i18n: "npm:^10.0.6"
     vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
@@ -2462,6 +2497,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/tera-ui-components": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-api-sdk": "workspace:*"
@@ -2469,10 +2505,14 @@ __metadata:
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-ui-components-app": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@tanstack/vue-query": "npm:^5.66.11"
+    "@tanstack/vue-table": "npm:^8.21.2"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     ol: "npm:^10.3.1"
     ol-contextmenu: "npm:^5.5.0"
@@ -2491,7 +2531,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-ui-components@workspace:libs/tera/ui-components"
   dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-util-api-sdk": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
@@ -2758,7 +2800,7 @@ __metadata:
   resolution: "@lychen/vue-i18n-util-configs@workspace:libs/vue/i18n/util-configs"
   dependencies:
     vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
+    vue-i18n: "npm:^10.0.6"
   languageName: unknown
   linkType: soft
 
@@ -2768,7 +2810,7 @@ __metadata:
   dependencies:
     "@intlify/core-base": "npm:^10.0.4"
     vue: "npm:3.5.13"
-    vue-i18n: "npm:^10.0.5"
+    vue-i18n: "npm:^10.0.6"
   languageName: unknown
   linkType: soft
 
@@ -2819,6 +2861,23 @@ __metadata:
   resolution: "@lychen/vue-tiptap-util-composables@workspace:libs/vue/tiptap/util-composables"
   dependencies:
     "@lychen/typescript-util-types": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-ui-components-app@workspace:*, @lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/typescript-util-tailwind": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@lychen/vue-util-composables": "workspace:*"
+    "@vueuse/core": "npm:^12.7.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.0.2"
+    vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -2890,7 +2949,9 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-ui-components-website": "workspace:*"
+    "@vueuse/core": "npm:^12.8.2"
     vue: "npm:^3.5.13"
+    vue-router: "npm:^4.1.1"
   languageName: unknown
   linkType: soft
 
@@ -2926,7 +2987,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/typescript-util-fontawesome": "workspace:*"
     "@lychen/ui-css": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
@@ -3709,6 +3769,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/table-core@npm:8.21.2":
+  version: 8.21.2
+  resolution: "@tanstack/table-core@npm:8.21.2"
+  checksum: 10c0/836326c6aef7e0b9b4566f9b2ade5ea73b90ce94f2b0cc35a3b3e1f44a9b3512d5507e4818c509824443b3d0488f2026df54e7a9f8f0cdccae6040347e6ff079
+  languageName: node
+  linkType: hard
+
 "@tanstack/virtual-core@npm:3.13.2":
   version: 3.13.2
   resolution: "@tanstack/virtual-core@npm:3.13.2"
@@ -3731,6 +3798,17 @@ __metadata:
     "@vue/composition-api":
       optional: true
   checksum: 10c0/7a16c3e655da2f95b2c27c5372794d8df5444745f63805e86312a989f7e6971f6285c98125f777927aa03dfb083d8ec0f3622984afc77f152b1df20bee55208c
+  languageName: node
+  linkType: hard
+
+"@tanstack/vue-table@npm:^8.21.2":
+  version: 8.21.2
+  resolution: "@tanstack/vue-table@npm:8.21.2"
+  dependencies:
+    "@tanstack/table-core": "npm:8.21.2"
+  peerDependencies:
+    vue: ">=3.2"
+  checksum: 10c0/fa97631c0012437ac5a6d5a800a3934ad2f4faa8fe43fe2382d152986bd911cb741f35fb47fcb5955c7ef1a1c4ca26044de60c6351466b79c151b9489f442e37
   languageName: node
   linkType: hard
 
@@ -4311,6 +4389,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/web-bluetooth@npm:^0.0.21":
+  version: 0.0.21
+  resolution: "@types/web-bluetooth@npm:0.0.21"
+  checksum: 10c0/5f47c5ec452ca31e6a9b44c8aaa54b66c4f57d4aca00166c45902a3883139580e14b254b774172ff982ba4458cc444b5aa59bb4573c2fd34562cfa599721f8e4
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:8.24.0":
   version: 8.24.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.24.0"
@@ -4624,15 +4709,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^12.2.0, @vueuse/core@npm:^12.5.0, @vueuse/core@npm:^12.7.0":
-  version: 12.7.0
-  resolution: "@vueuse/core@npm:12.7.0"
+"@vueuse/core@npm:^12.2.0, @vueuse/core@npm:^12.5.0, @vueuse/core@npm:^12.7.0, @vueuse/core@npm:^12.8.2":
+  version: 12.8.2
+  resolution: "@vueuse/core@npm:12.8.2"
   dependencies:
-    "@types/web-bluetooth": "npm:^0.0.20"
-    "@vueuse/metadata": "npm:12.7.0"
-    "@vueuse/shared": "npm:12.7.0"
+    "@types/web-bluetooth": "npm:^0.0.21"
+    "@vueuse/metadata": "npm:12.8.2"
+    "@vueuse/shared": "npm:12.8.2"
     vue: "npm:^3.5.13"
-  checksum: 10c0/d1ff4009097f15d4204b8b64f6ae4dda4f47e228c12588dcf8018f105eb804406344e35ef1f30b24e4e79b3cd19fd8c1289395f81f8a99a8f49daa7522cf7cbe
+  checksum: 10c0/79c74c7daa471bbf6d51bf83d3750105074d83f6628fcdf41828e9f87977de4a4744968f48ad2d13597e758baf1a0aa5fe4f348dbecf093c9437bd8fd9937b73
   languageName: node
   linkType: hard
 
@@ -4643,10 +4728,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/metadata@npm:12.7.0":
-  version: 12.7.0
-  resolution: "@vueuse/metadata@npm:12.7.0"
-  checksum: 10c0/e85fd0cf4fc432ba8eb21381d31f08dccb5bb42ed8bc3d21aa755f5e4ec4400c8d3168048b9cfc229544ee417bbd66123d053f248cc64ac0b7889de54e1ac571
+"@vueuse/metadata@npm:12.8.2":
+  version: 12.8.2
+  resolution: "@vueuse/metadata@npm:12.8.2"
+  checksum: 10c0/95d352506608d5f8ae9c99ce494e7e55d864707d903f20401fecf378b08c8ed96631d0b8b38f6cd1d04dda69d9c8d3e4fa37e33caae10692805a9566e316e39c
   languageName: node
   linkType: hard
 
@@ -4659,12 +4744,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:12.7.0, @vueuse/shared@npm:^12.5.0":
-  version: 12.7.0
-  resolution: "@vueuse/shared@npm:12.7.0"
+"@vueuse/shared@npm:12.8.2, @vueuse/shared@npm:^12.5.0":
+  version: 12.8.2
+  resolution: "@vueuse/shared@npm:12.8.2"
   dependencies:
     vue: "npm:^3.5.13"
-  checksum: 10c0/b9508af450146feb5f1e9c53f0854e9a7b4e819ebd56a8cdeaf717287c4ade72bbfa4d4c90d656c27141288986dd712156b4d0463582616be8bd42f9368e7243
+  checksum: 10c0/43a04cf44e3377ee7666787e597d45ddf83880d3e1835000201b0c471198ce83ad45e4f4a0182d68781c0a23c84a904aab253e4c6279400a235e0246b613bad2
   languageName: node
   linkType: hard
 
@@ -11637,16 +11722,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^10.0.5":
-  version: 10.0.5
-  resolution: "vue-i18n@npm:10.0.5"
+"vue-i18n@npm:^10.0.6":
+  version: 10.0.6
+  resolution: "vue-i18n@npm:10.0.6"
   dependencies:
-    "@intlify/core-base": "npm:10.0.5"
-    "@intlify/shared": "npm:10.0.5"
+    "@intlify/core-base": "npm:10.0.6"
+    "@intlify/shared": "npm:10.0.6"
     "@vue/devtools-api": "npm:^6.5.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10c0/070ab39eb0e046d3ba298ba952efe1ea18d22ddecb4a73411e5f1863954e582d7f98a25c4fcac8330b40745fcffd404cc936c8abd102fd3628ac2abb9d0fe58b
+  checksum: 10c0/4ed20fcbd400d095991edf02028b5dac5fd75601b3dac1b804d4cec444149cc12fb0c7cfd8aee0c4024b3cc19cfc65c649f1039c95bd9506cc4e59afe22cf274
   languageName: node
   linkType: hard
 
@@ -11659,7 +11744,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.5.0":
+"vue-router@npm:^4.1.1, vue-router@npm:^4.5.0":
   version: 4.5.0
   resolution: "vue-router@npm:4.5.0"
   dependencies:

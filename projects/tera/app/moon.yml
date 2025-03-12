@@ -6,7 +6,10 @@ dependsOn:
   - ui-css
   - vue-i18n-util-composables
   - vue-i18n-util-configs
+  - vue-ui-components-app
   - vue-ui-components-core
+  - vue-ui-components-extra
+  - vue-ui-layouts
   - vue-util-composables
 
 env:

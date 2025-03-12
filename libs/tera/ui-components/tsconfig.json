@@ -5,6 +5,7 @@
     "../../vue/i18n/util-composables/**/*",
     "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
+    "../util-api-sdk/**/*",
     "**/*"
   ],
   "references": [
@@ -19,6 +20,9 @@
     },
     {
       "path": "../ui-i18n"
+    },
+    {
+      "path": "../util-api-sdk"
     }
   ],
   "compilerOptions": {
@@ -28,7 +32,8 @@
       "@lychen/tera-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../ui-i18n/*"],
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
-      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]
+      "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"],
+      "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"]
     }
   }
 }

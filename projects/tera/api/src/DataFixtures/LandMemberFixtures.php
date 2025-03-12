@@ -25,12 +25,14 @@ class LandMemberFixtures extends Fixture implements DependentFixtureInterface
             'land' => $this->getReference(LandFixtures::LAND_1, Land::class),
             'person' => $this->getReference(PersonFixtures::PERSON_5, Person::class),
             'owner' => false,
+            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
         ]);
 
         LandMemberFactory::new()->create([
             'land' => $this->getReference(LandFixtures::LAND_3, Land::class),
             'person' => $this->getReference(PersonFixtures::PERSON_1, Person::class),
-            'owner' => false
+            'owner' => false,
+            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
         ]);
     }
 
