@@ -1,9 +1,9 @@
 <template>
-  <Teleport
+  <!--<Teleport
     defer
     to="#breadcrumb"
   >
-  </Teleport>
+  </Teleport>-->
   <RouterView />
 </template>
 
@@ -26,7 +26,8 @@ const { data: land, refetch } = useQuery({
       const response = await api.landGet(<string>route.params.landUlid);
       return response.data;
     } catch {
-      return Promise.reject(router.push(RoutePageDashboard));
+      router.push(RoutePageDashboard);
+      return Promise.reject(new Error('Failed to fetch land data'));
     }
   },
   enabled: !!route.params.landUlid,

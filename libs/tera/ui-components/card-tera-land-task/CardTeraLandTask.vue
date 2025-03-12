@@ -27,7 +27,7 @@
       </span>
     </div>
     <div v-if="!noState">
-      {{ landTask.state }}
+      <BadgeTeraLandTaskState :state="landTask.state" />
     </div>
   </div>
 </template>
@@ -38,6 +38,8 @@ import { computed } from 'vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
+import BadgeTeraLandTaskState from '../badge-tera-land-task-state/BadgeTeraLandTaskState.vue';
+import type { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 const {
   variant = VARIANT.Default,
@@ -49,7 +51,7 @@ const {
     content: string;
     dueDate?: string;
     startDate?: string;
-    state: string;
+    state: LandTaskStateEnum;
   };
   noState?: boolean;
   variant?: Variant;

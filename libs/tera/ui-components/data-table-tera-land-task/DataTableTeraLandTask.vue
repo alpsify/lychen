@@ -294,7 +294,7 @@ const table = useVueTable({
       return expanded.value;
     },
     columnPinning: {
-      left: ['status'],
+      left: ['state'],
     },
   },
 });
