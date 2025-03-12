@@ -13,34 +13,24 @@
           />
         </div>
       </div>
-      <Carousel
-        v-if="lands"
-        :opts="{
-          align: 'start',
-        }"
+
+      <div
+        v-if="lands?.member"
+        class="grid gap-8 grid-cols-(--grid-fluid) auto-rows-(--grid-rows-fluid)"
       >
-        <CarouselContent>
-          <CarouselItem
-            v-for="(landItem, index) in lands.member"
-            :key="index"
-            class="basis-3/5 md:basis-1/2 lg:basis-1/4 h-[200px]"
-          >
-            <RouterLink
-              :to="{ name: RoutePageLandDashboard.name, params: { landUlid: landItem.ulid } }"
-            >
-              <CardTeraLand :land="landItem" />
-            </RouterLink>
-          </CarouselItem>
-        </CarouselContent>
-      </Carousel>
+        <RouterLink
+          v-for="land in lands.member"
+          :key="land.ulid"
+          :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
+        >
+          <CardTeraLand :land />
+        </RouterLink>
+      </div>
     </div>
   </SectionWithTitle>
 </template>
 
 <script lang="ts" setup>
-import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
-import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
-import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';

@@ -1,16 +1,16 @@
 <template>
-  <div
-    class="p-6 rounded-3xl bg-surface-container-high text-on-surface-container flex flex-col gap-2 h-full justify-between items-stretch active:bg-surface-container-highest"
+  <Card
+    hoverable
+    class="h-full justify-between items-stretch active:bg-surface-container-highest"
   >
-    <div class="flex flex-row gap-2 items-center">
-      <Badge
-        v-if="variant === VARIANT.LookingForMember"
-        class="self-start bg-tertiary-container text-on-tertiary-container"
-        >{{ t(`property.kind.${land.kind}.default`) }}
-      </Badge>
+    <div class="flex flex-row gap-2 items-center justify-between">
+      <BadgeTeraLandKind
+        :kind="land.kind"
+        class="self-start"
+      />
       <Icon
         v-if="variant === VARIANT.Default"
-        :icon="land.numberOfMembers === 1 ? faUser : faUsers"
+        :icon="land.landMembers?.length === 1 ? faUser : faUsers"
       />
     </div>
     <div class="flex flex-col gap-1">
@@ -24,13 +24,13 @@
           >{{ t('property.surface.default', land.surface) }}</small
         >
         <small class="text-tertiary opacity-50">{{
-          t('property.land_areas.default', land.numberOfArea)
+          t('property.land_areas.default', land.landAreas?.length!)
         }}</small>
       </div>
 
-      <Title variant="h3">{{ land.name }}</Title>
+      <BaseHeading variant="h3">{{ land.name }}</BaseHeading>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script lang="ts" setup>
@@ -41,21 +41,17 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { VARIANT, type Variant } from '.';
 import { faUser } from '@fortawesome/pro-light-svg-icons/faUser';
 import { faUsers } from '@fortawesome/pro-light-svg-icons/faUsers';
+import Card from '@lychen/vue-ui-components-core/card/Card.vue';
+import type { LandJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import BadgeTeraLandKind from '../badge-tera-land-kind/BadgeTeraLandKind.vue';
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
+const BaseHeading = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-app/base-heading/BaseHeading.vue'),
 );
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
-const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-const { variant = VARIANT.Default, land } = defineProps<{
-  land: {
-    kind: string;
-    name: string;
-    surface: number;
-    numberOfArea: number;
-    numberOfMembers: number;
-  };
+const { variant = VARIANT.Default } = defineProps<{
+  land: LandJsonld;
   variant?: Variant;
 }>();
 

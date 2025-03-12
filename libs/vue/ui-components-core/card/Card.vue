@@ -6,10 +6,12 @@ import { cn } from '@lychen/typescript-util-tailwind/Cn';
 
 interface Props extends PrimitiveProps {
   class?: HTMLAttributes['class'];
+  hoverable?: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   as: 'div',
   class: undefined,
+  hoverable: false,
 });
 </script>
 
@@ -18,7 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
     :as="as"
     :class="
       cn(
-        'flex flex-col rounded-lg bg-surface-container text-on-surface-container shadow-[2px_4px_16px_0px_rgba(var(--color-on-surface)/0.06)_inset]',
+        'flex flex-col rounded-3xl p-6 bg-surface-container text-on-surface-container border-1 border-on-surface-container/5 duration-300 ease-in-out',
+        hoverable ? 'hover:shadow-md shadow-on-surface/10 cursor-pointer' : '',
         props.class,
       )
     "

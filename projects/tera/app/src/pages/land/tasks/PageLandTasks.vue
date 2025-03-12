@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col">
-    <Tabs default-value="gantt">
+    <Tabs default-value="list">
       <TabsList>
         <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
         <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>

@@ -1,3 +1,4 @@
 @theme {
   --grid-fluid: repeat(auto-fill, minmax(300px, 1fr));
+  --grid-rows-fluid: minmax(200px, auto);
 }

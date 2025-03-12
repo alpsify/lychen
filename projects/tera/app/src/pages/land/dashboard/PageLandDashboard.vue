@@ -4,13 +4,11 @@
     class="flex flex-col gap-6"
   >
     <div class="flex flex-row gap-4 items-center justify-between">
-      <div class="flex flex-row gap-2 items-center">
-        <BaseHeading>{{ land.name }}</BaseHeading>
-        <Button
-          :icon="faGear"
-          variant="container-high"
-        />
-      </div>
+      <BaseHeading>{{ land.name }}</BaseHeading>
+      <Button
+        :icon="faGear"
+        variant="container-high"
+      />
     </div>
 
     <div class="flex flex-col gap-4">

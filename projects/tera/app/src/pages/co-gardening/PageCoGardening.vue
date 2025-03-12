@@ -16,7 +16,7 @@
           align: 'start',
         }"
       >
-        <CarouselContent>
+        <CarouselContent class="p-2">
           <CarouselItem
             v-for="(landItem, index) in landsLookingForMember.member"
             :key="index"

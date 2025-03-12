@@ -1599,33 +1599,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:10.0.6":
+"@intlify/core-base@npm:10.0.6, @intlify/core-base@npm:^10.0.4":
   version: 10.0.6
   resolution: "@intlify/core-base@npm:10.0.6"
   dependencies:
     "@intlify/message-compiler": "npm:10.0.6"
     "@intlify/shared": "npm:10.0.6"
   checksum: 10c0/84af28b63bf658876802812f8df2325112fb165803fe43e45f88d91a842d7237085af21d0929fe4bfafc5fdb7b36a2676a82a273c6c03075779f7140de3ebf29
-  languageName: node
-  linkType: hard
-
-"@intlify/core-base@npm:^10.0.4":
-  version: 10.0.5
-  resolution: "@intlify/core-base@npm:10.0.5"
-  dependencies:
-    "@intlify/message-compiler": "npm:10.0.5"
-    "@intlify/shared": "npm:10.0.5"
-  checksum: 10c0/595c9623dce01f8d4ac5ad4b9086b1927956c63ad18098434a0a991e69147c6284619338bc4a9fe6f3c2a4c666d957a2c19ecfe61f3cc30abe130e0d80e17f94
-  languageName: node
-  linkType: hard
-
-"@intlify/message-compiler@npm:10.0.5":
-  version: 10.0.5
-  resolution: "@intlify/message-compiler@npm:10.0.5"
-  dependencies:
-    "@intlify/shared": "npm:10.0.5"
-    source-map-js: "npm:^1.0.2"
-  checksum: 10c0/66312b863fccd822be4f0fda485685a0eb9f500e84023689d0f2540be32159e2c4e828d3ada4923c78c219d0f31a9bb41595da8f40e0fdbd45037db393198ec2
   languageName: node
   linkType: hard
 
@@ -1636,13 +1616,6 @@ __metadata:
     "@intlify/shared": "npm:10.0.6"
     source-map-js: "npm:^1.0.2"
   checksum: 10c0/58e73233b6b9362559119e1cd72bf9e7efc522cc1dd02a8944c876527d98ab21ff8589f987230bb3d5d9f34cdbd44bfa1edd9dd7612ddec7aae1e0f6f24a3145
-  languageName: node
-  linkType: hard
-
-"@intlify/shared@npm:10.0.5":
-  version: 10.0.5
-  resolution: "@intlify/shared@npm:10.0.5"
-  checksum: 10c0/4435a714e4a324fd2f40c01be3f55abc7bd87e6280b25e6fce720178f8cf5e01fece538c2fbd72fca64471589f46531dd89bc772455ffad831c7e43f01655097
   languageName: node
   linkType: hard
 
@@ -2902,6 +2875,7 @@ __metadata:
     tailwindcss: "npm:^4.0.0"
     vaul-vue: "npm:^0.3.0"
     vue: "npm:^3.5.13"
+    vue-router: "npm:^4.0.12"
   languageName: unknown
   linkType: soft
 
@@ -11744,7 +11718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.1.1, vue-router@npm:^4.5.0":
+"vue-router@npm:^4.0.12, vue-router@npm:^4.1.1, vue-router@npm:^4.5.0":
   version: 4.5.0
   resolution: "vue-router@npm:4.5.0"
   dependencies:
