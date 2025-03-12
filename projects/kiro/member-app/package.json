@@ -17,8 +17,8 @@
     "@lychen/vue-ui-components-core": "workspace:*",
     "@vueuse/core": "^12.2.0",
     "@zitadel/vue": "1.1.1",
-    "vue": "3.5.13",
-    "vue-i18n": "^10.0.6",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.2",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "tailwindcss": "^4.0.13",
     "vite": "^6.2.1",
-    "vite-plugin-mkcert": "^1.17.6",
+    "vite-plugin-mkcert": "^1.17.7",
     "vite-plugin-pwa": "^0.21.1"
   }
 }

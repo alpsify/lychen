@@ -8,6 +8,6 @@
     "@lychen/typescript-util-tailwind": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
-    "vue": "3.5.13"
+    "vue": "^3.5.13"
   }
 }
