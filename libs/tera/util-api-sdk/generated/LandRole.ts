@@ -9,7 +9,7 @@
  */
 
 import type { LandRole, LandRoleGetCollectionParams, LandRoleJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandRole<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -100,9 +100,11 @@ export class LandRole<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a LandRole resource.
    *
@@ -121,10 +123,11 @@ export class LandRole<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a LandRole resource.
    *
@@ -142,9 +145,11 @@ export class LandRole<SecurityDataType = unknown> {
       path: `/api/land_roles/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the LandRole resource.
    *
@@ -162,8 +167,10 @@ export class LandRole<SecurityDataType = unknown> {
       path: `/api/land_roles/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the LandRole resource.
    *
@@ -184,7 +191,6 @@ export class LandRole<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

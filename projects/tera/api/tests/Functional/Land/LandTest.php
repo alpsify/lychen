@@ -2,7 +2,6 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Constant\LandKind;
 use App\Security\Constant\LandPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -42,7 +41,6 @@ class LandTest extends AbstractApiTestCase
             ->assertSuccessful()
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $context->land->getName())
-            ->assertJsonMatches('kind', $context->land->getKind())
             ->assertJsonMatches('surface', $context->land->getSurface())
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -58,7 +56,6 @@ class LandTest extends AbstractApiTestCase
             ->assertSuccessful()
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $context->land->getName())
-            ->assertJsonMatches('kind', $context->land->getKind())
             ->assertJsonMatches('surface', $context->land->getSurface())
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -73,20 +70,17 @@ class LandTest extends AbstractApiTestCase
 
         $newName = faker()->name();
         $newSurface = faker()->numberBetween(10, 200);
-        $newKind = LandKind::MARKET_GARDEN;
 
         $this->browser()->actingAs($context->owner)
             ->patch($this->getIriFromResource($context->land), [
                 'json' => [
                     'name' => $newName,
                     'surface' => $newSurface,
-                    'kind' => $newKind
                 ]
             ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
-            ->assertJsonMatches('kind', $newKind)
             ->assertJsonMatches('surface', $newSurface)
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -99,20 +93,17 @@ class LandTest extends AbstractApiTestCase
 
         $newName = faker()->name();
         $newSurface = faker()->numberBetween(10, 200);
-        $newKind = LandKind::SHARED_GARDEN;
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($context->land->_real()), [
                 'json' => [
                     'name' => $newName,
                     'surface' => $newSurface,
-                    'kind' => $newKind
                 ]
             ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
-            ->assertJsonMatches('kind', $newKind)
             ->assertJsonMatches('surface', $newSurface)
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());

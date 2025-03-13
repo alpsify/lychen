@@ -13,7 +13,7 @@ import type {
   LandGreenhouseGetCollectionParams,
   LandGreenhouseJsonld,
 } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandGreenhouse<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -107,9 +107,11 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a LandGreenhouse resource.
    *
@@ -128,10 +130,11 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a LandGreenhouse resource.
    *
@@ -149,9 +152,11 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       path: `/api/land_greenhouses/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the LandGreenhouse resource.
    *
@@ -169,8 +174,10 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       path: `/api/land_greenhouses/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the LandGreenhouse resource.
    *
@@ -191,7 +198,6 @@ export class LandGreenhouse<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
 import SectionTwoThird from '@lychen/vue-ui-components-app/section-two-third/SectionTwoThird.vue';
-import { VARIANT } from '@lychen/tera-ui-components/card-tera-land';
+import { VARIANT } from '@lychen/tera-ui-components/card/land';
 
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import { useQuery } from '@tanstack/vue-query';
@@ -43,7 +43,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
 import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
-import CardTeraLand from '@lychen/tera-ui-components/card-tera-land/CardTeraLand.vue';
+import CardTeraLand from '@lychen/tera-ui-components/card/land/CardTeraLand.vue';
 
 const api = useTeraApi('Land');
 

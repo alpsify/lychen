@@ -199,30 +199,30 @@
                 "requestBody": {
                     "description": "The new Land resource",
                     "content": {
-                        "application/json": {
+                        "application/ld+json": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
                                     "name": {
                                         "type": "string"
                                     },
-                                    "kind": {
-                                        "type": "string",
-                                        "enum": [
-                                            "individual",
-                                            "shared_garden",
-                                            "market_garden"
-                                        ]
+                                    "surface": {
+                                        "type": "number"
+                                    },
+                                    "altitude": {
+                                        "type": "number"
                                     }
                                 },
                                 "required": [
                                     "name",
-                                    "kind"
+                                    "surface",
+                                    "altitude"
                                 ]
                             },
                             "example": {
                                 "name": "Wonderful garden",
-                                "kind": "individual"
+                                "surface": 112,
+                                "altitude": 357
                             }
                         }
                     },
@@ -6795,16 +6795,6 @@
                             "example": "https://example.com/"
                         }
                     },
-                    "kind": {
-                        "enum": [
-                            "individual",
-                            "shared_garden",
-                            "market_garden"
-                        ],
-                        "default": "individual",
-                        "example": "individual",
-                        "type": "string"
-                    },
                     "surface": {
                         "minimum": 0,
                         "anyOf": [
@@ -6851,6 +6841,18 @@
                             "format": "iri-reference",
                             "example": "https://example.com/"
                         }
+                    },
+                    "altitude": {
+                        "default": 1,
+                        "example": 1,
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -6979,16 +6981,6 @@
                             "example": "https://example.com/"
                         }
                     },
-                    "kind": {
-                        "enum": [
-                            "individual",
-                            "shared_garden",
-                            "market_garden"
-                        ],
-                        "default": "individual",
-                        "example": "individual",
-                        "type": "string"
-                    },
                     "surface": {
                         "minimum": 0,
                         "anyOf": [
@@ -7035,6 +7027,18 @@
                             "format": "iri-reference",
                             "example": "https://example.com/"
                         }
+                    },
+                    "altitude": {
+                        "default": 1,
+                        "example": 1,
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -7152,6 +7156,15 @@
                             "format": "iri-reference",
                             "example": "https://example.com/"
                         }
+                    },
+                    "kind": {
+                        "enum": [
+                            "open_soil",
+                            "soil_less"
+                        ],
+                        "default": "open_soil",
+                        "example": "open_soil",
+                        "type": "string"
                     },
                     "id": {
                         "readOnly": true,
@@ -7300,6 +7313,15 @@
                             "format": "iri-reference",
                             "example": "https://example.com/"
                         }
+                    },
+                    "kind": {
+                        "enum": [
+                            "open_soil",
+                            "soil_less"
+                        ],
+                        "default": "open_soil",
+                        "example": "open_soil",
+                        "type": "string"
                     },
                     "id": {
                         "readOnly": true,

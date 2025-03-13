@@ -51,6 +51,8 @@ type CancelToken = Symbol | string | number;
 
 export enum ContentType {
   Json = 'application/json',
+  JsonLd = 'application/ld+json',
+  JsonMergePatch = 'application/merge-patch+json',
   FormData = 'multipart/form-data',
   UrlEncoded = 'application/x-www-form-urlencoded',
   Text = 'text/plain',
@@ -111,6 +113,14 @@ export class HttpClient<SecurityDataType = unknown> {
 
   private contentFormatters: Record<ContentType, (input: any) => any> = {
     [ContentType.Json]: (input: any) =>
+      input !== null && (typeof input === 'object' || typeof input === 'string')
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.JsonLd]: (input: any) =>
+      input !== null && (typeof input === 'object' || typeof input === 'string')
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.JsonMergePatch]: (input: any) =>
       input !== null && (typeof input === 'object' || typeof input === 'string')
         ? JSON.stringify(input)
         : input,
@@ -186,7 +196,7 @@ export class HttpClient<SecurityDataType = unknown> {
       {};
     const requestParams = this.mergeRequestParams(params, secureParams);
     const queryString = query && this.toQueryString(query);
-    const payloadFormatter = this.contentFormatters[type || ContentType.Json];
+    const payloadFormatter = this.contentFormatters[type || ContentType.JsonLd];
     const responseFormat = format || requestParams.format;
 
     return this.customFetch(

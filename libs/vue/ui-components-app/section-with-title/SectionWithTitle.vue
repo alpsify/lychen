@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 
-defineProps<{ title: string }>();
+defineProps<{ title?: string }>();
 </script>
 
 <style lang="css" scoped></style>

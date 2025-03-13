@@ -10,15 +10,20 @@
     :aria-label="text"
   >
     <Icon
-      v-if="icon && iconPosition === ICON_POSITION.Start"
+      v-if="!loading && icon && iconPosition === ICON_POSITION.Start"
       :icon="icon"
     />
     <slot name="prepend"></slot>
     <slot>{{ text }}</slot>
     <slot name="append"></slot>
     <Icon
-      v-if="icon && iconPosition === ICON_POSITION.End"
+      v-if="!loading && icon && iconPosition === ICON_POSITION.End"
       :icon="icon"
+    />
+    <Icon
+      v-if="loading"
+      :icon="faSpinnerThird"
+      class="fa-spin"
     />
   </button>
 </template>
@@ -30,6 +35,7 @@ import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { type ButtonVariants, buttonVariants, ICON_POSITION, type IconPosition } from '.';
 import Icon from '../icon/Icon.vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons';
 
 interface Props {
   variant?: ButtonVariants['variant'];
@@ -38,6 +44,7 @@ interface Props {
   text?: string;
   icon?: IconDefinition;
   iconPosition?: IconPosition;
+  loading?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -47,6 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
   text: undefined,
   icon: undefined,
   iconPosition: ICON_POSITION.End,
+  loading: false,
 });
 
 const innerRound = computed(() => {

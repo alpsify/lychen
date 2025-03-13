@@ -11,11 +11,16 @@
           :icon="faListUl"
         ></Button>
       </RouterLink>
-      <Button
-        variant="container-high"
-        size="xs"
-        :icon="faPlus"
-      ></Button>
+      <Dialog v-model:open="open"
+        ><DialogTrigger as-child>
+          <Button
+            variant="container-high"
+            size="xs"
+            :icon="faPlus"
+          ></Button>
+        </DialogTrigger>
+        <DialogContentTeraLandCreate />
+      </Dialog>
     </div>
   </Teleport>
   <LayoutInApp
@@ -99,7 +104,13 @@ import AccordionItem from '@lychen/vue-ui-components-core/accordion/AccordionIte
 import { RoutePageLandTasks } from '../../pages/land/tasks';
 import { RoutePageLandDashboard } from '@/pages/land/dashboard';
 import LayoutInAppNavigationMenuItem from '@lychen/vue-ui-layouts/in-app/LayoutInAppNavigationMenuItem.vue';
+import { useEventBus } from '@vueuse/core';
+import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
+import DialogContentTeraLandCreate from '@lychen/tera-ui-components/dialog/content-land-create/DialogContentTeraLandCreate.vue';
+import { ref } from 'vue';
 
+const open = ref(false);
 const navigation = {
   first: {
     list: [
@@ -162,14 +173,21 @@ const navigation = {
 
 const api = useTeraApi('Land');
 
-const { data: lands } = useQuery({
-  queryKey: ['lands'],
+const { data: lands, refetch } = useQuery({
+  queryKey: ['lands-first-five'],
   queryFn: async () => {
     const response = await api.landGetCollection({
       itemsPerPage: 5,
     });
     return response.data;
   },
+});
+
+const { on } = useEventBus(landPostSucceededEvent);
+
+on(() => {
+  refetch();
+  open.value = false;
 });
 
 const mainMenus = [

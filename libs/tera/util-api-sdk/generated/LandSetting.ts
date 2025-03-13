@@ -9,7 +9,7 @@
  */
 
 import type { LandSetting, LandSettingJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandSetting<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -35,9 +35,11 @@ export class LandSetting<SecurityDataType = unknown> {
       path: `/api/land_settings/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandSetting resource.
    *
@@ -58,7 +60,6 @@ export class LandSetting<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

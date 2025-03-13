@@ -9,7 +9,7 @@
  */
 
 import type { LandGreenhouseParameter, LandGreenhouseParameterJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandGreenhouseParameter<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -35,9 +35,11 @@ export class LandGreenhouseParameter<SecurityDataType = unknown> {
       path: `/api/land_greenhouse_parameters/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandGreenhouseParameter resource.
    *
@@ -62,7 +64,6 @@ export class LandGreenhouseParameter<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

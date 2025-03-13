@@ -16,7 +16,7 @@ import type {
   LandJsonld,
   LandPostPayload,
 } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class Land<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -106,9 +106,11 @@ export class Land<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a Land resource.
    *
@@ -127,10 +129,11 @@ export class Land<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
  * @description Retrieves the collection of Land resources.
  *
@@ -215,9 +218,11 @@ export class Land<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a Land resource.
    *
@@ -235,9 +240,11 @@ export class Land<SecurityDataType = unknown> {
       path: `/api/lands/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the Land resource.
    *
@@ -255,8 +262,10 @@ export class Land<SecurityDataType = unknown> {
       path: `/api/lands/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the Land resource.
    *
@@ -277,7 +286,6 @@ export class Land<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

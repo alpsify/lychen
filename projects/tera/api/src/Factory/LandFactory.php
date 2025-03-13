@@ -2,7 +2,6 @@
 
 namespace App\Factory;
 
-use App\Constant\LandKind;
 use App\Entity\Land;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
@@ -30,8 +29,8 @@ final class LandFactory extends PersistentProxyObjectFactory
     {
         return [
             'name' => self::faker()->text(255),
-            'kind' => self::faker()->randomElement(LandKind::ALL),
             'surface' => self::faker()->numberBetween(30, 300),
+            'altitude' => self::faker()->numberBetween(200, 1500),
         ];
     }
 

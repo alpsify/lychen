@@ -9,7 +9,7 @@
  */
 
 import type { LandMemberSetting, LandMemberSettingJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandMemberSetting<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -35,9 +35,11 @@ export class LandMemberSetting<SecurityDataType = unknown> {
       path: `/api/land_member_settings/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandMemberSetting resource.
    *
@@ -58,7 +60,6 @@ export class LandMemberSetting<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

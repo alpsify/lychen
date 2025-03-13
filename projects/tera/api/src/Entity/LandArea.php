@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Parameter;
+use App\Constant\LandAreaKind;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
 use App\Security\Constant\LandAreaPermission;
@@ -88,6 +89,11 @@ class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[ORM\OneToMany(targetEntity: LandCultivationPlan::class, mappedBy: 'landArea')]
     #[Groups(["user:land_area:collection", "user:land_area:get"])]
     private Collection $landCultivationPlans;
+
+    #[ORM\Column(length: 150, options: ['default' => LandAreaKind::OPEN_SOIL])]
+    #[Assert\Choice(LandAreaKind::ALL)]
+    #[Groups(["user:land_area:collection", "user:land_area:get", "user:land_area:patch", "user:land_area:post"])]
+    private ?string $kind = LandAreaKind::OPEN_SOIL;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -266,6 +272,18 @@ class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
                 $landCultivationPlan->setLandArea(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getKind(): ?string
+    {
+        return $this->kind;
+    }
+
+    public function setKind(string $kind): static
+    {
+        $this->kind = $kind;
 
         return $this;
     }

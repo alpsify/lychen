@@ -134,6 +134,9 @@
       "path": "libs/tera/util-constants"
     },
     {
+      "path": "libs/tera/util-events"
+    },
+    {
       "path": "libs/tera/util-features"
     },
     {

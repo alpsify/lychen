@@ -11,6 +11,7 @@
     "@lychen/typescript-util-fontawesome": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/typescript-util-tailwind": "workspace:*",
+    "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^12.7.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -18,8 +19,10 @@
     "reka-ui": "^2.0.2",
     "tailwind-merge": "^3.0.2",
     "vaul-vue": "^0.3.0",
+    "vee-validate": "^4.15.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "tailwindcss": "^4.0.13"

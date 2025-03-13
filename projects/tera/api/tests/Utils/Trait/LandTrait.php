@@ -2,7 +2,7 @@
 
 namespace App\Tests\Utils\Trait;
 
-use App\Constant\LandKind;
+use App\Constant\LandAreaKind;
 use App\Entity\Land;
 use App\Entity\Person;
 use App\Factory\LandFactory;
@@ -13,9 +13,9 @@ trait LandTrait
     public static function landDataProvider(): array
     {
         return [
-            [10, LandKind::INDIVIDUAL],
-            [200, LandKind::INDIVIDUAL],
-            [8700, LandKind::MARKET_GARDEN],
+            [10, LandAreaKind::OPEN_SOIL],
+            [200, LandAreaKind::OPEN_SOIL],
+            [8700, LandAreaKind::MARKET_GARDEN],
         ];
     }
 

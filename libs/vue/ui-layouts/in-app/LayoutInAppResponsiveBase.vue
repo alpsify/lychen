@@ -31,7 +31,7 @@
               <div class="flex flex-col gap-4 justify-between grow">
                 <LayoutInAppNavigationMenus :menu-structure="menuStructure">
                   <template
-                    v-for="(menuSection, sectionName) in menuStructure"
+                    v-for="(menusection, sectionName) in menuStructure"
                     :key="sectionName"
                     #[`${sectionName}-menu-section`]
                   >
@@ -71,7 +71,7 @@
       <slot name="navigation"
         ><LayoutInAppNavigationMenus :menu-structure="menuStructure">
           <template
-            v-for="(menuSection, sectionName) in menuStructure"
+            v-for="(menusection, sectionName) in menuStructure"
             :key="sectionName"
             #[`${sectionName}-menu-section`]
           >
@@ -139,9 +139,7 @@
                 <ThemeSwitcher />
                 <LanguageSwitcher />
               </div>
-              <RouterLink>
-                <Button variant="container-high"> Tous les réglages </Button></RouterLink
-              >
+              <slot name="settingsPopover"></slot>
             </PopoverContent>
           </Popover>
           <Popover>
@@ -169,7 +167,7 @@
         </div>
       </slot>
     </header>
-    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-md p-6">
+    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-sm p-6">
       <slot name="main" />
     </main>
   </div>

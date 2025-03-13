@@ -2,6 +2,7 @@ dependsOn:
   - tera-ui-components
   - tera-ui-i18n
   - tera-util-api-sdk
+  - tera-util-events
   - typescript-util-zitadel
   - ui-css
   - vue-i18n-util-composables

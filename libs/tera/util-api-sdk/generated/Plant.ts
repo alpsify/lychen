@@ -10,7 +10,7 @@
  */
 
 import type { Plant, PlantGetCollectionParams, PlantJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class Plant<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -100,9 +100,11 @@ export class Plant<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a Plant resource.
    *
@@ -121,10 +123,11 @@ export class Plant<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a Plant resource.
    *
@@ -141,9 +144,11 @@ export class Plant<SecurityDataType = unknown> {
       path: `/api/plants/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the Plant resource.
    *
@@ -160,8 +165,10 @@ export class Plant<SecurityDataType = unknown> {
       path: `/api/plants/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the Plant resource.
    *
@@ -181,7 +188,6 @@ export class Plant<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

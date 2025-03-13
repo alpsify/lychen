@@ -6,8 +6,16 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
+    "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
-    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*",
+    "@tanstack/vue-query": "^5.67.3",
+    "@tanstack/vue-table": "^8.21.2",
+    "@vee-validate/zod": "^4.15.0",
+    "@vueuse/core": "^13.0.0",
+    "vee-validate": "^4.15.0",
+    "vue": "^3.5.13",
+    "zod": "^3.24.2"
   }
 }

@@ -9,7 +9,7 @@
  */
 
 import type { LandAreaParameter, LandAreaParameterJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandAreaParameter<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -35,9 +35,11 @@ export class LandAreaParameter<SecurityDataType = unknown> {
       path: `/api/land_area_parameters/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandAreaParameter resource.
    *
@@ -58,7 +60,6 @@ export class LandAreaParameter<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

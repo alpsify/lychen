@@ -81,8 +81,8 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, computed, inject } from 'vue';
-import CardTeraLandGreenhouse from '@lychen/tera-ui-components/card-tera-land-greenhouse/CardTeraLandGreenhouse.vue';
-import CardTeraLandArea from '@lychen/tera-ui-components/card-tera-land-area/CardTeraLandArea.vue';
+import CardTeraLandGreenhouse from '@lychen/tera-ui-components/card/land-greenhouse/CardTeraLandGreenhouse.vue';
+import CardTeraLandArea from '@lychen/tera-ui-components/card/land-area/CardTeraLandArea.vue';
 import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';

@@ -9,7 +9,7 @@
  */
 
 import type { LandMember, LandMemberGetCollectionParams, LandMemberJsonld } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandMember<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -100,9 +100,11 @@ export class LandMember<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a LandMember resource.
    *
@@ -120,9 +122,11 @@ export class LandMember<SecurityDataType = unknown> {
       path: `/api/land_members/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the LandMember resource.
    *
@@ -140,8 +144,10 @@ export class LandMember<SecurityDataType = unknown> {
       path: `/api/land_members/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the LandMember resource.
    *
@@ -162,7 +168,6 @@ export class LandMember<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

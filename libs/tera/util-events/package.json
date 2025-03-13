@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/tera-util-events",
+  "version": "0.0.0",
+  "dependencies": {
+    "@lychen/tera-util-api-sdk": "workspace:*",
+    "@vueuse/core": "^13.0.0"
+  }
+}

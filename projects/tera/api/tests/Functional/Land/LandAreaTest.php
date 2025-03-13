@@ -2,6 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
+use App\Constant\LandAreaKind;
 use App\Security\Constant\LandAreaPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
@@ -15,17 +16,20 @@ class LandAreaTest extends AbstractApiTestCase
 
         $name = faker()->name();
         $description = faker()->text();
+        $kind = faker()->randomElement(LandAreaKind::ALL);
 
         // Owner
         $this->browser()->actingAs($context->owner)
             ->post('/api/land_areas', ['json' => [
                 'name' => $name,
                 'description' => $description,
+                'kind' => $kind,
                 'land' => $this->getIriFromResource($context->land)
             ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
             ->assertJsonMatches('description', $description)
+            ->assertJsonMatches('kind', $kind)
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });

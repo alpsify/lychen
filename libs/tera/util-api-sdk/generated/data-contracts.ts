@@ -10,6 +10,11 @@
  */
 
 export interface Land {
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
   /** @format date-time */
   createdAt?: string;
   /**
@@ -18,11 +23,6 @@ export interface Land {
    */
   defaultRole?: string | null;
   id?: number;
-  /**
-   * @default "individual"
-   * @example "individual"
-   */
-  kind?: LandKindEnum;
   land?: Static;
   landAreas?: string[];
   landCultivationPlans?: string[];
@@ -52,6 +52,11 @@ export interface LandArea {
   createdAt?: string;
   description?: string | null;
   id?: number;
+  /**
+   * @default "open_soil"
+   * @example "open_soil"
+   */
+  kind?: LandAreaKindEnum;
   /**
    * @format iri-reference
    * @example "https://example.com/"
@@ -119,6 +124,11 @@ export interface LandAreaJsonld {
   description?: string | null;
   id?: number;
   /**
+   * @default "open_soil"
+   * @example "open_soil"
+   */
+  kind?: LandAreaJsonldKindEnum;
+  /**
    * @format iri-reference
    * @example "https://example.com/"
    */
@@ -157,12 +167,30 @@ export enum LandAreaJsonldHydraEnum {
 }
 
 /**
+ * @default "open_soil"
+ * @example "open_soil"
+ */
+export enum LandAreaJsonldKindEnum {
+  OpenSoil = 'open_soil',
+  SoilLess = 'soil_less',
+}
+
+/**
  * @default "active"
  * @example "active"
  */
 export enum LandAreaJsonldStateEnum {
   Active = 'active',
   Archived = 'archived',
+}
+
+/**
+ * @default "open_soil"
+ * @example "open_soil"
+ */
+export enum LandAreaKindEnum {
+  OpenSoil = 'open_soil',
+  SoilLess = 'soil_less',
 }
 
 export interface LandAreaParameter {
@@ -620,6 +648,11 @@ export interface LandJsonld {
       };
   '@id'?: string;
   '@type'?: string;
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
   /** @format date-time */
   createdAt?: string;
   /**
@@ -628,11 +661,6 @@ export interface LandJsonld {
    */
   defaultRole?: string | null;
   id?: number;
-  /**
-   * @default "individual"
-   * @example "individual"
-   */
-  kind?: LandJsonldKindEnum;
   land?: StaticJsonld;
   landAreas?: string[];
   landCultivationPlans?: string[];
@@ -659,26 +687,6 @@ export interface LandJsonld {
 
 export enum LandJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
-}
-
-/**
- * @default "individual"
- * @example "individual"
- */
-export enum LandJsonldKindEnum {
-  Individual = 'individual',
-  SharedGarden = 'shared_garden',
-  MarketGarden = 'market_garden',
-}
-
-/**
- * @default "individual"
- * @example "individual"
- */
-export enum LandKindEnum {
-  Individual = 'individual',
-  SharedGarden = 'shared_garden',
-  MarketGarden = 'market_garden',
 }
 
 export interface LandMember {
@@ -898,15 +906,10 @@ export enum LandMemberSettingJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
-export enum LandPostKindEnum {
-  Individual = 'individual',
-  SharedGarden = 'shared_garden',
-  MarketGarden = 'market_garden',
-}
-
 export interface LandPostPayload {
-  kind: LandPostKindEnum;
+  altitude: number;
   name: string;
+  surface: number;
 }
 
 export interface LandResearchDeal {

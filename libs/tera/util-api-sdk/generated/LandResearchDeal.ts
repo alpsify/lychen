@@ -14,7 +14,7 @@ import type {
   LandResearchDealGetCollectionParams,
   LandResearchDealJsonld,
 } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandResearchDeal<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -107,9 +107,11 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a LandResearchDeal resource.
    *
@@ -128,10 +130,11 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a LandResearchDeal resource.
    *
@@ -148,9 +151,11 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       path: `/api/land_research_deals/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the LandResearchDeal resource.
    *
@@ -167,8 +172,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       path: `/api/land_research_deals/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the LandResearchDeal resource.
    *
@@ -188,10 +195,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandResearchDeal resource.
    *
@@ -213,10 +220,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Updates the LandResearchDeal resource.
    *
@@ -238,7 +245,6 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

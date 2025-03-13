@@ -75,7 +75,7 @@
 <script lang="ts" setup>
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import CardTeraLandTask from '@lychen/tera-ui-components/card-tera-land-task/CardTeraLandTask.vue';
+import CardTeraLandTask from '@lychen/tera-ui-components/card/land-task/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import {
   LandTaskStateEnum,
@@ -93,8 +93,8 @@ import { faChartKanban } from '@fortawesome/pro-light-svg-icons/faChartKanban';
 import { Icon } from '@lychen/vue-ui-components-core/icon';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
-import DataTableTeraLandTask from '@lychen/tera-ui-components/data-table-tera-land-task/DataTableTeraLandTask.vue';
-import BadgeTeraLandTaskState from '@lychen/tera-ui-components/badge-tera-land-task-state/BadgeTeraLandTaskState.vue';
+import DataTableTeraLandTask from '@lychen/tera-ui-components/data-table/land-task/DataTableTeraLandTask.vue';
+import BadgeTeraLandTaskState from '@lychen/tera-ui-components/badge/land-task-state/BadgeTeraLandTaskState.vue';
 import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 
 const land = inject(INJECT_LAND_KEY);

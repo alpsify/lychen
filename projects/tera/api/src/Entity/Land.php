@@ -9,7 +9,6 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model;
-use App\Constant\LandKind;
 use App\Provider\LandsLookingForMembersProvider;
 use App\Repository\LandRepository;
 use App\Security\Constant\LandPermission;
@@ -39,18 +38,20 @@ use Symfony\Component\Validator\Constraints as Assert;
         summary: 'Create a land',
         requestBody: new Model\RequestBody(
             content: new ArrayObject([
-                'application/json' => [
+                'application/ld+json' => [
                     'schema' => [
                         'type' => 'object',
                         'properties' => [
                             'name' => ['type' => 'string'],
-                            'kind' => ['type' => 'string', 'enum' => LandKind::ALL]
+                            'surface' => ['type' => 'number'],
+                            'altitude' => ['type' => 'number'],
                         ],
-                        'required' => ['name', 'kind']
+                        'required' => ['name', 'surface', 'altitude']
                     ],
                     'example' => [
                         'name' => 'Wonderful garden',
-                        'kind' => LandKind::INDIVIDUAL
+                        'surface' => 112,
+                        'altitude' => 357,
                     ]
                 ]
             ])
@@ -74,10 +75,11 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
      * @var Collection<int, LandMember>
      */
     #[ORM\OneToMany(targetEntity: LandMember::class, mappedBy: 'land', orphanRemoval: true)]
+    #[Groups(["user:land:collection", "user:land:get"])]
     private Collection $landMembers;
 
     #[ORM\OneToOne(mappedBy: 'land', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:collection", "user:land:get"])]
     private ?LandSetting $landSetting = null;
 
     /**
@@ -98,11 +100,6 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
      */
     #[ORM\OneToMany(targetEntity: LandMemberInvitation::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landMemberInvitations;
-
-    #[ORM\Column(length: 150, options: ['default' => LandKind::INDIVIDUAL])]
-    #[Assert\Choice(LandKind::ALL)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
-    private ?string $kind = LandKind::INDIVIDUAL;
 
     #[ORM\Column(nullable: true)]
     #[Assert\GreaterThanOrEqual(0)]
@@ -129,6 +126,10 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
      */
     #[ORM\OneToMany(targetEntity: LandGreenhouse::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landGreenhouses;
+
+    #[ORM\Column(nullable: true)]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    private ?int $altitude = 1;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -345,18 +346,6 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         return $this;
     }
 
-    public function getKind(): ?string
-    {
-        return $this->kind;
-    }
-
-    public function setKind(string $kind): static
-    {
-        $this->kind = $kind;
-
-        return $this;
-    }
-
     public function getSurface(): ?int
     {
         return $this->surface;
@@ -437,6 +426,18 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
                 $landGreenhouse->setLand(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAltitude(): ?int
+    {
+        return $this->altitude;
+    }
+
+    public function setAltitude(?int $altitude): static
+    {
+        $this->altitude = $altitude;
 
         return $this;
     }

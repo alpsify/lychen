@@ -14,7 +14,7 @@ import type {
   SeedStockEntryGetCollectionParams,
   SeedStockEntryJsonld,
 } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class SeedStockEntry<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -107,9 +107,11 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a SeedStockEntry resource.
    *
@@ -128,10 +130,11 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a SeedStockEntry resource.
    *
@@ -148,9 +151,11 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       path: `/api/seed_stock_entries/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the SeedStockEntry resource.
    *
@@ -167,8 +172,10 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       path: `/api/seed_stock_entries/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the SeedStockEntry resource.
    *
@@ -188,7 +195,6 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

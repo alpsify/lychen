@@ -14,7 +14,7 @@ import type {
   PlantCustomGetCollectionParams,
   PlantCustomJsonld,
 } from './data-contracts';
-import type { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class PlantCustom<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -104,9 +104,11 @@ export class PlantCustom<SecurityDataType = unknown> {
       method: 'GET',
       query: query,
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Creates a PlantCustom resource.
    *
@@ -125,10 +127,11 @@ export class PlantCustom<SecurityDataType = unknown> {
       method: 'POST',
       body: data,
       secure: true,
-      type: ContentType.Json,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Retrieves a PlantCustom resource.
    *
@@ -146,9 +149,11 @@ export class PlantCustom<SecurityDataType = unknown> {
       path: `/api/plant_customs/${ulid}`,
       method: 'GET',
       secure: true,
+      type: ContentType.JsonLd,
       format: 'json',
       ...params,
     });
+
   /**
    * @description Removes the PlantCustom resource.
    *
@@ -166,8 +171,10 @@ export class PlantCustom<SecurityDataType = unknown> {
       path: `/api/plant_customs/${ulid}`,
       method: 'DELETE',
       secure: true,
+      type: ContentType.JsonLd,
       ...params,
     });
+
   /**
    * @description Updates the PlantCustom resource.
    *
@@ -188,7 +195,6 @@ export class PlantCustom<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });
