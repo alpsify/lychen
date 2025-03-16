@@ -15,6 +15,9 @@ export const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-on-primary hover:bg-primary/90',
         secondary: 'bg-secondary/80 text-on-secondary hover:bg-secondary',
+        negative: 'bg-negative text-on-negative hover:bg-negative/90',
+        positive: 'bg-positive text-on-positive hover:bg-positive/90',
+        warning: 'bg-warning text-on-warning hover:bg-warning/90',
         ghost: 'hover:bg-surface-container-high hover:text-on-surface-container-high',
         'container-high':
           'bg-surface-container-high text-on-surface-container-high hover:bg-surface-container-highest hover:text-on-surface-container-highest',
