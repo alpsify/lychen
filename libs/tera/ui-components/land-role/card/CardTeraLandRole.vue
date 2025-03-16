@@ -1,6 +1,6 @@
 <template>
   <Card
-    class="py-2"
+    class="px-4 py-2"
     hoverable
   >
     <p class="font-medium">{{ landRole.name }}</p>

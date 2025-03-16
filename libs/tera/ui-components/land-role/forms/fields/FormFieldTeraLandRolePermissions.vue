@@ -1,16 +1,16 @@
 <template>
   <FormField
     v-slot="{ componentField }"
-    name="name"
+    name="permissions"
     :validate-on-blur="!isFieldDirty"
     :rules="fieldSchema"
   >
     <FormItem>
-      <FormLabel>{{ t('property.name.label') }}</FormLabel>
+      <FormLabel>{{ t('property.permissions.label') }}</FormLabel>
       <FormControl>
         <Input
           type="text"
-          :placeholder="t('property.name.placeholder')"
+          :placeholder="t('property.permissions.placeholder')"
           v-bind="componentField"
         />
       </FormControl>
@@ -28,7 +28,7 @@ import {
   FormMessage,
 } from '@lychen/vue-ui-components-core/form';
 import { Input } from '@lychen/vue-ui-components-core/input';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
+import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 
@@ -36,7 +36,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const fieldSchema = toTypedSchema(z.string().min(2).max(40));
+const fieldSchema = toTypedSchema(z.array(z.string()));
 
 defineProps({
   isFieldDirty: {

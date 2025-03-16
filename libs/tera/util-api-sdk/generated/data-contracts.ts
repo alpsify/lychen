@@ -1169,8 +1169,9 @@ export enum LandRolePatchPermissionsEnum {
 }
 
 export interface LandRolePostPayload {
-  name?: string;
-  permissions?: LandRolePostPermissionsEnum[];
+  land: string;
+  name: string;
+  permissions: LandRolePostPermissionsEnum[];
 }
 
 export enum LandRolePostPermissionsEnum {

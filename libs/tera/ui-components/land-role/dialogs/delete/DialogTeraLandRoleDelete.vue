@@ -1,24 +1,30 @@
 <template>
-  <DialogContentWithAction
-    :title="t('title')"
-    :description="t('description')"
-  >
-    <template #content></template>
-    <template #action>
-      <Button
-        variant="positive"
-        :disabled="isPending"
-        :loading="isPending"
-        @click="deleteLand()"
-      >
-        {{ tLandRole('action.delete.label') }}
-      </Button>
-    </template>
-  </DialogContentWithAction>
+  <Dialog>
+    <DialogTrigger as-child>
+      <slot />
+    </DialogTrigger>
+    <DialogContentWithAction
+      :title="t('title')"
+      :description="t('description')"
+    >
+      <template #content></template>
+      <template #action>
+        <Button
+          variant="positive"
+          :disabled="isPending"
+          :loading="isPending"
+          @click="deleteLand()"
+        >
+          {{ tLandRole('action.delete.label') }}
+        </Button>
+      </template>
+    </DialogContentWithAction>
+  </Dialog>
 </template>
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import {
   messages as landRoleMessages,

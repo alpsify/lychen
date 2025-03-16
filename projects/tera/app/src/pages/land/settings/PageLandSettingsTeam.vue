@@ -38,12 +38,17 @@
     :description="t('tabs.team.roles.description')"
   >
     <template #subTitle>
-      <Button
-        :icon="faPlus"
-        variant="container-high"
-        class="self-start"
-        :text="tLandRole('action.create.label')"
-      ></Button>
+      <DialogTeraLandRoleCreate
+        v-if="land"
+        :land="land"
+      >
+        <Button
+          :icon="faPlus"
+          variant="container-high"
+          class="self-start"
+          :text="tLandRole('action.create.label')"
+        ></Button>
+      </DialogTeraLandRoleCreate>
     </template>
     <div
       v-if="landRoles"
@@ -75,6 +80,10 @@ import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import CardTeraLandRole from '@lychen/tera-ui-components/land-role/card/CardTeraLandRole.vue';
+import DialogTeraLandRoleCreate from '@lychen/tera-ui-components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';
+
+import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
+import { useEventBus } from '@vueuse/core';
 
 const land = inject(INJECT_LAND_KEY);
 const landId = computed(() => land?.value?.['@id']);
@@ -94,7 +103,7 @@ const { t: tLandRole } = useI18nExtended({
 
 const api = useAllTeraApi();
 
-const { data: landRoles } = useQuery({
+const { data: landRoles, refetch: refetchLandRoles } = useQuery({
   queryKey: ['landRoles', landId],
   queryFn: async () => {
     const response = await api.LandRole.landRoleGetCollection({
@@ -106,7 +115,13 @@ const { data: landRoles } = useQuery({
   enabled,
 });
 
-const { data: landMemberInvitations } = useQuery({
+const { on } = useEventBus(landRolePostSucceededEvent);
+
+on(() => {
+  refetchLandRoles();
+});
+
+const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = useQuery({
   queryKey: ['landMemberInvitations', landId],
   queryFn: async () => {
     const response = await api.LandMemberInvitation.landMemberInvitationGetCollection({
@@ -118,7 +133,7 @@ const { data: landMemberInvitations } = useQuery({
   enabled,
 });
 
-const { data: landMembers } = useQuery({
+const { data: landMembers, refetch: refetchLandMembers } = useQuery({
   queryKey: ['landMembers', landId],
   queryFn: async () => {
     const response = await api.LandMember.landMemberGetCollection({

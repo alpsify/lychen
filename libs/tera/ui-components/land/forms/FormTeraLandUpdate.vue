@@ -31,8 +31,6 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
-import * as z from 'zod';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -49,18 +47,9 @@ import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const formSchema = toTypedSchema(
-  z.object({
-    name: z.string().min(2).max(40),
-    surface: z.number().min(1),
-    altitude: z.number(),
-  }),
-);
-
 const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm({
-  validationSchema: formSchema,
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandPatchPayload>({
   initialValues: {
     altitude: land.altitude || 0,
     surface: land.surface || 1,

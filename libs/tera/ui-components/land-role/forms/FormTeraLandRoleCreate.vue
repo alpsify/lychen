@@ -4,6 +4,7 @@
     @submit="onSubmit"
   >
     <FormFieldTeraLandRoleName :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraLandRolePermissions :is-field-dirty="isFieldDirty" />
     <Button
       :disabled="!meta.valid || isPending"
       :loading="isPending"
@@ -20,9 +21,11 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
-import * as z from 'zod';
-import { type LandRolePostPayload } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import {
+  LandRolePostPermissionsEnum,
+  type LandJsonld,
+  type LandRolePostPayload,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -30,20 +33,16 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useEventBus } from '@vueuse/core';
 import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
+import FormFieldTeraLandRolePermissions from './fields/FormFieldTeraLandRolePermissions.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const formSchema = toTypedSchema(
-  z.object({
-    name: z.string().min(2).max(40),
-    surface: z.number().min(1),
-    altitude: z.number(),
-  }),
-);
+const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm({
-  validationSchema: formSchema,
-  initialValues: {},
+const { isFieldDirty, handleSubmit, meta } = useForm<LandRolePostPayload>({
+  initialValues: {
+    permissions: [LandRolePostPermissionsEnum.LandTransfer],
+  },
 });
 
 const { emit } = useEventBus(landRolePostSucceededEvent);
@@ -51,7 +50,8 @@ const { emit } = useEventBus(landRolePostSucceededEvent);
 const landApi = useTeraApi('LandRole');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLand: LandRolePostPayload) => landApi.landRolePost(newLand),
+  mutationFn: (newLandRole: LandRolePostPayload) =>
+    landApi.landRolePost({ ...newLandRole, land: land['@id'] }),
   onSuccess: (data, variables, context) => {
     toast({
       title: t('action.create.success.message'),

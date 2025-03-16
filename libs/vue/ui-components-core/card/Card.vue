@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
     :class="
       cn(
         'flex flex-col rounded-3xl p-6 bg-surface-container text-on-surface-container border-1 border-on-surface-container/5 duration-300 ease-in-out',
-        hoverable ? 'hover:shadow-md shadow-on-surface/10 cursor-pointer' : '',
+        hoverable ? 'hover:shadow-md hover:shadow-on-surface/10 cursor-pointer' : '',
         props.class,
       )
     "

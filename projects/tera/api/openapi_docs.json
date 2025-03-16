@@ -4041,8 +4041,16 @@
                                                 "landsetting_update"
                                             ]
                                         }
+                                    },
+                                    "land": {
+                                        "type": "string"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "name",
+                                    "land",
+                                    "permissions"
+                                ]
                             },
                             "example": {
                                 "name": "Wonderful garden",
@@ -4051,7 +4059,8 @@
                                     "landarea_create",
                                     "landarea_update",
                                     "landarea_delete"
-                                ]
+                                ],
+                                "land": "/api/land/{ulid}"
                             }
                         }
                     },

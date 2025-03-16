@@ -3,6 +3,7 @@
     v-slot="{ value }"
     name="surface"
     :validate-on-blur="!isFieldDirty"
+    :rules="fieldSchema"
   >
     <FormItem>
       <FormLabel>{{ t('property.surface.label') }}</FormLabel>
@@ -43,8 +44,12 @@ import {
 import NumberFieldInput from '@lychen/vue-ui-components-core/number-field/NumberFieldInput.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
+import { toTypedSchema } from '@vee-validate/zod';
+import * as z from 'zod';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+const fieldSchema = toTypedSchema(z.number().min(1));
 
 defineProps({
   isFieldDirty: {

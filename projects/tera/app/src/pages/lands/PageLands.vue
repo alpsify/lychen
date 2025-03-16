@@ -17,16 +17,13 @@
               {{ t('sub_title', lands.totalItems) }}
             </p>
           </div>
-          <Dialog v-model:open="open">
-            <DialogTrigger as-child>
-              <Button
-                :icon="faPlus"
-                class="bg-secondary text-on-secondary"
-                :text="t('add_land')"
-              />
-            </DialogTrigger>
-            <DialogContentTeraLandCreate />
-          </Dialog>
+          <DialogTeraLandCreate v-model:open="open">
+            <Button
+              :icon="faPlus"
+              class="bg-secondary text-on-secondary"
+              :text="t('add_land')"
+            />
+          </DialogTeraLandCreate>
         </div>
       </DivWithBackgroundImg>
     </template>
@@ -61,11 +58,10 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { ref } from 'vue';
-import DialogContentTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/contents/create/DialogContentTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

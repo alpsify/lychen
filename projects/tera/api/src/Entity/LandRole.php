@@ -52,11 +52,14 @@ use Symfony\Component\Validator\Constraints as Assert;
                                 'enum' => Permissions::LAND_MEMBER_RELATED,
                             ]
                         ],
+                        'land' => ['type' => 'string'],
                     ],
+                    'required' => ['name', 'land', 'permissions']
                 ],
                 'example' => [
                     'name' => 'Wonderful garden',
-                    'permissions' => [...LandAreaPermission::ALL]
+                    'permissions' => [...LandAreaPermission::ALL],
+                    'land' => '/api/land/{ulid}'
                 ]
             ]
         ])

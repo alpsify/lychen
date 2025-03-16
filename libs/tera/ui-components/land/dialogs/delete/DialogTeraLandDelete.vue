@@ -1,20 +1,25 @@
 <template>
-  <DialogContentWithAction
-    :title="t('title')"
-    :description="t('description')"
-  >
-    <template #content></template>
-    <template #action>
-      <Button
-        variant="positive"
-        :disabled="isPending"
-        :loading="isPending"
-        @click="deleteLand()"
-      >
-        {{ tLand('action.delete.label') }}
-      </Button>
-    </template>
-  </DialogContentWithAction>
+  <Dialog>
+    <DialogTrigger as-child>
+      <slot />
+    </DialogTrigger>
+    <DialogContentWithAction
+      :title="t('title')"
+      :description="t('description')"
+    >
+      <template #content></template>
+      <template #action>
+        <Button
+          variant="positive"
+          :disabled="isPending"
+          :loading="isPending"
+          @click="deleteLand()"
+        >
+          {{ tLand('action.delete.label') }}
+        </Button>
+      </template>
+    </DialogContentWithAction>
+  </Dialog>
 </template>
 
 <script lang="ts" setup>
@@ -32,6 +37,7 @@ import { useEventBus } from '@vueuse/core';
 import { landDeleteSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import type { LandJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
+import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 
 const { t: tLand } = useI18nExtended({
   messages: landMessages,

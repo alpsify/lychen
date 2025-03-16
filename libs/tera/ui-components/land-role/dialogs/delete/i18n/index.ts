@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'dialog_content_tera_land_role_delete';
+export const TRANSLATION_KEY = 'dialog_tera_land_role_delete';

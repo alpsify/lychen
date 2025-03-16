@@ -34,20 +34,17 @@
           {{ t('tabs.general.danger_zone.delete.description') }}
         </p>
       </div>
-      <Dialog>
-        <DialogTrigger>
-          <Button
-            variant="container-high"
-            class="border-1 border-negative text-negative"
-          >
-            {{ t('tabs.general.danger_zone.delete.button.label') }}
-          </Button>
-        </DialogTrigger>
-        <DialogContentTeraLandDelete
-          v-if="land"
-          :land="land"
-        />
-      </Dialog>
+
+      <DialogTeraLandDelete
+        v-if="land"
+        :land="land"
+        ><Button
+          variant="container-high"
+          class="border-1 border-negative text-negative"
+        >
+          {{ t('tabs.general.danger_zone.delete.button.label') }}
+        </Button>
+      </DialogTeraLandDelete>
     </div>
   </SectionSetting>
 </template>
@@ -57,9 +54,8 @@ import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import { SectionSetting } from '@lychen/vue-ui-components-app/section-setting';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import DialogContentTeraLandDelete from '@lychen/tera-ui-components/land/dialogs/contents/delete/DialogContentTeraLandDelete.vue';
+import DialogTeraLandDelete from '@lychen/tera-ui-components/land/dialogs/delete/DialogTeraLandDelete.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { inject } from 'vue';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';

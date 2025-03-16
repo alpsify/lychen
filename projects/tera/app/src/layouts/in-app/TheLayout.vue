@@ -11,16 +11,13 @@
           :icon="faListUl"
         ></Button>
       </RouterLink>
-      <Dialog v-model:open="open"
-        ><DialogTrigger as-child>
-          <Button
-            variant="container-high"
-            size="xs"
-            :icon="faPlus"
-          ></Button>
-        </DialogTrigger>
-        <DialogContentTeraLandCreate />
-      </Dialog>
+      <DialogTeraLandCreate v-model:open="open">
+        <Button
+          variant="container-high"
+          size="xs"
+          :icon="faPlus"
+        ></Button>
+      </DialogTeraLandCreate>
     </div>
   </Teleport>
   <LayoutInApp
@@ -111,7 +108,7 @@ import {
   landPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandEvents';
 import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
-import DialogContentTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/contents/create/DialogContentTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 
 const open = ref(false);
