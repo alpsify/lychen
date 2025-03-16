@@ -1,25 +1,32 @@
 <template>
-  <SectionSetting title="Vue d'ensemble"> </SectionSetting>
+  <SectionSetting :title="t('tabs.general.title')"> </SectionSetting>
   <SectionSetting
-    title="Zone de danger"
-    description=""
+    :title="t('tabs.general.danger_zone.title')"
+    :description="t('tabs.general.danger_zone.description')"
   >
     <div class="flex flex-col md:flex-row gap-2 justify-between">
       <div>
-        <BaseHeading variant="h3">Transférer la propriété</BaseHeading>
-        <p class="opacity-80">Transfer this land to another user.</p>
+        <BaseHeading variant="h3">
+          {{ t('tabs.general.danger_zone.transfer.title') }}
+        </BaseHeading>
+        <p class="opacity-80">
+          {{ t('tabs.general.danger_zone.transfer.description') }}
+        </p>
       </div>
       <Button
         variant="container-high"
         class="border-1 border-negative text-negative"
-        >Transférer</Button
       >
+        {{ t('tabs.general.danger_zone.transfer.button.label') }}
+      </Button>
     </div>
     <div class="flex flex-col md:flex-row gap-2 justify-between">
       <div>
-        <BaseHeading variant="h3">Supprimer cet espace de culture</BaseHeading>
+        <BaseHeading variant="h3">
+          {{ t('tabs.general.danger_zone.delete.title') }}
+        </BaseHeading>
         <p class="opacity-80">
-          Once you delete a repository, there is no going back. Please be certain.
+          {{ t('tabs.general.danger_zone.delete.description') }}
         </p>
       </div>
       <Dialog>
@@ -27,26 +34,33 @@
           <Button
             variant="container-high"
             class="border-1 border-negative text-negative"
-            >Supprimer</Button
           >
+            {{ t('tabs.general.danger_zone.delete.button.label') }}
+          </Button>
         </DialogTrigger>
         <DialogContent
-          class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
+          class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[30%] w-full max-h-dvh overflow-y-auto gap-8"
         >
           <DialogHeader>
-            êtes-vous sur de vouloir surpprimer cet espace de culture et les données associés ?
+            <BaseHeading variant="h2">{{
+              t('tabs.general.danger_zone.delete.dialog.title')
+            }}</BaseHeading>
           </DialogHeader>
-          <DialogFooter class="flex justify-end flex-row gap-4">
+          <p>{{ t('tabs.general.danger_zone.delete.dialog.description') }}</p>
+          <DialogFooter class="flex flex-row justify-end gap-8">
             <DialogClose>
-              <Button variant="container-high">Annuler</Button>
+              <Button variant="container-high">{{
+                t('tabs.general.danger_zone.delete.dialog.button.cancel.label')
+              }}</Button>
             </DialogClose>
             <Button
               variant="positive"
               :disabled="isPending"
               :loading="isPending"
               @click="deleteLand()"
-              >Confirmer la suppression</Button
             >
+              {{ t('tabs.general.danger_zone.delete.dialog.button.confirm.label') }}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -73,7 +87,16 @@ import {
   DialogContent,
   DialogHeader,
   DialogTrigger,
+  DialogFooter,
 } from '@lychen/vue-ui-components-core/dialog';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { messages, TRANSLATION_KEY } from './i18n';
+
+const { t } = useI18nExtended({
+  messages,
+  rootKey: TRANSLATION_KEY,
+  prefixed: true,
+});
 
 const router = useRouter();
 const { emit } = useEventBus(landDeleteSucceededEvent);
@@ -86,7 +109,7 @@ const { mutate: deleteLand, isPending } = useMutation({
   mutationFn: () => landApi.landDelete(land!.value!.ulid!),
   onSuccess: (data, variables, context) => {
     toast({
-      title: 'Espace de culture supprimé',
+      title: t('tabs.general.danger_zone.delete.toast.success.message'),
       variant: 'positive',
     });
     emit(land?.value);

@@ -1,21 +1,30 @@
 <template>
-  <SectionWithTitle title="Règlages">
-    <p v-if="land">
-      Règlages pour l'espace de culture <strong>{{ land.name }}</strong>
-    </p>
+  <SectionWithTitle :title="t('title')">
     <Tabs default-value="general">
       <TabsList class="grid w-full grid-cols-4">
-        <TabsTrigger value="general"> Générale </TabsTrigger>
-        <TabsTrigger value="team"> Equipe </TabsTrigger>
-        <TabsTrigger value="subscription"> Abonnement </TabsTrigger>
-        <TabsTrigger value="notifications"> Notifications </TabsTrigger>
+        <TabsTrigger value="general">
+          {{ t('tabs.general.title') }}
+        </TabsTrigger>
+        <TabsTrigger value="team">
+          {{ t('tabs.team.title') }}
+        </TabsTrigger>
+        <TabsTrigger value="subscription">
+          {{ t('tabs.subscription.title') }}
+        </TabsTrigger>
+        <TabsTrigger value="notifications">
+          {{ t('tabs.notifications.title') }}
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="general">
         <PageLandSettingsGeneral />
       </TabsContent>
-      <TabsContent value="subscription"> </TabsContent>
-      <TabsContent value="notifications"> </TabsContent>
-      <TabsContent value="team"> </TabsContent>
+      <TabsContent value="subscription">
+        {{ t('tabs.subscription.content') }}
+      </TabsContent>
+      <TabsContent value="notifications">
+        {{ t('tabs.notifications.content') }}
+      </TabsContent>
+      <TabsContent value="team"> {{ t('tabs.team.content') }} </TabsContent>
     </Tabs>
   </SectionWithTitle>
 </template>
@@ -26,6 +35,14 @@ import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/S
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
 import { inject } from 'vue';
 import PageLandSettingsGeneral from './PageLandSettingsGeneral.vue';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { messages, TRANSLATION_KEY } from './i18n';
+
+const { t } = useI18nExtended({
+  messages,
+  rootKey: TRANSLATION_KEY,
+  prefixed: true,
+});
 
 const land = inject(INJECT_LAND_KEY);
 </script>
