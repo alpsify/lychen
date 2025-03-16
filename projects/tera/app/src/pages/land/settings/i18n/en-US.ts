@@ -21,13 +21,7 @@ export default {
             label: 'Delete',
           },
           dialog: {
-            title: 'Confirm culture space deletion',
-            description:
-              'Are you sure you want to delete this culture space? This action is irreversible.',
             button: {
-              cancel: {
-                label: 'Cancel',
-              },
               confirm: {
                 label: 'Confirm deletion',
               },

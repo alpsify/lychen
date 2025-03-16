@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'dialog_tera_land_create';
+export const TRANSLATION_KEY = 'lychen_action';

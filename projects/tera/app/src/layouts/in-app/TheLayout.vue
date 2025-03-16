@@ -110,7 +110,7 @@ import {
   landPostSucceededEvent,
 } from '@lychen/tera-util-events/LandEvents';
 import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
-import DialogContentTeraLandCreate from '@lychen/tera-ui-components/dialog/content-land-create/DialogContentTeraLandCreate.vue';
+import DialogContentTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/contents/create/DialogContentTeraLandCreate.vue';
 import { ref } from 'vue';
 
 const open = ref(false);

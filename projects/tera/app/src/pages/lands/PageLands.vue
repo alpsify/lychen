@@ -65,7 +65,7 @@ import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { ref } from 'vue';
-import DialogContentTeraLandCreate from '@lychen/tera-ui-components/dialog/content-land-create/DialogContentTeraLandCreate.vue';
+import DialogContentTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/contents/create/DialogContentTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
