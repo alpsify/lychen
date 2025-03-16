@@ -28,7 +28,10 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 
 import { useForm } from 'vee-validate';
-import { type LandPostPayload } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import {
+  type LandJsonld,
+  type LandPostPayload,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -54,7 +57,7 @@ const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
   mutationFn: (newLand: LandPostPayload) => landApi.landPost(newLand),
-  onSuccess: (data, variables, context) => {
+  onSuccess: (data: { data: LandJsonld }, variables, context) => {
     toast({
       title: t('action.create.success.message'),
       variant: 'positive',

@@ -33,6 +33,7 @@ import FormFieldTeraLandRolePermissions from './fields/FormFieldTeraLandRolePerm
 import type {
   LandRoleJsonld,
   LandRolePatchPayload,
+  LandRolePatchPermissionsEnum,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landRolePatchSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
 
@@ -43,7 +44,7 @@ const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
 const { isFieldDirty, handleSubmit, meta } = useForm<LandRolePatchPayload>({
   initialValues: {
     name: landRole.name,
-    permissions: landRole.permissions,
+    permissions: landRole.permissions as LandRolePatchPermissionsEnum[],
   },
 });
 
@@ -53,7 +54,7 @@ const api = useTeraApi('LandRole');
 
 const { mutate, isPending } = useMutation({
   mutationFn: (data: LandRolePatchPayload) => api.landRolePatch(landRole.ulid!, data),
-  onSuccess: (data, variables, context) => {
+  onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',

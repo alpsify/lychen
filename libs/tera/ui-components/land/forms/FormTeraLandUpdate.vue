@@ -63,7 +63,7 @@ const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
   mutationFn: (data: LandPatchPayload) => landApi.landPatch(land.ulid!, data),
-  onSuccess: (data, variables, context) => {
+  onSuccess: (data: { data: LandJsonld }, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',

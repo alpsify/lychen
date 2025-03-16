@@ -24,6 +24,7 @@ import { useForm } from 'vee-validate';
 import {
   LandRolePostPermissionsEnum,
   type LandJsonld,
+  type LandRoleJsonld,
   type LandRolePostPayload,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
@@ -52,7 +53,7 @@ const landApi = useTeraApi('LandRole');
 const { mutate, isPending } = useMutation({
   mutationFn: (newLandRole: LandRolePostPayload) =>
     landApi.landRolePost({ ...newLandRole, land: land['@id'] }),
-  onSuccess: (data, variables, context) => {
+  onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
     toast({
       title: t('action.create.success.message'),
       variant: 'positive',
