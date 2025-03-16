@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandAreaParameter, LandAreaParameterJsonld } from "./data-contracts";
-import { ContentType, HttpClient, type RequestParams } from "./http-client";
+import type { LandAreaParameter, LandAreaParameterJsonld } from './data-contracts';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandAreaParameter<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -34,10 +34,10 @@ export class LandAreaParameter<SecurityDataType = unknown> {
   landAreaParameterGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandAreaParameterJsonld, void>({
       path: `/api/land_area_parameters/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -58,10 +58,11 @@ export class LandAreaParameter<SecurityDataType = unknown> {
   landAreaParameterPatch = (ulid: string, data: LandAreaParameter, params: RequestParams = {}) =>
     this.http.request<LandAreaParameterJsonld, void>({
       path: `/api/land_area_parameters/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
-      format: "json",
+      type: ContentType.JsonMergePatch,
+      format: 'json',
       ...params,
     });
 }

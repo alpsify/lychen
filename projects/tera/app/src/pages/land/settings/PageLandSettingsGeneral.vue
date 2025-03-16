@@ -1,5 +1,10 @@
 <template>
-  <SectionSetting :title="t('tabs.general.title')"> </SectionSetting>
+  <SectionSetting :title="t('tabs.general.title')">
+    <FormTeraLandUpdate
+      v-if="land"
+      :land="land"
+    />
+  </SectionSetting>
   <SectionSetting
     :title="t('tabs.general.danger_zone.title')"
     :description="t('tabs.general.danger_zone.description')"
@@ -62,6 +67,7 @@ import { useEventBus } from '@vueuse/core';
 import { landDeleteSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { useRouter } from 'vue-router';
 import { RoutePageLands } from '@/pages/lands';
+import FormTeraLandUpdate from '@lychen/tera-ui-components/land/forms/FormTeraLandUpdate.vue';
 
 const land = inject(INJECT_LAND_KEY);
 

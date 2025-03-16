@@ -63,7 +63,7 @@ const responseContentKind = {
 
 const bodyTmpl = _.get(payload, "name") || null;
 const queryTmpl = (query != null && queryName) || null;
-const bodyContentKindTmpl = (method === 'patch')  ? requestContentKind.JSON_MARGE_PATCH : requestContentKind.JSON_LD; //requestContentKind[requestBodyInfo.contentKind] || null;
+const bodyContentKindTmpl = (method === 'patch')  ? requestContentKind.JSON_MERGE_PATCH : requestContentKind.JSON_LD; //requestContentKind[requestBodyInfo.contentKind] || null;
 const responseFormatTmpl = responseContentKind[responseBodyInfo.success && responseBodyInfo.success.schema && responseBodyInfo.success.schema.contentKind] || null;
 const securityTmpl = security ? 'true' : null;
 

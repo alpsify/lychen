@@ -108,6 +108,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   landDeleteSucceededEvent,
   landPostSucceededEvent,
+  landPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandEvents';
 import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import DialogContentTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/contents/create/DialogContentTeraLandCreate.vue';
@@ -197,6 +198,12 @@ onLandPost(() => {
 const { on: onLandDelete } = useEventBus(landDeleteSucceededEvent);
 
 onLandDelete(() => {
+  refetch();
+});
+
+const { on: onLandUpdate } = useEventBus(landPatchSucceededEvent);
+
+onLandUpdate(() => {
   refetch();
 });
 

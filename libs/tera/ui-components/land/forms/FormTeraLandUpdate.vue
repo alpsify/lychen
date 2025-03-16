@@ -4,20 +4,23 @@
     @submit="onSubmit"
   >
     <FormFieldTeraLandName :is-field-dirty="isFieldDirty" />
-    <FormFieldTeraLandSurface
-      :is-field-dirty="isFieldDirty"
-      @update:model-value="setFieldValue('surface', $event)"
-    />
-    <FormFieldTeraLandAltitude
-      :is-field-dirty="isFieldDirty"
-      @update:model-value="setFieldValue('altitude', $event)"
-    />
+    <div class="gap-4 md:grid md:grid-cols-2">
+      <FormFieldTeraLandSurface
+        :is-field-dirty="isFieldDirty"
+        @update:model-value="setFieldValue('surface', $event)"
+      />
+      <FormFieldTeraLandAltitude
+        :is-field-dirty="isFieldDirty"
+        @update:model-value="setFieldValue('altitude', $event)"
+      />
+    </div>
     <Button
-      :disabled="!meta.valid || isPending"
+      :disabled="!meta.valid || isPending || !meta.dirty"
       :loading="isPending"
+      size="sm"
       type="submit"
       class="self-end"
-      :text="t('action.create.label')"
+      :text="t('action.update.label')"
     />
   </form>
 </template>
@@ -30,16 +33,19 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
-import { type LandPostPayload } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandName.vue';
 import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
+import type {
+  LandJsonld,
+  LandPatchPayload,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -51,23 +57,26 @@ const formSchema = toTypedSchema(
   }),
 );
 
+const { land } = defineProps<{ land: LandJsonld }>();
+
 const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    altitude: 0,
-    surface: 1,
+    altitude: land.altitude || 0,
+    surface: land.surface || 1,
+    name: land.name,
   },
 });
 
-const { emit } = useEventBus(landPostSucceededEvent);
+const { emit } = useEventBus(landPatchSucceededEvent);
 
 const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLand: LandPostPayload) => landApi.landPost(newLand),
+  mutationFn: (data: LandPatchPayload) => landApi.landPatch(land.ulid!, data),
   onSuccess: (data, variables, context) => {
     toast({
-      title: t('action.create.success.message'),
+      title: t('action.update.success.message'),
       variant: 'positive',
     });
     emit(data.data);

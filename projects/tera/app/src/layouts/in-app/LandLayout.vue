@@ -14,6 +14,8 @@ import { useQuery } from '@tanstack/vue-query';
 import { provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { INJECT_LAND_KEY } from '.';
+import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import { useEventBus } from '@vueuse/core';
 
 const route = useRoute();
 const router = useRouter();
@@ -34,6 +36,12 @@ const { data: land, refetch } = useQuery({
 });
 
 provide(INJECT_LAND_KEY, land);
+
+const { on } = useEventBus(landPatchSucceededEvent);
+
+on(() => {
+  refetch();
+});
 
 watch(
   () => route.params.landUlid,

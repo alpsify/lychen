@@ -28,7 +28,28 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Patch(security: "is_granted('" . LandPermission::UPDATE . "', object)")]
+#[Patch(openapi: new Model\Operation(
+    summary: 'Update a land',
+    requestBody: new Model\RequestBody(
+        content: new ArrayObject([
+            'application/merge-patch+json' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'name' => ['type' => 'string'],
+                        'surface' => ['type' => 'number'],
+                        'altitude' => ['type' => 'number'],
+                    ],
+                ],
+                'example' => [
+                    'name' => 'Wonderful garden',
+                    'surface' => 112,
+                    'altitude' => 357,
+                ]
+            ]
+        ])
+    )
+), security: "is_granted('" . LandPermission::UPDATE . "', object)",)]
 #[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
 #[GetCollection(uriTemplate: '/lands/looking_for_members', paginationFetchJoinCollection: true, name: 'get-collection-looking-for-members', provider: LandsLookingForMembersProvider::class)]
 #[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
@@ -46,7 +67,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                             'surface' => ['type' => 'number'],
                             'altitude' => ['type' => 'number'],
                         ],
-                        'required' => ['name', 'surface', 'altitude']
+                        'required' => ['name']
                     ],
                     'example' => [
                         'name' => 'Wonderful garden',

@@ -214,9 +214,7 @@
                                     }
                                 },
                                 "required": [
-                                    "name",
-                                    "surface",
-                                    "altitude"
+                                    "name"
                                 ]
                             },
                             "example": {
@@ -499,7 +497,7 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Updates the Land resource.",
+                "summary": "Update a land",
                 "description": "Updates the Land resource.",
                 "parameters": [
                     {
@@ -522,11 +520,27 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Land"
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "surface": {
+                                        "type": "number"
+                                    },
+                                    "altitude": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "name": "Wonderful garden",
+                                "surface": 112,
+                                "altitude": 357
                             }
                         }
                     },
-                    "required": true
+                    "required": false
                 },
                 "deprecated": false
             }
@@ -6752,157 +6766,6 @@
     },
     "components": {
         "schemas": {
-            "Land": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "owner": {
-                        "description": "Used by fixtures to create custom land with owner",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Person"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "landMembers": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "landSetting": {
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "landAreas": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "landTasks": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "landMemberInvitations": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "surface": {
-                        "minimum": 0,
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "landCultivationPlans": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "landRoles": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "defaultRole": {
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "landGreenhouses": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "altitude": {
-                        "default": 1,
-                        "example": 1,
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "type": "integer"
-                    },
-                    "ulid": {
-                        "type": "string",
-                        "format": "ulid"
-                    },
-                    "createdAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "format": "date-time",
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "land": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/static"
-                    }
-                }
-            },
             "Land.jsonld": {
                 "type": "object",
                 "description": "",
@@ -11888,11 +11751,6 @@
                         ]
                     }
                 }
-            },
-            "static": {
-                "type": "object",
-                "description": "",
-                "deprecated": false
             },
             "static.jsonld": {
                 "type": "object",
