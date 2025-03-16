@@ -45,7 +45,7 @@
             class="accordion-menu-item"
           >
             <AccordionTrigger
-              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl"
+              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl group"
             >
               {{ land.name }}
             </AccordionTrigger>

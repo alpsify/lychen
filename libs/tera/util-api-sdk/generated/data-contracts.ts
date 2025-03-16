@@ -1050,26 +1050,9 @@ export enum LandResearchRequestStateEnum {
   Archived = 'archived',
 }
 
-export interface LandRole {
-  /** @format date-time */
-  createdAt?: string;
-  id?: number;
-  /**
-   * @format iri-reference
-   * @example "https://example.com/"
-   */
-  land?: string;
-  landMembers?: string[];
-  name: string;
-  permissions?: any[] | null;
-  position?: number;
-  /** @format ulid */
-  ulid?: string;
-  /** @format date-time */
-  updatedAt?: string | null;
-}
-
 export interface LandRoleGetCollectionParams {
+  /** @default "asc" */
+  'order[position]'?: OrderPositionEnum;
   /**
    * The number of items per page
    * @min 0
@@ -1085,6 +1068,12 @@ export interface LandRoleGetCollectionParams {
   page?: number;
   /** Enable or disable pagination */
   pagination?: boolean;
+}
+
+/** @default "asc" */
+export enum LandRoleGetCollectionParams1OrderPositionEnum {
+  Asc = 'asc',
+  Desc = 'desc',
 }
 
 export interface LandRoleJsonld {
@@ -1117,6 +1106,126 @@ export interface LandRoleJsonld {
 
 export enum LandRoleJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface LandRolePatchPayload {
+  name?: string;
+  permissions?: LandRolePatchPermissionsEnum[];
+}
+
+export enum LandRolePatchPermissionsEnum {
+  LandRead = 'land_read',
+  LandUpdate = 'land_update',
+  LandDelete = 'land_delete',
+  LandTransfer = 'land_transfer',
+  LandgreenhouseRead = 'landgreenhouse_read',
+  LandgreenhouseCreate = 'landgreenhouse_create',
+  LandgreenhouseUpdate = 'landgreenhouse_update',
+  LandgreenhouseDelete = 'landgreenhouse_delete',
+  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
+  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
+  LandgreenhousesettingRead = 'landgreenhousesetting_read',
+  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
+  LandareaRead = 'landarea_read',
+  LandareaCreate = 'landarea_create',
+  LandareaUpdate = 'landarea_update',
+  LandareaDelete = 'landarea_delete',
+  LandareaparameterRead = 'landareaparameter_read',
+  LandareaparameterUpdate = 'landareaparameter_update',
+  LandareasettingRead = 'landareasetting_read',
+  LandareasettingUpdate = 'landareasetting_update',
+  LandareaparameterRead1 = 'landareaparameter_read',
+  LandareaparameterUpdate2 = 'landareaparameter_update',
+  LandareaparameterDelete = 'landareaparameter_delete',
+  SeedstockRead = 'seedstock_read',
+  SeedstockUpdate = 'seedstock_update',
+  SeedstockDelete = 'seedstock_delete',
+  SeedstockentryRead = 'seedstockentry_read',
+  SeedstockentryUpdate = 'seedstockentry_update',
+  SeedstockentryDelete = 'seedstockentry_delete',
+  LandmemberRead = 'landmember_read',
+  LandmemberUpdate = 'landmember_update',
+  LandmemberDelete = 'landmember_delete',
+  LandtaskRead = 'landtask_read',
+  LandtaskRead3 = 'landtask_read',
+  LandtaskUpdate = 'landtask_update',
+  LandtaskDelete = 'landtask_delete',
+  LandtaskMarkAsDone = 'landtask_mark_as_done',
+  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
+  LandcultivationplanRead = 'landcultivationplan_read',
+  LandcultivationplanCreate = 'landcultivationplan_create',
+  LandcultivationplanUpdate = 'landcultivationplan_update',
+  LandcultivationplanDelete = 'landcultivationplan_delete',
+  LandroleRead = 'landrole_read',
+  LandroleRead4 = 'landrole_read',
+  LandroleUpdate = 'landrole_update',
+  LandroleDelete = 'landrole_delete',
+  LandmemberinvitationRead = 'landmemberinvitation_read',
+  LandmemberinvitationCreate = 'landmemberinvitation_create',
+  LandmemberinvitationUpdate = 'landmemberinvitation_update',
+  LandmemberinvitationDelete = 'landmemberinvitation_delete',
+  LandsettingRead = 'landsetting_read',
+  LandsettingUpdate = 'landsetting_update',
+}
+
+export interface LandRolePostPayload {
+  name?: string;
+  permissions?: LandRolePostPermissionsEnum[];
+}
+
+export enum LandRolePostPermissionsEnum {
+  LandRead = 'land_read',
+  LandUpdate = 'land_update',
+  LandDelete = 'land_delete',
+  LandTransfer = 'land_transfer',
+  LandgreenhouseRead = 'landgreenhouse_read',
+  LandgreenhouseCreate = 'landgreenhouse_create',
+  LandgreenhouseUpdate = 'landgreenhouse_update',
+  LandgreenhouseDelete = 'landgreenhouse_delete',
+  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
+  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
+  LandgreenhousesettingRead = 'landgreenhousesetting_read',
+  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
+  LandareaRead = 'landarea_read',
+  LandareaCreate = 'landarea_create',
+  LandareaUpdate = 'landarea_update',
+  LandareaDelete = 'landarea_delete',
+  LandareaparameterRead = 'landareaparameter_read',
+  LandareaparameterUpdate = 'landareaparameter_update',
+  LandareasettingRead = 'landareasetting_read',
+  LandareasettingUpdate = 'landareasetting_update',
+  LandareaparameterRead1 = 'landareaparameter_read',
+  LandareaparameterUpdate2 = 'landareaparameter_update',
+  LandareaparameterDelete = 'landareaparameter_delete',
+  SeedstockRead = 'seedstock_read',
+  SeedstockUpdate = 'seedstock_update',
+  SeedstockDelete = 'seedstock_delete',
+  SeedstockentryRead = 'seedstockentry_read',
+  SeedstockentryUpdate = 'seedstockentry_update',
+  SeedstockentryDelete = 'seedstockentry_delete',
+  LandmemberRead = 'landmember_read',
+  LandmemberUpdate = 'landmember_update',
+  LandmemberDelete = 'landmember_delete',
+  LandtaskRead = 'landtask_read',
+  LandtaskRead3 = 'landtask_read',
+  LandtaskUpdate = 'landtask_update',
+  LandtaskDelete = 'landtask_delete',
+  LandtaskMarkAsDone = 'landtask_mark_as_done',
+  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
+  LandcultivationplanRead = 'landcultivationplan_read',
+  LandcultivationplanCreate = 'landcultivationplan_create',
+  LandcultivationplanUpdate = 'landcultivationplan_update',
+  LandcultivationplanDelete = 'landcultivationplan_delete',
+  LandroleRead = 'landrole_read',
+  LandroleRead4 = 'landrole_read',
+  LandroleUpdate = 'landrole_update',
+  LandroleDelete = 'landrole_delete',
+  LandmemberinvitationRead = 'landmemberinvitation_read',
+  LandmemberinvitationCreate = 'landmemberinvitation_create',
+  LandmemberinvitationUpdate = 'landmemberinvitation_update',
+  LandmemberinvitationDelete = 'landmemberinvitation_delete',
+  LandsettingRead = 'landsetting_read',
+  LandsettingUpdate = 'landsetting_update',
 }
 
 export interface LandSetting {
@@ -1285,6 +1394,12 @@ export enum LandTaskStateEnum {
 
 /** @default "asc" */
 export enum OrderDueDateEnum {
+  Asc = 'asc',
+  Desc = 'desc',
+}
+
+/** @default "asc" */
+export enum OrderPositionEnum {
   Asc = 'asc',
   Desc = 'desc',
 }

@@ -9,6 +9,7 @@
     "allowJs": true,
 
     "isolatedModules": true,
+    "isolatedDeclarations": true,
     "verbatimModuleSyntax": true,
     "incremental": true,
 

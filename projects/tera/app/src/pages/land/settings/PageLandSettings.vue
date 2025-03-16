@@ -1,6 +1,6 @@
 <template>
   <SectionWithTitle :title="t('title')">
-    <Tabs default-value="general">
+    <Tabs default-value="team">
       <TabsList class="grid w-full grid-cols-4">
         <TabsTrigger value="general">
           {{ t('tabs.general.title') }}
@@ -18,13 +18,9 @@
       <TabsContent value="general">
         <PageLandSettingsGeneral />
       </TabsContent>
-      <TabsContent value="subscription">
-        {{ t('tabs.subscription.content') }}
-      </TabsContent>
-      <TabsContent value="notifications">
-        {{ t('tabs.notifications.content') }}
-      </TabsContent>
-      <TabsContent value="team"> {{ t('tabs.team.content') }} </TabsContent>
+      <TabsContent value="subscription"> </TabsContent>
+      <TabsContent value="notifications"> </TabsContent>
+      <TabsContent value="team"> <PageLandSettingsTeam /> </TabsContent>
     </Tabs>
   </SectionWithTitle>
 </template>
@@ -35,6 +31,7 @@ import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/S
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
 import { inject } from 'vue';
 import PageLandSettingsGeneral from './PageLandSettingsGeneral.vue';
+import PageLandSettingsTeam from './PageLandSettingsTeam.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 

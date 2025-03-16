@@ -38,7 +38,21 @@ export default {
     },
     team: {
       title: 'Équipe',
+      members: {
+        title: 'Membres',
+        description: 'Les membres de votre espace de culture.',
+      },
+      invitations: {
+        title: 'Invitations',
+        description: 'Gérez les invitations en attente pour rejoindre votre espace de culture.',
+      },
+      roles: {
+        title: 'Rôles',
+        description:
+          'Configurez et gérez les différents rôles et permissions au sein de votre espace de culture.',
+      },
     },
+
     subscription: {
       title: 'Abonnement',
     },

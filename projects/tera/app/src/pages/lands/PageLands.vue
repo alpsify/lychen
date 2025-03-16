@@ -54,7 +54,7 @@
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
 import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
-import CardTeraLand from '@lychen/tera-ui-components/card/land/CardTeraLand.vue';
+import CardTeraLand from '@lychen/tera-ui-components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
