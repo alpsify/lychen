@@ -9,13 +9,16 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
+use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Constant\LandAreaKind;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
 use App\Security\Constant\LandAreaPermission;
 use App\Security\Interface\LandAwareInterface;
 use App\Workflow\LandArea\LandAreaWorkflowPlace;
+use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -31,7 +34,29 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandAreaRepository::class)]
 #[ApiResource()]
-#[Post(securityPostDenormalize: "is_granted('" . LandAreaPermission::CREATE . "', object)")]
+#[Post(openapi: new Operation(
+    summary: 'Create a land area',
+    requestBody: new RequestBody(
+        content: new ArrayObject([
+            'application/ld+json' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'name' => ['type' => 'string'],
+                        'description' => ['type' => 'string'],
+                        'land' => ['type' => 'string'],
+                    ],
+                    'required' => ['name', 'land']
+                ],
+                'example' => [
+                    'name' => 'Table 1',
+                    'description' => 'An amazing growing table',
+                    'land' => '/api/land/{ulid}'
+                ]
+            ]
+        ])
+    )
+), securityPostDenormalize: "is_granted('" . LandAreaPermission::CREATE . "', object)",)]
 #[Patch(security: "is_granted('" . LandAreaPermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandAreaPermission::DELETE . "', object)")]
 #[Get(security: "is_granted('" . LandAreaPermission::READ . "', object)")]

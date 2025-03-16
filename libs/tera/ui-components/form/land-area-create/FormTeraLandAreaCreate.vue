@@ -80,8 +80,8 @@ import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import {
-  type LandPostPayload,
   LandAreaKindEnum,
+  type LandAreaPostPayload,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { ToggleGroup, ToggleGroupItem } from '@lychen/vue-ui-components-core/toggle-group';
 
@@ -94,7 +94,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 const formSchema = toTypedSchema(
   z.object({
     name: z.string().min(2).max(40),
-    kind: z.nativeEnum(LandAreaKindEnum).default(LandAreaKindEnum.OPEN_SOIL),
+    kind: z.nativeEnum(LandAreaKindEnum).default(LandAreaKindEnum.OpenSoil),
     surface: z.number().min(1),
   }),
 );
@@ -103,10 +103,10 @@ const { isFieldDirty, handleSubmit, meta } = useForm({
   validationSchema: formSchema,
 });
 
-const landApi = useTeraApi('Land');
+const landApi = useTeraApi('LandArea');
 
 const { mutate } = useMutation({
-  mutationFn: (newLand: LandPostPayload) => landApi.landPost(newLand),
+  mutationFn: (newLandArea: LandAreaPostPayload) => landApi.landAreaPost(newLandArea),
   onSuccess: (data, variables, context) => {
     toast({
       title: 'Espace de culture créé',

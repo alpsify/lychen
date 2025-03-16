@@ -24,6 +24,10 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
   },
+  "scripts": {
+    "typecheck": "tsc",
+    "typecheck:watch": "tsc -w"
+  },
   "engines": {
     "node": "23.8.0"
   },

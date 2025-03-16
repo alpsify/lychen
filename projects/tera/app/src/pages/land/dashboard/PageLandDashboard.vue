@@ -5,10 +5,12 @@
   >
     <div class="flex flex-row gap-4 items-center justify-between">
       <BaseHeading>{{ land.name }}</BaseHeading>
-      <Button
-        :icon="faGear"
-        variant="container-high"
-      />
+      <RouterLink :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }">
+        <Button
+          :icon="faGear"
+          variant="container-high"
+        />
+      </RouterLink>
     </div>
 
     <div class="flex flex-col gap-4">
@@ -93,6 +95,7 @@ import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import { RoutePageLandSettings } from '../settings';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

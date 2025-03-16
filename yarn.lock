@@ -2563,7 +2563,6 @@ __metadata:
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
     "@tanstack/vue-query": "npm:^5.67.3"
     "@tanstack/vue-table": "npm:^8.21.2"
     "@vee-validate/zod": "npm:^4.15.0"

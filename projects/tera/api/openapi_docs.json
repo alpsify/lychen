@@ -729,7 +729,7 @@
                         "description": "Unprocessable entity"
                     }
                 },
-                "summary": "Creates a LandArea resource.",
+                "summary": "Create a land area",
                 "description": "Creates a LandArea resource.",
                 "parameters": [],
                 "requestBody": {
@@ -737,11 +737,31 @@
                     "content": {
                         "application/ld+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandArea.jsonld"
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "land": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "land"
+                                ]
+                            },
+                            "example": {
+                                "name": "Table 1",
+                                "description": "An amazing growing table",
+                                "land": "/api/land/{ulid}"
                             }
                         }
                     },
-                    "required": true
+                    "required": false
                 },
                 "deprecated": false
             }

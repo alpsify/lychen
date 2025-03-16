@@ -244,6 +244,12 @@ export enum LandAreaParameterJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+export interface LandAreaPostPayload {
+  description?: string;
+  land: string;
+  name: string;
+}
+
 export interface LandAreaSetting {
   id?: number;
   /**
