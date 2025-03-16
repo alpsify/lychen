@@ -15,8 +15,8 @@ import type {
   LandTaskJsonld,
   LandTaskMarkAsDonePayload,
   LandTaskMarkAsInProgressPayload,
-} from './data-contracts';
-import { ContentType, HttpClient, type RequestParams } from './http-client';
+} from "./data-contracts";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class LandTask<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -74,9 +74,9 @@ export class LandTask<SecurityDataType = unknown> {
       {
         member: LandTaskJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -89,8 +89,8 @@ export class LandTask<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -104,11 +104,11 @@ export class LandTask<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_tasks`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -127,11 +127,11 @@ export class LandTask<SecurityDataType = unknown> {
   landTaskPost = (data: LandTaskJsonld, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -150,10 +150,10 @@ export class LandTask<SecurityDataType = unknown> {
   landTaskGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -172,7 +172,7 @@ export class LandTask<SecurityDataType = unknown> {
   landTaskDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_tasks/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       type: ContentType.JsonLd,
       ...params,
@@ -195,10 +195,10 @@ export class LandTask<SecurityDataType = unknown> {
   landTaskPatch = (ulid: string, data: LandTask, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -216,17 +216,13 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landTaskMarkAsDone = (
-    ulid: string,
-    data?: LandTaskMarkAsDonePayload,
-    params: RequestParams = {},
-  ) =>
+  landTaskMarkAsDone = (ulid: string, data?: LandTaskMarkAsDonePayload, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}/mark_as_done`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -244,17 +240,13 @@ export class LandTask<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landTaskMarkAsInProgress = (
-    ulid: string,
-    data?: LandTaskMarkAsInProgressPayload,
-    params: RequestParams = {},
-  ) =>
+  landTaskMarkAsInProgress = (ulid: string, data?: LandTaskMarkAsInProgressPayload, params: RequestParams = {}) =>
     this.http.request<LandTaskJsonld, void>({
       path: `/api/land_tasks/${ulid}/mark_as_in_progress`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

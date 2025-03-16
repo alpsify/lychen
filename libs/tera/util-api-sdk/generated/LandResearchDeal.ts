@@ -9,12 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  LandResearchDeal,
-  LandResearchDealGetCollectionParams,
-  LandResearchDealJsonld,
-} from './data-contracts';
-import { ContentType, HttpClient, type RequestParams } from './http-client';
+import type { LandResearchDeal, LandResearchDealGetCollectionParams, LandResearchDealJsonld } from "./data-contracts";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class LandResearchDeal<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -66,17 +62,14 @@ export class LandResearchDeal<SecurityDataType = unknown> {
 
 }` LandResearchDeal collection
  */
-  landResearchDealGetCollection = (
-    query: LandResearchDealGetCollectionParams,
-    params: RequestParams = {},
-  ) =>
+  landResearchDealGetCollection = (query: LandResearchDealGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
         member: LandResearchDealJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -89,8 +82,8 @@ export class LandResearchDeal<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -104,11 +97,11 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       any
     >({
       path: `/api/land_research_deals`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -127,11 +120,11 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealPost = (data: LandResearchDealJsonld, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -149,10 +142,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -170,7 +163,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_research_deals/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       type: ContentType.JsonLd,
       ...params,
@@ -192,10 +185,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealPatch = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/accept`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -217,10 +210,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealPatch2 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/archive`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -242,10 +235,10 @@ export class LandResearchDeal<SecurityDataType = unknown> {
   landResearchDealPatch3 = (ulid: string, data: LandResearchDeal, params: RequestParams = {}) =>
     this.http.request<LandResearchDealJsonld, void>({
       path: `/api/land_research_deals/${ulid}/refuse`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

@@ -9,13 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type {
-  LandArea,
-  LandAreaGetCollectionParams,
-  LandAreaJsonld,
-  LandAreaPostPayload,
-} from './data-contracts';
-import { ContentType, HttpClient, type RequestParams } from './http-client';
+import type { LandArea, LandAreaGetCollectionParams, LandAreaJsonld, LandAreaPostPayload } from "./data-contracts";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class LandArea<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -73,9 +68,9 @@ export class LandArea<SecurityDataType = unknown> {
       {
         member: LandAreaJsonld[];
         search?: {
-          '@type'?: string;
+          "@type"?: string;
           mapping?: {
-            '@type'?: string;
+            "@type"?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -88,8 +83,8 @@ export class LandArea<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          '@id'?: string;
-          '@type'?: string;
+          "@id"?: string;
+          "@type"?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -103,11 +98,11 @@ export class LandArea<SecurityDataType = unknown> {
       void
     >({
       path: `/api/land_areas`,
-      method: 'GET',
+      method: "GET",
       query: query,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -126,11 +121,11 @@ export class LandArea<SecurityDataType = unknown> {
   landAreaPost = (data?: LandAreaPostPayload, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas`,
-      method: 'POST',
+      method: "POST",
       body: data,
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -149,10 +144,10 @@ export class LandArea<SecurityDataType = unknown> {
   landAreaGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -171,7 +166,7 @@ export class LandArea<SecurityDataType = unknown> {
   landAreaDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/land_areas/${ulid}`,
-      method: 'DELETE',
+      method: "DELETE",
       secure: true,
       type: ContentType.JsonLd,
       ...params,
@@ -194,10 +189,10 @@ export class LandArea<SecurityDataType = unknown> {
   landAreaPatch = (ulid: string, data: LandArea, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }
