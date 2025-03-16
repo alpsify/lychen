@@ -4,7 +4,7 @@
     title="Zone de danger"
     description=""
   >
-    <div class="flex flex-row gap-2 justify-between">
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
       <div>
         <BaseHeading variant="h3">Transférer la propriété</BaseHeading>
         <p class="opacity-80">Transfer this land to another user.</p>
@@ -15,7 +15,7 @@
         >Transférer</Button
       >
     </div>
-    <div class="flex flex-row gap-2 justify-between">
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
       <div>
         <BaseHeading variant="h3">Supprimer cet espace de culture</BaseHeading>
         <p class="opacity-80">

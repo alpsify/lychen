@@ -10,8 +10,8 @@ export { default as SectionSetting } from './SectionSetting.vue';
 export const sectionSettingVariants = cva('gap-4', {
   variants: {
     variant: {
-      [VARIANT.Default]: 'grid grid-cols-[30%_1fr]',
-      [VARIANT.FullWidth]: 'glex flex-col',
+      [VARIANT.Default]: 'flex flex-col md:grid md:grid-cols-[30%_1fr]',
+      [VARIANT.FullWidth]: 'flex flex-col',
     },
   },
   defaultVariants: {
