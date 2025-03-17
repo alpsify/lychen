@@ -3,7 +3,7 @@
     class="flex flex-col gap-6"
     @submit="onSubmit"
   >
-    <FormFieldTeraLandName :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraLandRoleName :is-field-dirty="isFieldDirty" />
     <FormFieldTeraPermissions
       :is-field-dirty="isFieldDirty"
       :model-value="values.permissions"
@@ -31,7 +31,7 @@ import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
-import FormFieldTeraLandName from './fields/FormFieldTeraLandRoleName.vue';
+import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
 import type {

@@ -6,7 +6,6 @@ use App\Entity\Person;
 use App\Factory\PersonFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Lychen\UtilZitadelBundle\Services\ProjectMember;
 use Lychen\UtilZitadelBundle\Services\User;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use function Zenstruck\Foundry\faker;
@@ -25,7 +24,7 @@ class PersonFixtures extends Fixture
     public const string PERSON_7 = 'person-7';
     public const string ADMIN_1 = 'admin-1';
 
-    public function __construct(private readonly User $user, private readonly ProjectMember $projectMember, private readonly string $zitadelProjectId)
+    public function __construct(private readonly User $user, private readonly string $zitadelProjectId)
     {
     }
 
@@ -65,7 +64,6 @@ class PersonFixtures extends Fixture
                 $data = $this->user->searchByEmail($userEmail);
             }
         }
-
         return $this->createPersonAndAddReference($reference, ['authId' => $data['userId']]);
     }
 

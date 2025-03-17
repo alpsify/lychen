@@ -7,19 +7,25 @@
       v-if="landMembers"
       class="flex flex-col gap-4"
     >
-      <Card
+      <CardTeraLandMember
         v-for="(item, index) in landMembers.member"
         :key="index"
-        class=""
-      >
-        {{ item.email }}</Card
-      >
+        :land-member="item"
+      />
     </div>
   </SectionSetting>
   <SectionSetting
     :title="t('tabs.team.invitations.title')"
     :description="t('tabs.team.invitations.description')"
   >
+    <template #subTitle>
+      <Button
+        :icon="faPlus"
+        variant="container-high"
+        class="self-start"
+        :text="tLandMemberInvitation('action.create.label')"
+      ></Button>
+    </template>
     <div
       v-if="landMemberInvitations"
       class="flex flex-col gap-4"
@@ -74,6 +80,10 @@ import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-role';
+import {
+  messages as landMemberInvitationMessages,
+  TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
+} from '@lychen/tera-ui-i18n/land-member-invitation';
 import { computed, inject } from 'vue';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { useQuery } from '@tanstack/vue-query';
@@ -91,6 +101,7 @@ import {
   landRoleDeleteSucceededEvent,
 } from '@lychen/tera-util-events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
+import CardTeraLandMember from '@lychen/tera-ui-components/land-member/card/CardTeraLandMember.vue';
 
 const land = inject(INJECT_LAND_KEY);
 const landId = computed(() => land?.value?.['@id']);
@@ -105,6 +116,12 @@ const { t } = useI18nExtended({
 const { t: tLandRole } = useI18nExtended({
   messages: landRoleMessages,
   rootKey: LAND_ROLE_TRANSLATION_KEY,
+  prefixed: true,
+});
+
+const { t: tLandMemberInvitation } = useI18nExtended({
+  messages: landMemberInvitationMessages,
+  rootKey: LAND_MEMBER_INVITATION_TRANSLATION_KEY,
   prefixed: true,
 });
 

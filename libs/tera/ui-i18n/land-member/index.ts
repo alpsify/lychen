@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'lychen_tera_land_role';
+export const TRANSLATION_KEY = 'lychen_tera_land_member';

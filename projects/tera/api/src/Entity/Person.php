@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilZitadelBundle\Abstract\AbstractZitadelUser;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: PersonRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_AUTH_ID', fields: ['authId'])]
@@ -50,6 +51,18 @@ class Person extends AbstractZitadelUser
         $this->plantCustoms = new ArrayCollection();
         $this->seedStocks = new ArrayCollection();
         $this->landMemberInvitations = new ArrayCollection();
+    }
+
+    #[Groups(["user:land_member:collection"])]
+    public function getGivenName(): ?string
+    {
+        return parent::getGivenName();
+    }
+
+    #[Groups(["user:land_member:collection"])]
+    public function getFamilyName(): ?string
+    {
+        return parent::getFamilyName();
     }
 
     /**

@@ -15,7 +15,7 @@
         v-for="permission in landRole.permissions"
         :key="permission"
         :permission="permission"
-        class="bg-surface-container-high text-on-surface-container mr-2"
+        class="bg-surface-container-high text-on-surface-container mr-2 font-normal"
       />
     </div>
   </Card>

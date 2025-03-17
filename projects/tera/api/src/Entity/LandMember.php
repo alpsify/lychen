@@ -26,9 +26,23 @@ use Symfony\Component\Uid\Ulid;
 #[Patch(security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
 #[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
-#[GetCollection(security: "is_granted('" . LandMemberPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
-])]
+#[GetCollection(
+    security: "is_granted('" . LandMemberPermission::READ . "')",
+    parameters: [
+        new QueryParameter(
+            key: 'land',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'Filter by land',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: LandFilter::class,
+            required: true
+        )
+    ])]
 #[ORM\HasLifecycleCallbacks]
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
