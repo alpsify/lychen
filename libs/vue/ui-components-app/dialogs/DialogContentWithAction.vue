@@ -1,6 +1,6 @@
 <template>
   <DialogContent
-    class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[30%] w-full max-h-dvh overflow-y-auto gap-8"
+    class="bg-surface-container-high/90 text-on-surface-container md:max-w-[30%] w-full max-h-dvh overflow-y-auto gap-8"
   >
     <DialogHeader>
       <slot name="header">
