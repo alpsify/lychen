@@ -39,5 +39,5 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true
   },
-  "exclude": ["**/vendor/**", "**/.moon/**", "**/dist/**"]
+  "exclude": ["**/vendor/**", "**/.moon/**", "**/dist/**", "**/generated/**"]
 }

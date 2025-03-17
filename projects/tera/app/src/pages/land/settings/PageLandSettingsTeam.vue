@@ -54,11 +54,13 @@
       v-if="landRoles"
       class="flex flex-col gap-4"
     >
-      <CardTeraLandRole
+      <DialogTeraLandRoleUpdate
         v-for="(item, index) in landRoles.member"
         :key="index"
         :land-role="item"
-      />
+      >
+        <CardTeraLandRole :land-role="item" />
+      </DialogTeraLandRoleUpdate>
     </div>
   </SectionSetting>
 </template>
@@ -81,8 +83,13 @@ import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import CardTeraLandRole from '@lychen/tera-ui-components/land-role/card/CardTeraLandRole.vue';
 import DialogTeraLandRoleCreate from '@lychen/tera-ui-components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';
+import DialogTeraLandRoleUpdate from '@lychen/tera-ui-components/land-role/dialogs/update/DialogTeraLandRoleUpdate.vue';
 
-import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
+import {
+  landRolePostSucceededEvent,
+  landRolePatchSucceededEvent,
+  landRoleDeleteSucceededEvent,
+} from '@lychen/tera-util-events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
 
 const land = inject(INJECT_LAND_KEY);
@@ -116,8 +123,18 @@ const { data: landRoles, refetch: refetchLandRoles } = useQuery({
 });
 
 const { on } = useEventBus(landRolePostSucceededEvent);
+const { on: onPatch } = useEventBus(landRolePatchSucceededEvent);
+const { on: onDelete } = useEventBus(landRoleDeleteSucceededEvent);
 
 on(() => {
+  refetchLandRoles();
+});
+
+onPatch(() => {
+  refetchLandRoles();
+});
+
+onDelete(() => {
   refetchLandRoles();
 });
 

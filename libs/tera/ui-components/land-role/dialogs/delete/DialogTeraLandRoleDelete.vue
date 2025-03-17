@@ -29,7 +29,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-ui-i18n/land';
+} from '@lychen/tera-ui-i18n/land-role';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';

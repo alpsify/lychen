@@ -4,7 +4,11 @@
     @submit="onSubmit"
   >
     <FormFieldTeraLandName :is-field-dirty="isFieldDirty" />
-    <FormFieldTeraLandRolePermissions :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraPermissions
+      :is-field-dirty="isFieldDirty"
+      :model-value="values.permissions"
+      @update:model-value="handlePermissionsUpdate"
+    />
     <Button
       :disabled="!meta.valid || isPending || !meta.dirty"
       :loading="isPending"
@@ -28,7 +32,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandRoleName.vue';
-import FormFieldTeraLandRolePermissions from './fields/FormFieldTeraLandRolePermissions.vue';
+import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
 import type {
   LandRoleJsonld,
@@ -41,7 +45,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta } = useForm<LandRolePatchPayload>({
+const { isFieldDirty, handleSubmit, meta, setFieldValue, values } = useForm<LandRolePatchPayload>({
   initialValues: {
     name: landRole.name,
     permissions: landRole.permissions as LandRolePatchPermissionsEnum[],
@@ -68,4 +72,8 @@ const { mutate, isPending } = useMutation({
 const onSubmit = handleSubmit((values) => {
   mutate(values);
 });
+
+function handlePermissionsUpdate(newPermissions: LandRolePatchPermissionsEnum[]) {
+  setFieldValue('permissions', newPermissions);
+}
 </script>

@@ -12,6 +12,7 @@
             <TagsInput
               v-model="selectedPermissions"
               class="px-2 gap-2"
+              @update:model-value="emit('update:modelValue', selectedPermissions)"
             >
               <div class="flex gap-2 flex-wrap items-center">
                 <TagsInputItem
@@ -22,7 +23,7 @@
                   <TagsInputItemText class="px-2">
                     {{ t(item) }}
                   </TagsInputItemText>
-                  <TagsInputItemDelete />
+                  <TagsInputItemDelete @delete="deletePermission(item)" />
                 </TagsInputItem>
               </div>
 
@@ -39,7 +40,7 @@
               <Button
                 :icon="faShieldCheck"
                 size="xs"
-                @click="addAllOptions()"
+                @click.stop.prevent="addAllOptions()"
               />
             </TagsInput>
           </ComboboxAnchor>
@@ -76,6 +77,7 @@
 
 <script setup lang="ts">
 import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+import { faShieldCheck } from '@fortawesome/pro-light-svg-icons/faShieldCheck';
 import {
   Combobox,
   ComboboxAnchor,
@@ -115,7 +117,6 @@ import {
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-role';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { faShieldCheck } from '@fortawesome/pro-light-svg-icons/faShieldCheck';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({
@@ -125,7 +126,7 @@ const { t: tLandRole } = useI18nExtended({
 });
 const allPermissions = Object.values(LandRolePostPermissionsEnum);
 
-const permissionOptions = ref<{ label: string; value: string }[]>([]); // Initialize as an empty array
+const permissionOptions = ref<{ label: string; value: string }[]>([]);
 const selectedPermissions = ref<string[]>([]);
 
 const props = defineProps({
@@ -154,7 +155,7 @@ onMounted(async () => {
   permissionOptions.value = await Promise.all(
     allPermissions.map(async (permission) => ({
       value: permission,
-      label: await t(permission), // Await the translation
+      label: await t(permission),
     })),
   );
 });
@@ -184,6 +185,7 @@ function handlePermissionSelect(value: string) {
   searchTerm.value = '';
   if (!selectedPermissions.value.includes(value)) {
     selectedPermissions.value.push(value);
+    emit('update:modelValue', selectedPermissions.value);
   }
 }
 
@@ -193,13 +195,14 @@ function addAllOptions() {
       selectedPermissions.value.push(option.value);
     }
   });
+  emit('update:modelValue', selectedPermissions.value);
 }
 
-watch(
-  () => selectedPermissions.value,
-  (newVal) => {
-    emit('update:modelValue', newVal);
-  },
-  { deep: true },
-);
+function deletePermission(permission: string) {
+  const index = selectedPermissions.value.indexOf(permission);
+  if (index > -1) {
+    selectedPermissions.value.splice(index, 1);
+    emit('update:modelValue', selectedPermissions.value);
+  }
+}
 </script>
