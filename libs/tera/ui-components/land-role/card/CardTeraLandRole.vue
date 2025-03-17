@@ -8,7 +8,7 @@
       v-if="landRole.landMembers"
       class="opacity-70 text-sm"
     >
-      {{ t('property.land_members.default', landRole.landMembers.length) }}
+      {{ t('property.land_members.default', landRole.landMembers?.length || 0) }}
     </p>
   </Card>
 </template>

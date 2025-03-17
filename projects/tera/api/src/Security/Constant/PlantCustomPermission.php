@@ -6,7 +6,7 @@ use App\Security\Helper\PermissionManager;
 
 final readonly class PlantCustomPermission
 {
-    public const string PREFIX = 'landareaparameter' . PermissionManager::SEPARATOR;
+    public const string PREFIX = 'plantcustom' . PermissionManager::SEPARATOR;
 
     public const string READ = self::PREFIX . 'read';
     public const string UPDATE = self::PREFIX . 'update';

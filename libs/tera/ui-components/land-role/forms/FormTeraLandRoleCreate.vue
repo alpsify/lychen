@@ -52,7 +52,7 @@ const landApi = useTeraApi('LandRole');
 
 const { mutate, isPending } = useMutation({
   mutationFn: (newLandRole: LandRolePostPayload) =>
-    landApi.landRolePost({ ...newLandRole, land: land['@id'] }),
+    landApi.landRolePost({ ...newLandRole, land: land['@id']! }),
   onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
     toast({
       title: t('action.create.success.message'),

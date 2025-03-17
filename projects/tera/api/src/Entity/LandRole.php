@@ -37,7 +37,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
 #[Post(openapi: new Operation(
-    summary: 'Create a land',
+    summary: 'Create a land role',
     requestBody: new RequestBody(
         content: new ArrayObject([
             'application/ld+json' => [
@@ -59,7 +59,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                 'example' => [
                     'name' => 'Wonderful garden',
                     'permissions' => [...LandAreaPermission::ALL],
-                    'land' => '/api/land/{ulid}'
+                    'land' => '/api/lands/{ulid}'
                 ]
             ]
         ])

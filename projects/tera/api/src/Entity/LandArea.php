@@ -51,7 +51,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                 'example' => [
                     'name' => 'Table 1',
                     'description' => 'An amazing growing table',
-                    'land' => '/api/land/{ulid}'
+                    'land' => '/api/lands/{ulid}'
                 ]
             ]
         ])

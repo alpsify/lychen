@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig-moon/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./", //If not setup gener TS6059 error on .vue files import
+    "rootDir": "./", //If not setup generate TS6059 error on .vue files import
 
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
@@ -20,9 +20,10 @@
 
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "moduleDetection": "force",
+    "moduleDetection": "auto",
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 
     "sourceMap": true,
     "composite": true,
