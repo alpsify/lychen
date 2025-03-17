@@ -2944,7 +2944,7 @@ __metadata:
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     embla-carousel-vue: "npm:^8.5.2"
-    reka-ui: "npm:^2.0.2"
+    reka-ui: "npm:^2.1.0"
     tailwind-merge: "npm:^3.0.2"
     tailwindcss: "npm:^4.0.13"
     vaul-vue: "npm:^0.3.0"
@@ -9972,9 +9972,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reka-ui@npm:^2.0.0, reka-ui@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "reka-ui@npm:2.0.2"
+"reka-ui@npm:^2.0.0, reka-ui@npm:^2.0.2, reka-ui@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "reka-ui@npm:2.1.0"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.13"
     "@floating-ui/vue": "npm:^1.1.6"
@@ -9988,7 +9988,7 @@ __metadata:
     ohash: "npm:^1.1.4"
   peerDependencies:
     vue: ">= 3.2.0"
-  checksum: 10c0/1a15b955f6ae056820d9dff2d6e4ab8ef4accdb13ecf4b2e70f61d27623e2e3598acc3eadddc39d4157089b0ae81638bb11511187b4787f3f2491aba64624751
+  checksum: 10c0/1940eba8a612ed411d5282bf7a4db84e99ed5ec485c12c38d9d4ff8c45176f3d7fc51c1e30a634f8856658ac3a485c75c8ecd9f21a9f26fb0461afc97cd695f5
   languageName: node
   linkType: hard
 
