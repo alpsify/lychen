@@ -2345,7 +2345,7 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Updates the LandMember resource.",
+                "summary": "Update a land",
                 "description": "Updates the LandMember resource.",
                 "parameters": [
                     {
@@ -2368,11 +2368,26 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandMember"
+                                "type": "object",
+                                "properties": {
+                                    "landRoles": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
+                            },
+                            "example": {
+                                "landRoles": [
+                                    "/api/land_roles/{ulid}",
+                                    "/api/land_roles/{ulid}"
+                                ]
                             }
                         }
                     },
-                    "required": true
+                    "required": false
                 },
                 "deprecated": false
             }

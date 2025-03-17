@@ -59,5 +59,8 @@ export default {
     notifications: {
       title: 'Notifications',
     },
+    api: {
+      title: 'API',
+    },
   },
 };

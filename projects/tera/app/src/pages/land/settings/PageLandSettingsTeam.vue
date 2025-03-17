@@ -7,11 +7,13 @@
       v-if="landMembers"
       class="flex flex-col gap-4"
     >
-      <CardTeraLandMember
+      <DialogTeraLandMemberUpdate
         v-for="(item, index) in landMembers.member"
         :key="index"
         :land-member="item"
-      />
+      >
+        <CardTeraLandMember :land-member="item" />
+      </DialogTeraLandMemberUpdate>
     </div>
   </SectionSetting>
   <SectionSetting
@@ -102,6 +104,16 @@ import {
 } from '@lychen/tera-util-events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
 import CardTeraLandMember from '@lychen/tera-ui-components/land-member/card/CardTeraLandMember.vue';
+import DialogTeraLandMemberUpdate from '@lychen/tera-ui-components/land-member/dialogs/update/DialogTeraLandMemberUpdate.vue';
+import {
+  landMemberDeleteSucceededEvent,
+  landMemberPatchSucceededEvent,
+} from '@lychen/tera-util-events/LandMemberEvents';
+import {
+  landMemberInvitationDeleteSucceededEvent,
+  landMemberInvitationPatchSucceededEvent,
+  landMemberInvitationPostSucceededEvent,
+} from '@lychen/tera-util-events/LandMemberInvitationEvents';
 
 const land = inject(INJECT_LAND_KEY);
 const landId = computed(() => land?.value?.['@id']);
@@ -139,19 +151,19 @@ const { data: landRoles, refetch: refetchLandRoles } = useQuery({
   enabled,
 });
 
-const { on } = useEventBus(landRolePostSucceededEvent);
-const { on: onPatch } = useEventBus(landRolePatchSucceededEvent);
-const { on: onDelete } = useEventBus(landRoleDeleteSucceededEvent);
+const { on: onLandRolePost } = useEventBus(landRolePostSucceededEvent);
+const { on: onLandRolePatch } = useEventBus(landRolePatchSucceededEvent);
+const { on: onLandRoleDelete } = useEventBus(landRoleDeleteSucceededEvent);
 
-on(() => {
+onLandRolePost(() => {
   refetchLandRoles();
 });
 
-onPatch(() => {
+onLandRolePatch(() => {
   refetchLandRoles();
 });
 
-onDelete(() => {
+onLandRoleDelete(() => {
   refetchLandRoles();
 });
 
@@ -167,6 +179,22 @@ const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = u
   enabled,
 });
 
+const { on: onLandMemberInvitationPost } = useEventBus(landMemberInvitationPostSucceededEvent);
+const { on: onLandMemberInvitationPatch } = useEventBus(landMemberInvitationPatchSucceededEvent);
+const { on: onLandMemberInvitationDelete } = useEventBus(landMemberInvitationDeleteSucceededEvent);
+
+onLandMemberInvitationPost(() => {
+  refetchLandMemberInvitations();
+});
+
+onLandMemberInvitationPatch(() => {
+  refetchLandMemberInvitations();
+});
+
+onLandMemberInvitationDelete(() => {
+  refetchLandMemberInvitations();
+});
+
 const { data: landMembers, refetch: refetchLandMembers } = useQuery({
   queryKey: ['landMembers', landId],
   queryFn: async () => {
@@ -177,5 +205,16 @@ const { data: landMembers, refetch: refetchLandMembers } = useQuery({
     return response.data;
   },
   enabled,
+});
+
+const { on: onLandMemberPatch } = useEventBus(landMemberPatchSucceededEvent);
+const { on: onLandMemberDelete } = useEventBus(landMemberDeleteSucceededEvent);
+
+onLandMemberPatch(() => {
+  refetchLandMembers();
+});
+
+onLandMemberDelete(() => {
+  refetchLandMembers();
 });
 </script>

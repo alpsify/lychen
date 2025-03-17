@@ -837,6 +837,10 @@ export enum LandMemberJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+export interface LandMemberPatchPayload {
+  landRoles?: string[];
+}
+
 export interface LandMemberSetting {
   emailNotificationActivated?: boolean;
   id?: number;

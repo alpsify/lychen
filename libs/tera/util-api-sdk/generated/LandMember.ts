@@ -9,7 +9,11 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandMember, LandMemberGetCollectionParams, LandMemberJsonld } from './data-contracts';
+import type {
+  LandMemberGetCollectionParams,
+  LandMemberJsonld,
+  LandMemberPatchPayload,
+} from './data-contracts';
 import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandMember<SecurityDataType = unknown> {
@@ -154,7 +158,7 @@ export class LandMember<SecurityDataType = unknown> {
    *
    * @tags LandMember
    * @name LandMemberPatch
-   * @summary Updates the LandMember resource.
+   * @summary Update a land
    * @request PATCH:/api/land_members/{ulid}
    * @secure
    * @response `200` `LandMemberJsonld` LandMember resource updated
@@ -163,7 +167,7 @@ export class LandMember<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landMemberPatch = (ulid: string, data: LandMember, params: RequestParams = {}) =>
+  landMemberPatch = (ulid: string, data?: LandMemberPatchPayload, params: RequestParams = {}) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
       method: 'PATCH',

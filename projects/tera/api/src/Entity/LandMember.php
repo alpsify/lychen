@@ -8,11 +8,14 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
+use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
+use ArrayObject;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,7 +26,30 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
-#[Patch(security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
+#[Patch(openapi: new Operation(
+    summary: 'Update a land',
+    requestBody: new RequestBody(
+        content: new ArrayObject([
+            'application/merge-patch+json' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'landRoles' => [
+                            'type' => 'array',
+                            'items' => [
+                                'type' => 'string',
+                                'format' => 'iri-reference'
+                            ]
+                        ],
+                    ],
+                ],
+                'example' => [
+                    'landRoles' => ['/api/land_roles/{ulid}', '/api/land_roles/{ulid}'],
+                ]
+            ]
+        ])
+    )
+), security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
 #[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
 #[GetCollection(

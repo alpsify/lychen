@@ -1,7 +1,7 @@
 <template>
   <SectionWithTitle :title="t('title')">
     <Tabs default-value="team">
-      <TabsList class="grid w-full grid-cols-4">
+      <TabsList class="grid w-full grid-cols-5">
         <TabsTrigger value="general">
           {{ t('tabs.general.title') }}
         </TabsTrigger>
@@ -13,6 +13,9 @@
         </TabsTrigger>
         <TabsTrigger value="notifications">
           {{ t('tabs.notifications.title') }}
+        </TabsTrigger>
+        <TabsTrigger value="api">
+          {{ t('tabs.api.title') }}
         </TabsTrigger>
       </TabsList>
       <TabsContent value="general">
