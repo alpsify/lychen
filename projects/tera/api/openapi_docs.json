@@ -771,7 +771,7 @@
                             "example": {
                                 "name": "Table 1",
                                 "description": "An amazing growing table",
-                                "land": "/api/land/{ulid}"
+                                "land": "/api/lands/{ulid}"
                             }
                         }
                     },
@@ -3969,7 +3969,7 @@
                         "description": "Unprocessable entity"
                     }
                 },
-                "summary": "Create a land",
+                "summary": "Create a land role",
                 "description": "Creates a LandRole resource.",
                 "parameters": [],
                 "requestBody": {
@@ -4007,9 +4007,9 @@
                                                 "landareaparameter_update",
                                                 "landareasetting_read",
                                                 "landareasetting_update",
-                                                "landareaparameter_read",
-                                                "landareaparameter_update",
-                                                "landareaparameter_delete",
+                                                "plantcustom_read",
+                                                "plantcustom_update",
+                                                "plantcustom_delete",
                                                 "seedstock_read",
                                                 "seedstock_update",
                                                 "seedstock_delete",
@@ -4020,7 +4020,7 @@
                                                 "landmember_update",
                                                 "landmember_delete",
                                                 "landtask_read",
-                                                "landtask_read",
+                                                "landtask_create",
                                                 "landtask_update",
                                                 "landtask_delete",
                                                 "landtask_mark_as_done",
@@ -4030,7 +4030,7 @@
                                                 "landcultivationplan_update",
                                                 "landcultivationplan_delete",
                                                 "landrole_read",
-                                                "landrole_read",
+                                                "landrole_create",
                                                 "landrole_update",
                                                 "landrole_delete",
                                                 "landmemberinvitation_read",
@@ -4060,7 +4060,7 @@
                                     "landarea_update",
                                     "landarea_delete"
                                 ],
-                                "land": "/api/land/{ulid}"
+                                "land": "/api/lands/{ulid}"
                             }
                         }
                     },
@@ -4232,9 +4232,9 @@
                                                 "landareaparameter_update",
                                                 "landareasetting_read",
                                                 "landareasetting_update",
-                                                "landareaparameter_read",
-                                                "landareaparameter_update",
-                                                "landareaparameter_delete",
+                                                "plantcustom_read",
+                                                "plantcustom_update",
+                                                "plantcustom_delete",
                                                 "seedstock_read",
                                                 "seedstock_update",
                                                 "seedstock_delete",
@@ -4245,7 +4245,7 @@
                                                 "landmember_update",
                                                 "landmember_delete",
                                                 "landtask_read",
-                                                "landtask_read",
+                                                "landtask_create",
                                                 "landtask_update",
                                                 "landtask_delete",
                                                 "landtask_mark_as_done",
@@ -4255,7 +4255,7 @@
                                                 "landcultivationplan_update",
                                                 "landcultivationplan_delete",
                                                 "landrole_read",
-                                                "landrole_read",
+                                                "landrole_create",
                                                 "landrole_update",
                                                 "landrole_delete",
                                                 "landmemberinvitation_read",

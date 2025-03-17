@@ -1,6 +1,6 @@
 <template>
   <Card
-    class="px-4 py-2"
+    class="p-4 gap-2"
     hoverable
   >
     <p class="font-medium">{{ landRole.name }}</p>
@@ -10,6 +10,14 @@
     >
       {{ t('property.land_members.default', landRole.landMembers?.length || 0) }}
     </p>
+    <div>
+      <BadgeTeraPermission
+        v-for="permission in landRole.permissions"
+        :key="permission"
+        :permission="permission"
+        class="bg-surface-container-high text-on-surface-container mr-2"
+      />
+    </div>
   </Card>
 </template>
 
@@ -18,6 +26,7 @@ import type { LandRoleJsonld } from '@lychen/tera-util-api-sdk/generated/data-co
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import BadgeTeraPermission from '../../permission/badge/BadgeTeraPermission.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

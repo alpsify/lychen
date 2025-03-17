@@ -19,7 +19,7 @@ const forwardedProps = useForwardProps(delegatedProps);
 <template>
   <TagsInputItemDelete
     v-bind="forwardedProps"
-    :class="cn('flex rounded bg-transparent mr-1', props.class)"
+    :class="cn('flex rounded bg-transparent mr-1 cursor-pointer', props.class)"
   >
     <slot>
       <Icon

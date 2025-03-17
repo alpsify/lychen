@@ -4,7 +4,7 @@
     @submit="onSubmit"
   >
     <FormFieldTeraLandRoleName :is-field-dirty="isFieldDirty" />
-    <FormFieldTeraLandRolePermissions :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraPermissions :is-field-dirty="isFieldDirty" />
     <Button
       :disabled="!meta.valid || isPending"
       :loading="isPending"
@@ -34,7 +34,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useEventBus } from '@vueuse/core';
 import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
-import FormFieldTeraLandRolePermissions from './fields/FormFieldTeraLandRolePermissions.vue';
+import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

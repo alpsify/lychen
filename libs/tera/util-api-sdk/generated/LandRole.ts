@@ -116,7 +116,7 @@ export class LandRole<SecurityDataType = unknown> {
    *
    * @tags LandRole
    * @name LandRolePost
-   * @summary Create a land
+   * @summary Create a land role
    * @request POST:/api/land_roles
    * @secure
    * @response `201` `LandRoleJsonld` LandRole resource created
