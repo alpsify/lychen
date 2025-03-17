@@ -4,7 +4,10 @@
     @submit="onSubmit"
   >
     <FormFieldTeraLandRoleName :is-field-dirty="isFieldDirty" />
-    <FormFieldTeraPermissions :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraPermissions
+      :is-field-dirty="isFieldDirty"
+      @update:model-value="setFieldValue('permissions', $event)"
+    />
     <Button
       :disabled="!meta.valid || isPending"
       :loading="isPending"
@@ -40,7 +43,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta } = useForm<LandRolePostPayload>({
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandRolePostPayload>({
   initialValues: {
     permissions: [LandRolePostPermissionsEnum.LandTransfer],
   },

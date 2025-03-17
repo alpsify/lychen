@@ -1,6 +1,5 @@
 <template>
   <FormField
-    v-slot="{ componentField }"
     :validate-on-blur="!isFieldDirty"
     name="permissions"
     :rules="fieldSchema"
@@ -8,16 +7,15 @@
     <FormItem class="flex flex-col">
       <FormLabel>{{ tLandRole('property.permissions.label') }}</FormLabel>
       <Combobox by="label">
-        <FormControl>
+        <FormControl class="w-full">
           <ComboboxAnchor>
             <TagsInput
-              :model-value="componentField.modelValue"
-              class="px-2 gap-2 w-80"
-              @update:model-value="componentField['onUpdate:modelValue']"
+              v-model="selectedPermissions"
+              class="px-2 gap-2"
             >
               <div class="flex gap-2 flex-wrap items-center">
                 <TagsInputItem
-                  v-for="item in componentField.modelValue"
+                  v-for="item in selectedPermissions"
                   :key="item"
                   :value="item"
                 >
@@ -55,19 +53,7 @@
               v-for="permission in filteredPermissions"
               :key="permission.value"
               :value="permission.value"
-              @select.prevent="
-                (ev) => {
-                  if (typeof ev.detail.value === 'string') {
-                    searchTerm = '';
-                    if (!componentField.modelValue.includes(ev.detail.value)) {
-                      componentField.modelValue.push(ev.detail.value);
-                    }
-                  }
-                  if (filteredPermissions.length === 0) {
-                    open = false;
-                  }
-                }
-              "
+              @select.prevent="handlePermissionSelect(permission.value)"
             >
               {{ permission.label }}
 
@@ -114,7 +100,7 @@ import { useFilter } from 'reka-ui';
 import { LandRolePostPermissionsEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { toTypedSchema } from '@vee-validate/zod';
-import { computed, ref, onMounted } from 'vue';
+import { computed, ref, onMounted, watch } from 'vue';
 import * as z from 'zod';
 import {
   TagsInputItem,
@@ -140,6 +126,29 @@ const { t: tLandRole } = useI18nExtended({
 const allPermissions = Object.values(LandRolePostPermissionsEnum);
 
 const permissionOptions = ref<{ label: string; value: string }[]>([]); // Initialize as an empty array
+const selectedPermissions = ref<string[]>([]);
+
+const props = defineProps({
+  isFieldDirty: {
+    type: Boolean,
+    required: true,
+  },
+  modelValue: {
+    type: Array as () => string[],
+    required: true,
+    default: () => [],
+  },
+});
+
+const emit = defineEmits(['update:modelValue']);
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    selectedPermissions.value = newVal;
+  },
+  { immediate: true, deep: true },
+);
 
 onMounted(async () => {
   permissionOptions.value = await Promise.all(
@@ -158,22 +167,39 @@ const fieldSchema = toTypedSchema(
     .min(1),
 );
 
-defineProps({
-  isFieldDirty: {
-    type: Boolean,
-    required: true,
-  },
-});
-
-const open = ref(false);
 const searchTerm = ref('');
 
 const { contains } = useFilter({ sensitivity: 'base' });
 const filteredPermissions = computed(() => {
   return searchTerm.value
-    ? permissionOptions.value.filter((option) => contains(option.label, searchTerm.value))
-    : permissionOptions.value;
+    ? permissionOptions.value.filter(
+        (option) =>
+          contains(option.label, searchTerm.value) &&
+          !selectedPermissions.value.includes(option.value),
+      )
+    : permissionOptions.value.filter((option) => !selectedPermissions.value.includes(option.value));
 });
 
-function addAllOptions() {}
+function handlePermissionSelect(value: string) {
+  searchTerm.value = '';
+  if (!selectedPermissions.value.includes(value)) {
+    selectedPermissions.value.push(value);
+  }
+}
+
+function addAllOptions() {
+  permissionOptions.value.forEach((option) => {
+    if (!selectedPermissions.value.includes(option.value)) {
+      selectedPermissions.value.push(option.value);
+    }
+  });
+}
+
+watch(
+  () => selectedPermissions.value,
+  (newVal) => {
+    emit('update:modelValue', newVal);
+  },
+  { deep: true },
+);
 </script>
