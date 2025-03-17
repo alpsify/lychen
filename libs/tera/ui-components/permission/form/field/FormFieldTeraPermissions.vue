@@ -97,7 +97,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@lychen/vue-ui-components-core/form';
-import { Icon } from '@lychen/vue-ui-components-core/icon';
 import { useFilter } from 'reka-ui';
 import { LandRolePostPermissionsEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
@@ -117,6 +116,7 @@ import {
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-role';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({
@@ -146,7 +146,7 @@ const emit = defineEmits(['update:modelValue']);
 watch(
   () => props.modelValue,
   (newVal) => {
-    selectedPermissions.value = newVal;
+    selectedPermissions.value = [...newVal];
   },
   { immediate: true, deep: true },
 );
@@ -182,27 +182,20 @@ const filteredPermissions = computed(() => {
 });
 
 function handlePermissionSelect(value: string) {
-  searchTerm.value = '';
   if (!selectedPermissions.value.includes(value)) {
     selectedPermissions.value.push(value);
     emit('update:modelValue', selectedPermissions.value);
   }
+  searchTerm.value = ''; // Clear search term after selection
 }
 
 function addAllOptions() {
-  permissionOptions.value.forEach((option) => {
-    if (!selectedPermissions.value.includes(option.value)) {
-      selectedPermissions.value.push(option.value);
-    }
-  });
+  selectedPermissions.value = permissionOptions.value.map((item) => item.value);
   emit('update:modelValue', selectedPermissions.value);
 }
 
 function deletePermission(permission: string) {
-  const index = selectedPermissions.value.indexOf(permission);
-  if (index > -1) {
-    selectedPermissions.value.splice(index, 1);
-    emit('update:modelValue', selectedPermissions.value);
-  }
+  selectedPermissions.value = selectedPermissions.value.filter((p) => p !== permission);
+  emit('update:modelValue', selectedPermissions.value);
 }
 </script>
