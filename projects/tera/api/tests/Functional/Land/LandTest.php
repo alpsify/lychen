@@ -11,7 +11,7 @@ use function Zenstruck\Foundry\faker;
 class LandTest extends AbstractApiTestCase
 {
     #[DataProvider('landDataProvider')]
-    public function testPost(int $surface, string $kind)
+    public function testPost(int $surface)
     {
         $person = $this->createPerson();
 
@@ -20,12 +20,10 @@ class LandTest extends AbstractApiTestCase
         $this->browser()->actingAs($person)
             ->post('/api/lands', ['json' => [
                 'name' => $name,
-                'kind' => $kind,
                 'surface' => $surface
             ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
-            ->assertJsonMatches('kind', $kind)
             ->assertJsonMatches('surface', $surface)
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
