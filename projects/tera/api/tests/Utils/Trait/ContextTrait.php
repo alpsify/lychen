@@ -43,9 +43,9 @@ trait ContextTrait
         return $landTestContext;
     }
 
-    protected function addOneLandTask(LandTestContext $landTestContext): LandTestContext
+    protected function addOneLandTask(LandTestContext $landTestContext, ?array $attributes = []): LandTestContext
     {
-        $landTask = $this->createLandTask($landTestContext->land);
+        $landTask = $this->createLandTask($landTestContext->land, $attributes);
 
         $landTestContext->addLandTask($landTask);
 
