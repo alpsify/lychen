@@ -87,7 +87,7 @@ class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements L
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:post"])]
     private ?Land $land = null;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]

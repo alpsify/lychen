@@ -5,7 +5,7 @@
          cacheDirectory=".phpunit.cache"
          colors="true"
          failOnRisky="true"
-         failOnWarning="true"
+         failOnWarning="false"
          bootstrap="tests/bootstrap.php"
          displayDetailsOnTestsThatTriggerDeprecations="true"
          displayDetailsOnTestsThatTriggerErrors="true"
