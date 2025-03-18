@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandGreenhouseSetting, LandGreenhouseSettingJsonld } from './data-contracts';
-import { ContentType, HttpClient, type RequestParams } from './http-client';
+import type { LandGreenhouseSetting, LandGreenhouseSettingJsonld } from "./data-contracts";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class LandGreenhouseSetting<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -34,10 +34,10 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
   landGreenhouseSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseSettingJsonld, void>({
       path: `/api/land_greenhouse_settings/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -55,18 +55,14 @@ export class LandGreenhouseSetting<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landGreenhouseSettingPatch = (
-    ulid: string,
-    data: LandGreenhouseSetting,
-    params: RequestParams = {},
-  ) =>
+  landGreenhouseSettingPatch = (ulid: string, data: LandGreenhouseSetting, params: RequestParams = {}) =>
     this.http.request<LandGreenhouseSettingJsonld, void>({
       path: `/api/land_greenhouse_settings/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.JsonMergePatch,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandMemberSetting, LandMemberSettingJsonld } from './data-contracts';
-import { ContentType, HttpClient, type RequestParams } from './http-client';
+import type { LandMemberSetting, LandMemberSettingJsonld } from "./data-contracts";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class LandMemberSetting<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -34,10 +34,10 @@ export class LandMemberSetting<SecurityDataType = unknown> {
   landMemberSettingGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<LandMemberSettingJsonld, void>({
       path: `/api/land_member_settings/${ulid}`,
-      method: 'GET',
+      method: "GET",
       secure: true,
       type: ContentType.JsonLd,
-      format: 'json',
+      format: "json",
       ...params,
     });
 
@@ -58,11 +58,11 @@ export class LandMemberSetting<SecurityDataType = unknown> {
   landMemberSettingPatch = (ulid: string, data: LandMemberSetting, params: RequestParams = {}) =>
     this.http.request<LandMemberSettingJsonld, void>({
       path: `/api/land_member_settings/${ulid}`,
-      method: 'PATCH',
+      method: "PATCH",
       body: data,
       secure: true,
       type: ContentType.JsonMergePatch,
-      format: 'json',
+      format: "json",
       ...params,
     });
 }

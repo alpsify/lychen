@@ -72,15 +72,15 @@ export interface LandAreaGetCollectionParams {
 }
 
 export interface LandAreaJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandAreaJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   description?: string | null;
@@ -125,7 +125,7 @@ export interface LandAreaJsonld {
 }
 
 export enum LandAreaJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -133,8 +133,8 @@ export enum LandAreaJsonldHydraEnum {
  * @example "open_soil"
  */
 export enum LandAreaJsonldKindEnum {
-  OpenSoil = 'open_soil',
-  SoilLess = 'soil_less',
+  OpenSoil = "open_soil",
+  SoilLess = "soil_less",
 }
 
 /**
@@ -142,8 +142,8 @@ export enum LandAreaJsonldKindEnum {
  * @example "active"
  */
 export enum LandAreaJsonldStateEnum {
-  Active = 'active',
-  Archived = 'archived',
+  Active = "active",
+  Archived = "archived",
 }
 
 /**
@@ -151,8 +151,8 @@ export enum LandAreaJsonldStateEnum {
  * @example "open_soil"
  */
 export enum LandAreaKindEnum {
-  OpenSoil = 'open_soil',
-  SoilLess = 'soil_less',
+  OpenSoil = "open_soil",
+  SoilLess = "soil_less",
 }
 
 export interface LandAreaParameter {
@@ -175,15 +175,15 @@ export interface LandAreaParameter {
 }
 
 export interface LandAreaParameterJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandAreaParameterJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   aboveGround?: boolean;
   id?: number;
   /**
@@ -203,7 +203,7 @@ export interface LandAreaParameterJsonld {
 }
 
 export enum LandAreaParameterJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandAreaPostPayload {
@@ -230,15 +230,15 @@ export interface LandAreaSetting {
 }
 
 export interface LandAreaSettingJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandAreaSettingJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   id?: number;
   /**
    * @format iri-reference
@@ -256,7 +256,7 @@ export interface LandAreaSettingJsonld {
 }
 
 export enum LandAreaSettingJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -264,8 +264,8 @@ export enum LandAreaSettingJsonldHydraEnum {
  * @example "active"
  */
 export enum LandAreaStateEnum {
-  Active = 'active',
-  Archived = 'archived',
+  Active = "active",
+  Archived = "archived",
 }
 
 export interface LandCultivationPlan {
@@ -335,15 +335,15 @@ export interface LandCultivationPlanGetCollectionParams {
 }
 
 export interface LandCultivationPlanJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandCultivationPlanJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   /** @format date-time */
@@ -392,7 +392,7 @@ export interface LandCultivationPlanJsonld {
 }
 
 export enum LandCultivationPlanJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandGetCollectionLookingForMembersParams {
@@ -475,15 +475,15 @@ export interface LandGreenhouseGetCollectionParams {
 }
 
 export interface LandGreenhouseJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandGreenhouseJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   constructionDate?: string | null;
   /** @format date-time */
@@ -513,7 +513,7 @@ export interface LandGreenhouseJsonld {
 }
 
 export enum LandGreenhouseJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandGreenhouseParameter {
@@ -533,15 +533,15 @@ export interface LandGreenhouseParameter {
 }
 
 export interface LandGreenhouseParameterJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandGreenhouseParameterJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   id?: number;
   /**
    * @format iri-reference
@@ -558,7 +558,7 @@ export interface LandGreenhouseParameterJsonld {
 }
 
 export enum LandGreenhouseParameterJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandGreenhouseSetting {
@@ -578,15 +578,15 @@ export interface LandGreenhouseSetting {
 }
 
 export interface LandGreenhouseSettingJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandGreenhouseSettingJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   id?: number;
   /**
    * @format iri-reference
@@ -603,19 +603,19 @@ export interface LandGreenhouseSettingJsonld {
 }
 
 export enum LandGreenhouseSettingJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /**
    * @default 1
    * @example 1
@@ -654,7 +654,7 @@ export interface LandJsonld {
 }
 
 export enum LandJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandMember {
@@ -743,15 +743,15 @@ export interface LandMemberInvitationGetCollectionParams {
 }
 
 export interface LandMemberInvitationJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandMemberInvitationJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   acceptedAt?: string | null;
   /** @format date-time */
@@ -778,7 +778,7 @@ export interface LandMemberInvitationJsonld {
 }
 
 export enum LandMemberInvitationJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -786,9 +786,9 @@ export enum LandMemberInvitationJsonldHydraEnum {
  * @example "pending"
  */
 export enum LandMemberInvitationJsonldStateEnum {
-  Pending = 'pending',
-  Accepted = 'accepted',
-  Refused = 'refused',
+  Pending = "pending",
+  Accepted = "accepted",
+  Refused = "refused",
 }
 
 export type LandMemberInvitationRefusePayload = object;
@@ -798,21 +798,21 @@ export type LandMemberInvitationRefusePayload = object;
  * @example "pending"
  */
 export enum LandMemberInvitationStateEnum {
-  Pending = 'pending',
-  Accepted = 'accepted',
-  Refused = 'refused',
+  Pending = "pending",
+  Accepted = "accepted",
+  Refused = "refused",
 }
 
 export interface LandMemberJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandMemberJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   id?: number;
   /** @format date-time */
   joinedAt?: string;
@@ -834,7 +834,7 @@ export interface LandMemberJsonld {
 }
 
 export enum LandMemberJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandMemberPatchPayload {
@@ -854,15 +854,15 @@ export interface LandMemberSetting {
 }
 
 export interface LandMemberSettingJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandMemberSettingJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   emailNotificationActivated?: boolean;
   id?: number;
   /**
@@ -875,7 +875,7 @@ export interface LandMemberSettingJsonld {
 }
 
 export enum LandMemberSettingJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandPatchPayload {
@@ -922,15 +922,15 @@ export interface LandResearchDealGetCollectionParams {
 }
 
 export interface LandResearchDealJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandResearchDealJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -946,7 +946,7 @@ export interface LandResearchDealJsonld {
 }
 
 export enum LandResearchDealJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -954,10 +954,10 @@ export enum LandResearchDealJsonldHydraEnum {
  * @example "opened"
  */
 export enum LandResearchDealJsonldStateEnum {
-  Opened = 'opened',
-  Archived = 'archived',
-  Accepted = 'accepted',
-  Refused = 'refused',
+  Opened = "opened",
+  Archived = "archived",
+  Accepted = "accepted",
+  Refused = "refused",
 }
 
 /**
@@ -965,10 +965,10 @@ export enum LandResearchDealJsonldStateEnum {
  * @example "opened"
  */
 export enum LandResearchDealStateEnum {
-  Opened = 'opened',
-  Archived = 'archived',
-  Accepted = 'accepted',
-  Refused = 'refused',
+  Opened = "opened",
+  Archived = "archived",
+  Accepted = "accepted",
+  Refused = "refused",
 }
 
 export interface LandResearchRequest {
@@ -1005,15 +1005,15 @@ export interface LandResearchRequestGetCollectionParams {
 }
 
 export interface LandResearchRequestJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandResearchRequestJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -1031,7 +1031,7 @@ export interface LandResearchRequestJsonld {
 }
 
 export enum LandResearchRequestJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -1039,9 +1039,9 @@ export enum LandResearchRequestJsonldHydraEnum {
  * @example "draft"
  */
 export enum LandResearchRequestJsonldStateEnum {
-  Draft = 'draft',
-  Published = 'published',
-  Archived = 'archived',
+  Draft = "draft",
+  Published = "published",
+  Archived = "archived",
 }
 
 /**
@@ -1049,14 +1049,14 @@ export enum LandResearchRequestJsonldStateEnum {
  * @example "draft"
  */
 export enum LandResearchRequestStateEnum {
-  Draft = 'draft',
-  Published = 'published',
-  Archived = 'archived',
+  Draft = "draft",
+  Published = "published",
+  Archived = "archived",
 }
 
 export interface LandRoleGetCollectionParams {
   /** @default "asc" */
-  'order[position]'?: OrderPositionEnum;
+  "order[position]"?: OrderPositionEnum;
   /**
    * The number of items per page
    * @min 0
@@ -1076,20 +1076,20 @@ export interface LandRoleGetCollectionParams {
 
 /** @default "asc" */
 export enum LandRoleGetCollectionParams1OrderPositionEnum {
-  Asc = 'asc',
-  Desc = 'desc',
+  Asc = "asc",
+  Desc = "desc",
 }
 
 export interface LandRoleJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandRoleJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -1109,7 +1109,7 @@ export interface LandRoleJsonld {
 }
 
 export enum LandRoleJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandRolePatchPayload {
@@ -1118,49 +1118,49 @@ export interface LandRolePatchPayload {
 }
 
 export enum LandRolePatchPermissionsEnum {
-  LandRead = 'land_read',
-  LandUpdate = 'land_update',
-  LandDelete = 'land_delete',
-  LandTransfer = 'land_transfer',
-  LandgreenhouseRead = 'landgreenhouse_read',
-  LandgreenhouseCreate = 'landgreenhouse_create',
-  LandgreenhouseUpdate = 'landgreenhouse_update',
-  LandgreenhouseDelete = 'landgreenhouse_delete',
-  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
-  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
-  LandgreenhousesettingRead = 'landgreenhousesetting_read',
-  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
-  LandareaRead = 'landarea_read',
-  LandareaCreate = 'landarea_create',
-  LandareaUpdate = 'landarea_update',
-  LandareaDelete = 'landarea_delete',
-  LandareaparameterRead = 'landareaparameter_read',
-  LandareaparameterUpdate = 'landareaparameter_update',
-  LandareasettingRead = 'landareasetting_read',
-  LandareasettingUpdate = 'landareasetting_update',
-  LandmemberRead = 'landmember_read',
-  LandmemberUpdate = 'landmember_update',
-  LandmemberDelete = 'landmember_delete',
-  LandtaskRead = 'landtask_read',
-  LandtaskCreate = 'landtask_create',
-  LandtaskUpdate = 'landtask_update',
-  LandtaskDelete = 'landtask_delete',
-  LandtaskMarkAsDone = 'landtask_mark_as_done',
-  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
-  LandcultivationplanRead = 'landcultivationplan_read',
-  LandcultivationplanCreate = 'landcultivationplan_create',
-  LandcultivationplanUpdate = 'landcultivationplan_update',
-  LandcultivationplanDelete = 'landcultivationplan_delete',
-  LandroleRead = 'landrole_read',
-  LandroleCreate = 'landrole_create',
-  LandroleUpdate = 'landrole_update',
-  LandroleDelete = 'landrole_delete',
-  LandmemberinvitationRead = 'landmemberinvitation_read',
-  LandmemberinvitationCreate = 'landmemberinvitation_create',
-  LandmemberinvitationUpdate = 'landmemberinvitation_update',
-  LandmemberinvitationDelete = 'landmemberinvitation_delete',
-  LandsettingRead = 'landsetting_read',
-  LandsettingUpdate = 'landsetting_update',
+  LandRead = "land_read",
+  LandUpdate = "land_update",
+  LandDelete = "land_delete",
+  LandTransfer = "land_transfer",
+  LandgreenhouseRead = "landgreenhouse_read",
+  LandgreenhouseCreate = "landgreenhouse_create",
+  LandgreenhouseUpdate = "landgreenhouse_update",
+  LandgreenhouseDelete = "landgreenhouse_delete",
+  LandgreenhouseparameterRead = "landgreenhouseparameter_read",
+  LandgreenhouseparameterUpdate = "landgreenhouseparameter_update",
+  LandgreenhousesettingRead = "landgreenhousesetting_read",
+  LandgreenhousesettingUpdate = "landgreenhousesetting_update",
+  LandareaRead = "landarea_read",
+  LandareaCreate = "landarea_create",
+  LandareaUpdate = "landarea_update",
+  LandareaDelete = "landarea_delete",
+  LandareaparameterRead = "landareaparameter_read",
+  LandareaparameterUpdate = "landareaparameter_update",
+  LandareasettingRead = "landareasetting_read",
+  LandareasettingUpdate = "landareasetting_update",
+  LandmemberRead = "landmember_read",
+  LandmemberUpdate = "landmember_update",
+  LandmemberDelete = "landmember_delete",
+  LandtaskRead = "landtask_read",
+  LandtaskCreate = "landtask_create",
+  LandtaskUpdate = "landtask_update",
+  LandtaskDelete = "landtask_delete",
+  LandtaskMarkAsDone = "landtask_mark_as_done",
+  LandtaskMarkAsInProgress = "landtask_mark_as_in_progress",
+  LandcultivationplanRead = "landcultivationplan_read",
+  LandcultivationplanCreate = "landcultivationplan_create",
+  LandcultivationplanUpdate = "landcultivationplan_update",
+  LandcultivationplanDelete = "landcultivationplan_delete",
+  LandroleRead = "landrole_read",
+  LandroleCreate = "landrole_create",
+  LandroleUpdate = "landrole_update",
+  LandroleDelete = "landrole_delete",
+  LandmemberinvitationRead = "landmemberinvitation_read",
+  LandmemberinvitationCreate = "landmemberinvitation_create",
+  LandmemberinvitationUpdate = "landmemberinvitation_update",
+  LandmemberinvitationDelete = "landmemberinvitation_delete",
+  LandsettingRead = "landsetting_read",
+  LandsettingUpdate = "landsetting_update",
 }
 
 export interface LandRolePostPayload {
@@ -1170,49 +1170,49 @@ export interface LandRolePostPayload {
 }
 
 export enum LandRolePostPermissionsEnum {
-  LandRead = 'land_read',
-  LandUpdate = 'land_update',
-  LandDelete = 'land_delete',
-  LandTransfer = 'land_transfer',
-  LandgreenhouseRead = 'landgreenhouse_read',
-  LandgreenhouseCreate = 'landgreenhouse_create',
-  LandgreenhouseUpdate = 'landgreenhouse_update',
-  LandgreenhouseDelete = 'landgreenhouse_delete',
-  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
-  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
-  LandgreenhousesettingRead = 'landgreenhousesetting_read',
-  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
-  LandareaRead = 'landarea_read',
-  LandareaCreate = 'landarea_create',
-  LandareaUpdate = 'landarea_update',
-  LandareaDelete = 'landarea_delete',
-  LandareaparameterRead = 'landareaparameter_read',
-  LandareaparameterUpdate = 'landareaparameter_update',
-  LandareasettingRead = 'landareasetting_read',
-  LandareasettingUpdate = 'landareasetting_update',
-  LandmemberRead = 'landmember_read',
-  LandmemberUpdate = 'landmember_update',
-  LandmemberDelete = 'landmember_delete',
-  LandtaskRead = 'landtask_read',
-  LandtaskCreate = 'landtask_create',
-  LandtaskUpdate = 'landtask_update',
-  LandtaskDelete = 'landtask_delete',
-  LandtaskMarkAsDone = 'landtask_mark_as_done',
-  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
-  LandcultivationplanRead = 'landcultivationplan_read',
-  LandcultivationplanCreate = 'landcultivationplan_create',
-  LandcultivationplanUpdate = 'landcultivationplan_update',
-  LandcultivationplanDelete = 'landcultivationplan_delete',
-  LandroleRead = 'landrole_read',
-  LandroleCreate = 'landrole_create',
-  LandroleUpdate = 'landrole_update',
-  LandroleDelete = 'landrole_delete',
-  LandmemberinvitationRead = 'landmemberinvitation_read',
-  LandmemberinvitationCreate = 'landmemberinvitation_create',
-  LandmemberinvitationUpdate = 'landmemberinvitation_update',
-  LandmemberinvitationDelete = 'landmemberinvitation_delete',
-  LandsettingRead = 'landsetting_read',
-  LandsettingUpdate = 'landsetting_update',
+  LandRead = "land_read",
+  LandUpdate = "land_update",
+  LandDelete = "land_delete",
+  LandTransfer = "land_transfer",
+  LandgreenhouseRead = "landgreenhouse_read",
+  LandgreenhouseCreate = "landgreenhouse_create",
+  LandgreenhouseUpdate = "landgreenhouse_update",
+  LandgreenhouseDelete = "landgreenhouse_delete",
+  LandgreenhouseparameterRead = "landgreenhouseparameter_read",
+  LandgreenhouseparameterUpdate = "landgreenhouseparameter_update",
+  LandgreenhousesettingRead = "landgreenhousesetting_read",
+  LandgreenhousesettingUpdate = "landgreenhousesetting_update",
+  LandareaRead = "landarea_read",
+  LandareaCreate = "landarea_create",
+  LandareaUpdate = "landarea_update",
+  LandareaDelete = "landarea_delete",
+  LandareaparameterRead = "landareaparameter_read",
+  LandareaparameterUpdate = "landareaparameter_update",
+  LandareasettingRead = "landareasetting_read",
+  LandareasettingUpdate = "landareasetting_update",
+  LandmemberRead = "landmember_read",
+  LandmemberUpdate = "landmember_update",
+  LandmemberDelete = "landmember_delete",
+  LandtaskRead = "landtask_read",
+  LandtaskCreate = "landtask_create",
+  LandtaskUpdate = "landtask_update",
+  LandtaskDelete = "landtask_delete",
+  LandtaskMarkAsDone = "landtask_mark_as_done",
+  LandtaskMarkAsInProgress = "landtask_mark_as_in_progress",
+  LandcultivationplanRead = "landcultivationplan_read",
+  LandcultivationplanCreate = "landcultivationplan_create",
+  LandcultivationplanUpdate = "landcultivationplan_update",
+  LandcultivationplanDelete = "landcultivationplan_delete",
+  LandroleRead = "landrole_read",
+  LandroleCreate = "landrole_create",
+  LandroleUpdate = "landrole_update",
+  LandroleDelete = "landrole_delete",
+  LandmemberinvitationRead = "landmemberinvitation_read",
+  LandmemberinvitationCreate = "landmemberinvitation_create",
+  LandmemberinvitationUpdate = "landmemberinvitation_update",
+  LandmemberinvitationDelete = "landmemberinvitation_delete",
+  LandsettingRead = "landsetting_read",
+  LandsettingUpdate = "landsetting_update",
 }
 
 export interface LandSetting {
@@ -1228,15 +1228,15 @@ export interface LandSetting {
 }
 
 export interface LandSettingJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandSettingJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   id?: number;
   /**
    * @format iri-reference
@@ -1249,7 +1249,7 @@ export interface LandSettingJsonld {
 }
 
 export enum LandSettingJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface LandTask {
@@ -1285,8 +1285,8 @@ export interface LandTask {
 
 export interface LandTaskGetCollectionParams {
   /** @default "asc" */
-  'order[dueDate]'?: OrderDueDateEnum;
-  'state[]'?: string[];
+  "order[dueDate]"?: OrderDueDateEnum;
+  "state[]"?: string[];
   /**
    * The number of items per page
    * @min 0
@@ -1307,20 +1307,20 @@ export interface LandTaskGetCollectionParams {
 
 /** @default "asc" */
 export enum LandTaskGetCollectionParams1OrderDueDateEnum {
-  Asc = 'asc',
-  Desc = 'desc',
+  Asc = "asc",
+  Desc = "desc",
 }
 
 export interface LandTaskJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: LandTaskJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   content?: any[] | null;
   /** @format date-time */
   createdAt?: string;
@@ -1352,7 +1352,7 @@ export interface LandTaskJsonld {
 }
 
 export enum LandTaskJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -1360,9 +1360,9 @@ export enum LandTaskJsonldHydraEnum {
  * @example "to_be_done"
  */
 export enum LandTaskJsonldStateEnum {
-  ToBeDone = 'to_be_done',
-  InProgress = 'in_progress',
-  Done = 'done',
+  ToBeDone = "to_be_done",
+  InProgress = "in_progress",
+  Done = "done",
 }
 
 export type LandTaskMarkAsDonePayload = object;
@@ -1374,21 +1374,21 @@ export type LandTaskMarkAsInProgressPayload = object;
  * @example "to_be_done"
  */
 export enum LandTaskStateEnum {
-  ToBeDone = 'to_be_done',
-  InProgress = 'in_progress',
-  Done = 'done',
+  ToBeDone = "to_be_done",
+  InProgress = "in_progress",
+  Done = "done",
 }
 
 /** @default "asc" */
 export enum OrderDueDateEnum {
-  Asc = 'asc',
-  Desc = 'desc',
+  Asc = "asc",
+  Desc = "desc",
 }
 
 /** @default "asc" */
 export enum OrderPositionEnum {
-  Asc = 'asc',
-  Desc = 'desc',
+  Asc = "asc",
+  Desc = "desc",
 }
 
 export interface Person {
@@ -1408,15 +1408,15 @@ export interface Person {
 }
 
 export interface PersonJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: PersonJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   authId?: string;
   email?: string | null;
   familyName?: string | null;
@@ -1433,7 +1433,7 @@ export interface PersonJsonld {
 }
 
 export enum PersonJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface Plant {
@@ -1518,15 +1518,15 @@ export interface PlantConversionRequestGetCollectionParams {
 }
 
 export interface PlantConversionRequestJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: PlantConversionRequestJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -1553,7 +1553,7 @@ export interface PlantConversionRequestJsonld {
 }
 
 export enum PlantConversionRequestJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -1561,9 +1561,9 @@ export enum PlantConversionRequestJsonldHydraEnum {
  * @example "opened"
  */
 export enum PlantConversionRequestJsonldStateEnum {
-  Opened = 'opened',
-  Completed = 'completed',
-  Published = 'published',
+  Opened = "opened",
+  Completed = "completed",
+  Published = "published",
 }
 
 /**
@@ -1571,9 +1571,9 @@ export enum PlantConversionRequestJsonldStateEnum {
  * @example "opened"
  */
 export enum PlantConversionRequestStateEnum {
-  Opened = 'opened',
-  Completed = 'completed',
-  Published = 'published',
+  Opened = "opened",
+  Completed = "completed",
+  Published = "published",
 }
 
 export interface PlantCustom {
@@ -1626,11 +1626,11 @@ export interface PlantCustom {
  * @example "full-sun"
  */
 export enum PlantCustomExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export interface PlantCustomGetCollectionParams {
@@ -1650,15 +1650,15 @@ export interface PlantCustomGetCollectionParams {
 }
 
 export interface PlantCustomJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: PlantCustomJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   bio?: boolean;
   /** @format date-time */
   createdAt?: string;
@@ -1708,15 +1708,15 @@ export interface PlantCustomJsonld {
  * @example "full-sun"
  */
 export enum PlantCustomJsonldExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export enum PlantCustomJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -1724,33 +1724,33 @@ export enum PlantCustomJsonldHydraEnum {
  * @example "standard"
  */
 export enum PlantCustomJsonldMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantCustomJsonldSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantCustomJsonldSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 /**
@@ -1758,33 +1758,33 @@ export enum PlantCustomJsonldSpeciesEnum {
  * @example "standard"
  */
 export enum PlantCustomMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantCustomSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantCustomSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 /**
@@ -1792,11 +1792,11 @@ export enum PlantCustomSpeciesEnum {
  * @example "full-sun"
  */
 export enum PlantExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export interface PlantGetCollectionParams {
@@ -1860,11 +1860,11 @@ export interface PlantGlobal {
  * @example "full-sun"
  */
 export enum PlantGlobalExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export interface PlantGlobalGetCollectionParams {
@@ -1884,15 +1884,15 @@ export interface PlantGlobalGetCollectionParams {
 }
 
 export interface PlantGlobalJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: PlantGlobalJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   bio?: boolean;
   /** @format date-time */
   createdAt?: string;
@@ -1937,15 +1937,15 @@ export interface PlantGlobalJsonld {
  * @example "full-sun"
  */
 export enum PlantGlobalJsonldExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export enum PlantGlobalJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -1953,33 +1953,33 @@ export enum PlantGlobalJsonldHydraEnum {
  * @example "standard"
  */
 export enum PlantGlobalJsonldMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantGlobalJsonldSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantGlobalJsonldSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 /**
@@ -1987,45 +1987,45 @@ export enum PlantGlobalJsonldSpeciesEnum {
  * @example "standard"
  */
 export enum PlantGlobalMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantGlobalSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantGlobalSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 export interface PlantJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: PlantJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   bio?: boolean;
   /** @format date-time */
   createdAt?: string;
@@ -2069,15 +2069,15 @@ export interface PlantJsonld {
  * @example "full-sun"
  */
 export enum PlantJsonldExposureEnum {
-  FullSun = 'full-sun',
-  PartialShade = 'partial-shade',
-  Shade = 'shade',
-  BrightIndirect = 'bright-indirect',
-  Adaptable = 'adaptable',
+  FullSun = "full-sun",
+  PartialShade = "partial-shade",
+  Shade = "shade",
+  BrightIndirect = "bright-indirect",
+  Adaptable = "adaptable",
 }
 
 export enum PlantJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 /**
@@ -2085,33 +2085,33 @@ export enum PlantJsonldHydraEnum {
  * @example "standard"
  */
 export enum PlantJsonldMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantJsonldSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantJsonldSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 /**
@@ -2119,33 +2119,33 @@ export enum PlantJsonldSpeciesEnum {
  * @example "standard"
  */
 export enum PlantMaturityEnum {
-  VeryEarly = 'very_early',
-  Early = 'early',
-  MidEarly = 'mid-early',
-  Standard = 'standard',
-  MidLate = 'mid-late',
-  Late = 'late',
-  VeryLate = 'very_late',
+  VeryEarly = "very_early",
+  Early = "early",
+  MidEarly = "mid-early",
+  Standard = "standard",
+  MidLate = "mid-late",
+  Late = "late",
+  VeryLate = "very_late",
 }
 
 export enum PlantSoilTypeEnum {
-  Sandy = 'sandy',
-  HumusRich = 'humus-rich',
-  Clay = 'clay',
-  Silty = 'silty',
-  Loamy = 'loamy',
-  Stony = 'stony',
-  Peaty = 'peaty',
-  Chalky = 'chalky',
+  Sandy = "sandy",
+  HumusRich = "humus-rich",
+  Clay = "clay",
+  Silty = "silty",
+  Loamy = "loamy",
+  Stony = "stony",
+  Peaty = "peaty",
+  Chalky = "chalky",
 }
 
 export enum PlantSpeciesEnum {
-  LactucaSativa = 'lactuca-sativa',
-  BrassicaOleracea = 'brassica-oleracea',
-  SolanumLycopersicum = 'solanum-lycopersicum',
-  DaucusCarota = 'daucus-carota',
-  PhaseolusVulgaris = 'phaseolus-vulgaris',
-  CucumisSativus = 'cucumis-sativus',
+  LactucaSativa = "lactuca-sativa",
+  BrassicaOleracea = "brassica-oleracea",
+  SolanumLycopersicum = "solanum-lycopersicum",
+  DaucusCarota = "daucus-carota",
+  PhaseolusVulgaris = "phaseolus-vulgaris",
+  CucumisSativus = "cucumis-sativus",
 }
 
 export interface SeedStock {
@@ -2203,15 +2203,15 @@ export interface SeedStockEntryGetCollectionParams {
 }
 
 export interface SeedStockEntryJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: SeedStockEntryJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -2237,7 +2237,7 @@ export interface SeedStockEntryJsonld {
 }
 
 export enum SeedStockEntryJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface SeedStockGetCollectionParams {
@@ -2257,15 +2257,15 @@ export interface SeedStockGetCollectionParams {
 }
 
 export interface SeedStockJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: SeedStockJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
   /** @format date-time */
   createdAt?: string;
   id?: number;
@@ -2279,21 +2279,21 @@ export interface SeedStockJsonld {
 }
 
 export enum SeedStockJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
 
 export interface StaticJsonld {
-  '@context'?:
+  "@context"?:
     | string
     | {
-        '@vocab': string;
+        "@vocab": string;
         hydra: StaticJsonldHydraEnum;
         [key: string]: any;
       };
-  '@id'?: string;
-  '@type'?: string;
+  "@id"?: string;
+  "@type"?: string;
 }
 
 export enum StaticJsonldHydraEnum {
-  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+  HttpWwwW3OrgNsHydraCore = "http://www.w3.org/ns/hydra/core#",
 }
