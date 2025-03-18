@@ -15,7 +15,7 @@ trait LandTrait
         return [
             [10, LandAreaKind::OPEN_SOIL],
             [200, LandAreaKind::OPEN_SOIL],
-            [8700, LandAreaKind::MARKET_GARDEN],
+            [8700, LandAreaKind::SOIL_LESS],
         ];
     }
 
