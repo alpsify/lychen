@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { SeedStock, SeedStockGetCollectionParams, SeedStockJsonld } from "./data-contracts";
-import { ContentType, HttpClient, type RequestParams } from "./http-client";
+import type { SeedStock, SeedStockGetCollectionParams, SeedStockJsonld } from './data-contracts';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class SeedStock<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -67,9 +67,9 @@ export class SeedStock<SecurityDataType = unknown> {
       {
         member: SeedStockJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -82,8 +82,8 @@ export class SeedStock<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -97,11 +97,11 @@ export class SeedStock<SecurityDataType = unknown> {
       any
     >({
       path: `/api/seed_stocks`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -120,11 +120,11 @@ export class SeedStock<SecurityDataType = unknown> {
   seedStockPost = (data: SeedStockJsonld, params: RequestParams = {}) =>
     this.http.request<SeedStockJsonld, void>({
       path: `/api/seed_stocks`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -143,10 +143,10 @@ export class SeedStock<SecurityDataType = unknown> {
   seedStockGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<SeedStockJsonld, void>({
       path: `/api/seed_stocks/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -165,7 +165,7 @@ export class SeedStock<SecurityDataType = unknown> {
   seedStockDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/seed_stocks/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       type: ContentType.JsonLd,
       ...params,
@@ -188,11 +188,11 @@ export class SeedStock<SecurityDataType = unknown> {
   seedStockPatch = (ulid: string, data: SeedStock, params: RequestParams = {}) =>
     this.http.request<SeedStockJsonld, void>({
       path: `/api/seed_stocks/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.JsonMergePatch,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import type { Plant, PlantGetCollectionParams, PlantJsonld } from "./data-contracts";
-import { ContentType, HttpClient, type RequestParams } from "./http-client";
+import type { Plant, PlantGetCollectionParams, PlantJsonld } from './data-contracts';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class Plant<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -67,9 +67,9 @@ export class Plant<SecurityDataType = unknown> {
       {
         member: PlantJsonld[];
         search?: {
-          "@type"?: string;
+          '@type'?: string;
           mapping?: {
-            "@type"?: string;
+            '@type'?: string;
             property?: string | null;
             required?: boolean;
             variable?: string;
@@ -82,8 +82,8 @@ export class Plant<SecurityDataType = unknown> {
         /** @example {"@id":"string","type":"string","first":"string","last":"string","previous":"string","next":"string"} */
         view?: {
           /** @format iri-reference */
-          "@id"?: string;
-          "@type"?: string;
+          '@id'?: string;
+          '@type'?: string;
           /** @format iri-reference */
           first?: string;
           /** @format iri-reference */
@@ -97,11 +97,11 @@ export class Plant<SecurityDataType = unknown> {
       any
     >({
       path: `/api/plants`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -120,11 +120,11 @@ export class Plant<SecurityDataType = unknown> {
   plantPost = (data: PlantJsonld, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -142,10 +142,10 @@ export class Plant<SecurityDataType = unknown> {
   plantGet = (ulid: string, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants/${ulid}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
       type: ContentType.JsonLd,
-      format: "json",
+      format: 'json',
       ...params,
     });
 
@@ -163,7 +163,7 @@ export class Plant<SecurityDataType = unknown> {
   plantDelete = (ulid: string, params: RequestParams = {}) =>
     this.http.request<void, void>({
       path: `/api/plants/${ulid}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
       type: ContentType.JsonLd,
       ...params,
@@ -185,11 +185,11 @@ export class Plant<SecurityDataType = unknown> {
   plantPatch = (ulid: string, data: Plant, params: RequestParams = {}) =>
     this.http.request<PlantJsonld, void>({
       path: `/api/plants/${ulid}`,
-      method: "PATCH",
+      method: 'PATCH',
       body: data,
       secure: true,
       type: ContentType.JsonMergePatch,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }
