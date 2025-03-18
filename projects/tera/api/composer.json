@@ -91,7 +91,7 @@
       "type": "path",
       "url": "../packages/*",
       "options": {
-        "symlink": true,
+        "symlink": false,
         "versions": {
           "lychen/util-model": "0.0.0",
           "lychen/util-zitadel": "0.0.0",

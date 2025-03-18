@@ -20,8 +20,6 @@ services:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
     image: ${TEST_IMAGE_NAME}:${GITHUB_SHA:-latest}
-    environment:
-      - COMPOSER_MIRROR_PATH_REPOS=1
     tty: true
     volumes:
       - ./:/app

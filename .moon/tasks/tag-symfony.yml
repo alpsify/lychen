@@ -22,6 +22,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
 
   ci-install-vendors:
+    # Can't get it works in CI only with https://getcomposer.org/doc/03-cli.md#composer-mirror-path-repos
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction
 
   ci-php-cs-fixer-src:
