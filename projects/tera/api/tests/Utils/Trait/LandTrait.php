@@ -12,9 +12,9 @@ trait LandTrait
     public static function landDataProvider(): array
     {
         return [
-            [10],
-            [200],
-            [8700],
+            [10, -20],
+            [200, 20],
+            [8700, 1430],
         ];
     }
 
