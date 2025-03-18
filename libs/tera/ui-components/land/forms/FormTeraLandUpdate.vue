@@ -70,8 +70,6 @@ const { mutate, isPending } = useMutation({
     });
     emit(data.data);
   },
-  onError: (error, variables, context) => {},
-  onSettled: (data, error, variables, context) => {},
 });
 
 const onSubmit = handleSubmit((values) => {

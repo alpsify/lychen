@@ -66,7 +66,5 @@ const { mutate: deleteLand, isPending } = useMutation({
     });
     emit(land);
   },
-  onError: (error, variables, context) => {},
-  onSettled: (data, error, variables, context) => {},
 });
 </script>

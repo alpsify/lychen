@@ -19,7 +19,7 @@ export const toastVariants = cva(
     variants: {
       variant: {
         default: 'bg-surface text-on-surface',
-        negative: 'bg-negative text-on-negative',
+        negative: 'bg-negative text-on-negative border-1 border-negative-container/30',
         positive: 'bg-positive text-on-positive border-1 border-positive-container/30',
       },
     },

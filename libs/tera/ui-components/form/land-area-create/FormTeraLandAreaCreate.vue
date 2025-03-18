@@ -113,8 +113,6 @@ const { mutate } = useMutation({
       variant: 'positive',
     });
   },
-  onError: (error, variables, context) => {},
-  onSettled: (data, error, variables, context) => {},
 });
 
 const onSubmit = handleSubmit((values) => {
