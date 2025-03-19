@@ -25,10 +25,9 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 
 import { useForm } from 'vee-validate';
 import {
-  LandRolePostPermissionsEnum,
   type LandJsonld,
   type LandRoleJsonld,
-  type LandRolePostPayload,
+  type LandRoleJsonldUserLandRolePost,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
@@ -43,18 +42,20 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandRolePostPayload>({
-  initialValues: {
-    permissions: [LandRolePostPermissionsEnum.LandTransfer],
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandRoleJsonldUserLandRolePost>(
+  {
+    initialValues: {
+      permissions: undefined,
+    },
   },
-});
+);
 
 const { emit } = useEventBus(landRolePostSucceededEvent);
 
 const landApi = useTeraApi('LandRole');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLandRole: LandRolePostPayload) =>
+  mutationFn: (newLandRole: LandRoleJsonldUserLandRolePost) =>
     landApi.landRolePost({ ...newLandRole, land: land['@id']! }),
   onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
     toast({

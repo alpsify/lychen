@@ -2,20 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
-use ArrayObject;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,33 +24,14 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
-#[Patch(openapi: new Operation(
-    summary: 'Update a land',
-    requestBody: new RequestBody(
-        content: new ArrayObject([
-            'application/merge-patch+json' => [
-                'schema' => [
-                    'type' => 'object',
-                    'properties' => [
-                        'landRoles' => [
-                            'type' => 'array',
-                            'items' => [
-                                'type' => 'string',
-                                'format' => 'iri-reference'
-                            ]
-                        ],
-                    ],
-                ],
-                'example' => [
-                    'landRoles' => ['/api/land_roles/{ulid}', '/api/land_roles/{ulid}'],
-                ]
-            ]
-        ])
-    )
-), security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
+#[Patch(
+    denormalizationContext: ['groups' => ['user:land_member:patch']],
+    security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")
+]
 #[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
-#[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
+#[Get(normalizationContext: ['groups' => ['user:land_member:get']], security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
 #[GetCollection(
+    normalizationContext: ['groups' => ['user:land_member:collection']],
     security: "is_granted('" . LandMemberPermission::READ . "')",
     parameters: [
         new QueryParameter(
@@ -98,6 +77,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
     #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
+    #[ApiProperty()]
     private Collection $landRoles;
 
     public function __construct(?Ulid $ulid = null)
@@ -107,7 +87,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
+    #[Groups(["user:land_member:collection", "user:land_member:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

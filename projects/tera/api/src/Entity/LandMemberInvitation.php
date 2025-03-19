@@ -9,9 +9,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandMemberInvitationRepository;
@@ -19,7 +17,6 @@ use App\Security\Constant\LandMemberInvitationPermission;
 use App\Security\Interface\LandAwareInterface;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
-use ArrayObject;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -32,51 +29,42 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberInvitationRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
+#[Post(denormalizationContext: ['groups' => ['user:land_member_invitation:post']], securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_member_invitation:patch']], security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
     options: ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
-    openapi: new Operation(
-        summary: 'Accept the invitation',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
+    denormalizationContext: ['groups' => ['user:land_member_invitation:accept']],
     security: "is_granted('" . LandMemberInvitationPermission::ACCEPT . "', object)",
     name: 'accept',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
     options: ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
-    openapi: new Operation(
-        summary: 'Refuse the invitation',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
+    denormalizationContext: ['groups' => ['user:land_member_invitation:refuse']],
     security: "is_granted('" . LandMemberInvitationPermission::REFUSE . "', object)",
     name: 'refuse',
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandMemberInvitationPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandMemberInvitationPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
-])]
+#[Get(normalizationContext: ['groups' => ['user:land_member_invitation:get']], security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)")]
+#[GetCollection(
+    normalizationContext: ['groups' => ['user:land_member_invitation:collection']],
+    security: "is_granted('" . LandMemberInvitationPermission::READ . "')",
+    parameters: [
+        new QueryParameter(
+            key: 'land',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'Filter by land',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: LandFilter::class,
+            required: true
+        )
+    ])]
 #[ORM\HasLifecycleCallbacks]
 class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

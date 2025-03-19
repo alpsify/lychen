@@ -98,7 +98,7 @@ import {
   FormMessage,
 } from '@lychen/vue-ui-components-core/form';
 import { useFilter } from 'reka-ui';
-import { LandRolePostPermissionsEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import { LandRoleJsonldPermissionsEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { toTypedSchema } from '@vee-validate/zod';
 import { computed, ref, onMounted, watch } from 'vue';
@@ -124,7 +124,7 @@ const { t: tLandRole } = useI18nExtended({
   rootKey: LAND_ROLE_TRANSLATION_KEY,
   prefixed: true,
 });
-const allPermissions = Object.values(LandRolePostPermissionsEnum);
+const allPermissions = Object.values(LandRoleJsonldPermissionsEnum);
 
 const permissionOptions = ref<{ label: string; value: string }[]>([]);
 const selectedPermissions = ref<string[]>([]);
@@ -162,7 +162,7 @@ onMounted(async () => {
 
 const fieldSchema = toTypedSchema(
   z
-    .array(z.nativeEnum(LandRolePostPermissionsEnum), {
+    .array(z.nativeEnum(LandRoleJsonldPermissionsEnum), {
       required_error: 'Please select at least one permission.',
     })
     .min(1),

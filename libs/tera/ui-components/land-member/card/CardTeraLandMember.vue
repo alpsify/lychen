@@ -26,11 +26,14 @@
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import type { LandMemberJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type {
+  LandMemberJsonld,
+  LandMemberJsonldUserLandMemberCollection,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { Badge } from '@lychen/vue-ui-components-core/badge';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';
 
 const { t, d } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-defineProps<{ landMember: LandMemberJsonld }>();
+defineProps<{ landMember: LandMemberJsonld | LandMemberJsonldUserLandMemberCollection }>();
 </script>

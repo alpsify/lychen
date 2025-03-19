@@ -62,7 +62,12 @@ const { emit } = useEventBus(landPatchSucceededEvent);
 const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandPatchPayload) => landApi.landPatch(land.ulid!, data),
+  mutationFn: (data: LandPatchPayload) => {
+    if (!land.ulid) {
+      throw new Error('missing.land_ulid');
+    }
+    return landApi.landPatch(land.ulid, data);
+  },
   onSuccess: (data: { data: LandJsonld }, variables, context) => {
     toast({
       title: t('action.update.success.message'),

@@ -42,7 +42,10 @@ import FormTeraLandMemberUpdate from '@lychen/tera-ui-components/land-member/for
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
-import type { LandMemberJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type {
+  LandMemberJsonld,
+  LandMemberJsonldUserLandMemberCollection,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import {
   landMemberDeleteSucceededEvent,
@@ -64,7 +67,9 @@ const { t: tLandMember } = useI18nExtended({
   prefixed: true,
 });
 
-const { landMember } = defineProps<{ landMember: LandMemberJsonld }>();
+const { landMember } = defineProps<{
+  landMember: LandMemberJsonld | LandMemberJsonldUserLandMemberCollection;
+}>();
 
 const open = ref(false);
 

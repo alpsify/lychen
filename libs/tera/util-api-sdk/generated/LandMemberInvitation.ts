@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -9,11 +10,14 @@
  */
 
 import type {
-  LandMemberInvitation,
-  LandMemberInvitationAcceptPayload,
   LandMemberInvitationGetCollectionParams,
   LandMemberInvitationJsonld,
-  LandMemberInvitationRefusePayload,
+  LandMemberInvitationJsonldUserLandMemberInvitationCollection,
+  LandMemberInvitationJsonldUserLandMemberInvitationGet,
+  LandMemberInvitationJsonldUserLandMemberInvitationPost,
+  LandMemberInvitationUserLandMemberInvitationAccept,
+  LandMemberInvitationUserLandMemberInvitationPatch,
+  LandMemberInvitationUserLandMemberInvitationRefuse,
 } from './data-contracts';
 import { ContentType, HttpClient, type RequestParams } from './http-client';
 
@@ -33,7 +37,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
  * @request GET:/api/land_member_invitations
  * @secure
  * @response `200` `{
-    member: (LandMemberInvitationJsonld)[],
+    member: (LandMemberInvitationJsonldUserLandMemberInvitationCollection)[],
     search?: {
     "@type"?: string,
     mapping?: ({
@@ -74,7 +78,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
   ) =>
     this.http.request<
       {
-        member: LandMemberInvitationJsonld[];
+        member: LandMemberInvitationJsonldUserLandMemberInvitationCollection[];
         search?: {
           '@type'?: string;
           mapping?: {
@@ -126,7 +130,10 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  landMemberInvitationPost = (data: LandMemberInvitationJsonld, params: RequestParams = {}) =>
+  landMemberInvitationPost = (
+    data: LandMemberInvitationJsonldUserLandMemberInvitationPost,
+    params: RequestParams = {},
+  ) =>
     this.http.request<LandMemberInvitationJsonld, void>({
       path: `/api/land_member_invitations`,
       method: 'POST',
@@ -145,12 +152,12 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    * @summary Retrieves a LandMemberInvitation resource.
    * @request GET:/api/land_member_invitations/{ulid}
    * @secure
-   * @response `200` `LandMemberInvitationJsonld` LandMemberInvitation resource
+   * @response `200` `LandMemberInvitationJsonldUserLandMemberInvitationGet` LandMemberInvitation resource
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   landMemberInvitationGet = (ulid: string, params: RequestParams = {}) =>
-    this.http.request<LandMemberInvitationJsonld, void>({
+    this.http.request<LandMemberInvitationJsonldUserLandMemberInvitationGet, void>({
       path: `/api/land_member_invitations/${ulid}`,
       method: 'GET',
       secure: true,
@@ -196,7 +203,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    */
   landMemberInvitationPatch = (
     ulid: string,
-    data: LandMemberInvitation,
+    data: LandMemberInvitationUserLandMemberInvitationPatch,
     params: RequestParams = {},
   ) =>
     this.http.request<LandMemberInvitationJsonld, void>({
@@ -214,7 +221,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    *
    * @tags LandMemberInvitation
    * @name LandMemberInvitationAccept
-   * @summary Accept the invitation
+   * @summary Updates the LandMemberInvitation resource.
    * @request PATCH:/api/land_member_invitations/{ulid}/accept
    * @secure
    * @response `200` `LandMemberInvitationJsonld` LandMemberInvitation resource updated
@@ -225,7 +232,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    */
   landMemberInvitationAccept = (
     ulid: string,
-    data?: LandMemberInvitationAcceptPayload,
+    data: LandMemberInvitationUserLandMemberInvitationAccept,
     params: RequestParams = {},
   ) =>
     this.http.request<LandMemberInvitationJsonld, void>({
@@ -243,7 +250,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    *
    * @tags LandMemberInvitation
    * @name LandMemberInvitationRefuse
-   * @summary Refuse the invitation
+   * @summary Updates the LandMemberInvitation resource.
    * @request PATCH:/api/land_member_invitations/{ulid}/refuse
    * @secure
    * @response `200` `LandMemberInvitationJsonld` LandMemberInvitation resource updated
@@ -254,7 +261,7 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
    */
   landMemberInvitationRefuse = (
     ulid: string,
-    data?: LandMemberInvitationRefusePayload,
+    data: LandMemberInvitationUserLandMemberInvitationRefuse,
     params: RequestParams = {},
   ) =>
     this.http.request<LandMemberInvitationJsonld, void>({

@@ -8,12 +8,10 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use ApiPlatform\OpenApi\Model;
 use App\Provider\LandsLookingForMembersProvider;
 use App\Repository\LandRepository;
 use App\Security\Constant\LandPermission;
 use App\Security\Interface\LandAwareInterface;
-use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -28,56 +26,27 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Patch(openapi: new Model\Operation(
-    summary: 'Update a land',
-    requestBody: new Model\RequestBody(
-        content: new ArrayObject([
-            'application/merge-patch+json' => [
-                'schema' => [
-                    'type' => 'object',
-                    'properties' => [
-                        'name' => ['type' => 'string'],
-                        'surface' => ['type' => 'number'],
-                        'altitude' => ['type' => 'number'],
-                    ],
-                ],
-                'example' => [
-                    'name' => 'Wonderful garden',
-                    'surface' => 112,
-                    'altitude' => 357,
-                ]
-            ]
-        ])
-    )
-), security: "is_granted('" . LandPermission::UPDATE . "', object)",)]
+#[Patch(
+    denormalizationContext: ['groups' => ['user:land:patch']],
+    security: "is_granted('" . LandPermission::UPDATE . "', object)",)
+]
 #[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
-#[GetCollection(uriTemplate: '/lands/looking_for_members', paginationFetchJoinCollection: true, name: 'get-collection-looking-for-members', provider: LandsLookingForMembersProvider::class)]
-#[Get(security: "is_granted('" . LandPermission::READ . "', object)")]
-#[GetCollection()]
+#[GetCollection(
+    uriTemplate: '/lands/looking_for_members',
+    paginationFetchJoinCollection: true,
+    normalizationContext: ['groups' => ['user:land:get-collection-looking-for-members']],
+    name: 'get-collection-looking-for-members',
+    provider: LandsLookingForMembersProvider::class)
+]
+#[Get(
+    normalizationContext: ['groups' => ['user:land:get']],
+    security: "is_granted('" . LandPermission::READ . "', object)")
+]
+#[GetCollection(
+    normalizationContext: ['groups' => ['user:land:collection']],
+)]
 #[Post(
-    openapi: new Model\Operation(
-        summary: 'Create a land',
-        requestBody: new Model\RequestBody(
-            content: new ArrayObject([
-                'application/ld+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [
-                            'name' => ['type' => 'string'],
-                            'surface' => ['type' => 'number'],
-                            'altitude' => ['type' => 'number'],
-                        ],
-                        'required' => ['name']
-                    ],
-                    'example' => [
-                        'name' => 'Wonderful garden',
-                        'surface' => 112,
-                        'altitude' => 357,
-                    ]
-                ]
-            ])
-        )
-    ),
+    denormalizationContext: ['groups' => ['user:land:post']],
 )]
 #[ORM\HasLifecycleCallbacks]
 class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface

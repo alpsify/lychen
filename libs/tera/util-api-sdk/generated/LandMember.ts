@@ -1,3 +1,4 @@
+ 
 /* tslint:disable */
 /*
  * ---------------------------------------------------------------
@@ -11,7 +12,9 @@
 import type {
   LandMemberGetCollectionParams,
   LandMemberJsonld,
-  LandMemberPatchPayload,
+  LandMemberJsonldUserLandMemberCollection,
+  LandMemberJsonldUserLandMemberGet,
+  LandMemberUserLandMemberPatch,
 } from './data-contracts';
 import { ContentType, HttpClient, type RequestParams } from './http-client';
 
@@ -31,7 +34,7 @@ export class LandMember<SecurityDataType = unknown> {
  * @request GET:/api/land_members
  * @secure
  * @response `200` `{
-    member: (LandMemberJsonld)[],
+    member: (LandMemberJsonldUserLandMemberCollection)[],
     search?: {
     "@type"?: string,
     mapping?: ({
@@ -69,7 +72,7 @@ export class LandMember<SecurityDataType = unknown> {
   landMemberGetCollection = (query: LandMemberGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
-        member: LandMemberJsonld[];
+        member: LandMemberJsonldUserLandMemberCollection[];
         search?: {
           '@type'?: string;
           mapping?: {
@@ -117,12 +120,12 @@ export class LandMember<SecurityDataType = unknown> {
    * @summary Retrieves a LandMember resource.
    * @request GET:/api/land_members/{ulid}
    * @secure
-   * @response `200` `LandMemberJsonld` LandMember resource
+   * @response `200` `LandMemberJsonldUserLandMemberGet` LandMember resource
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   landMemberGet = (ulid: string, params: RequestParams = {}) =>
-    this.http.request<LandMemberJsonld, void>({
+    this.http.request<LandMemberJsonldUserLandMemberGet, void>({
       path: `/api/land_members/${ulid}`,
       method: 'GET',
       secure: true,
@@ -157,7 +160,7 @@ export class LandMember<SecurityDataType = unknown> {
    *
    * @tags LandMember
    * @name LandMemberPatch
-   * @summary Update a land
+   * @summary Updates the LandMember resource.
    * @request PATCH:/api/land_members/{ulid}
    * @secure
    * @response `200` `LandMemberJsonld` LandMember resource updated
@@ -166,7 +169,11 @@ export class LandMember<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landMemberPatch = (ulid: string, data?: LandMemberPatchPayload, params: RequestParams = {}) =>
+  landMemberPatch = (
+    ulid: string,
+    data: LandMemberUserLandMemberPatch,
+    params: RequestParams = {},
+  ) =>
     this.http.request<LandMemberJsonld, void>({
       path: `/api/land_members/${ulid}`,
       method: 'PATCH',

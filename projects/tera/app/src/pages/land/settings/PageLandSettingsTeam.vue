@@ -29,7 +29,7 @@
       ></Button>
     </template>
     <div
-      v-if="landMemberInvitations"
+      v-if="landMemberInvitations && landMemberInvitations.member.length !== 0"
       class="flex flex-col gap-4"
     >
       <Card
@@ -39,6 +39,12 @@
       >
         {{ item.email }}</Card
       >
+    </div>
+    <div
+      v-else
+      class="flex flex-row items-center justify-center h-full opacity-70"
+    >
+      Aucune invitations en attente
     </div>
   </SectionSetting>
   <SectionSetting

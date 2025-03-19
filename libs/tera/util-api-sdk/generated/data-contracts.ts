@@ -657,6 +657,94 @@ export enum LandJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
+export interface LandJsonldUserLandCollection {
+  '@id'?: string;
+  '@type'?: string;
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
+  landAreas?: string[];
+  landMembers?: string[];
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  landSetting?: string | null;
+  name?: string;
+  /** @min 0 */
+  surface?: number | null;
+  /** @format ulid */
+  ulid?: string;
+}
+
+export interface LandJsonldUserLandGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandJsonldUserLandGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
+  /** @format date-time */
+  createdAt?: string;
+  landAreas?: string[];
+  landMembers?: string[];
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  landSetting?: string | null;
+  name?: string;
+  /** @min 0 */
+  surface?: number | null;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+}
+
+export interface LandJsonldUserLandGetCollectionLookingForMembers {
+  '@id'?: string;
+  '@type'?: string;
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
+  name?: string;
+  /** @min 0 */
+  surface?: number | null;
+  /** @format ulid */
+  ulid?: string;
+}
+
+export enum LandJsonldUserLandGetHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface LandJsonldUserLandPost {
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
+  landAreas?: string[];
+  name?: string;
+  /** @min 0 */
+  surface?: number | null;
+  /** @format ulid */
+  ulid?: string;
+}
+
 export interface LandMember {
   id?: number;
   /** @format date-time */
@@ -721,8 +809,6 @@ export interface LandMemberInvitation {
   /** @format ulid */
   ulid?: string;
 }
-
-export type LandMemberInvitationAcceptPayload = object;
 
 export interface LandMemberInvitationGetCollectionParams {
   /**
@@ -791,7 +877,86 @@ export enum LandMemberInvitationJsonldStateEnum {
   Refused = 'refused',
 }
 
-export type LandMemberInvitationRefusePayload = object;
+export interface LandMemberInvitationJsonldUserLandMemberInvitationCollection {
+  '@id'?: string;
+  '@type'?: string;
+  /** @format email */
+  email?: string;
+  landRoles?: LandRoleJsonldUserLandMemberInvitationCollection[];
+  /**
+   * @default "pending"
+   * @example "pending"
+   */
+  state?: LandMemberInvitationJsonldUserLandMemberInvitationCollectionStateEnum;
+  /** @format ulid */
+  ulid?: string;
+}
+
+/**
+ * @default "pending"
+ * @example "pending"
+ */
+export enum LandMemberInvitationJsonldUserLandMemberInvitationCollectionStateEnum {
+  Pending = 'pending',
+  Accepted = 'accepted',
+  Refused = 'refused',
+}
+
+export interface LandMemberInvitationJsonldUserLandMemberInvitationGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandMemberInvitationJsonldUserLandMemberInvitationGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  /** @format date-time */
+  createdAt?: string;
+  /** @format email */
+  email?: string;
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  land?: string;
+  landRoles?: string[];
+  /**
+   * @default "pending"
+   * @example "pending"
+   */
+  state?: LandMemberInvitationJsonldUserLandMemberInvitationGetStateEnum;
+  /** @format ulid */
+  ulid?: string;
+}
+
+export enum LandMemberInvitationJsonldUserLandMemberInvitationGetHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+/**
+ * @default "pending"
+ * @example "pending"
+ */
+export enum LandMemberInvitationJsonldUserLandMemberInvitationGetStateEnum {
+  Pending = 'pending',
+  Accepted = 'accepted',
+  Refused = 'refused',
+}
+
+export interface LandMemberInvitationJsonldUserLandMemberInvitationPost {
+  /** @format email */
+  email?: string;
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  land?: string;
+  landRoles?: string[];
+  /** @format ulid */
+  ulid?: string;
+}
 
 /**
  * @default "pending"
@@ -802,6 +967,20 @@ export enum LandMemberInvitationStateEnum {
   Accepted = 'accepted',
   Refused = 'refused',
 }
+
+export type LandMemberInvitationUserLandMemberInvitationAccept = object;
+
+export interface LandMemberInvitationUserLandMemberInvitationPatch {
+  /** @format date-time */
+  createdAt?: string;
+  /** @format email */
+  email?: string;
+  landRoles?: string[];
+  /** @format ulid */
+  ulid?: string;
+}
+
+export type LandMemberInvitationUserLandMemberInvitationRefuse = object;
 
 export interface LandMemberJsonld {
   '@context'?:
@@ -837,8 +1016,49 @@ export enum LandMemberJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
-export interface LandMemberPatchPayload {
+export interface LandMemberJsonldUserLandMemberCollection {
+  '@id'?: string;
+  '@type'?: string;
+  /** @format date-time */
+  joinedAt?: string;
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  landMemberSetting?: string | null;
+  landRoles?: LandRoleJsonldUserLandMemberCollection[];
+  owner?: boolean;
+  person?: PersonJsonldUserLandMemberCollection;
+  /** @format ulid */
+  ulid?: string;
+}
+
+export interface LandMemberJsonldUserLandMemberGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandMemberJsonldUserLandMemberGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  /** @format date-time */
+  joinedAt?: string;
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  landMemberSetting?: string | null;
   landRoles?: string[];
+  owner?: boolean;
+  person?: PersonJsonldUserLandMemberGet;
+  /** @format ulid */
+  ulid?: string;
+}
+
+export enum LandMemberJsonldUserLandMemberGetHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
 export interface LandMemberSetting {
@@ -878,16 +1098,8 @@ export enum LandMemberSettingJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
-export interface LandPatchPayload {
-  altitude?: number;
-  name?: string;
-  surface?: number;
-}
-
-export interface LandPostPayload {
-  altitude?: number;
-  name: string;
-  surface?: number;
+export interface LandMemberUserLandMemberPatch {
+  landRoles?: string[];
 }
 
 export interface LandResearchDeal {
@@ -1100,7 +1312,8 @@ export interface LandRoleJsonld {
   land?: string;
   landMembers?: string[];
   name: string;
-  permissions?: any[] | null;
+  /** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+  permissions?: LandRoleJsonldPermissionsEnum;
   position?: number;
   /** @format ulid */
   ulid?: string;
@@ -1112,12 +1325,8 @@ export enum LandRoleJsonldHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
-export interface LandRolePatchPayload {
-  name?: string;
-  permissions?: LandRolePatchPermissionsEnum[];
-}
-
-export enum LandRolePatchPermissionsEnum {
+/** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+export enum LandRoleJsonldPermissionsEnum {
   LandRead = 'land_read',
   LandUpdate = 'land_update',
   LandDelete = 'land_delete',
@@ -1163,13 +1372,252 @@ export enum LandRolePatchPermissionsEnum {
   LandsettingUpdate = 'landsetting_update',
 }
 
-export interface LandRolePostPayload {
-  land: string;
+export interface LandRoleJsonldUserLandMemberCollection {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandRoleJsonldUserLandMemberCollectionHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
   name: string;
-  permissions: LandRolePostPermissionsEnum[];
 }
 
-export enum LandRolePostPermissionsEnum {
+export enum LandRoleJsonldUserLandMemberCollectionHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface LandRoleJsonldUserLandMemberInvitationCollection {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandRoleJsonldUserLandMemberInvitationCollectionHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  name: string;
+}
+
+export enum LandRoleJsonldUserLandMemberInvitationCollectionHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface LandRoleJsonldUserLandRoleCollection {
+  '@id'?: string;
+  '@type'?: string;
+  landMembers?: string[];
+  name: string;
+  /** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+  permissions?: LandRoleJsonldUserLandRoleCollectionPermissionsEnum;
+  position?: number;
+  /** @format ulid */
+  ulid?: string;
+}
+
+/** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+export enum LandRoleJsonldUserLandRoleCollectionPermissionsEnum {
+  LandRead = 'land_read',
+  LandUpdate = 'land_update',
+  LandDelete = 'land_delete',
+  LandTransfer = 'land_transfer',
+  LandgreenhouseRead = 'landgreenhouse_read',
+  LandgreenhouseCreate = 'landgreenhouse_create',
+  LandgreenhouseUpdate = 'landgreenhouse_update',
+  LandgreenhouseDelete = 'landgreenhouse_delete',
+  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
+  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
+  LandgreenhousesettingRead = 'landgreenhousesetting_read',
+  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
+  LandareaRead = 'landarea_read',
+  LandareaCreate = 'landarea_create',
+  LandareaUpdate = 'landarea_update',
+  LandareaDelete = 'landarea_delete',
+  LandareaparameterRead = 'landareaparameter_read',
+  LandareaparameterUpdate = 'landareaparameter_update',
+  LandareasettingRead = 'landareasetting_read',
+  LandareasettingUpdate = 'landareasetting_update',
+  LandmemberRead = 'landmember_read',
+  LandmemberUpdate = 'landmember_update',
+  LandmemberDelete = 'landmember_delete',
+  LandtaskRead = 'landtask_read',
+  LandtaskCreate = 'landtask_create',
+  LandtaskUpdate = 'landtask_update',
+  LandtaskDelete = 'landtask_delete',
+  LandtaskMarkAsDone = 'landtask_mark_as_done',
+  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
+  LandcultivationplanRead = 'landcultivationplan_read',
+  LandcultivationplanCreate = 'landcultivationplan_create',
+  LandcultivationplanUpdate = 'landcultivationplan_update',
+  LandcultivationplanDelete = 'landcultivationplan_delete',
+  LandroleRead = 'landrole_read',
+  LandroleCreate = 'landrole_create',
+  LandroleUpdate = 'landrole_update',
+  LandroleDelete = 'landrole_delete',
+  LandmemberinvitationRead = 'landmemberinvitation_read',
+  LandmemberinvitationCreate = 'landmemberinvitation_create',
+  LandmemberinvitationUpdate = 'landmemberinvitation_update',
+  LandmemberinvitationDelete = 'landmemberinvitation_delete',
+  LandsettingRead = 'landsetting_read',
+  LandsettingUpdate = 'landsetting_update',
+}
+
+export interface LandRoleJsonldUserLandRoleGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandRoleJsonldUserLandRoleGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  /** @format date-time */
+  createdAt?: string;
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  land?: string;
+  landMembers?: string[];
+  name: string;
+  /** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+  permissions?: LandRoleJsonldUserLandRoleGetPermissionsEnum;
+  position?: number;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+}
+
+export enum LandRoleJsonldUserLandRoleGetHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+/** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+export enum LandRoleJsonldUserLandRoleGetPermissionsEnum {
+  LandRead = 'land_read',
+  LandUpdate = 'land_update',
+  LandDelete = 'land_delete',
+  LandTransfer = 'land_transfer',
+  LandgreenhouseRead = 'landgreenhouse_read',
+  LandgreenhouseCreate = 'landgreenhouse_create',
+  LandgreenhouseUpdate = 'landgreenhouse_update',
+  LandgreenhouseDelete = 'landgreenhouse_delete',
+  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
+  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
+  LandgreenhousesettingRead = 'landgreenhousesetting_read',
+  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
+  LandareaRead = 'landarea_read',
+  LandareaCreate = 'landarea_create',
+  LandareaUpdate = 'landarea_update',
+  LandareaDelete = 'landarea_delete',
+  LandareaparameterRead = 'landareaparameter_read',
+  LandareaparameterUpdate = 'landareaparameter_update',
+  LandareasettingRead = 'landareasetting_read',
+  LandareasettingUpdate = 'landareasetting_update',
+  LandmemberRead = 'landmember_read',
+  LandmemberUpdate = 'landmember_update',
+  LandmemberDelete = 'landmember_delete',
+  LandtaskRead = 'landtask_read',
+  LandtaskCreate = 'landtask_create',
+  LandtaskUpdate = 'landtask_update',
+  LandtaskDelete = 'landtask_delete',
+  LandtaskMarkAsDone = 'landtask_mark_as_done',
+  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
+  LandcultivationplanRead = 'landcultivationplan_read',
+  LandcultivationplanCreate = 'landcultivationplan_create',
+  LandcultivationplanUpdate = 'landcultivationplan_update',
+  LandcultivationplanDelete = 'landcultivationplan_delete',
+  LandroleRead = 'landrole_read',
+  LandroleCreate = 'landrole_create',
+  LandroleUpdate = 'landrole_update',
+  LandroleDelete = 'landrole_delete',
+  LandmemberinvitationRead = 'landmemberinvitation_read',
+  LandmemberinvitationCreate = 'landmemberinvitation_create',
+  LandmemberinvitationUpdate = 'landmemberinvitation_update',
+  LandmemberinvitationDelete = 'landmemberinvitation_delete',
+  LandsettingRead = 'landsetting_read',
+  LandsettingUpdate = 'landsetting_update',
+}
+
+export interface LandRoleJsonldUserLandRolePost {
+  /**
+   * @format iri-reference
+   * @example "https://example.com/"
+   */
+  land?: string;
+  name: string;
+  /** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+  permissions?: LandRoleJsonldUserLandRolePostPermissionsEnum;
+  /** @format ulid */
+  ulid?: string;
+}
+
+/** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+export enum LandRoleJsonldUserLandRolePostPermissionsEnum {
+  LandRead = 'land_read',
+  LandUpdate = 'land_update',
+  LandDelete = 'land_delete',
+  LandTransfer = 'land_transfer',
+  LandgreenhouseRead = 'landgreenhouse_read',
+  LandgreenhouseCreate = 'landgreenhouse_create',
+  LandgreenhouseUpdate = 'landgreenhouse_update',
+  LandgreenhouseDelete = 'landgreenhouse_delete',
+  LandgreenhouseparameterRead = 'landgreenhouseparameter_read',
+  LandgreenhouseparameterUpdate = 'landgreenhouseparameter_update',
+  LandgreenhousesettingRead = 'landgreenhousesetting_read',
+  LandgreenhousesettingUpdate = 'landgreenhousesetting_update',
+  LandareaRead = 'landarea_read',
+  LandareaCreate = 'landarea_create',
+  LandareaUpdate = 'landarea_update',
+  LandareaDelete = 'landarea_delete',
+  LandareaparameterRead = 'landareaparameter_read',
+  LandareaparameterUpdate = 'landareaparameter_update',
+  LandareasettingRead = 'landareasetting_read',
+  LandareasettingUpdate = 'landareasetting_update',
+  LandmemberRead = 'landmember_read',
+  LandmemberUpdate = 'landmember_update',
+  LandmemberDelete = 'landmember_delete',
+  LandtaskRead = 'landtask_read',
+  LandtaskCreate = 'landtask_create',
+  LandtaskUpdate = 'landtask_update',
+  LandtaskDelete = 'landtask_delete',
+  LandtaskMarkAsDone = 'landtask_mark_as_done',
+  LandtaskMarkAsInProgress = 'landtask_mark_as_in_progress',
+  LandcultivationplanRead = 'landcultivationplan_read',
+  LandcultivationplanCreate = 'landcultivationplan_create',
+  LandcultivationplanUpdate = 'landcultivationplan_update',
+  LandcultivationplanDelete = 'landcultivationplan_delete',
+  LandroleRead = 'landrole_read',
+  LandroleCreate = 'landrole_create',
+  LandroleUpdate = 'landrole_update',
+  LandroleDelete = 'landrole_delete',
+  LandmemberinvitationRead = 'landmemberinvitation_read',
+  LandmemberinvitationCreate = 'landmemberinvitation_create',
+  LandmemberinvitationUpdate = 'landmemberinvitation_update',
+  LandmemberinvitationDelete = 'landmemberinvitation_delete',
+  LandsettingRead = 'landsetting_read',
+  LandsettingUpdate = 'landsetting_update',
+}
+
+export interface LandRoleUserLandRolePatch {
+  /** @format date-time */
+  createdAt?: string;
+  name: string;
+  /** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+  permissions?: LandRoleUserLandRolePatchPermissionsEnum;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+}
+
+/** @example ["land_read","land_update","land_delete","land_transfer","landgreenhouse_read","landgreenhouse_create","landgreenhouse_update","landgreenhouse_delete","landgreenhouseparameter_read","landgreenhouseparameter_update","landgreenhousesetting_read","landgreenhousesetting_update","landarea_read","landarea_create","landarea_update","landarea_delete","landareaparameter_read","landareaparameter_update","landareasetting_read","landareasetting_update","landmember_read","landmember_update","landmember_delete","landtask_read","landtask_create","landtask_update","landtask_delete","landtask_mark_as_done","landtask_mark_as_in_progress","landcultivationplan_read","landcultivationplan_create","landcultivationplan_update","landcultivationplan_delete","landrole_read","landrole_create","landrole_update","landrole_delete","landmemberinvitation_read","landmemberinvitation_create","landmemberinvitation_update","landmemberinvitation_delete","landsetting_read","landsetting_update"] */
+export enum LandRoleUserLandRolePatchPermissionsEnum {
   LandRead = 'land_read',
   LandUpdate = 'land_update',
   LandDelete = 'land_delete',
@@ -1379,6 +1827,24 @@ export enum LandTaskStateEnum {
   Done = 'done',
 }
 
+export interface LandUserLandPatch {
+  /**
+   * @default 1
+   * @example 1
+   */
+  altitude?: number | null;
+  /** @format date-time */
+  createdAt?: string;
+  landAreas?: string[];
+  name?: string;
+  /** @min 0 */
+  surface?: number | null;
+  /** @format ulid */
+  ulid?: string;
+  /** @format date-time */
+  updatedAt?: string | null;
+}
+
 /** @default "asc" */
 export enum OrderDueDateEnum {
   Asc = 'asc',
@@ -1433,6 +1899,40 @@ export interface PersonJsonld {
 }
 
 export enum PersonJsonldHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface PersonJsonldUserLandMemberCollection {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: PersonJsonldUserLandMemberCollectionHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  familyName?: string | null;
+  givenName?: string | null;
+}
+
+export enum PersonJsonldUserLandMemberCollectionHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface PersonJsonldUserLandMemberGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: PersonJsonldUserLandMemberGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+}
+
+export enum PersonJsonldUserLandMemberGetHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
