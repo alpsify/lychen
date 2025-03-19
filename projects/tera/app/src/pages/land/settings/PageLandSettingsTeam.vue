@@ -142,8 +142,12 @@ const api = useAllTeraApi();
 const { data: landRoles, refetch: refetchLandRoles } = useQuery({
   queryKey: ['landRoles', landId],
   queryFn: async () => {
+    if (!landId.value) {
+      throw new Error('missing.land_id');
+    }
+
     const response = await api.LandRole.landRoleGetCollection({
-      land: landId.value!,
+      land: landId.value,
     });
 
     return response.data;
@@ -170,8 +174,12 @@ onLandRoleDelete(() => {
 const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = useQuery({
   queryKey: ['landMemberInvitations', landId],
   queryFn: async () => {
+    if (!landId.value) {
+      throw new Error('missing.land_id');
+    }
+
     const response = await api.LandMemberInvitation.landMemberInvitationGetCollection({
-      land: landId.value!,
+      land: landId.value,
     });
 
     return response.data;
@@ -198,8 +206,12 @@ onLandMemberInvitationDelete(() => {
 const { data: landMembers, refetch: refetchLandMembers } = useQuery({
   queryKey: ['landMembers', landId],
   queryFn: async () => {
+    if (!landId.value) {
+      throw new Error('missing.land_id');
+    }
+
     const response = await api.LandMember.landMemberGetCollection({
-      land: landId.value!,
+      land: landId.value,
     });
 
     return response.data;
