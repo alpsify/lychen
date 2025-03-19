@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col gap-6"
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <FormFieldTeraLandName :is-field-dirty="isFieldDirty" />
     <FormFieldTeraLandSurface
@@ -30,7 +30,7 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useForm } from 'vee-validate';
 import {
   type LandJsonld,
-  type LandPostPayload,
+  type LandJsonldUserLandPost,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
@@ -44,7 +44,7 @@ import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandPostPayload>({
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandJsonldUserLandPost>({
   initialValues: {
     altitude: 0,
     surface: 1,
@@ -56,7 +56,7 @@ const { emit } = useEventBus(landPostSucceededEvent);
 const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLand: LandPostPayload) => landApi.landPost(newLand),
+  mutationFn: (newLand: LandJsonldUserLandPost) => landApi.landPost(newLand),
   onSuccess: (data: { data: LandJsonld }, variables, context) => {
     toast({
       title: t('action.create.success.message'),

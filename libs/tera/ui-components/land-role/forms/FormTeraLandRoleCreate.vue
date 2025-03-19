@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col gap-6"
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <FormFieldTeraLandRoleName :is-field-dirty="isFieldDirty" />
     <FormFieldTeraPermissions

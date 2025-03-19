@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col gap-6"
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <FormFieldTeraLandName :is-field-dirty="isFieldDirty" />
     <div class="gap-4 md:grid md:grid-cols-2">
@@ -41,7 +41,7 @@ import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
 import type {
   LandJsonld,
-  LandPatchPayload,
+  LandUserLandPatch,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 
@@ -49,7 +49,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandPatchPayload>({
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandUserLandPatch>({
   initialValues: {
     altitude: land.altitude || 0,
     surface: land.surface || 1,
@@ -62,7 +62,7 @@ const { emit } = useEventBus(landPatchSucceededEvent);
 const landApi = useTeraApi('Land');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandPatchPayload) => {
+  mutationFn: (data: LandUserLandPatch) => {
     if (!land.ulid) {
       throw new Error('missing.land_ulid');
     }

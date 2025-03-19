@@ -10,7 +10,7 @@
       <template #content></template>
       <template #action>
         <Button
-          variant="positive"
+          variant="negative"
           :disabled="isPending"
           :loading="isPending"
           @click="deleteLand()"
@@ -59,10 +59,10 @@ const landApi = useTeraApi('Land');
 
 const { mutate: deleteLand, isPending } = useMutation({
   mutationFn: () => {
-    if (land.ulid) {
+    if (!land.ulid) {
       throw new Error('error.missing_ulid');
     }
-    return landApi.landDelete(land.ulid!);
+    return landApi.landDelete(land.ulid);
   },
   onSuccess: (data, variables, context) => {
     toast({

@@ -10,7 +10,7 @@
       <template #content></template>
       <template #action>
         <Button
-          variant="positive"
+          variant="negative"
           :disabled="isPending"
           :loading="isPending"
           @click="deleteLandMember()"

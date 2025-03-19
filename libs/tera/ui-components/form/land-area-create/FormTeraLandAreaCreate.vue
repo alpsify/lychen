@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col gap-6"
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <FormField
       v-slot="{ componentField }"

@@ -1,7 +1,7 @@
 <template>
   <form
     class="flex flex-col gap-6"
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <Button
       :disabled="!meta.valid || isPending || !meta.dirty"
@@ -28,7 +28,7 @@ import { useEventBus } from '@vueuse/core';
 
 import type {
   LandMemberJsonld,
-  LandMemberPatchPayload,
+  LandMemberUserLandMemberPatch,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landMemberPatchSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
 
@@ -36,7 +36,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { landMember } = defineProps<{ landMember: LandMemberJsonld }>();
 
-const { handleSubmit, meta } = useForm<LandMemberPatchPayload>({
+const { handleSubmit, meta } = useForm<LandMemberUserLandMemberPatch>({
   initialValues: {},
 });
 
@@ -45,7 +45,7 @@ const { emit } = useEventBus(landMemberPatchSucceededEvent);
 const api = useTeraApi('LandMember');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandMemberPatchPayload) => api.landMemberPatch(landMember.ulid!, data),
+  mutationFn: (data: LandMemberUserLandMemberPatch) => api.landMemberPatch(landMember.ulid!, data),
   onSuccess: (data: { data: LandMemberJsonld }, variables, context) => {
     toast({
       title: t('action.update.success.message'),
