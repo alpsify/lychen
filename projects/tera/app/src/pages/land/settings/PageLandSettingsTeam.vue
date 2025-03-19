@@ -8,7 +8,7 @@
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberUpdate
-        v-for="(item, index) in landMembers.member"
+        v-for="(item, index) in landMembers?.member"
         :key="index"
         :land-member="item"
       >

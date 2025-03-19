@@ -87,7 +87,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
