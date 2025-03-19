@@ -25,7 +25,7 @@ export default {
   },
   action: {
     create: {
-      label: "Inviter quelqu'un",
+      label: 'Inviter',
       success: {
         message: 'Invitation créée',
       },
@@ -58,6 +58,18 @@ export default {
       },
       pending: {
         message: "Refus de l'invitation en cours",
+      },
+    },
+    update: {
+      label: "Mettre à jour l'invitation",
+      success: {
+        message: 'Invitation mise à jour',
+      },
+      error: {
+        message: "Erreur lors de la mise à jour de l'invitation",
+      },
+      pending: {
+        message: "Mise à jour de l'invitation en cours",
       },
     },
     delete: {

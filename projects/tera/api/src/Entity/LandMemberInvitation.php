@@ -93,6 +93,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
     private ?string $state = LandMemberInvitationWorkflowPlace::PENDING;
 
     #[ORM\ManyToOne(inversedBy: 'landMemberInvitations')]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get"])] // Has to be present in order to do some checks on front-end
     private ?Person $person = null;
 
     #[ORM\Column(nullable: true)]

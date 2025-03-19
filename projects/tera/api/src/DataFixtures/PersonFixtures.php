@@ -73,7 +73,7 @@ class PersonFixtures extends Fixture
         return $this->createPersonAndAddReference($reference, ['authId' => $data['userId'], ...$createdData]);
     }
 
-    private function buildUserEmail(string $reference): string
+    public static function buildUserEmail(string $reference): string
     {
         return $reference . self::DEFAULT_EMAIL_DOMAIN;
     }

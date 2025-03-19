@@ -1,17 +1,36 @@
 <template>
   <Card
-    class="p-4 gap-2"
+    class="p-4 gap-2 flex flex-row justify-between items-center"
     hoverable
   >
-    <p class="font-medium">{{ landMemberInvitation.email }}</p>
+    <div class="flex flex-col gap-1">
+      <p class="font-medium">{{ landMemberInvitation.email }}</p>
+      <div class="flex flex-row gap-2">
+        <BadgeTeraLandRole
+          v-for="(item, index) in landMemberInvitation.landRoles"
+          :key="index"
+          :land-role="item"
+          class="bg-surface-container-high text-on-surface-container mr-2 font-normal"
+        />
+      </div>
+    </div>
     <p class="font-medium">{{ landMemberInvitation.state }}</p>
-    <div>
-      <BadgeTeraLandRole
-        v-for="(item, index) in landMemberInvitation.landRoles"
-        :key="index"
-        :land-role="item"
-        class="bg-surface-container-high text-on-surface-container mr-2 font-normal"
-      />
+    <div class="flex flex-row gap-2">
+      <DialogTeraLandMemberInvitationDelete :land-member-invitation="landMemberInvitation">
+        <Button
+          :icon="faTrash"
+          variant="negative"
+          @click.stop
+        />
+      </DialogTeraLandMemberInvitationDelete>
+      <template v-if="variant === VARIANT.ForUser">
+        <Button
+          :icon="faCheck"
+          variant="positive" />
+        <Button
+          :icon="faTimes"
+          variant="negative"
+      /></template>
     </div>
   </Card>
 </template>
@@ -22,10 +41,17 @@ import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';
+import DialogTeraLandMemberInvitationDelete from '../dialogs/delete/DialogTeraLandMemberInvitationDelete.vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
+import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
+import { VARIANT, type Variant } from '.';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-defineProps<{
+const { variant = VARIANT.Settings } = defineProps<{
+  variant?: Variant;
   landMemberInvitation: LandMemberInvitationJsonldUserLandMemberInvitationCollection;
 }>();
 </script>

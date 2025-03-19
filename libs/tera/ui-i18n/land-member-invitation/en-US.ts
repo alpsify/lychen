@@ -25,7 +25,7 @@ export default {
   },
   action: {
     create: {
-      label: 'Invite someone',
+      label: 'Invite',
       success: {
         message: 'Invitation created',
       },
@@ -58,6 +58,18 @@ export default {
       },
       pending: {
         message: 'Refusing the invitation',
+      },
+    },
+    update: {
+      label: 'Update the invitation',
+      success: {
+        message: 'Invitation updated',
+      },
+      error: {
+        message: 'Error while updating the invitation',
+      },
+      pending: {
+        message: 'Updating the invitation',
       },
     },
     delete: {

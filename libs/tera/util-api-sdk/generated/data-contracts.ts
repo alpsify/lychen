@@ -883,6 +883,7 @@ export interface LandMemberInvitationJsonldUserLandMemberInvitationCollection {
   /** @format email */
   email?: string;
   landRoles?: LandRoleJsonldUserLandMemberInvitationCollection[];
+  person?: PersonJsonldUserLandMemberInvitationCollection | null;
   /**
    * @default "pending"
    * @example "pending"
@@ -922,6 +923,7 @@ export interface LandMemberInvitationJsonldUserLandMemberInvitationGet {
    */
   land?: string;
   landRoles?: string[];
+  person?: PersonJsonldUserLandMemberInvitationGet | null;
   /**
    * @default "pending"
    * @example "pending"
@@ -1100,6 +1102,8 @@ export enum LandMemberSettingJsonldHydraEnum {
 
 export interface LandMemberUserLandMemberPatch {
   landRoles?: string[];
+  /** @format ulid */
+  ulid?: string;
 }
 
 export interface LandResearchDeal {
@@ -1933,6 +1937,38 @@ export interface PersonJsonldUserLandMemberGet {
 }
 
 export enum PersonJsonldUserLandMemberGetHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface PersonJsonldUserLandMemberInvitationCollection {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: PersonJsonldUserLandMemberInvitationCollectionHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+}
+
+export enum PersonJsonldUserLandMemberInvitationCollectionHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
+}
+
+export interface PersonJsonldUserLandMemberInvitationGet {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: PersonJsonldUserLandMemberInvitationGetHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+}
+
+export enum PersonJsonldUserLandMemberInvitationGetHydraEnum {
   HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 

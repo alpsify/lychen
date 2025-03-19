@@ -21,24 +21,29 @@
     :description="t('tabs.team.invitations.description')"
   >
     <template #subTitle>
-      <Button
-        :icon="faPlus"
-        variant="container-high"
-        class="self-start"
-        :text="tLandMemberInvitation('action.create.label')"
-      ></Button>
+      <DialogTeraLandMemberInvitationCreate
+        v-if="land"
+        :land="land"
+      >
+        <Button
+          :icon="faPlus"
+          variant="container-high"
+          class="self-start"
+          :text="tLandMemberInvitation('action.create.label')"
+        ></Button>
+      </DialogTeraLandMemberInvitationCreate>
     </template>
     <div
       v-if="landMemberInvitations && landMemberInvitations.member.length !== 0"
       class="flex flex-col gap-4"
     >
-      <Card
+      <DialogTeraLandMemberInvitationUpdate
         v-for="(item, index) in landMemberInvitations.member"
         :key="index"
-        class=""
+        :land-member-invitation="item"
       >
-        {{ item.email }}</Card
-      >
+        <CardTeraLandMemberInvitation :land-member-invitation="item" />
+      </DialogTeraLandMemberInvitationUpdate>
     </div>
     <div
       v-else
@@ -96,12 +101,13 @@ import { computed, inject, onUnmounted } from 'vue';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { useQuery } from '@tanstack/vue-query';
 import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import CardTeraLandRole from '@lychen/tera-ui-components/land-role/card/CardTeraLandRole.vue';
 import DialogTeraLandRoleCreate from '@lychen/tera-ui-components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';
+import DialogTeraLandMemberInvitationCreate from '@lychen/tera-ui-components/land-member-invitation/dialogs/create/DialogTeraLandMemberInvitationCreate.vue';
 import DialogTeraLandRoleUpdate from '@lychen/tera-ui-components/land-role/dialogs/update/DialogTeraLandRoleUpdate.vue';
+import DialogTeraLandMemberInvitationUpdate from '@lychen/tera-ui-components/land-member-invitation/dialogs/update/DialogTeraLandMemberInvitationUpdate.vue';
 
 import {
   landRolePostSucceededEvent,
@@ -120,6 +126,7 @@ import {
   landMemberInvitationPatchSucceededEvent,
   landMemberInvitationPostSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
+import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 
 const land = inject(INJECT_LAND_KEY);
 const landId = computed(() => land?.value?.['@id']);
