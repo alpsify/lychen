@@ -36,8 +36,8 @@ import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraP
 
 import type {
   LandRoleJsonld,
-  LandRolePatchPayload,
-  LandRolePatchPermissionsEnum,
+  LandRoleUserLandRolePatch,
+  LandRoleUserLandRolePatchPermissionsEnum,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landRolePatchSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
 
@@ -45,19 +45,20 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue, values } = useForm<LandRolePatchPayload>({
-  initialValues: {
-    name: landRole.name,
-    permissions: landRole.permissions as LandRolePatchPermissionsEnum[],
-  },
-});
+const { isFieldDirty, handleSubmit, meta, setFieldValue, values } =
+  useForm<LandRoleUserLandRolePatch>({
+    initialValues: {
+      name: landRole.name,
+      permissions: landRole.permissions,
+    },
+  });
 
 const { emit } = useEventBus(landRolePatchSucceededEvent);
 
 const api = useTeraApi('LandRole');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandRolePatchPayload) => api.landRolePatch(landRole.ulid!, data),
+  mutationFn: (data: LandRoleUserLandRolePatch) => api.landRolePatch(landRole.ulid!, data),
   onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
     toast({
       title: t('action.update.success.message'),
@@ -78,7 +79,7 @@ const onSubmit = handleSubmit((values) => {
   mutate(values);
 });
 
-function handlePermissionsUpdate(newPermissions: LandRolePatchPermissionsEnum[]) {
+function handlePermissionsUpdate(newPermissions: LandRoleUserLandRolePatchPermissionsEnum[]) {
   setFieldValue('permissions', newPermissions);
 }
 </script>

@@ -44,14 +44,20 @@ class PersonFixtures extends Fixture
     {
         $userEmail = $this->buildUserEmail($reference);
         $data = null;
+
+        $createdData = [
+            'email' => $userEmail,
+            'givenName' => faker()->firstName(),
+            'familyName' => faker()->lastName(),
+        ];
         try {
             $data = $this->user->createHumanUser([
                 'profile' => [
-                    'givenName' => faker()->firstName(),
-                    'familyName' => faker()->lastName(),
+                    'givenName' => $createdData['givenName'],
+                    'familyName' => $createdData['familyName'],
                 ],
                 'email' => [
-                    'email' => $userEmail,
+                    'email' => $createdData['email'],
                     'isVerified' => true,
                 ],
                 'password' => [
@@ -64,7 +70,7 @@ class PersonFixtures extends Fixture
                 $data = $this->user->searchByEmail($userEmail);
             }
         }
-        return $this->createPersonAndAddReference($reference, ['authId' => $data['userId']]);
+        return $this->createPersonAndAddReference($reference, ['authId' => $data['userId'], ...$createdData]);
     }
 
     private function buildUserEmail(string $reference): string

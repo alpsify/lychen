@@ -92,7 +92,7 @@ import {
   messages as landMemberInvitationMessages,
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-member-invitation';
-import { computed, inject } from 'vue';
+import { computed, inject, onUnmounted } from 'vue';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { useQuery } from '@tanstack/vue-query';
 import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -165,15 +165,15 @@ const { on: onLandRolePost } = useEventBus(landRolePostSucceededEvent);
 const { on: onLandRolePatch } = useEventBus(landRolePatchSucceededEvent);
 const { on: onLandRoleDelete } = useEventBus(landRoleDeleteSucceededEvent);
 
-onLandRolePost(() => {
+const unsubscribeOnLandRolePost = onLandRolePost(() => {
   refetchLandRoles();
 });
 
-onLandRolePatch(() => {
+const unsubscribeOnLandRolePatch = onLandRolePatch(() => {
   refetchLandRoles();
 });
 
-onLandRoleDelete(() => {
+const unsubscribeOnLandRoleDelete = onLandRoleDelete(() => {
   refetchLandRoles();
 });
 
@@ -197,15 +197,15 @@ const { on: onLandMemberInvitationPost } = useEventBus(landMemberInvitationPostS
 const { on: onLandMemberInvitationPatch } = useEventBus(landMemberInvitationPatchSucceededEvent);
 const { on: onLandMemberInvitationDelete } = useEventBus(landMemberInvitationDeleteSucceededEvent);
 
-onLandMemberInvitationPost(() => {
+const unsubscribeOnLandMemberInvitationPost = onLandMemberInvitationPost(() => {
   refetchLandMemberInvitations();
 });
 
-onLandMemberInvitationPatch(() => {
+const unsubscribeOnLandMemberInvitationPatch = onLandMemberInvitationPatch(() => {
   refetchLandMemberInvitations();
 });
 
-onLandMemberInvitationDelete(() => {
+const unsubscribeOnLandMemberInvitationDelete = onLandMemberInvitationDelete(() => {
   refetchLandMemberInvitations();
 });
 
@@ -228,11 +228,22 @@ const { data: landMembers, refetch: refetchLandMembers } = useQuery({
 const { on: onLandMemberPatch } = useEventBus(landMemberPatchSucceededEvent);
 const { on: onLandMemberDelete } = useEventBus(landMemberDeleteSucceededEvent);
 
-onLandMemberPatch(() => {
+const unsubscribeOnLandMemberPatch = onLandMemberPatch(() => {
   refetchLandMembers();
 });
 
-onLandMemberDelete(() => {
+const unsubscribeOnLandMemberDelete = onLandMemberDelete(() => {
   refetchLandMembers();
+});
+
+onUnmounted(() => {
+  unsubscribeOnLandMemberPatch();
+  unsubscribeOnLandMemberDelete();
+  unsubscribeOnLandMemberInvitationPost();
+  unsubscribeOnLandMemberInvitationPatch();
+  unsubscribeOnLandMemberInvitationDelete();
+  unsubscribeOnLandRolePost();
+  unsubscribeOnLandRolePatch();
+  unsubscribeOnLandRoleDelete();
 });
 </script>
