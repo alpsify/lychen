@@ -13,7 +13,7 @@
           variant="positive"
           :disabled="isPending"
           :loading="isPending"
-          @click="deleteLand()"
+          @click="deleteLandMember()"
         >
           {{ tLandMember('action.delete.label') }}
         </Button>
@@ -57,14 +57,26 @@ const { landMember } = defineProps<{ landMember: LandMemberJsonld }>();
 
 const api = useTeraApi('LandMember');
 
-const { mutate: deleteLand, isPending } = useMutation({
-  mutationFn: () => api.landMemberDelete(landMember.ulid!),
+const { mutate: deleteLandMember, isPending } = useMutation({
+  mutationFn: () => {
+    if (!landMember.ulid) {
+      throw new Error('error.missing_ulid');
+    }
+    return api.landMemberDelete(landMember.ulid);
+  },
   onSuccess: (data, variables, context) => {
     toast({
       title: tLandMember('action.delete.success.message'),
       variant: 'positive',
     });
     emit(landMember);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: tLandMember('action.delete.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
   },
 });
 </script>

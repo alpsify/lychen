@@ -58,13 +58,25 @@ const { land } = defineProps<{ land: LandJsonld }>();
 const landApi = useTeraApi('Land');
 
 const { mutate: deleteLand, isPending } = useMutation({
-  mutationFn: () => landApi.landDelete(land.ulid!),
+  mutationFn: () => {
+    if (land.ulid) {
+      throw new Error('error.missing_ulid');
+    }
+    return landApi.landDelete(land.ulid!);
+  },
   onSuccess: (data, variables, context) => {
     toast({
       title: tLand('action.delete.success.message'),
       variant: 'positive',
     });
     emit(land);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: tLand('action.delete.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
   },
 });
 </script>

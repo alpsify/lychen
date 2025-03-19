@@ -13,7 +13,7 @@
           variant="positive"
           :disabled="isPending"
           :loading="isPending"
-          @click="deleteLand()"
+          @click="deleteLandRole()"
         >
           {{ tLandRole('action.delete.label') }}
         </Button>
@@ -57,7 +57,7 @@ const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
 
 const api = useTeraApi('LandRole');
 
-const { mutate: deleteLand, isPending } = useMutation({
+const { mutate: deleteLandRole, isPending } = useMutation({
   mutationFn: () => api.landRoleDelete(landRole.ulid!),
   onSuccess: (data, variables, context) => {
     toast({
@@ -65,6 +65,13 @@ const { mutate: deleteLand, isPending } = useMutation({
       variant: 'positive',
     });
     emit(landRole);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: tLandRole('action.delete.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
   },
 });
 </script>

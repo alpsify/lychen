@@ -63,6 +63,13 @@ const { mutate, isPending } = useMutation({
     });
     emit(data.data);
   },
+  onError: (error, variables, context) => {
+    toast({
+      title: t('action.create.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
+  },
 });
 
 const onSubmit = handleSubmit((values) => {

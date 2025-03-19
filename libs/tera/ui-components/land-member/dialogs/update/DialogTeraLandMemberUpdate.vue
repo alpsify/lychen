@@ -15,7 +15,7 @@
         </div>
         <DialogClose />
       </DialogHeader>
-      <FormTeraLandMemberUpdate :land-role="landMember" />
+      <FormTeraLandMemberUpdate :land-member="landMember" />
       <Separator class="bg-surface-container-highest" />
       <div class="flex flex-row gap-2 justify-end">
         <DialogTeraLandMemberDelete :land-member="landMember">

@@ -36,11 +36,9 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { landMember } = defineProps<{ landMember: LandMemberJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue, values } = useForm<LandMemberPatchPayload>(
-  {
-    initialValues: {},
-  },
-);
+const { handleSubmit, meta } = useForm<LandMemberPatchPayload>({
+  initialValues: {},
+});
 
 const { emit } = useEventBus(landMemberPatchSucceededEvent);
 
@@ -54,6 +52,13 @@ const { mutate, isPending } = useMutation({
       variant: 'positive',
     });
     emit(data.data);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: t('action.update.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
   },
 });
 
