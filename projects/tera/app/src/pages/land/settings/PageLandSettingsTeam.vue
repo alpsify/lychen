@@ -49,7 +49,7 @@
       v-else
       class="flex flex-row items-center justify-center h-full opacity-70"
     >
-      Aucune invitations en attente
+      {{ t('tabs.team.invitations.none') }}
     </div>
   </SectionSetting>
   <SectionSetting

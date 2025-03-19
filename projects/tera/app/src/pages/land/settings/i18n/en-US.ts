@@ -37,6 +37,20 @@ export default {
     },
     team: {
       title: 'Team',
+      members: {
+        title: 'Members',
+        description: 'The members of your culture space.',
+      },
+      invitations: {
+        title: 'Invitations',
+        description: 'Manage pending invitations to join your culture space.',
+        none: 'No pending invitations',
+      },
+      roles: {
+        title: 'Roles',
+        description:
+          'Configure and manage the different roles and permissions within your culture space.',
+      },
     },
     subscription: {
       title: 'Subscription',

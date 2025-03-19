@@ -10,11 +10,13 @@
           v-for="(item, index) in landMemberInvitation.landRoles"
           :key="index"
           :land-role="item"
-          class="bg-surface-container-high text-on-surface-container mr-2 font-normal"
         />
       </div>
     </div>
-    <p class="font-medium">{{ landMemberInvitation.state }}</p>
+    <BadgeTeraLandmemberInvitation
+      v-if="landMemberInvitation.state"
+      :state="landMemberInvitation.state"
+    />
     <div class="flex flex-row gap-2">
       <DialogTeraLandMemberInvitationDelete :land-member-invitation="landMemberInvitation">
         <Button
@@ -36,7 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import type { LandMemberInvitationJsonldUserLandMemberInvitationCollection } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type {
+  LandMemberInvitationJsonldUserLandMemberInvitationCollection,
+  LandMemberInvitationStateEnum,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -47,6 +52,7 @@ import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
 import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
+import BadgeTeraLandmemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

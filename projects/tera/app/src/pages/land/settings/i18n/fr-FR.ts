@@ -45,6 +45,7 @@ export default {
       invitations: {
         title: 'Invitations',
         description: 'Gérez les invitations en attente pour rejoindre votre espace de culture.',
+        none: 'Aucune invitation en attente',
       },
       roles: {
         title: 'Rôles',
