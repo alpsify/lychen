@@ -4,26 +4,31 @@
       <slot />
     </DialogTrigger>
     <DialogContent
-      class="bg-surface-container-high/80 text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
+      class="bg-surface-container-high/90 text-on-surface-container md:max-w-[50%] w-full max-h-dvh"
     >
-      <DialogHeader class="flex flex-row justify-between items-start gap-10">
-        <div class="md:w-4/5 flex flex-col gap-2">
-          <DialogTitle>{{ t('title') }}</DialogTitle>
-          <DialogDescription>
-            {{ t('description') }}
-          </DialogDescription>
+      <div class="overflow-y-auto flex flex-col gap-4">
+        <DialogHeader class="flex flex-row justify-between items-start gap-10">
+          <div class="md:w-4/5 flex flex-col gap-2">
+            <DialogTitle>{{ t('title') }}</DialogTitle>
+            <DialogDescription>
+              {{ t('description') }}
+            </DialogDescription>
+          </div>
+          <DialogClose />
+        </DialogHeader>
+        <FormTeraLandMemberUpdate
+          :land-member="landMember"
+          :land="land"
+        />
+        <Separator class="bg-surface-container-highest" />
+        <div class="flex flex-row gap-2 justify-end">
+          <DialogTeraLandMemberDelete :land-member="landMember">
+            <Button
+              :text="tLandMember('action.delete.label')"
+              variant="negative"
+            />
+          </DialogTeraLandMemberDelete>
         </div>
-        <DialogClose />
-      </DialogHeader>
-      <FormTeraLandMemberUpdate :land-member="landMember" />
-      <Separator class="bg-surface-container-highest" />
-      <div class="flex flex-row gap-2 justify-end">
-        <DialogTeraLandMemberDelete :land-member="landMember">
-          <Button
-            :text="tLandMember('action.delete.label')"
-            variant="negative"
-          />
-        </DialogTeraLandMemberDelete>
       </div>
     </DialogContent>
   </Dialog>
@@ -44,7 +49,8 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import type {
   LandMemberJsonld,
-  LandMemberJsonldUserLandMemberCollection,
+  LandJsonld,
+  LandRoleJsonld,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import {
@@ -68,7 +74,10 @@ const { t: tLandMember } = useI18nExtended({
 });
 
 const { landMember } = defineProps<{
-  landMember: LandMemberJsonld | LandMemberJsonldUserLandMemberCollection;
+  landMember: Omit<LandMemberJsonld, 'landRoles'> & {
+    landRoles: LandRoleJsonld[];
+  };
+  land: LandJsonld;
 }>();
 
 const open = ref(false);

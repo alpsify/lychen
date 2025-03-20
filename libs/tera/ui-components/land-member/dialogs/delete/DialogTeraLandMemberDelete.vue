@@ -36,7 +36,10 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landMemberDeleteSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
-import type { LandMemberJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type {
+  LandMemberJsonld,
+  LandRoleJsonld,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
 
 const { t: tLandMember } = useI18nExtended({
@@ -53,7 +56,11 @@ const { t: t } = useI18nExtended({
 
 const { emit } = useEventBus(landMemberDeleteSucceededEvent);
 
-const { landMember } = defineProps<{ landMember: LandMemberJsonld }>();
+const { landMember } = defineProps<{
+  landMember: Omit<LandMemberJsonld, 'landRoles'> & {
+    landRoles: LandRoleJsonld[];
+  };
+}>();
 
 const api = useTeraApi('LandMember');
 

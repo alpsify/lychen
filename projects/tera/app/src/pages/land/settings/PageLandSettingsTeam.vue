@@ -11,6 +11,7 @@
         v-for="(item, index) in landMembers.member"
         :key="index"
         :land-member="item"
+        :land="land"
       >
         <CardTeraLandMember :land-member="item" />
       </DialogTeraLandMemberUpdate>

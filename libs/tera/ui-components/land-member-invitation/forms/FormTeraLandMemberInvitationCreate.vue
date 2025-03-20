@@ -63,6 +63,9 @@ const emailFieldSchema = toTypedSchema(
         if (!land['@id']) {
           throw new Error('missing.land_id');
         }
+        if (!email) {
+          return true;
+        }
         const response = await api.landMemberInvitationCheckEmailUnicity({
           email,
           land: land['@id'],
