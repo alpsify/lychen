@@ -3,6 +3,7 @@
     class="flex flex-col gap-6"
     @submit.prevent="onSubmit"
   >
+    <FormFieldEmail :is-field-dirty="isFieldDirty" />
     <Button
       :disabled="!meta.valid || isPending"
       :loading="isPending"
@@ -16,6 +17,7 @@
 <script lang="ts" setup>
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import FormFieldEmail from '@lychen/vue-ui-components-app/fields/email/FormFieldEmail.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
 
 import { useForm } from 'vee-validate';
