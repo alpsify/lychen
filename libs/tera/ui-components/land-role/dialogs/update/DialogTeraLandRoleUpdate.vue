@@ -4,26 +4,28 @@
       <slot />
     </DialogTrigger>
     <DialogContent
-      class="bg-surface-container-high/80 text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
+      class="bg-surface-container-high/80 text-on-surface-container md:max-w-[50%] w-full max-h-dvh"
     >
-      <DialogHeader class="flex flex-row justify-between items-start gap-10">
-        <div class="md:w-4/5 flex flex-col gap-2">
-          <DialogTitle>{{ t('title') }}</DialogTitle>
-          <DialogDescription>
-            {{ t('description') }}
-          </DialogDescription>
+      <div class="overflow-y-auto flex flex-col gap-4">
+        <DialogHeader class="flex flex-row justify-between items-start gap-10">
+          <div class="md:w-4/5 flex flex-col gap-2">
+            <DialogTitle>{{ t('title') }}</DialogTitle>
+            <DialogDescription>
+              {{ t('description') }}
+            </DialogDescription>
+          </div>
+          <DialogClose />
+        </DialogHeader>
+        <FormTeraLandRoleUpdate :land-role="landRole" />
+        <Separator class="bg-surface-container-highest" />
+        <div class="flex flex-row gap-2 justify-end">
+          <DialogTeraLandRoleDelete :land-role="landRole">
+            <Button
+              :text="tLandRole('action.delete.label')"
+              variant="negative"
+            />
+          </DialogTeraLandRoleDelete>
         </div>
-        <DialogClose />
-      </DialogHeader>
-      <FormTeraLandRoleUpdate :land-role="landRole" />
-      <Separator class="bg-surface-container-highest" />
-      <div class="flex flex-row gap-2 justify-end">
-        <DialogTeraLandRoleDelete :land-role="landRole">
-          <Button
-            :text="tLandRole('action.delete.label')"
-            variant="negative"
-          />
-        </DialogTeraLandRoleDelete>
       </div>
     </DialogContent>
   </Dialog>
