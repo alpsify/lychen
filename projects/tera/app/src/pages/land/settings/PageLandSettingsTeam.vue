@@ -34,13 +34,14 @@
       </DialogTeraLandMemberInvitationCreate>
     </template>
     <div
-      v-if="landMemberInvitations?.member && landMemberInvitations.member.length !== 0"
+      v-if="landMemberInvitations?.member && landMemberInvitations.member.length !== 0 && land"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberInvitationUpdate
         v-for="(item, index) in landMemberInvitations.member"
         :key="index"
         :land-member-invitation="item"
+        :land="land"
       >
         <CardTeraLandMemberInvitation :land-member-invitation="item" />
       </DialogTeraLandMemberInvitationUpdate>

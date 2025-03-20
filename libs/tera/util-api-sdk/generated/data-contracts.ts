@@ -810,6 +810,13 @@ export interface LandMemberInvitation {
   ulid?: string;
 }
 
+export interface LandMemberInvitationCheckEmailUnicityParams {
+  /** The email to check */
+  email: string;
+  /** The land IRI to check against */
+  land: string;
+}
+
 export interface LandMemberInvitationGetCollectionParams {
   /**
    * The number of items per page
@@ -958,6 +965,23 @@ export interface LandMemberInvitationJsonldUserLandMemberInvitationPost {
   landRoles?: string[];
   /** @format ulid */
   ulid?: string;
+}
+
+export interface LandMemberInvitationLandMemberInvitationCheckEmailUnicityDtoJsonld {
+  '@context'?:
+    | string
+    | {
+        '@vocab': string;
+        hydra: LandMemberInvitationLandMemberInvitationCheckEmailUnicityDtoJsonldHydraEnum;
+        [key: string]: any;
+      };
+  '@id'?: string;
+  '@type'?: string;
+  isUnique?: boolean;
+}
+
+export enum LandMemberInvitationLandMemberInvitationCheckEmailUnicityDtoJsonldHydraEnum {
+  HttpWwwW3OrgNsHydraCore = 'http://www.w3.org/ns/hydra/core#',
 }
 
 /**

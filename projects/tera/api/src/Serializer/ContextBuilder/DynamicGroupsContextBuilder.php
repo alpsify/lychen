@@ -42,7 +42,7 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
             sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s', 'user', $classAlias, $operationName)
 
         ];
-
+        
         return $groups;
     }
 }

@@ -3,7 +3,10 @@
     class="flex flex-col gap-6"
     @submit.prevent="onSubmit"
   >
-    <FormFieldEmail :is-field-dirty="isFieldDirty" />
+    <FormFieldEmail
+      :is-field-dirty="isFieldDirty"
+      :rules="emailFieldSchema"
+    />
     <FormFieldTeraLandRole
       :is-field-dirty="isFieldDirty"
       :land="land"
@@ -29,7 +32,7 @@ import { useForm } from 'vee-validate';
 import {
   type LandJsonld,
   type LandMemberInvitationJsonld,
-  type LandMemberInvitationJsonldUserLandMemberInvitationPost,
+  type LandRoleJsonld,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
@@ -38,25 +41,59 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationPostSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
+import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
+import { z } from 'zod';
+import { toTypedSchema } from '@vee-validate/zod';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { land } = defineProps<{ land: LandJsonld }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } =
-  useForm<LandMemberInvitationJsonldUserLandMemberInvitationPost>({
-    initialValues: {
-      landRoles: undefined,
-    },
-  });
+interface FormType {
+  landRoles: LandRoleJsonld[];
+  email: string;
+}
+
+const emailFieldSchema = toTypedSchema(
+  z
+    .string()
+    .email()
+    .refine(
+      async (email) => {
+        if (!land['@id']) {
+          throw new Error('missing.land_id');
+        }
+        const response = await api.landMemberInvitationCheckEmailUnicity({
+          email,
+          land: land['@id'],
+        });
+        return response.data.isUnique;
+      },
+      {
+        message: 'This email is already invited',
+      },
+    ),
+);
+
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<FormType>({
+  initialValues: {
+    landRoles: undefined,
+  },
+});
 
 const { emit } = useEventBus(landMemberInvitationPostSucceededEvent);
 
-const landApi = useTeraApi('LandMemberInvitation');
+const api = useTeraApi('LandMemberInvitation');
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLandMemberInvitation: LandMemberInvitationJsonldUserLandMemberInvitationPost) =>
-    landApi.landMemberInvitationPost({ ...newLandMemberInvitation, land: land['@id']! }),
+  mutationFn: (values: FormType) => {
+    const landRoleIds = extractValuesByKey(values.landRoles, '@id');
+    return api.landMemberInvitationPost({
+      email: values.email,
+      landRoles: landRoleIds,
+      land: land['@id']!,
+    });
+  },
   onSuccess: (data: { data: LandMemberInvitationJsonld }, variables, context) => {
     toast({
       title: t('action.create.success.message'),

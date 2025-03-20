@@ -15,7 +15,10 @@
         </div>
         <DialogClose />
       </DialogHeader>
-      <FormTeraLandMemberInvitationUpdate :land-member-invitation="landMemberInvitation" />
+      <FormTeraLandMemberInvitationUpdate
+        :land-member-invitation="landMemberInvitation"
+        :land="land"
+      />
     </DialogContent>
   </Dialog>
 </template>
@@ -33,8 +36,9 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import type {
+  LandJsonld,
   LandMemberInvitationJsonld,
-  LandMemberInvitationJsonldUserLandMemberInvitationCollection,
+  LandRoleJsonld,
 } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import {
@@ -42,24 +46,15 @@ import {
   landMemberInvitationPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { ref } from 'vue';
-import {
-  messages as landMemberInvitationMessages,
-  TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
-} from '@lychen/tera-ui-i18n/land-member-invitation';
 import FormTeraLandMemberInvitationUpdate from '../../forms/FormTeraLandMemberInvitationUpdate.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { t: tLandMemberInvitation } = useI18nExtended({
-  messages: landMemberInvitationMessages,
-  rootKey: LAND_MEMBER_INVITATION_TRANSLATION_KEY,
-  prefixed: true,
-});
-
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation:
-    | LandMemberInvitationJsonld
-    | LandMemberInvitationJsonldUserLandMemberInvitationCollection;
+  landMemberInvitation: Omit<LandMemberInvitationJsonld, 'landRoles'> & {
+    landRoles: LandRoleJsonld[];
+  };
+  land: LandJsonld;
 }>();
 
 const open = ref(false);

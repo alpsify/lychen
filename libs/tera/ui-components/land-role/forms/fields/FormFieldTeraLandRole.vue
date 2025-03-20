@@ -1,5 +1,8 @@
 <template>
   <FormField
+    v-slot="{ componentField }"
+    v-model="model"
+    :validate-on-blur="!isFieldDirty"
     name="landRoles"
     :rules="fieldSchema"
   >
@@ -12,13 +15,14 @@
         <FormControl class="w-full">
           <ComboboxAnchor>
             <TagsInput
-              v-model="model"
+              :model-value="componentField.modelValue"
               class="px-2 gap-2"
+              @update:model-value="componentField['onUpdate:modelValue']"
             >
               <div class="flex gap-2 flex-wrap items-center">
                 <TagsInputItem
-                  v-for="item in model"
-                  :key="item.ulid"
+                  v-for="item in componentField.modelValue"
+                  :key="item['@id']"
                   :value="item"
                 >
                   <TagsInputItemText class="px-2">
@@ -48,9 +52,9 @@
           <ComboboxGroup>
             <ComboboxItem
               v-for="landRole in filteredOptions"
-              :key="landRole.value.ulid"
+              :key="landRole.value['@id']"
               :value="landRole.value"
-              @select.prevent="handleLandRoleSelect(landRole.value as LandRoleJsonld)"
+              @select.prevent="handleSelect(landRole.value as LandRoleJsonld)"
             >
               {{ landRole.label }}
 
@@ -93,7 +97,7 @@ import {
   FormMessage,
 } from '@lychen/vue-ui-components-core/form';
 import { useFilter } from 'reka-ui';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import {
   messages as landRoleMessages,
@@ -123,58 +127,72 @@ const { t } = useI18nExtended({
 
 const props = defineProps<{
   land: LandJsonld;
+  isFieldDirty: boolean;
+  initialValues?: LandRoleJsonld[];
 }>();
 
 const model = defineModel<LandRoleJsonld[]>({ default: [] });
 
 const fieldSchema = toTypedSchema(
-  z.array(z.object({ label: z.string(), value: z.string() })).min(1, {
+  z.array(z.object({ '@id': z.string() })).min(1, {
     message: 'Please select at least one land role.',
   }),
 );
 
+const landId = computed(() => props.land['@id']);
+
 const api = useTeraApi('LandRole');
 const { data: landRoles } = useQuery({
-  queryKey: ['landRoles', props.land],
+  queryKey: ['landRoles', landId],
   queryFn: async () => {
-    if (!props.land['@id']) {
-      throw new Error('missing.@id');
+    if (!landId.value) {
+      throw new Error('missing.land_id');
     }
     const response = await api.landRoleGetCollection({
-      land: props.land['@id'],
+      land: landId.value,
     });
-    return response.data.member;
+    return response.data;
   },
-  enabled: !!props.land['@id'],
+  enabled: !!landId.value,
 });
 
-const landRoleOptions = computed(() => {
-  return (landRoles.value || []).map((landRole) => ({
+const landRoleOptions = computed(() =>
+  (landRoles.value?.member || []).map((landRole) => ({
     label: landRole.name,
     value: landRole,
-  }));
-});
-
+  })),
+);
 const searchTerm = ref('');
 const open = ref(false);
 const { contains } = useFilter({ sensitivity: 'base' });
 
 const filteredOptions = computed(() => {
+  if (!landRoleOptions.value) {
+    return [];
+  }
+
   const options = landRoleOptions.value.filter(
-    (i) => !model.value.some((m) => m.ulid === i.value.ulid),
+    (i) => !model.value.some((m) => m['@id'] === i.value['@id']),
   );
   return searchTerm.value
     ? options.filter((option) => contains(option.label, searchTerm.value))
     : options;
 });
 
-function handleLandRoleSelect(value: LandRoleJsonld) {
+function handleSelect(value: LandRoleJsonld) {
   searchTerm.value = '';
 
   model.value.push(value);
+  model.value = [...new Set(model.value)];
 
   if (filteredOptions.value.length === 0) {
     open.value = false;
   }
 }
+
+onMounted(() => {
+  if (props.initialValues) {
+    model.value = [...props.initialValues];
+  }
+});
 </script>

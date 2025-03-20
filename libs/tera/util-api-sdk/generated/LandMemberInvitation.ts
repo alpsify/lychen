@@ -10,6 +10,7 @@
  */
 
 import type {
+  LandMemberInvitationCheckEmailUnicityParams,
   LandMemberInvitationGetCollectionParams,
   LandMemberInvitationJsonld,
   LandMemberInvitationJsonldUserLandMemberInvitationCollection,
@@ -138,6 +139,40 @@ export class LandMemberInvitation<SecurityDataType = unknown> {
       path: `/api/land_member_invitations`,
       method: 'POST',
       body: data,
+      secure: true,
+      type: ContentType.JsonLd,
+      format: 'json',
+      ...params,
+    });
+
+  /**
+ * @description Retrieves a LandMemberInvitation resource.
+ *
+ * @tags LandMemberInvitation
+ * @name LandMemberInvitationCheckEmailUnicity
+ * @summary Check if an email is unique for a given land
+ * @request GET:/api/land_member_invitations/check_email_unicity
+ * @secure
+ * @response `200` `{
+    isUnique?: boolean,
+
+}` Email unicity check result
+ * @response `400` `void` Bad request
+ * @response `404` `void` Resource not found
+ */
+  landMemberInvitationCheckEmailUnicity = (
+    query: LandMemberInvitationCheckEmailUnicityParams,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      {
+        isUnique?: boolean;
+      },
+      void
+    >({
+      path: `/api/land_member_invitations/check_email_unicity`,
+      method: 'GET',
+      query: query,
       secure: true,
       type: ContentType.JsonLd,
       format: 'json',

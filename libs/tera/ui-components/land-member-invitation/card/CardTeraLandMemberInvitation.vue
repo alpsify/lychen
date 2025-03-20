@@ -41,10 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import type { LandMemberInvitationJsonldUserLandMemberInvitationCollection } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type {
+  LandMemberInvitationJsonld,
+  LandRoleJsonld,
+} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';
 import DialogTeraLandMemberInvitationDelete from '../dialogs/delete/DialogTeraLandMemberInvitationDelete.vue';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
@@ -54,10 +55,10 @@ import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 
-const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-
 const { variant = VARIANT.Settings } = defineProps<{
   variant?: Variant;
-  landMemberInvitation: LandMemberInvitationJsonldUserLandMemberInvitationCollection;
+  landMemberInvitation: Omit<Required<LandMemberInvitationJsonld>, 'landRoles'> & {
+    landRoles: LandRoleJsonld[];
+  };
 }>();
 </script>

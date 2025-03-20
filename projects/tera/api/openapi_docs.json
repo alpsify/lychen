@@ -2557,6 +2557,70 @@
                 "deprecated": false
             }
         },
+        "/api/land_member_invitations/check_email_unicity": {
+            "get": {
+                "operationId": "LandMemberInvitation_check-email-unicity",
+                "tags": [
+                    "LandMemberInvitation"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Email unicity check result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "isUnique": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Check if an email is unique for a given land",
+                "description": "Retrieves a LandMemberInvitation resource.",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "The email to check",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "land",
+                        "in": "query",
+                        "description": "The land IRI to check against",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            }
+        },
         "/api/land_member_invitations/{ulid}": {
             "get": {
                 "operationId": "LandMemberInvitation_get",
@@ -8954,6 +9018,51 @@
                 "type": "object",
                 "description": "",
                 "deprecated": false
+            },
+            "LandMemberInvitation.LandMemberInvitationCheckEmailUnicityDto.jsonld": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "isUnique": {
+                        "type": "boolean"
+                    }
+                }
             },
             "LandMemberInvitation.jsonld": {
                 "type": "object",

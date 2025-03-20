@@ -226,4 +226,19 @@ class LandMemberInvitationTest extends AbstractApiTestCase
         $this->assertNotNull($landMemberInvitation->getRefusedAt());
         $this->assertNull($landMemberInvitation->getAcceptedAt());
     }
+
+    public function testCheckUnicity()
+    {
+        $context = $this->createLandContext();
+        $email = faker()->email();
+        $this->addOneLandMemberInvitation($context, null, $email);
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_member_invitations/check_email_unicity', ['query'
+            => [
+                    'email' => $email,
+                    'land' => $this->getIriFromResource($context->land)
+                ]])
+            ->assertSuccessful()
+            ->assertJsonMatches('isUnique', false);
+    }
 }

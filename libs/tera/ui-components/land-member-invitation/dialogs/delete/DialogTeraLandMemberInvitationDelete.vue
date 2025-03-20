@@ -36,10 +36,6 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationDeleteSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import type {
-  LandMemberInvitationJsonld,
-  LandMemberInvitationJsonldUserLandMemberInvitationCollection,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
 
 const { t: tLandMemberInvitation } = useI18nExtended({
@@ -57,9 +53,7 @@ const { t: t } = useI18nExtended({
 const { emit } = useEventBus(landMemberInvitationDeleteSucceededEvent);
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation:
-    | LandMemberInvitationJsonld
-    | LandMemberInvitationJsonldUserLandMemberInvitationCollection;
+  landMemberInvitation: { ulid: string };
 }>();
 
 const api = useTeraApi('LandMemberInvitation');
