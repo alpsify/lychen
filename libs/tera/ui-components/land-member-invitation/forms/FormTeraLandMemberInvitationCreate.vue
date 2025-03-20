@@ -4,6 +4,11 @@
     @submit.prevent="onSubmit"
   >
     <FormFieldEmail :is-field-dirty="isFieldDirty" />
+    <FormFieldTeraLandRole
+      :is-field-dirty="isFieldDirty"
+      :land="land"
+      @update:model-value="setFieldValue('landRoles', $event)"
+    />
     <Button
       :disabled="!meta.valid || isPending"
       :loading="isPending"
@@ -32,13 +37,18 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationPostSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
+import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { land } = defineProps<{ land: LandJsonld }>();
 
 const { isFieldDirty, handleSubmit, meta, setFieldValue } =
-  useForm<LandMemberInvitationJsonldUserLandMemberInvitationPost>({});
+  useForm<LandMemberInvitationJsonldUserLandMemberInvitationPost>({
+    initialValues: {
+      landRoles: undefined,
+    },
+  });
 
 const { emit } = useEventBus(landMemberInvitationPostSucceededEvent);
 

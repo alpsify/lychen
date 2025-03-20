@@ -13,7 +13,7 @@
         />
       </div>
     </div>
-    <BadgeTeraLandmemberInvitation
+    <BadgeTeraLandMemberInvitation
       v-if="landMemberInvitation.state"
       :state="landMemberInvitation.state"
     />
@@ -22,16 +22,19 @@
         <Button
           :icon="faTrash"
           variant="negative"
+          size="sm"
           @click.stop
         />
       </DialogTeraLandMemberInvitationDelete>
       <template v-if="variant === VARIANT.ForUser">
         <Button
           :icon="faCheck"
-          variant="positive" />
+          variant="positive"
+          size="sm" />
         <Button
           :icon="faTimes"
           variant="negative"
+          size="sm"
       /></template>
     </div>
   </Card>
@@ -49,7 +52,7 @@ import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
 import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
-import BadgeTeraLandmemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
+import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
