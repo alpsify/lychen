@@ -148,7 +148,7 @@ import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/Dr
 import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
 import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
-import BadgeTeraLandTaskState from '../../badge/land-task-state/BadgeTeraLandTaskState.vue';
+import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 
 const { d } = useI18nExtended();

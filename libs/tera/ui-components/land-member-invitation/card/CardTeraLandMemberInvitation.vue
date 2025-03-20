@@ -38,10 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import type {
-  LandMemberInvitationJsonldUserLandMemberInvitationCollection,
-  LandMemberInvitationStateEnum,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { LandMemberInvitationJsonldUserLandMemberInvitationCollection } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';

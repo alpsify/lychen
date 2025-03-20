@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import type { LandAreaJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { VARIANT, type Variant } from '.';
-import BadgeTeraLandAreaKind from '../../badge/land-area-kind/BadgeTeraLandAreaKind.vue';
+import BadgeTeraLandAreaKind from '../badges/kind/BadgeTeraLandAreaKind.vue';
 
 const { variant = VARIANT.Default, landArea } = defineProps<{
   landArea: LandAreaJsonld;

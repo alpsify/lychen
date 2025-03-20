@@ -4,11 +4,11 @@
     :description="t('tabs.team.members.description')"
   >
     <div
-      v-if="landMembers"
+      v-if="landMembers?.member"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberUpdate
-        v-for="(item, index) in landMembers?.member"
+        v-for="(item, index) in landMembers.member"
         :key="index"
         :land-member="item"
       >
@@ -34,7 +34,7 @@
       </DialogTeraLandMemberInvitationCreate>
     </template>
     <div
-      v-if="landMemberInvitations && landMemberInvitations.member.length !== 0"
+      v-if="landMemberInvitations?.member && landMemberInvitations.member.length !== 0"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberInvitationUpdate
@@ -70,7 +70,7 @@
       </DialogTeraLandRoleCreate>
     </template>
     <div
-      v-if="landRoles"
+      v-if="landRoles?.member"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandRoleUpdate

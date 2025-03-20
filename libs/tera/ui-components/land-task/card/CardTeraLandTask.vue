@@ -38,7 +38,7 @@ import { computed } from 'vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
-import BadgeTeraLandTaskState from '../../badge/land-task-state/BadgeTeraLandTaskState.vue';
+import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import type { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 const {
