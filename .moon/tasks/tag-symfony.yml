@@ -22,7 +22,8 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction --working-dir=tools/
 
   ci-install-vendors:
-    command: docker compose -f compose.yml -f compose.ci.yml run -e COMPOSER_MIRROR_PATH_REPOS=1 --rm php composer install --no-interaction
+    # Can't get it works in CI only with https://getcomposer.org/doc/03-cli.md#composer-mirror-path-repos
+    command: docker compose -f compose.yml -f compose.ci.yml run --rm php composer install --no-interaction
 
   ci-php-cs-fixer-src:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix src/ --rules=@Symfony
@@ -88,3 +89,6 @@ tasks:
     deps:
       - staging-docker-build
     extends: docker-push
+
+  test-phpunit:
+    command: docker compose run --rm php php -d memory_limit=-1 ./vendor/bin/phpunit

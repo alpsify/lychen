@@ -8,7 +8,12 @@
  * ---------------------------------------------------------------
  */
 
-import type { LandArea, LandAreaGetCollectionParams, LandAreaJsonld } from './data-contracts';
+import type {
+  LandArea,
+  LandAreaGetCollectionParams,
+  LandAreaJsonld,
+  LandAreaPostPayload,
+} from './data-contracts';
 import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class LandArea<SecurityDataType = unknown> {
@@ -110,14 +115,14 @@ export class LandArea<SecurityDataType = unknown> {
    *
    * @tags LandArea
    * @name LandAreaPost
-   * @summary Creates a LandArea resource.
+   * @summary Create a land area
    * @request POST:/api/land_areas
    * @secure
    * @response `201` `LandAreaJsonld` LandArea resource created
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  landAreaPost = (data: LandAreaJsonld, params: RequestParams = {}) =>
+  landAreaPost = (data?: LandAreaPostPayload, params: RequestParams = {}) =>
     this.http.request<LandAreaJsonld, void>({
       path: `/api/land_areas`,
       method: 'POST',
@@ -191,6 +196,7 @@ export class LandArea<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });

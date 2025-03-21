@@ -10,11 +10,14 @@
  */
 
 import type {
-  Land,
   LandGetCollectionLookingForMembersParams,
   LandGetCollectionParams,
   LandJsonld,
-  LandPostPayload,
+  LandJsonldUserLandCollection,
+  LandJsonldUserLandGet,
+  LandJsonldUserLandGetCollectionLookingForMembers,
+  LandJsonldUserLandPost,
+  LandUserLandPatch,
 } from './data-contracts';
 import { ContentType, HttpClient, type RequestParams } from './http-client';
 
@@ -34,7 +37,7 @@ export class Land<SecurityDataType = unknown> {
  * @request GET:/api/lands
  * @secure
  * @response `200` `{
-    member: (LandJsonld)[],
+    member: (LandJsonldUserLandCollection)[],
     search?: {
     "@type"?: string,
     mapping?: ({
@@ -71,7 +74,7 @@ export class Land<SecurityDataType = unknown> {
   landGetCollection = (query: LandGetCollectionParams, params: RequestParams = {}) =>
     this.http.request<
       {
-        member: LandJsonld[];
+        member: LandJsonldUserLandCollection[];
         search?: {
           '@type'?: string;
           mapping?: {
@@ -116,14 +119,14 @@ export class Land<SecurityDataType = unknown> {
    *
    * @tags Land
    * @name LandPost
-   * @summary Create a land
+   * @summary Creates a Land resource.
    * @request POST:/api/lands
    * @secure
    * @response `201` `LandJsonld` Land resource created
    * @response `400` `void` Invalid input
    * @response `422` `void` Unprocessable entity
    */
-  landPost = (data?: LandPostPayload, params: RequestParams = {}) =>
+  landPost = (data: LandJsonldUserLandPost, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands`,
       method: 'POST',
@@ -143,7 +146,7 @@ export class Land<SecurityDataType = unknown> {
  * @request GET:/api/lands/looking_for_members
  * @secure
  * @response `200` `{
-    member: (LandJsonld)[],
+    member: (LandJsonldUserLandGetCollectionLookingForMembers)[],
     search?: {
     "@type"?: string,
     mapping?: ({
@@ -183,7 +186,7 @@ export class Land<SecurityDataType = unknown> {
   ) =>
     this.http.request<
       {
-        member: LandJsonld[];
+        member: LandJsonldUserLandGetCollectionLookingForMembers[];
         search?: {
           '@type'?: string;
           mapping?: {
@@ -231,12 +234,12 @@ export class Land<SecurityDataType = unknown> {
    * @summary Retrieves a Land resource.
    * @request GET:/api/lands/{ulid}
    * @secure
-   * @response `200` `LandJsonld` Land resource
+   * @response `200` `LandJsonldUserLandGet` Land resource
    * @response `403` `void` Forbidden
    * @response `404` `void` Resource not found
    */
   landGet = (ulid: string, params: RequestParams = {}) =>
-    this.http.request<LandJsonld, void>({
+    this.http.request<LandJsonldUserLandGet, void>({
       path: `/api/lands/${ulid}`,
       method: 'GET',
       secure: true,
@@ -280,12 +283,13 @@ export class Land<SecurityDataType = unknown> {
    * @response `404` `void` Resource not found
    * @response `422` `void` Unprocessable entity
    */
-  landPatch = (ulid: string, data: Land, params: RequestParams = {}) =>
+  landPatch = (ulid: string, data: LandUserLandPatch, params: RequestParams = {}) =>
     this.http.request<LandJsonld, void>({
       path: `/api/lands/${ulid}`,
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });

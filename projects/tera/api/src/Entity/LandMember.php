@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -23,12 +24,30 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
-#[Patch(security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")]
+#[Patch(
+    denormalizationContext: ['groups' => ['user:land_member:patch']],
+    security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")
+]
 #[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
-#[Get(security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
-#[GetCollection(security: "is_granted('" . LandMemberPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
-])]
+#[Get(normalizationContext: ['groups' => ['user:land_member:get']], security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
+#[GetCollection(
+    normalizationContext: ['groups' => ['user:land_member:collection']],
+    security: "is_granted('" . LandMemberPermission::READ . "')",
+    parameters: [
+        new QueryParameter(
+            key: 'land',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'Filter by land',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: LandFilter::class,
+            required: true
+        )
+    ])]
 #[ORM\HasLifecycleCallbacks]
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
@@ -58,6 +77,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
     #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch"])]
+    #[ApiProperty()]
     private Collection $landRoles;
 
     public function __construct(?Ulid $ulid = null)

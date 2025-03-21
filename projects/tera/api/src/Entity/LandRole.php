@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -31,12 +32,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandRolePermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandRolePermission::UPDATE . "', object)")]
+#[Post(denormalizationContext: ['groups' => ['user:land_role:post']], securityPostDenormalize: "is_granted('" . LandRolePermission::CREATE . "', object)")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRolePermission::UPDATE . "', object)")]
 #[Delete(security: "is_granted('" . LandRolePermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandRolePermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandRolePermission::READ . "')", parameters: [
+#[Get(normalizationContext: ['groups' => ['user:land_role:get']], security: "is_granted('" . LandRolePermission::READ . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['user:land_role:collection']], security: "is_granted('" . LandRolePermission::READ . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
+    'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
@@ -46,7 +48,7 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use PositionTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
     #[Assert\NotBlank()]
     private ?string $name = null;
 
@@ -66,6 +68,11 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(Permissions::ALL, multiple: true)]
     #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'array',
+        'enum' => Permissions::LAND_MEMBER_RELATED,
+        'example' => Permissions::LAND_MEMBER_RELATED
+    ])]
     private ?array $permissions = null;
 
     public function __construct()
@@ -153,5 +160,11 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         $this->permissions = $permissions;
 
         return $this;
+    }
+
+    #[Groups(["user:land_role:collection", "user:land_role:get"])]
+    public function getPosition(): int
+    {
+        return $this->position;
     }
 }

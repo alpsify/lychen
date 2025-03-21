@@ -250,7 +250,7 @@ class LandTaskTest extends AbstractApiTestCase
     public function testMarkAsDone()
     {
         $context = $this->createLandContext();
-        $this->addOneLandTask($context);
+        $this->addOneLandTask($context, ['state' => LandTaskWorkflowPlace::TO_BE_DONE]);
         $landTaskRepository = static::getContainer()->get(LandTaskRepository::class);
 
         $landTask = $context->landTasks[0];
@@ -267,7 +267,7 @@ class LandTaskTest extends AbstractApiTestCase
     public function testMarkAsInProgress()
     {
         $context = $this->createLandContext();
-        $this->addOneLandTask($context);
+        $this->addOneLandTask($context, ['state' => LandTaskWorkflowPlace::TO_BE_DONE]);
         $landTaskRepository = static::getContainer()->get(LandTaskRepository::class);
 
         $landTask = $context->landTasks[0];

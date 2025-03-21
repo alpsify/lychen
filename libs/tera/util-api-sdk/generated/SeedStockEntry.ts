@@ -195,6 +195,7 @@ export class SeedStockEntry<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });

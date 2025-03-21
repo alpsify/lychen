@@ -11,16 +11,13 @@
           :icon="faListUl"
         ></Button>
       </RouterLink>
-      <Dialog v-model:open="open"
-        ><DialogTrigger as-child>
-          <Button
-            variant="container-high"
-            size="xs"
-            :icon="faPlus"
-          ></Button>
-        </DialogTrigger>
-        <DialogContentTeraLandCreate />
-      </Dialog>
+      <DialogTeraLandCreate v-model:open="open">
+        <Button
+          variant="container-high"
+          size="xs"
+          :icon="faPlus"
+        ></Button>
+      </DialogTeraLandCreate>
     </div>
   </Teleport>
   <LayoutInApp
@@ -45,7 +42,7 @@
             class="accordion-menu-item"
           >
             <AccordionTrigger
-              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl"
+              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl group"
             >
               {{ land.name }}
             </AccordionTrigger>
@@ -105,12 +102,17 @@ import { RoutePageLandTasks } from '../../pages/land/tasks';
 import { RoutePageLandDashboard } from '@/pages/land/dashboard';
 import LayoutInAppNavigationMenuItem from '@lychen/vue-ui-layouts/in-app/LayoutInAppNavigationMenuItem.vue';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import {
+  landDeleteSucceededEvent,
+  landPostSucceededEvent,
+  landPatchSucceededEvent,
+} from '@lychen/tera-util-events/LandEvents';
 import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
-import DialogContentTeraLandCreate from '@lychen/tera-ui-components/dialog/content-land-create/DialogContentTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 
 const open = ref(false);
+
 const navigation = {
   first: {
     list: [
@@ -183,11 +185,23 @@ const { data: lands, refetch } = useQuery({
   },
 });
 
-const { on } = useEventBus(landPostSucceededEvent);
+const { on: onLandPost } = useEventBus(landPostSucceededEvent);
 
-on(() => {
+onLandPost(() => {
   refetch();
   open.value = false;
+});
+
+const { on: onLandDelete } = useEventBus(landDeleteSucceededEvent);
+
+onLandDelete(() => {
+  refetch();
+});
+
+const { on: onLandUpdate } = useEventBus(landPatchSucceededEvent);
+
+onLandUpdate(() => {
+  refetch();
 });
 
 const mainMenus = [

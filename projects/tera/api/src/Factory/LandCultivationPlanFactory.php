@@ -32,6 +32,7 @@ final class LandCultivationPlanFactory extends PersistentProxyObjectFactory
     protected function defaults(): array|callable
     {
         return [
+            'plant' => PlantGlobalFactory::new(),
         ];
     }
 

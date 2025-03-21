@@ -11,7 +11,7 @@ use function Zenstruck\Foundry\faker;
 class LandTest extends AbstractApiTestCase
 {
     #[DataProvider('landDataProvider')]
-    public function testPost(int $surface, string $kind)
+    public function testPost(int $surface, int $altitude)
     {
         $person = $this->createPerson();
 
@@ -20,13 +20,13 @@ class LandTest extends AbstractApiTestCase
         $this->browser()->actingAs($person)
             ->post('/api/lands', ['json' => [
                 'name' => $name,
-                'kind' => $kind,
-                'surface' => $surface
+                'surface' => $surface,
+                'altitude' => $altitude
             ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
-            ->assertJsonMatches('kind', $kind)
             ->assertJsonMatches('surface', $surface)
+            ->assertJsonMatches('altitude', $altitude)
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
@@ -42,6 +42,7 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $context->land->getName())
             ->assertJsonMatches('surface', $context->land->getSurface())
+            ->assertJsonMatches('altitude', $context->land->getAltitude())
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
@@ -57,6 +58,7 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $context->land->getName())
             ->assertJsonMatches('surface', $context->land->getSurface())
+            ->assertJsonMatches('altitude', $context->land->getAltitude())
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
@@ -70,18 +72,21 @@ class LandTest extends AbstractApiTestCase
 
         $newName = faker()->name();
         $newSurface = faker()->numberBetween(10, 200);
+        $newAltitude = faker()->numberBetween(-10, 1200);
 
         $this->browser()->actingAs($context->owner)
             ->patch($this->getIriFromResource($context->land), [
                 'json' => [
                     'name' => $newName,
                     'surface' => $newSurface,
+                    'altitude' => $newAltitude,
                 ]
             ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
             ->assertJsonMatches('surface', $newSurface)
+            ->assertJsonMatches('altitude', $newAltitude)
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
@@ -93,18 +98,21 @@ class LandTest extends AbstractApiTestCase
 
         $newName = faker()->name();
         $newSurface = faker()->numberBetween(10, 200);
+        $newAltitude = faker()->numberBetween(-10, 1200);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($context->land->_real()), [
                 'json' => [
                     'name' => $newName,
                     'surface' => $newSurface,
+                    'altitude' => $newAltitude,
                 ]
             ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $context->land->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
             ->assertJsonMatches('surface', $newSurface)
+            ->assertJsonMatches('altitude', $newAltitude)
             ->use(function (Json $json) {
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
@@ -155,7 +163,8 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('totalItems', 2)
             ->assertJsonMatches('member[0].ulid', $context1->land->getUlid()->toString())
             ->assertJsonMatches('member[0].name', $context1->land->getName())
-            ->assertJsonMatches('member[0].surface', $context1->land->getSurface());
+            ->assertJsonMatches('member[0].surface', $context1->land->getSurface())
+            ->assertJsonMatches('member[0].altitude', $context1->land->getAltitude());
     }
 
     public function testCollectionPagination()
@@ -192,9 +201,11 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].ulid', $context1->land->getUlid()->toString())
             ->assertJsonMatches('member[0].name', $context1->land->getName())
             ->assertJsonMatches('member[0].surface', $context1->land->getSurface())
+            ->assertJsonMatches('member[0].altitude', $context1->land->getAltitude())
             ->assertJsonMatches('member[1].ulid', $context2->land->getUlid()->toString())
             ->assertJsonMatches('member[1].name', $context2->land->getName())
-            ->assertJsonMatches('member[1].surface', $context2->land->getSurface());
+            ->assertJsonMatches('member[1].surface', $context2->land->getSurface())
+            ->assertJsonMatches('member[1].altitude', $context2->land->getAltitude());
     }
 
     public function testLookingForMembersPagination()

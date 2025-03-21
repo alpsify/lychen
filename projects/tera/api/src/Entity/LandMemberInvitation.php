@@ -11,73 +11,117 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
+use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
 use App\Processor\WorkflowTransitionProcessor;
+use App\Provider\LandMemberInvitationCheckEmailUnicityProvider;
 use App\Repository\LandMemberInvitationRepository;
 use App\Security\Constant\LandMemberInvitationPermission;
 use App\Security\Interface\LandAwareInterface;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
-use ArrayObject;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberInvitationRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
+#[Post(denormalizationContext: ['groups' => ['user:land_member_invitation:post']], securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_member_invitation:patch']], security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
     options: ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
-    openapi: new Operation(
-        summary: 'Accept the invitation',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
+    denormalizationContext: ['groups' => ['user:land_member_invitation:accept']],
     security: "is_granted('" . LandMemberInvitationPermission::ACCEPT . "', object)",
     name: 'accept',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
     options: ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
-    openapi: new Operation(
-        summary: 'Refuse the invitation',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
+    denormalizationContext: ['groups' => ['user:land_member_invitation:refuse']],
     security: "is_granted('" . LandMemberInvitationPermission::REFUSE . "', object)",
     name: 'refuse',
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandMemberInvitationPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandMemberInvitationPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
-])]
+#[GetCollection(
+    normalizationContext: ['groups' => ['user:land_member_invitation:collection']],
+    security: "is_granted('" . LandMemberInvitationPermission::READ . "')",
+    parameters: [
+        new QueryParameter(
+            key: 'land',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'Filter by land',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: LandFilter::class,
+            required: true
+        )
+    ])]
+#[Get(
+    uriTemplate: '/land_member_invitations/{ulid}',
+    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
+    normalizationContext: ['groups' => ['user:land_member_invitation:get']],
+    security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)",
+    priority: 10)]
+#[Get(
+    uriTemplate: '/land_member_invitations/check_email_unicity',
+    openapi: new Operation(
+        operationId: 'checkLandMemberInvitationEmailUnicity',
+        responses: [
+            Response::HTTP_OK => [
+                'description' => 'Email unicity check result',
+                'content' => [
+                    'application/json' => [
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'isUnique' => ['type' => 'boolean'],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            Response::HTTP_BAD_REQUEST => [
+                'description' => 'Bad request',
+            ],
+        ],
+        summary: 'Check if an email is unique for a given land',
+        parameters: [
+            new Parameter(
+                name: 'email',
+                in: 'query',
+                description: 'The email to check',
+                required: true,
+                schema: ['type' => 'string'],
+            ),
+            new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'The land IRI to check against',
+                required: true,
+                schema: ['type' => 'string'],
+            ),
+        ],
+        requestBody: null,
+    ),
+    output: LandMemberInvitationCheckEmailUnicityDto::class,
+    priority: 20,
+    name: 'check-email-unicity',
+    provider: LandMemberInvitationCheckEmailUnicityProvider::class
+)]
 #[ORM\HasLifecycleCallbacks]
+#[ORM\UniqueConstraint(name: 'land_member_invitation_unique_email_land', columns: ['email', 'land_id'])]
 class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
@@ -105,6 +149,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
     private ?string $state = LandMemberInvitationWorkflowPlace::PENDING;
 
     #[ORM\ManyToOne(inversedBy: 'landMemberInvitations')]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get"])] // Has to be present in order to do some checks on front-end
     private ?Person $person = null;
 
     #[ORM\Column(nullable: true)]

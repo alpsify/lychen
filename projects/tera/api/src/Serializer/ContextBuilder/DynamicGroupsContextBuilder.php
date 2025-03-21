@@ -27,7 +27,7 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
         return $context;
     }
 
-    public function generateGroups(array $context, bool $normalization)
+    public function generateGroups(array $context, bool $normalization): array
     {
         $resourceClass = $context['resource_class'] ?? null;
 

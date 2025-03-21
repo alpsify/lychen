@@ -49,3 +49,10 @@ services:
       $properties: { state: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
     tags: [ 'api_platform.filter' ]
+
+  land_role.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { position: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: [ 'api_platform.filter' ]

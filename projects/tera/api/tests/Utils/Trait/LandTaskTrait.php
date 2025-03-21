@@ -9,10 +9,11 @@ use Zenstruck\Foundry\Persistence\Proxy;
 
 trait LandTaskTrait
 {
-    protected function createLandTask(Land $land): LandTask|Proxy
+    protected function createLandTask(Land $land, ?array $attributes = []): LandTask|Proxy
     {
         return LandTaskFactory::new()->create([
-            'land' => $land
+            'land' => $land,
+            ...$attributes
         ]);
     }
 }

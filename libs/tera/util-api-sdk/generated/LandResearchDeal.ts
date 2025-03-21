@@ -195,6 +195,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });
@@ -220,6 +221,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });
@@ -245,6 +247,7 @@ export class LandResearchDeal<SecurityDataType = unknown> {
       method: 'PATCH',
       body: data,
       secure: true,
+      type: ContentType.JsonMergePatch,
       format: 'json',
       ...params,
     });

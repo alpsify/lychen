@@ -11,8 +11,8 @@ use App\Repository\LandRepository;
 final readonly class LandsLookingForMembersProvider implements ProviderInterface
 {
     public function __construct(
-        private LandRepository      $landRepository,
-        private readonly Pagination $pagination
+        private LandRepository $landRepository,
+        private Pagination     $pagination
     )
     {
     }

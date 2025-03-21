@@ -1,0 +1,83 @@
+<template>
+  <SectionSetting :title="t('tabs.general.title')">
+    <FormTeraLandUpdate
+      v-if="land"
+      :land="land"
+    />
+  </SectionSetting>
+  <SectionSetting
+    :title="t('tabs.general.danger_zone.title')"
+    :description="t('tabs.general.danger_zone.description')"
+  >
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
+      <div>
+        <BaseHeading variant="h3">
+          {{ t('tabs.general.danger_zone.transfer.title') }}
+        </BaseHeading>
+        <p class="opacity-80">
+          {{ t('tabs.general.danger_zone.transfer.description') }}
+        </p>
+      </div>
+      <Button
+        variant="container-high"
+        class="border-1 border-negative text-negative"
+      >
+        {{ t('tabs.general.danger_zone.transfer.button.label') }}
+      </Button>
+    </div>
+    <div class="flex flex-col md:flex-row gap-2 justify-between">
+      <div>
+        <BaseHeading variant="h3">
+          {{ t('tabs.general.danger_zone.delete.title') }}
+        </BaseHeading>
+        <p class="opacity-80">
+          {{ t('tabs.general.danger_zone.delete.description') }}
+        </p>
+      </div>
+
+      <DialogTeraLandDelete
+        v-if="land"
+        :land="land"
+        ><Button
+          variant="container-high"
+          class="border-1 border-negative text-negative"
+        >
+          {{ t('tabs.general.danger_zone.delete.button.label') }}
+        </Button>
+      </DialogTeraLandDelete>
+    </div>
+  </SectionSetting>
+</template>
+
+<script setup lang="ts">
+import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import { SectionSetting } from '@lychen/vue-ui-components-app/section-setting';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import DialogTeraLandDelete from '@lychen/tera-ui-components/land/dialogs/delete/DialogTeraLandDelete.vue';
+import { messages, TRANSLATION_KEY } from './i18n';
+import { inject } from 'vue';
+import { INJECT_LAND_KEY } from '@/layouts/in-app';
+import { useEventBus } from '@vueuse/core';
+import { landDeleteSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import { useRouter } from 'vue-router';
+import { RoutePageLands } from '@/pages/lands';
+import FormTeraLandUpdate from '@lychen/tera-ui-components/land/forms/FormTeraLandUpdate.vue';
+
+const land = inject(INJECT_LAND_KEY);
+
+const { t } = useI18nExtended({
+  messages,
+  rootKey: TRANSLATION_KEY,
+  prefixed: true,
+});
+
+const router = useRouter();
+
+const { on } = useEventBus(landDeleteSucceededEvent);
+
+on(() => {
+  router.push({ name: RoutePageLands.name });
+});
+</script>
