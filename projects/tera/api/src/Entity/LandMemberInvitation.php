@@ -13,7 +13,6 @@ use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
-use App\OpenApi\LandMemberInvitationCheckEmailUnicityOperation;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Provider\LandMemberInvitationCheckEmailUnicityProvider;
 use App\Repository\LandMemberInvitationRepository;
@@ -70,6 +69,12 @@ use Symfony\Component\Validator\Constraints as Assert;
         )
     ])]
 #[Get(
+    uriTemplate: '/land_member_invitations/{ulid}',
+    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
+    normalizationContext: ['groups' => ['user:land_member_invitation:get']],
+    security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)",
+    priority: 10)]
+#[Get(
     uriTemplate: '/land_member_invitations/check_email_unicity',
     openapi: new Operation(
         operationId: 'checkLandMemberInvitationEmailUnicity',
@@ -111,10 +116,10 @@ use Symfony\Component\Validator\Constraints as Assert;
         requestBody: null,
     ),
     output: LandMemberInvitationCheckEmailUnicityDto::class,
+    priority: 20,
     name: 'check-email-unicity',
     provider: LandMemberInvitationCheckEmailUnicityProvider::class
 )]
-#[Get(normalizationContext: ['groups' => ['user:land_member_invitation:get']], security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 #[ORM\UniqueConstraint(name: 'land_member_invitation_unique_email_land', columns: ['email', 'land_id'])]
 class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
