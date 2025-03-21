@@ -43,10 +43,10 @@
         <CarouselNext />
       </Carousel>
       <DialogContent
-        class="bg-surface-container-high/70 backdrop-blur-xl text-on-surface-container md:max-w-[50%] w-full max-h-dvh overflow-y-auto gap-8"
+        class="bg-surface-container-high/90 text-on-surface-container md:max-w-[50%] w-full max-h-dvh gap-8"
       >
         <div
-          class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch"
+          class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch overflow-y-auto"
         >
           <div class="flex flex-col gap-2">
             <div class="flex flex-row justify-between items-center">
