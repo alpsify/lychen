@@ -33,7 +33,7 @@ id: website
 language: typescript
 
 project:
-  description: 'Presentation site for Lychen ecosystem.'
+  description: Presentation site for Lychen ecosystem
   metadata:
     url: lychen.fr
   name: 'Lychen website'

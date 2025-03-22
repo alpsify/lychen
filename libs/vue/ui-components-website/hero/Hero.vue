@@ -4,8 +4,9 @@
     v-bind="forwarded"
   >
     <div class="flex flex-col items-stretch container z-10 py-8">
-      <slot /></div
-  ></DivWithBackgroundImg>
+      <slot />
+    </div>
+  </DivWithBackgroundImg>
 </template>
 
 <script lang="ts" setup>
