@@ -107,7 +107,6 @@ import {
   landPostSucceededEvent,
   landPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandEvents';
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 
@@ -119,7 +118,7 @@ const navigation = {
       {
         icon: faHouse,
         to: RoutePageDashboard,
-        title: 'Tableaux de bord',
+        title: 'Tableau de bord',
       },
     ],
   },

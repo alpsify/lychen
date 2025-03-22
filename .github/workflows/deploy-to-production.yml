@@ -29,6 +29,7 @@ jobs:
         id: projects
         run: |
           echo "projects=$(moon query tasks --id production-dokploy-compose-deploy --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+      - run: echo ${{ steps.projects.outputs.projects }}
 
   build-and-push:
     if: ${{ needs.define-matrix.outputs.projects != '[]' && needs.define-matrix.outputs.projects != '' }}
