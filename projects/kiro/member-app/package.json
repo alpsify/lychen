@@ -27,6 +27,6 @@
     "tailwindcss": "^4.0.13",
     "vite": "^6.2.1",
     "vite-plugin-mkcert": "^1.17.7",
-    "vite-plugin-pwa": "^0.21.1"
+    "vite-plugin-pwa": "^0.21.2"
   }
 }
