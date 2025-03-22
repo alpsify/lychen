@@ -25,10 +25,13 @@ jobs:
           fetch-depth: 0
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
+      - run: moon query projects --tags vue --affected --downstream deep
       - name: Define Projects
         id: projects
         run: |
-          echo "projects=$(moon query tasks --id production-dokploy-compose-deploy --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+          echo "projects=$(moon query projects --tags vue --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+        #run: |
+        #  echo "projects=$(moon query tasks --id production-dokploy-compose-deploy --affected --downstream deep | awk 'NR % 2 == 1 {print "\"" $1 "\""}' | paste -sd, - | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
       - run: echo ${{ steps.projects.outputs.projects }}
 
   build-and-push:
