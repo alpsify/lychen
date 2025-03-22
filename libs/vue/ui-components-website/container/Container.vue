@@ -1,6 +1,8 @@
 <template>
   <section :class="wrapperClass">
-    <div :class="cn('container py-10 md:py-40', props.class)"><slot></slot></div>
+    <div :class="cn('container py-10 md:py-40', props.class)">
+      <slot />
+    </div>
   </section>
 </template>
 
