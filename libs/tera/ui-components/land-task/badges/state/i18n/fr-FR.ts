@@ -1,7 +1,7 @@
-import { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import { LandTaskState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 export default {
-  [LandTaskStateEnum.ToBeDone]: 'à faire',
-  [LandTaskStateEnum.InProgress]: 'en cours',
-  [LandTaskStateEnum.Done]: 'terminé',
+  [LandTaskState.to_be_done]: 'à faire',
+  [LandTaskState.in_progress]: 'en cours',
+  [LandTaskState.done]: 'terminé',
 };

@@ -11,12 +11,11 @@
 </template>
 
 <script lang="ts" setup>
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { VARIANT, type Variant } from '.';
 
 const { variant = VARIANT.Default, landGreenhouse } = defineProps<{
-  landGreenhouse: {
-    name: string;
-  };
+  landGreenhouse: components['schemas']['LandGreenhouse.jsonld'];
   variant?: Variant;
 }>();
 </script>

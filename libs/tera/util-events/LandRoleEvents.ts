@@ -1,12 +1,9 @@
-import type { LandRoleJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import type { EventBusKey } from '@vueuse/core';
 
-export const landRolePostSucceededEvent: EventBusKey<LandRoleJsonld> = Symbol(
-  'land-role-post-succeeded',
-);
-export const landRoleDeleteSucceededEvent: EventBusKey<LandRoleJsonld> = Symbol(
-  'land-role-delete-succeeded',
-);
-export const landRolePatchSucceededEvent: EventBusKey<LandRoleJsonld> = Symbol(
-  'land-role-patch-succeeded',
-);
+export const landRolePostSucceededEvent: EventBusKey<components['schemas']['LandRole.jsonld']> =
+  Symbol('land-role-post-succeeded');
+export const landRoleDeleteSucceededEvent: EventBusKey<components['schemas']['LandRole.jsonld']> =
+  Symbol('land-role-delete-succeeded');
+export const landRolePatchSucceededEvent: EventBusKey<components['schemas']['LandRole.jsonld']> =
+  Symbol('land-role-patch-succeeded');

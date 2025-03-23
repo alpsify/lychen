@@ -54,7 +54,7 @@
               v-for="landRole in filteredOptions"
               :key="landRole.value['@id']"
               :value="landRole.value"
-              @select.prevent="handleSelect(landRole.value as LandRoleJsonld)"
+              @select.prevent="handleSelect(landRole.value)"
             >
               {{ landRole.label }}
 
@@ -114,10 +114,7 @@ import {
   TagsInput,
   TagsInputInput,
 } from '@lychen/vue-ui-components-core/tags-input';
-import type {
-  LandJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({
   messages: landRoleMessages,
@@ -126,12 +123,12 @@ const { t } = useI18nExtended({
 });
 
 const props = defineProps<{
-  land: LandJsonld;
+  land: components['schemas']['Land.jsonld'];
   isFieldDirty: boolean;
-  initialValues?: LandRoleJsonld[];
+  initialValues?: components['schemas']['LandRole.jsonld'][];
 }>();
 
-const model = defineModel<LandRoleJsonld[]>({ default: [] });
+const model = defineModel<components['schemas']['LandRole.jsonld'][]>({ default: [] });
 
 const fieldSchema = toTypedSchema(
   z.array(z.object({ '@id': z.string() })).min(1, {
@@ -141,15 +138,20 @@ const fieldSchema = toTypedSchema(
 
 const landId = computed(() => props.land['@id']);
 
-const api = useTeraApi('LandRole');
+const { api } = useTeraApi();
+
 const { data: landRoles } = useQuery({
   queryKey: ['landRoles', landId],
   queryFn: async () => {
     if (!landId.value) {
       throw new Error('missing.land_id');
     }
-    const response = await api.landRoleGetCollection({
-      land: landId.value,
+    const response = await api.GET('/api/land_roles', {
+      params: {
+        query: {
+          land: landId.value,
+        },
+      },
     });
     return response.data;
   },
@@ -179,7 +181,7 @@ const filteredOptions = computed(() => {
     : options;
 });
 
-function handleSelect(value: LandRoleJsonld) {
+function handleSelect(value: components['schemas']['LandRole.jsonld']) {
   searchTerm.value = '';
 
   model.value.push(value);

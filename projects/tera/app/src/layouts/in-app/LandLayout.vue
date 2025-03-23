@@ -19,13 +19,15 @@ import { useEventBus } from '@vueuse/core';
 
 const route = useRoute();
 const router = useRouter();
-const api = useTeraApi('Land');
+const { api } = useTeraApi();
 
 const { data: land, refetch } = useQuery({
   queryKey: ['land'],
   queryFn: async () => {
     try {
-      const response = await api.landGet(<string>route.params.landUlid);
+      const response = await api.GET('/api/lands/{ulid}', {
+        params: { path: { ulid: <string>route.params.landUlid } },
+      });
       return response.data;
     } catch {
       router.push(RoutePageDashboard);

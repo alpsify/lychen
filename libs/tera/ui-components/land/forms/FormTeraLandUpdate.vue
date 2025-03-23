@@ -39,17 +39,17 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandName.vue';
 import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
-import type {
-  LandJsonld,
-  LandUserLandPatch,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { land } = defineProps<{ land: LandJsonld }>();
+const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>(); //TODO check if necessary to link to generated code
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandUserLandPatch>({
+type LandPatchRequest =
+  paths['/api/lands/{ulid}']['patch']['requestBody']['content']['application/merge-patch+json'];
+
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandPatchRequest>({
   initialValues: {
     altitude: land.altitude || 0,
     surface: land.surface || 1,
@@ -59,21 +59,25 @@ const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandUserLand
 
 const { emit } = useEventBus(landPatchSucceededEvent);
 
-const landApi = useTeraApi('Land');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandUserLandPatch) => {
+  mutationFn: async (data: LandPatchRequest) => {
     if (!land.ulid) {
       throw new Error('missing.land_ulid');
     }
-    return landApi.landPatch(land.ulid, data);
+    const response = await api.PATCH('/api/lands/{ulid}', {
+      params: { path: { ulid: land.ulid } },
+      body: data,
+    });
+    return response.data;
   },
-  onSuccess: (data: { data: LandJsonld }, variables, context) => {
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

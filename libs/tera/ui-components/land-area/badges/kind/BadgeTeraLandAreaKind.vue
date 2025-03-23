@@ -8,10 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import { LandAreaJsonldKindEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-area';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-defineProps<{ kind?: LandAreaJsonldKindEnum }>();
+defineProps<{ kind?: string }>();
 </script>

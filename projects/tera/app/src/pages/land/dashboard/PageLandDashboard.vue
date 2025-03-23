@@ -85,7 +85,7 @@
 import { defineAsyncComponent, computed, inject } from 'vue';
 import CardTeraLandGreenhouse from '@lychen/tera-ui-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
 import CardTeraLandArea from '@lychen/tera-ui-components/land-area/card/CardTeraLandArea.vue';
-import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
@@ -105,7 +105,7 @@ const Button = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 
-const api = useAllTeraApi();
+const { api } = useTeraApi();
 
 const land = inject(INJECT_LAND_KEY);
 
@@ -115,8 +115,8 @@ const enabled = computed(() => !!landId.value);
 const { data: landAreas } = useQuery({
   queryKey: ['landAreas', landId],
   queryFn: async () => {
-    const response = await api.LandArea.landAreaGetCollection({
-      land: landId.value!,
+    const response = await api.GET('/api/land_areas', {
+      params: { query: { land: landId.value! } },
     });
 
     return response.data;
@@ -125,10 +125,10 @@ const { data: landAreas } = useQuery({
 });
 
 const { data: landGreenhouses } = useQuery({
-  queryKey: ['landAreas', landId],
+  queryKey: ['landGreenhouses', landId],
   queryFn: async () => {
-    const response = await api.LandGreenhouse.landGreenhouseGetCollection({
-      land: landId.value!,
+    const response = await api.GET('/api/land_greenhouses', {
+      params: { query: { land: landId.value! } },
     });
 
     return response.data;

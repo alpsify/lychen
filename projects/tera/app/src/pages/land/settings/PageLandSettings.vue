@@ -29,10 +29,8 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
-import { inject } from 'vue';
 import PageLandSettingsGeneral from './PageLandSettingsGeneral.vue';
 import PageLandSettingsTeam from './PageLandSettingsTeam.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
@@ -43,8 +41,6 @@ const { t } = useI18nExtended({
   rootKey: TRANSLATION_KEY,
   prefixed: true,
 });
-
-const land = inject(INJECT_LAND_KEY);
 </script>
 
 <style lang="css" scoped></style>

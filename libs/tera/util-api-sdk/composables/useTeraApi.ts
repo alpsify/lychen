@@ -1,60 +1,29 @@
+import createClient, { type Middleware } from 'openapi-fetch';
+import type { paths } from '../generated/tera-api';
 import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
-import { HttpClient } from '../generated/http-client';
-import * as generatedApi from '../generated';
 
-type ApiKey = keyof typeof generatedApi;
-type ApiClasses = typeof generatedApi;
-
-export function useTeraApi<T extends ApiKey>(apiName: T): InstanceType<ApiClasses[T]> {
-  const httpClient = new HttpClient({
-    baseUrl: import.meta.env.VITE_API_URL,
-    securityWorker: async () => {
-      const { isAuthenticated, accessToken } = zitadelAuth.oidcAuth;
-
-      return isAuthenticated
-        ? {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        : {};
-    },
-  });
-
-  const ApiClass = generatedApi[apiName];
-
-  if (typeof ApiClass !== 'function') {
-    throw new Error(`Invalid API class name: ${apiName}`);
-  }
-
-  return new ApiClass(httpClient) as InstanceType<ApiClasses[T]>;
-}
-
-export function useAllTeraApi() {
-  const httpClient = new HttpClient({
-    baseUrl: import.meta.env.VITE_API_URL,
-    securityWorker: async () => {
-      const { isAuthenticated, accessToken } = zitadelAuth.oidcAuth;
-
-      return isAuthenticated
-        ? {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        : {};
-    },
-  });
-
-  const allApi: { [key in ApiKey]?: InstanceType<ApiClasses[key]> } = {};
-
-  for (const key in generatedApi) {
-    if (typeof generatedApi[key as ApiKey] === 'function') {
-      allApi[key as ApiKey] = new generatedApi[key as ApiKey](httpClient) as InstanceType<
-        ApiClasses[typeof key]
-      >;
+const myMiddleware: Middleware = {
+  async onRequest({ request, options }) {
+    const { isAuthenticated, accessToken } = zitadelAuth.oidcAuth;
+    if (isAuthenticated) {
+      request.headers.set('Authorization', `Bearer ${accessToken}`);
     }
-  }
+    return request;
+  },
+  async onResponse({ request, response, options }) {
+    if (!response.ok) {
+      // Will produce error messages like "https://example.org/api/v1/example: 404 Not Found".
+      throw new Error(`${response.url}: ${response.status} ${response.statusText}`);
+    }
+    return response;
+  },
+  async onError({ error }) {},
+};
 
-  return allApi as { [key in ApiKey]-?: InstanceType<ApiClasses[key]> };
+const client = createClient<paths>({ baseUrl: import.meta.env.VITE_API_URL });
+
+client.use(myMiddleware);
+
+export function useTeraApi() {
+  return { api: client };
 }

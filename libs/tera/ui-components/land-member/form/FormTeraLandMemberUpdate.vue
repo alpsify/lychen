@@ -33,25 +33,19 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
-import type {
-  LandJsonld,
-  LandMemberJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landMemberPatchSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
 import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { landMember } = defineProps<{
-  landMember: Omit<LandMemberJsonld, 'landRoles'> & {
-    landRoles: LandRoleJsonld[];
-  };
-  land: LandJsonld;
+  landMember: components['schemas']['LandMember.jsonld'];
+  land: components['schemas']['Land.jsonld'];
 }>();
 
 interface FormType {
-  landRoles: LandRoleJsonld[];
+  landRoles: components['schemas']['LandRole.jsonld'][];
 }
 
 const { handleSubmit, meta, setFieldValue, isFieldDirty } = useForm<FormType>({
@@ -60,19 +54,28 @@ const { handleSubmit, meta, setFieldValue, isFieldDirty } = useForm<FormType>({
 
 const { emit } = useEventBus(landMemberPatchSucceededEvent);
 
-const api = useTeraApi('LandMember');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (values: FormType) => {
+  mutationFn: async (values: FormType) => {
+    if (!landMember.ulid) {
+      throw new Error('missing.ulid');
+    }
     const landRoleIds = extractValuesByKey(values.landRoles, '@id');
-    return api.landMemberPatch(landMember.ulid!, { landRoles: landRoleIds });
+    const response = await api.PATCH('/api/land_members/{ulid}', {
+      params: { path: { ulid: landMember.ulid } },
+      body: {
+        landRoles: landRoleIds,
+      },
+    });
+    return response.data;
   },
-  onSuccess: (data: { data: LandMemberJsonld }, variables, context) => {
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

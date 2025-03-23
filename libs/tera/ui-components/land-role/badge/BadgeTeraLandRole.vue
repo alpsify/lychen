@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import type { LandRoleJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import Badge from '@lychen/vue-ui-components-core/badge/Badge.vue';
 
-defineProps<{ landRole: LandRoleJsonld }>();
+defineProps<{ landRole: components['schemas']['LandRole.jsonld'] }>();
 </script>

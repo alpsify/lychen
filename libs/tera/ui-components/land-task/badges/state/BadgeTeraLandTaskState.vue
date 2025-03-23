@@ -9,18 +9,18 @@
 </template>
 
 <script lang="ts" setup>
-import { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import { faCircleDashed } from '@fortawesome/pro-light-svg-icons';
+import { LandTaskState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-defineProps<{ state: LandTaskStateEnum }>();
+defineProps<{ state: LandTaskState }>();
 
 const classes = {
-  [LandTaskStateEnum.ToBeDone]: 'bg-surface-container-high text-on-surface-container-high',
-  [LandTaskStateEnum.InProgress]: 'bg-secondary text-on-secondary',
-  [LandTaskStateEnum.Done]: 'bg-positive text-on-positive',
+  [LandTaskState.to_be_done]: 'bg-surface-container-high text-on-surface-container-high',
+  [LandTaskState.in_progress]: 'bg-secondary text-on-secondary',
+  [LandTaskState.done]: 'bg-positive text-on-positive',
 };
 </script>

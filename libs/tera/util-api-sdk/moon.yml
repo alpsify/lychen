@@ -7,18 +7,8 @@ language: typescript
 
 tasks:
   generate-api:
-    command: node --loader ts-node/esm ./scripts/generate-api.mts
+    command: 'npx openapi-typescript ${OPENAPI_SCHEMA_JSON} -o ./generated/tera-api.ts --enum-values --dedupe-enums --enum'
     deps:
       - tera-api:export-openapi
-    options:
-      cache: false
-
-  generate-v2:
-    #not functionning, keeping for later
-    command: 'docker run --rm -v "$projectRoot:/local" openapitools/openapi-generator-cli generate -i /local/schema/openapi_docs.json -g typescript-fetch -o /local/newway'
-    deps:
-      - tera-api:export-openapi
-    options:
-      cache: false
 
 type: library

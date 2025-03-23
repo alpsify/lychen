@@ -6,32 +6,32 @@
     <div class="flex flex-row gap-2 items-center justify-between opacity-70">
       <div>
         <Icon
-          v-if="variant === VARIANT.Default && land.landMembers && land.landMembers.length > 1"
+          v-if="variant === VARIANT.Default && numberOfMember && numberOfMember > 1"
           :icon="faUsers"
         />
       </div>
       <div
-        v-if="land.altitude !== null"
+        v-if="altitude && altitude !== null"
         class="flex flex-row-reverse text-xs gap-2 items-center"
       >
-        <Icon :icon="faMountains" /> {{ t(`property.altitude.default`, land.altitude) }}
+        <Icon :icon="faMountains" /> {{ t(`property.altitude.default`, altitude) }}
       </div>
     </div>
     <div class="flex flex-col gap-1">
       <div class="flex flex-row gap-4 items-center opacity-70">
         <small
-          v-if="land.surface"
+          v-if="surface"
           class="text-tertiary"
-          >{{ t('property.surface.default', land.surface) }}</small
+          >{{ t('property.surface.default', surface) }}</small
         >
         <small
-          v-if="land.landAreas?.length! > 0"
+          v-if="numberOfArea && numberOfArea > 0"
           class="text-tertiary"
-          >{{ t('property.land_areas.default', land.landAreas?.length!) }}</small
+          >{{ t('property.land_areas.default', numberOfArea!) }}</small
         >
       </div>
 
-      <BaseHeading variant="h3">{{ land.name }}</BaseHeading>
+      <BaseHeading variant="h3">{{ name }}</BaseHeading>
     </div>
   </Card>
 </template>
@@ -45,7 +45,6 @@ import { VARIANT, type Variant } from '.';
 import { faUsers } from '@fortawesome/pro-light-svg-icons/faUsers';
 import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
-import type { LandJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-app/base-heading/BaseHeading.vue'),
@@ -53,7 +52,11 @@ const BaseHeading = defineAsyncComponent(
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
 const { variant = VARIANT.Default } = defineProps<{
-  land: LandJsonld;
+  name?: string;
+  numberOfArea?: number;
+  surface?: number | null;
+  altitude?: number | null;
+  numberOfMember?: number;
   variant?: Variant;
 }>();
 

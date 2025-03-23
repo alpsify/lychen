@@ -41,7 +41,13 @@
           :key="land.ulid"
           :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
         >
-          <CardTeraLand :land />
+          <CardTeraLand
+            :name="land.name"
+            :altitude="land.altitude"
+            :surface="land.surface"
+            :number-of-area="land.landAreas?.length"
+            :number-of-member="land.landMembers?.length"
+          />
         </RouterLink>
       </div>
     </div>
@@ -54,7 +60,6 @@ import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-b
 import CardTeraLand from '@lychen/tera-ui-components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
@@ -65,16 +70,18 @@ import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const open = ref(false);
 
-const api = useTeraApi('Land');
+const { api } = useTeraApi();
+
 const { data: lands, refetch } = useQuery({
   queryKey: ['lands'],
   queryFn: async () => {
-    const response = await api.landGetCollection({});
+    const response = await api.GET('/api/lands');
     return response.data;
   },
 });

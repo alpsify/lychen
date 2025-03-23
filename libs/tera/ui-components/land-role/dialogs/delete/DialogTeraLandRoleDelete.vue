@@ -36,8 +36,8 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landRoleDeleteSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
-import type { LandRoleJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t: tLandRole } = useI18nExtended({
   messages: landRoleMessages,
@@ -53,12 +53,17 @@ const { t: t } = useI18nExtended({
 
 const { emit } = useEventBus(landRoleDeleteSucceededEvent);
 
-const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
+const { landRole } = defineProps<{ landRole: components['schemas']['LandRole.jsonld'] }>();
 
-const api = useTeraApi('LandRole');
+const { api } = useTeraApi();
 
 const { mutate: deleteLandRole, isPending } = useMutation({
-  mutationFn: () => api.landRoleDelete(landRole.ulid!),
+  mutationFn: () => {
+    if (!landRole.ulid) {
+      throw new Error('missing.ulid');
+    }
+    return api.DELETE('/api/land_roles/{ulid}', { params: { path: { ulid: landRole.ulid } } });
+  },
   onSuccess: (data, variables, context) => {
     toast({
       title: tLandRole('action.delete.success.message'),

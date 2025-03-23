@@ -15,12 +15,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { LandAreaJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandAreaKind from '../badges/kind/BadgeTeraLandAreaKind.vue';
 
 const { variant = VARIANT.Default, landArea } = defineProps<{
-  landArea: LandAreaJsonld;
+  landArea: components['schemas']['LandArea.jsonld'];
   variant?: Variant;
 }>();
 </script>

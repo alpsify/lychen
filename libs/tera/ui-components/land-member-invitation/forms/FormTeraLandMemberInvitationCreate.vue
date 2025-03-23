@@ -29,11 +29,6 @@ import FormFieldEmail from '@lychen/vue-ui-components-app/fields/email/FormField
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
 
 import { useForm } from 'vee-validate';
-import {
-  type LandJsonld,
-  type LandMemberInvitationJsonld,
-  type LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -44,15 +39,14 @@ import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLan
 import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
 import { z } from 'zod';
 import { toTypedSchema } from '@vee-validate/zod';
+import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { land } = defineProps<{ land: LandJsonld }>();
+const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>();
 
-interface FormType {
-  landRoles: LandRoleJsonld[];
-  email: string;
-}
+type FormType =
+  paths['/api/land_member_invitations']['post']['requestBody']['content']['application/ld+json'];
 
 const emailFieldSchema = toTypedSchema(
   z
@@ -66,11 +60,10 @@ const emailFieldSchema = toTypedSchema(
         if (!email) {
           return true;
         }
-        const response = await api.landMemberInvitationCheckEmailUnicity({
-          email,
-          land: land['@id'],
+        const response = await api.GET('/api/land_member_invitations/check_email_unicity', {
+          params: { query: { email, land: land['@id'] } },
         });
-        return response.data.isUnique;
+        return response.data?.isUnique;
       },
       {
         message: 'This email is already invited',
@@ -86,23 +79,27 @@ const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<FormType>({
 
 const { emit } = useEventBus(landMemberInvitationPostSucceededEvent);
 
-const api = useTeraApi('LandMemberInvitation');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (values: FormType) => {
+  mutationFn: async (values: FormType) => {
     const landRoleIds = extractValuesByKey(values.landRoles, '@id');
-    return api.landMemberInvitationPost({
-      email: values.email,
-      landRoles: landRoleIds,
-      land: land['@id']!,
+    const response = await api.POST('/api/land_member_invitations', {
+      body: {
+        email: values.email,
+        landRoles: landRoleIds,
+        land: land['@id']!,
+      },
     });
+
+    return response.data;
   },
-  onSuccess: (data: { data: LandMemberInvitationJsonld }, variables, context) => {
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.create.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

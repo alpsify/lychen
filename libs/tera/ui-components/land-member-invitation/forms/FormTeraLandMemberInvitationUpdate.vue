@@ -33,44 +33,48 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
 
-import type {
-  LandJsonld,
-  LandMemberInvitationJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landMemberInvitationPatchSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
+import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation: Omit<LandMemberInvitationJsonld, 'landRoles'> & {
-    landRoles: LandRoleJsonld[];
-  };
-  land: LandJsonld;
+  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
+  land: components['schemas']['Land.jsonld'];
 }>();
 
-interface FormType {
-  landRoles: LandRoleJsonld[];
-}
+type FormType =
+  paths['/api/land_member_invitations/{ulid}']['patch']['requestBody']['content']['application/merge-patch+json'];
 
 const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<FormType>({});
 
 const { emit } = useEventBus(landMemberInvitationPatchSucceededEvent);
 
-const api = useTeraApi('LandMemberInvitation');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (values: FormType) => {
-    const landRoleIds = extractValuesByKey(values.landRoles, '@id');
-    return api.landMemberInvitationPatch(landMemberInvitation.ulid!, { landRoles: landRoleIds });
+  mutationFn: async (data: FormType) => {
+    if (!landMemberInvitation.ulid) {
+      throw new Error('missing.ulid');
+    }
+    const landRoleIds = extractValuesByKey(data.landRoles, '@id');
+    const response = await api.PATCH('/api/land_member_invitations/{ulid}', {
+      params: {
+        path: { ulid: landMemberInvitation.ulid },
+      },
+      body: {
+        landRoles: landRoleIds,
+      },
+    });
+    return response.data;
   },
-  onSuccess: (data: { data: LandMemberInvitationJsonld }, variables, context) => {
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

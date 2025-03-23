@@ -33,14 +33,14 @@ import FormTeraLandMemberInvitationCreate from '@lychen/tera-ui-components/land-
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
-import type { LandJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationPostSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { ref } from 'vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { land } = defineProps<{ land: LandJsonld }>();
+const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>();
 
 const open = ref(false);
 

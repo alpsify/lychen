@@ -3,18 +3,14 @@
 namespace App\OpenApi;
 
 use ApiPlatform\Metadata\Delete;
-use ApiPlatform\Metadata\Error;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\HttpOperation;
 use ApiPlatform\Metadata\Operation as OperationMetadata;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface;
 use ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface;
 use ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface;
-use ApiPlatform\OpenApi\Model\Operation;
-use ApiPlatform\OpenApi\Model\PathItem;
 use ApiPlatform\OpenApi\OpenApi;
 use ApiPlatform\OpenApi\Serializer\NormalizeOperationNameTrait;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
@@ -42,7 +38,8 @@ class OpenApiFactory implements OpenApiFactoryInterface
     public function __invoke(array $context = []): OpenApi
     {
         $openApi = $this->decorated->__invoke($context);
-        foreach ($this->resourceNameCollectionFactory->create() as $resourceClass) {
+        return $openApi;
+        /*foreach ($this->resourceNameCollectionFactory->create() as $resourceClass) {
             $resourceMetadataCollection = $this->resourceMetadataCollectionFactory->create($resourceClass);
 
             foreach ($resourceMetadataCollection as $resourceMetadata) {
@@ -84,7 +81,7 @@ class OpenApiFactory implements OpenApiFactoryInterface
                 }
             }
         }
-        return $openApi;
+        return $openApi;*/
     }
 
     private function getPath(string $path): string
