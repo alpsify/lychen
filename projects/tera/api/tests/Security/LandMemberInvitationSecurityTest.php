@@ -5,6 +5,7 @@ namespace App\Tests\Security;
 use App\Entity\Land;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
+use function Zenstruck\Foundry\faker;
 
 class LandMemberInvitationSecurityTest extends AbstractApiTestCase
 {
@@ -208,5 +209,30 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
+    }
+
+    public function testCheckUnicity()
+    {
+        $context1 = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $email = faker()->email();
+        $this->addOneLandMemberInvitation($context1, null, $email);
+        $this->browser()->actingAs($context2->owner)
+            ->get('/api/land_member_invitations/check_email_unicity', ['query'
+            => [
+                    'email' => $email,
+                    'land' => $this->getIriFromResource($context1->land)
+                ]])
+            ->assertStatus(401);
+
+        $landRole = $this->createLandRole($context1->land);
+        $this->addLandMember($context1, [$landRole]);
+        $this->browser()->actingAs($context1->landMembers[0]->getPerson())
+            ->get('/api/land_member_invitations/check_email_unicity', ['query'
+            => [
+                    'email' => $email,
+                    'land' => $this->getIriFromResource($context1->land->_real())
+                ]])
+            ->assertStatus(401);
     }
 }
