@@ -29,7 +29,7 @@ jobs:
       - name: Define Projects
         id: projects
         run: |
-          echo "projects=$(moon query projects --tags vue --affected --downstream deep --json | jq -r '.projects[].id' | column -t)" >> "$GITHUB_OUTPUT"
+          echo "projects=$(moon query projects --tags vue --affected --downstream deep --json | jq -r '.projects | map(.id | @json) | join(",")' | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
       - run: echo ${{ steps.projects.outputs.projects }}
 
   build-and-push:

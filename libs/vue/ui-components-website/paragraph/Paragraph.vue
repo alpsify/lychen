@@ -2,8 +2,9 @@
   <Primitive
     :as="as"
     :class="cn(paragraphVariants({ variant }), props.class)"
-    ><slot></slot
-  ></Primitive>
+  >
+    <slot />
+  </Primitive>
 </template>
 
 <script lang="ts" setup>
