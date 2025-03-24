@@ -8989,13 +8989,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "email": {
-                        "format": "email",
-                        "externalDocs": {
-                            "url": "https://schema.org/email"
-                        },
-                        "type": "string"
-                    },
                     "landRoles": {
                         "type": "array",
                         "items": {
@@ -9003,14 +8996,6 @@
                             "format": "iri-reference",
                             "example": "https://example.com/"
                         }
-                    },
-                    "ulid": {
-                        "type": "string",
-                        "format": "ulid"
-                    },
-                    "createdAt": {
-                        "type": "string",
-                        "format": "date-time"
                     }
                 }
             },

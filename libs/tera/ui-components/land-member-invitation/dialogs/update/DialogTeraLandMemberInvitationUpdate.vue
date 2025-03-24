@@ -49,7 +49,9 @@ import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
+  landMemberInvitation: Omit<components['schemas']['LandMemberInvitation.jsonld'], 'landRoles'> & {
+    landRoles?: components['schemas']['LandRole.jsonld'][];
+  };
   land: components['schemas']['Land.jsonld'];
 }>();
 

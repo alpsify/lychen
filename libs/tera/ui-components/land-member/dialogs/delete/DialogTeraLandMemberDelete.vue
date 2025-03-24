@@ -54,7 +54,7 @@ const { t: t } = useI18nExtended({
 const { emit } = useEventBus(landMemberDeleteSucceededEvent);
 
 const { landMember } = defineProps<{
-  landMember: components['schemas']['LandMember.jsonld'];
+  landMember: Omit<components['schemas']['LandMember.jsonld'], 'landRoles'>;
 }>();
 
 const { api } = useTeraApi();

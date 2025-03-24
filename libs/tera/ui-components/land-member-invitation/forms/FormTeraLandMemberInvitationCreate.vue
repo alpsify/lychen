@@ -45,8 +45,10 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>();
 
-type FormType =
-  paths['/api/land_member_invitations']['post']['requestBody']['content']['application/ld+json'];
+type FormType = Omit<
+  paths['/api/land_member_invitations']['post']['requestBody']['content']['application/ld+json'],
+  'landRoles'
+> & { landRoles: components['schemas']['LandRole.jsonld'][] };
 
 const emailFieldSchema = toTypedSchema(
   z

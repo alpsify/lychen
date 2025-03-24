@@ -70,7 +70,9 @@ const { t: tLandMember } = useI18nExtended({
 });
 
 const { landMember } = defineProps<{
-  landMember: components['schemas']['LandMember.jsonld'];
+  landMember: Omit<components['schemas']['LandMember.jsonld'], 'landRoles'> & {
+    landRoles?: components['schemas']['LandRole.jsonld'][];
+  };
   land: components['schemas']['Land.jsonld'];
 }>();
 

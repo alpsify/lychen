@@ -4,7 +4,7 @@
     :description="t('tabs.team.members.description')"
   >
     <div
-      v-if="landMembers?.member"
+      v-if="landMembers?.member && land"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberUpdate
@@ -44,7 +44,10 @@
         :land-member-invitation="item"
         :land="land"
       >
-        <CardTeraLandMemberInvitation :land-member-invitation="item" />
+        <CardTeraLandMemberInvitation
+          :land-member-invitation="item"
+          :land-roles="item.landRoles"
+        />
       </DialogTeraLandMemberInvitationUpdate>
     </div>
     <div

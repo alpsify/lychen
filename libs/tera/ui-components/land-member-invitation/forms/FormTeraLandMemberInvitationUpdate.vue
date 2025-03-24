@@ -40,12 +40,13 @@ import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
+  landMemberInvitation: Omit<components['schemas']['LandMemberInvitation.jsonld'], 'landRoles'> & {
+    landRoles?: components['schemas']['LandRole.jsonld'][];
+  };
   land: components['schemas']['Land.jsonld'];
 }>();
 
-type FormType =
-  paths['/api/land_member_invitations/{ulid}']['patch']['requestBody']['content']['application/merge-patch+json'];
+type FormType = { landRoles: components['schemas']['LandRole.jsonld'][] };
 
 const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<FormType>({});
 
@@ -58,7 +59,10 @@ const { mutate, isPending } = useMutation({
     if (!landMemberInvitation.ulid) {
       throw new Error('missing.ulid');
     }
-    const landRoleIds = extractValuesByKey(data.landRoles, '@id');
+    let landRoleIds;
+    if (data.landRoles) {
+      landRoleIds = extractValuesByKey(data.landRoles, '@id');
+    }
     const response = await api.PATCH('/api/land_member_invitations/{ulid}', {
       params: {
         path: { ulid: landMemberInvitation.ulid },

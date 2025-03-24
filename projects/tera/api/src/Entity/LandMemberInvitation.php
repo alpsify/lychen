@@ -133,7 +133,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
 
     #[ORM\Column(length: 255)]
     #[Assert\Email()]
-    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:post"])]
     private ?string $email = null;
 
     /**
@@ -164,13 +164,13 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:post"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:patch"])]
+    #[Groups(["user:land_member_invitation:get"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;

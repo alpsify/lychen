@@ -1867,13 +1867,7 @@ export interface components {
     };
     'LandMemberInvitation-user.land_member_invitation.accept': Record<string, never>;
     'LandMemberInvitation-user.land_member_invitation.patch': {
-      /** Format: email */
-      email?: string;
       landRoles?: string[];
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
     };
     'LandMemberInvitation-user.land_member_invitation.refuse': Record<string, never>;
     'LandMemberInvitation.LandMemberInvitationCheckEmailUnicityDto.jsonld': {

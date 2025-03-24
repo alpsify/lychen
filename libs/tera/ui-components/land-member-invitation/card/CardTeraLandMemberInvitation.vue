@@ -5,9 +5,12 @@
   >
     <div class="flex flex-col gap-1">
       <p class="font-medium">{{ landMemberInvitation.email }}</p>
-      <div class="flex flex-row gap-2">
+      <div
+        v-if="landRoles"
+        class="flex flex-row gap-2"
+      >
         <BadgeTeraLandRole
-          v-for="(item, index) in landMemberInvitation.landRoles"
+          v-for="(item, index) in landRoles"
           :key="index"
           :land-role="item"
         />
@@ -54,6 +57,10 @@ import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { variant = VARIANT.Settings } = defineProps<{
   variant?: Variant;
-  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
+  landMemberInvitation: Pick<
+    components['schemas']['LandMemberInvitation.jsonld'],
+    'email' | 'state'
+  >;
+  landRoles?: Pick<components['schemas']['LandRole.jsonld'], 'name'>[];
 }>();
 </script>
