@@ -28,7 +28,7 @@ use Symfony\Component\Uid\Ulid;
     denormalizationContext: ['groups' => ['user:land_member:patch']],
     security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")
 ]
-#[Delete(security: "is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user")]
+#[Delete(security: "(is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user) and !object.isOwner()")]
 #[Get(normalizationContext: ['groups' => ['user:land_member:get']], security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user")]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_member:collection']],

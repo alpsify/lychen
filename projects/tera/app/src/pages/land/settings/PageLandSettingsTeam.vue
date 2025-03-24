@@ -7,8 +7,13 @@
       v-if="landMembers?.member && land"
       class="flex flex-col gap-4"
     >
+      <CardTeraLandMember
+        v-if="owner"
+        :land-member="owner"
+        :hoverable="false"
+      />
       <DialogTeraLandMemberUpdate
-        v-for="(item, index) in landMembers.member"
+        v-for="(item, index) in landMembers.member.filter((item) => !item.owner)"
         :key="index"
         :land-member="item"
         :land="land"
@@ -247,6 +252,13 @@ const { data: landMembers, refetch: refetchLandMembers } = useQuery({
     return response.data;
   },
   enabled,
+});
+
+const owner = computed(() => {
+  if (landMembers.value) {
+    return landMembers.value.member.find((item) => item.owner);
+  }
+  return null;
 });
 
 const { on: onLandMemberPatch } = useEventBus(landMemberPatchSucceededEvent);
