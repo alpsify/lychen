@@ -7,8 +7,12 @@
       v-if="landMembers?.member && land"
       class="flex flex-col gap-4"
     >
+      <CardTeraLandMember
+        :land-member="landMembers.member.filter((item) => item.owner)[0]!"
+        :hoverable="false"
+      />
       <DialogTeraLandMemberUpdate
-        v-for="(item, index) in landMembers.member"
+        v-for="(item, index) in landMembers.member.filter((item) => !item.owner)"
         :key="index"
         :land-member="item"
         :land="land"
