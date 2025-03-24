@@ -37,11 +37,6 @@ import {
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
-import type {
-  LandJsonld,
-  LandMemberInvitationJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import {
   landMemberInvitationDeleteSucceededEvent,
@@ -49,14 +44,15 @@ import {
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { ref } from 'vue';
 import FormTeraLandMemberInvitationUpdate from '../../forms/FormTeraLandMemberInvitationUpdate.vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation: Omit<LandMemberInvitationJsonld, 'landRoles'> & {
-    landRoles: LandRoleJsonld[];
+  landMemberInvitation: Omit<components['schemas']['LandMemberInvitation.jsonld'], 'landRoles'> & {
+    landRoles?: components['schemas']['LandRole.jsonld'][];
   };
-  land: LandJsonld;
+  land: components['schemas']['Land.jsonld'];
 }>();
 
 const open = ref(false);

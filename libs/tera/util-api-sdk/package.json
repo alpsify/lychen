@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "type": "module",
+  "dependencies": {
+    "openapi-fetch": "^0.13.5"
+  },
   "devDependencies": {
-    "@types/node": "^22.13.10",
-    "swagger-typescript-api": "^13.0.23",
-    "ts-node": "10.9.2",
+    "openapi-typescript": "^7.6.1",
     "typescript": "^5.8.2"
   }
 }

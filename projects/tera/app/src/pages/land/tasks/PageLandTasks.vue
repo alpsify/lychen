@@ -36,7 +36,7 @@
               <BadgeTeraLandTaskState :state />
             </template>
             <template
-              v-if="state === LandTaskStateEnum.ToBeDone"
+              v-if="state === LandTaskState.to_be_done"
               #actions
             >
               <Button
@@ -77,10 +77,6 @@ import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-ui-components/land-task/card/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import {
-  LandTaskStateEnum,
-  OrderDueDateEnum,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
@@ -96,25 +92,33 @@ import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgres
 import DataTableTeraLandTask from '@lychen/tera-ui-components/land-task/data-table/DataTableTeraLandTask.vue';
 import BadgeTeraLandTaskState from '@lychen/tera-ui-components/land-task/badges/state/BadgeTeraLandTaskState.vue';
 import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
+import {
+  LandTaskState,
+  PathsApiLand_rolesGetParametersQueryOrderPosition,
+} from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const land = inject(INJECT_LAND_KEY);
 
 const landId = computed(() => land?.value?.['@id']);
 const enabled = computed(() => !!landId.value);
 
-const api = useTeraApi('LandTask');
+const { api } = useTeraApi();
 
-const states = computed(() => Object.values(LandTaskStateEnum));
+const states = computed(() => Object.values(LandTaskState));
 
 const queries = computed(() =>
   states.value.map((state) => {
     return {
       queryKey: ['landTasks', state, landId],
       queryFn: async () => {
-        const response = await api.landTaskGetCollection({
-          land: landId.value!,
-          'order[dueDate]': OrderDueDateEnum.Asc,
-          state: state,
+        const response = await api.GET('/api/land_tasks', {
+          params: {
+            query: {
+              land: landId.value!,
+              'order[dueDate]': PathsApiLand_rolesGetParametersQueryOrderPosition.asc,
+              state: state,
+            },
+          },
         });
 
         return response.data;

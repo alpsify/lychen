@@ -34,37 +34,50 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
-import type {
-  LandRoleJsonld,
-  LandRoleUserLandRolePatch,
-  LandRoleUserLandRolePatchPermissionsEnum,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { landRolePatchSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
+import type {
+  components,
+  LandRoleUserLand_rolePatchPermissions,
+  paths,
+} from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
+const { landRole } = defineProps<{ landRole: components['schemas']['LandRole.jsonld'] }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue, values } =
-  useForm<LandRoleUserLandRolePatch>({
-    initialValues: {
-      name: landRole.name,
-      permissions: landRole.permissions,
-    },
-  });
+type FormType =
+  paths['/api/land_roles/{ulid}']['patch']['requestBody']['content']['application/merge-patch+json'];
+
+const { isFieldDirty, handleSubmit, meta, setFieldValue, values } = useForm<FormType>({
+  initialValues: {
+    name: landRole.name,
+    permissions: landRole.permissions,
+  },
+});
 
 const { emit } = useEventBus(landRolePatchSucceededEvent);
 
-const api = useTeraApi('LandRole');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (data: LandRoleUserLandRolePatch) => api.landRolePatch(landRole.ulid!, data),
-  onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
+  mutationFn: async (data: FormType) => {
+    if (!landRole.ulid) {
+      throw new Error('missing.ulid');
+    }
+    const response = await api.PATCH('/api/land_roles/{ulid}', {
+      params: {
+        path: { ulid: landRole.ulid },
+      },
+      body: data,
+    });
+    return response.data;
+  },
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.update.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({
@@ -79,7 +92,7 @@ const onSubmit = handleSubmit((values) => {
   mutate(values);
 });
 
-function handlePermissionsUpdate(newPermissions: LandRoleUserLandRolePatchPermissionsEnum[]) {
+function handlePermissionsUpdate(newPermissions: LandRoleUserLand_rolePatchPermissions[]) {
   setFieldValue('permissions', newPermissions);
 }
 </script>

@@ -5,9 +5,12 @@
   >
     <div class="flex flex-col gap-1">
       <p class="font-medium">{{ landMemberInvitation.email }}</p>
-      <div class="flex flex-row gap-2">
+      <div
+        v-if="landRoles"
+        class="flex flex-row gap-2"
+      >
         <BadgeTeraLandRole
-          v-for="(item, index) in landMemberInvitation.landRoles"
+          v-for="(item, index) in landRoles"
           :key="index"
           :land-role="item"
         />
@@ -41,10 +44,6 @@
 </template>
 
 <script setup lang="ts">
-import type {
-  LandMemberInvitationJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Card from '@lychen/vue-ui-components-core/card/Card.vue';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';
 import DialogTeraLandMemberInvitationDelete from '../dialogs/delete/DialogTeraLandMemberInvitationDelete.vue';
@@ -54,11 +53,14 @@ import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { variant = VARIANT.Settings } = defineProps<{
   variant?: Variant;
-  landMemberInvitation: Omit<Required<LandMemberInvitationJsonld>, 'landRoles'> & {
-    landRoles: LandRoleJsonld[];
-  };
+  landMemberInvitation: Pick<
+    components['schemas']['LandMemberInvitation.jsonld'],
+    'email' | 'state'
+  >;
+  landRoles?: Pick<components['schemas']['LandRole.jsonld'], 'name'>[];
 }>();
 </script>

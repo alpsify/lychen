@@ -39,20 +39,14 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
-import type { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const {
   variant = VARIANT.Default,
   landTask,
   noState = false,
 } = defineProps<{
-  landTask: {
-    title: string;
-    content: string;
-    dueDate?: string;
-    startDate?: string;
-    state: LandTaskStateEnum;
-  };
+  landTask: components['schemas']['LandTask.jsonld'];
   noState?: boolean;
   variant?: Variant;
 }>();

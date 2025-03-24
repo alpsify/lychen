@@ -172,13 +172,17 @@ const navigation = {
   },
 };
 
-const api = useTeraApi('Land');
+const { api } = useTeraApi();
 
 const { data: lands, refetch } = useQuery({
   queryKey: ['lands-first-five'],
   queryFn: async () => {
-    const response = await api.landGetCollection({
-      itemsPerPage: 5,
+    const response = await api.GET('/api/lands', {
+      params: {
+        query: {
+          itemsPerPage: 5,
+        },
+      },
     });
     return response.data;
   },

@@ -44,7 +44,6 @@ import FormTeraLandRoleUpdate from '@lychen/tera-ui-components/land-role/forms/F
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
-import type { LandRoleJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useEventBus } from '@vueuse/core';
 import {
   landRoleDeleteSucceededEvent,
@@ -58,6 +57,7 @@ import {
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { Separator } from '@lychen/vue-ui-components-core/separator';
 import DialogTeraLandRoleDelete from '../delete/DialogTeraLandRoleDelete.vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({
@@ -66,7 +66,7 @@ const { t: tLandRole } = useI18nExtended({
   prefixed: true,
 });
 
-const { landRole } = defineProps<{ landRole: LandRoleJsonld }>();
+const { landRole } = defineProps<{ landRole: components['schemas']['LandRole.jsonld'] }>();
 
 const open = ref(false);
 

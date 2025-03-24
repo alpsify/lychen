@@ -36,11 +36,8 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landMemberDeleteSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
-import type {
-  LandMemberJsonld,
-  LandRoleJsonld,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t: tLandMember } = useI18nExtended({
   messages: landMemberMessages,
@@ -57,19 +54,19 @@ const { t: t } = useI18nExtended({
 const { emit } = useEventBus(landMemberDeleteSucceededEvent);
 
 const { landMember } = defineProps<{
-  landMember: Omit<LandMemberJsonld, 'landRoles'> & {
-    landRoles: LandRoleJsonld[];
-  };
+  landMember: Omit<components['schemas']['LandMember.jsonld'], 'landRoles'>;
 }>();
 
-const api = useTeraApi('LandMember');
+const { api } = useTeraApi();
 
 const { mutate: deleteLandMember, isPending } = useMutation({
   mutationFn: () => {
     if (!landMember.ulid) {
-      throw new Error('error.missing_ulid');
+      throw new Error('missing.ulid');
     }
-    return api.landMemberDelete(landMember.ulid);
+    return api.DELETE('/api/land_members/{ulid}', {
+      params: { path: { ulid: landMember.ulid } },
+    });
   },
   onSuccess: (data, variables, context) => {
     toast({

@@ -110,7 +110,6 @@
 </template>
 
 <script lang="ts" setup>
-import { type LandTaskJsonld } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { h, ref, computed } from 'vue';
 import {
@@ -142,7 +141,6 @@ import { faSort } from '@fortawesome/pro-light-svg-icons/faSort';
 import { cn, valueUpdater } from '@lychen/vue-ui-components-core/lib/utils';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LandTaskStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { DropdownMenu } from '@lychen/vue-ui-components-core/dropdown-menu';
 import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuTrigger.vue';
 import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
@@ -150,15 +148,16 @@ import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-me
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
+import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { d } = useI18nExtended();
 
 const { data } = defineProps<{
-  data: LandTaskJsonld[] | undefined;
-  state?: LandTaskStateEnum;
+  data: components['schemas']['LandTask.jsonld'][] | undefined;
+  state?: components['schemas']['LandTask.jsonld']['state'];
   totalItems?: number;
 }>();
-const columnHelper = createColumnHelper<LandTaskJsonld>();
+const columnHelper = createColumnHelper<components['schemas']['LandTask.jsonld']>();
 
 const dataForTable = computed(() => data || []);
 

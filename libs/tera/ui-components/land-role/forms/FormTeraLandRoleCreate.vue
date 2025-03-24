@@ -24,11 +24,6 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 
 import { useForm } from 'vee-validate';
-import {
-  type LandJsonld,
-  type LandRoleJsonld,
-  type LandRoleJsonldUserLandRolePost,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -37,32 +32,38 @@ import { useEventBus } from '@vueuse/core';
 import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
+import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { land } = defineProps<{ land: LandJsonld }>();
+const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>();
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandRoleJsonldUserLandRolePost>(
-  {
-    initialValues: {
-      permissions: undefined,
-    },
+type FormType = paths['/api/land_roles']['post']['requestBody']['content']['application/ld+json'];
+
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<FormType>({
+  initialValues: {
+    permissions: undefined,
   },
-);
+});
 
 const { emit } = useEventBus(landRolePostSucceededEvent);
 
-const landApi = useTeraApi('LandRole');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLandRole: LandRoleJsonldUserLandRolePost) =>
-    landApi.landRolePost({ ...newLandRole, land: land['@id']! }),
-  onSuccess: (data: { data: LandRoleJsonld }, variables, context) => {
+  mutationFn: async (data: FormType) => {
+    if (!land['@id']) {
+      throw new Error('missing.@id');
+    }
+    const response = await api.POST('/api/land_roles', { body: { ...data, land: land['@id']! } });
+    return response.data;
+  },
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.create.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

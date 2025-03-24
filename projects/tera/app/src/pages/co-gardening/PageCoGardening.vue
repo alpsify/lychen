@@ -45,12 +45,12 @@ import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.v
 import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
 import CardTeraLand from '@lychen/tera-ui-components/land/card/CardTeraLand.vue';
 
-const api = useTeraApi('Land');
+const { api } = useTeraApi();
 
 const { data: landsLookingForMember } = useQuery({
   queryKey: ['landsLookingForMember'],
   queryFn: async () => {
-    const response = await api.landGetCollectionLookingForMembers({});
+    const response = await api.GET('/api/lands/looking_for_members', {});
     return response.data;
   },
 });

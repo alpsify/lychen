@@ -8,17 +8,16 @@
 </template>
 
 <script setup lang="ts">
-import { LandMemberInvitationJsonldStateEnum } from '@lychen/tera-util-api-sdk/generated/data-contracts';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invitation';
+import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-defineProps<{ state: LandMemberInvitationJsonldStateEnum }>();
+defineProps<{ state: LandMemberInvitationState }>();
 
 const classes = {
-  [LandMemberInvitationJsonldStateEnum.Pending]:
-    'bg-surface-container-high text-on-surface-container-high',
-  [LandMemberInvitationJsonldStateEnum.Refused]: 'bg-negative text-on-negative',
-  [LandMemberInvitationJsonldStateEnum.Accepted]: 'bg-positive text-on-positive',
+  [LandMemberInvitationState.pending]: 'bg-surface-container-high text-on-surface-container-high',
+  [LandMemberInvitationState.refused]: 'bg-negative text-on-negative',
+  [LandMemberInvitationState.accepted]: 'bg-positive text-on-positive',
 };
 </script>

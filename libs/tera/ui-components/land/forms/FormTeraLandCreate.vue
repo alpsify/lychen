@@ -28,10 +28,6 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
 
 import { useForm } from 'vee-validate';
-import {
-  type LandJsonld,
-  type LandJsonldUserLandPost,
-} from '@lychen/tera-util-api-sdk/generated/data-contracts';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -41,10 +37,13 @@ import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandName.vue';
 import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
+import type { paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandJsonldUserLandPost>({
+type LandPostRequest = paths['/api/lands']['post']['requestBody']['content']['application/ld+json'];
+
+const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandPostRequest>({
   initialValues: {
     altitude: 0,
     surface: 1,
@@ -53,16 +52,19 @@ const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandJsonldUs
 
 const { emit } = useEventBus(landPostSucceededEvent);
 
-const landApi = useTeraApi('Land');
+const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
-  mutationFn: (newLand: LandJsonldUserLandPost) => landApi.landPost(newLand),
-  onSuccess: (data: { data: LandJsonld }, variables, context) => {
+  mutationFn: async (data: LandPostRequest) => {
+    const response = await api.POST('/api/lands', { body: data });
+    return response.data;
+  },
+  onSuccess: (data, variables, context) => {
     toast({
       title: t('action.create.success.message'),
       variant: 'positive',
     });
-    emit(data.data);
+    emit(data);
   },
   onError: (error, variables, context) => {
     toast({

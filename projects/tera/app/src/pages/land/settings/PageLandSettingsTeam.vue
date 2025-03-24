@@ -4,7 +4,7 @@
     :description="t('tabs.team.members.description')"
   >
     <div
-      v-if="landMembers?.member"
+      v-if="landMembers?.member && land"
       class="flex flex-col gap-4"
     >
       <DialogTeraLandMemberUpdate
@@ -44,7 +44,10 @@
         :land-member-invitation="item"
         :land="land"
       >
-        <CardTeraLandMemberInvitation :land-member-invitation="item" />
+        <CardTeraLandMemberInvitation
+          :land-member-invitation="item"
+          :land-roles="item.landRoles"
+        />
       </DialogTeraLandMemberInvitationUpdate>
     </div>
     <div
@@ -102,7 +105,6 @@ import {
 import { computed, inject, onUnmounted } from 'vue';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { useQuery } from '@tanstack/vue-query';
-import { useAllTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import CardTeraLandRole from '@lychen/tera-ui-components/land-role/card/CardTeraLandRole.vue';
@@ -129,6 +131,7 @@ import {
   landMemberInvitationPostSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
 const land = inject(INJECT_LAND_KEY);
 const landId = computed(() => land?.value?.['@id']);
@@ -152,7 +155,7 @@ const { t: tLandMemberInvitation } = useI18nExtended({
   prefixed: true,
 });
 
-const api = useAllTeraApi();
+const { api } = useTeraApi();
 
 const { data: landRoles, refetch: refetchLandRoles } = useQuery({
   queryKey: ['landRoles', landId],
@@ -161,8 +164,12 @@ const { data: landRoles, refetch: refetchLandRoles } = useQuery({
       throw new Error('missing.land_id');
     }
 
-    const response = await api.LandRole.landRoleGetCollection({
-      land: landId.value,
+    const response = await api.GET('/api/land_roles', {
+      params: {
+        query: {
+          land: landId.value,
+        },
+      },
     });
 
     return response.data;
@@ -193,8 +200,12 @@ const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = u
       throw new Error('missing.land_id');
     }
 
-    const response = await api.LandMemberInvitation.landMemberInvitationGetCollection({
-      land: landId.value,
+    const response = await api.GET('/api/land_member_invitations', {
+      params: {
+        query: {
+          land: landId.value,
+        },
+      },
     });
 
     return response.data;
@@ -225,8 +236,12 @@ const { data: landMembers, refetch: refetchLandMembers } = useQuery({
       throw new Error('missing.land_id');
     }
 
-    const response = await api.LandMember.landMemberGetCollection({
-      land: landId.value,
+    const response = await api.GET('/api/land_members', {
+      params: {
+        query: {
+          land: landId.value,
+        },
+      },
     });
 
     return response.data;
