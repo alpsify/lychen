@@ -85,12 +85,15 @@ const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
   mutationFn: async (values: FormType) => {
+    if (!land['@id']) {
+      throw new Error('missing.land_id');
+    }
     const landRoleIds = extractValuesByKey(values.landRoles, '@id');
     const response = await api.POST('/api/land_member_invitations', {
       body: {
         email: values.email,
         landRoles: landRoleIds,
-        land: land['@id']!,
+        land: land['@id'],
       },
     });
 
