@@ -1,6 +1,6 @@
 <template>
   <SectionWithTitle :title="t('title')">
-    <Tabs default-value="team">
+    <Tabs default-value="general">
       <TabsList class="grid w-full grid-cols-5">
         <TabsTrigger value="general">
           {{ t('tabs.general.title') }}

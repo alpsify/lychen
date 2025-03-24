@@ -7,7 +7,13 @@ const myMiddleware: Middleware = {
     const { isAuthenticated, accessToken } = zitadelAuth.oidcAuth;
     if (isAuthenticated) {
       request.headers.set('Authorization', `Bearer ${accessToken}`);
+      request.headers.set('Content-Type', 'application/ld+json');
     }
+
+    if (request.method === 'PATCH') {
+      request.headers.set('Content-Type', 'application/merge-patch+json');
+    }
+
     return request;
   },
   async onResponse({ request, response, options }) {
