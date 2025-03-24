@@ -54,7 +54,7 @@ const { t: t } = useI18nExtended({
 const { emit } = useEventBus(landMemberInvitationDeleteSucceededEvent);
 
 const { landMemberInvitation } = defineProps<{
-  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
+  landMemberInvitation: Pick<components['schemas']['LandMemberInvitation.jsonld'], 'ulid'>;
 }>();
 
 const { api } = useTeraApi();
@@ -73,7 +73,7 @@ const { mutate: deleteLandMemberInvitation, isPending } = useMutation({
       title: tLandMemberInvitation('action.delete.success.message'),
       variant: 'positive',
     });
-    emit(landMemberInvitation);
+    emit();
   },
   onError: (error, variables, context) => {
     toast({

@@ -4,9 +4,9 @@ import type { EventBusKey } from '@vueuse/core';
 export const landMemberInvitationPostSucceededEvent: EventBusKey<
   components['schemas']['LandMemberInvitation.jsonld']
 > = Symbol('land-member-invitation-post-succeeded');
-export const landMemberInvitationDeleteSucceededEvent: EventBusKey<
-  components['schemas']['LandMemberInvitation.jsonld']
-> = Symbol('land-member-invitation-delete-succeeded');
+export const landMemberInvitationDeleteSucceededEvent: EventBusKey<null> = Symbol(
+  'land-member-invitation-delete-succeeded',
+);
 export const landMemberInvitationPatchSucceededEvent: EventBusKey<
   components['schemas']['LandMemberInvitation.jsonld']
 > = Symbol('land-member-invitation-patch-succeeded');
