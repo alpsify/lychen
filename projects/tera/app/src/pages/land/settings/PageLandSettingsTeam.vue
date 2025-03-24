@@ -8,7 +8,8 @@
       class="flex flex-col gap-4"
     >
       <CardTeraLandMember
-        :land-member="landMembers.member.filter((item) => item.owner)[0]!"
+        v-if="owner"
+        :land-member="owner"
         :hoverable="false"
       />
       <DialogTeraLandMemberUpdate
@@ -251,6 +252,13 @@ const { data: landMembers, refetch: refetchLandMembers } = useQuery({
     return response.data;
   },
   enabled,
+});
+
+const owner = computed(() => {
+  if (landMembers.value) {
+    return landMembers.value.member.find((item) => item.owner);
+  }
+  return null;
 });
 
 const { on: onLandMemberPatch } = useEventBus(landMemberPatchSucceededEvent);
