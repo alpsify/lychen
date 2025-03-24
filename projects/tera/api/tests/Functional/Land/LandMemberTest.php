@@ -2,6 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
+use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
@@ -134,7 +135,7 @@ class LandMemberTest extends AbstractApiTestCase
     public function testDelete()
     {
         $context = $this->createLandContext();
-        $this->addLandMember($context);
+        $context = $this->addLandMember($context);
 
         // Owner
         $this->browser()->actingAs($context->owner)
@@ -157,5 +158,17 @@ class LandMemberTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->landMembers[3]->getPerson())
             ->delete($this->getIriFromResource($context->landMembers[3]))
             ->assertStatus(204);
+    }
+
+    public function testCantDeleteOwner()
+    {
+        $context = $this->createLandContext();
+
+        $landMemberRepository = static::getContainer()->get(LandMemberRepository::class);
+        $landMember = $landMemberRepository->findOneBy(['person' => $context->owner->_real(), 'land' => $context->land->_real()]);
+
+        $this->browser()->actingAs($context->owner)
+            ->delete($this->getIriFromResource($landMember))
+            ->assertStatus(403);
     }
 }
