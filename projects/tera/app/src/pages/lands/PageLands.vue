@@ -36,6 +36,12 @@
         v-if="lands?.member"
         class="grid gap-8 grid-cols-(--grid-fluid) auto-rows-(--grid-rows-fluid)"
       >
+        <CardTeraLandMemberInvitation
+          v-for="landMemberInvitation in landMemberInvitations.member"
+          :key="landMemberInvitation.ulid"
+          :land-member-invitation="landMemberInvitation"
+          :land-roles="landMemberInvitation.landRoles"
+        />
         <RouterLink
           v-for="land in lands.member"
           :key="land.ulid"
@@ -71,6 +77,8 @@ import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -82,6 +90,21 @@ const { data: lands, refetch } = useQuery({
   queryKey: ['lands'],
   queryFn: async () => {
     const response = await api.GET('/api/lands');
+    return response.data;
+  },
+});
+
+const email = zitadelAuth.oidcAuth.userProfile.email;
+
+const { data: landMemberInvitations } = useQuery({
+  queryKey: ['landMemberInvitations'],
+  queryFn: async () => {
+    if (!email) {
+      throw new Error('missing.email');
+    }
+    const response = await api.GET('/api/land_member_invitations/by_email', {
+      params: { query: { email } },
+    });
     return response.data;
   },
 });

@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\EmailFilter;
 use App\Doctrine\Filter\LandFilter;
 use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
 use App\Processor\WorkflowTransitionProcessor;
@@ -50,6 +51,12 @@ use Symfony\Component\Validator\Constraints as Assert;
     name: 'refuse',
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandMemberInvitationPermission::DELETE . "', object)")]
+#[Get(
+    uriTemplate: '/land_member_invitations/{ulid}',
+    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
+    normalizationContext: ['groups' => ['user:land_member_invitation:get']],
+    security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)",
+    priority: 10)]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_member_invitation:collection']],
     security: "is_granted('" . LandMemberInvitationPermission::READ . "')",
@@ -68,12 +75,27 @@ use Symfony\Component\Validator\Constraints as Assert;
             required: true
         )
     ])]
-#[Get(
-    uriTemplate: '/land_member_invitations/{ulid}',
-    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
-    normalizationContext: ['groups' => ['user:land_member_invitation:get']],
-    security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)",
-    priority: 10)]
+#[GetCollection(
+    uriTemplate: '/land_member_invitations/by_email',
+    normalizationContext: ['groups' => ['user:land_member_invitation:collection-by-email']],
+    security: "true",
+    name: 'collection-by-email',
+    parameters: [
+        new QueryParameter(
+            key: 'email',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'email',
+                in: 'query',
+                description: 'Filter by email',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: EmailFilter::class,
+            required: true
+        )
+    ]
+)]
 #[Get(
     uriTemplate: '/land_member_invitations/check_email_unicity',
     openapi: new Operation(
@@ -128,7 +150,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
 
     #[ORM\ManyToOne(inversedBy: 'landMemberInvitations')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:post"])]
+    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:post", "user:land_member_invitation:collection-by-email"])]
     private ?Land $land = null;
 
     #[ORM\Column(length: 255)]
@@ -140,7 +162,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
      * @var Collection<int, LandRole>
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class)]
-    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post"])]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post", "user:land_member_invitation:collection-by-email"])]
     private Collection $landRoles;
 
     #[ORM\Column(length: 255)]
@@ -164,13 +186,13 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:post"])]
+    #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:post", "user:land_member_invitation:collection-by-email"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_member_invitation:get"])]
+    #[Groups(["user:land_member_invitation:get", "user:land_member_invitation:collection-by-email"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;

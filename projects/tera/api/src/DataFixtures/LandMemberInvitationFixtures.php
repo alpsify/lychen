@@ -18,6 +18,12 @@ class LandMemberInvitationFixtures extends Fixture implements DependentFixtureIn
             'email' => PersonFixtures::buildUserEmail(PersonFixtures::PERSON_6),
             'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
         ]);
+
+        LandMemberInvitationFactory::new()->create([
+            'land' => $this->getReference(LandFixtures::LAND_4, Land::class),
+            'email' => PersonFixtures::buildUserEmail(PersonFixtures::PERSON_1),
+            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
+        ]);
     }
 
     public function getDependencies(): array

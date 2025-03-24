@@ -58,7 +58,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post", "user:land_member_invitation:collection-by-email"])]
     private ?string $name = null;
 
     /**

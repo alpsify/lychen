@@ -400,6 +400,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/land_member_invitations/by_email': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves the collection of LandMemberInvitation resources.
+     * @description Retrieves the collection of LandMemberInvitation resources.
+     */
+    get: operations['collection-by-email'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/land_member_invitations/check_email_unicity': {
     parameters: {
       query?: never;
@@ -1297,6 +1317,20 @@ export interface components {
       /** Format: ulid */
       ulid?: string;
     };
+    'Land.jsonld-user.land_member_invitation.collection-by-email': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name?: string;
+    };
     LandArea: {
       name: string;
       /**
@@ -1937,6 +1971,16 @@ export interface components {
       /** Format: ulid */
       ulid?: string;
     };
+    'LandMemberInvitation.jsonld-user.land_member_invitation.collection-by-email': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      land?: components['schemas']['Land.jsonld-user.land_member_invitation.collection-by-email'];
+      landRoles?: components['schemas']['LandRole.jsonld-user.land_member_invitation.collection-by-email'][];
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+    };
     'LandMemberInvitation.jsonld-user.land_member_invitation.get': {
       readonly '@context'?:
         | string
@@ -2250,6 +2294,20 @@ export interface components {
       name: string;
     };
     'LandRole.jsonld-user.land_member_invitation.collection': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+    };
+    'LandRole.jsonld-user.land_member_invitation.collection-by-email': {
       readonly '@context'?:
         | string
         | ({
@@ -4823,6 +4881,77 @@ export interface operations {
       };
       /** @description Unprocessable entity */
       422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  'collection-by-email': {
+    parameters: {
+      query: {
+        /** @description The collection page number */
+        page?: number;
+        /** @description The number of items per page */
+        itemsPerPage?: number;
+        /** @description Enable or disable pagination */
+        pagination?: boolean;
+        /** @description Filter by email */
+        email: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandMemberInvitation collection */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': {
+            member: components['schemas']['LandMemberInvitation.jsonld-user.land_member_invitation.collection-by-email'][];
+            totalItems?: number;
+            /** @example {
+             *       "@id": "string",
+             *       "type": "string",
+             *       "first": "string",
+             *       "last": "string",
+             *       "previous": "string",
+             *       "next": "string"
+             *     } */
+            view?: {
+              /** Format: iri-reference */
+              '@id'?: string;
+              '@type'?: string;
+              /** Format: iri-reference */
+              first?: string;
+              /** Format: iri-reference */
+              last?: string;
+              /** Format: iri-reference */
+              previous?: string;
+              /** Format: iri-reference */
+              next?: string;
+            };
+            search?: {
+              '@type'?: string;
+              template?: string;
+              variableRepresentation?: string;
+              mapping?: {
+                '@type'?: string;
+                variable?: string;
+                property?: string | null;
+                required?: boolean;
+              }[];
+            };
+          };
+        };
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
