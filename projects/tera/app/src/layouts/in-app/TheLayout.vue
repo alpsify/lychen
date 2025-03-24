@@ -107,6 +107,7 @@ import {
   landPostSucceededEvent,
   landPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandEvents';
+import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 
@@ -204,6 +205,12 @@ onLandDelete(() => {
 const { on: onLandUpdate } = useEventBus(landPatchSucceededEvent);
 
 onLandUpdate(() => {
+  refetch();
+});
+
+const { on: onLandMemberInvitationAccept } = useEventBus(landMemberInvitationAcceptSucceededEvent);
+
+onLandMemberInvitationAccept(() => {
   refetch();
 });
 
