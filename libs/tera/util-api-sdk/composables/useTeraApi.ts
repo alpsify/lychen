@@ -30,7 +30,6 @@ const middleware: Middleware = {
     }
     return response;
   },
-  async onError({ error }) {},
 };
 
 const client = createClient<paths>({ baseUrl: import.meta.env.VITE_API_URL });
