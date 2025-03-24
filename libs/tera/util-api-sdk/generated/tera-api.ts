@@ -1887,7 +1887,7 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
+      state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState;
       person?: components['schemas']['Person'] | null;
       /** Format: date-time */
       acceptedAt?: string | null;
@@ -1943,7 +1943,7 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
+      state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState;
       person?: components['schemas']['Person.jsonld'] | null;
       /** Format: date-time */
       acceptedAt?: string | null;
@@ -1966,7 +1966,7 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
+      state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState;
       person?: components['schemas']['Person.jsonld-user.land_member_invitation.collection'] | null;
       /** Format: ulid */
       ulid?: string;
@@ -2006,7 +2006,7 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
+      state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState;
       person?: components['schemas']['Person.jsonld-user.land_member_invitation.get'] | null;
       /** Format: ulid */
       ulid?: string;
@@ -4899,6 +4899,8 @@ export interface operations {
         pagination?: boolean;
         /** @description Filter by email */
         email: string;
+        /** @description Filter by state */
+        state?: PathsApiLand_member_invitationsBy_emailGetParametersQueryState;
       };
       header?: never;
       path?: never;
@@ -7844,6 +7846,11 @@ export interface operations {
     };
   };
 }
+export enum PathsApiLand_member_invitationsBy_emailGetParametersQueryState {
+  pending = 'pending',
+  accepted = 'accepted',
+  refused = 'refused',
+}
 export enum PathsApiLand_rolesGetParametersQueryOrderPosition {
   asc = 'asc',
   desc = 'desc',
@@ -7858,11 +7865,6 @@ export enum LandAreaState {
 export enum LandAreaKind {
   open_soil = 'open_soil',
   soil_less = 'soil_less',
-}
-export enum LandMemberInvitationState {
-  pending = 'pending',
-  accepted = 'accepted',
-  refused = 'refused',
 }
 export enum LandResearchDealState {
   opened = 'opened',

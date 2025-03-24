@@ -153,7 +153,9 @@ const { mutate: refuse } = useMutation({
       throw new Error('missing.ulid');
     }
     const response = await api.PATCH('/api/land_member_invitations/{ulid}/refuse', {
-      params: { path: { ulid: landMemberInvitation.ulid } },
+      params: {
+        path: { ulid: landMemberInvitation.ulid },
+      },
       body: {},
     });
 

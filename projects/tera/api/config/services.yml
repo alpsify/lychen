@@ -56,3 +56,9 @@ services:
       $properties: { position: ~ }
     parent: 'api_platform.doctrine.orm.order_filter'
     tags: [ 'api_platform.filter' ]
+
+  land_member_invitation.state_filter:
+    arguments:
+      $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: [ 'api_platform.filter' ]

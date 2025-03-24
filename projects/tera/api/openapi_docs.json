@@ -2727,6 +2727,26 @@
                         "style": "form",
                         "explode": false,
                         "allowReserved": false
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "Filter by state",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "pending",
+                                "accepted",
+                                "refused"
+                            ],
+                            "example": "pending"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
                     }
                 ],
                 "deprecated": false

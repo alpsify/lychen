@@ -78,7 +78,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(
     uriTemplate: '/land_member_invitations/by_email',
     normalizationContext: ['groups' => ['user:land_member_invitation:collection-by-email']],
-    security: "true",
+    security: "user.getEmail() === request.query.get('email')",
     name: 'collection-by-email',
     parameters: [
         new QueryParameter(
@@ -93,7 +93,8 @@ use Symfony\Component\Validator\Constraints as Assert;
             ),
             filter: EmailFilter::class,
             required: true
-        )
+        ),
+        new QueryParameter(key: 'state', schema: ['type' => 'string', 'enum' => LandMemberInvitationWorkflowPlace::PLACES, 'example' => LandMemberInvitationWorkflowPlace::PENDING], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_member_invitation.state_filter')
     ]
 )]
 #[Get(
