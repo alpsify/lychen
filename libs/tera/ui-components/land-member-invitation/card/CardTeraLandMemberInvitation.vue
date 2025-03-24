@@ -54,6 +54,6 @@ import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { variant = VARIANT.Settings } = defineProps<{
   variant?: Variant;
-  landMemberInvitation: components['schemas']['LandMember.jsonld'];
+  landMemberInvitation: components['schemas']['LandMemberInvitation.jsonld'];
 }>();
 </script>
