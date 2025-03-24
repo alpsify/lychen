@@ -92,7 +92,7 @@ import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import { PathsApiLand_member_invitationsBy_emailGetParametersQueryState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -120,7 +120,7 @@ const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = u
       params: {
         query: {
           email,
-          state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState.pending,
+          state: LandMemberInvitationState.pending,
         },
       },
     });
