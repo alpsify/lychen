@@ -48,7 +48,7 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use PositionTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post", "user:land_member_invitation:collection-by-email"])]
     #[Assert\NotBlank()]
     private ?string $name = null;
 

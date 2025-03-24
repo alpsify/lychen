@@ -241,4 +241,27 @@ class LandMemberInvitationTest extends AbstractApiTestCase
             ->assertSuccessful()
             ->assertJsonMatches('isUnique', false);
     }
+
+    public function testCollectionByEmail()
+    {
+        $context1 = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $context3 = $this->createLandContext();
+        $this->addOneLandRole($context1);
+        $this->addOneLandRole($context3);
+        $this->addOneLandMemberInvitation($context1, [$context1->landRoles[0]], $context2->owner->getEmail());
+        $this->addOneLandMemberInvitation($context3, [$context3->landRoles[0]], $context2->owner->getEmail());
+
+        $this->browser()->actingAs($context2->owner)
+            ->get('/api/land_member_invitations/by_email', ['query' => ['email' => $context2->owner->getEmail()]])
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 2)
+            ->assertJsonMatches('member[0].ulid', $context1->landMemberInvitations[0]->getUlid()->toString())
+            ->assertJsonMatches('member[0].land.name', $context1->landMemberInvitations[0]->getLand()->getName())
+            ->use(function (Json $json) {
+                $json->assertThat('member[0].createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('member[0].landRoles', fn(Json $json) => $json->hasCount(1));
+            })
+            ->assertJsonMatches('member[0].landRoles[0].name', $context1->landRoles[0]->getName());
+    }
 }

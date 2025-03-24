@@ -33,22 +33,36 @@
       </div>
 
       <div
-        v-if="lands?.member"
+        v-if="lands?.member || landMemberInvitations?.member"
         class="grid gap-8 grid-cols-(--grid-fluid) auto-rows-(--grid-rows-fluid)"
       >
-        <RouterLink
-          v-for="land in lands.member"
-          :key="land.ulid"
-          :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
-        >
-          <CardTeraLand
-            :name="land.name"
-            :altitude="land.altitude"
-            :surface="land.surface"
-            :number-of-area="land.landAreas?.length"
-            :number-of-member="land.landMembers?.length"
+        <template v-if="landMemberInvitations?.member">
+          <CardTeraLandMemberInvitation
+            v-for="landMemberInvitation in landMemberInvitations.member"
+            :key="landMemberInvitation.ulid"
+            :land-member-invitation="landMemberInvitation"
+            :land-roles="landMemberInvitation.landRoles"
+            :land="landMemberInvitation.land"
+            :variant="VARIANT.ForUser"
+            :hoverable="false"
+            class="outline outline-offset-4 outline-secondary-container/40 border-0 bg-gradient-to-tr from-surface-container to-secondary-container"
           />
-        </RouterLink>
+        </template>
+        <template v-if="lands?.member">
+          <RouterLink
+            v-for="land in lands.member"
+            :key="land.ulid"
+            :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
+          >
+            <CardTeraLand
+              :name="land.name"
+              :altitude="land.altitude"
+              :surface="land.surface"
+              :number-of-area="land.landAreas?.length"
+              :number-of-member="land.landMembers?.length"
+            />
+          </RouterLink>
+        </template>
       </div>
     </div>
   </SectionWithTitle>
@@ -71,6 +85,14 @@ import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
+import { VARIANT } from '@lychen/tera-ui-components/land-member-invitation/card';
+import {
+  landMemberInvitationAcceptSucceededEvent,
+  landMemberInvitationRefuseSucceededEvent,
+} from '@lychen/tera-util-events/LandMemberInvitationEvents';
+import { PathsApiLand_member_invitationsBy_emailGetParametersQueryState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -86,10 +108,43 @@ const { data: lands, refetch } = useQuery({
   },
 });
 
+const email = zitadelAuth.oidcAuth.userProfile.email;
+
+const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = useQuery({
+  queryKey: ['landMemberInvitations'],
+  queryFn: async () => {
+    if (!email) {
+      throw new Error('missing.email');
+    }
+    const response = await api.GET('/api/land_member_invitations/by_email', {
+      params: {
+        query: {
+          email,
+          state: PathsApiLand_member_invitationsBy_emailGetParametersQueryState.pending,
+        },
+      },
+    });
+    return response.data;
+  },
+});
+
 const { on } = useEventBus(landPostSucceededEvent);
 on(() => {
   refetch();
   open.value = false;
+});
+
+const { on: onLandMemberInvitationAccept } = useEventBus(landMemberInvitationAcceptSucceededEvent);
+const { on: onLandMemberInvitationRefuse } = useEventBus(landMemberInvitationRefuseSucceededEvent);
+
+onLandMemberInvitationAccept(() => {
+  refetch();
+  refetchLandMemberInvitations();
+});
+
+onLandMemberInvitationRefuse(() => {
+  refetch();
+  refetchLandMemberInvitations();
 });
 </script>
 

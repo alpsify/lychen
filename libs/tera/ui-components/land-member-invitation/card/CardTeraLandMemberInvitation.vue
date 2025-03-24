@@ -4,7 +4,26 @@
     hoverable
   >
     <div class="flex flex-col gap-1">
-      <p class="font-medium">{{ landMemberInvitation.email }}</p>
+      <p
+        v-if="landMemberInvitation.email"
+        class="font-medium"
+      >
+        {{ landMemberInvitation.email }}
+      </p>
+      <template v-if="variant === VARIANT.ForUser">
+        <small class="opacity-80">{{ t('invite_sentence.prefix') }}</small>
+        <BaseHeading
+          v-if="land"
+          variant="h3"
+          >{{ land.name }}</BaseHeading
+        >
+        <small
+          v-if="variant === VARIANT.ForUser"
+          class="opacity-80"
+          >{{ t('invite_sentence.suffix') }}
+        </small>
+      </template>
+
       <div
         v-if="landRoles"
         class="flex flex-row gap-2"
@@ -21,7 +40,10 @@
       :state="landMemberInvitation.state"
     />
     <div class="flex flex-row gap-2">
-      <DialogTeraLandMemberInvitationDelete :land-member-invitation="landMemberInvitation">
+      <DialogTeraLandMemberInvitationDelete
+        v-if="variant === VARIANT.Settings && landMemberInvitation"
+        :land-member-invitation="landMemberInvitation"
+      >
         <Button
           :icon="faTrash"
           variant="negative"
@@ -33,11 +55,13 @@
         <Button
           :icon="faCheck"
           variant="positive"
-          size="sm" />
+          size="sm"
+          @click="accept" />
         <Button
           :icon="faTimes"
           variant="negative"
           size="sm"
+          @click="refuse"
       /></template>
     </div>
   </Card>
@@ -54,13 +78,102 @@ import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { defineAsyncComponent } from 'vue';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { TRANSLATION_KEY, messages } from './i18n';
+import {
+  TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
+  messages as messagesLandMemberInvitations,
+} from '@lychen/tera-ui-i18n/land-member-invitation';
+import { useMutation } from '@tanstack/vue-query';
+import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { toast } from '@lychen/vue-ui-components-core/toast';
+import {
+  landMemberInvitationAcceptSucceededEvent,
+  landMemberInvitationRefuseSucceededEvent,
+} from '@lychen/tera-util-events/LandMemberInvitationEvents';
+import { useEventBus } from '@vueuse/core';
 
-const { variant = VARIANT.Settings } = defineProps<{
+const BaseHeading = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-app/base-heading/BaseHeading.vue'),
+);
+
+const { variant = VARIANT.Settings, landMemberInvitation } = defineProps<{
   variant?: Variant;
-  landMemberInvitation: Pick<
-    components['schemas']['LandMemberInvitation.jsonld'],
-    'email' | 'state'
+  landMemberInvitation: Partial<
+    Pick<components['schemas']['LandMemberInvitation.jsonld'], 'email' | 'state' | 'ulid'>
   >;
   landRoles?: Pick<components['schemas']['LandRole.jsonld'], 'name'>[];
+  land?: Pick<components['schemas']['Land.jsonld'], 'name'>;
 }>();
+
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+const { t: tLandMemberInvitation } = useI18nExtended({
+  messages: messagesLandMemberInvitations,
+  rootKey: LAND_MEMBER_INVITATION_TRANSLATION_KEY,
+  prefixed: true,
+});
+
+const { api } = useTeraApi();
+const { emit: emitAccept } = useEventBus(landMemberInvitationAcceptSucceededEvent);
+
+const { mutate: accept } = useMutation({
+  mutationFn: async () => {
+    if (!landMemberInvitation.ulid) {
+      throw new Error('missing.ulid');
+    }
+    const response = await api.PATCH('/api/land_member_invitations/{ulid}/accept', {
+      params: { path: { ulid: landMemberInvitation.ulid } },
+      body: {},
+    });
+
+    return response.data;
+  },
+  onSuccess: (data, variables, context) => {
+    toast({
+      title: tLandMemberInvitation('action.accept.success.message'),
+      variant: 'positive',
+    });
+    emitAccept(data);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: tLandMemberInvitation('action.accept.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
+  },
+});
+
+const { emit: emitRefuse } = useEventBus(landMemberInvitationRefuseSucceededEvent);
+const { mutate: refuse } = useMutation({
+  mutationFn: async () => {
+    if (!landMemberInvitation.ulid) {
+      throw new Error('missing.ulid');
+    }
+    const response = await api.PATCH('/api/land_member_invitations/{ulid}/refuse', {
+      params: {
+        path: { ulid: landMemberInvitation.ulid },
+      },
+      body: {},
+    });
+
+    return response.data;
+  },
+  onSuccess: (data, variables, context) => {
+    toast({
+      title: tLandMemberInvitation('action.refuse.success.message'),
+      variant: 'positive',
+    });
+    emitRefuse(data);
+  },
+  onError: (error, variables, context) => {
+    toast({
+      title: tLandMemberInvitation('action.refuse.error.message'),
+      description: error.message,
+      variant: 'negative',
+    });
+  },
+});
 </script>

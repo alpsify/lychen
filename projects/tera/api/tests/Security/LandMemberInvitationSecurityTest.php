@@ -235,4 +235,16 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
                 ]])
             ->assertStatus(401);
     }
+
+    public function testCollectionByEmail()
+    {
+        $context1 = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $this->addOneLandRole($context1);
+        $this->addOneLandMemberInvitation($context1, [$context1->landRoles[0]], $context2->owner->getEmail());
+
+        $this->browser()->actingAs($context1->owner)
+            ->get('/api/land_member_invitations/by_email', ['query' => ['email' => $context2->owner->getEmail()]])
+            ->assertStatus(403);
+    }
 }
