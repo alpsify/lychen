@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[AsEntityListener(event: Events::prePersist, entity: LandMemberInvitation::class)]
 #[AsEntityListener(event: Events::prePersist, entity: LandMember::class)]
-final readonly class LandMemberInvitationValidateListener
+final readonly class LandRolesBelongToLandValidateListener
 {
     public function __construct(private ValidatorInterface $validator)
     {
@@ -23,10 +23,15 @@ final readonly class LandMemberInvitationValidateListener
      */
     public function __invoke(LandMemberInvitation|LandMember $object, LifecycleEventArgs $event): void
     {
+
         $errors = $this->validator->validate($object);
 
         if (count($errors) > 0) {
-            throw new Exception('Validation failed');
+            $errorMessages = [];
+            foreach ($errors as $error) {
+                $errorMessages[] = $error->getMessage();
+            }
+            throw new Exception('Validation failed: ' . implode(', ', $errorMessages));
         }
     }
 }

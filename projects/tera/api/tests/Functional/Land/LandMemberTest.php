@@ -177,7 +177,8 @@ class LandMemberTest extends AbstractApiTestCase
     {
         $context = $this->createLandContext();
         $context2 = $this->createLandContext();
-        $this->addLandMember($context2, [], $context->owner);
+        $this->addOneLandRole($context2, Permissions::LAND_MEMBER_RELATED);
+        $this->addLandMember($context2, [$context2->landRoles[0]], $context->owner);
 
         $landMemberRepository = static::getContainer()->get(LandMemberRepository::class);
         $landMember = $landMemberRepository->findOneBy(['person' => $context->owner->_real(), 'land' => $context->land->_real()]);
@@ -192,7 +193,7 @@ class LandMemberTest extends AbstractApiTestCase
                 $json->assertThat('landRoles', fn(Json $json) => $json->hasCount(0));
             });
 
-        $this->addOneLandRole($context, [Permissions::LAND_MEMBER_RELATED]);
+        $this->addOneLandRole($context, Permissions::LAND_MEMBER_RELATED);
         $this->addLandMember($context, [$context->landRoles[0]]);
         $landMember = $context->landMembers[0];
 
