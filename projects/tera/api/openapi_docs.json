@@ -9234,6 +9234,11 @@
                     "owner": {
                         "type": "boolean"
                     },
+                    "land": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
+                    },
                     "landRoles": {
                         "type": "array",
                         "items": {

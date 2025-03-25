@@ -1906,6 +1906,11 @@ export interface components {
       readonly '@id'?: string;
       readonly '@type'?: string;
       owner?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
       landRoles?: components['schemas']['LandRole.jsonld-user.land_member.get-me'][];
       /** Format: ulid */
       ulid?: string;

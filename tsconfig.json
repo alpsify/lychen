@@ -275,6 +275,9 @@
       "path": "projects/tera/app"
     },
     {
+      "path": "projects/tera/tests-app"
+    },
+    {
       "path": "projects/tera/website"
     },
     {
