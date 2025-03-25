@@ -3,6 +3,7 @@
 namespace App\Tests\Security;
 
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
+use Exception;
 
 class LandMemberSecurityTest extends AbstractApiTestCase
 {
@@ -129,5 +130,16 @@ class LandMemberSecurityTest extends AbstractApiTestCase
         $this->browser()->actingAs($context2->owner)
             ->get('/api/land_members/me', ['query' => ['land' => $this->getIriFromResource($context->land)]])
             ->assertStatus(403);
+    }
+
+    public function testCantAddRolesFromAnotherLand()
+    {
+        $this->expectException(Exception::class);
+
+        $context1 = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $this->addOneLandRole($context1);
+        $this->addOneLandRole($context2);
+        $this->addLandMember($context1, [$context2->landRoles[0]], $context2->owner);
     }
 }

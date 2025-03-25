@@ -20,7 +20,7 @@ export default {
       label: 'Refusée le {date}',
     },
     land: {
-      label: 'Terrain',
+      label: 'Espace de culture',
     },
   },
   action: {

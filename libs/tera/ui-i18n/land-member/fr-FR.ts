@@ -8,7 +8,7 @@ export default {
       label: 'Propriétaire',
     },
     land: {
-      label: 'Terrain',
+      label: 'Espace de culture',
     },
     person: {
       label: 'Personne',

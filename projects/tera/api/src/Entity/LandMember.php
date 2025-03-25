@@ -14,6 +14,7 @@ use App\Provider\LandMembersMeProvider;
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Validator\LandRolesBelongToLand;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,6 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
@@ -69,6 +71,7 @@ use Symfony\Component\Uid\Ulid;
     ),
 ])]
 #[ORM\HasLifecycleCallbacks]
+#[LandRolesBelongToLand]
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\Column]
@@ -98,6 +101,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
     #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch", "user:land_member:get-me"])]
+    #[Assert\Valid()]
     private Collection $landRoles;
 
     public function __construct(?Ulid $ulid = null)

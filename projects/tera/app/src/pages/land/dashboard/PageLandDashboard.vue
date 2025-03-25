@@ -21,7 +21,7 @@
           />
         </RouterLink>
         <RouterLink
-          v-if="isGranted(['landsetting_update'])"
+          v-if="settingsButtonAllowed"
           :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }"
         >
           <Button
@@ -128,11 +128,12 @@ const Button = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
 
-const { isGranted, landMember, isOwner } = useLandGuard(INJECT_LAND_MEMBER_KEY);
-
 const { api } = useTeraApi();
 
 const land = inject(INJECT_LAND_KEY);
+const landMember = inject(INJECT_LAND_MEMBER_KEY);
+
+const { allowed: settingsButtonAllowed, isOwner } = useLandGuard(landMember, ['land_update']);
 
 const landId = computed(() => land?.value?.['@id']);
 const enabled = computed(() => !!landId.value);

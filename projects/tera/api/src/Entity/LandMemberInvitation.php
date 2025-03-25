@@ -19,6 +19,7 @@ use App\Provider\LandMemberInvitationCheckEmailUnicityProvider;
 use App\Repository\LandMemberInvitationRepository;
 use App\Security\Constant\LandMemberInvitationPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Validator\LandRolesBelongToLand;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
 use DateTimeImmutable;
@@ -145,6 +146,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 )]
 #[ORM\HasLifecycleCallbacks]
 #[ORM\UniqueConstraint(name: 'land_member_invitation_unique_email_land', columns: ['email', 'land_id'])]
+#[LandRolesBelongToLand]
 class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
@@ -164,6 +166,7 @@ class LandMemberInvitation extends AbstractIdOrmAndUlidApiIdentified implements 
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class)]
     #[Groups(["user:land_member_invitation:collection", "user:land_member_invitation:get", "user:land_member_invitation:patch", "user:land_member_invitation:post", "user:land_member_invitation:collection-by-email"])]
+    #[Assert\Valid(groups: ['user:land_member_invitation:patch', 'user:land_member_invitation:post'])]
     private Collection $landRoles;
 
     #[ORM\Column(length: 255)]
