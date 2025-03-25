@@ -15,7 +15,7 @@
           :loading="isPending"
           @click="deleteLandMember()"
         >
-          {{ tLandMember('action.leave.label') }}
+          {{ tLandMember(`action.${leave ? 'leave' : 'delete'}.label`) }}
         </Button>
       </template>
     </DialogContentWithAction>
