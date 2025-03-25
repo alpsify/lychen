@@ -42,5 +42,17 @@ export default {
         message: 'Deleting the member',
       },
     },
+    leave: {
+      label: 'Leave the land',
+      success: {
+        message: 'You left the land',
+      },
+      error: {
+        message: 'Error while trying to leave the land',
+      },
+      pending: {
+        message: 'Trying to leave the land',
+      },
+    },
   },
 };

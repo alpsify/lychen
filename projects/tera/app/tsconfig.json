@@ -4,6 +4,8 @@
     "../../../libs/tera/ui-components/**/*",
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-api-sdk/**/*",
+    "../../../libs/tera/util-composables/**/*",
+    "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-events/**/*",
     "../../../libs/typescript/util-zitadel/**/*",
     "../../../libs/ui-css/**/*",
@@ -25,6 +27,12 @@
     },
     {
       "path": "../../../libs/tera/util-api-sdk"
+    },
+    {
+      "path": "../../../libs/tera/util-composables"
+    },
+    {
+      "path": "../../../libs/tera/util-constants"
     },
     {
       "path": "../../../libs/tera/util-events"
@@ -77,7 +85,9 @@
       "@lychen/vue-ui-layouts/*": ["../../../libs/vue/ui-layouts/*"],
       "@lychen/vue-ui-components-app/*": ["../../../libs/vue/ui-components-app/*"],
       "@lychen/vue-ui-components-extra/*": ["../../../libs/vue/ui-components-extra/*"],
-      "@lychen/tera-util-events/*": ["../../../libs/tera/util-events/*"]
+      "@lychen/tera-util-events/*": ["../../../libs/tera/util-events/*"],
+      "@lychen/tera-util-constants/*": ["../../../libs/tera/util-constants/*"],
+      "@lychen/tera-util-composables/*": ["../../../libs/tera/util-composables/*"]
     }
   }
 }

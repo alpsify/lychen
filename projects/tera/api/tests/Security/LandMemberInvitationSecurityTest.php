@@ -5,6 +5,7 @@ namespace App\Tests\Security;
 use App\Entity\Land;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
+use Exception;
 use function Zenstruck\Foundry\faker;
 
 class LandMemberInvitationSecurityTest extends AbstractApiTestCase
@@ -246,5 +247,16 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_member_invitations/by_email', ['query' => ['email' => $context2->owner->getEmail()]])
             ->assertStatus(403);
+    }
+
+    public function testCantAddRolesFromAnotherLand()
+    {
+        $this->expectException(Exception::class);
+
+        $context1 = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $this->addOneLandRole($context1);
+        $this->addOneLandRole($context2);
+        $this->addOneLandMemberInvitation($context1, [$context2->landRoles[0]], $context2->owner->getEmail());
     }
 }

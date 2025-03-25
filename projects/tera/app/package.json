@@ -13,6 +13,8 @@
     "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
+    "@lychen/tera-util-composables": "workspace:*",
+    "@lychen/tera-util-constants": "workspace:*",
     "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",
     "@lychen/ui-css": "workspace:*",
@@ -33,7 +35,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "tailwindcss": "^4.0.13",
-    "vite": "^6.2.1",
+    "vite": "^6.2.3",
     "vite-plugin-mkcert": "^1.17.7",
     "vite-plugin-pwa": "^0.21.2"
   }

@@ -131,6 +131,9 @@
       "path": "libs/tera/util-api-sdk"
     },
     {
+      "path": "libs/tera/util-composables"
+    },
+    {
       "path": "libs/tera/util-constants"
     },
     {

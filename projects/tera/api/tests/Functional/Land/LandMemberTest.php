@@ -4,6 +4,7 @@ namespace App\Tests\Functional\Land;
 
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
+use App\Security\Constant\Permissions;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
 
@@ -170,5 +171,43 @@ class LandMemberTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->owner)
             ->delete($this->getIriFromResource($landMember))
             ->assertStatus(403);
+    }
+
+    public function testGetMe()
+    {
+        $context = $this->createLandContext();
+        $context2 = $this->createLandContext();
+        $this->addOneLandRole($context2, Permissions::LAND_MEMBER_RELATED);
+        $this->addLandMember($context2, [$context2->landRoles[0]], $context->owner);
+
+        $landMemberRepository = static::getContainer()->get(LandMemberRepository::class);
+        $landMember = $landMemberRepository->findOneBy(['person' => $context->owner->_real(), 'land' => $context->land->_real()]);
+
+        $this->browser()->actingAs($context->owner)
+            ->get('/api/land_members/me', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->assertSuccessful()
+            ->assertJsonMatches('ulid', $landMember->getUlid()->toString())
+            ->assertJsonMatches('owner', $landMember->isOwner())
+            ->assertJsonMatches('land', $this->getIriFromResource($context->land->_real()))
+            ->use(function (Json $json) {
+                $json->assertThat('landRoles', fn(Json $json) => $json->hasCount(0));
+            });
+
+        $this->addOneLandRole($context, Permissions::LAND_MEMBER_RELATED);
+        $this->addLandMember($context, [$context->landRoles[0]]);
+        $landMember = $context->landMembers[0];
+
+        $this->browser()->actingAs($landMember->getPerson())
+            ->get('/api/land_members/me', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->assertSuccessful()
+            ->assertJsonMatches('ulid', $landMember->getUlid()->toString())
+            ->assertJsonMatches('owner', $landMember->isOwner())
+            ->assertJsonMatches('land', $this->getIriFromResource($context->land->_real()))
+            ->use(function (Json $json) {
+                $json->assertThat('landRoles', fn(Json $json) => $json->hasCount(1));
+                $json->assertThat('landRoles[0].permissions', fn(Json $json) => $json->isNotNull());
+            })
+            ->assertJsonMatches('landRoles[0].name', $context->landRoles[0]->getName());
+
     }
 }

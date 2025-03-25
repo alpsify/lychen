@@ -1,8 +1,8 @@
 export default {
-  land_read: 'Terrain - Lire',
-  land_update: 'Terrain - Modifier',
-  land_delete: 'Terrain - Supprimer',
-  land_transfer: 'Terrain - Transférer',
+  land_read: 'Espace de culture - Lire',
+  land_update: 'Espace de culture - Modifier',
+  land_delete: 'Espace de culture - Supprimer',
+  land_transfer: 'Espace de culture - Transférer',
   landgreenhouse_read: 'Serre - Lire',
   landgreenhouse_create: 'Serre - Créer',
   landgreenhouse_update: 'Serre - Modifier',
@@ -49,6 +49,6 @@ export default {
   landmemberinvitation_create: 'Invitation de membre - Créer',
   landmemberinvitation_update: 'Invitation de membre - Modifier',
   landmemberinvitation_delete: 'Invitation de membre - Supprimer',
-  landsetting_read: 'Réglage - Lire',
-  landsetting_update: 'Réglage - Modifier',
+  landsetting_read: 'Réglage espace de culture - Lire',
+  landsetting_update: 'Réglage espace de culture - Modifier',
 };

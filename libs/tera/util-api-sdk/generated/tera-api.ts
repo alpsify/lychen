@@ -348,6 +348,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/land_members/me': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves a LandMember resource.
+     * @description Retrieves a LandMember resource.
+     */
+    get: operations['get-me'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/land_members/{ulid}': {
     parameters: {
       query?: never;
@@ -1873,6 +1893,23 @@ export interface components {
       /** Format: ulid */
       ulid?: string;
     };
+    'LandMember.jsonld-user.land_member.get-me': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      owner?: boolean;
+      landRoles?: components['schemas']['LandRole.jsonld-user.land_member.get-me'][];
+      /** Format: ulid */
+      ulid?: string;
+    };
     LandMemberInvitation: {
       /**
        * Format: iri-reference
@@ -2292,6 +2329,69 @@ export interface components {
       readonly '@id'?: string;
       readonly '@type'?: string;
       name: string;
+    };
+    'LandRole.jsonld-user.land_member.get-me': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /**
+       * @example [
+       *       "land_read",
+       *       "land_update",
+       *       "land_delete",
+       *       "land_transfer",
+       *       "landgreenhouse_read",
+       *       "landgreenhouse_create",
+       *       "landgreenhouse_update",
+       *       "landgreenhouse_delete",
+       *       "landgreenhouseparameter_read",
+       *       "landgreenhouseparameter_update",
+       *       "landgreenhousesetting_read",
+       *       "landgreenhousesetting_update",
+       *       "landarea_read",
+       *       "landarea_create",
+       *       "landarea_update",
+       *       "landarea_delete",
+       *       "landareaparameter_read",
+       *       "landareaparameter_update",
+       *       "landareasetting_read",
+       *       "landareasetting_update",
+       *       "landmember_read",
+       *       "landmember_update",
+       *       "landmember_delete",
+       *       "landtask_read",
+       *       "landtask_create",
+       *       "landtask_update",
+       *       "landtask_delete",
+       *       "landtask_mark_as_done",
+       *       "landtask_mark_as_in_progress",
+       *       "landcultivationplan_read",
+       *       "landcultivationplan_create",
+       *       "landcultivationplan_update",
+       *       "landcultivationplan_delete",
+       *       "landrole_read",
+       *       "landrole_create",
+       *       "landrole_update",
+       *       "landrole_delete",
+       *       "landmemberinvitation_read",
+       *       "landmemberinvitation_create",
+       *       "landmemberinvitation_update",
+       *       "landmemberinvitation_delete",
+       *       "landsetting_read",
+       *       "landsetting_update"
+       *     ]
+       * @enum {array}
+       */
+      permissions?: LandRoleUserLand_rolePatchPermissions;
     };
     'LandRole.jsonld-user.land_member_invitation.collection': {
       readonly '@context'?:
@@ -4643,6 +4743,36 @@ export interface operations {
       };
       /** @description Forbidden */
       403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  'get-me': {
+    parameters: {
+      query: {
+        /** @description Filter by land */
+        land: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandMember resource */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandMember.jsonld-user.land_member.get-me'];
+        };
+      };
+      /** @description Resource not found */
+      404: {
         headers: {
           [name: string]: unknown;
         };

@@ -22,7 +22,7 @@ class LandMemberInvitationFixtures extends Fixture implements DependentFixtureIn
         LandMemberInvitationFactory::new()->create([
             'land' => $this->getReference(LandFixtures::LAND_4, Land::class),
             'email' => PersonFixtures::buildUserEmail(PersonFixtures::PERSON_1),
-            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_1_ROLE_COLLABORATOR, LandRole::class)],
+            'landRoles' => [$this->getReference(LandRoleFixtures::LAND_4_ROLE_COLLABORATOR, LandRole::class)],
         ]);
     }
 

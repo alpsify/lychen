@@ -48,7 +48,7 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use PositionTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post", "user:land_member_invitation:collection-by-email"])]
+    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_member:get-me", "user:land_role:post", "user:land_member_invitation:collection-by-email"])]
     #[Assert\NotBlank()]
     private ?string $name = null;
 
@@ -67,7 +67,7 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(Permissions::ALL, multiple: true)]
-    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post", "user:land_member:get-me"])]
     #[ApiProperty(openapiContext: [
         'type' => 'array',
         'enum' => Permissions::LAND_MEMBER_RELATED,
