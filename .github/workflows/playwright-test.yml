@@ -48,5 +48,7 @@ jobs:
         uses: 'moonrepo/setup-toolchain@v0'
         with:
           auto-install: true
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       - name: Run tests
         run: moon ci tera-tests-app:run
