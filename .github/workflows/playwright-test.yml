@@ -50,5 +50,7 @@ jobs:
           auto-install: true
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: Add local domain to /etc/hosts
+        run: echo "127.0.0.1 app.tera.lychen.local" | sudo tee -a /etc/hosts
       - name: Run tests
         run: moon ci tera-tests-app:run
