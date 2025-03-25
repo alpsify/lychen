@@ -9,3 +9,6 @@ export const landMemberDeleteSucceededEvent: EventBusKey<
 export const landMemberPatchSucceededEvent: EventBusKey<
   components['schemas']['LandMember.jsonld']
 > = Symbol('land-member-patch-succeeded');
+export const landMemberLeaveSucceededEvent: EventBusKey<
+  components['schemas']['LandMember.jsonld']
+> = Symbol('land-member-leave-succeeded');

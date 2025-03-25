@@ -42,5 +42,17 @@ export default {
         message: 'Suppression du membre en cours',
       },
     },
+    leave: {
+      label: "Quitter l'espace de culture",
+      success: {
+        message: "Vous avez quitté l'espace de culture",
+      },
+      error: {
+        message: "Erreur lors de la tentative de quitter l'espace de culture",
+      },
+      pending: {
+        message: "Tentative de quitter l'espace de culture en cours",
+      },
+    },
   },
 };

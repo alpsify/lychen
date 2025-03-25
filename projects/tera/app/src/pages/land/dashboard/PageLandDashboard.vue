@@ -9,6 +9,7 @@
         <DialogTeraLandMemberDelete
           v-if="landMember && !landMember.owner"
           :land-member="landMember"
+          leave
         >
           <Button
             :icon="faPersonToDoor"
@@ -122,6 +123,10 @@ import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor'
 import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
 import { useLandGuard } from '@lychen/tera-util-composables/useLandGuard';
 import { RoutePageLandMemberSettings } from '../member-settings';
+import { landMemberLeaveSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
+import { RoutePageDashboard } from '@/pages/dashboard';
+import { useEventBus } from '@vueuse/core';
+import { useRouter } from 'vue-router';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),
@@ -163,6 +168,13 @@ const { data: landGreenhouses } = useQuery({
     return response.data;
   },
   enabled,
+});
+
+const router = useRouter();
+const { on } = useEventBus(landMemberLeaveSucceededEvent);
+
+on(() => {
+  router.push(RoutePageDashboard);
 });
 </script>
 

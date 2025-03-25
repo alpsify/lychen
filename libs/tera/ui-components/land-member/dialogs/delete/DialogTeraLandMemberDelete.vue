@@ -4,8 +4,8 @@
       <slot />
     </DialogTrigger>
     <DialogContentWithAction
-      :title="t('title')"
-      :description="t('description')"
+      :title="t(`${leave ? 'leave.' : ''}title`)"
+      :description="t(`${leave ? 'leave.' : ''}description`)"
     >
       <template #content></template>
       <template #action>
@@ -15,7 +15,7 @@
           :loading="isPending"
           @click="deleteLandMember()"
         >
-          {{ tLandMember('action.delete.label') }}
+          {{ tLandMember('action.leave.label') }}
         </Button>
       </template>
     </DialogContentWithAction>
@@ -35,7 +35,10 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
-import { landMemberDeleteSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
+import {
+  landMemberDeleteSucceededEvent,
+  landMemberLeaveSucceededEvent,
+} from '@lychen/tera-util-events/LandMemberEvents';
 import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
@@ -52,9 +55,11 @@ const { t: t } = useI18nExtended({
 });
 
 const { emit } = useEventBus(landMemberDeleteSucceededEvent);
+const { emit: emitLeave } = useEventBus(landMemberLeaveSucceededEvent);
 
-const { landMember } = defineProps<{
+const { landMember, leave = false } = defineProps<{
   landMember: Omit<components['schemas']['LandMember.jsonld'], 'landRoles'>;
+  leave?: boolean;
 }>();
 
 const { api } = useTeraApi();
@@ -73,7 +78,12 @@ const { mutate: deleteLandMember, isPending } = useMutation({
       title: tLandMember('action.delete.success.message'),
       variant: 'positive',
     });
-    emit(landMember);
+
+    if (leave) {
+      emitLeave(landMember);
+    } else {
+      emit(landMember);
+    }
   },
   onError: (error, variables, context) => {
     toast({

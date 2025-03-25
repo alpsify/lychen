@@ -35,7 +35,7 @@
         <AccordionItem
           v-for="land in lands.member"
           :key="land.ulid"
-          :value="land.ulid"
+          :value="land.ulid!"
         >
           <RouterLink
             :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
@@ -110,6 +110,7 @@ import {
 import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
+import { landMemberLeaveSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
 
 const open = ref(false);
 
@@ -211,6 +212,12 @@ onLandUpdate(() => {
 const { on: onLandMemberInvitationAccept } = useEventBus(landMemberInvitationAcceptSucceededEvent);
 
 onLandMemberInvitationAccept(() => {
+  refetch();
+});
+
+const { on: onLeaveLand } = useEventBus(landMemberLeaveSucceededEvent);
+
+onLeaveLand(() => {
   refetch();
 });
 
