@@ -8,8 +8,10 @@
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/tera/tests-app",
+    "baseUrl": ".",
     "paths": {
-      "@lychen/tera-app/*": ["../app/src/*"]
+      "@lychen/tera-app/*": ["../app/src/*"],
+      "fixtures/*": ["fixtures/*"]
     }
   }
 }
