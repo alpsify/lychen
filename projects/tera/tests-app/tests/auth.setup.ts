@@ -2,7 +2,8 @@ import { test as setup } from '@playwright/test';
 
 import path from 'path';
 
-const defaultPassword = '222|UG?64YjkiT7£';
+const defaultPassword = process.env.TEST_PASSWORD || '222|UG?64YjkiT7£';
+
 setup.describe('Authenticate as', () => {
   const persons = ['person-1', 'person-2'];
   for (const person of persons) {

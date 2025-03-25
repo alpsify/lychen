@@ -28,8 +28,8 @@ export const test = base.extend<MyFixtures>({
     const context = await browser.newContext({
       storageState: path.join(__dirname, '../.auth/person-2.json'),
     });
-    const person1 = new PersonContext(await context.newPage());
-    await use(person1);
+    const person2 = new PersonContext(await context.newPage());
+    await use(person2);
     await context.close();
   },
 });
