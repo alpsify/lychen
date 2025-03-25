@@ -6,6 +6,9 @@ id: tera-tests-app
 
 language: typescript
 
+tags:
+  - playwright
+
 tasks:
   open:
     command: yarn playwright test --ui
