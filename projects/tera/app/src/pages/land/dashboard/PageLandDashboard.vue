@@ -5,12 +5,19 @@
   >
     <div class="flex flex-row gap-4 items-center justify-between">
       <BaseHeading>{{ land.name }}</BaseHeading>
-      <RouterLink :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }">
-        <Button
-          :icon="faGear"
-          variant="container-high"
-        />
-      </RouterLink>
+      <div class="flex flex-row gap-2">
+        <DialogTeraLandMemberDelete>
+          <Button
+            :icon="faPersonToDoor"
+            variant="container-high"
+        /></DialogTeraLandMemberDelete>
+        <RouterLink :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }">
+          <Button
+            :icon="faGear"
+            variant="container-high"
+          />
+        </RouterLink>
+      </div>
     </div>
 
     <div class="flex flex-col gap-4">
@@ -95,7 +102,9 @@ import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
+import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

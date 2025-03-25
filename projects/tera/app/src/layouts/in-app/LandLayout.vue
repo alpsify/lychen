@@ -13,7 +13,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { INJECT_LAND_KEY } from '.';
+import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '.';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { useEventBus } from '@vueuse/core';
 
@@ -49,6 +49,22 @@ watch(
   () => route.params.landUlid,
   () => refetch(),
 );
+
+const { data: landMember, refetch: refetchLandMember } = useQuery({
+  queryKey: ['landMember'],
+  queryFn: async () => {
+    if (!land.value || !land.value['@id']) {
+      throw new Error('missing.@id');
+    }
+    const response = await api.GET('/api/land_members', {
+      params: { query: { land: land.value['@id'] } },
+    });
+    return response.data;
+  },
+  enabled: !!land.value,
+});
+
+provide(INJECT_LAND_MEMBER_KEY, landMember);
 </script>
 
 <style lang="css" scoped></style>
