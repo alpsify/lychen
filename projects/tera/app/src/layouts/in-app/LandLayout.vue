@@ -11,7 +11,7 @@
 import { RoutePageDashboard } from '@/pages/dashboard';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import { provide, watch } from 'vue';
+import { computed, provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '.';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
@@ -47,21 +47,26 @@ on(() => {
 
 watch(
   () => route.params.landUlid,
-  () => refetch(),
+  () => {
+    refetch();
+  },
 );
 
-const { data: landMember, refetch: refetchLandMember } = useQuery({
-  queryKey: ['landMember'],
+const landId = computed(() => land?.value?.['@id']);
+const enabled = computed(() => !!landId.value);
+
+const { data: landMember } = useQuery({
+  queryKey: ['landMember', landId],
   queryFn: async () => {
-    if (!land.value || !land.value['@id']) {
+    if (!landId.value) {
       throw new Error('missing.@id');
     }
-    const response = await api.GET('/api/land_members', {
-      params: { query: { land: land.value['@id'] } },
+    const response = await api.GET('/api/land_members/me', {
+      params: { query: { land: landId.value } },
     });
     return response.data;
   },
-  enabled: !!land.value,
+  enabled,
 });
 
 provide(INJECT_LAND_MEMBER_KEY, landMember);

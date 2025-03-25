@@ -13,6 +13,8 @@
     "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
+    "@lychen/tera-util-composables": "workspace:*",
+    "@lychen/tera-util-constants": "workspace:*",
     "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",
     "@lychen/ui-css": "workspace:*",

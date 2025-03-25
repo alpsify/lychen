@@ -81,6 +81,7 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(["user:land_member:get-me"])]
     private ?Land $land = null;
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]

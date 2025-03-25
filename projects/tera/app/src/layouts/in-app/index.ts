@@ -6,5 +6,5 @@ export const INJECT_LAND_KEY = Symbol() as InjectionKey<
 >;
 
 export const INJECT_LAND_MEMBER_KEY = Symbol() as InjectionKey<
-  Ref<components['schemas']['LandMember.jsonld'] | undefined>
+  Ref<components['schemas']['LandMember.jsonld-user.land_member.get-me'] | undefined>
 >;

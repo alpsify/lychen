@@ -2200,6 +2200,48 @@
                 "deprecated": false
             }
         },
+        "/api/land_members/me": {
+            "get": {
+                "operationId": "get-me",
+                "tags": [
+                    "LandMember"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandMember resource",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandMember.jsonld-user.land_member.get-me"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a LandMember resource.",
+                "description": "Retrieves a LandMember resource.",
+                "parameters": [
+                    {
+                        "name": "land",
+                        "in": "query",
+                        "description": "Filter by land",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            }
+        },
         "/api/land_members/{ulid}": {
             "get": {
                 "operationId": "api_land_members_ulid_get",
@@ -9149,6 +9191,61 @@
                     }
                 }
             },
+            "LandMember.jsonld-user.land_member.get-me": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "boolean"
+                    },
+                    "landRoles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandRole.jsonld-user.land_member.get-me"
+                        }
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    }
+                }
+            },
             "LandMemberInvitation": {
                 "type": "object",
                 "description": "",
@@ -10316,6 +10413,147 @@
                     },
                     "name": {
                         "type": "string"
+                    }
+                }
+            },
+            "LandRole.jsonld-user.land_member.get-me": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "enum": [
+                            "land_read",
+                            "land_update",
+                            "land_delete",
+                            "land_transfer",
+                            "landgreenhouse_read",
+                            "landgreenhouse_create",
+                            "landgreenhouse_update",
+                            "landgreenhouse_delete",
+                            "landgreenhouseparameter_read",
+                            "landgreenhouseparameter_update",
+                            "landgreenhousesetting_read",
+                            "landgreenhousesetting_update",
+                            "landarea_read",
+                            "landarea_create",
+                            "landarea_update",
+                            "landarea_delete",
+                            "landareaparameter_read",
+                            "landareaparameter_update",
+                            "landareasetting_read",
+                            "landareasetting_update",
+                            "landmember_read",
+                            "landmember_update",
+                            "landmember_delete",
+                            "landtask_read",
+                            "landtask_create",
+                            "landtask_update",
+                            "landtask_delete",
+                            "landtask_mark_as_done",
+                            "landtask_mark_as_in_progress",
+                            "landcultivationplan_read",
+                            "landcultivationplan_create",
+                            "landcultivationplan_update",
+                            "landcultivationplan_delete",
+                            "landrole_read",
+                            "landrole_create",
+                            "landrole_update",
+                            "landrole_delete",
+                            "landmemberinvitation_read",
+                            "landmemberinvitation_create",
+                            "landmemberinvitation_update",
+                            "landmemberinvitation_delete",
+                            "landsetting_read",
+                            "landsetting_update"
+                        ],
+                        "example": [
+                            "land_read",
+                            "land_update",
+                            "land_delete",
+                            "land_transfer",
+                            "landgreenhouse_read",
+                            "landgreenhouse_create",
+                            "landgreenhouse_update",
+                            "landgreenhouse_delete",
+                            "landgreenhouseparameter_read",
+                            "landgreenhouseparameter_update",
+                            "landgreenhousesetting_read",
+                            "landgreenhousesetting_update",
+                            "landarea_read",
+                            "landarea_create",
+                            "landarea_update",
+                            "landarea_delete",
+                            "landareaparameter_read",
+                            "landareaparameter_update",
+                            "landareasetting_read",
+                            "landareasetting_update",
+                            "landmember_read",
+                            "landmember_update",
+                            "landmember_delete",
+                            "landtask_read",
+                            "landtask_create",
+                            "landtask_update",
+                            "landtask_delete",
+                            "landtask_mark_as_done",
+                            "landtask_mark_as_in_progress",
+                            "landcultivationplan_read",
+                            "landcultivationplan_create",
+                            "landcultivationplan_update",
+                            "landcultivationplan_delete",
+                            "landrole_read",
+                            "landrole_create",
+                            "landrole_update",
+                            "landrole_delete",
+                            "landmemberinvitation_read",
+                            "landmemberinvitation_create",
+                            "landmemberinvitation_update",
+                            "landmemberinvitation_delete",
+                            "landsetting_read",
+                            "landsetting_update"
+                        ]
                     }
                 }
             },

@@ -6,12 +6,24 @@
     <div class="flex flex-row gap-4 items-center justify-between">
       <BaseHeading>{{ land.name }}</BaseHeading>
       <div class="flex flex-row gap-2">
-        <DialogTeraLandMemberDelete>
+        <DialogTeraLandMemberDelete
+          v-if="!isOwner"
+          :land-member="landMember"
+        >
           <Button
             :icon="faPersonToDoor"
             variant="container-high"
         /></DialogTeraLandMemberDelete>
         <RouterLink :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }">
+          <Button
+            :icon="faUserGear"
+            variant="container-high"
+          />
+        </RouterLink>
+        <RouterLink
+          v-if="isGranted(['landsetting_update'])"
+          :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }"
+        >
           <Button
             :icon="faGear"
             variant="container-high"
@@ -100,11 +112,13 @@ import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselCon
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
-import { INJECT_LAND_KEY } from '@/layouts/in-app';
+import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@/layouts/in-app';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
+import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
+import { useLandGuard } from '@lychen/tera-util-composables/useLandGuard';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),
@@ -113,6 +127,8 @@ const Title = defineAsyncComponent(
 const Button = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-core/button/Button.vue'),
 );
+
+const { isGranted, landMember, isOwner } = useLandGuard(INJECT_LAND_MEMBER_KEY);
 
 const { api } = useTeraApi();
 

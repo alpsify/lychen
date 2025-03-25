@@ -2498,6 +2498,8 @@ __metadata:
     "@lychen/tera-ui-components": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-api-sdk": "workspace:*"
+    "@lychen/tera-util-composables": "workspace:*"
+    "@lychen/tera-util-constants": "workspace:*"
     "@lychen/tera-util-events": "workspace:*"
     "@lychen/typescript-util-zitadel": "workspace:*"
     "@lychen/ui-css": "workspace:*"
@@ -2558,6 +2560,14 @@ __metadata:
     openapi-fetch: "npm:^0.13.5"
     openapi-typescript: "npm:^7.6.1"
     typescript: "npm:^5.8.2"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/tera-util-composables@workspace:*, @lychen/tera-util-composables@workspace:libs/tera/util-composables":
+  version: 0.0.0-use.local
+  resolution: "@lychen/tera-util-composables@workspace:libs/tera/util-composables"
+  dependencies:
+    "@lychen/tera-util-api-sdk": "workspace:*"
   languageName: unknown
   linkType: soft
 
