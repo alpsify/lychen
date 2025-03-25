@@ -4,4 +4,4 @@ node_modules/
 *.snap
 .gitignore
 dist/
-generated
+generated/
