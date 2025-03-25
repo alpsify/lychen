@@ -55,7 +55,7 @@ class LandRoleFixtures extends Fixture implements DependentFixtureInterface
         $this->createLandRoleAndAddReference(self::LAND_3_ROLE_COLLABORATOR, [
             'land' => $this->getReference(LandFixtures::LAND_3, Land::class),
             'name' => 'Collaborator L3',
-            'permissions' => array_diff(Permissions::LAND_MEMBER_RELATED),
+            'permissions' => Permissions::LAND_MEMBER_RELATED,
         ]);
     }
 

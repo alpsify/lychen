@@ -13,7 +13,7 @@ export function useLandGuard(
   landMember:
     | Ref<components['schemas']['LandMember.jsonld-user.land_member.get-me'] | undefined>
     | undefined,
-  permissions: [string],
+  permissions: string[],
   strategy: 'unanimous' | 'affirmative' = 'unanimous',
 ) {
   const allowed = computed(() => {
