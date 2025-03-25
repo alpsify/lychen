@@ -22,6 +22,7 @@ import { RoutePageLandDiary } from '@/pages/land/diary';
 import { RoutePageLandCultureItinaries } from '@/pages/land/culture-itinaries';
 import { RoutePageLandCalendars } from '@/pages/land/calendars';
 import { RoutePageLandSettings } from '@/pages/land/settings';
+import { RoutePageLandMemberSettings } from '@/pages/land/member-settings';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -42,6 +43,7 @@ const routes: RouteRecordRaw[] = [
           RoutePageLandCultureItinaries,
           RoutePageLandCalendars,
           RoutePageLandSettings,
+          RoutePageLandMemberSettings,
         ],
       },
       RoutePageFoodSafety,

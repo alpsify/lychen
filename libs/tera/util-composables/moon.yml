@@ -1,5 +1,6 @@
 dependsOn:
   - tera-util-api-sdk
+  - typescript-util-object
 
 id: tera-util-composables
 

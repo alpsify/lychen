@@ -7,14 +7,16 @@
       <BaseHeading>{{ land.name }}</BaseHeading>
       <div class="flex flex-row gap-2">
         <DialogTeraLandMemberDelete
-          v-if="!isOwner"
+          v-if="landMember && !landMember.owner"
           :land-member="landMember"
         >
           <Button
             :icon="faPersonToDoor"
             variant="container-high"
         /></DialogTeraLandMemberDelete>
-        <RouterLink :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }">
+        <RouterLink
+          :to="{ name: RoutePageLandMemberSettings.name, params: { landUlid: land.ulid } }"
+        >
           <Button
             :icon="faUserGear"
             variant="container-high"
@@ -119,6 +121,7 @@ import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
 import { useLandGuard } from '@lychen/tera-util-composables/useLandGuard';
+import { RoutePageLandMemberSettings } from '../member-settings';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),
@@ -133,7 +136,7 @@ const { api } = useTeraApi();
 const land = inject(INJECT_LAND_KEY);
 const landMember = inject(INJECT_LAND_MEMBER_KEY);
 
-const { allowed: settingsButtonAllowed, isOwner } = useLandGuard(landMember, ['land_update']);
+const { allowed: settingsButtonAllowed } = useLandGuard(landMember, ['land_update']);
 
 const landId = computed(() => land?.value?.['@id']);
 const enabled = computed(() => !!landId.value);

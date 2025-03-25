@@ -1,7 +1,10 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../util-api-sdk/**/*", "**/*"],
+  "include": ["../../typescript/util-object/**/*", "../util-api-sdk/**/*", "**/*"],
   "references": [
+    {
+      "path": "../../typescript/util-object"
+    },
     {
       "path": "../util-api-sdk"
     }
@@ -9,7 +12,8 @@
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/tera/util-composables",
     "paths": {
-      "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"]
+      "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"],
+      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"]
     }
   }
 }

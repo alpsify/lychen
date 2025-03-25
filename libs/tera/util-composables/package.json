@@ -2,6 +2,7 @@
   "name": "@lychen/tera-util-composables",
   "version": "0.0.0",
   "dependencies": {
-    "@lychen/tera-util-api-sdk": "workspace:*"
+    "@lychen/tera-util-api-sdk": "workspace:*",
+    "@lychen/typescript-util-object": "workspace:*"
   }
 }
