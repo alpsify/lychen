@@ -1,7 +1,42 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    {
+      "path": "."
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "../../libs/ui-css"
+    },
+    {
+      "path": "../../libs/vue/ui-components-core"
+    },
+    {
+      "path": "../../libs/vue/ui-components-extra"
+    },
+    {
+      "path": "../../libs/vue/ui-components-website"
+    }
+  ],
+  "include": [
+    "../../libs/ui-css/**/*",
+    "../../libs/vue/ui-components-core/**/*",
+    "../../libs/vue/ui-components-extra/**/*",
+    "../../libs/vue/ui-components-website/**/*",
+    "**/*"
+  ],
+  "compilerOptions": {
+    "outDir": "../../.moon/cache/types/projects/storybook",
+    "paths": {
+      "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
+      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"],
+      "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
+      "@lychen/ui-css/*": ["../../libs/ui-css/*"]
+    }
+  }
 }

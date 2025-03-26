@@ -296,7 +296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.24.7, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6":
+"@babel/parser@npm:^7.24.7, @babel/parser@npm:^7.25.3, @babel/parser@npm:^7.26.9, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6":
   version: 7.27.0
   resolution: "@babel/parser@npm:7.27.0"
   dependencies:
@@ -304,17 +304,6 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 10c0/ba2ed3f41735826546a3ef2a7634a8d10351df221891906e59b29b0a0cd748f9b0e7a6f07576858a9de8e77785aad925c8389ddef146de04ea2842047c9d2859
-  languageName: node
-  linkType: hard
-
-"@babel/parser@npm:^7.25.3, @babel/parser@npm:^7.26.9":
-  version: 7.26.9
-  resolution: "@babel/parser@npm:7.26.9"
-  dependencies:
-    "@babel/types": "npm:^7.26.9"
-  bin:
-    parser: ./bin/babel-parser.js
-  checksum: 10c0/4b9ef3c9a0d4c328e5e5544f50fe8932c36f8a2c851e7f14a85401487cd3da75cad72c2e1bcec1eac55599a6bbb2fdc091f274c4fcafa6bdd112d4915ff087fc
   languageName: node
   linkType: hard
 
@@ -1099,16 +1088,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.8.4":
-  version: 7.26.10
-  resolution: "@babel/runtime@npm:7.26.10"
-  dependencies:
-    regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/6dc6d88c7908f505c4f7770fb4677dfa61f68f659b943c2be1f2a99cb6680343462867abf2d49822adc435932919b36c77ac60125793e719ea8745f2073d3745
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8":
+"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.8.4":
   version: 7.27.0
   resolution: "@babel/runtime@npm:7.27.0"
   dependencies:
@@ -1143,23 +1123,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.24.7, @babel/types@npm:^7.27.0, @babel/types@npm:^7.6.1, @babel/types@npm:^7.9.6":
+"@babel/types@npm:^7.24.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.9, @babel/types@npm:^7.27.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.6.1, @babel/types@npm:^7.9.6":
   version: 7.27.0
   resolution: "@babel/types@npm:7.27.0"
   dependencies:
     "@babel/helper-string-parser": "npm:^7.25.9"
     "@babel/helper-validator-identifier": "npm:^7.25.9"
   checksum: 10c0/6f1592eabe243c89a608717b07b72969be9d9d2fce1dee21426238757ea1fa60fdfc09b29de9e48d8104311afc6e6fb1702565a9cc1e09bc1e76f2b2ddb0f6e1
-  languageName: node
-  linkType: hard
-
-"@babel/types@npm:^7.25.9, @babel/types@npm:^7.26.9, @babel/types@npm:^7.4.4":
-  version: 7.26.9
-  resolution: "@babel/types@npm:7.26.9"
-  dependencies:
-    "@babel/helper-string-parser": "npm:^7.25.9"
-    "@babel/helper-validator-identifier": "npm:^7.25.9"
-  checksum: 10c0/999c56269ba00e5c57aa711fbe7ff071cd6990bafd1b978341ea7572cc78919986e2aa6ee51dacf4b6a7a6fa63ba4eb3f1a03cf55eee31b896a56d068b895964
   languageName: node
   linkType: hard
 
@@ -2549,6 +2519,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/storybook@workspace:projects/storybook":
+  version: 0.0.0-use.local
+  resolution: "@lychen/storybook@workspace:projects/storybook"
+  dependencies:
+    "@chromatic-com/storybook": "npm:^3"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@lychen/vue-ui-components-website": "workspace:*"
+    "@storybook/addon-essentials": "npm:^8.6.9"
+    "@storybook/addon-onboarding": "npm:^8.6.9"
+    "@storybook/blocks": "npm:^8.6.9"
+    "@storybook/test": "npm:^8.6.9"
+    "@storybook/vue3": "npm:^8.6.9"
+    "@storybook/vue3-vite": "npm:^8.6.9"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    "@vue/tsconfig": "npm:^0.7.0"
+    storybook: "npm:^8.6.9"
+    storybook-dark-mode: "npm:^4.0.2"
+    tailwindcss: "npm:^4.0.17"
+    typescript: "npm:~5.7.2"
+    vite: "npm:^6.2.0"
+    vue: "npm:^3.5.13"
+    vue-tsc: "npm:^2.2.4"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/tera-app@workspace:*, @lychen/tera-app@workspace:projects/tera/app":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
@@ -2783,7 +2780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-css@workspace:libs/ui-css"
   dependencies:
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.0.17"
   languageName: unknown
   linkType: soft
 
@@ -3801,6 +3798,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/components@npm:^8.0.0":
+  version: 8.6.10
+  resolution: "@storybook/components@npm:8.6.10"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/1d954c2fc5ecb614349e0f85bec723f6680dab8bf9c61cc3c8f4a8a655bb60923e7132eeea1443b0a098d92964fffada4c7f99c2838b8ea02e5cf5fd10c61cb1
+  languageName: node
+  linkType: hard
+
+"@storybook/core-events@npm:^8.0.0":
+  version: 8.6.10
+  resolution: "@storybook/core-events@npm:8.6.10"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/e419625fa5e0ffb57fc0cc72f2dc12faecc2995602d2357c290886be59401f7e8068d9e7ed97abd4fd788f4c825f4ca7204a5312e3d288628ae0e13f7b840878
+  languageName: node
+  linkType: hard
+
 "@storybook/core@npm:8.6.9":
   version: 8.6.9
   resolution: "@storybook/core@npm:8.6.9"
@@ -3843,7 +3858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/icons@npm:^1.2.12":
+"@storybook/icons@npm:^1.2.12, @storybook/icons@npm:^1.2.5":
   version: 1.4.0
   resolution: "@storybook/icons@npm:1.4.0"
   peerDependencies:
@@ -3871,6 +3886,15 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10c0/122011f99315a6044464404dacea3611b1bbc44ec8c8b40a73552fd98ae65fcc2068188d32552bb1806d4c154bb42f30f08d163668bedc99ed35ef4188a4536c
+  languageName: node
+  linkType: hard
+
+"@storybook/manager-api@npm:^8.0.0":
+  version: 8.6.10
+  resolution: "@storybook/manager-api@npm:8.6.10"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/3f985fb272d393e689061a59c9fc564a953cfb301c93c44d280d82d262d40454dd75e56418bbac69e011b7a3956219ad90f92d7f9d0f913b5d598b5431fa0b76
   languageName: node
   linkType: hard
 
@@ -3917,6 +3941,15 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10c0/628faef6d65c9b1da7725b55d5bcbab9ad76d28aca586873d95f9c60979501d4d9e9788804c9355761aa813d5b8e1d33a65256bacce681b5374d58d2ed6183a0
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:^8.0.0":
+  version: 8.6.10
+  resolution: "@storybook/theming@npm:8.6.10"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/7c239aeb36dc328ea4b1b88f7675e53e90315dfef054a548b5e45dcf786f0d130ae7bf79ee546285f71a9b5ba3269e5937e67c1972fdae0b0a7f8eda303600d8
   languageName: node
   linkType: hard
 
@@ -5743,17 +5776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"call-bound@npm:^1.0.2, call-bound@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "call-bound@npm:1.0.3"
-  dependencies:
-    call-bind-apply-helpers: "npm:^1.0.1"
-    get-intrinsic: "npm:^1.2.6"
-  checksum: 10c0/45257b8e7621067304b30dbd638e856cac913d31e8e00a80d6cf172911acd057846572d0b256b45e652d515db6601e2974a1b1a040e91b4fc36fb3dd86fa69cf
-  languageName: node
-  linkType: hard
-
-"call-bound@npm:^1.0.4":
+"call-bound@npm:^1.0.2, call-bound@npm:^1.0.3, call-bound@npm:^1.0.4":
   version: 1.0.4
   resolution: "call-bound@npm:1.0.4"
   dependencies:
@@ -7368,25 +7391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-intrinsic@npm:^1.2.4, get-intrinsic@npm:^1.2.5, get-intrinsic@npm:^1.2.6, get-intrinsic@npm:^1.2.7":
-  version: 1.2.7
-  resolution: "get-intrinsic@npm:1.2.7"
-  dependencies:
-    call-bind-apply-helpers: "npm:^1.0.1"
-    es-define-property: "npm:^1.0.1"
-    es-errors: "npm:^1.3.0"
-    es-object-atoms: "npm:^1.0.0"
-    function-bind: "npm:^1.1.2"
-    get-proto: "npm:^1.0.0"
-    gopd: "npm:^1.2.0"
-    has-symbols: "npm:^1.1.0"
-    hasown: "npm:^2.0.2"
-    math-intrinsics: "npm:^1.1.0"
-  checksum: 10c0/b475dec9f8bff6f7422f51ff4b7b8d0b68e6776ee83a753c1d627e3008c3442090992788038b37eff72e93e43dceed8c1acbdf2d6751672687ec22127933080d
-  languageName: node
-  linkType: hard
-
-"get-intrinsic@npm:^1.3.0":
+"get-intrinsic@npm:^1.2.4, get-intrinsic@npm:^1.2.5, get-intrinsic@npm:^1.2.6, get-intrinsic@npm:^1.2.7, get-intrinsic@npm:^1.3.0":
   version: 1.3.0
   resolution: "get-intrinsic@npm:1.3.0"
   dependencies:
@@ -11340,6 +11345,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"storybook-dark-mode@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "storybook-dark-mode@npm:4.0.2"
+  dependencies:
+    "@storybook/components": "npm:^8.0.0"
+    "@storybook/core-events": "npm:^8.0.0"
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/icons": "npm:^1.2.5"
+    "@storybook/manager-api": "npm:^8.0.0"
+    "@storybook/theming": "npm:^8.0.0"
+    fast-deep-equal: "npm:^3.1.3"
+    memoizerific: "npm:^1.11.3"
+  checksum: 10c0/d4fc652ff080f6cc9f0effab0c989b66ead3372b267c2c328eef608f27c9822bf47aaa177405e42768b2de22f8a3e9a0280af50430efd0cf78bd6ed1f12c8b29
+  languageName: node
+  linkType: hard
+
 "storybook@npm:^8.6.9":
   version: 8.6.9
   resolution: "storybook@npm:8.6.9"
@@ -11357,27 +11378,6 @@ __metadata:
   checksum: 10c0/f1c91ba8c0dfcc8465ee3656e19c4e48adf7ae6f0e5515422e4ee430a1da5aff43313b0ef42e2eb1121b9a26e7e39488a97b12a48f05945cc15527f416b07895
   languageName: node
   linkType: hard
-
-"storybook@workspace:projects/storybook":
-  version: 0.0.0-use.local
-  resolution: "storybook@workspace:projects/storybook"
-  dependencies:
-    "@chromatic-com/storybook": "npm:^3"
-    "@storybook/addon-essentials": "npm:^8.6.9"
-    "@storybook/addon-onboarding": "npm:^8.6.9"
-    "@storybook/blocks": "npm:^8.6.9"
-    "@storybook/test": "npm:^8.6.9"
-    "@storybook/vue3": "npm:^8.6.9"
-    "@storybook/vue3-vite": "npm:^8.6.9"
-    "@vitejs/plugin-vue": "npm:^5.2.1"
-    "@vue/tsconfig": "npm:^0.7.0"
-    storybook: "npm:^8.6.9"
-    typescript: "npm:~5.7.2"
-    vite: "npm:^6.2.0"
-    vue: "npm:^3.5.13"
-    vue-tsc: "npm:^2.2.4"
-  languageName: unknown
-  linkType: soft
 
 "string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.3":
   version: 4.2.3
@@ -11599,10 +11599,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^4.0.13":
-  version: 4.0.13
-  resolution: "tailwindcss@npm:4.0.13"
-  checksum: 10c0/43532224d5a9072b56b403e416dbb8a6f3bef7787a551d4c3e1717cfb7757d88fc59812c7a3cb27f5fff66dbea2243c03a4e5b94d4fe2c9333f8b048adbdfd3c
+"tailwindcss@npm:^4.0.13, tailwindcss@npm:^4.0.17":
+  version: 4.0.17
+  resolution: "tailwindcss@npm:4.0.17"
+  checksum: 10c0/740c0a1c0df5bfa1aff1ff6e197493e503b068f38a8f78f77e9ea7364441fafae4b554e4d6de727758ba60d0fb52d862ce6f1524c82beb00d8789580d25c995e
   languageName: node
   linkType: hard
 
@@ -12692,21 +12692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"which-typed-array@npm:^1.1.16, which-typed-array@npm:^1.1.18":
-  version: 1.1.18
-  resolution: "which-typed-array@npm:1.1.18"
-  dependencies:
-    available-typed-arrays: "npm:^1.0.7"
-    call-bind: "npm:^1.0.8"
-    call-bound: "npm:^1.0.3"
-    for-each: "npm:^0.3.3"
-    gopd: "npm:^1.2.0"
-    has-tostringtag: "npm:^1.0.2"
-  checksum: 10c0/0412f4a91880ca1a2a63056187c2e3de6b129b2b5b6c17bc3729f0f7041047ae48fb7424813e51506addb2c97320003ee18b8c57469d2cde37983ef62126143c
-  languageName: node
-  linkType: hard
-
-"which-typed-array@npm:^1.1.2":
+"which-typed-array@npm:^1.1.16, which-typed-array@npm:^1.1.18, which-typed-array@npm:^1.1.2":
   version: 1.1.19
   resolution: "which-typed-array@npm:1.1.19"
   dependencies:
@@ -12981,22 +12967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.18.0":
-  version: 8.18.0
-  resolution: "ws@npm:8.18.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ">=5.0.2"
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 10c0/25eb33aff17edcb90721ed6b0eb250976328533ad3cd1a28a274bd263682e7296a6591ff1436d6cbc50fa67463158b062f9d1122013b361cec99a05f84680e06
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.2.3":
+"ws@npm:^8.18.0, ws@npm:^8.2.3":
   version: 8.18.1
   resolution: "ws@npm:8.18.1"
   peerDependencies:

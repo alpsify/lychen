@@ -1,4 +1,4 @@
-import './stylesheet/main.css';
+import '@lychen/ui-css/all.css';
 
 import { createApp } from 'vue';
 

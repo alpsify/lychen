@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "@lychen/storybook",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@lychen/ui-css": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
+    "@lychen/vue-ui-components-extra": "workspace:*",
+    "@lychen/vue-ui-components-website": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -24,6 +28,8 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "storybook": "^8.6.9",
+    "storybook-dark-mode": "^4.0.2",
+    "tailwindcss": "^4.0.17",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
