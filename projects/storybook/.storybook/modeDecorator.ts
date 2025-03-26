@@ -45,7 +45,7 @@ export function ModeDecorator(story: any, context: any): any {
   return {
     components: { Story: story() },
     template: `      
-      <div class="bg-surface p-4 rounded-md flex flex-row items-center justify-between">
+      <div class="flex flex-row items-center justify-between">
         <div>
           <Story />
         </div>
