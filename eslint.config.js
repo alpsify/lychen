@@ -22,6 +22,9 @@ export default [
       '.github',
       '**/*.mts',
       '**/generated/**',
+      '**/tests-examples/**',
+      '**/playwright-report/**',
+      '**/test-results/**',
     ],
   },
   {

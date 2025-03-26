@@ -1,0 +1,27 @@
+dependsOn:
+  - tera-api
+  - tera-app
+
+id: tera-tests-app
+
+language: typescript
+
+tags:
+  - playwright
+
+tasks:
+  open:
+    command: yarn playwright test --ui
+    options:
+      cache: false
+      persistent: true
+
+  report:
+    command: yarn playwright show-report
+
+  run:
+    command: yarn playwright test
+    options:
+      cache: false
+
+type: automation

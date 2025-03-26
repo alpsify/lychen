@@ -1,6 +1,10 @@
-node_modules/
 *.min.js
 *.map
 *.snap
 .gitignore
-dist/
+**/dist/
+**/generated/
+**/playwright-report/
+**/test-results/
+.moon
+.github
