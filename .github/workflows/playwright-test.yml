@@ -4,7 +4,7 @@ env:
   FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
 
 on:
-  pull_request:
+  #pull_request: #Disable for now
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -39,7 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: 'actions/checkout@v4'
         with:
@@ -53,4 +53,4 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run tests
-        run: moon ci tera-tests-app:run
+        run: moon ci ${{ matrix.projects }}:run
