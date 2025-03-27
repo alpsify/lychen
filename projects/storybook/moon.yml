@@ -1,0 +1,15 @@
+dependsOn:
+  - ui-css
+  - vue-ui-components-core
+  - vue-ui-components-extra
+  - vue-ui-components-website
+
+id: storybook
+
+language: typescript
+
+tasks:
+  open:
+    command: 'yarn storybook'
+
+type: automation

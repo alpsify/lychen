@@ -8,7 +8,7 @@
       size="sm"
       class="gap-2"
       data-umami-event="Clicks on pre-register"
-      :text="t(`label`)"
+      :label="t(`label`)"
       :icon="faRocketLaunch"
     />
   </a>

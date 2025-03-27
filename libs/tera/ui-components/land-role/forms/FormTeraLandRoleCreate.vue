@@ -13,7 +13,7 @@
       :loading="isPending"
       type="submit"
       class="self-end"
-      :text="t('action.create.label')"
+      :label="t('action.create.label')"
     />
   </form>
 </template>

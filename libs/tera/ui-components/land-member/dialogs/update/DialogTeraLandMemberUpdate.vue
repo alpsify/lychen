@@ -24,7 +24,7 @@
         <div class="flex flex-row gap-2 justify-end">
           <DialogTeraLandMemberDelete :land-member="landMember">
             <Button
-              :text="tLandMember('action.delete.label')"
+              :label="tLandMember('action.delete.label')"
               variant="negative"
             />
           </DialogTeraLandMemberDelete>

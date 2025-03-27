@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 @import './color/colors.css';
 @import './color/gradients.css';
 @import './color/keyframes.css';
