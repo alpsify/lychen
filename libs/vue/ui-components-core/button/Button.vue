@@ -86,7 +86,6 @@ const props = withDefaults(defineProps<Props>(), {
   icon: undefined,
   iconPosition: ICON_POSITION.End,
   loading: false,
-  tooltip: false,
 });
 
 const innerRound = computed(() => {
