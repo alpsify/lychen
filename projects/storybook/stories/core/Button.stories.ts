@@ -59,6 +59,14 @@ export const Positive: Story = {
 export const WithIcon: Story = {
   args: {
     icon: faRocket,
+    iconPosition: ICON_POSITION.End,
+  },
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    icon: faRocket,
+    iconPosition: ICON_POSITION.Start,
   },
 };
 
