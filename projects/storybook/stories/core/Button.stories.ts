@@ -4,7 +4,6 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { ICON_POSITION, SIZE, VARIANT } from '@lychen/vue-ui-components-core/button';
 import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<typeof Button> = {
   title: 'Core/Button',
   component: Button,

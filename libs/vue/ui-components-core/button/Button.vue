@@ -76,8 +76,6 @@ interface Props {
    * Feedback for user clicking on the button, disable the button when active
    */
   loading?: boolean;
-
-  tooltip: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
