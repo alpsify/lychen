@@ -21,7 +21,7 @@
         <div class="flex flex-row gap-2 justify-end">
           <DialogTeraLandRoleDelete :land-role="landRole">
             <Button
-              :text="tLandRole('action.delete.label')"
+              :label="tLandRole('action.delete.label')"
               variant="negative"
             />
           </DialogTeraLandRoleDelete>

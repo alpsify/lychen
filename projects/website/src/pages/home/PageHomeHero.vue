@@ -27,7 +27,7 @@
             <Button
               class="flex gap-2"
               data-umami-event="discover-button"
-              :text="t('hero.discover')"
+              :label="t('hero.discover')"
             />
           </RouterLink>
           <RouterLink

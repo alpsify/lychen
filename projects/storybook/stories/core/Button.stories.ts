@@ -1,41 +1,34 @@
-import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { buttonVariants, ICON_POSITION } from '@lychen/vue-ui-components-core/button';
+import { ICON_POSITION, SIZE, VARIANT } from '@lychen/vue-ui-components-core/button';
 import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Core/Button',
   component: Button,
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
-    size: { control: 'select', options: ['xs', 'sm', 'lg'] },
+    size: { control: 'select', options: SIZE },
     variant: {
       control: 'select',
-      //options: Object.keys(buttonVariants.variants),
-      options: ['secondary', 'negative', 'positive', 'warning', 'ghost', 'container-high'],
+      options: VARIANT,
     },
-    text: { control: 'text' },
+    label: { control: 'text' },
     class: { control: 'text' },
     loading: { control: 'boolean' },
     iconPosition: { control: 'inline-radio', options: Object.keys(ICON_POSITION) },
     icon: { control: 'text' },
   },
   args: {
-    text: 'Click me',
+    label: 'Click me',
   },
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
+type Story = StoryObj<typeof Button>;
+
 export const Default: Story = {
   args: {},
 };
@@ -72,7 +65,14 @@ export const WithIcon: Story = {
 
 export const IconOnly: Story = {
   args: {
-    text: '',
+    label: '',
     icon: faRocket,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    icon: faRocket,
+    loading: true,
   },
 };

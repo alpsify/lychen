@@ -15,7 +15,7 @@
       size="sm"
       type="submit"
       class="self-end"
-      :text="t('action.update.label')"
+      :label="t('action.update.label')"
     />
   </form>
 </template>

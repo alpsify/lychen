@@ -21,7 +21,7 @@
             <Button
               :icon="faPlus"
               class="bg-secondary text-on-secondary"
-              :text="t('add_land')"
+              :label="t('add_land')"
             />
           </DialogTeraLandCreate>
         </div>

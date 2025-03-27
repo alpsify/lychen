@@ -35,7 +35,7 @@
           :icon="faPlus"
           variant="container-high"
           class="self-start"
-          :text="tLandMemberInvitation('action.create.label')"
+          :label="tLandMemberInvitation('action.create.label')"
         ></Button>
       </DialogTeraLandMemberInvitationCreate>
     </template>
@@ -75,7 +75,7 @@
           :icon="faPlus"
           variant="container-high"
           class="self-start"
-          :text="tLandRole('action.create.label')"
+          :label="tLandRole('action.create.label')"
         ></Button>
       </DialogTeraLandRoleCreate>
     </template>

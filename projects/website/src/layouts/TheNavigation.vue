@@ -44,7 +44,7 @@
 
                       <a href="https://robust.lychen.fr">
                         <Button
-                          :text="t('navigation.app.robust.button')"
+                          :label="t('navigation.app.robust.button')"
                           :icon="faArrowUpRight"
                           class="self-start"
                       /></a>
