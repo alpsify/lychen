@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@storybook/addon-essentials": "^8.6.9",
     "@storybook/addon-onboarding": "^8.6.9",
     "@storybook/blocks": "^8.6.9",

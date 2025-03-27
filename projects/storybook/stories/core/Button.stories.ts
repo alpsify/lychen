@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { buttonVariants, ICON_POSITION } from '@lychen/vue-ui-components-core/button';
+import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -60,5 +61,18 @@ export const Negative: Story = {
 export const Positive: Story = {
   args: {
     variant: 'positive',
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    icon: faRocket,
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
+    text: '',
+    icon: faRocket,
   },
 };

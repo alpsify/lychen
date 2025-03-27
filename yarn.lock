@@ -2524,11 +2524,11 @@ __metadata:
   resolution: "@lychen/storybook@workspace:projects/storybook"
   dependencies:
     "@chromatic-com/storybook": "npm:^3"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-ui-components-website": "workspace:*"
-    "@storybook/addon-backgrounds": "npm:^8.6.9"
     "@storybook/addon-essentials": "npm:^8.6.9"
     "@storybook/addon-onboarding": "npm:^8.6.9"
     "@storybook/blocks": "npm:^8.6.9"
@@ -3640,19 +3640,6 @@ __metadata:
   peerDependencies:
     storybook: ^8.6.9
   checksum: 10c0/b62919427da7080df5e18573db41c711de517f57c990a788ea5e7efb6c43710ab3863226ce151370010d8a359daaeec3728a60cfe4daa0dfd20dc4e9456b8eda
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-backgrounds@npm:^8.6.9":
-  version: 8.6.10
-  resolution: "@storybook/addon-backgrounds@npm:8.6.10"
-  dependencies:
-    "@storybook/global": "npm:^5.0.0"
-    memoizerific: "npm:^1.11.3"
-    ts-dedent: "npm:^2.0.0"
-  peerDependencies:
-    storybook: ^8.6.10
-  checksum: 10c0/ee4495e8fc27d760b59d6f15e0675d7d5a1e64fcd33d6b653be8688d4a0a7c70b4fd9648c56f46a483e7eba8aa2763ced4fe40cadbcc4c9cc6a5296d0c87d0bd
   languageName: node
   linkType: hard
 

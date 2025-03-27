@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { onMounted, onUnmounted, ref, watch } from 'vue';
 import type { Decorator } from '@storybook/vue3';
+import { faSun } from '@fortawesome/pro-light-svg-icons/faSun';
+import { faMoon } from '@fortawesome/pro-light-svg-icons/faMoon';
+import { Icon } from '@lychen/vue-ui-components-core/icon';
 
 export function ModeDecorator(story: any, context: any): any {
   const isDarkMode = ref(false);
@@ -43,24 +46,25 @@ export function ModeDecorator(story: any, context: any): any {
   );
 
   return {
-    components: { Story: story() },
+    components: { Story: story(), Icon: Icon, faSun: faSun },
     template: `      
-      <div class="flex flex-row items-center justify-between">
+      <div class="grid grid-cols-[1fr_auto] gap-4">
         <div>
           <Story />
         </div>
         <button
           @click="toggleMode"
-          class="z-[9999] px-3 py-2 rounded-md border-none bg-surface-container-high text-on-surface-container-high"
+          class="z-[9999] px-3 py-2 rounded-full border-none h-10 w-10 bg-surface-container-highest text-on-surface-container-highest cursor-pointer"
         >
-          {{ isDarkMode ? 'Light' : 'Dark' }}
-        </button>
+          <Icon :icon="isDarkMode ? faSun : faMoon" />
       </div>
     `,
     setup() {
       return {
         isDarkMode,
         toggleMode,
+        faSun,
+        faMoon,
       };
     },
   };
