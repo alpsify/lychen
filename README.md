@@ -36,7 +36,7 @@ BACK
 - [Symfony Workflow](https://symfony.com/doc/current/components/workflow.html)
 - [ApiPlatform](https://api-platform.com/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [FrankenPHP](https://www.postgresql.org/)
+- [FrankenPHP](https://frankenphp.dev/)
 - [RabbitMQ](https://www.rabbitmq.com/)
 
 FRONT
