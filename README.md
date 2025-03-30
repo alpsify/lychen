@@ -23,7 +23,9 @@ For questions and support please use [the official forum](https://github.com/alp
 
 ## Technologies
 
-We strive to use the best technologies available for each purpose. **We are not driven by trends** 🦄
+We strive to use the best and most accessible technologies available for every purpose. **We are not driven by trends** 🦄
+
+**We try to find a compromise between the advantages of a technology, its complexity, and the skills required to develop with it. This ensures that the project remains accessible to all contributors.**
 
 Each technology is carefully chosen to ensure maintainability, developer skill improvement and satisfaction, scalability, and performance.
 
