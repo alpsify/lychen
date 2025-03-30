@@ -25,7 +25,8 @@ zitadelAuth.oidcAuth.events.addSilentRenewError(function (err: Error) {
 });
 
 zitadelAuth.oidcAuth.events.addUserLoaded(function (user: User) {
-  //console.log('user loaded', user);
+  // eslint-disable-next-line no-console
+  console.log('user loaded', user);
 });
 
 zitadelAuth.oidcAuth.events.addUserUnloaded(function () {

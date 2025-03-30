@@ -66,7 +66,7 @@
           />
         </div>
       </div>
-      <div id="principal h-full">
+      <div id="principal">
         <div class="bg-surface-container p-8 h-full rounded-xl flex flex-col gap-4 justify-between">
           <BaseHeading>Tâches en cours</BaseHeading>
           <div class="flex flex-row gap-4 self-end">
