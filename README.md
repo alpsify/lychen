@@ -23,35 +23,39 @@ For questions and support please use [the official forum](https://github.com/alp
 
 ## Technologies
 
-We strive to use the best technologies available for each purpose. **We are not driven by trends** 🦄
+We strive to use the best and most accessible technologies available for every purpose. **We are not driven by trends** 🦄
+
+**We try to find a compromise between the advantages of a technology, its complexity, and the skills required to develop with it. This ensures that the project remains accessible to all contributors.**
 
 Each technology is carefully chosen to ensure maintainability, developer skill improvement and satisfaction, scalability, and performance.
 
 BACK
 
-- [PHP](https://www.php.net/) < 8
-- [Symfony](https://symfony.com/) < 7
-- [Symfony Workflow](https://symfony.com/doc/current/components/workflow.html) < 7
-- [ApiPlatform](https://api-platform.com/) < 4
-- [PostgreSQL](https://www.postgresql.org/) < 16
-- [FrankenPHP](https://www.postgresql.org/) < 1.4
-- [RabbitMQ](https://www.rabbitmq.com/) < 4
+- [PHP](https://www.php.net/)
+- [Symfony](https://symfony.com/)
+- [Symfony Workflow](https://symfony.com/doc/current/components/workflow.html)
+- [ApiPlatform](https://api-platform.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [FrankenPHP](https://frankenphp.dev/)
+- [RabbitMQ](https://www.rabbitmq.com/)
 
 FRONT
 
-- [TypeScript](https://www.typescriptlang.org/) < 5.8
-- [Vue.js](https://vuejs.org/) < 3 with Composition API and `<script lang="ts" setup/>` (no Nuxt)
-- [Vite](https://vite.dev/) < 6 with plugins to build SSG and PWA
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vue.js](https://vuejs.org/) with Composition API and `<script lang="ts" setup/>` (no Nuxt)
+- [Vite](https://vite.dev/) with plugins to build SSG and PWA
 - [Reka UI](https://reka-ui.com/) for components
 - [Inspira UI](https://inspira-ui.com/) for components
 - [shadcn-vue](https://www.shadcn-vue.com/) for components
-- [tailwindcss](https://tailwindcss.com/) > 4 with custom design system close to Material Design rules
+- [tailwindcss](https://tailwindcss.com/) with custom design system close to Material Design rules
 - [Tanstack Query](https://tanstack.com/query/latest) Powerful asynchronous state management
 - [Tanstack Table](https://tanstack.com/table/latest) Headless UI for building powerful tables & datagrids
+- [Storybook](https://storybook.js.org/) Workshop for building UI components and pages in isolation.
+- [Playwright](https://playwright.dev/) Reliable end-to-end testing for modern web apps
 
 OTHER
 
-- [Yarn](https://yarnpkg.com/) < 4 as package manager
+- [Yarn](https://yarnpkg.com/) as package manager
 - [Moonrepo](https://moonrepo.dev/) for managing projects, libs and tasks (monorepo)
 - [Docker](https://www.docker.com/) to ensure iso-prod environment between dev and production (with compose)
 - [GitHub](https://github.com/) you got the reason I guess
@@ -70,4 +74,4 @@ Thank you to everyone who has contributed or will contribute to Lychen!🙏🏽�
 
 [GPL-3.0](https://github.com/alpsify/lychen?tab=GPL-3.0-1-ov-file)
 
-Copyright (c) 2024-present, Alpsify
+Copyright (c) 2025-present, Alpsify
