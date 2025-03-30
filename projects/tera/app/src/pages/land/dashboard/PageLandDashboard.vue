@@ -40,7 +40,14 @@
         id="header"
         class="flex flex-row justify-between p-4 border-1 border-surface-container/50 rounded-xl items-center"
       >
-        <BaseHeading variant="h4">Actions rapide</BaseHeading>
+        <div class="flex flex-row gap-4 items-center">
+          <BaseHeading variant="h4">Actions rapide</BaseHeading>
+          <Button
+            label="Inviter"
+            :icon="faUserPlus"
+            variant="secondary"
+          />
+        </div>
         <div class="flex flex-row gap-2">
           <Button
             label="Planifier une culture"
@@ -60,8 +67,8 @@
         </div>
         <div>
           <Button
-            label="Inviter"
-            :icon="faUserPlus"
+            label="Enregistrer une mesure"
+            :icon="faGridRound2Plus"
             variant="secondary"
           />
         </div>
@@ -236,6 +243,7 @@ import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalenda
 import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
 import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
 import { faDatabase } from '@fortawesome/pro-light-svg-icons/faDatabase';
+import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
 import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
 import { Badge } from '@lychen/vue-ui-components-core/badge';
 
