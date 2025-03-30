@@ -48,6 +48,8 @@ FRONT
 - [tailwindcss](https://tailwindcss.com/) with custom design system close to Material Design rules
 - [Tanstack Query](https://tanstack.com/query/latest) Powerful asynchronous state management
 - [Tanstack Table](https://tanstack.com/table/latest) Headless UI for building powerful tables & datagrids
+- [Storybook](https://storybook.js.org/) Workshop for building UI components and pages in isolation.
+- [Playwright](https://playwright.dev/) Reliable end-to-end testing for modern web apps
 
 OTHER
 
