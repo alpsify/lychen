@@ -68,8 +68,9 @@ class PersonFixtures extends Fixture
         } catch (ClientException $exception) {
             if ($exception->getResponse()->getStatusCode() === 409) {
                 $data = $this->user->searchByEmail($userEmail);
+            } else {
+                throw $exception;
             }
-            throw $exception;
         }
         return $this->createPersonAndAddReference($reference, ['authId' => $data['userId'], ...$createdData]);
     }
