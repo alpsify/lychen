@@ -10,11 +10,13 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  DivWithBackgroundImg,
-  type DivWithBackgroundImgProps,
-} from '@lychen/vue-ui-components-extra/div-with-background-img';
+import { type DivWithBackgroundImgProps } from '@lychen/vue-ui-components-extra/div-with-background-img';
 import { useForwardProps } from 'reka-ui';
+import { defineAsyncComponent } from 'vue';
+
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+);
 
 const props = defineProps<Omit<DivWithBackgroundImgProps, 'is'>>();
 const forwarded = useForwardProps(props);

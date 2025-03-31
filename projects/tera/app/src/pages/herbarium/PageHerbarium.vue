@@ -36,7 +36,11 @@ import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/S
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
-import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
+import { defineAsyncComponent } from 'vue';
+
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+);
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

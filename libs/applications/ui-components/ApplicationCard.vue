@@ -24,7 +24,10 @@ import { type Application } from '@lychen/applications-util-model/Application';
 import { defineAsyncComponent, type HTMLAttributes } from 'vue';
 import ApplicationTitle from './ApplicationTitle.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
+
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+);
 
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 

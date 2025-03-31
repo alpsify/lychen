@@ -70,7 +70,6 @@
 
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
-import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
 import CardTeraLand from '@lychen/tera-ui-components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
@@ -79,7 +78,7 @@ import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
-import { ref } from 'vue';
+import { ref, defineAsyncComponent } from 'vue';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
@@ -93,6 +92,10 @@ import {
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+);
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

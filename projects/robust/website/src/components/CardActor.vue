@@ -15,7 +15,11 @@
 
 <script setup lang="ts">
 import Title from '@lychen/vue-ui-components-website/title/Title.vue';
-import { DivWithBackgroundImg } from '@lychen/vue-ui-components-extra/div-with-background-img';
+import { defineAsyncComponent } from 'vue';
+
+const DivWithBackgroundImg = defineAsyncComponent(
+  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+);
 
 withDefaults(defineProps<{ backgroundImage: string; title: string }>(), {
   backgroundImage: undefined,
