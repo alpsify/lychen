@@ -2,6 +2,7 @@
 
 namespace Lychen\UtilZitadelBundle\Authenticator;
 
+use Lychen\UtilZitadelBundle\Services\OpenIDConnect;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,10 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 
 class ZitadelUserAuthenticator extends AbstractAuthenticator
 {
+    public function __construct(private readonly OpenIDConnect $openIDConnect)
+    {
+    }
+
     public function supports(Request $request): ?bool
     {
         return $request->headers->has('Authorization') && str_starts_with($request->headers->get('Authorization'), 'Bearer ');
@@ -28,6 +33,12 @@ class ZitadelUserAuthenticator extends AbstractAuthenticator
             throw new CustomUserMessageAuthenticationException('No token provided');
         }
 
+        $response = $this->openIDConnect->introspectToken($token, 'openid email profile urn:zitadel:iam:org:project:id:zitadel:aud urn:zitadel:iam:org:project:roles');
+
+        if($response['active'] === false){
+            throw new CustomUserMessageAuthenticationException("Token is not active");
+        }
+        
         return new SelfValidatingPassport(new UserBadge($token));
     }
 
