@@ -98,7 +98,7 @@
       >
         <Card class="bg-gradient-to-tr from-purple-500 to-pink-500 gap-4">
           <div class="flex flex-col gap-0">
-            <BaseHeading varaint="h3">Un surplus ?</BaseHeading>
+            <BaseHeading variant="h3">Un surplus ?</BaseHeading>
             <p>Signalez le on s'occupe de trouver quelqu'un pour que ce ne soit pas perdu.</p>
           </div>
           <Button
@@ -110,7 +110,7 @@
         <Card class="bg-gradient-to-tr from-amber-500 to-yellow-500 gap-4">
           <div class="flex flex-col gap-0 text-amber-800">
             <BaseHeading
-              varaint="h3"
+              variant="h3"
               class="text-amber-800"
               >Pollinisateurs</BaseHeading
             >
@@ -125,7 +125,7 @@
         </Card>
         <Card class="bg-gradient-to-tr from-surface-container to-blue-300/30 gap-4">
           <div class="flex flex-col gap-0">
-            <BaseHeading varaint="h3">Données</BaseHeading>
+            <BaseHeading variant="h3">Données</BaseHeading>
             <p class="opacity-80">On s'occupe de vous générer des revenus grâce à vos données.</p>
           </div>
           <p class="font-bold">Valeur estimé : xx € /mois</p>
