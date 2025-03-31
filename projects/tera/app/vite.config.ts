@@ -32,6 +32,9 @@ const config: UserConfig = {
       '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
+  build: {
+    sourcemap: true,
+  },
 };
 
 export default config;
