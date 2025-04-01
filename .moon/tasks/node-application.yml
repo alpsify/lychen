@@ -24,6 +24,8 @@ tasks:
       persistent: true
 
   production-build:
+    args:
+      - '--mode production'
     env:
       VITE_UNHEAD_HOST: ${PRODUCTION_DOMAIN}
     extends: build
