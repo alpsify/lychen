@@ -37,8 +37,8 @@
     "@vite-pwa/assets-generator": "^1.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "tailwindcss": "^4.0.13",
-    "vite": "^6.2.3",
+    "vite": "^6.2.4",
     "vite-plugin-mkcert": "^1.17.7",
-    "vite-plugin-pwa": "^0.21.2"
+    "vite-plugin-pwa": "^1.0.0"
   }
 }
