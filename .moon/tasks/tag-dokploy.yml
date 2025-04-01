@@ -2,14 +2,7 @@ $schema: 'https://moonrepo.dev/schemas/tasks.json'
 
 tasks:
   dokploy-compose-deploy:
-    command:
-      - 'curl'
-      - '-X POST'
-      - '${DOKPLOY_API_URL}/compose.deploy'
-      - "-H 'accept: application/json'"
-      - "-H 'Content-Type: application/json'"
-      - "-H 'Authorization: Bearer ${DOKPLOY_API_TOKEN}'"
-      - '-d ''{ "composeId": "${DOKPLOY_COMPOSE_ID}"}'''
+    command: bash $workspaceRoot/.moon/scripts/dokploy-compose-deploy.sh -i ${DOKPLOY_COMPOSE_ID}
     options:
       inferInputs: false
 

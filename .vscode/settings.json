@@ -53,5 +53,6 @@
   //Auto rename tags
   "editor.linkedEditing": true,
   "javascript.preferences.renameMatchingJsxTags": true,
-  "typescript.preferences.renameMatchingJsxTags": true
+  "typescript.preferences.renameMatchingJsxTags": true,
+  "svg.preview.background": "dark-transparent"
 }

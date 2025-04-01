@@ -23,7 +23,39 @@ const config: UserConfig = {
         },
       },
     }),
-    VitePWA({ registerType: 'autoUpdate' }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Tera',
+        short_name: 'Tera',
+        description: 'Tera application from Lychen ecosystem',
+        theme_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: 'logos/tera/pwa-64x64.png',
+            sizes: '64x64',
+            type: 'image/png',
+          },
+          {
+            src: 'logos/tera/pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'logos/tera/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'logos/tera/maskable-icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+      },
+    }),
   ],
   resolve: {
     alias: {

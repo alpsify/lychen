@@ -11,6 +11,6 @@ echo '> Stop' $composeId 'through Dokploy API'
 curl -X POST "${DOKPLOY_API_URL}/compose.stop" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ${DOKPLOY_API_TOKEN}" \
+  -H "x-api-key: ${DOKPLOY_API_TOKEN}" \
   -d "{\"composeId\": \"$composeId\"}"
 echo '> Stopped'

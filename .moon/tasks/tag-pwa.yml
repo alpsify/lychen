@@ -9,3 +9,8 @@ tasks:
         target: nginx-util-configs:sync-pwa
     options:
       cache: false
+
+  generate-pwa-assets:
+    command: yarn generate-pwa-assets
+    deps:
+      - assets-sync

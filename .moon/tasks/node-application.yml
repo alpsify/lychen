@@ -29,6 +29,8 @@ tasks:
     extends: build
 
   staging-build:
+    args:
+      - '--mode staging'
     env:
       VITE_UNHEAD_HOST: ${STAGING_DOMAIN}
     extends: build

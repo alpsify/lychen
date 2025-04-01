@@ -7,7 +7,7 @@ tasks:
       - '|'
       - cp
       - -rf
-      - $projectRoot/pwa
+      - $projectRoot/pwa/default.conf
     inputs:
       - '$projectRoot/pwa/'
     options:
