@@ -95,10 +95,7 @@ vendor: ## Install vendors according to the current composer.lock file
 vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
 vendor: composer
 
-## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
-sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
-	@$(eval c ?=)
-	@$(SYMFONY) $(c)
+## —— Symfony 🎵 ——————————————————————————————————————————————————————————————
 
 load-fixtures: ## Load fixtures for dev environment and ensure that RabbitMQ messages are deleted
 	@$(DOCKER_COMP) exec -it php sh -c "php -d memory_limit=-1 bin/console do:fi:lo --no-interaction"
