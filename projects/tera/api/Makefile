@@ -83,9 +83,6 @@ ci-phpunit:
 ci-yarn-install:
 	@$(PHP_CONT_CI) yarn install
 
-ci-display-env:
-	@$(PHP_CONT_CI) bin/console debug:container --env-vars
-
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
 	@$(eval c ?=)
