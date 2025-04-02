@@ -85,10 +85,6 @@ composer: ## Run composer, pass the parameter "c=" to run a given command, examp
 	@$(eval c ?=)
 	@$(COMPOSER) $(c)
 
-vendor: ## Install vendors according to the current composer.lock file
-vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
-vendor: composer
-
 ## —— Symfony 🎵 ——————————————————————————————————————————————————————————————
 
 load-fixtures: ## Load fixtures for dev environment and ensure that RabbitMQ messages are deleted
