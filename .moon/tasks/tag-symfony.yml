@@ -51,7 +51,7 @@ tasks:
     command: docker compose up -d
 
   docker-build:
-    command: docker build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest
+    command: docker buildx build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest
     options:
       cache: false
 
