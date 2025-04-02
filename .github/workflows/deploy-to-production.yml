@@ -28,6 +28,8 @@ jobs:
       - run: moon query projects --tags vue --affected --downstream deep
       - name: Define Projects
         id: projects
+        #run: |
+          #echo "projects=$(moon query tasks --id production-dokploy-compose-deploy --affected --downstream deep --json | jq -r '[.tasks[] | select(.project.tags | index("vue")) | .project.id] | @json')" >> "$GITHUB_OUTPUT"
         run: |
           echo "projects=$(moon query projects --tags vue --affected --downstream deep --json | jq -r '.projects | map(.id | @json) | join(",")' | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
         #run: |
