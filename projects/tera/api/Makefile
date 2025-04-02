@@ -80,9 +80,6 @@ ci-composer-install:
 ci-phpunit:
 	@$(PHP_CONT_CI) php -d memory_limit=-1 ./vendor/bin/phpunit ${FOLDER}
 
-ci-yarn-install:
-	@$(PHP_CONT_CI) yarn install
-
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
 	@$(eval c ?=)

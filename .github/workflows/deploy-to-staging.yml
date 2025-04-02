@@ -58,7 +58,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
-          driver: containerd
+          driver: docker-container
           platforms: linux/amd64,linux/arm64
 
       - name: Login to Docker Hub
