@@ -2210,7 +2210,7 @@ __metadata:
     tailwindcss: "npm:^4.0.13"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
-    vite-plugin-pwa: "npm:^0.21.2"
+    vite-plugin-pwa: "npm:^1.0.0"
     vue: "npm:^3.5.13"
     vue-i18n: "npm:^11.1.2"
     vue-router: "npm:^4.5.0"
@@ -12694,27 +12694,6 @@ __metadata:
   peerDependencies:
     vite: ">=3"
   checksum: 10c0/791b41e2c7636c02d7cdb852819b1787bc4e412e13c37e981dac5e2cf2acd825d8222b20ac8cb715c19f4bcbb6449d1f6bd86664f40966bc1111ce64e096a144
-  languageName: node
-  linkType: hard
-
-"vite-plugin-pwa@npm:^0.21.2":
-  version: 0.21.2
-  resolution: "vite-plugin-pwa@npm:0.21.2"
-  dependencies:
-    debug: "npm:^4.3.6"
-    pretty-bytes: "npm:^6.1.1"
-    tinyglobby: "npm:^0.2.10"
-    workbox-build: "npm:^7.3.0"
-    workbox-window: "npm:^7.3.0"
-  peerDependencies:
-    "@vite-pwa/assets-generator": ^0.2.6
-    vite: ^3.1.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
-    workbox-build: ^7.3.0
-    workbox-window: ^7.3.0
-  peerDependenciesMeta:
-    "@vite-pwa/assets-generator":
-      optional: true
-  checksum: 10c0/bddd12598a5522137fcf352e0eb69a314bd62d5a4473988cace51db4ea44a756333afb5dac9075735874dfe8536a89569de71a5751078c9d702f6783f810d2c8
   languageName: node
   linkType: hard
 
