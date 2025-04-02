@@ -7,11 +7,17 @@ do
     esac
 done
 
+if [ -z "$composeId" ]; then
+    echo "Error: -i (composeId) is required" >&2
+    exit 1
+fi
+
 echo '> Deploy through Dokploy API'
 
 curl -X POST "${DOKPLOY_API_URL}/compose.deploy" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -H "x-api-key: ${DOKPLOY_API_TOKEN}" \
-  -d "{\"composeId\": \"$composeId\"}"
+  -d "{\"composeId\": \"$composeId\"}" || exit 1
+
 echo '> Deployed'
