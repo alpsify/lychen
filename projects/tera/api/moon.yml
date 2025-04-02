@@ -10,7 +10,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: ''
   PRODUCTION_DOMAIN: api.tera.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/tera/api
-  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOKPLOY_COMPOSE_ID: HZTto2h6QCq5g5lT1exQP
   STAGING_DOMAIN: staging.api.tera.lychen.fr
 
 id: tera-api
