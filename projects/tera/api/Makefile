@@ -104,9 +104,6 @@ sf: ## List all Symfony commands or pass the parameter "c=" to run a given comma
 	@$(eval c ?=)
 	@$(SYMFONY) $(c)
 
-cc: c=c:c ## Clear the cache
-cc: sf
-
 load-fixtures: ## Load fixtures for dev environment and ensure that RabbitMQ messages are deleted
 	@$(DOCKER_COMP) exec -it php sh -c "php -d memory_limit=-1 bin/console do:fi:lo --no-interaction"
 	curl -XDELETE -u guest:guest http://rabbitmq:15672/api/queues/alfred/async/contents
