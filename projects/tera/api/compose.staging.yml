@@ -1,17 +1,17 @@
 services:
   api:
-    image: ghcr.io/alpsify/lychen/production/tera/api:latest
+    image: ghcr.io/alpsify/lychen/staging/tera/api:latest
+    restart: unless-stopped
     env_file:
       - .env
-    ports:
-      - 80
-    restart: unless-stopped
     volumes:
       - 'caddy_data:/data'
       - 'caddy_config:/config'
       - 'api_logs:/app/var/log'
+    expose:
+      - 80
 
 volumes:
-  caddy_config:
-  caddy_data:
+  caddy_data: null
+  caddy_config: null
   api_logs: null

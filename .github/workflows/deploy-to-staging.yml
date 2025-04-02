@@ -52,6 +52,8 @@ jobs:
           auto-install: true
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          driver: containerd
         #with:
           #platforms: linux/amd64,linux/arm64
       - name: Login to Docker Hub
