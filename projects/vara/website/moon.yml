@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: Fd4FNglKvBnj8027lOKeV
   PRODUCTION_DOMAIN: vara.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/vara/website
-  STAGING_DOKPLOY_COMPOSE_ID: 0CpTebCmUMssFbF8YHUlC
+  STAGING_DOKPLOY_COMPOSE_ID: XKt58w8aLZdCAnJK5-nE0
   STAGING_DOMAIN: staging.vara.lychen.fr
 
 id: vara-website

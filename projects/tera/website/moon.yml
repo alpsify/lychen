@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: zxQNz6KKFpQuGDXvQyn2F
   PRODUCTION_DOMAIN: tera.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/tera/website
-  STAGING_DOKPLOY_COMPOSE_ID: GqQZhiUgCs96TZKGZ0h5f
+  STAGING_DOKPLOY_COMPOSE_ID: 1XUUxxSsvm8GRr2g7W3ic
   STAGING_DOMAIN: staging.tera.lychen.fr
 
 id: tera-website

@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: JAWCjLjIKCVe_5tFH4rkM
   PRODUCTION_DOMAIN: meli.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/meli/website
-  STAGING_DOKPLOY_COMPOSE_ID: PxsHdAdF7U9TZGlWvpYxx
+  STAGING_DOKPLOY_COMPOSE_ID: 8AyLmmqwLhk3EBkYXTo2I
   STAGING_DOMAIN: staging.meli.lychen.fr
 
 id: meli-website

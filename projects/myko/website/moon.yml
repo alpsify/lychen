@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: twoIDlTAeIXiJJK3yHDoI
   PRODUCTION_DOMAIN: myko.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/myko/website
-  STAGING_DOKPLOY_COMPOSE_ID: KxGvJpOp6YxnKj0M4r4c6
+  STAGING_DOKPLOY_COMPOSE_ID: t9lRUZLqUGIDrnJtmB03G
   STAGING_DOMAIN: staging.myko.lychen.fr
 
 id: myko-website

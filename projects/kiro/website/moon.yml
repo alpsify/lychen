@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: EMMOUvL0Ie9iuYd8sAal9
   PRODUCTION_DOMAIN: kiro.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/kiro/website
-  STAGING_DOKPLOY_COMPOSE_ID: bG54s-FrwHab1viQ4AbO_
+  STAGING_DOKPLOY_COMPOSE_ID: hj8BFeg1eQVuWxkxstvHd
   STAGING_DOMAIN: staging.kiro.lychen.fr
 
 id: kiro-website

@@ -1,6 +1,4 @@
 services:
   website:
     image: ghcr.io/alpsify/lychen/staging/myko/website:latest
-    labels:
-      - traefik.http.routers.lychen-staging-myko-website-zrejsf-68-websecure.middlewares=ip-allow@file
     restart: unless-stopped

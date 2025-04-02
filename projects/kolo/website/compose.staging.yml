@@ -1,6 +1,4 @@
 services:
   website:
     image: ghcr.io/alpsify/lychen/staging/kolo/website:latest
-    labels:
-      - traefik.http.routers.lychen-staging-kolo-website-oct5ha-78-websecure.middlewares=ip-allow@file
     restart: unless-stopped

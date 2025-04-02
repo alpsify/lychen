@@ -31,9 +31,9 @@ id: luna-website
 
 language: typescript
 
-tags:
-  - vue
-  - dokploy
-  - ssg
+#tags:
+#- vue
+#- dokploy
+#- ssg
 
 type: application

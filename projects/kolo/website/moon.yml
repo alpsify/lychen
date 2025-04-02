@@ -24,7 +24,7 @@ env:
   PRODUCTION_DOKPLOY_COMPOSE_ID: 1QFwZR5ajTuCT-UzBvuje
   PRODUCTION_DOMAIN: kolo.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/kolo/website
-  STAGING_DOKPLOY_COMPOSE_ID: gmrpyAdxCTL2P51nlMNLw
+  STAGING_DOKPLOY_COMPOSE_ID: VAijElTS-qTRmcr0560pO
   STAGING_DOMAIN: staging.kolo.lychen.fr
 
 id: kolo-website
