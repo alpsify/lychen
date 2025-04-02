@@ -95,10 +95,6 @@ vendor: ## Install vendors according to the current composer.lock file
 vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
 vendor: composer
 
-## —— Node 🧙 ——————————————————————————————————————————————————————————————
-yarn-install: ## Install node packages according to the current package.json file
-	@$(PHP_CONT_RUN) yarn install
-
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
 	@$(eval c ?=)
