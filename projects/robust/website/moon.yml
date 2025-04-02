@@ -20,7 +20,7 @@ dependsOn:
 env:
   DEV_DOMAIN: robust.lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/robust/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: RiM5zif2Bzp5PNmoprdx1
+  PRODUCTION_DOKPLOY_COMPOSE_ID: 3rKOlYtb1unLJ4SyZ9FxD
   PRODUCTION_DOMAIN: robust.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/robust/website
   STAGING_DOKPLOY_COMPOSE_ID: 9Y63cSyEdXcqY7jJHCunV

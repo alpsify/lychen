@@ -21,7 +21,7 @@ dependsOn:
 env:
   DEV_DOMAIN: kolo.lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/kolo/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: 1QFwZR5ajTuCT-UzBvuje
+  PRODUCTION_DOKPLOY_COMPOSE_ID: 7OTpNomBfLjW1pLb445Cr
   PRODUCTION_DOMAIN: kolo.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/kolo/website
   STAGING_DOKPLOY_COMPOSE_ID: VAijElTS-qTRmcr0560pO

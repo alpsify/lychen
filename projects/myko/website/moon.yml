@@ -21,7 +21,7 @@ dependsOn:
 env:
   DEV_DOMAIN: myko.lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/myko/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: twoIDlTAeIXiJJK3yHDoI
+  PRODUCTION_DOKPLOY_COMPOSE_ID: lYyZe4KDhe8uu8NkhWMA9
   PRODUCTION_DOMAIN: myko.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/myko/website
   STAGING_DOKPLOY_COMPOSE_ID: t9lRUZLqUGIDrnJtmB03G

@@ -21,7 +21,7 @@ dependsOn:
 env:
   DEV_DOMAIN: vara.lychen.local
   PRODUCTION_DOCKER_IMAGE: lychen/production/vara/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: Fd4FNglKvBnj8027lOKeV
+  PRODUCTION_DOKPLOY_COMPOSE_ID: Qwe7jGntmIQ2IixH8OiRk
   PRODUCTION_DOMAIN: vara.lychen.fr
   STAGING_DOCKER_IMAGE: lychen/staging/vara/website
   STAGING_DOKPLOY_COMPOSE_ID: XKt58w8aLZdCAnJK5-nE0
