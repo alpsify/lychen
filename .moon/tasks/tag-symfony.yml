@@ -81,16 +81,10 @@ tasks:
     extends: docker-push
 
   staging-docker-build:
-    env:
-      DOCKER_IMAGE_NAME: 'ghcr.io/alpsify/${STAGING_DOCKER_IMAGE}'
-    extends: docker-build
+    command: noop
 
   staging-docker-push:
-    args:
-      - 'ghcr.io/alpsify/${STAGING_DOCKER_IMAGE}'
-    deps:
-      - staging-docker-build
-    extends: docker-push
+    command: noop
 
   test-phpunit:
     command: docker compose run --rm php php -d memory_limit=-1 ./vendor/bin/phpunit

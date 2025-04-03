@@ -1,11 +1,11 @@
-name: Tests Symfony projects
+name: Symfony | Tests
 
 env:
   REGISTRY: ghcr.io/alpsify/lychen/test
 
 on:
   pull_request:
-  workflow_dispatch: {} # Permet d’exécuter manuellement les jobs de déploiement
+  workflow_dispatch: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

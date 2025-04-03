@@ -14,4 +14,4 @@ services:
 volumes:
   caddy_config:
   caddy_data:
-  api_logs: null
+  api_logs:
