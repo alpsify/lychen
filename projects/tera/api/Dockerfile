@@ -82,6 +82,7 @@ ENV FRANKENPHP_CONFIG="import worker.Caddyfile"
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+COPY --link packages /packages
 COPY --link frankenphp/conf.d/20-app.prod.ini $PHP_INI_DIR/app.conf.d/
 COPY --link frankenphp/worker.Caddyfile /etc/caddy/worker.Caddyfile
 
@@ -92,7 +93,7 @@ RUN set -eux; \
 
 # copy sources
 COPY --link . ./
-RUN rm -Rf frankenphp/ docker/ fixtures/ tests/ tools/ config/jwt/ cron/
+RUN rm -Rf frankenphp/ docker/ fixtures/ tests/ tools/ config/jwt/ cron/ packages/
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
