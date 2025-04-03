@@ -82,6 +82,7 @@ composer: ## Run composer, pass the parameter "c=" to run a given command, examp
 	@$(COMPOSER) $(c)
 
 ## —— Symfony 🎵 ——————————————————————————————————————————————————————————————
+#
 
 load-fixtures: ## Load fixtures for dev environment and ensure that RabbitMQ messages are deleted
 	@$(DOCKER_COMP) exec -it php sh -c "php -d memory_limit=-1 bin/console do:fi:lo --no-interaction"

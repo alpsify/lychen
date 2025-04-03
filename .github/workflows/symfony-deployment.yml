@@ -23,18 +23,23 @@ jobs:
       - uses: 'actions/checkout@v4'
         with:
           fetch-depth: 0
+
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
+
       - run: moon query projects --affected --tags symfony --downstream deep --type application
+
       - name: Define Projects
         id: projects
         run: |
           echo "projects=$(moon query projects --affected --tags symfony --downstream deep --type application --json | jq -r '.projects | map(.id | @json) | join(",")' | sed 's/^/\[/; s/$/\]/')" >> "$GITHUB_OUTPUT"
+      
       - run: echo ${{ steps.projects.outputs.projects }}
 
   build-and-push:
     if: ${{ needs.define-matrix.outputs.projects != '[]' && needs.define-matrix.outputs.projects != '' }}
-    name: '${{ matrix.projects }} | Build and push production image"
+    # Production and staging are using the same image
+    name: '${{ matrix.projects }} | Build and push production image'
     needs: define-matrix
     continue-on-error: true
     strategy:
@@ -100,8 +105,8 @@ jobs:
     environment: prod-manual
     needs:
       - define-matrix
-      - deploy-to-staging
       - build-and-push
+      - deploy-to-staging
     strategy:
       fail-fast: false
       matrix:
