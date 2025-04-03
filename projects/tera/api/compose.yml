@@ -9,7 +9,7 @@ services:
     healthcheck:
       retries: 5
       start_period: 60s
-      test: [ 'CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app}', '-U', '${POSTGRES_USER:-userlocal}' ]
+      test: ['CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app}', '-U', '${POSTGRES_USER:-userlocal}']
       timeout: 5s
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     volumes:
@@ -62,7 +62,7 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
-      - ../../../libs/php:/packages #TODO move to compose.override
+      - ../../../libs/php:/packages
 
   rabbitmq:
     environment:

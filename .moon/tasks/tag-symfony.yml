@@ -52,6 +52,8 @@ tasks:
 
   docker-build:
     command: docker buildx build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest
+    deps:
+      - ci-copy-packages
     options:
       cache: false
 
