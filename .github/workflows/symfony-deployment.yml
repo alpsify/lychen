@@ -43,7 +43,7 @@ jobs:
     needs: define-matrix
     continue-on-error: true
     strategy:
-      fail-fast: false
+      #fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     runs-on: ubuntu-latest
@@ -73,7 +73,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push docker images
-        run: 'moon ci ${{ matrix.projects }}:production-docker-push'
+        run: 'moon ci ${{ matrix.projects }}:production-docker-build'
 
   deploy-to-staging:
     name: '${{ matrix.projects }} | Staging deployment'
@@ -82,7 +82,7 @@ jobs:
       - define-matrix
       - build-and-push
     strategy:
-      fail-fast: false
+      #fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     steps:
@@ -108,7 +108,7 @@ jobs:
       - build-and-push
       - deploy-to-staging
     strategy:
-      fail-fast: false
+      #fail-fast: false
       matrix:
         projects: ${{ fromJSON(needs.define-matrix.outputs.projects) }}
     steps:
