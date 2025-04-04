@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "api-platform/core",
-            "version": "v4.0.21",
+            "version": "v4.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/core.git",
-                "reference": "4acec639046f6539d3fc00abb833ba2c3a3292cf"
+                "reference": "8de9bf87f20a31f74102247cb8d75583797c6593"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/core/zipball/4acec639046f6539d3fc00abb833ba2c3a3292cf",
-                "reference": "4acec639046f6539d3fc00abb833ba2c3a3292cf",
+                "url": "https://api.github.com/repos/api-platform/core/zipball/8de9bf87f20a31f74102247cb8d75583797c6593",
+                "reference": "8de9bf87f20a31f74102247cb8d75583797c6593",
                 "shasum": ""
             },
             "require": {
@@ -216,9 +216,9 @@
             ],
             "support": {
                 "issues": "https://github.com/api-platform/core/issues",
-                "source": "https://github.com/api-platform/core/tree/v4.0.21"
+                "source": "https://github.com/api-platform/core/tree/v4.0.22"
             },
-            "time": "2025-03-21T19:10:27+00:00"
+            "time": "2025-04-03T17:58:20+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -11676,16 +11676,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "12.1.0",
+            "version": "12.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d331a5ced3d9a2b917baa9841b2211e72f9e780d"
+                "reference": "05c33d01a856f9f62488d144bafddc3d7b7a4ebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d331a5ced3d9a2b917baa9841b2211e72f9e780d",
-                "reference": "d331a5ced3d9a2b917baa9841b2211e72f9e780d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/05c33d01a856f9f62488d144bafddc3d7b7a4ebb",
+                "reference": "05c33d01a856f9f62488d144bafddc3d7b7a4ebb",
                 "shasum": ""
             },
             "require": {
@@ -11741,7 +11741,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.1.0"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.1.2"
             },
             "funding": [
                 {
@@ -11749,7 +11749,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-17T13:56:07+00:00"
+            "time": "2025-04-03T14:34:39+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
