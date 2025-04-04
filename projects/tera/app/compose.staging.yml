@@ -1,6 +1,6 @@
 services:
   app:
     image: ghcr.io/alpsify/lychen/staging/tera/app:latest
-    labels:
-      - traefik.http.routers.lychen-staging-tera-app-qpolyk-115-websecure.middlewares=ip-allow@file
+    #labels:
+    # - traefik.http.routers.lychen-staging-tera-app-qpolyk-115-websecure.middlewares=ip-allow@file
     restart: unless-stopped
