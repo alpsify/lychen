@@ -2205,7 +2205,7 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    "@vueuse/core": "npm:^12.2.0"
+    "@vueuse/core": "npm:^13.0.0"
     "@zitadel/vue": "npm:1.1.1"
     tailwindcss: "npm:^4.0.13"
     vite: "npm:^6.2.4"
@@ -3162,7 +3162,7 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
-    "@vueuse/core": "npm:^12.7.0"
+    "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     reka-ui: "npm:^2.0.2"
     vue: "npm:^3.5.13"
@@ -3182,7 +3182,7 @@ __metadata:
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/typescript-util-tailwind": "workspace:*"
     "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^12.7.0"
+    "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     embla-carousel-vue: "npm:^8.5.2"
@@ -3204,7 +3204,7 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/typescript-util-tailwind": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
-    "@vueuse/core": "npm:^12.7.0"
+    "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     reka-ui: "npm:^2.0.2"
     vue: "npm:^3.5.13"
@@ -3221,7 +3221,7 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-util-composables": "workspace:*"
-    "@vueuse/core": "npm:^12.7.0"
+    "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     reka-ui: "npm:^2.0.2"
     vue: "npm:^3.5.13"
@@ -3241,7 +3241,7 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-ui-components-website": "workspace:*"
-    "@vueuse/core": "npm:^12.8.2"
+    "@vueuse/core": "npm:^13.0.0"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
   languageName: unknown
@@ -3261,7 +3261,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-util-composables@workspace:libs/vue/util-composables"
   dependencies:
-    "@vueuse/core": "npm:^12.2.0"
+    "@vueuse/core": "npm:^13.0.0"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -5434,7 +5434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^12.2.0, @vueuse/core@npm:^12.5.0, @vueuse/core@npm:^12.7.0, @vueuse/core@npm:^12.8.2":
+"@vueuse/core@npm:^12.5.0":
   version: 12.8.2
   resolution: "@vueuse/core@npm:12.8.2"
   dependencies:

@@ -15,7 +15,7 @@
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
-    "@vueuse/core": "^12.2.0",
+    "@vueuse/core": "^13.0.0",
     "@zitadel/vue": "1.1.1",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.2",
