@@ -1,9 +1,14 @@
 <template>
-  <!--<Teleport
+  <Teleport
     defer
     to="#breadcrumb"
   >
-  </Teleport>-->
+    <BaseHeading
+      v-if="land"
+      variant="h3"
+      >{{ land.name }}</BaseHeading
+    >
+  </Teleport>
   <RouterView />
 </template>
 
@@ -16,6 +21,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '.';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { useEventBus } from '@vueuse/core';
+import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 
 const route = useRoute();
 const router = useRouter();

@@ -1,9 +1,9 @@
 <template>
   <section class="flex flex-col">
     <Tabs default-value="list">
-      <TabsList>
-        <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
+      <TabsList class="flex flex-row justify-between md:justify-start">
         <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
+        <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
         <TabsTrigger value="gantt"><Icon :icon="faArrowProgress" /> Gantt </TabsTrigger>
       </TabsList>
 
@@ -25,7 +25,7 @@
         </template>
       </TabsContent>
       <TabsContent value="kanban">
-        <Kanban class="grid grid-cols-3">
+        <Kanban class="flex flex-col md:grid md:grid-cols-3 gap-4">
           <KanbanColumn
             v-for="(state, index) in states"
             :key="state"
@@ -61,12 +61,21 @@
         </Kanban>
       </TabsContent>
       <TabsContent value="gantt">
-        <Gantt
+        <div
+          class="flex flex-col gap-4 p-20 rounded-3xl bg-surface-container size-full justify-center items-center"
+        >
+          <Icon
+            :icon="faConstruction"
+            size="2xl"
+          />
+          En cours de développement
+        </div>
+        <!--<Gantt
           :tasks="[
             { id: 1, name: 'Task A', start: '2025-03-01', end: '2025-03-05' },
             { id: 2, name: 'Task B', start: '2025-03-03', end: '2025-03-10' },
           ]"
-        />
+        />-->
       </TabsContent>
     </Tabs>
   </section>
@@ -91,11 +100,12 @@ import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
 import DataTableTeraLandTask from '@lychen/tera-ui-components/land-task/data-table/DataTableTeraLandTask.vue';
 import BadgeTeraLandTaskState from '@lychen/tera-ui-components/land-task/badges/state/BadgeTeraLandTaskState.vue';
-import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
+//import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 import {
   LandTaskState,
   PathsApiLand_rolesGetParametersQueryOrderPosition,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { faConstruction } from '@fortawesome/pro-light-svg-icons/faConstruction';
 
 const land = inject(INJECT_LAND_KEY);
 
