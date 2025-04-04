@@ -25,7 +25,7 @@
         </template>
       </TabsContent>
       <TabsContent value="kanban">
-        <Kanban>
+        <Kanban class="grid grid-cols-3">
           <KanbanColumn
             v-for="(state, index) in states"
             :key="state"
