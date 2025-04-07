@@ -1,6 +1,9 @@
 <template>
   <section class="flex flex-col">
-    <Tabs default-value="list">
+    <Tabs
+      v-model="selectedTab"
+      default-value="list"
+    >
       <TabsList class="flex flex-row justify-between md:justify-start">
         <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
         <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
@@ -78,7 +81,6 @@
       v-if="land && currentLandTask"
       v-model:open="isDialogForTaskVisible"
       :land-task="currentLandTask"
-      :land="land"
     />
   </section>
 </template>
@@ -92,7 +94,7 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
 import { useQueries, useQuery } from '@tanstack/vue-query';
-import { computed, inject, watch, ref } from 'vue';
+import { computed, inject, watch, ref, provide, onMounted } from 'vue';
 import KanbanItem from '@lychen/vue-ui-components-extra/kanban/KanbanItem.vue';
 import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
 import TabsContent from '@lychen/vue-ui-components-core/tabs/TabsContent.vue';
@@ -114,8 +116,10 @@ import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-
 import { useEventBus } from '@vueuse/core';
 import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
 import { useRoute } from 'vue-router';
+import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-components/land-task/dialogs/update';
 
 const land = inject(INJECT_LAND_KEY);
+provide(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND, land);
 
 const landId = computed(() => land?.value?.['@id']);
 const enabled = computed(() => !!landId.value);
@@ -170,12 +174,12 @@ const { data: taskFromURL } = useQuery({
       });
       return response.data;
     }
-    return undefined;
+    return null;
   },
   enabled: !!taskIdFromURL.value,
 });
 
-watch(taskFromURL, () => {
+watch(taskFromURL, (newValue) => {
   currentLandTask.value = taskFromURL.value;
   isDialogForTaskVisible.value = true;
 });
@@ -188,6 +192,21 @@ function openDialog(landTask: components['schemas']['LandTask.jsonld']) {
   currentLandTask.value = landTask;
   isDialogForTaskVisible.value = true;
 }
+
+// Local Storage Logic
+const localStorageKey = 'selected-land-tasks-tab';
+const selectedTab = ref<string>('list');
+
+onMounted(() => {
+  const storedTab = localStorage.getItem(localStorageKey);
+  if (storedTab) {
+    selectedTab.value = storedTab;
+  }
+});
+
+watch(selectedTab, (newTab) => {
+  localStorage.setItem(localStorageKey, newTab);
+});
 </script>
 
 <style lang="css" scoped></style>

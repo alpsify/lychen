@@ -47,7 +47,6 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 
 const { landTask } = defineProps<{
   landTask: components['schemas']['LandTask.jsonld'];
-  land: components['schemas']['Land.jsonld'];
 }>();
 
 interface FormType {

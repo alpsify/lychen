@@ -14,7 +14,12 @@
         >
           <div class="flex flew-row items-center gap-4">
             <p>
-              <span class="font-bold">{{ land.name }}</span> / Tâches
+              <span
+                v-if="land"
+                class="font-bold"
+                >{{ land.name }}</span
+              >
+              / Tâches
             </p>
             <Badge
               variant="outline"
@@ -66,7 +71,7 @@ import {
   landTaskDeleteSucceededEvent,
   landTaskPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandTaskEvents';
-import { watch } from 'vue';
+import { inject, watch } from 'vue';
 import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
@@ -75,6 +80,7 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import { useRouter } from 'vue-router';
+import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '.';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandTask, d } = useI18nExtended({
@@ -85,13 +91,13 @@ const { t: tLandTask, d } = useI18nExtended({
 
 const { landTask } = defineProps<{
   landTask: components['schemas']['LandTask.jsonld'];
-  land: components['schemas']['Land.jsonld'];
 }>();
 
 const open = defineModel<boolean>('open');
 
 const { on } = useEventBus(landTaskPatchSucceededEvent);
 const { on: onDelete } = useEventBus(landTaskDeleteSucceededEvent);
+const land = inject(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND);
 
 on(() => {
   open.value = false;

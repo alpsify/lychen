@@ -37,7 +37,7 @@
   <DialogTeraLandTaskDelete
     v-model:open="openDeleteDialog"
     :land-task="landTask"
-  ></DialogTeraLandTaskDelete>
+  />
 </template>
 
 <script setup lang="ts">
@@ -62,13 +62,16 @@ import {
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-task';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import DialogTeraLandTaskDelete from '../dialogs/delete/DialogTeraLandTaskDelete.vue';
+import { defineAsyncComponent, computed, ref } from 'vue';
 import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
 import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';
 import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
 import { faCopy } from '@fortawesome/pro-light-svg-icons/faCopy';
-import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
+
+const DialogTeraLandTaskDelete = defineAsyncComponent(
+  () => import('../dialogs/delete/DialogTeraLandTaskDelete.vue'),
+);
 
 const router = useRouter();
 
@@ -76,7 +79,7 @@ const landTaskURL = computed(() => {
   return window.location.origin + router.resolve({ query: { taskId: landTask.ulid } }).href;
 });
 
-const { text, copy, copied, isSupported } = useClipboard();
+const { copy, isSupported } = useClipboard();
 
 const { landTask } = defineProps<{ landTask: components['schemas']['LandTask.jsonld'] }>();
 

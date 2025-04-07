@@ -70,7 +70,11 @@
             v-for="row in table.getRowModel().rows"
             :key="row.id"
           >
-            <TableRow :data-state="row.getIsSelected() && 'selected'">
+            <TableRow
+              :data-state="row.getIsSelected() && 'selected'"
+              class="cursor-pointer"
+              @click="openDialog(row.original)"
+            >
               <TableCell
                 v-for="cell in row.getVisibleCells()"
                 :key="cell.id"
@@ -106,6 +110,11 @@
         </TableRow>
       </TableBody>
     </Table>
+    <DialogTeraLandTaskUpdate
+      v-if="currentLandTask"
+      v-model:open="isDialogForTaskVisible"
+      :land-task="currentLandTask"
+    />
   </div>
 </template>
 
@@ -150,6 +159,7 @@ import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
+import DialogTeraLandTaskUpdate from '../dialogs/update/DialogTeraLandTaskUpdate.vue';
 
 const { d } = useI18nExtended();
 
@@ -306,6 +316,14 @@ const table = useVueTable({
     },
   },
 });
+
+const isDialogForTaskVisible = ref(false);
+const currentLandTask = ref<components['schemas']['LandTask.jsonld']>();
+
+function openDialog(landTask: components['schemas']['LandTask.jsonld']) {
+  currentLandTask.value = landTask;
+  isDialogForTaskVisible.value = true;
+}
 </script>
 
 <style lang="css" scoped></style>
