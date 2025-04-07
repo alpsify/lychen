@@ -5,19 +5,26 @@
     class="flex flex-col gap-4 p-20 rounded-3xl bg-surface-container size-full justify-center items-center"
   >
     <Icon
-      :icon="faConstruction"
+      :icon="faTrowelBricks"
       size="2xl"
+      class="text-warning"
     />
-    En cours de développement
+    <div class="flex flex-col justify-center items-center">
+      <BaseHeading class="text-warning">{{ title }}</BaseHeading>
+      <p class="opacity-70 text-sm text-warning">En cours de développement</p>
+    </div>
   </PatternBackground>
 </template>
 
 <script setup lang="ts">
 import { Icon } from '@lychen/vue-ui-components-core/icon';
-import { faConstruction } from '@fortawesome/pro-light-svg-icons/faConstruction';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_VARIANT,
   PatternBackground,
 } from '@lychen/vue-ui-components-core/pattern-background';
+import BaseHeading from '../base-heading/BaseHeading.vue';
+import { faTrowelBricks } from '@fortawesome/pro-light-svg-icons/faTrowelBricks';
+
+defineProps<{ title?: string }>();
 </script>

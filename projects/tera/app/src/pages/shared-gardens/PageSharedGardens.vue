@@ -1,8 +1,11 @@
 <template>
-  <SectionTwoThird title="Shared Gardens"> </SectionTwoThird>
+  <SectionTwoThird>
+    <SectionDevelopmentInProgress title="Jardins partagés" />
+  </SectionTwoThird>
 </template>
 
 <script lang="ts" setup>
+import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import SectionTwoThird from '@lychen/vue-ui-components-app/section-two-third/SectionTwoThird.vue';
 </script>
 

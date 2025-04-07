@@ -33,6 +33,9 @@ const props = withDefaults(defineProps<FlickeringGridProps>(), {
   flickerChance: 0.3,
   color: 'rgb(0, 0, 0)',
   maxOpacity: 0.3,
+  width: undefined,
+  height: undefined,
+  class: undefined,
 });
 
 const { squareSize, gridGap, flickerChance, color, maxOpacity, width, height } = toRefs(props);
