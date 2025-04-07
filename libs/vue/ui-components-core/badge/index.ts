@@ -10,7 +10,7 @@ export const badgeVariants = cva(
         tertiary: 'bg-tertiary text-on-tertiary',
         negative: 'bg-negative text-negative-on',
         positive: 'bg-positive text-positive-on',
-        outline: 'text-on-surface',
+        outline: 'text-on-surface border-1 border-on-surface/20',
       },
     },
     defaultVariants: {

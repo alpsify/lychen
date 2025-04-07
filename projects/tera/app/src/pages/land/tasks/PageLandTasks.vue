@@ -39,7 +39,7 @@
               v-if="state === LandTaskState.to_be_done"
               #actions
             >
-              <DialogTeraLandTaskCreate>
+              <DialogTeraLandTaskCreate :land="land">
                 <Button
                   :icon="faPlus"
                   variant="container-high"
@@ -53,7 +53,10 @@
                 :key="landTask.ulid"
                 :state="state"
               >
-                <DialogTeraLandTaskUpdate>
+                <DialogTeraLandTaskUpdate
+                  :land-task="landTask"
+                  :land="land"
+                >
                   <CardTeraLandTask
                     :land-task="landTask"
                     no-state
@@ -104,6 +107,8 @@ import {
   PathsApiLand_rolesGetParametersQueryOrderPosition,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
+import { useEventBus } from '@vueuse/core';
+import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
 
 const land = inject(INJECT_LAND_KEY);
 
@@ -137,6 +142,16 @@ const queries = computed(() =>
 );
 
 const tasksQueries = useQueries({ queries: queries });
+
+function refetchAll() {
+  tasksQueries.value.forEach((result) => result.refetch());
+}
+
+const { on: onDeleteTask } = useEventBus(landTaskDeleteSucceededEvent);
+
+onDeleteTask(() => {
+  refetchAll();
+});
 </script>
 
 <style lang="css" scoped></style>

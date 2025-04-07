@@ -1,7 +1,7 @@
 <template>
   <FormField
     v-slot="{ componentField }"
-    name="name"
+    name="title"
     :validate-on-blur="!isFieldDirty"
     :rules="fieldSchema"
   >

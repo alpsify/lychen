@@ -7,25 +7,38 @@
       class="bg-surface-container-high/90 text-on-surface-container md:max-w-[70%] w-full max-h-dvh"
     >
       <div class="overflow-y-auto flex flex-col gap-4">
-        <DialogHeader class="flex flex-row justify-between items-start gap-10">
-          <div class="md:w-4/5 flex flex-col gap-2">
-            <DialogTitle>{{ t('title') }}</DialogTitle>
+        <DialogHeader
+          v-if="landTask"
+          class="flex flex-row justify-between items-center gap-10 border-b-1 border-on-surface/20 py-2"
+        >
+          <div class="flex flew-row items-center gap-4">
+            <p>
+              <span class="font-bold">{{ land.name }}</span> / Tâches
+            </p>
+            <Badge
+              variant="outline"
+              class="text-on-surface/60"
+              >{{ landTask.ulid }}</Badge
+            >
           </div>
-          <DialogClose />
+          <div class="flex flew-row items-center gap-4">
+            <DropdownMenuTeraLandTaskMain :land-task="landTask">
+              <Button
+                :icon="faEllipsisV"
+                size="sm"
+                variant="container-high"
+              />
+            </DropdownMenuTeraLandTaskMain>
+
+            <DialogClose />
+          </div>
         </DialogHeader>
+        <div v-if="landTask"></div>
+        <p v-if="landTask.createdAt">{{ d(landTask.createdAt, 'long') }}</p>
         <FormTeraLandTaskUpdate
           :land-task="landTask"
           :land="land"
         />
-        <Separator class="bg-surface-container-highest" />
-        <div class="flex flex-row gap-2 justify-end">
-          <DialogTeraLandTaskDelete :land-task="landTask">
-            <Button
-              :label="tLandTask('action.delete.label')"
-              variant="negative"
-            />
-          </DialogTeraLandTaskDelete>
-        </div>
       </div>
     </DialogContent>
   </Dialog>
@@ -36,9 +49,10 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from '@lychen/vue-ui-components-core/dialog';
+import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
+import { Badge } from '@lychen/vue-ui-components-core/badge';
 import FormTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/forms/FormTeraLandTaskUpdate.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
@@ -54,12 +68,11 @@ import {
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-task';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { Separator } from '@lychen/vue-ui-components-core/separator';
-import DialogTeraLandTaskDelete from '../delete/DialogTeraLandTaskDelete.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-const { t: tLandTask } = useI18nExtended({
+const { t: tLandTask, d } = useI18nExtended({
   messages: landTaskMessages,
   rootKey: LAND_TASK_TRANSLATION_KEY,
   prefixed: true,

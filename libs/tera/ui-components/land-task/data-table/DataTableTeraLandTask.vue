@@ -149,6 +149,7 @@ import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import DropdownMenuTeraLandTaskMain from '../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 
 const { d } = useI18nExtended();
 
@@ -242,15 +243,24 @@ const columns = [
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => {
+      const landTask: components['schemas']['LandTask.jsonld'] = row.original;
       return h(
         'div',
         { class: 'relative' },
-        h(Button, {
-          icon: faEllipsisV,
-          size: 'sm',
-          variant: 'ghost',
-          onExpand: row.toggleExpanded,
-        }),
+        h(
+          DropdownMenuTeraLandTaskMain,
+          {
+            'land-task': landTask,
+          },
+          {
+            default: () =>
+              h(Button, {
+                icon: faEllipsisV,
+                size: 'sm',
+                variant: 'ghost',
+              }),
+          },
+        ),
       );
     },
   }),

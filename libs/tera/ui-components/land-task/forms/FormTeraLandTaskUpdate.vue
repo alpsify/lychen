@@ -4,6 +4,17 @@
     @submit.prevent="onSubmit"
   >
     <FormFieldTeraLandTaskTitle :is-field-dirty="isFieldDirty" />
+    <div class="grid grid-cols-2">
+      <ul>
+        <li>Status</li>
+        <li>Date de début</li>
+        <li>Date de fin</li>
+      </ul>
+    </div>
+    <div>Content</div>
+    <div>
+      <BaseHeading variant="h3">Land Area</BaseHeading>
+    </div>
     <Button
       :disabled="!meta.valid || isPending || !meta.dirty"
       :loading="isPending"
@@ -18,6 +29,7 @@
 <script lang="ts" setup>
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-task';
 
 import { useForm } from 'vee-validate';
@@ -43,7 +55,9 @@ interface FormType {
 }
 
 const { handleSubmit, meta, setFieldValue, isFieldDirty } = useForm<FormType>({
-  initialValues: {},
+  initialValues: {
+    title: landTask.title || '',
+  },
 });
 
 const { emit } = useEventBus(landTaskPatchSucceededEvent);
