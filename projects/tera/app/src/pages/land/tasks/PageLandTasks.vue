@@ -78,6 +78,13 @@
       </TabsContent>
     </Tabs>
   </section>
+  <div v-if="taskFromURL && land">
+    <DialogTeraLandTaskUpdate
+      v-model:open="isDialogForTaskFromURLVisible"
+      :land-task="taskFromURL"
+      :land="land"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -88,8 +95,8 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
-import { useQueries } from '@tanstack/vue-query';
-import { computed, inject } from 'vue';
+import { useQueries, useQuery } from '@tanstack/vue-query';
+import { computed, inject, watch, ref } from 'vue';
 import KanbanItem from '@lychen/vue-ui-components-extra/kanban/KanbanItem.vue';
 import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
 import TabsContent from '@lychen/vue-ui-components-core/tabs/TabsContent.vue';
@@ -109,6 +116,7 @@ import {
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
 import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
+import { useRoute } from 'vue-router';
 
 const land = inject(INJECT_LAND_KEY);
 
@@ -151,6 +159,30 @@ const { on: onDeleteTask } = useEventBus(landTaskDeleteSucceededEvent);
 
 onDeleteTask(() => {
   refetchAll();
+});
+
+const route = useRoute();
+const taskIdFromURL = computed(() => route.query.taskId);
+
+const { data: taskFromURL } = useQuery({
+  queryKey: ['land-task', taskIdFromURL],
+  queryFn: async () => {
+    const response = await api.GET('/api/land_tasks/{ulid}', {
+      params: { path: { ulid: <string>taskIdFromURL.value } },
+    });
+    return response.data;
+  },
+  enabled: !!taskIdFromURL.value,
+});
+
+const isDialogForTaskFromURLVisible = ref(false);
+
+watch(taskFromURL, (newValue) => {
+  if (newValue) {
+    isDialogForTaskFromURLVisible.value = true;
+  } else {
+    isDialogForTaskFromURLVisible.value = false;
+  }
 });
 </script>
 

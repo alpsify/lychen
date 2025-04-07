@@ -3,10 +3,18 @@
     <DropdownMenuTrigger as-child><slot /></DropdownMenuTrigger>
     <DropdownMenuContent class="w-56">
       <DropdownMenuGroup>
-        <DropdownMenuItem :icon="faHashtag">
+        <DropdownMenuItem
+          v-if="isSupported && landTask.ulid"
+          :icon="faHashtag"
+          @click="copy(landTask.ulid)"
+        >
           <span>Copier l'ID</span>
         </DropdownMenuItem>
-        <DropdownMenuItem :icon="faLink">
+        <DropdownMenuItem
+          v-if="isSupported && landTask.ulid"
+          :icon="faLink"
+          @click="copy(landTaskURL)"
+        >
           <span>Copier le lien</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
@@ -34,6 +42,7 @@
 
 <script setup lang="ts">
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { useClipboard } from '@vueuse/core';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -58,9 +67,18 @@ import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
 import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';
 import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
 import { faCopy } from '@fortawesome/pro-light-svg-icons/faCopy';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-defineProps<{ landTask: components['schemas']['LandTask.jsonld'] }>();
+const router = useRouter();
+
+const landTaskURL = computed(() => {
+  return window.location.origin + router.resolve({ query: { taskId: landTask.ulid } }).href;
+});
+
+const { text, copy, copied, isSupported } = useClipboard();
+
+const { landTask } = defineProps<{ landTask: components['schemas']['LandTask.jsonld'] }>();
 
 const { t: tLandTask } = useI18nExtended({
   messages: landTaskMessages,

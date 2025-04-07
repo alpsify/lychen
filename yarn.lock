@@ -2803,6 +2803,7 @@ __metadata:
     "@vueuse/core": "npm:^13.0.0"
     vee-validate: "npm:^4.15.0"
     vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
     zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
