@@ -61,15 +61,7 @@
         </Kanban>
       </TabsContent>
       <TabsContent value="gantt">
-        <div
-          class="flex flex-col gap-4 p-20 rounded-3xl bg-surface-container size-full justify-center items-center"
-        >
-          <Icon
-            :icon="faConstruction"
-            size="2xl"
-          />
-          En cours de développement
-        </div>
+        <SectionDevelopmentInProgress />
         <!--<Gantt
           :tasks="[
             { id: 1, name: 'Task A', start: '2025-03-01', end: '2025-03-05' },
@@ -105,7 +97,7 @@ import {
   LandTaskState,
   PathsApiLand_rolesGetParametersQueryOrderPosition,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
-import { faConstruction } from '@fortawesome/pro-light-svg-icons/faConstruction';
+import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 
 const land = inject(INJECT_LAND_KEY);
 
