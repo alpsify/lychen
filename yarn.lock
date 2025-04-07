@@ -1808,7 +1808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/date@npm:^3.5.0":
+"@internationalized/date@npm:^3.5.0, @internationalized/date@npm:^3.7.0":
   version: 3.7.0
   resolution: "@internationalized/date@npm:3.7.0"
   dependencies:
@@ -3179,6 +3179,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@internationalized/date": "npm:^3.7.0"
     "@lychen/typescript-util-fontawesome": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/typescript-util-tailwind": "workspace:*"

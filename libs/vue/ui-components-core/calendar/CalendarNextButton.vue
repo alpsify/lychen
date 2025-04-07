@@ -24,7 +24,7 @@ const forwardedProps = useForwardProps(delegatedProps);
       cn(
         VARIANT_VALUES['container-high'],
         'absolute right-1',
-        'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',
+        'size-7 bg-transparent p-0 opacity-50 hover:opacity-100 rounded-md cursor-pointer',
         props.class,
       )
     "
