@@ -39,11 +39,13 @@
               v-if="state === LandTaskState.to_be_done"
               #actions
             >
-              <Button
-                :icon="faPlus"
-                variant="container-high"
-                size="xs"
-              />
+              <DialogTeraLandTaskCreate>
+                <Button
+                  :icon="faPlus"
+                  variant="container-high"
+                  size="xs"
+                />
+              </DialogTeraLandTaskCreate>
             </template>
             <template v-if="tasksQueries[index]?.data?.member">
               <KanbanItem
@@ -51,10 +53,12 @@
                 :key="landTask.ulid"
                 :state="state"
               >
-                <CardTeraLandTask
-                  :land-task="landTask"
-                  no-state
-                />
+                <DialogTeraLandTaskUpdate>
+                  <CardTeraLandTask
+                    :land-task="landTask"
+                    no-state
+                  />
+                </DialogTeraLandTaskUpdate>
               </KanbanItem>
             </template>
           </KanbanColumn>
@@ -92,6 +96,8 @@ import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
 import DataTableTeraLandTask from '@lychen/tera-ui-components/land-task/data-table/DataTableTeraLandTask.vue';
 import BadgeTeraLandTaskState from '@lychen/tera-ui-components/land-task/badges/state/BadgeTeraLandTaskState.vue';
+import DialogTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/dialogs/update/DialogTeraLandTaskUpdate.vue';
+import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
 //import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 import {
   LandTaskState,
