@@ -53,15 +53,12 @@
                 :key="landTask.ulid"
                 :state="state"
               >
-                <DialogTeraLandTaskUpdate
+                <CardTeraLandTask
                   :land-task="landTask"
-                  :land="land"
-                >
-                  <CardTeraLandTask
-                    :land-task="landTask"
-                    no-state
-                  />
-                </DialogTeraLandTaskUpdate>
+                  no-state
+                  class="cursor-pointer"
+                  @click="openDialog(landTask)"
+                />
               </KanbanItem>
             </template>
           </KanbanColumn>
@@ -77,14 +74,13 @@
         />-->
       </TabsContent>
     </Tabs>
-  </section>
-  <div v-if="taskFromURL && land">
     <DialogTeraLandTaskUpdate
-      v-model:open="isDialogForTaskFromURLVisible"
-      :land-task="taskFromURL"
+      v-if="land && currentLandTask"
+      v-model:open="isDialogForTaskVisible"
+      :land-task="currentLandTask"
       :land="land"
     />
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -112,6 +108,7 @@ import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialo
 import {
   LandTaskState,
   PathsApiLand_rolesGetParametersQueryOrderPosition,
+  type components,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
@@ -167,23 +164,30 @@ const taskIdFromURL = computed(() => route.query.taskId);
 const { data: taskFromURL } = useQuery({
   queryKey: ['land-task', taskIdFromURL],
   queryFn: async () => {
-    const response = await api.GET('/api/land_tasks/{ulid}', {
-      params: { path: { ulid: <string>taskIdFromURL.value } },
-    });
-    return response.data;
+    if (taskIdFromURL.value) {
+      const response = await api.GET('/api/land_tasks/{ulid}', {
+        params: { path: { ulid: <string>taskIdFromURL.value } },
+      });
+      return response.data;
+    }
+    return undefined;
   },
   enabled: !!taskIdFromURL.value,
 });
 
-const isDialogForTaskFromURLVisible = ref(false);
-
-watch(taskFromURL, (newValue) => {
-  if (newValue) {
-    isDialogForTaskFromURLVisible.value = true;
-  } else {
-    isDialogForTaskFromURLVisible.value = false;
-  }
+watch(taskFromURL, () => {
+  currentLandTask.value = taskFromURL.value;
+  isDialogForTaskVisible.value = true;
 });
+
+const isDialogForTaskVisible = ref(false);
+
+const currentLandTask = ref();
+
+function openDialog(landTask: components['schemas']['LandTask.jsonld']) {
+  currentLandTask.value = landTask;
+  isDialogForTaskVisible.value = true;
+}
 </script>
 
 <style lang="css" scoped></style>

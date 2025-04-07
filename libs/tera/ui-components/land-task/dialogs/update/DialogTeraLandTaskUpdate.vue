@@ -4,6 +4,7 @@
       <slot />
     </DialogTrigger>
     <DialogContent
+      :id="`dialog-content-${landTask.ulid}`"
       class="bg-surface-container-high/90 text-on-surface-container md:max-w-[70%] w-full max-h-dvh"
     >
       <div class="overflow-y-auto flex flex-col gap-4">
@@ -30,7 +31,10 @@
               />
             </DropdownMenuTeraLandTaskMain>
 
-            <DialogClose />
+            <DialogClose
+              as-child
+              @click="onClose()"
+            />
           </div>
         </DialogHeader>
         <div v-if="landTask"></div>
@@ -49,6 +53,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogClose,
   DialogTrigger,
 } from '@lychen/vue-ui-components-core/dialog';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
@@ -56,13 +61,12 @@ import { Badge } from '@lychen/vue-ui-components-core/badge';
 import FormTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/forms/FormTeraLandTaskUpdate.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
-import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
 import {
   landTaskDeleteSucceededEvent,
   landTaskPatchSucceededEvent,
 } from '@lychen/tera-util-events/LandTaskEvents';
-import { ref } from 'vue';
+import { watch } from 'vue';
 import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
@@ -70,6 +74,7 @@ import {
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandTask, d } = useI18nExtended({
@@ -83,7 +88,7 @@ const { landTask } = defineProps<{
   land: components['schemas']['Land.jsonld'];
 }>();
 
-const open = ref(false);
+const open = defineModel<boolean>('open');
 
 const { on } = useEventBus(landTaskPatchSucceededEvent);
 const { on: onDelete } = useEventBus(landTaskDeleteSucceededEvent);
@@ -91,7 +96,25 @@ const { on: onDelete } = useEventBus(landTaskDeleteSucceededEvent);
 on(() => {
   open.value = false;
 });
+
 onDelete(() => {
   open.value = false;
 });
+
+const router = useRouter();
+
+watch(
+  open,
+  (newValue) => {
+    if (newValue && landTask.ulid) {
+      router.push({ query: { taskId: landTask.ulid } });
+    }
+  },
+  { immediate: true },
+);
+
+function onClose() {
+  router.push({ query: {} });
+  open.value = false;
+}
 </script>
