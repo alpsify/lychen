@@ -1,8 +1,9 @@
 <template>
-  <section class="flex flex-col gap-3">
+  <section class="flex flex-col">
     <Tabs
       v-model="selectedTab"
       default-value="list"
+      class="gap-2 flex flex-col"
     >
       <TabsList class="flex flex-row justify-between md:justify-start">
         <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
@@ -34,6 +35,7 @@
             :key="state"
             :state="state"
             :total-items="tasksQueries[index]?.data?.totalItems"
+            class="h-full"
           >
             <template #state>
               <BadgeTeraLandTaskState :state />
