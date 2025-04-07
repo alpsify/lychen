@@ -1,7 +1,7 @@
 export default {
   property: {
     title: {
-      label: 'Titre',
+      label: 'Title',
     },
   },
   action: {
