@@ -36,7 +36,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const fieldSchema = toTypedSchema(z.string().min(2).max(40));
+const fieldSchema = toTypedSchema(z.string().min(2).max(250));
 
 defineProps({
   isFieldDirty: {

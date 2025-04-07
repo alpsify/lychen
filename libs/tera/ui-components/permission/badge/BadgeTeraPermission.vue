@@ -1,5 +1,5 @@
 <template>
-  <Badge class="cursor-default">
+  <Badge>
     {{ t(permission) }}
   </Badge>
 </template>

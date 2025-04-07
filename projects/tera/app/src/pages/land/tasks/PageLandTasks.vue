@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col">
+  <section class="flex flex-col gap-3">
     <Tabs
       v-model="selectedTab"
       default-value="list"

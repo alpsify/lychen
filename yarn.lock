@@ -11029,27 +11029,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reka-ui@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "reka-ui@npm:2.1.0"
-  dependencies:
-    "@floating-ui/dom": "npm:^1.6.13"
-    "@floating-ui/vue": "npm:^1.1.6"
-    "@internationalized/date": "npm:^3.5.0"
-    "@internationalized/number": "npm:^3.5.0"
-    "@tanstack/vue-virtual": "npm:^3.12.0"
-    "@vueuse/core": "npm:^12.5.0"
-    "@vueuse/shared": "npm:^12.5.0"
-    aria-hidden: "npm:^1.2.4"
-    defu: "npm:^6.1.4"
-    ohash: "npm:^1.1.4"
-  peerDependencies:
-    vue: ">= 3.2.0"
-  checksum: 10c0/1940eba8a612ed411d5282bf7a4db84e99ed5ec485c12c38d9d4ff8c45176f3d7fc51c1e30a634f8856658ac3a485c75c8ecd9f21a9f26fb0461afc97cd695f5
-  languageName: node
-  linkType: hard
-
-"reka-ui@npm:^2.2.0":
+"reka-ui@npm:^2.0.0, reka-ui@npm:^2.2.0":
   version: 2.2.0
   resolution: "reka-ui@npm:2.2.0"
   dependencies:
