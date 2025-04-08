@@ -2716,6 +2716,7 @@ __metadata:
   dependencies:
     "@chromatic-com/storybook": "npm:^3"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@internationalized/date": "npm:^3.7.0"
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"

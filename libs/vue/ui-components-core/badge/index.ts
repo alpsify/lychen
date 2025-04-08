@@ -9,7 +9,7 @@ export const VARIANT_VALUES = {
   outline: 'bg-surface text-on-surface border-1 border-on-surface/20',
 } as const;
 
-export const VARIANT = Object.keys(VARIANT_VALUES);
+export const VARIANT_NAMES = Object.keys(VARIANT_VALUES);
 export type VariantKey = keyof typeof VARIANT_VALUES;
 
 export { default as Badge } from './Badge.vue';
