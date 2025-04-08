@@ -38,15 +38,16 @@
     <div class="grid grid-cols-[1fr_30%] gap-8 grid-rows-2 dashboard-grid">
       <div
         id="header"
-        class="flex flex-row justify-between p-4 border-1 border-surface-container/50 rounded-xl items-center"
+        class="flex flex-row justify-between p-4 border-1 border-surface-container/100 rounded-xl items-center"
       >
         <div class="flex flex-row gap-4 items-center">
           <BaseHeading variant="h4">Actions rapide</BaseHeading>
-          <Button
-            label="Inviter"
-            :icon="faUserPlus"
-            variant="secondary"
-          />
+          <RouterLink :to="RoutePageLandSettings">
+            <Button
+              label="Inviter"
+              :icon="faUserPlus"
+              variant="secondary"
+          /></RouterLink>
         </div>
         <div class="flex flex-row gap-2">
           <Button
@@ -128,9 +129,12 @@
             <BaseHeading variant="h3">Données</BaseHeading>
             <p class="opacity-80">On s'occupe de vous générer des revenus grâce à vos données.</p>
           </div>
-          <p class="font-bold">Valeur estimé : xx € /mois</p>
-          <Badge class="bg-tertiary text-on-tertiary self-start">Bientôt disponible</Badge>
+          <p class="font-bold flex flex-row gap-2 items-center">
+            Valeur estimé : <Skeleton class="w-[30px] h-5" /> € /mois
+          </p>
+          <BadgeDevelopmentInProgress class="self-start" />
           <Button
+            disabled
             label="Configurer"
             variant="container-high"
             class="self-end"
@@ -245,7 +249,7 @@ import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
 import { faDatabase } from '@fortawesome/pro-light-svg-icons/faDatabase';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
 import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
-import { Badge } from '@lychen/vue-ui-components-core/badge';
+import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

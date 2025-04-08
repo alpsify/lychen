@@ -2,7 +2,8 @@
   <button
     :class="
       cn(
-        'cursor-pointer ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-xl hover:shadow-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 gap-2',
+        'cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-xl hover:shadow-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 gap-2',
+        PRESETS.FocusOutline,
         VARIANT_VALUES[variant],
         SIZE_VALUES[size],
         props.class,
@@ -33,7 +34,7 @@
 
 <script setup lang="ts">
 import { computed, type HTMLAttributes, type VNode } from 'vue';
-
+import { PRESETS } from '../utils/Preset';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import {
   ICON_POSITION,

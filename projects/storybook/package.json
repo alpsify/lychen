@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@internationalized/date": "^3.7.0",
     "@lychen/ui-css": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@lychen/vue-ui-components-extra": "workspace:*",

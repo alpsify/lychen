@@ -49,7 +49,7 @@ export function ModeDecorator(story: any, context: any): any {
     components: { Story: story(), Icon: Icon, faSun: faSun },
     template: `      
       <div class="grid grid-cols-[1fr_auto] gap-4">
-        <div>
+        <div class="flex flex-row">
           <Story />
         </div>
         <button

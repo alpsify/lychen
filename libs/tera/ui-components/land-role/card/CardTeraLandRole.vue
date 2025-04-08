@@ -10,12 +10,12 @@
     >
       {{ t('property.land_members.default', landRole.landMembers?.length || 0) }}
     </p>
-    <div>
+    <div class="flex flex-row gap-2 flex-wrap">
       <BadgeTeraPermission
         v-for="permission in landRole.permissions"
         :key="permission"
         :permission="permission"
-        class="bg-surface-container-high text-on-surface-container mr-2 font-normal"
+        class="bg-surface-container-high text-on-surface-container-high"
       />
     </div>
   </Card>

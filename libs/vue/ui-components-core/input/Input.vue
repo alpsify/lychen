@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { useVModel } from '@vueuse/core';
+import { PRESETS } from '../utils/Preset';
 
 const props = defineProps<{
   defaultValue?: string | number;
@@ -24,7 +25,8 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     v-model="modelValue"
     :class="
       cn(
-        'flex h-10 w-full rounded-xl border border-on-surface/40 bg-surface px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-on-surface/40 focus-visible:outline-none focus-visible:border-on-surface/70 disabled:cursor-not-allowed disabled:opacity-50',
+        'flex min-h-10 w-full rounded-xl bg-surface-container-highest text-on-surface-container-highest px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-on-surface/40 disabled:cursor-not-allowed disabled:opacity-50',
+        PRESETS.FocusOutline,
         props.class,
       )
     "

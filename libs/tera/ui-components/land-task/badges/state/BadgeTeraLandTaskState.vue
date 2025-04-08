@@ -1,17 +1,18 @@
 <template>
-  <div
+  <Badge
     :class="classes[state]"
-    class="flex flex-row items-center rounded-md px-2 uppercase py-1 text-xs gap-2"
+    class="uppercase"
   >
     <Icon :icon="faCircleDashed" />
     {{ t(state) }}
-  </div>
+  </Badge>
 </template>
 
 <script lang="ts" setup>
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import Badge from '@lychen/vue-ui-components-core/badge/Badge.vue';
 import { faCircleDashed } from '@fortawesome/pro-light-svg-icons';
 import { LandTaskState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 

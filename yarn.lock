@@ -1808,7 +1808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/date@npm:^3.5.0":
+"@internationalized/date@npm:^3.5.0, @internationalized/date@npm:^3.7.0":
   version: 3.7.0
   resolution: "@internationalized/date@npm:3.7.0"
   dependencies:
@@ -2716,6 +2716,7 @@ __metadata:
   dependencies:
     "@chromatic-com/storybook": "npm:^3"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@internationalized/date": "npm:^3.7.0"
     "@lychen/ui-css": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
@@ -2803,6 +2804,7 @@ __metadata:
     "@vueuse/core": "npm:^13.0.0"
     vee-validate: "npm:^4.15.0"
     vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
     zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
@@ -3164,7 +3166,7 @@ __metadata:
     "@lychen/vue-util-composables": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.0.2"
+    reka-ui: "npm:^2.2.0"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -3178,6 +3180,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@internationalized/date": "npm:^3.7.0"
     "@lychen/typescript-util-fontawesome": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/typescript-util-tailwind": "workspace:*"
@@ -3186,8 +3189,8 @@ __metadata:
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     embla-carousel-vue: "npm:^8.5.2"
-    reka-ui: "npm:^2.1.0"
-    tailwind-merge: "npm:^3.0.2"
+    reka-ui: "npm:^2.2.0"
+    tailwind-merge: "npm:^3.1.0"
     tailwindcss: "npm:^4.0.13"
     vaul-vue: "npm:^0.3.0"
     vee-validate: "npm:^4.15.0"
@@ -3206,7 +3209,7 @@ __metadata:
     "@lychen/vue-ui-components-core": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.0.2"
+    reka-ui: "npm:^2.2.0"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -3223,7 +3226,7 @@ __metadata:
     "@lychen/vue-util-composables": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.0.2"
+    reka-ui: "npm:^2.2.0"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -9932,6 +9935,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ohash@npm:^2.0.11":
+  version: 2.0.11
+  resolution: "ohash@npm:2.0.11"
+  checksum: 10c0/d07c8d79cc26da082c1a7c8d5b56c399dd4ed3b2bd069fcae6bae78c99a9bcc3ad813b1e1f49ca2f335292846d689c6141a762cf078727d2302a33d414e69c79
+  languageName: node
+  linkType: hard
+
 "oidc-client@npm:^1.11.5":
   version: 1.11.5
   resolution: "oidc-client@npm:1.11.5"
@@ -11021,9 +11031,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reka-ui@npm:^2.0.0, reka-ui@npm:^2.0.2, reka-ui@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "reka-ui@npm:2.1.0"
+"reka-ui@npm:^2.0.0, reka-ui@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "reka-ui@npm:2.2.0"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.13"
     "@floating-ui/vue": "npm:^1.1.6"
@@ -11034,10 +11044,10 @@ __metadata:
     "@vueuse/shared": "npm:^12.5.0"
     aria-hidden: "npm:^1.2.4"
     defu: "npm:^6.1.4"
-    ohash: "npm:^1.1.4"
+    ohash: "npm:^2.0.11"
   peerDependencies:
     vue: ">= 3.2.0"
-  checksum: 10c0/1940eba8a612ed411d5282bf7a4db84e99ed5ec485c12c38d9d4ff8c45176f3d7fc51c1e30a634f8856658ac3a485c75c8ecd9f21a9f26fb0461afc97cd695f5
+  checksum: 10c0/11fb0f873d77c9f9589aab0aa1995291d8d2d5b49fb7c17a118376e8f1e461c79972333910dfd47fb890016a7f1956f150565646aa665edc19df9c8ff3becca3
   languageName: node
   linkType: hard
 
@@ -11961,10 +11971,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "tailwind-merge@npm:3.0.2"
-  checksum: 10c0/73f528345e5130e7690c5c57701155849ae4f0834e0a4bf56bc03e25d4563d45d4905ff9c487a7dce9efdfa18689a223e78365962105ad0e2f2d1226216c66ef
+"tailwind-merge@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "tailwind-merge@npm:3.1.0"
+  checksum: 10c0/71d6dc5f8bae2f87950eefa2605a391ffef45a09759de22ba0e90976180ab3cd4fc48ed37063a617dc2ff0f48768c0006090a78bcd1f5ad0ae1c373aad16d2b6
   languageName: node
   linkType: hard
 
