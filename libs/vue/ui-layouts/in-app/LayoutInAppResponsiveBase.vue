@@ -167,7 +167,7 @@
         </div>
       </slot>
     </header>
-    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-sm p-6">
+    <main class="rounded-2xl bg-surface mb-4 mr-4 p-6">
       <slot name="main" />
     </main>
   </div>
@@ -230,17 +230,12 @@ const largerThanMd = breakpoints.greater('lg');
     }
   }
 
-  nav {
-    grid-area: navigation;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
   header {
     grid-area: header;
   }
   nav {
+    grid-area: navigation;
+    overflow-y: auto;
     &::-webkit-scrollbar {
       display: block;
       width: 8px;
@@ -263,6 +258,7 @@ const largerThanMd = breakpoints.greater('lg');
     &::-webkit-scrollbar-thumb {
       border-radius: 20px;
     }
+    /*mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 97%, rgba(0, 0, 0, 0) 100%);*/
   }
 
   .corner {

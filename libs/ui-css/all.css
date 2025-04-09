@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @import './color/colors.css';
 @import './color/gradients.css';
 @import './color/keyframes.css';

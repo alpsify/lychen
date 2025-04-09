@@ -1,0 +1,35 @@
+{
+  "name": "@lychen/design",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite-ssg build ${0}",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/pro-light-svg-icons": "^6.7.2",
+    "@lychen/ui-css": "workspace:*",
+    "@lychen/ui-i18n": "workspace:*",
+    "@lychen/vite-util-ssg": "workspace:*",
+    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-ui-components-app": "workspace:*",
+    "@lychen/vue-ui-components-core": "workspace:*",
+    "@lychen/vue-ui-components-extra": "workspace:*",
+    "@unhead/schema-org": "^1.11.14",
+    "@unhead/vue": "^1.11.14",
+    "unhead": "^1.11.14",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.2.4",
+    "vite-plugin-mkcert": "^1.17.7",
+    "vite-ssg": "^26.1.1",
+    "vite-ssg-sitemap": "^0.8.1"
+  }
+}

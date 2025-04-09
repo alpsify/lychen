@@ -1,176 +1,111 @@
-:root {
-  --lychen-color-primary: 69, 103, 49;
-  --lychen-color-on-primary: 255, 255, 255;
-  --lychen-color-primary-container: 198, 238, 170;
-  --lychen-color-on-primary-container: 8, 33, 0;
+:root,
+[data-theme='light'] {
+  --lychen-color-negative: oklch(0.5 0.25 30);
+  --lychen-color-on-negative: oklch(1 0 0);
+  --lychen-color-negative-container: oklch(0.9 0.15 30);
+  --lychen-color-on-negative-container: oklch(0.3 0.25 30);
 
-  --lychen-color-secondary: 85, 98, 76;
-  --lychen-color-on-secondary: 255, 255, 255;
-  --lychen-color-secondary-container: 217, 231, 202;
-  --lychen-color-on-secondary-container: 19, 31, 13;
+  --lychen-color-positive: oklch(0.4 0.18 140);
+  --lychen-color-on-positive: oklch(1 0 0);
+  --lychen-color-positive-container: oklch(0.85 0.15 140);
+  --lychen-color-on-positive-container: oklch(0.15 0.18 140);
 
-  --lychen-color-tertiary: 56, 102, 102;
-  --lychen-color-on-tertiary: 255, 255, 255;
-  --lychen-color-tertiary-container: 187, 235, 235;
-  --lychen-color-on-tertiary-container: 0, 32, 32;
+  --lychen-color-warning: oklch(0.6 0.2 70);
+  --lychen-color-on-warning: oklch(1 0 0);
+  --lychen-color-warning-container: oklch(0.9 0.15 70);
+  --lychen-color-on-warning-container: oklch(0.3 0.2 70);
 
-  --lychen-color-negative: 186, 26, 26;
-  --lychen-color-on-negative: 255, 255, 255;
-  --lychen-color-negative-container: 255, 218, 214;
-  --lychen-color-on-negative-container: 65, 0, 2;
+  --lychen-color-surface-hue: 93.57;
+  --lychen-color-surface-chroma: 0.014;
+  --lychen-color-surface-lightness: 0.98;
 
-  --lychen-color-positive: 47, 108, 11;
-  --lychen-color-on-positive: 255, 255, 255;
-  --lychen-color-positive-container: 175, 245, 135;
-  --lychen-color-on-positive-container: 8, 33, 0;
+  --lychen-color-surface: oklch(var(--lychen-color-surface-lightness) var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-warning: 135, 82, 0;
-  --lychen-color-on-warning: 255, 255, 255;
-  --lychen-color-warning-container: 255, 221, 186;
-  --lychen-color-on-warning-container: 43, 23, 0;
+  --lychen-color-surface-container: oklch(0.93 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface: 248, 250, 240;
-  --lychen-color-on-surface: 25, 29, 22;
+  --lychen-color-surface-container-low: oklch(0.95 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-low: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-variant: 220, 229, 219;
-  --lychen-color-on-surface-variant: 65, 73, 66;
+  --lychen-color-surface-container-lowest: oklch(1 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-lowest: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-dim: 217, 219, 209;
-  --lychen-color-on-surface-dim: 25, 29, 22;
+  --lychen-color-surface-container-high: oklch(0.90 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-high: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-bright: 248, 250, 240;
-  --lychen-color-on-surface-bright: 25, 29, 22;
-
-  --lychen-color-surface-container: 237, 239, 228;
-  --lychen-color-on-surface-container: 25, 29, 22;
-
-  --lychen-color-surface-container-low: 243, 245, 234;
-  --lychen-color-on-surface-container-low: 25, 29, 22;
-
-  --lychen-color-surface-container-lowest: 255, 255, 255;
-  --lychen-color-on-surface-container-lowest: 25, 29, 22;
-
-  --lychen-color-surface-container-high: 231, 233, 223;
-  --lychen-color-on-surface-container-high: 25, 29, 22;
-
-  --lychen-color-surface-container-highest: 225, 228, 217;
-  --lychen-color-on-surface-container-highest: 25, 29, 22;
+  --lychen-color-surface-container-highest: oklch(0.88 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-highest: oklch(0.305 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 }
 
-html.dark {
-  --lychen-color-primary: 170, 210, 144;
-  --lychen-color-on-primary: 24, 56, 6;
-  --lychen-color-primary-container: 46, 79, 28;
-  --lychen-color-on-primary-container: 198, 238, 170;
+[data-theme='dark'] {
+  --lychen-color-negative: oklch(0.9 0.15 30);
+  --lychen-color-on-negative: oklch(0.3 0.25 30);
+  --lychen-color-negative-container: oklch(0.4 0.25 30);
+  --lychen-color-on-negative-container: oklch(0.9 0.15 30);
 
-  --lychen-color-secondary: 189, 203, 175;
-  --lychen-color-on-secondary: 40, 52, 32;
-  --lychen-color-secondary-container: 62, 74, 53;
-  --lychen-color-on-secondary-container: 217, 231, 202;
+  --lychen-color-positive: oklch(0.78 0.1 133.5);
+  --lychen-color-on-positive: oklch(0.15 0.12 133.5);
+  --lychen-color-positive-container: oklch(0.38 0.12 133.5);
+  --lychen-color-on-positive-container: oklch(0.88 0.08 133.5);
 
-  --lychen-color-tertiary: 160, 207, 207;
-  --lychen-color-on-tertiary: 0, 55, 55;
-  --lychen-color-tertiary-container: 30, 78, 78;
-  --lychen-color-on-tertiary-container: 187, 235, 235;
+  --lychen-color-warning: oklch(0.9 0.15 70);
+  --lychen-color-on-warning: oklch(0.3 0.2 70);
+  --lychen-color-warning-container: oklch(0.4 0.2 70);
+  --lychen-color-on-warning-container: oklch(0.9 0.15 70);
 
-  --lychen-color-negative: 255, 180, 171;
-  --lychen-color-on-negative: 105, 0, 5;
-  --lychen-color-negative-container: 147, 0, 10;
-  --lychen-color-on-negative-container: 255, 218, 214;
+  --lychen-color-surface-lightness: 0.15;
 
-  --lychen-color-positive: 148, 216, 110;
-  --lychen-color-on-positive: 19, 56, 0;
-  --lychen-color-positive-container: 30, 81, 0;
-  --lychen-color-on-positive-container: 175, 245, 135;
+  --lychen-color-surface: oklch(var(--lychen-color-surface-lightness) var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-warning: 255, 184, 103;
-  --lychen-color-on-warning: 72, 41, 0;
-  --lychen-color-warning-container: 103, 61, 0;
-  --lychen-color-on-warning-container: 255, 221, 186;
+  --lychen-color-surface-container: oklch(0.25 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface: 17, 20, 14;
-  --lychen-color-on-surface: 225, 228, 217;
+  --lychen-color-surface-container-low: oklch(0.20 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-low: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-variant: 65, 73, 66;
-  --lychen-color-on-surface-variant: 192, 201, 192;
+  --lychen-color-surface-container-lowest: oklch(0 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-lowest: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-dim: 17, 20, 14;
-  --lychen-color-on-surface-dim: 225, 228, 217;
+  --lychen-color-surface-container-high: oklch(0.3 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-high: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 
-  --lychen-color-surface-bright: 55, 58, 51;
-  --lychen-color-on-surface-bright: 225, 228, 217;
-
-  --lychen-color-surface-container: 29, 33, 26;
-  --lychen-color-on-surface-container: 225, 228, 217;
-
-  --lychen-color-surface-container-low: 25, 29, 22;
-  --lychen-color-on-surface-container-low: 225, 228, 217;
-
-  --lychen-color-surface-container-lowest: 12, 15, 9;
-  --lychen-color-on-surface-container-lowest: 225, 228, 217;
-
-  --lychen-color-surface-container-high: 40, 43, 36;
-  --lychen-color-on-surface-container-high: 225, 228, 217;
-
-  --lychen-color-surface-container-highest: 50, 54, 47;
-  --lychen-color-on-surface-container-highest: 225, 228, 217;
+  --lychen-color-surface-container-highest: oklch(0.35 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
+  --lychen-color-on-surface-container-highest: oklch(0.9 var(--lychen-color-surface-chroma) var(--lychen-color-surface-hue));
 }
 
 @theme inline {
-  --color-primary: rgb(var(--lychen-color-primary));
-  --color-on-primary: rgb(var(--lychen-color-on-primary));
-  --color-primary-container: rgb(var(--lychen-color-primary-container));
-  --color-on-primary-container: rgb(var(--lychen-color-on-primary-container));
+  --color-negative: var(--lychen-color-negative);
+  --color-on-negative: var(--lychen-color-on-negative);
+  --color-negative-container: var(--lychen-color-negative-container);
+  --color-on-negative-container: var(--lychen-color-on-negative-container);
 
-  --color-secondary: rgb(var(--lychen-color-secondary));
-  --color-on-secondary: rgb(var(--lychen-color-on-secondary));
-  --color-secondary-container: rgb(var(--lychen-color-secondary-container));
-  --color-on-secondary-container: rgb(var(--lychen-color-on-secondary-container));
+  --color-positive: var(--lychen-color-positive);
+  --color-on-positive: var(--lychen-color-on-positive);
+  --color-positive-container: var(--lychen-color-positive-container);
+  --color-on-positive-container: var(--lychen-color-on-positive-container);
 
-  --color-tertiary: rgb(var(--lychen-color-tertiary));
-  --color-on-tertiary: rgb(var(--lychen-color-on-tertiary));
-  --color-tertiary-container: rgb(var(--lychen-color-tertiary-container));
-  --color-on-tertiary-container: rgb(var(--lychen-color-on-tertiary-container));
+  --color-warning: var(--lychen-color-warning);
+  --color-on-warning: var(--lychen-color-on-warning);
+  --color-warning-container: var(--lychen-color-warning-container);
+  --color-on-warning-container: var(--lychen-color-on-warning-container);
 
-  --color-negative: rgb(var(--lychen-color-negative));
-  --color-on-negative: rgb(var(--lychen-color-on-negative));
-  --color-negative-container: rgb(var(--lychen-color-negative-container));
-  --color-on-negative-container: rgb(var(--lychen-color-on-negative-container));
+  --color-surface: var(--lychen-color-surface);
+  --color-on-surface: var(--lychen-color-on-surface);
 
-  --color-positive: rgb(var(--lychen-color-positive));
-  --color-on-positive: rgb(var(--lychen-color-on-positive));
-  --color-positive-container: rgb(var(--lychen-color-positive-container));
-  --color-on-positive-container: rgb(var(--lychen-color-on-positive-container));
+  --color-surface-container: var(--lychen-color-surface-container);
+  --color-on-surface-container: var(--lychen-color-on-surface-container);
 
-  --color-warning: rgb(var(--lychen-color-warning));
-  --color-on-warning: rgb(var(--lychen-color-on-warning));
-  --color-warning-container: rgb(var(--lychen-color-warning-container));
-  --color-on-warning-container: rgb(var(--lychen-color-on-warning-container));
+  --color-surface-container-low: var(--lychen-color-surface-container-low);
+  --color-on-surface-container-low: var(--lychen-color-on-surface-container-low);
 
-  --color-surface: rgb(var(--lychen-color-surface));
-  --color-on-surface: rgb(var(--lychen-color-on-surface));
+  --color-surface-container-lowest: var(--lychen-color-surface-container-lowest);
+  --color-on-surface-container-lowest: var(--lychen-color-on-surface-container-lowest);
 
-  --color-surface-variant: rgb(var(--lychen-color-surface-variant));
-  --color-on-surface-variant: rgb(var(--lychen-color-on-surface-variant));
+  --color-surface-container-high: var(--lychen-color-surface-container-high);
+  --color-on-surface-container-high: var(--lychen-color-on-surface-container-high);
 
-  --color-surface-dim: rgb(var(--lychen-color-surface-dim));
-  --color-on-surface-dim: rgb(var(--lychen-color-on-surface-dim));
-
-  --color-surface-bright: rgb(var(--lychen-color-surface-bright));
-  --color-on-surface-bright: rgb(var(--lychen-color-on-surface-bright));
-
-  --color-surface-container: rgb(var(--lychen-color-surface-container));
-  --color-on-surface-container: rgb(var(--lychen-color-on-surface-container));
-
-  --color-surface-container-low: rgb(var(--lychen-color-surface-container-low));
-  --color-on-surface-container-low: rgb(var(--lychen-color-on-surface-container-low));
-
-  --color-surface-container-lowest: rgb(var(--lychen-color-surface-container-lowest));
-  --color-on-surface-container-lowest: rgb(var(--lychen-color-on-surface-container-lowest));
-
-  --color-surface-container-high: rgb(var(--lychen-color-surface-container-high));
-  --color-on-surface-container-high: rgb(var(--lychen-color-on-surface-container-high));
-
-  --color-surface-container-highest: rgb(var(--lychen-color-surface-container-highest));
-  --color-on-surface-container-highest: rgb(var(--lychen-color-on-surface-container-highest));
+  --color-surface-container-highest: var(--lychen-color-surface-container-highest);
+  --color-on-surface-container-highest: var(--lychen-color-on-surface-container-highest);
 }

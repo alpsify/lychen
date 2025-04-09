@@ -2057,6 +2057,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/design@workspace:projects/design":
+  version: 0.0.0-use.local
+  resolution: "@lychen/design@workspace:projects/design"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-ui-components-app": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@tailwindcss/vite": "npm:^4.0.0"
+    "@unhead/schema-org": "npm:^1.11.14"
+    "@unhead/vue": "npm:^1.11.14"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    unhead: "npm:^1.11.14"
+    vite: "npm:^6.2.4"
+    vite-plugin-mkcert: "npm:^1.17.7"
+    vite-ssg: "npm:^26.1.1"
+    vite-ssg-sitemap: "npm:^0.8.1"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/diagrams@workspace:*, @lychen/diagrams@workspace:libs/diagrams":
   version: 0.0.0-use.local
   resolution: "@lychen/diagrams@workspace:libs/diagrams"

@@ -5,7 +5,7 @@ export { default as AvatarFallback } from './AvatarFallback.vue';
 export { default as AvatarImage } from './AvatarImage.vue';
 
 export const avatarVariant = cva(
-  'inline-flex items-center justify-center font-normal text-on-secondary select-none shrink-0 bg-secondary overflow-hidden',
+  'inline-flex items-center justify-center font-normal text-on-surface-container-highest select-none shrink-0 bg-surface-container-highest overflow-hidden',
   {
     variants: {
       size: {

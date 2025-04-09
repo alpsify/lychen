@@ -54,5 +54,6 @@
   "editor.linkedEditing": true,
   "javascript.preferences.renameMatchingJsxTags": true,
   "typescript.preferences.renameMatchingJsxTags": true,
-  "svg.preview.background": "dark-transparent"
+  "svg.preview.background": "dark-transparent",
+  "colorize.decoration_type": "background"
 }
