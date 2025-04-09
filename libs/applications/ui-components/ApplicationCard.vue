@@ -3,10 +3,11 @@
     :class="cn('flex flex-col gap-2 p-6 rounded-xl group justify-between', $props.class)"
     :background-image="`${backgroundImageFolder}/${application.alias}-cover-1.webp`"
     overlay
-    overlay-class="bg-on-surface dark:bg-surface opacity-25 group-hover:opacity-65 transition duration-300 ease-in-out"
+    data-theme="light"
+    overlay-class="bg-on-surface opacity-30 group-hover:opacity-15 transition duration-300 ease-in-out"
   >
     <div
-      class="flex flex-col gap-2 bg-primary/10 dark:bg-primary-container/20 rounded-3xl backdrop-blur-lg z-10 p-4 text-surface dark:text-on-surface"
+      class="flex flex-col gap-2 bg-surface/80 rounded-3xl backdrop-blur-lg z-10 p-4 text-on-surface"
     >
       <div class="flex flex-row justify-between self-stretch">
         <ApplicationTitle :value="application.title" /><Badge v-if="displayState">{{

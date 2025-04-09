@@ -3,7 +3,6 @@ import type { WithClassAsProps } from './interface';
 import Button from '../button/Button.vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { useCarousel } from './useCarousel';
-import Icon from '../icon/Icon.vue';
 import { faArrowLeft } from '@fortawesome/pro-light-svg-icons/faArrowLeft';
 
 const props = defineProps<WithClassAsProps>();
@@ -16,22 +15,19 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
     :disabled="!canScrollPrev"
     :class="
       cn(
-        'touch-manipulation absolute h-8 w-8 rounded-full p-0',
+        'touch-manipulation absolute',
         orientation === 'horizontal'
           ? '-left-12 top-1/2 -translate-y-1/2'
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
         props.class,
       )
     "
-    variant="secondary"
+    variant="outline"
     aria-label="Précédent"
+    size="sm"
+    :icon="faArrowLeft"
     @click="scrollPrev"
   >
-    <slot>
-      <Icon
-        :icon="faArrowLeft"
-        class="size-4 text-current"
-      />
-    </slot>
+    <slot />
   </Button>
 </template>

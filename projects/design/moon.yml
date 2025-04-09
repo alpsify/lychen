@@ -10,12 +10,12 @@ dependsOn:
 
 env:
   DEV_DOMAIN: design.lychen.local
-  PRODUCTION_DOCKER_IMAGE: lychen/production/tera/website
-  PRODUCTION_DOKPLOY_COMPOSE_ID: LulVMVE94GbMfcW4RLo7s
-  PRODUCTION_DOMAIN: tera.lychen.fr
-  STAGING_DOCKER_IMAGE: lychen/staging/tera/website
-  STAGING_DOKPLOY_COMPOSE_ID: 1XUUxxSsvm8GRr2g7W3ic
-  STAGING_DOMAIN: staging.tera.lychen.fr
+  PRODUCTION_DOCKER_IMAGE: lychen/production/design
+  PRODUCTION_DOKPLOY_COMPOSE_ID: ''
+  PRODUCTION_DOMAIN: design.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/design
+  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOMAIN: staging.design.lychen.fr
 
 id: design
 

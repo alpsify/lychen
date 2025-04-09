@@ -11,7 +11,7 @@
       :data-theme="theme.value"
     >
       <BaseHeading variant="h2">{{ theme.label }}</BaseHeading>
-      <div :class="`grid grid-cols-3 gap-4`">
+      <div class="grid grid-cols-3 gap-4">
         <div
           v-for="feedbackColor in feedbackColorVariants"
           :key="feedbackColor"

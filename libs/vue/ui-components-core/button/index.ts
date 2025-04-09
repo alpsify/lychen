@@ -8,14 +8,13 @@ export const ICON_POSITION = {
 export type IconPosition = ObjectValues<typeof ICON_POSITION>;
 
 export const VARIANT_VALUES = {
-  default: 'bg-primary text-on-primary hover:bg-primary/90',
-  secondary: 'bg-secondary/80 text-on-secondary hover:bg-secondary',
+  default: 'bg-on-surface text-surface hover:bg-on-surface/90',
   negative: 'bg-negative text-on-negative hover:bg-negative/90',
   positive: 'bg-positive text-on-positive hover:bg-positive/90',
   warning: 'bg-warning text-on-warning hover:bg-warning/90',
-  ghost: 'hover:bg-surface-container-high hover:text-on-surface-container-high',
-  'container-high':
-    'bg-surface-container-high text-on-surface-container-high hover:bg-surface-container-highest hover:text-on-surface-container-highest',
+  ghost: 'hover:bg-surface-container hover:text-on-surface-container',
+  outline:
+    'outline-1 outline-on-surface/70 bg-surface-container-lowest hover:bg-surface-container-low',
 } as const;
 
 export const VARIANT = Object.keys(VARIANT_VALUES);

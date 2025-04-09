@@ -66,9 +66,14 @@
       <div class="item justify-center">
         <p class="text-2xl">{{ t('bento.team.title') }}</p>
       </div>
-      <div class="item justify-center">
+      <div
+        class="item justify-center"
+        data-theme="dark"
+      >
         {{ t('bento.transparency.title') }}
-        <p class="gradient text-2xl">{{ t('bento.transparency.subtitle') }}</p>
+        <p class="gradient text-2xl">
+          {{ t('bento.transparency.subtitle') }}
+        </p>
       </div>
     </div>
   </Container>
@@ -146,7 +151,9 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
     align-items: center;
     padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
     border-radius: var(--radius-3xl);
+    color-scheme: dark;
     background: var(--color-surface-container);
+    color: var(--color-on-surface-container);
     font-weight: var(--font-weight-bold);
     text-align: center;
     gap: calc(var(--spacing) * 4);
