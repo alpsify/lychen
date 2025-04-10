@@ -46,6 +46,7 @@
             <Button
               label="Inviter"
               :icon="faUserPlus"
+              size="sm"
               variant="outline"
           /></RouterLink>
         </div>
@@ -54,22 +55,29 @@
             label="Planifier une culture"
             :icon="faCalendarCirclePlus"
             variant="outline"
+            size="sm"
+            disabled
           />
           <Button
             label="Ajouter une tâche"
             :icon="faTasks"
+            size="sm"
             variant="outline"
           />
           <Button
             label="Prendre une note"
             :icon="faNoteSticky"
             variant="outline"
+            size="sm"
+            disabled
           />
         </div>
         <div>
           <Button
             label="Enregistrer une mesure"
             :icon="faGridRound2Plus"
+            disabled
+            size="sm"
             variant="outline"
           />
         </div>
@@ -83,12 +91,15 @@
               size="sm"
               variant="ghost"
               class="self-end"
+              disabled
             />
-            <Button
-              label="Voir toutes les tâches"
-              size="sm"
-              variant="ghost"
-            />
+            <RouterLink :to="RoutePageLandTasks">
+              <Button
+                label="Voir toutes les tâches"
+                size="sm"
+                variant="ghost"
+              />
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -102,10 +113,12 @@
             <BaseHeading variant="h3">Un surplus ?</BaseHeading>
             <p>Signalez le on s'occupe de trouver quelqu'un pour que ce ne soit pas perdu.</p>
           </div>
+          <BadgeDevelopmentInProgress class="self-start" />
           <Button
             label="Signaler un surplus"
             class="bg-purple-200 self-end text-black hover:bg-purple-700 hover:text-purple-200"
             :icon="faHandHoldingHeart"
+            disabled
           />
         </Card>
         <Card class="bg-gradient-to-tr from-amber-500 to-yellow-500 gap-4">
@@ -117,11 +130,12 @@
             >
             <p>Voulez-vous accueillir des pollinisateurs ?</p>
           </div>
-
+          <BadgeDevelopmentInProgress class="self-start" />
           <Button
             label="Demander"
             class="bg-amber-200 self-end text-black hover:bg-amber-700 hover:text-amber-200"
             :icon="faBee"
+            disabled
           />
         </Card>
         <Card class="bg-gradient-to-tr from-surface-container to-blue-300/30 gap-4">
@@ -250,6 +264,7 @@ import { faDatabase } from '@fortawesome/pro-light-svg-icons/faDatabase';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
 import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
 import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
+import { RoutePageLandTasks } from '../tasks';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

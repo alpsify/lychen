@@ -77,7 +77,6 @@ import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple'
 import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
 import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
 
-import { RoutePageDashboard } from '@pages/dashboard';
 import { RoutePageFoodSafety } from '../../pages/food-safety';
 import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageLandCalendars } from '@/pages/land/calendars';
@@ -119,7 +118,7 @@ const navigation = {
     list: [
       {
         icon: faHouse,
-        to: RoutePageDashboard,
+        to: RoutePageLands,
         title: 'Tableau de bord',
       },
     ],
