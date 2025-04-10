@@ -3,20 +3,20 @@
 namespace App\DataFixtures;
 
 use App\Entity\Person;
-use App\Factory\LandResearchRequestFactory;
+use App\Factory\LandRequestFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class LandResearchRequestFixtures extends Fixture implements DependentFixtureInterface
+class LandRequestFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        LandResearchRequestFactory::new()->create([
+        LandRequestFactory::new()->create([
             'person' => $this->getReference(PersonFixtures::PERSON_6, Person::class)
         ]);
 
-        LandResearchRequestFactory::new()->create([
+        LandRequestFactory::new()->create([
             'person' => $this->getReference(PersonFixtures::PERSON_7, Person::class)
         ]);
     }

@@ -2,11 +2,11 @@
 
 namespace App\Factory;
 
-use App\Entity\LandResearchDeal;
+use App\Entity\LandDeal;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
- * @extends PersistentProxyObjectFactory<LandResearchDeal>
+ * @extends PersistentProxyObjectFactory<LandDeal>
  */
 final class LandResearchDealFactory extends PersistentProxyObjectFactory
 {
@@ -19,7 +19,7 @@ final class LandResearchDealFactory extends PersistentProxyObjectFactory
 
     public static function class(): string
     {
-        return LandResearchDeal::class;
+        return LandDeal::class;
     }
 
     /**

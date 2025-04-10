@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Workflow\LandResearchDeal;
+namespace App\Workflow\LandDeal;
 
-final class LandResearchDealWorkflowPlace
+final class LandDealWorkflowPlace
 {
     public const string OPENED = 'opened';
     public const string ARCHIVED = 'archived';

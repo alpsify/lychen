@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Workflow\LandResearchRequest;
+namespace App\Workflow\LandRequest;
 
-final class LandResearchRequestWorkflowPlace
+final class LandRequestWorkflowPlace
 {
     public const string DRAFT = 'draft';
     public const string PUBLISHED = 'published';

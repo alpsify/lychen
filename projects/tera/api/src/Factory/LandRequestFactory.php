@@ -2,13 +2,13 @@
 
 namespace App\Factory;
 
-use App\Entity\LandResearchRequest;
+use App\Entity\LandRequest;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
- * @extends PersistentProxyObjectFactory<LandResearchRequest>
+ * @extends PersistentProxyObjectFactory<LandRequest>
  */
-final class LandResearchRequestFactory extends PersistentProxyObjectFactory
+final class LandRequestFactory extends PersistentProxyObjectFactory
 {
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
@@ -19,7 +19,7 @@ final class LandResearchRequestFactory extends PersistentProxyObjectFactory
 
     public static function class(): string
     {
-        return LandResearchRequest::class;
+        return LandRequest::class;
     }
 
     /**
@@ -36,8 +36,7 @@ final class LandResearchRequestFactory extends PersistentProxyObjectFactory
      */
     protected function initialize(): static
     {
-        return $this
-            // ->afterInstantiate(function(LandResearchRequest $landResearchRequest): void {})
-        ;
+        return $this// ->afterInstantiate(function(LandRequest $landRequest): void {})
+            ;
     }
 }

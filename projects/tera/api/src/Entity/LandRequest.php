@@ -8,15 +8,15 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Repository\LandResearchRequestRepository;
-use App\Workflow\LandResearchRequest\LandResearchRequestWorkflowPlace;
+use App\Repository\LandRequestRepository;
+use App\Workflow\LandRequest\LandRequestWorkflowPlace;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: LandResearchRequestRepository::class)]
+#[ORM\Entity(repositoryClass: LandRequestRepository::class)]
 #[ApiResource(operations: [
     new Get(),
     new GetCollection(),
@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     new Delete(),
 ])]
 #[ORM\HasLifecycleCallbacks]
-class LandResearchRequest extends AbstractIdOrmAndUlidApiIdentified
+class LandRequest extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
@@ -35,8 +35,8 @@ class LandResearchRequest extends AbstractIdOrmAndUlidApiIdentified
     private ?Person $person = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Choice(LandResearchRequestWorkflowPlace::PLACES)]
-    private ?string $state = LandResearchRequestWorkflowPlace::DRAFT;
+    #[Assert\Choice(LandRequestWorkflowPlace::PLACES)]
+    private ?string $state = LandRequestWorkflowPlace::DRAFT;
 
     #[ORM\Column(nullable: true)]
     private ?array $message = null;

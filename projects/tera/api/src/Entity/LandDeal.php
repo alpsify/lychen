@@ -9,49 +9,49 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
-use App\Repository\LandResearchDealRepository;
-use App\Workflow\LandResearchDeal\LandResearchDealWorkflowPlace;
-use App\Workflow\LandResearchDeal\LandResearchDealWorkflowTransition;
+use App\Repository\LandDealRepository;
+use App\Workflow\LandDeal\LandDealWorkflowPlace;
+use App\Workflow\LandDeal\LandDealWorkflowTransition;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: LandResearchDealRepository::class)]
+#[ORM\Entity(repositoryClass: LandDealRepository::class)]
 #[ApiResource(operations: [
     new Get(),
     new GetCollection(),
     new Post(),
     new Delete(),
     new Patch(
-        uriTemplate: '/land_research_deals/{ulid}/' . LandResearchDealWorkflowTransition::ACCEPT,
+        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
         openapi: new Operation(
             summary: 'Accept the LandResearchDeal resource.',
         )
     ),
     new Patch(
-        uriTemplate: '/land_research_deals/{ulid}/' . LandResearchDealWorkflowTransition::REFUSE,
+        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
         openapi: new Operation(
             summary: 'Refuse the LandResearchDeal resource.',
         )
     ),
     new Patch(
-        uriTemplate: '/land_research_deals/{ulid}/' . LandResearchDealWorkflowTransition::ARCHIVE,
+        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
         openapi: new Operation(
             summary: 'Archive the LandResearchDeal resource.',
         )
     )
 ])]
 #[ORM\HasLifecycleCallbacks]
-class LandResearchDeal extends AbstractIdOrmAndUlidApiIdentified
+class LandDeal extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Choice(LandResearchDealWorkflowPlace::PLACES)]
-    private ?string $state = LandResearchDealWorkflowPlace::OPENED;
+    #[Assert\Choice(LandDealWorkflowPlace::PLACES)]
+    private ?string $state = LandDealWorkflowPlace::OPENED;
 
     public function getState(): ?string
     {
