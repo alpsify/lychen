@@ -47,7 +47,7 @@
               <DialogTeraLandTaskCreate :land="land">
                 <Button
                   :icon="faPlus"
-                  variant="container-high"
+                  variant="ghost"
                   size="xs"
                 />
               </DialogTeraLandTaskCreate>

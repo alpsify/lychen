@@ -34,7 +34,7 @@
             :to="RoutePageSponsor"
             class="z-20"
           >
-            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+            <RainbowBox class="flex flex-row gap-2 no-wrap rounded-2xl">
               {{ t('hero.sponsor_us')
               }}<Icon
                 :icon="faHandsHoldingHeart"

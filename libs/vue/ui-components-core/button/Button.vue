@@ -2,10 +2,12 @@
   <button
     :class="
       cn(
-        'cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-xl hover:shadow-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 gap-2',
+        'cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-medium transition-colors  gap-2',
+        'disabled:opacity-10 disabled:cursor-not-allowed',
         PRESETS.FocusOutline,
         VARIANT_VALUES[variant],
         SIZE_VALUES[size],
+        loading ? 'cursor-progress' : '',
         props.class,
         `lychen-button ${innerRound ? 'lychen-button--round' : ''}`,
       )

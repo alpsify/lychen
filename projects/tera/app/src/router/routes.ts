@@ -31,6 +31,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       authName: zitadelAuth.oidcAuth.authName,
     },
+    redirect: RoutePageLands,
     children: [
       RoutePageDashboard,
       {

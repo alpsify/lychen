@@ -1,7 +1,7 @@
 <template>
   <div class="z-50 flex h-[70px] w-full">
     <div
-      class="relative backdrop text-on-surface-container container flex flex-row items-stretch gap-4 rounded-full px-6 py-2 shadow-lg"
+      class="relative backdrop text-on-surface-container container flex flex-row items-stretch gap-4 rounded-3xl px-4 py-2"
     >
       <slot></slot>
 
@@ -60,7 +60,7 @@ provide('mobileMenuIsOpen', isOpen);
   left: 0;
   backdrop-filter: blur(var(--blur-lg));
   z-index: -1;
-  background-color: rgba(var(--lychen-color-surface-container), 0.7);
-  border-radius: calc(infinity * 1px);
+  background-color: oklch(from var(--color-surface-container) l c h / calc(alpha - 0.3));
+  border-radius: var(--radius-3xl);
 }
 </style>

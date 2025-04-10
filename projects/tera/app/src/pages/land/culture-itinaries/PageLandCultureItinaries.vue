@@ -1,12 +1,13 @@
 <template>
-  <section class="flex flex-col">
-    <h1>Land Culture Itinaries</h1>
+  <section class="flex flex-col items-stretch h-full">
+    <SectionDevelopmentInProgress title="Itinéraires de culture" />
   </section>
 </template>
 
 <script lang="ts" setup>
 import { INJECT_LAND_KEY } from '@/layouts/in-app';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, inject } from 'vue';
 

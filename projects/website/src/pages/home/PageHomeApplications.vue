@@ -42,9 +42,7 @@
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <DialogContent
-        class="bg-surface-container-high/90 text-on-surface-container md:max-w-[50%] w-full max-h-dvh gap-8"
-      >
+      <DialogContent class="md:max-w-[50%] w-full max-h-dvh gap-8">
         <div
           class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch overflow-y-auto"
         >
@@ -66,7 +64,7 @@
             <Button
               class="flex flex-row gap-2"
               size="sm"
-              variant="secondary"
+              variant="outline"
               >Site web <Icon :icon="faLink"
             /></Button>
           </a>

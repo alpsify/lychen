@@ -1,7 +1,12 @@
 import { useDark, useToggle } from '@vueuse/core';
 
 export function usePreferredColorScheme() {
-  const isDark = useDark();
+  const isDark = useDark({
+    selector: 'html',
+    attribute: 'data-theme',
+    valueDark: 'dark',
+    valueLight: 'light',
+  });
   const toggleDark = useToggle(isDark);
 
   try {

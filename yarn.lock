@@ -2053,7 +2053,34 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/css-ui-app@workspace:libs/css/ui-app"
   dependencies:
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.1.3"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/design@workspace:projects/design":
+  version: 0.0.0-use.local
+  resolution: "@lychen/design@workspace:projects/design"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/ui-css": "workspace:*"
+    "@lychen/ui-i18n": "workspace:*"
+    "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-i18n-util-composables": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
+    "@lychen/vue-ui-components-app": "workspace:*"
+    "@lychen/vue-ui-components-core": "workspace:*"
+    "@lychen/vue-ui-components-extra": "workspace:*"
+    "@tailwindcss/vite": "npm:^4.0.0"
+    "@unhead/schema-org": "npm:^1.11.14"
+    "@unhead/vue": "npm:^1.11.14"
+    "@vitejs/plugin-vue": "npm:^5.2.1"
+    unhead: "npm:^1.11.14"
+    vite: "npm:^6.2.4"
+    vite-plugin-mkcert: "npm:^1.17.7"
+    vite-ssg: "npm:^26.1.1"
+    vite-ssg-sitemap: "npm:^0.8.1"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -2118,7 +2145,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2182,7 +2208,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2207,7 +2232,6 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:^13.0.0"
     "@zitadel/vue": "npm:1.1.1"
-    tailwindcss: "npm:^4.0.13"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
     vite-plugin-pwa: "npm:^1.0.0"
@@ -2223,7 +2247,7 @@ __metadata:
   dependencies:
     "@lychen/kiro-util-sdk": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.1.3"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2287,7 +2311,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2351,7 +2374,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2415,7 +2437,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2479,7 +2500,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2543,7 +2563,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2607,7 +2626,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2699,7 +2717,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2731,7 +2748,7 @@ __metadata:
     "@vue/tsconfig": "npm:^0.7.0"
     storybook: "npm:^8.6.9"
     storybook-dark-mode: "npm:^4.0.2"
-    tailwindcss: "npm:^4.0.17"
+    tailwindcss: "npm:^4.1.3"
     typescript: "npm:~5.7.2"
     vite: "npm:^6.2.0"
     vue: "npm:^3.5.13"
@@ -2765,7 +2782,7 @@ __metadata:
     "@vite-pwa/assets-generator": "npm:^1.0.0"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:^13.0.0"
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.1.3"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
     vite-plugin-pwa: "npm:^1.0.0"
@@ -2893,7 +2910,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -2975,7 +2991,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/ui-css@workspace:libs/ui-css"
   dependencies:
-    tailwindcss: "npm:^4.0.17"
+    tailwindcss: "npm:^4.1.3"
   languageName: unknown
   linkType: soft
 
@@ -3040,7 +3056,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -3191,7 +3206,7 @@ __metadata:
     embla-carousel-vue: "npm:^8.5.2"
     reka-ui: "npm:^2.2.0"
     tailwind-merge: "npm:^3.1.0"
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.1.3"
     vaul-vue: "npm:^0.3.0"
     vee-validate: "npm:^4.15.0"
     vue: "npm:^3.5.13"
@@ -3298,7 +3313,6 @@ __metadata:
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^5.2.1"
-    tailwindcss: "npm:^4.0.13"
     unhead: "npm:^1.11.14"
     vite: "npm:^6.2.4"
     vite-plugin-mkcert: "npm:^1.17.7"
@@ -8981,7 +8995,7 @@ __metadata:
     eslint-plugin-yml: "npm:^1.16.0"
     globals: "npm:^15.13.0"
     prettier: "npm:^3.5.1"
-    tailwindcss: "npm:^4.0.13"
+    tailwindcss: "npm:^4.1.3"
     tsconfig-moon: "npm:^1.3.0"
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.26.1"
@@ -11985,10 +11999,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^4.0.13, tailwindcss@npm:^4.0.17":
-  version: 4.0.17
-  resolution: "tailwindcss@npm:4.0.17"
-  checksum: 10c0/740c0a1c0df5bfa1aff1ff6e197493e503b068f38a8f78f77e9ea7364441fafae4b554e4d6de727758ba60d0fb52d862ce6f1524c82beb00d8789580d25c995e
+"tailwindcss@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "tailwindcss@npm:4.1.3"
+  checksum: 10c0/e1a57c6fa8d3b2a950b50ee599bf40734e472f719d2a7c74d6fa95584ac09554625481a9c28420bb32396a7f49e1b9eafe628eb61c230fcdc134b86999bf0bae
   languageName: node
   linkType: hard
 

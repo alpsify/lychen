@@ -1,9 +1,11 @@
 <template>
-  <section class="flex flex-col">
-    <h1>Calendars</h1>
+  <section class="flex flex-col h-full">
+    <SectionDevelopmentInProgress title="Calendriers" />
   </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
+</script>
 
 <style lang="css" scoped></style>

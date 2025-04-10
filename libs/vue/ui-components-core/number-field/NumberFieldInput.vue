@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { NumberFieldInput } from 'reka-ui';
+import { PRESETS } from '../utils/Preset';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];
@@ -13,7 +14,10 @@ const props = defineProps<{
     data-slot="input"
     :class="
       cn(
-        'flex h-10 w-full rounded-xl border border-on-surface/40 bg-surface py-2 text-sm text-center placeholder:text-on-surface/40 focus-visible:outline-none focus-visible:border-on-surface/70 disabled:cursor-not-allowed disabled:opacity-50',
+        'flex h-10 w-full py-2 text-sm text-center placeholder:text-on-surface/40 ',
+        'disabled:cursor-not-allowed disabled:opacity-50',
+        PRESETS.InputField,
+        PRESETS.FocusOutline,
         props.class,
       )
     "

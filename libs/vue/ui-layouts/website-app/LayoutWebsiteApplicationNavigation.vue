@@ -5,7 +5,7 @@
         ref="lychenLogo"
         href="https://lychen.fr"
         target="_blank"
-        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-full bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-on-primary-container"
+        class="size-[56px] flex flex-row items-center justify-center backdrop-blur-lg p-4 rounded-3xl bg-surface-container/70 transition-all duration-500 ease-in-out group hover:w-36 hover:text-on-primary-container"
         aria-label="lychen.fr"
       >
         <div class="flex flex-col items-end">
@@ -150,7 +150,7 @@ defineProps<LayoutWebsiteApplicationNavigationProps>();
   left: 0;
   backdrop-filter: blur(var(--blur-lg));
   z-index: -1;
-  background-color: rgba(var(--lychen-color-surface-container), 0.7);
-  border-radius: calc(infinity * 1px);
+  background-color: oklch(from var(--color-surface-container) l c h / calc(alpha - 0.3));
+  border-radius: var(--radius-3xl);
 }
 </style>

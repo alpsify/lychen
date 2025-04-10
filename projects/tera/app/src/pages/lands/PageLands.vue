@@ -5,11 +5,11 @@
         :background-image="bannerImg"
         overlay
         overlay-class="bg-gradient-to-tr from-secondary-container to-secondary-container/30"
-        class="py-20 md:py-30 px-10 rounded-xl flex flex-col gap-4"
+        class="py-20 md:py-30 px-10 rounded-xl flex flex-col md:flex-row justify-between gap-4"
       >
         <div class="z-10 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
           <div class="flex flex-col gap-1">
-            <BaseHeading class="z-10 text-on-secondary-container">{{ t('title') }}</BaseHeading>
+            <BaseHeading class="z-10 text-on-secondary-container">{{ t('title') }} </BaseHeading>
             <p
               v-if="lands?.totalItems"
               class="font-medium text-on-secondary-container opacity-80"
@@ -17,13 +17,20 @@
               {{ t('sub_title', lands.totalItems) }}
             </p>
           </div>
+        </div>
+        <div class="flex flex-row items-center gap-4 z-10">
           <DialogTeraLandCreate v-model:open="open">
             <Button
-              :icon="faPlus"
-              class="bg-secondary text-on-secondary"
               :label="t('add_land')"
+              :icon="faPlus"
+              size="sm" /></DialogTeraLandCreate
+          ><RouterLink :to="RoutePageCoGardening">
+            <Button
+              :icon="faSearch"
+              :label="t('search_land')"
+              size="sm"
             />
-          </DialogTeraLandCreate>
+          </RouterLink>
         </div>
       </DivWithBackgroundImg>
     </template>
@@ -92,6 +99,8 @@ import {
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
+import { RoutePageCoGardening } from '../co-gardening';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),

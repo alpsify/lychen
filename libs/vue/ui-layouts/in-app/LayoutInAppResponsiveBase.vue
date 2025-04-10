@@ -10,7 +10,7 @@
         <Sheet>
           <SheetTrigger as-child>
             <Button
-              variant="container-high"
+              variant="ghost"
               :icon="faBarsStaggered"
             />
           </SheetTrigger>
@@ -24,7 +24,7 @@
                 <SheetClose as-child
                   ><Button
                     :icon="faGear"
-                    variant="container-high"
+                    variant="ghost"
                 /></SheetClose></div
             ></template>
             <SheetClose as-child>
@@ -48,7 +48,7 @@
         <div class="flex flex-row gap-4">
           <Button
             :icon="faBell"
-            variant="container-high"
+            variant="ghost"
           />
           <slot name="avatar" />
         </div>
@@ -94,7 +94,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faCircleQuestion"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -110,7 +110,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faBell"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -126,7 +126,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faGear"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -146,7 +146,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faGridRound"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -167,7 +167,7 @@
         </div>
       </slot>
     </header>
-    <main class="rounded-2xl bg-surface mb-4 mr-4 shadow-sm p-6">
+    <main class="rounded-2xl bg-surface mb-4 mr-4 p-6">
       <slot name="main" />
     </main>
   </div>
@@ -230,17 +230,12 @@ const largerThanMd = breakpoints.greater('lg');
     }
   }
 
-  nav {
-    grid-area: navigation;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
   header {
     grid-area: header;
   }
   nav {
+    grid-area: navigation;
+    overflow-y: auto;
     &::-webkit-scrollbar {
       display: block;
       width: 8px;
@@ -263,6 +258,7 @@ const largerThanMd = breakpoints.greater('lg');
     &::-webkit-scrollbar-thumb {
       border-radius: 20px;
     }
+    /*mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 97%, rgba(0, 0, 0, 0) 100%);*/
   }
 
   .corner {

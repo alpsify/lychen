@@ -11,7 +11,7 @@
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <Button
-            variant="container-high"
+            variant="ghost"
             class="ml-auto"
             size="sm"
           >

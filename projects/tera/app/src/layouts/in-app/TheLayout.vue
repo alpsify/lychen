@@ -6,14 +6,14 @@
     <div class="flex flex-row gap-2 justify-end items-center">
       <RouterLink :to="RoutePageLands">
         <Button
-          variant="container-high"
+          variant="ghost"
           size="xs"
           :icon="faListUl"
         ></Button>
       </RouterLink>
       <DialogTeraLandCreate v-model:open="open">
         <Button
-          variant="container-high"
+          variant="ghost"
           size="xs"
           :icon="faPlus"
         ></Button>
@@ -77,7 +77,6 @@ import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple'
 import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
 import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
 
-import { RoutePageDashboard } from '@pages/dashboard';
 import { RoutePageFoodSafety } from '../../pages/food-safety';
 import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageLandCalendars } from '@/pages/land/calendars';
@@ -119,7 +118,7 @@ const navigation = {
     list: [
       {
         icon: faHouse,
-        to: RoutePageDashboard,
+        to: RoutePageLands,
         title: 'Tableau de bord',
       },
     ],

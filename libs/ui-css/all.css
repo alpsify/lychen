@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @import './color/colors.css';
 @import './color/gradients.css';
 @import './color/keyframes.css';
@@ -8,12 +10,8 @@
 @import './components/container.css';
 @import './components/grid.css';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @layer base {
   :root {
-    --radius: 0.5rem;
-
     * {
       min-width: 0;
     }

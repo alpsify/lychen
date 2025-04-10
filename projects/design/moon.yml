@@ -1,0 +1,29 @@
+dependsOn:
+  - ui-css
+  - ui-i18n
+  - vite-util-ssg
+  - vue-i18n-util-composables
+  - vue-i18n-util-configs
+  - vue-ui-components-app
+  - vue-ui-components-core
+  - vue-ui-components-extra
+
+env:
+  DEV_DOMAIN: design.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/design
+  PRODUCTION_DOKPLOY_COMPOSE_ID: ''
+  PRODUCTION_DOMAIN: design.lychen.fr
+  STAGING_DOCKER_IMAGE: lychen/staging/design
+  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOMAIN: staging.design.lychen.fr
+
+id: design
+
+language: typescript
+
+tags:
+  - vue
+  - dokploy
+  - ssg
+
+type: application

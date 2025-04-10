@@ -33,7 +33,7 @@
               >
                 <TagsInputInput
                   placeholder="Permissions..."
-                  class="min-w-[200px] w-full p-0 border-none focus-visible:ring-0 h-auto"
+                  class="min-w-[200px] w-full p-0 border-none bg-transparent shadow-none focus-visible:ring-0 h-auto"
                   @keydown.enter.prevent
                 />
               </ComboboxInput>
