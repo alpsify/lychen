@@ -1,11 +1,10 @@
 <template>
   <DivScalingDown class="flex flex-col justify-start">
     <Hero
-      data-theme="light"
-      class="text-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
+      class="text-surface dark:text-on-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
       :background-image="heroUrl"
       overlay
-      overlay-class="bg-on-surface opacity-40"
+      overlay-class="bg-on-surface dark:bg-surface opacity-40"
     >
       <div class="flex flex-col md:w-3/5 items-start gap-4">
         <Title
@@ -35,7 +34,7 @@
             :to="RoutePageSponsor"
             class="z-20"
           >
-            <RainbowBox class="flex flex-row text-surface gap-2 no-wrap rounded-2xl">
+            <RainbowBox class="flex flex-row gap-2 no-wrap rounded-2xl">
               {{ t('hero.sponsor_us')
               }}<Icon
                 :icon="faHandsHoldingHeart"

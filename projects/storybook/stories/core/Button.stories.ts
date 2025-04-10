@@ -32,18 +32,6 @@ export const Default: Story = {
   args: {},
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-  },
-};
-
-export const ContainerHigh: Story = {
-  args: {
-    variant: 'container-high',
-  },
-};
-
 export const Negative: Story = {
   args: {
     variant: 'negative',

@@ -10,15 +10,23 @@ export function ModeDecorator(story: any, context: any): any {
 
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
+  function setDarkModeAttribute(isDark: boolean) {
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
   function handleChange(event: MediaQueryListEvent) {
     isDarkMode.value = event.matches;
-    document.documentElement.classList.toggle('dark', event.matches);
+    setDarkModeAttribute(event.matches);
   }
 
   onMounted(() => {
     mediaQuery.addEventListener('change', handleChange);
     isDarkMode.value = mediaQuery.matches;
-    document.documentElement.classList.toggle('dark', mediaQuery.matches);
+    setDarkModeAttribute(mediaQuery.matches); // Set initial attribute based on system preference
   });
 
   onUnmounted(() => {
@@ -27,27 +35,26 @@ export function ModeDecorator(story: any, context: any): any {
 
   function toggleMode() {
     isDarkMode.value = !isDarkMode.value;
-    document.documentElement.classList.toggle('dark', isDarkMode.value);
+    setDarkModeAttribute(isDarkMode.value);
   }
 
-  // Watch for changes in the `darkMode` parameter from the story
+  // Watch for changes in the `darkMode` parameter from the storybook-dark-mode addon
   watch(
-    () => context.parameters.darkMode,
-    (newDarkMode) => {
-      if (newDarkMode?.current === 'dark') {
-        isDarkMode.value = true;
-        document.documentElement.classList.add('dark');
-      } else if (newDarkMode?.current === 'light') {
-        isDarkMode.value = false;
-        document.documentElement.classList.remove('dark');
+    () => context.parameters.darkMode?.current, // Watch the specific 'current' property
+    (currentMode) => {
+      const newIsDark = currentMode === 'dark';
+      if (isDarkMode.value !== newIsDark) {
+        // Only update if the state actually changes
+        isDarkMode.value = newIsDark;
+        setDarkModeAttribute(newIsDark);
       }
     },
-    { immediate: true },
+    { immediate: true }, // Run immediately to sync with initial addon state
   );
 
   return {
-    components: { Story: story(), Icon: Icon, faSun: faSun },
-    template: `      
+    components: { Story: story(), Icon: Icon }, // Removed faSun from components as it's only used in setup
+    template: `
       <div class="grid grid-cols-[1fr_auto] gap-4">
         <div class="flex flex-row">
           <Story />
@@ -63,10 +70,11 @@ export function ModeDecorator(story: any, context: any): any {
       </div>
     `,
     setup() {
+      // Expose necessary refs and functions to the template
       return {
         isDarkMode,
         toggleMode,
-        faSun,
+        faSun, // Keep icons available for the template binding
         faMoon,
       };
     },
