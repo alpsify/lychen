@@ -43,7 +43,7 @@
             href="https://ko-fi.com/nathandepachtere"
             target="_blank"
           >
-            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+            <RainbowBox class="flex flex-row gap-2 no-wrap">
               <Icon
                 :icon="faCoffee"
                 class="fa-lg"
@@ -55,7 +55,7 @@
             href="https://github.com/sponsors/nathan-de-pachtere"
             target="_blank"
           >
-            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+            <RainbowBox class="flex flex-row gap-2 no-wrap">
               <Icon
                 :icon="faGithub"
                 class="fa-lg"
@@ -100,7 +100,7 @@
             href="https://ko-fi.com/jennifergeoffroy"
             target="_blank"
           >
-            <RainbowBox class="flex flex-row text-surface gap-2 rounded-full no-wrap">
+            <RainbowBox class="flex flex-row gap-2 no-wrap">
               <Icon
                 :icon="faCoffee"
                 class="fa-lg"
