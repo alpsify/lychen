@@ -5,7 +5,7 @@
     </DialogTrigger>
     <DialogContent
       :id="`dialog-content-${landTask.ulid}`"
-      class="bg-surface-container-high/90 text-on-surface-container md:max-w-[70%] w-full max-h-dvh"
+      class="md:max-w-[70%] w-full max-h-dvh"
     >
       <div class="overflow-y-auto flex flex-col gap-4">
         <DialogHeader
@@ -32,7 +32,7 @@
               <Button
                 :icon="faEllipsisV"
                 size="sm"
-                variant="container-high"
+                variant="ghost"
               />
             </DropdownMenuTeraLandTaskMain>
 

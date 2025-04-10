@@ -13,14 +13,14 @@
         >
           <Button
             :icon="faPersonToDoor"
-            variant="container-high"
+            variant="ghost"
         /></DialogTeraLandMemberDelete>
         <RouterLink
           :to="{ name: RoutePageLandMemberSettings.name, params: { landUlid: land.ulid } }"
         >
           <Button
             :icon="faUserGear"
-            variant="container-high"
+            variant="ghost"
           />
         </RouterLink>
         <RouterLink
@@ -29,7 +29,7 @@
         >
           <Button
             :icon="faGear"
-            variant="container-high"
+            variant="ghost"
           />
         </RouterLink>
       </div>
@@ -46,31 +46,31 @@
             <Button
               label="Inviter"
               :icon="faUserPlus"
-              variant="secondary"
+              variant="outline"
           /></RouterLink>
         </div>
         <div class="flex flex-row gap-2">
           <Button
             label="Planifier une culture"
             :icon="faCalendarCirclePlus"
-            variant="secondary"
+            variant="outline"
           />
           <Button
             label="Ajouter une tâche"
             :icon="faTasks"
-            variant="secondary"
+            variant="outline"
           />
           <Button
             label="Prendre une note"
             :icon="faNoteSticky"
-            variant="secondary"
+            variant="outline"
           />
         </div>
         <div>
           <Button
             label="Enregistrer une mesure"
             :icon="faGridRound2Plus"
-            variant="secondary"
+            variant="outline"
           />
         </div>
       </div>
@@ -81,13 +81,13 @@
             <Button
               label="Voir les calendriers"
               size="sm"
-              variant="container-high"
+              variant="ghost"
               class="self-end"
             />
             <Button
               label="Voir toutes les tâches"
               size="sm"
-              variant="container-high"
+              variant="ghost"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@
           <Button
             disabled
             label="Configurer"
-            variant="container-high"
+            variant="ghost"
             class="self-end"
             :icon="faDatabase"
           />
@@ -150,11 +150,11 @@
         <div class="flex flex-row gap-2">
           <Button
             :icon="faPlus"
-            variant="container-high"
+            variant="ghost"
           />
           <Button
             :icon="faListUl"
-            variant="container-high"
+            variant="ghost"
           />
         </div>
       </div>
@@ -186,11 +186,11 @@
         <div class="flex flex-row gap-2">
           <Button
             :icon="faPlus"
-            variant="container-high"
+            variant="ghost"
           />
           <Button
             :icon="faListUl"
-            variant="container-high"
+            variant="ghost"
           />
         </div>
       </div>

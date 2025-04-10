@@ -6,14 +6,14 @@
     <div class="flex flex-row gap-2 justify-end items-center">
       <RouterLink :to="RoutePageLands">
         <Button
-          variant="container-high"
+          variant="ghost"
           size="xs"
           :icon="faListUl"
         ></Button>
       </RouterLink>
       <DialogTeraLandCreate v-model:open="open">
         <Button
-          variant="container-high"
+          variant="ghost"
           size="xs"
           :icon="faPlus"
         ></Button>

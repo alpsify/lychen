@@ -147,8 +147,16 @@ const durationFormSpeed = computed(() => `${props.speed}ms`);
 
 .grid-pattern {
   background-image:
-    linear-gradient(to right, rgba(var(--lychen-color-on-surface), 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(var(--lychen-color-on-surface), 0.05) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      oklch(from var(--color-on-surface) l c h / calc(alpha - 0.95)) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      oklch(from var(--color-on-surface) l c h / calc(alpha - 0.95)) 1px,
+      transparent 1px
+    );
 }
 
 .dot-pattern {

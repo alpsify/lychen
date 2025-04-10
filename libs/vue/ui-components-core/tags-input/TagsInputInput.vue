@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PRESETS } from '../utils/Preset';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import { TagsInputInput, type TagsInputInputProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
@@ -17,6 +18,6 @@ const forwardedProps = useForwardProps(delegatedProps);
 <template>
   <TagsInputInput
     v-bind="forwardedProps"
-    :class="cn('text-sm min-h-6 focus:outline-none flex-1 bg-transparent px-1', props.class)"
+    :class="cn('text-sm min-h-6 flex-1 px-1 bg-transparent', props.class)"
   />
 </template>

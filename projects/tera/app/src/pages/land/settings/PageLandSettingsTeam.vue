@@ -33,7 +33,7 @@
       >
         <Button
           :icon="faPlus"
-          variant="container-high"
+          variant="ghost"
           class="self-start"
           :label="tLandMemberInvitation('action.create.label')"
         ></Button>
@@ -73,7 +73,7 @@
       >
         <Button
           :icon="faPlus"
-          variant="container-high"
+          variant="ghost"
           class="self-start"
           :label="tLandRole('action.create.label')"
         ></Button>

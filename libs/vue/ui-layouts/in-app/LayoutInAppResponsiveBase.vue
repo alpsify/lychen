@@ -10,7 +10,7 @@
         <Sheet>
           <SheetTrigger as-child>
             <Button
-              variant="container-high"
+              variant="ghost"
               :icon="faBarsStaggered"
             />
           </SheetTrigger>
@@ -24,7 +24,7 @@
                 <SheetClose as-child
                   ><Button
                     :icon="faGear"
-                    variant="container-high"
+                    variant="ghost"
                 /></SheetClose></div
             ></template>
             <SheetClose as-child>
@@ -48,7 +48,7 @@
         <div class="flex flex-row gap-4">
           <Button
             :icon="faBell"
-            variant="container-high"
+            variant="ghost"
           />
           <slot name="avatar" />
         </div>
@@ -94,7 +94,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faCircleQuestion"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -110,7 +110,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faBell"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -126,7 +126,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faGear"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent
@@ -146,7 +146,7 @@
             <PopoverTrigger>
               <Button
                 :icon="faGridRound"
-                variant="container-high"
+                variant="ghost"
               />
             </PopoverTrigger>
             <PopoverContent

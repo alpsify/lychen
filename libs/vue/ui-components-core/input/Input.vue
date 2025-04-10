@@ -25,8 +25,9 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     v-model="modelValue"
     :class="
       cn(
-        'flex min-h-10 w-full rounded-xl bg-surface-container-highest text-on-surface-container-highest px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-on-surface/40 disabled:cursor-not-allowed disabled:opacity-50',
+        'flex min-h-10 w-full px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-on-surface/40 disabled:cursor-not-allowed disabled:opacity-50',
         PRESETS.FocusOutline,
+        PRESETS.InputField,
         props.class,
       )
     "

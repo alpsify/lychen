@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PRESETS } from '../utils/Preset';
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
 import {
   TagsInputRoot,
@@ -24,10 +25,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   <TagsInputRoot
     v-bind="forwarded"
     :class="
-      cn(
-        'flex flex-wrap gap-2 items-center rounded-xl border border-on-surface/40 bg-surface px-3 py-2 text-sm',
-        props.class,
-      )
+      cn('flex flex-wrap gap-2 items-center px-3 py-2 text-sm', PRESETS.InputField, props.class)
     "
   >
     <slot />

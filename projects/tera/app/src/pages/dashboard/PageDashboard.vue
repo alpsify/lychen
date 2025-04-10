@@ -24,15 +24,15 @@
       <div class="flex flex-row gap-2 items-center">
         <Button
           :icon="faCamera"
-          variant="container-high"
+          variant="ghost"
         />
         <Button
           :icon="faMicrophone"
-          variant="container-high"
+          variant="ghost"
         />
         <Button
           :icon="faKeyboard"
-          variant="container-high"
+          variant="ghost"
         />
       </div>
     </div>

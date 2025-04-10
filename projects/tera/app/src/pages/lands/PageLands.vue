@@ -20,7 +20,6 @@
           <DialogTeraLandCreate v-model:open="open">
             <Button
               :icon="faPlus"
-              class="bg-secondary text-on-secondary"
               :label="t('add_land')"
             />
           </DialogTeraLandCreate>

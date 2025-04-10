@@ -19,7 +19,7 @@
         </p>
       </div>
       <Button
-        variant="container-high"
+        variant="ghost"
         class="border-1 border-negative text-negative"
       >
         {{ t('tabs.general.danger_zone.transfer.button.label') }}
@@ -39,7 +39,7 @@
         v-if="land"
         :land="land"
         ><Button
-          variant="container-high"
+          variant="ghost"
           class="border-1 border-negative text-negative"
         >
           {{ t('tabs.general.danger_zone.delete.button.label') }}

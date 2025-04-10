@@ -1,7 +1,5 @@
 <template>
-  <DialogContent
-    class="bg-surface-container-high/90 text-on-surface-container md:max-w-[30%] w-full max-h-dvh overflow-y-auto gap-8"
-  >
+  <DialogContent class="md:max-w-[30%] w-full max-h-dvh overflow-y-auto gap-8">
     <DialogHeader>
       <slot name="header">
         <DialogTitle>{{ title }}</DialogTitle>
@@ -15,7 +13,7 @@
           v-if="hasCancelButton"
           class="flex flex-row justify-end gap-6"
         >
-          <Button variant="container-high">{{ t('cancel.label') }}</Button>
+          <Button variant="ghost">{{ t('cancel.label') }}</Button>
 
           <slot name="action" />
         </DialogClose>

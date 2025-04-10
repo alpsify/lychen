@@ -34,7 +34,7 @@
             <p class="text-lg font-bold">{{ zitadelAuth.oidcAuth.userProfile.name }}</p>
             <small>{{ zitadelAuth.oidcAuth.userProfile.email }}</small>
           </div>
-          <Button variant="container-high"> Déconnexion </Button>
+          <Button variant="outline"> Déconnexion </Button>
           <div class="flex flex-row gap-2 text-xs opacity-60">
             <a
               target="_blank"

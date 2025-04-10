@@ -13,7 +13,7 @@ const { formDescriptionId } = useFormField();
 <template>
   <p
     :id="formDescriptionId"
-    :class="cn('text-sm opacity-60', props.class)"
+    :class="cn('text-xs opacity-60', props.class)"
   >
     <slot />
   </p>
