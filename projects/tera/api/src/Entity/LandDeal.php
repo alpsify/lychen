@@ -8,7 +8,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use ApiPlatform\OpenApi\Model\Operation;
+use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandDealRepository;
 use App\Workflow\LandDeal\LandDealWorkflowPlace;
 use App\Workflow\LandDeal\LandDealWorkflowTransition;
@@ -19,30 +19,33 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandDealRepository::class)]
-#[ApiResource(operations: [
-    new Get(),
-    new GetCollection(),
-    new Post(),
-    new Delete(),
-    new Patch(
-        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
-        openapi: new Operation(
-            summary: 'Accept the LandDeal resource.',
-        )
-    ),
-    new Patch(
-        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
-        openapi: new Operation(
-            summary: 'Refuse the LandDeal resource.',
-        )
-    ),
-    new Patch(
-        uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
-        openapi: new Operation(
-            summary: 'Archive the LandDeal resource.',
-        )
-    )
-])]
+#[ApiResource()]
+#[Get()]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
+#[Patch(
+    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
+    options: ['transition' => LandDealWorkflowTransition::ACCEPT],
+    denormalizationContext: ['groups' => ['user:land_deal:accept']],
+    //security: "true",
+    name: 'accept',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
+    options: ['transition' => LandDealWorkflowTransition::REFUSE],
+    denormalizationContext: ['groups' => ['user:land_deal:refuse']],
+    //security: "true",
+    name: 'refuse',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
+    options: ['transition' => LandDealWorkflowTransition::ARCHIVE],
+    denormalizationContext: ['groups' => ['user:land_deal:archive']],
+    //security: "true",
+    name: 'archive',
+    processor: WorkflowTransitionProcessor::class)]
 #[ORM\HasLifecycleCallbacks]
 class LandDeal extends AbstractIdOrmAndUlidApiIdentified
 {

@@ -13,7 +13,10 @@ use App\Constant\LandInteractionMode;
 use App\Constant\LandSharingCondition;
 use App\Constant\Orientation;
 use App\Constant\SoilType;
+use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandProposalRepository;
+use App\Workflow\LandProposal\LandProposalWorkflowPlace;
+use App\Workflow\LandProposal\LandProposalWorkflowTransition;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
@@ -27,6 +30,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection()]
 #[Post()]
 #[Patch()]
+#[Patch(
+    uriTemplate: '/land_requests/{ulid}/' . LandProposalWorkflowTransition::PUBLISH,
+    options: ['transition' => LandProposalWorkflowTransition::PUBLISH],
+    denormalizationContext: ['groups' => ['user:land_deal:publish']],
+    //security: "true",
+    name: 'publish',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_requests/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
+    options: ['transition' => LandProposalWorkflowTransition::ARCHIVE],
+    denormalizationContext: ['groups' => ['user:land_deal:archive']],
+    //security: "true",
+    name: 'archive',
+    processor: WorkflowTransitionProcessor::class)]
 #[Delete()]
 #[ORM\HasLifecycleCallbacks]
 class LandProposal extends AbstractIdOrmAndUlidApiIdentified
@@ -92,7 +109,8 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     private ?Land $land = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $state = null;
+    #[Assert\Choice(LandProposalWorkflowPlace::PLACES)]
+    private ?string $state = LandProposalWorkflowPlace::DRAFT;
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]

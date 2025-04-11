@@ -11,8 +11,10 @@ use ApiPlatform\Metadata\Post;
 use App\Constant\GardeningLevel;
 use App\Constant\LandInteractionMode;
 use App\Constant\LandSharingCondition;
+use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandRequestRepository;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
+use App\Workflow\LandRequest\LandRequestWorkflowTransition;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
@@ -26,6 +28,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection()]
 #[Post()]
 #[Patch()]
+#[Patch(
+    uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
+    options: ['transition' => LandRequestWorkflowTransition::PUBLISH],
+    denormalizationContext: ['groups' => ['user:land_deal:publish']],
+    //security: "true",
+    name: 'publish',
+    processor: WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
+    options: ['transition' => LandRequestWorkflowTransition::ARCHIVE],
+    denormalizationContext: ['groups' => ['user:land_deal:archive']],
+    //security: "true",
+    name: 'archive',
+    processor: WorkflowTransitionProcessor::class)]
 #[Delete()]
 #[ORM\HasLifecycleCallbacks]
 class LandRequest extends AbstractIdOrmAndUlidApiIdentified
@@ -55,7 +71,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified
     private ?string $gardeningLevel = GardeningLevel::BEGINNER;
 
     #[ORM\Column]
-    private ?bool $hasTools = null;
+    private ?bool $hasTools = false;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
