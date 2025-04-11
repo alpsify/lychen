@@ -21,13 +21,12 @@ use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRequestRepository::class)]
-#[ApiResource(operations: [
-    new Get(),
-    new GetCollection(),
-    new Post(),
-    new Patch(),
-    new Delete(),
-])]
+#[ApiResource()]
+#[Get()]
+#[GetCollection()]
+#[Post()]
+#[Patch()]
+#[Delete()]
 #[ORM\HasLifecycleCallbacks]
 class LandRequest extends AbstractIdOrmAndUlidApiIdentified
 {
