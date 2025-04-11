@@ -42,7 +42,10 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified
     #[Assert\Choice(LandRequestWorkflowPlace::PLACES)]
     private ?string $state = LandRequestWorkflowPlace::DRAFT;
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @var array|null Tiptap JSON Object
+     */
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $message = null;
 
     #[ORM\Column(nullable: true)]

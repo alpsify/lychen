@@ -27,7 +27,10 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @var array|null Tiptap JSON Object
+     */
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $description = null;
 
     #[ORM\Column(length: 20)]
