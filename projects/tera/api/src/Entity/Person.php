@@ -44,6 +44,12 @@ class Person extends AbstractZitadelUser
     #[ORM\OneToMany(targetEntity: LandMemberInvitation::class, mappedBy: 'person')]
     private Collection $landMemberInvitations;
 
+    /**
+     * @var Collection<int, LandDeal>
+     */
+    #[ORM\OneToMany(targetEntity: LandDeal::class, mappedBy: 'person')]
+    private Collection $landDeals;
+
     public function __construct()
     {
         $this->landMembers = new ArrayCollection();
@@ -51,6 +57,7 @@ class Person extends AbstractZitadelUser
         $this->plantCustoms = new ArrayCollection();
         $this->seedStocks = new ArrayCollection();
         $this->landMemberInvitations = new ArrayCollection();
+        $this->landDeals = new ArrayCollection();
     }
 
     #[Groups(["user:land_member:collection"])]
@@ -209,6 +216,36 @@ class Person extends AbstractZitadelUser
             // set the owning side to null (unless already changed)
             if ($landMemberInvitation->getPerson() === $this) {
                 $landMemberInvitation->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandDeal>
+     */
+    public function getLandDeals(): Collection
+    {
+        return $this->landDeals;
+    }
+
+    public function addLandDeal(LandDeal $landDeal): static
+    {
+        if (!$this->landDeals->contains($landDeal)) {
+            $this->landDeals->add($landDeal);
+            $landDeal->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandDeal(LandDeal $landDeal): static
+    {
+        if ($this->landDeals->removeElement($landDeal)) {
+            // set the owning side to null (unless already changed)
+            if ($landDeal->getPerson() === $this) {
+                $landDeal->setPerson(null);
             }
         }
 

@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Constant\SoilType;
 use App\Repository\LandProposalRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandProposalRepository::class)]
 #[ApiResource]
@@ -23,25 +25,26 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     private ?array $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Choice(choices: SoilType::ALL)]
     private ?string $soilType = null;
 
     #[ORM\Column(length: 255)]
     private ?string $orientation = null;
 
     #[ORM\Column]
-    private ?bool $hasParking = null;
+    private ?bool $hasParking = false;
 
     #[ORM\Column]
-    private ?bool $hasTools = null;
+    private ?bool $hasTools = false;
 
     #[ORM\Column]
-    private ?bool $hasShed = null;
+    private ?bool $hasShed = false;
 
     #[ORM\Column]
-    private ?bool $hasWaterPoint = null;
+    private ?bool $hasWaterPoint = false;
 
     #[ORM\Column]
-    private ?bool $hasIndependentAccess = null;
+    private ?bool $hasIndependentAccess = false;
 
     #[ORM\Column(length: 255)]
     private ?string $gardenState = null;
@@ -59,7 +62,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     private ?int $gardenTotalSurface = null;
 
     #[ORM\Column]
-    private ?bool $foodSecurityParticipation = null;
+    private ?bool $foodSecurityParticipation = false;
 
     #[ORM\ManyToOne(inversedBy: 'landProposals')]
     #[ORM\JoinColumn(nullable: false)]

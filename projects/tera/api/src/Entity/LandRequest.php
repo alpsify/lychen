@@ -30,7 +30,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
-    #[ORM\ManyToOne(inversedBy: 'landResearchRequests')]
+    #[ORM\ManyToOne(inversedBy: 'landRequests')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Person $person = null;
 

@@ -109,6 +109,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     private Collection $landRoles;
 
     #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?LandRole $defaultRole = null;
 
     /**
@@ -127,6 +128,12 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     #[ORM\OneToMany(targetEntity: LandProposal::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landProposals;
 
+    /**
+     * @var Collection<int, LandDeal>
+     */
+    #[ORM\OneToMany(targetEntity: LandDeal::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landDeals;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -139,6 +146,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         $this->landCultivationPlans = new ArrayCollection();
         $this->landGreenhouses = new ArrayCollection();
         $this->landProposals = new ArrayCollection();
+        $this->landDeals = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -463,6 +471,36 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
             // set the owning side to null (unless already changed)
             if ($landProposal->getLand() === $this) {
                 $landProposal->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandDeal>
+     */
+    public function getLandDeals(): Collection
+    {
+        return $this->landDeals;
+    }
+
+    public function addLandDeal(LandDeal $landDeal): static
+    {
+        if (!$this->landDeals->contains($landDeal)) {
+            $this->landDeals->add($landDeal);
+            $landDeal->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandDeal(LandDeal $landDeal): static
+    {
+        if ($this->landDeals->removeElement($landDeal)) {
+            // set the owning side to null (unless already changed)
+            if ($landDeal->getLand() === $this) {
+                $landDeal->setLand(null);
             }
         }
 

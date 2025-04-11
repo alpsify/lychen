@@ -17,7 +17,7 @@ class LandDealRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return LandResearchDeal[] Returns an array of LandResearchDeal objects
+    //     * @return LandDeal[] Returns an array of LandDeal objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class LandDealRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?LandResearchDeal
+    //    public function findOneBySomeField($value): ?LandDeal
     //    {
     //        return $this->createQueryBuilder('l')
     //            ->andWhere('l.exampleField = :val')
