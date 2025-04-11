@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Workflow\LandResearchDeal;
+namespace App\Workflow\LandDeal;
 
-final class LandResearchDealWorkflowTransition
+final class LandDealWorkflowTransition
 {
     public const string ARCHIVE = 'archive';
     public const string ACCEPT = 'accept';

@@ -109,6 +109,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     private Collection $landRoles;
 
     #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?LandRole $defaultRole = null;
 
     /**
@@ -121,6 +122,22 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
     private ?int $altitude = 1;
 
+    /**
+     * @var Collection<int, LandProposal>
+     */
+    #[ORM\OneToMany(targetEntity: LandProposal::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landProposals;
+
+    /**
+     * @var Collection<int, LandDeal>
+     */
+    #[ORM\OneToMany(targetEntity: LandDeal::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landDeals;
+
+    #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?Address $address = null;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -132,6 +149,8 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         $this->landRoles = new ArrayCollection();
         $this->landCultivationPlans = new ArrayCollection();
         $this->landGreenhouses = new ArrayCollection();
+        $this->landProposals = new ArrayCollection();
+        $this->landDeals = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -428,6 +447,78 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public function setAltitude(?int $altitude): static
     {
         $this->altitude = $altitude;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandProposal>
+     */
+    public function getLandProposals(): Collection
+    {
+        return $this->landProposals;
+    }
+
+    public function addLandProposal(LandProposal $landProposal): static
+    {
+        if (!$this->landProposals->contains($landProposal)) {
+            $this->landProposals->add($landProposal);
+            $landProposal->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandProposal(LandProposal $landProposal): static
+    {
+        if ($this->landProposals->removeElement($landProposal)) {
+            // set the owning side to null (unless already changed)
+            if ($landProposal->getLand() === $this) {
+                $landProposal->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandDeal>
+     */
+    public function getLandDeals(): Collection
+    {
+        return $this->landDeals;
+    }
+
+    public function addLandDeal(LandDeal $landDeal): static
+    {
+        if (!$this->landDeals->contains($landDeal)) {
+            $this->landDeals->add($landDeal);
+            $landDeal->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandDeal(LandDeal $landDeal): static
+    {
+        if ($this->landDeals->removeElement($landDeal)) {
+            // set the owning side to null (unless already changed)
+            if ($landDeal->getLand() === $this) {
+                $landDeal->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): static
+    {
+        $this->address = $address;
 
         return $this;
     }

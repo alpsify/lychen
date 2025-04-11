@@ -97,7 +97,10 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     #[Groups(["user:land_task:get", "user:land_task:post"])]
     private ?Land $land = null;
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @var array|null Tiptap JSON Object
+     */
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Groups(["user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
     private ?array $content = null;
 

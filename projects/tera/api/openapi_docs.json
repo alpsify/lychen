@@ -12,6 +12,337 @@
         }
     ],
     "paths": {
+        "/api/addresses": {
+            "get": {
+                "operationId": "api_addresses_get_collection",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address collection",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "member": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Address.jsonld"
+                                            }
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0
+                                        },
+                                        "view": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "first": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "last": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "previous": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "next": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                }
+                                            },
+                                            "example": {
+                                                "@id": "string",
+                                                "type": "string",
+                                                "first": "string",
+                                                "last": "string",
+                                                "previous": "string",
+                                                "next": "string"
+                                            }
+                                        },
+                                        "search": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "template": {
+                                                    "type": "string"
+                                                },
+                                                "variableRepresentation": {
+                                                    "type": "string"
+                                                },
+                                                "mapping": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@type": {
+                                                                "type": "string"
+                                                            },
+                                                            "variable": {
+                                                                "type": "string"
+                                                            },
+                                                            "property": {
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "member"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Address resources.",
+                "description": "Retrieves the collection of Address resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "itemsPerPage",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 30,
+                            "minimum": 0
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "api_addresses_post",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Address resource created",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Address resource.",
+                "description": "Creates a Address resource.",
+                "parameters": [],
+                "requestBody": {
+                    "description": "The new Address resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address.jsonld"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
+        "/api/addresses/{ulid}": {
+            "get": {
+                "operationId": "api_addresses_ulid_get",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address resource",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address.jsonld"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Address resource.",
+                "description": "Retrieves a Address resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "Address identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "api_addresses_ulid_delete",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Address resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Address resource.",
+                "description": "Removes the Address resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "Address identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "api_addresses_ulid_patch",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Address resource.",
+                "description": "Updates the Address resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "Address identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Address resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
         "/api/lands": {
             "get": {
                 "operationId": "api_lands_get_collection",
@@ -1448,6 +1779,337 @@
                         "application/merge-patch+json": {
                             "schema": {
                                 "$ref": "#/components/schemas/LandCultivationPlan"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
+        "/api/land_deals": {
+            "get": {
+                "operationId": "api_land_deals_get_collection",
+                "tags": [
+                    "LandDeal"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandDeal collection",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "member": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/LandDeal.jsonld"
+                                            }
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0
+                                        },
+                                        "view": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "first": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "last": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "previous": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "next": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                }
+                                            },
+                                            "example": {
+                                                "@id": "string",
+                                                "type": "string",
+                                                "first": "string",
+                                                "last": "string",
+                                                "previous": "string",
+                                                "next": "string"
+                                            }
+                                        },
+                                        "search": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "template": {
+                                                    "type": "string"
+                                                },
+                                                "variableRepresentation": {
+                                                    "type": "string"
+                                                },
+                                                "mapping": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@type": {
+                                                                "type": "string"
+                                                            },
+                                                            "variable": {
+                                                                "type": "string"
+                                                            },
+                                                            "property": {
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "member"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of LandDeal resources.",
+                "description": "Retrieves the collection of LandDeal resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "itemsPerPage",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 30,
+                            "minimum": 0
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "api_land_deals_post",
+                "tags": [
+                    "LandDeal"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "LandDeal resource created",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandDeal.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a LandDeal resource.",
+                "description": "Creates a LandDeal resource.",
+                "parameters": [],
+                "requestBody": {
+                    "description": "The new LandDeal resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LandDeal.jsonld"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
+        "/api/land_deals/{ulid}": {
+            "get": {
+                "operationId": "api_land_deals_ulid_get",
+                "tags": [
+                    "LandDeal"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandDeal resource",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandDeal.jsonld"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a LandDeal resource.",
+                "description": "Retrieves a LandDeal resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "LandDeal identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "api_land_deals_ulid_delete",
+                "tags": [
+                    "LandDeal"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "LandDeal resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the LandDeal resource.",
+                "description": "Removes the LandDeal resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "LandDeal identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "api_land_deals_ulid_patch",
+                "tags": [
+                    "LandDeal"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandDeal resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandDeal.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the LandDeal resource.",
+                "description": "Updates the LandDeal resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "LandDeal identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated LandDeal resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LandDeal"
                             }
                         }
                     },
@@ -3243,15 +3905,15 @@
                 "deprecated": false
             }
         },
-        "/api/land_research_deals": {
+        "/api/land_proposals": {
             "get": {
-                "operationId": "api_land_research_deals_get_collection",
+                "operationId": "api_land_proposals_get_collection",
                 "tags": [
-                    "LandResearchDeal"
+                    "LandProposal"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchDeal collection",
+                        "description": "LandProposal collection",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
@@ -3260,7 +3922,7 @@
                                         "member": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/LandResearchDeal.jsonld"
+                                                "$ref": "#/components/schemas/LandProposal.jsonld"
                                             }
                                         },
                                         "totalItems": {
@@ -3349,8 +4011,8 @@
                         }
                     }
                 },
-                "summary": "Retrieves the collection of LandResearchDeal resources.",
-                "description": "Retrieves the collection of LandResearchDeal resources.",
+                "summary": "Retrieves the collection of LandProposal resources.",
+                "description": "Retrieves the collection of LandProposal resources.",
                 "parameters": [
                     {
                         "name": "page",
@@ -3401,17 +4063,17 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_research_deals_post",
+                "operationId": "api_land_proposals_post",
                 "tags": [
-                    "LandResearchDeal"
+                    "LandProposal"
                 ],
                 "responses": {
                     "201": {
-                        "description": "LandResearchDeal resource created",
+                        "description": "LandProposal resource created",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchDeal.jsonld"
+                                    "$ref": "#/components/schemas/LandProposal.jsonld"
                                 }
                             }
                         },
@@ -3424,15 +4086,15 @@
                         "description": "Unprocessable entity"
                     }
                 },
-                "summary": "Creates a LandResearchDeal resource.",
-                "description": "Creates a LandResearchDeal resource.",
+                "summary": "Creates a LandProposal resource.",
+                "description": "Creates a LandProposal resource.",
                 "parameters": [],
                 "requestBody": {
-                    "description": "The new LandResearchDeal resource",
+                    "description": "The new LandProposal resource",
                     "content": {
                         "application/ld+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandResearchDeal.jsonld"
+                                "$ref": "#/components/schemas/LandProposal.jsonld"
                             }
                         }
                     },
@@ -3441,19 +4103,19 @@
                 "deprecated": false
             }
         },
-        "/api/land_research_deals/{ulid}": {
+        "/api/land_proposals/{ulid}": {
             "get": {
-                "operationId": "api_land_research_deals_ulid_get",
+                "operationId": "api_land_proposals_ulid_get",
                 "tags": [
-                    "LandResearchDeal"
+                    "LandProposal"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchDeal resource",
+                        "description": "LandProposal resource",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchDeal.jsonld"
+                                    "$ref": "#/components/schemas/LandProposal.jsonld"
                                 }
                             }
                         }
@@ -3462,13 +4124,13 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Retrieves a LandResearchDeal resource.",
-                "description": "Retrieves a LandResearchDeal resource.",
+                "summary": "Retrieves a LandProposal resource.",
+                "description": "Retrieves a LandProposal resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchDeal identifier",
+                        "description": "LandProposal identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3483,25 +4145,25 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_research_deals_ulid_delete",
+                "operationId": "api_land_proposals_ulid_delete",
                 "tags": [
-                    "LandResearchDeal"
+                    "LandProposal"
                 ],
                 "responses": {
                     "204": {
-                        "description": "LandResearchDeal resource deleted"
+                        "description": "LandProposal resource deleted"
                     },
                     "404": {
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Removes the LandResearchDeal resource.",
-                "description": "Removes the LandResearchDeal resource.",
+                "summary": "Removes the LandProposal resource.",
+                "description": "Removes the LandProposal resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchDeal identifier",
+                        "description": "LandProposal identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3514,21 +4176,19 @@
                     }
                 ],
                 "deprecated": false
-            }
-        },
-        "/api/land_research_deals/{ulid}/accept": {
+            },
             "patch": {
-                "operationId": "api_land_research_deals_ulidaccept_patch",
+                "operationId": "api_land_proposals_ulid_patch",
                 "tags": [
-                    "LandResearchDeal"
+                    "LandProposal"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchDeal resource updated",
+                        "description": "LandProposal resource updated",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchDeal.jsonld"
+                                    "$ref": "#/components/schemas/LandProposal.jsonld"
                                 }
                             }
                         },
@@ -3544,13 +4204,13 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Accept the LandResearchDeal resource.",
-                "description": "Updates the LandResearchDeal resource.",
+                "summary": "Updates the LandProposal resource.",
+                "description": "Updates the LandProposal resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchDeal identifier",
+                        "description": "LandProposal identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3563,11 +4223,11 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "The updated LandResearchDeal resource",
+                    "description": "The updated LandProposal resource",
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandResearchDeal"
+                                "$ref": "#/components/schemas/LandProposal"
                             }
                         }
                     },
@@ -3576,135 +4236,15 @@
                 "deprecated": false
             }
         },
-        "/api/land_research_deals/{ulid}/archive": {
-            "patch": {
-                "operationId": "api_land_research_deals_ulidarchive_patch",
-                "tags": [
-                    "LandResearchDeal"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "LandResearchDeal resource updated",
-                        "content": {
-                            "application/ld+json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/LandResearchDeal.jsonld"
-                                }
-                            }
-                        },
-                        "links": {}
-                    },
-                    "400": {
-                        "description": "Invalid input"
-                    },
-                    "422": {
-                        "description": "Unprocessable entity"
-                    },
-                    "404": {
-                        "description": "Resource not found"
-                    }
-                },
-                "summary": "Archive the LandResearchDeal resource.",
-                "description": "Updates the LandResearchDeal resource.",
-                "parameters": [
-                    {
-                        "name": "ulid",
-                        "in": "path",
-                        "description": "LandResearchDeal identifier",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
-                "requestBody": {
-                    "description": "The updated LandResearchDeal resource",
-                    "content": {
-                        "application/merge-patch+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/LandResearchDeal"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "deprecated": false
-            }
-        },
-        "/api/land_research_deals/{ulid}/refuse": {
-            "patch": {
-                "operationId": "api_land_research_deals_ulidrefuse_patch",
-                "tags": [
-                    "LandResearchDeal"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "LandResearchDeal resource updated",
-                        "content": {
-                            "application/ld+json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/LandResearchDeal.jsonld"
-                                }
-                            }
-                        },
-                        "links": {}
-                    },
-                    "400": {
-                        "description": "Invalid input"
-                    },
-                    "422": {
-                        "description": "Unprocessable entity"
-                    },
-                    "404": {
-                        "description": "Resource not found"
-                    }
-                },
-                "summary": "Refuse the LandResearchDeal resource.",
-                "description": "Updates the LandResearchDeal resource.",
-                "parameters": [
-                    {
-                        "name": "ulid",
-                        "in": "path",
-                        "description": "LandResearchDeal identifier",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
-                "requestBody": {
-                    "description": "The updated LandResearchDeal resource",
-                    "content": {
-                        "application/merge-patch+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/LandResearchDeal"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "deprecated": false
-            }
-        },
-        "/api/land_research_requests": {
+        "/api/land_requests": {
             "get": {
-                "operationId": "api_land_research_requests_get_collection",
+                "operationId": "api_land_requests_get_collection",
                 "tags": [
-                    "LandResearchRequest"
+                    "LandRequest"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchRequest collection",
+                        "description": "LandRequest collection",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
@@ -3713,7 +4253,7 @@
                                         "member": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                                                "$ref": "#/components/schemas/LandRequest.jsonld"
                                             }
                                         },
                                         "totalItems": {
@@ -3802,8 +4342,8 @@
                         }
                     }
                 },
-                "summary": "Retrieves the collection of LandResearchRequest resources.",
-                "description": "Retrieves the collection of LandResearchRequest resources.",
+                "summary": "Retrieves the collection of LandRequest resources.",
+                "description": "Retrieves the collection of LandRequest resources.",
                 "parameters": [
                     {
                         "name": "page",
@@ -3854,17 +4394,17 @@
                 "deprecated": false
             },
             "post": {
-                "operationId": "api_land_research_requests_post",
+                "operationId": "api_land_requests_post",
                 "tags": [
-                    "LandResearchRequest"
+                    "LandRequest"
                 ],
                 "responses": {
                     "201": {
-                        "description": "LandResearchRequest resource created",
+                        "description": "LandRequest resource created",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                                    "$ref": "#/components/schemas/LandRequest.jsonld"
                                 }
                             }
                         },
@@ -3877,15 +4417,15 @@
                         "description": "Unprocessable entity"
                     }
                 },
-                "summary": "Creates a LandResearchRequest resource.",
-                "description": "Creates a LandResearchRequest resource.",
+                "summary": "Creates a LandRequest resource.",
+                "description": "Creates a LandRequest resource.",
                 "parameters": [],
                 "requestBody": {
-                    "description": "The new LandResearchRequest resource",
+                    "description": "The new LandRequest resource",
                     "content": {
                         "application/ld+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                                "$ref": "#/components/schemas/LandRequest.jsonld"
                             }
                         }
                     },
@@ -3894,19 +4434,19 @@
                 "deprecated": false
             }
         },
-        "/api/land_research_requests/{ulid}": {
+        "/api/land_requests/{ulid}": {
             "get": {
-                "operationId": "api_land_research_requests_ulid_get",
+                "operationId": "api_land_requests_ulid_get",
                 "tags": [
-                    "LandResearchRequest"
+                    "LandRequest"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchRequest resource",
+                        "description": "LandRequest resource",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                                    "$ref": "#/components/schemas/LandRequest.jsonld"
                                 }
                             }
                         }
@@ -3915,13 +4455,13 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Retrieves a LandResearchRequest resource.",
-                "description": "Retrieves a LandResearchRequest resource.",
+                "summary": "Retrieves a LandRequest resource.",
+                "description": "Retrieves a LandRequest resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchRequest identifier",
+                        "description": "LandRequest identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3936,25 +4476,25 @@
                 "deprecated": false
             },
             "delete": {
-                "operationId": "api_land_research_requests_ulid_delete",
+                "operationId": "api_land_requests_ulid_delete",
                 "tags": [
-                    "LandResearchRequest"
+                    "LandRequest"
                 ],
                 "responses": {
                     "204": {
-                        "description": "LandResearchRequest resource deleted"
+                        "description": "LandRequest resource deleted"
                     },
                     "404": {
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Removes the LandResearchRequest resource.",
-                "description": "Removes the LandResearchRequest resource.",
+                "summary": "Removes the LandRequest resource.",
+                "description": "Removes the LandRequest resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchRequest identifier",
+                        "description": "LandRequest identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3969,17 +4509,17 @@
                 "deprecated": false
             },
             "patch": {
-                "operationId": "api_land_research_requests_ulid_patch",
+                "operationId": "api_land_requests_ulid_patch",
                 "tags": [
-                    "LandResearchRequest"
+                    "LandRequest"
                 ],
                 "responses": {
                     "200": {
-                        "description": "LandResearchRequest resource updated",
+                        "description": "LandRequest resource updated",
                         "content": {
                             "application/ld+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                                    "$ref": "#/components/schemas/LandRequest.jsonld"
                                 }
                             }
                         },
@@ -3995,13 +4535,13 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Updates the LandResearchRequest resource.",
-                "description": "Updates the LandResearchRequest resource.",
+                "summary": "Updates the LandRequest resource.",
+                "description": "Updates the LandRequest resource.",
                 "parameters": [
                     {
                         "name": "ulid",
                         "in": "path",
-                        "description": "LandResearchRequest identifier",
+                        "description": "LandRequest identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -4014,11 +4554,131 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "The updated LandResearchRequest resource",
+                    "description": "The updated LandRequest resource",
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LandResearchRequest"
+                                "$ref": "#/components/schemas/LandRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
+        "/api/land_requests/{ulid}/archive": {
+            "patch": {
+                "operationId": "archive",
+                "tags": [
+                    "LandRequest"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandRequest resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandRequest.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the LandRequest resource.",
+                "description": "Updates the LandRequest resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "LandRequest identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated LandRequest resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LandRequest-user.land_deal.archive"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            }
+        },
+        "/api/land_requests/{ulid}/publish": {
+            "patch": {
+                "operationId": "publish",
+                "tags": [
+                    "LandRequest"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "LandRequest resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LandRequest.jsonld"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the LandRequest resource.",
+                "description": "Updates the LandRequest resource.",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "description": "LandRequest identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated LandRequest resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LandRequest-user.land_deal.publish"
                             }
                         }
                     },
@@ -7060,6 +7720,181 @@
     },
     "components": {
         "schemas": {
+            "Address": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "streetLine": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "postalCode": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "countryCode": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "city": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
+            "Address.jsonld": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "streetLine": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "postalCode": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "countryCode": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "city": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
             "Land-user.land.patch": {
                 "type": "object",
                 "description": "",
@@ -7271,6 +8106,34 @@
                         "anyOf": [
                             {
                                 "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "landProposals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
+                    "landDeals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
+                    "address": {
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "anyOf": [
+                            {
+                                "type": "string"
                             },
                             {
                                 "type": "null"
@@ -8483,6 +9346,154 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
+            "LandDeal": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "state": {
+                        "enum": [
+                            "opened",
+                            "archived",
+                            "accepted",
+                            "refused"
+                        ],
+                        "default": "opened",
+                        "example": "opened",
+                        "type": "string"
+                    },
+                    "land": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
+                    },
+                    "person": {
+                        "$ref": "#/components/schemas/Person"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
+            "LandDeal-user.land_deal.accept": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandDeal-user.land_deal.archive": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandDeal-user.land_deal.refuse": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandDeal.jsonld": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "state": {
+                        "enum": [
+                            "opened",
+                            "archived",
+                            "accepted",
+                            "refused"
+                        ],
+                        "default": "opened",
+                        "example": "opened",
+                        "type": "string"
+                    },
+                    "land": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
+                    },
+                    "person": {
+                        "$ref": "#/components/schemas/Person.jsonld"
                     },
                     "id": {
                         "readOnly": true,
@@ -9804,21 +10815,134 @@
                     }
                 }
             },
-            "LandResearchDeal": {
+            "LandProposal": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "soilType": {
+                        "enum": [
+                            "sandy",
+                            "humus-rich",
+                            "clay",
+                            "silty",
+                            "loamy",
+                            "stony",
+                            "peaty",
+                            "chalky"
+                        ],
+                        "type": "string"
+                    },
+                    "orientation": {
+                        "enum": [
+                            "north",
+                            "north_east",
+                            "east",
+                            "south_east",
+                            "south",
+                            "south_west",
+                            "west",
+                            "north_west"
+                        ],
+                        "type": "string"
+                    },
+                    "hasParking": {
+                        "type": "boolean"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "hasShed": {
+                        "type": "boolean"
+                    },
+                    "hasWaterPoint": {
+                        "type": "boolean"
+                    },
+                    "hasIndependentAccess": {
+                        "type": "boolean"
+                    },
+                    "gardenState": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": "no_preference",
+                        "type": "string"
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "lookingForGardenerLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "type": "string"
+                    },
+                    "gardenTotalSurface": {
+                        "type": "integer"
+                    },
+                    "foodSecurityParticipation": {
+                        "type": "boolean"
+                    },
+                    "land": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
+                    },
                     "state": {
                         "enum": [
-                            "opened",
-                            "archived",
-                            "accepted",
-                            "refused"
+                            "draft",
+                            "published",
+                            "archived"
                         ],
-                        "default": "opened",
-                        "example": "opened",
+                        "default": "draft",
+                        "example": "draft",
                         "type": "string"
+                    },
+                    "sharingConditions": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "id": {
                         "readOnly": true,
@@ -9842,10 +10966,75 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "parking": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tools": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "shed": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "waterPoint": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "independentAccess": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
-            "LandResearchDeal.jsonld": {
+            "LandProposal-user.land_deal.archive": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandProposal-user.land_deal.publish": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandProposal.jsonld": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -9885,49 +11074,106 @@
                         "readOnly": true,
                         "type": "string"
                     },
-                    "state": {
-                        "enum": [
-                            "opened",
-                            "archived",
-                            "accepted",
-                            "refused"
-                        ],
-                        "default": "opened",
-                        "example": "opened",
+                    "title": {
                         "type": "string"
                     },
-                    "id": {
-                        "readOnly": true,
-                        "type": "integer"
-                    },
-                    "ulid": {
-                        "type": "string",
-                        "format": "ulid"
-                    },
-                    "createdAt": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "format": "date-time",
+                    "description": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
                         "anyOf": [
                             {
-                                "type": "string"
+                                "type": "array"
                             },
                             {
                                 "type": "null"
                             }
                         ]
-                    }
-                }
-            },
-            "LandResearchRequest": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "person": {
-                        "$ref": "#/components/schemas/Person"
+                    },
+                    "soilType": {
+                        "enum": [
+                            "sandy",
+                            "humus-rich",
+                            "clay",
+                            "silty",
+                            "loamy",
+                            "stony",
+                            "peaty",
+                            "chalky"
+                        ],
+                        "type": "string"
+                    },
+                    "orientation": {
+                        "enum": [
+                            "north",
+                            "north_east",
+                            "east",
+                            "south_east",
+                            "south",
+                            "south_west",
+                            "west",
+                            "north_west"
+                        ],
+                        "type": "string"
+                    },
+                    "hasParking": {
+                        "type": "boolean"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "hasShed": {
+                        "type": "boolean"
+                    },
+                    "hasWaterPoint": {
+                        "type": "boolean"
+                    },
+                    "hasIndependentAccess": {
+                        "type": "boolean"
+                    },
+                    "gardenState": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": "no_preference",
+                        "type": "string"
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "lookingForGardenerLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "type": "string"
+                    },
+                    "gardenTotalSurface": {
+                        "type": "integer"
+                    },
+                    "foodSecurityParticipation": {
+                        "type": "boolean"
+                    },
+                    "land": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
                     },
                     "state": {
                         "enum": [
@@ -9939,7 +11185,7 @@
                         "example": "draft",
                         "type": "string"
                     },
-                    "message": {
+                    "sharingConditions": {
                         "items": {
                             "type": "string"
                         },
@@ -9974,10 +11220,196 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "parking": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tools": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "shed": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "waterPoint": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "independentAccess": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },
-            "LandResearchRequest.jsonld": {
+            "LandRequest": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "person": {
+                        "$ref": "#/components/schemas/Person"
+                    },
+                    "state": {
+                        "enum": [
+                            "draft",
+                            "published",
+                            "archived"
+                        ],
+                        "default": "draft",
+                        "example": "draft",
+                        "type": "string"
+                    },
+                    "message": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "minimumSurfaceWanted": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": "no_preference",
+                        "type": "string"
+                    },
+                    "supportsLocalFoodSecurity": {
+                        "type": "boolean"
+                    },
+                    "sharingConditions": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tools": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
+            "LandRequest-user.land_deal.archive": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandRequest-user.land_deal.publish": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
+            "LandRequest.jsonld": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -10031,6 +11463,60 @@
                         "type": "string"
                     },
                     "message": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "minimumSurfaceWanted": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": "no_preference",
+                        "type": "string"
+                    },
+                    "supportsLocalFoodSecurity": {
+                        "type": "boolean"
+                    },
+                    "sharingConditions": {
                         "items": {
                             "type": "string"
                         },
@@ -10060,6 +11546,17 @@
                         "anyOf": [
                             {
                                 "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tools": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "type": "boolean"
                             },
                             {
                                 "type": "null"
@@ -11176,6 +12673,7 @@
                         "example": "https://example.com/"
                     },
                     "content": {
+                        "description": "Tiptap JSON Object",
                         "items": {
                             "type": "string"
                         },
@@ -11309,6 +12807,7 @@
                         "example": "https://example.com/"
                     },
                     "content": {
+                        "description": "Tiptap JSON Object",
                         "items": {
                             "type": "string"
                         },
@@ -11401,10 +12900,10 @@
                             "$ref": "#/components/schemas/LandMember"
                         }
                     },
-                    "landResearchRequests": {
+                    "landRequests": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/LandResearchRequest"
+                            "$ref": "#/components/schemas/LandRequest"
                         }
                     },
                     "plantCustoms": {
@@ -11423,6 +12922,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/LandMemberInvitation"
+                        }
+                    },
+                    "landDeals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandDeal"
                         }
                     },
                     "authId": {
@@ -11521,10 +13026,10 @@
                             "$ref": "#/components/schemas/LandMember.jsonld"
                         }
                     },
-                    "landResearchRequests": {
+                    "landRequests": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/LandResearchRequest.jsonld"
+                            "$ref": "#/components/schemas/LandRequest.jsonld"
                         }
                     },
                     "plantCustoms": {
@@ -11543,6 +13048,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/LandMemberInvitation.jsonld"
+                        }
+                    },
+                    "landDeals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandDeal.jsonld"
                         }
                     },
                     "authId": {

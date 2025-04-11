@@ -6,9 +6,12 @@ use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 use App\Tests\Utils\Trait\ContextTrait;
 use App\Tests\Utils\Trait\LandAreaTrait;
 use App\Tests\Utils\Trait\LandCultivationPlanTrait;
+use App\Tests\Utils\Trait\LandDealTrait;
 use App\Tests\Utils\Trait\LandGreenhouseTrait;
 use App\Tests\Utils\Trait\LandMemberInvitationTrait;
 use App\Tests\Utils\Trait\LandMemberTrait;
+use App\Tests\Utils\Trait\LandProposalTrait;
+use App\Tests\Utils\Trait\LandRequestTrait;
 use App\Tests\Utils\Trait\LandRoleTrait;
 use App\Tests\Utils\Trait\LandTaskTrait;
 use App\Tests\Utils\Trait\LandTrait;
@@ -40,6 +43,9 @@ class AbstractApiTestCase extends ApiTestCase
     use LandMemberTrait;
     use LandMemberInvitationTrait;
     use LandTaskTrait;
+    use LandRequestTrait;
+    use LandProposalTrait;
+    use LandDealTrait;
     use ContextTrait;
 
     protected function browser(array $options = [], array $server = []): KernelBrowser
