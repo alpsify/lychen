@@ -17,34 +17,37 @@ use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandProposalRepository;
 use App\Workflow\LandProposal\LandProposalWorkflowPlace;
 use App\Workflow\LandProposal\LandProposalWorkflowTransition;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandProposalRepository::class)]
 #[ApiResource()]
 #[Get()]
 #[GetCollection()]
-#[Post()]
-#[Patch()]
+#[Post(denormalizationContext: ['groups' => ['user:land_proposal:post']],)]
+#[Patch(denormalizationContext: ['groups' => ['user:land_proposal:patch']],)]
 #[Patch(
-    uriTemplate: '/land_requests/{ulid}/' . LandProposalWorkflowTransition::PUBLISH,
+    uriTemplate: '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::PUBLISH,
     options: ['transition' => LandProposalWorkflowTransition::PUBLISH],
-    denormalizationContext: ['groups' => ['user:land_deal:publish']],
+    denormalizationContext: ['groups' => ['user:land_proposal:publish']],
     //security: "true",
     name: 'publish',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
-    uriTemplate: '/land_requests/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
+    uriTemplate: '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
     options: ['transition' => LandProposalWorkflowTransition::ARCHIVE],
-    denormalizationContext: ['groups' => ['user:land_deal:archive']],
+    denormalizationContext: ['groups' => ['user:land_proposal:archive']],
     //security: "true",
     name: 'archive',
     processor: WorkflowTransitionProcessor::class)]
-#[Delete()]
+#[Delete(security: "object.getState() === " . LandProposalWorkflowPlace::DRAFT)]
 #[ORM\HasLifecycleCallbacks]
 class LandProposal extends AbstractIdOrmAndUlidApiIdentified
 {
@@ -116,6 +119,24 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     private ?array $sharingConditions = null;
 
+    #[ORM\Column(nullable: true)]
+    #[Groups(["user:land_proposal:collection", "user:land_proposal:get"])]
+    private ?DateTimeImmutable $publishedAt = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Groups(["user:land_proposal:collection", "user:land_proposal:get"])]
+    private ?DateTimeImmutable $archivedAt = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Groups(["user:land_proposal:collection", "user:land_proposal:get"])]
+    private ?DateTimeImmutable $expirationDate = null;
+
+    #[Groups(["user:land_proposal:collection", "user:land_proposal:get", "user:land_proposal:post", "user:land_proposal:patch"])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -164,7 +185,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function hasParking(): ?bool
+    public function getHasParking(): ?bool
     {
         return $this->hasParking;
     }
@@ -176,7 +197,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function hasTools(): ?bool
+    public function getHasTools(): ?bool
     {
         return $this->hasTools;
     }
@@ -188,7 +209,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function hasShed(): ?bool
+    public function getHasShed(): ?bool
     {
         return $this->hasShed;
     }
@@ -200,7 +221,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function hasWaterPoint(): ?bool
+    public function getHasWaterPoint(): ?bool
     {
         return $this->hasWaterPoint;
     }
@@ -212,7 +233,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function hasIndependentAccess(): ?bool
+    public function getHasIndependentAccess(): ?bool
     {
         return $this->hasIndependentAccess;
     }
@@ -328,6 +349,42 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     public function setSharingConditions(?array $sharingConditions): static
     {
         $this->sharingConditions = $sharingConditions;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?DateTimeImmutable
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?DateTimeImmutable $publishedAt): static
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    public function getArchivedAt(): ?DateTimeImmutable
+    {
+        return $this->archivedAt;
+    }
+
+    public function setArchivedAt(?DateTimeImmutable $archivedAt): static
+    {
+        $this->archivedAt = $archivedAt;
+
+        return $this;
+    }
+
+    public function getExpirationDate(): ?DateTimeImmutable
+    {
+        return $this->expirationDate;
+    }
+
+    public function setExpirationDate(?DateTimeImmutable $expirationDate): static
+    {
+        $this->expirationDate = $expirationDate;
 
         return $this;
     }

@@ -101,7 +101,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[Get(
     uriTemplate: '/land_member_invitations/check_email_unicity',
     openapi: new Operation(
-        operationId: 'checkLandMemberInvitationEmailUnicity',
         responses: [
             Response::HTTP_OK => [
                 'description' => 'Email unicity check result',

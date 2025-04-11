@@ -11,7 +11,6 @@ final class LandSharingCondition
     public const string FRUIT_SHARING = 'fruit_sharing';
     public const string FLOWER_PLANTING = 'flower_planting';
     public const string TREE_PLANTING = 'tree_planting';
-    public const string MUSHROOM_CULTIVATING = 'mushroom_cultivating';
 
     public const array ALL = [
         self::GENERAL_MAINTENANCE,
@@ -21,6 +20,5 @@ final class LandSharingCondition
         self::FRUIT_SHARING,
         self::FLOWER_PLANTING,
         self::TREE_PLANTING,
-        self::MUSHROOM_CULTIVATING
     ];
 }

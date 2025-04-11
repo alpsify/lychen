@@ -62,3 +62,16 @@ services:
       $properties: { state: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
     tags: [ 'api_platform.filter' ]
+
+  land_request.state_filter:
+    arguments:
+      $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: [ 'api_platform.filter' ]
+
+  land_request.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { archivedAt: ~, publishedAt: ~, expirationDate: ~, createdAt: ~, updatedAt: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: [ 'api_platform.filter' ]

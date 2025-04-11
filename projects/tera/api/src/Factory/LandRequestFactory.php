@@ -2,7 +2,11 @@
 
 namespace App\Factory;
 
+use App\Constant\GardeningLevel;
+use App\Constant\LandInteractionMode;
+use App\Constant\LandSharingCondition;
 use App\Entity\LandRequest;
+use Lychen\UtilTiptap\Service\TipTapFaker;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
@@ -28,8 +32,16 @@ final class LandRequestFactory extends PersistentProxyObjectFactory
     protected function defaults(): array|callable
     {
         return [
-            'title' => self::faker()->sentence(),
+            'message' => TipTapFaker::randomContent(),
+            'minimumSurfaceWanted' => self::faker()->numberBetween(10, 500),
+            'gardeningLevel' => self::faker()->randomElement(GardeningLevel::ALL),
+            'hasTools' => self::faker()->boolean(),
+            'title' => self::faker()->sentence(4),
+            'preferredGardenInteractionMode' => self::faker()->randomElement(LandInteractionMode::ALL),
+            'supportsLocalFoodSecurity' => self::faker()->boolean(),
+            'sharingConditions' => self::faker()->randomElements(LandSharingCondition::ALL, self::faker()->numberBetween(0, count(LandSharingCondition::ALL))),
         ];
+
     }
 
     /**
