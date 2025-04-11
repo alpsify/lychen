@@ -65,7 +65,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column]
     private ?bool $supportsLocalFoodSecurity = false;
 
-    #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true)]
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     private ?array $sharingConditions = null;
 

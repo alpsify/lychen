@@ -62,7 +62,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
-    private ?string $gardeningLevel = null;
+    private ?string $gardeningLevel = GardeningLevel::BEGINNER;
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
@@ -81,7 +81,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 255)]
     private ?string $state = null;
 
-    #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true)]
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     private ?array $sharingConditions = null;
 
