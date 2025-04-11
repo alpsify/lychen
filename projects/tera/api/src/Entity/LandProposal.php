@@ -87,7 +87,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     private ?bool $hasIndependentAccess = false;
 
     #[ORM\Column(length: 255)]
-    private ?string $gardenState = null;
+    private ?string $gardenState = null; //TODO Create constante for that
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: LandInteractionMode::ALL)]
