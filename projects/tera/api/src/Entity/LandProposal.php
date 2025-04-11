@@ -3,8 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Constant\GardeningLevel;
+use App\Constant\LandInteractionMode;
+use App\Constant\LandSharingCondition;
+use App\Constant\Orientation;
 use App\Constant\SoilType;
 use App\Repository\LandProposalRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -13,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandProposalRepository::class)]
 #[ApiResource]
+#[ORM\HasLifecycleCallbacks]
 class LandProposal extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
@@ -24,11 +30,12 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(nullable: true)]
     private ?array $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 20)]
     #[Assert\Choice(choices: SoilType::ALL)]
     private ?string $soilType = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 20)]
+    #[Assert\Choice(choices: Orientation::ALL)]
     private ?string $orientation = null;
 
     #[ORM\Column]
@@ -49,13 +56,16 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 255)]
     private ?string $gardenState = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $gardeningPreference = null;
+    #[ORM\Column(length: 30)]
+    #[Assert\Choice(choices: LandInteractionMode::ALL)]
+    private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 30)]
+    #[Assert\Choice(choices: GardeningLevel::ALL)]
     private ?string $gardeningLevel = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 30)]
+    #[Assert\Choice(choices: GardeningLevel::ALL)]
     private ?string $lookingForGardenerLevel = null;
 
     #[ORM\Column]
@@ -70,6 +80,10 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(length: 255)]
     private ?string $state = null;
+
+    #[ORM\Column(type: Types::SIMPLE_ARRAY, nullable: true)]
+    #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
+    private ?array $sharingConditions = null;
 
     public function getTitle(): ?string
     {
@@ -191,14 +205,14 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function getGardeningPreference(): ?string
+    public function getPreferredGardenInteractionMode(): ?string
     {
-        return $this->gardeningPreference;
+        return $this->preferredGardenInteractionMode;
     }
 
-    public function setGardeningPreference(string $gardeningPreference): static
+    public function setPreferredGardenInteractionMode(string $preferredGardenInteractionMode): static
     {
-        $this->gardeningPreference = $gardeningPreference;
+        $this->preferredGardenInteractionMode = $preferredGardenInteractionMode;
 
         return $this;
     }
@@ -274,4 +288,17 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified
 
         return $this;
     }
+
+    public function getSharingConditions(): ?array
+    {
+        return $this->sharingConditions;
+    }
+
+    public function setSharingConditions(?array $sharingConditions): static
+    {
+        $this->sharingConditions = $sharingConditions;
+
+        return $this;
+    }
 }
+

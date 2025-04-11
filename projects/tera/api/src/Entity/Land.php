@@ -134,6 +134,10 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     #[ORM\OneToMany(targetEntity: LandDeal::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landDeals;
 
+    #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?Address $address = null;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -503,6 +507,18 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
                 $landDeal->setLand(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): static
+    {
+        $this->address = $address;
 
         return $this;
     }
