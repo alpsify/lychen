@@ -180,4 +180,40 @@ class LandRequestTest extends AbstractApiTestCase
             });
 
     }
+
+    public function testCannotCreateSecondDraft(): void
+    {
+        $person = $this->createPerson();
+        $this->createLandRequest($person, ['state' => LandRequestWorkflowPlace::DRAFT]);
+
+        $data = [
+            'message' => TipTapFaker::randomContent(),
+            'minimumSurfaceWanted' => 160,
+            'gardeningLevel' => GardeningLevel::BEGINNER,
+            'hasTools' => true,
+            'title' => 'test',
+            'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
+            'supportsLocalFoodSecurity' => true,
+            'sharingConditions' => [LandSharingCondition::VEGETABLE_SHARING],
+        ];
+
+        $this->browser()->actingAs($person)
+            ->post('/api/land_requests', ['json' => $data])
+            ->assertStatus(422)
+            ->assertJsonMatches('violations[0].message', 'You can only have one request in draft state.');
+    }
+
+    public function testCannotCreateSecondPublished(): void
+    {
+        $person = $this->createPerson();
+        $firstRequest = $this->createLandRequest($person, ['state' => LandRequestWorkflowPlace::PUBLISHED]);
+
+        // Try to publish another request
+        $secondRequest = $this->createLandRequest($person, ['state' => LandRequestWorkflowPlace::DRAFT]);
+
+        $this->browser()->actingAs($person)
+            ->patch($this->getIriFromResource($secondRequest) . '/' . LandRequestWorkflowTransition::PUBLISH)
+            ->assertStatus(422)
+            ->assertJsonMatches('violations[0].message', 'You can only have one request in published state.');
+    }
 }

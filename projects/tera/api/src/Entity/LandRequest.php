@@ -13,8 +13,10 @@ use ApiPlatform\OpenApi\Model\Parameter;
 use App\Constant\GardeningLevel;
 use App\Constant\LandInteractionMode;
 use App\Constant\LandSharingCondition;
+use App\Entity\Interface\StatePersonInterface;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandRequestRepository;
+use App\Validator\UniqueStatePerPerson;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
 use App\Workflow\LandRequest\LandRequestWorkflowTransition;
 use DateTimeImmutable;
@@ -79,7 +81,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "object.getPerson() === user and object.getState() === '" . LandRequestWorkflowPlace::DRAFT . "'")]
 #[ORM\HasLifecycleCallbacks]
-class LandRequest extends AbstractIdOrmAndUlidApiIdentified
+#[UniqueStatePerPerson(states: [LandRequestWorkflowPlace::DRAFT, LandRequestWorkflowPlace::PUBLISHED])]
+class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePersonInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
