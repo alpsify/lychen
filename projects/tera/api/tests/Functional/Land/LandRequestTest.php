@@ -131,10 +131,9 @@ class LandRequestTest extends AbstractApiTestCase
         $this->browser()->actingAs($person1)
             ->get('/api/land_requests/public')
             ->assertSuccessful()
-            ->assertJsonMatches('totalItems', 3)
+            ->assertJsonMatches('totalItems', 2) // All published without the one from the connected user
             ->assertJsonMatches('member[0].state', LandRequestWorkflowPlace::PUBLISHED)
-            ->assertJsonMatches('member[1].state', LandRequestWorkflowPlace::PUBLISHED)
-            ->assertJsonMatches('member[2].state', LandRequestWorkflowPlace::PUBLISHED);
+            ->assertJsonMatches('member[1].state', LandRequestWorkflowPlace::PUBLISHED);
     }
 
     public function testPatch(): void

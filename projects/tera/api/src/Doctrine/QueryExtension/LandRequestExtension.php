@@ -47,6 +47,8 @@ final readonly class LandRequestExtension implements QueryCollectionExtensionInt
 
         $rootAlias = $queryBuilder->getRootAliases()[0];
         $queryBuilder->andWhere(sprintf('%s.state = :state', $rootAlias));
+        $queryBuilder->andWhere(sprintf('%s.person != :current_user', $rootAlias));
+        $queryBuilder->setParameter('current_user', $user->getId());
         $queryBuilder->setParameter('state', LandRequestWorkflowPlace::PUBLISHED);
     }
 

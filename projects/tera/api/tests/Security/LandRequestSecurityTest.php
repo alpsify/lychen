@@ -140,6 +140,14 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].ulid', $landRequest3->getUlid()->toString());
     }
 
+    public function testCollectionPublic()
+    {
+        // User not authenticated
+        $this->browser()
+            ->get('/api/land_requests/public')
+            ->assertStatus(401);
+    }
+
     public function testPublish()
     {
         $person = $this->createPerson();
