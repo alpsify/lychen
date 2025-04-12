@@ -13,8 +13,10 @@ use App\Constant\LandInteractionMode;
 use App\Constant\LandSharingCondition;
 use App\Constant\Orientation;
 use App\Constant\SoilType;
+use App\Entity\Interface\StateLandInterface;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandProposalRepository;
+use App\Validator\LandProposalOnlyOneStatePerLand;
 use App\Workflow\LandProposal\LandProposalWorkflowPlace;
 use App\Workflow\LandProposal\LandProposalWorkflowTransition;
 use DateTimeImmutable;
@@ -49,7 +51,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "object.getState() === " . LandProposalWorkflowPlace::DRAFT)]
 #[ORM\HasLifecycleCallbacks]
-class LandProposal extends AbstractIdOrmAndUlidApiIdentified
+#[LandProposalOnlyOneStatePerLand(states: [LandProposalWorkflowPlace::DRAFT, LandProposalWorkflowPlace::PUBLISHED])]
+class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLandInterface
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;

@@ -31,10 +31,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRequestRepository::class)]
 #[ApiResource()]
-#[Get(
-    normalizationContext: ['groups' => ['user:land_request:get']],
-    security: "object.getPerson() === user"
-)]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_request:collection']],
     parameters: [
@@ -57,6 +53,19 @@ use Symfony\Component\Validator\Constraints as Assert;
             ),
             filter: 'land_request.state_filter'),
     ]
+)]
+#[GetCollection(
+    uriTemplate: '/land_requests/public',
+    normalizationContext: ['groups' => ['user:land_request:collection_public']],
+    parameters: [
+        'order[:property]' => new QueryParameter(
+            filter: 'land_request.order_filter'
+        ),
+    ]
+)]
+#[Get(
+    normalizationContext: ['groups' => ['user:land_request:get']],
+    security: "object.getPerson() === user"
 )]
 #[Post(
     denormalizationContext: ['groups' => ['user:land_request:post']]

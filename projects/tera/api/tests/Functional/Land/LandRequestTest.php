@@ -108,6 +108,35 @@ class LandRequestTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].ulid', $landRequest4->getUlid()->toString());
     }
 
+    public function testCollectionPublic()
+    {
+        $person1 = $this->createPerson();
+        $person2 = $this->createPerson();
+        $person3 = $this->createPerson();
+
+        $landRequest1 = $this->createLandRequest($person1);
+        $landRequest2 = $this->createLandRequest($person1, ['state' => LandRequestWorkflowPlace::PUBLISHED]);
+
+        $landRequest3 = $this->createLandRequest($person2);
+        $landRequest4 = $this->createLandRequest($person2, ['state' => LandRequestWorkflowPlace::PUBLISHED]);
+
+        $landRequest5 = $this->createLandRequest($person3);
+        $landRequest6 = $this->createLandRequest($person3, ['state' => LandRequestWorkflowPlace::PUBLISHED]);
+
+        $landRequest7 = $this->createLandRequest($person1, ['state' => LandRequestWorkflowPlace::ARCHIVED]);
+        $landRequest8 = $this->createLandRequest($person1, ['state' => LandRequestWorkflowPlace::ARCHIVED]);
+        $landRequest9 = $this->createLandRequest($person2, ['state' => LandRequestWorkflowPlace::ARCHIVED]);
+        $landRequest10 = $this->createLandRequest($person3, ['state' => LandRequestWorkflowPlace::ARCHIVED]);
+
+        $this->browser()->actingAs($person1)
+            ->get('/api/land_requests/public')
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 3)
+            ->assertJsonMatches('member[0].state', LandRequestWorkflowPlace::PUBLISHED)
+            ->assertJsonMatches('member[1].state', LandRequestWorkflowPlace::PUBLISHED)
+            ->assertJsonMatches('member[2].state', LandRequestWorkflowPlace::PUBLISHED);
+    }
+
     public function testPatch(): void
     {
         $person = $this->createPerson();

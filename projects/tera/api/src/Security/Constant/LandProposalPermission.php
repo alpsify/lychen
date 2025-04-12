@@ -12,11 +12,15 @@ final readonly class LandProposalPermission
     public const string CREATE = self::PREFIX . 'create';
     public const string UPDATE = self::PREFIX . 'update';
     public const string DELETE = self::PREFIX . 'delete';
+    public const string PUBLISH = self::PREFIX . 'publish';
+    public const string ARCHIVE = self::PREFIX . 'archive';
 
     public const array ALL = [
         self::READ,
         self::CREATE,
         self::UPDATE,
         self::DELETE,
+        self::PUBLISH,
+        self::ARCHIVE,
     ];
 }
