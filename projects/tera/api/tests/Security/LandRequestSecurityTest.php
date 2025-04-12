@@ -119,6 +119,25 @@ class LandRequestSecurityTest extends AbstractApiTestCase
         $this->browser()
             ->get('/api/land_requests')
             ->assertStatus(401);
+
+        $person = $this->createPerson();
+        $landRequest = $this->createLandRequest($person);
+        $person2 = $this->createPerson();
+        $landRequest2 = $this->createLandRequest($person2);
+        $landRequest3 = $this->createLandRequest($person2);
+
+        $this->browser()->actingAs($person)
+            ->get('/api/land_requests')
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 1)
+            ->assertJsonMatches('member[0].ulid', $landRequest->getUlid()->toString());
+
+        $this->browser()->actingAs($person2)
+            ->get('/api/land_requests')
+            ->assertSuccessful()
+            ->assertJsonMatches('totalItems', 2)
+            ->assertJsonMatches('member[0].ulid', $landRequest2->getUlid()->toString())
+            ->assertJsonMatches('member[1].ulid', $landRequest3->getUlid()->toString());
     }
 
     public function testPublish()

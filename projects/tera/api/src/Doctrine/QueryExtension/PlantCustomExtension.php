@@ -29,12 +29,11 @@ final readonly class PlantCustomExtension implements QueryCollectionExtensionInt
         }
 
         $rootAlias = $queryBuilder->getRootAliases()[0];
-        $queryBuilder->where('lm.person = :current_user');
+        $queryBuilder->andWhere(sprintf('%s.person = :current_user', $rootAlias));
         $queryBuilder->setParameter('current_user', $user->getId());
     }
 
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, ?Operation $operation = null, array $context = []): void
     {
-        // TODO: Implement applyToItem() method.
     }
 }
