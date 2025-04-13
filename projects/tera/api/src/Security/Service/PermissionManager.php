@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Helper;
+namespace App\Security\Service;
 
 use App\Entity\Land;
 use App\Entity\LandMember;
@@ -14,6 +14,7 @@ use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use Symfony\Bundle\SecurityBundle\Security;
 
+#[Deprecated]
 class PermissionManager
 {
     public const string SEPARATOR = '_';
@@ -23,6 +24,7 @@ class PermissionManager
 
     }
 
+    #[Deprecated]
     public function can(string $permission, LandAwareInterface&UlidIdentifiedInterface $subject): bool
     {
         try {
@@ -35,6 +37,7 @@ class PermissionManager
         return $this->landMemberHasPermission($permission, $landMember);
     }
 
+    #[Deprecated]
     public function getAuthenticatedLandMember(Land $land): LandMember
     {
         $currentUser = $this->security->getUser();
@@ -49,6 +52,7 @@ class PermissionManager
         return $this->getLandMember($land, $currentUser);
     }
 
+    #[Deprecated]
     public function getLandMember(Land $land, Person $person): LandMember
     {
         $landMember = $this->landMemberRepository->findOneBy(['land' => $land, 'person' => $person]);
@@ -58,15 +62,17 @@ class PermissionManager
         return $landMember;
     }
 
+    #[Deprecated]
     public function landMemberHasPermission(string $permission, LandMember $landMember): bool
     {
         if ($landMember->isOwner()) {
             return true;
         }
-        
+
         return in_array($permission, $this->getLandMemberEffectivePermissions($landMember));
     }
 
+    #[Deprecated]
     public function getLandMemberEffectivePermissions(LandMember $landMember): array
     {
         $roles = $landMember->getLandRoles();

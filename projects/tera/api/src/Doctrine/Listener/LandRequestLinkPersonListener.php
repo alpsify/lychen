@@ -5,6 +5,7 @@ namespace App\Doctrine\Listener;
 
 use App\Entity\LandRequest;
 use App\Entity\Person;
+use App\Entity\PersonApiKey;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsEntityListener;
 use Doctrine\ORM\Events;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
@@ -23,6 +24,9 @@ final readonly class LandRequestLinkPersonListener
     {
         if (!$person = $landRequest->getPerson()) {
             $person = $this->security->getUser();
+            if ($person instanceof PersonApiKey) {
+                $person = $person->getPerson();
+            }
         }
 
         if (!$person instanceof Person) {

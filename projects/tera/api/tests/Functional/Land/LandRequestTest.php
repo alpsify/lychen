@@ -63,6 +63,12 @@ class LandRequestTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
+
+        $person2 = $this->createPerson();
+        $landRequest = $this->createLandRequest($person, ['state' => LandRequestWorkflowPlace::PUBLISHED]);
+        $this->browser()->actingAs($person2)
+            ->get($this->getIriFromResource($landRequest))
+            ->assertStatus(200);
     }
 
     public function testCollection()

@@ -4,6 +4,7 @@ namespace App\Tests\Utils\Abstract;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 use App\Tests\Utils\Trait\ContextTrait;
+use App\Tests\Utils\Trait\LandApiKeyTrait;
 use App\Tests\Utils\Trait\LandAreaTrait;
 use App\Tests\Utils\Trait\LandCultivationPlanTrait;
 use App\Tests\Utils\Trait\LandDealTrait;
@@ -15,6 +16,7 @@ use App\Tests\Utils\Trait\LandRequestTrait;
 use App\Tests\Utils\Trait\LandRoleTrait;
 use App\Tests\Utils\Trait\LandTaskTrait;
 use App\Tests\Utils\Trait\LandTrait;
+use App\Tests\Utils\Trait\PersonApiKeyTrait;
 use App\Tests\Utils\Trait\PersonTrait;
 use DAMA\DoctrineTestBundle\Doctrine\DBAL\StaticDriver;
 use JetBrains\PhpStorm\NoReturn;
@@ -47,6 +49,8 @@ class AbstractApiTestCase extends ApiTestCase
     use LandProposalTrait;
     use LandDealTrait;
     use ContextTrait;
+    use PersonApiKeyTrait;
+    use LandApiKeyTrait;
 
     protected function browser(array $options = [], array $server = []): KernelBrowser
     {

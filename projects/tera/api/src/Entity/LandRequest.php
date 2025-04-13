@@ -16,6 +16,7 @@ use App\Constant\LandSharingCondition;
 use App\Entity\Interface\StatePersonInterface;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandRequestRepository;
+use App\Security\Voter\LandRequestVoter;
 use App\Validator\UniqueStatePerPerson;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
 use App\Workflow\LandRequest\LandRequestWorkflowTransition;
@@ -33,6 +34,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_request:collection']],
+    security: "is_granted('" . LandRequestVoter::COLLECTION . "')",
     parameters: [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
@@ -57,6 +59,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(
     uriTemplate: '/land_requests/public',
     normalizationContext: ['groups' => ['user:land_request:collection_public']],
+    security: "is_granted('" . LandRequestVoter::COLLECTION_PUBLIC . "')",
     parameters: [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
@@ -65,30 +68,31 @@ use Symfony\Component\Validator\Constraints as Assert;
 )]
 #[Get(
     normalizationContext: ['groups' => ['user:land_request:get']],
-    security: "object.getPerson() === user"
+    security: "is_granted('" . LandRequestVoter::GET . "', object)"
 )]
 #[Post(
-    denormalizationContext: ['groups' => ['user:land_request:post']]
+    denormalizationContext: ['groups' => ['user:land_request:post']],
+    security: "is_granted('" . LandRequestVoter::POST . "')"
 )]
 #[Patch(
     denormalizationContext: ['groups' => ['user:land_request:patch']],
-    security: "object.getPerson() === user"
+    security: "is_granted('" . LandRequestVoter::PATCH . "', previous_object)"
 )]
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
     options: ['transition' => LandRequestWorkflowTransition::PUBLISH],
     denormalizationContext: ['groups' => ['user:land_request:publish']],
-    security: "object.getPerson() === user",
+    security: "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
     name: 'publish',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
     options: ['transition' => LandRequestWorkflowTransition::ARCHIVE],
     denormalizationContext: ['groups' => ['user:land_request:archive']],
-    security: "object.getPerson() === user",
+    security: "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
     name: 'archive',
     processor: WorkflowTransitionProcessor::class)]
-#[Delete(security: "object.getPerson() === user and object.getState() === '" . LandRequestWorkflowPlace::DRAFT . "'")]
+#[Delete(security: "is_granted('" . LandRequestVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 #[UniqueStatePerPerson(states: [LandRequestWorkflowPlace::DRAFT, LandRequestWorkflowPlace::PUBLISHED])]
 class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePersonInterface

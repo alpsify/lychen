@@ -2,21 +2,21 @@
 
 namespace App\Security\Constant;
 
-use App\Security\Helper\PermissionManager;
+use App\Security\Voter\LandVoter;
 
-final readonly class LandPermission
+final class LandPermission
 {
-    public const string PREFIX = 'land' . PermissionManager::SEPARATOR;
+    public const string PREFIX = 'land';
 
-    public const string READ = self::PREFIX . 'read';
-    public const string UPDATE = self::PREFIX . 'update';
-    public const string DELETE = self::PREFIX . 'delete';
-    public const string TRANSFER = self::PREFIX . 'transfer';
+    public const string TASK_CREATE = 'land:land_task:create';
+    public const string TASK_PATCH = 'land:land_task:patch';
+    public const string TASK_DELETE = 'land:land_task:delete';
+    public const string TASK_GET = 'land:land_task:get';
+    public const string TASK_COLLECTION = 'land:land_task:collection';
+    public const string TASK_MARK_AS_IN_PROGRESS = 'land:land_task:mark_as_in_progress';
+    public const string TASK_MARK_AS_DONE = 'land:land_task:mark_as_done';
 
     public const array ALL = [
-        self::READ,
-        self::UPDATE,
-        self::DELETE,
-        self::TRANSFER,
+        ...LandVoter::ALL_LAND,
     ];
 }

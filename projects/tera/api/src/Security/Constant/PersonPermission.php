@@ -2,19 +2,13 @@
 
 namespace App\Security\Constant;
 
-use App\Security\Helper\PermissionManager;
+use App\Security\Voter\LandRequestVoter;
+use App\Security\Voter\LandVoter;
 
 final readonly class PersonPermission
 {
-    public const string PREFIX = 'person' . PermissionManager::SEPARATOR;
-
-    public const string READ = self::PREFIX . 'read';
-    public const string UPDATE = self::PREFIX . 'update';
-    public const string DELETE = self::PREFIX . 'delete';
-
     public const array ALL = [
-        self::READ,
-        self::UPDATE,
-        self::DELETE,
+        ...LandRequestVoter::ALL,
+        ...LandVoter::ALL_PERSON,
     ];
 }

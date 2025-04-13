@@ -14,6 +14,7 @@ use App\Provider\LandMembersMeProvider;
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Interface\PermissionHolder;
 use App\Validator\LandRolesBelongToLand;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -72,7 +73,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 ])]
 #[ORM\HasLifecycleCallbacks]
 #[LandRolesBelongToLand]
-class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
+class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface, PermissionHolder
 {
     #[ORM\Column]
     #[Groups(["user:land_member:collection", "user:land_member:get"])]
@@ -188,6 +189,26 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         return $this;
     }
 
+    public function removeLandRole(LandRole $landRole): static
+    {
+        $this->landRoles->removeElement($landRole);
+
+        return $this;
+    }
+
+    public function getPermissions(): array
+    {
+        $roles = $this->getLandRoles();
+        $effectiveRights = [];
+        foreach ($roles as $role) {
+            if ($role->getPermissions()) {
+                $effectiveRights = array_merge($effectiveRights, $role->getPermissions());
+            }
+        }
+
+        return array_unique($effectiveRights);
+    }
+
     /**
      * @return Collection<int, LandRole>
      */
@@ -210,13 +231,6 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         if (!$this->landRoles->contains($landRole)) {
             $this->landRoles->add($landRole);
         }
-
-        return $this;
-    }
-
-    public function removeLandRole(LandRole $landRole): static
-    {
-        $this->landRoles->removeElement($landRole);
 
         return $this;
     }

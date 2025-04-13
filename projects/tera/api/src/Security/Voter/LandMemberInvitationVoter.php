@@ -4,9 +4,11 @@ namespace App\Security\Voter;
 
 use App\Entity\LandMemberInvitation;
 use App\Security\Constant\LandMemberInvitationPermission;
+use JetBrains\PhpStorm\Deprecated;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
+#[Deprecated]
 class LandMemberInvitationVoter extends Voter
 {
 

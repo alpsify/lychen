@@ -8,10 +8,8 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Provider\LandsLookingForMembersProvider;
 use App\Repository\LandRepository;
-use App\Security\Constant\LandPermission;
-use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandVoter;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -28,28 +26,23 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[Patch(
     denormalizationContext: ['groups' => ['user:land:patch']],
-    security: "is_granted('" . LandPermission::UPDATE . "', object)",)
+    security: "is_granted('" . LandVoter::PATCH . "', object)",)
 ]
-#[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
-#[GetCollection(
-    uriTemplate: '/lands/looking_for_members',
-    paginationFetchJoinCollection: true,
-    normalizationContext: ['groups' => ['user:land:get-collection-looking-for-members']],
-    name: 'get-collection-looking-for-members',
-    provider: LandsLookingForMembersProvider::class)
-]
+#[Delete(security: "is_granted('" . LandVoter::DELETE . "', object)")]
 #[Get(
     normalizationContext: ['groups' => ['user:land:get']],
-    security: "is_granted('" . LandPermission::READ . "', object)")
+    security: "is_granted('" . LandVoter::GET . "', object)")
 ]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land:collection']],
+    security: "is_granted('" . LandVoter::COLLECTION . "')",
 )]
 #[Post(
     denormalizationContext: ['groups' => ['user:land:post']],
+    security: "is_granted('" . LandVoter::POST . "')",
 )]
 #[ORM\HasLifecycleCallbacks]
-class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
+class Land extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
@@ -138,6 +131,12 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?Address $address = null;
 
+    /**
+     * @var Collection<int, LandApiKey>
+     */
+    #[ORM\OneToMany(targetEntity: LandApiKey::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landApiKeys;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -151,6 +150,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         $this->landGreenhouses = new ArrayCollection();
         $this->landProposals = new ArrayCollection();
         $this->landDeals = new ArrayCollection();
+        $this->landApiKeys = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -519,6 +519,36 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public function setAddress(?Address $address): static
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandApiKey>
+     */
+    public function getLandApiKeys(): Collection
+    {
+        return $this->landApiKeys;
+    }
+
+    public function addLandApiKey(LandApiKey $landApiKey): static
+    {
+        if (!$this->landApiKeys->contains($landApiKey)) {
+            $this->landApiKeys->add($landApiKey);
+            $landApiKey->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandApiKey(LandApiKey $landApiKey): static
+    {
+        if ($this->landApiKeys->removeElement($landApiKey)) {
+            // set the owning side to null (unless already changed)
+            if ($landApiKey->getLand() === $this) {
+                $landApiKey->setLand(null);
+            }
+        }
 
         return $this;
     }

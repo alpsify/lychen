@@ -2,6 +2,7 @@
 
 namespace App\Tests\Security;
 
+use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandSecurityTest extends AbstractApiTestCase
@@ -26,6 +27,13 @@ class LandSecurityTest extends AbstractApiTestCase
         $this->browser()
             ->post('/api/lands')
             ->assertStatus(401);
+
+        // API Key
+        $person = $this->createPerson();
+        $landApiKey = $this->createPersonApiKey($person, ['permissions' => LandVoter::ALL_PERSON], [LandVoter::POST]);
+        $this->browser()->actingAs($landApiKey)
+            ->post('/api/lands', ['json' => ['name' => 'Test Land']])
+            ->assertStatus(403);
     }
 
     public function testPatch()
@@ -48,6 +56,17 @@ class LandSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
+            ->patch($this->getIriFromResource($context1->land->_real()), ['json' => []])
+            ->assertStatus(403);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND], [LandVoter::PATCH]);
+        $this->browser()->actingAs($landApiKey)
+            ->patch($this->getIriFromResource($context1->land->_real()), ['json' => []])
+            ->assertStatus(403);
+
+        $landApiKey2 = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND]);
+        $this->browser()->actingAs($landApiKey2)
             ->patch($this->getIriFromResource($context1->land->_real()), ['json' => []])
             ->assertStatus(403);
 
@@ -74,6 +93,17 @@ class LandSecurityTest extends AbstractApiTestCase
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
             ->get($this->getIriFromResource($context1->land->_real()))
             ->assertStatus(403);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND], [LandVoter::GET]);
+        $this->browser()->actingAs($landApiKey)
+            ->get($this->getIriFromResource($context1->land->_real()))
+            ->assertStatus(403);
+
+        $landApiKey2 = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND]);
+        $this->browser()->actingAs($landApiKey2)
+            ->get($this->getIriFromResource($context1->land->_real()))
+            ->assertStatus(403);
     }
 
     public function testDelete()
@@ -95,6 +125,17 @@ class LandSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
+            ->delete($this->getIriFromResource($context1->land->_real()))
+            ->assertStatus(403);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND], [LandVoter::DELETE]);
+        $this->browser()->actingAs($landApiKey)
+            ->delete($this->getIriFromResource($context1->land->_real()))
+            ->assertStatus(403);
+
+        $landApiKey2 = $this->createLandApiKey($context1->land, ['permissions' => LandVoter::ALL_LAND]);
+        $this->browser()->actingAs($landApiKey2)
             ->delete($this->getIriFromResource($context1->land->_real()))
             ->assertStatus(403);
     }

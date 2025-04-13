@@ -3,11 +3,13 @@
 namespace App\Security\Voter;
 
 use App\Security\Constant\Permissions;
-use App\Security\Helper\PermissionManager;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Service\PermissionManager;
+use JetBrains\PhpStorm\Deprecated;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
+#[Deprecated]
 class LandAwareVoter extends Voter
 {
 

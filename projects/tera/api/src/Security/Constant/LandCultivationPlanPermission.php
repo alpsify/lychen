@@ -2,8 +2,10 @@
 
 namespace App\Security\Constant;
 
-use App\Security\Helper\PermissionManager;
+use App\Security\Service\PermissionManager;
+use JetBrains\PhpStorm\Deprecated;
 
+#[Deprecated]
 final readonly class LandCultivationPlanPermission
 {
     public const string PREFIX = 'landcultivationplan' . PermissionManager::SEPARATOR;

@@ -2,6 +2,9 @@
 
 namespace App\Security\Constant;
 
+use JetBrains\PhpStorm\Deprecated;
+
+#[Deprecated]
 final readonly class Permissions
 {
     public const array ALL = [
