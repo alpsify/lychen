@@ -9,14 +9,13 @@ use ApiPlatform\Metadata\Post;
 use App\Entity\Land;
 use App\Entity\LandApiKey;
 use App\Entity\LandMember;
-use App\Entity\PersonApiKey;
 use App\Security\Checker\LandApiKeyPermissionChecker;
 use App\Security\Checker\LandMemberPermissionChecker;
 use App\Security\Checker\PersonApiKeyPermissionChecker;
 use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
-use Symfony\Component\Cache\Exception\LogicException;
+use LogicException;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
@@ -127,17 +126,6 @@ class LandMemberVoter extends AbstractPermissionVoter
 
     private function canMe(PermissionHolder $permissionHolder): bool
     {
-        if ($permissionHolder instanceof PersonApiKey) {
-            $permissionHolder = $permissionHolder->getPerson();
-        }
-
-        $currentRequest = $this->requestStack->getCurrentRequest();
-        $land = $this->iriConverter->getResourceFromIri($currentRequest->query->get('land'));
-
-        if (!$land instanceof Land) {
-            throw new LogicException('Land not found.');
-        }
-
         return $this->can($permissionHolder, self::ME);
     }
 }

@@ -5,9 +5,11 @@ namespace App\Provider;
 use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
+use App\Entity\Land;
 use App\Entity\Person;
 use App\Entity\PersonApiKey;
 use App\Repository\LandMemberRepository;
+use LogicException;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -35,6 +37,11 @@ final readonly class LandMembersMeProvider implements ProviderInterface
         }
 
         $land = $this->iriConverter->getResourceFromIri($context['filters']['land']);
+        
+        if (!$land instanceof Land) {
+            throw new LogicException('Land not found.');
+        }
+
         $landMember = $this->landMemberRepository->findOneBy(['person' => $user, 'land' => $land]);
 
         if (!$landMember) {
