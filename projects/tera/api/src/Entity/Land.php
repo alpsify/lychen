@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[Patch(
     denormalizationContext: ['groups' => ['user:land:patch']],
-    security: "is_granted('" . LandVoter::PATCH . "', object)",)
+    security: "is_granted('" . LandVoter::PATCH . "', previous_object)",)
 ]
 #[Delete(security: "is_granted('" . LandVoter::DELETE . "', object)")]
 #[Get(

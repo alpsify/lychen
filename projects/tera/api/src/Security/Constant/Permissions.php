@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\Deprecated;
 final readonly class Permissions
 {
     public const array ALL = [
-        ...LandPermission::ALL,
+        ...LandMemberPermission::ALL,
         ...LandAreaPermission::ALL,
         ...LandAreaParameterPermission::ALL,
         ...LandAreaSettingPermission::ALL,
@@ -28,7 +28,7 @@ final readonly class Permissions
 
 
     public const array LAND_MEMBER_RELATED = [
-        ...LandPermission::ALL,
+        ...LandMemberPermission::ALL,
         ...LandGreenhousePermission::ALL,
         ...LandGreenhouseParameterPermission::ALL,
         ...LandGreenhouseSettingPermission::ALL,

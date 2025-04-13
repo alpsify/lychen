@@ -4,7 +4,7 @@ namespace App\Tests\Functional\Land;
 
 use App\Repository\LandMemberRepository;
 use App\Security\Constant\LandMemberPermission;
-use App\Security\Constant\Permissions;
+use App\Security\Voter\LandMemberVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
 
@@ -29,7 +29,7 @@ class LandMemberTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandMemberVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[1]->getPerson())
@@ -79,7 +79,7 @@ class LandMemberTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandMemberVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $newRoles = [];
@@ -110,13 +110,19 @@ class LandMemberTest extends AbstractApiTestCase
             ->assertJsonMatches('totalItems', count($context->landMembers) + 1);
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandMemberVoter::COLLECTION]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[2]->getPerson())
             ->get('/api/land_members', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landMembers) + 1);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandMemberVoter::COLLECTION]]);
+        $this->browser()->actingAs($landApiKey)
+            ->get('/api/land_members', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->assertSuccessful();
     }
 
     public function testCollectionPagination()
@@ -145,7 +151,7 @@ class LandMemberTest extends AbstractApiTestCase
 
         // Member with permissions
         $this->addLandMember($context);
-        $landRole = $this->createLandRole($context->land, [LandMemberPermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandMemberVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[2]->getPerson())
@@ -159,6 +165,15 @@ class LandMemberTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->landMembers[3]->getPerson())
             ->delete($this->getIriFromResource($context->landMembers[3]))
             ->assertStatus(204);
+
+        $landRole = $this->createLandRole($context->land, []);
+        $this->addLandMember($context, [$landRole]);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandMemberVoter::DELETE]]);
+        $this->browser()->actingAs($landApiKey)
+            ->delete($this->getIriFromResource($context->landMembers[4]))
+            ->assertStatus(204);
     }
 
     public function testCantDeleteOwner()
@@ -171,13 +186,19 @@ class LandMemberTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->owner)
             ->delete($this->getIriFromResource($landMember))
             ->assertStatus(403);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandMemberVoter::DELETE]]);
+        $this->browser()->actingAs($landApiKey)
+            ->delete($this->getIriFromResource($landMember))
+            ->assertStatus(403);
     }
 
-    public function testGetMe()
+    public function testMe()
     {
         $context = $this->createLandContext();
         $context2 = $this->createLandContext();
-        $this->addOneLandRole($context2, Permissions::LAND_MEMBER_RELATED);
+        $this->addOneLandRole($context2, LandMemberPermission::ALL);
         $this->addLandMember($context2, [$context2->landRoles[0]], $context->owner);
 
         $landMemberRepository = static::getContainer()->get(LandMemberRepository::class);
@@ -193,7 +214,7 @@ class LandMemberTest extends AbstractApiTestCase
                 $json->assertThat('landRoles', fn(Json $json) => $json->hasCount(0));
             });
 
-        $this->addOneLandRole($context, Permissions::LAND_MEMBER_RELATED);
+        $this->addOneLandRole($context, LandMemberPermission::ALL);
         $this->addLandMember($context, [$context->landRoles[0]]);
         $landMember = $context->landMembers[0];
 
@@ -209,5 +230,10 @@ class LandMemberTest extends AbstractApiTestCase
             })
             ->assertJsonMatches('landRoles[0].name', $context->landRoles[0]->getName());
 
+        // API Key
+        $personApiKey = $this->createPersonApiKey($context->owner, ['permissions' => [LandMemberVoter::ME]]);
+        $this->browser()->actingAs($personApiKey)
+            ->get('/api/land_members/me', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->assertStatus(200);
     }
 }

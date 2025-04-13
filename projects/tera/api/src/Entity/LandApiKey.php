@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LandApiKeyRepository;
+use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\PermissionHolder;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandApiKeyRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -20,6 +22,7 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
     public const string PREFIX = 'tera-land_';
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
+    #[Assert\Choice(LandMemberPermission::ALL, multiple: true)]
     private array $permissions = [];
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]

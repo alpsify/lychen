@@ -19,6 +19,7 @@ class LandAwareVoter extends Voter
 
     protected function supports(string $attribute, mixed $subject): bool
     {
+        return false;
         $subjectIsLandAware = $subject instanceof LandAwareInterface;
         $attributeIsSupported = in_array($attribute, Permissions::LAND_MEMBER_RELATED);
 

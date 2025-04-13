@@ -6,14 +6,9 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use App\Entity\LandRequest;
 use App\Entity\PersonApiKey;
-use App\Security\Checker\LandMemberPermissionChecker;
-use App\Security\Checker\PersonApiKeyPermissionChecker;
-use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\PermissionHolder;
-use App\Security\Service\PermissionHolderRetriever;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
 use LogicException;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 class LandRequestVoter extends AbstractPermissionVoter
@@ -37,16 +32,6 @@ class LandRequestVoter extends AbstractPermissionVoter
         self::COLLECTION,
         self::COLLECTION_PUBLIC,
     ];
-
-    public function __construct(
-        PermissionHolderRetriever     $permissionHolderRetriever,
-        PersonApiKeyPermissionChecker $personApiKeyPermissionChecker,
-        PersonPermissionChecker       $personPermissionChecker,
-        LandMemberPermissionChecker   $landMemberPermissionChecker,
-        private readonly RequestStack $requestStack)
-    {
-        parent::__construct($permissionHolderRetriever, $personApiKeyPermissionChecker, $personPermissionChecker, $landMemberPermissionChecker);
-    }
 
     protected function supports(string $attribute, mixed $subject): bool
     {
@@ -104,7 +89,12 @@ class LandRequestVoter extends AbstractPermissionVoter
 
     private function canPatch(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
     {
-        $hasPermission = $this->can($permissionHolder, self::PATCH);
+        return $this->canPerformAction($landRequest, $permissionHolder, self::PATCH, LandRequestWorkflowPlace::DRAFT);
+    }
+
+    private function canPerformAction(LandRequest $landRequest, PermissionHolder $permissionHolder, string $action, ?string $requiredState = null): bool
+    {
+        $hasPermission = $this->can($permissionHolder, $action);
 
         if (!$hasPermission) {
             return false;
@@ -116,66 +106,27 @@ class LandRequestVoter extends AbstractPermissionVoter
         }
 
         $userIsOwner = $landRequest->getPerson() === $permissionHolder;
-        $stateIsDraft = $landRequest->getState() === LandRequestWorkflowPlace::DRAFT;
 
-        return $userIsOwner && $stateIsDraft;
+        if ($requiredState !== null) {
+            return $userIsOwner && $landRequest->getState() === $requiredState;
+        }
+
+        return $userIsOwner;
     }
 
     private function canDelete(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
     {
-        $hasPermission = $this->can($permissionHolder, self::DELETE);
-
-        if (!$hasPermission) {
-            return false;
-        }
-
-        if ($permissionHolder instanceof PersonApiKey) {
-            $isOnBehalfOfUser = $landRequest->getPerson() === $permissionHolder->getPerson();
-            return $isOnBehalfOfUser;
-        }
-
-        $userIsOwner = $landRequest->getPerson() === $permissionHolder;
-        $stateIsDraft = $landRequest->getState() === LandRequestWorkflowPlace::DRAFT;
-
-        return $userIsOwner && $stateIsDraft;
+        return $this->canPerformAction($landRequest, $permissionHolder, self::DELETE, LandRequestWorkflowPlace::DRAFT);
     }
 
     private function canPublish(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
     {
-        $hasPermission = $this->can($permissionHolder, self::PUBLISH);
-
-        if (!$hasPermission) {
-            return false;
-        }
-
-        if ($permissionHolder instanceof PersonApiKey) {
-            $isOnBehalfOfUser = $landRequest->getPerson() === $permissionHolder->getPerson();
-            return $isOnBehalfOfUser;
-        }
-
-        $userIsOwner = $landRequest->getPerson() === $permissionHolder;
-        $stateIsDraft = $landRequest->getState() === LandRequestWorkflowPlace::DRAFT;
-
-        return $userIsOwner && $stateIsDraft;
+        return $this->canPerformAction($landRequest, $permissionHolder, self::PUBLISH, LandRequestWorkflowPlace::DRAFT);
     }
 
     private function canArchive(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
     {
-        $hasPermission = $this->can($permissionHolder, self::ARCHIVE);
-
-        if (!$hasPermission) {
-            return false;
-        }
-
-        if ($permissionHolder instanceof PersonApiKey) {
-            $isOnBehalfOfUser = $landRequest->getPerson() === $permissionHolder->getPerson();
-            return $isOnBehalfOfUser;
-        }
-
-        $userIsOwner = $landRequest->getPerson() === $permissionHolder;
-        $stateIsPublished = $landRequest->getState() === LandRequestWorkflowPlace::PUBLISHED;
-
-        return $userIsOwner && $stateIsPublished;
+        return $this->canPerformAction($landRequest, $permissionHolder, self::ARCHIVE, LandRequestWorkflowPlace::PUBLISHED);
     }
 
     private function canCollection(PermissionHolder $permissionHolder): bool

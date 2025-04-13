@@ -3,6 +3,7 @@
 namespace App\Security\Service;
 
 use App\Entity\Land;
+use App\Entity\LandApiKey;
 use App\Entity\LandMember;
 use App\Entity\Person;
 use App\Repository\LandMemberRepository;
@@ -27,9 +28,12 @@ readonly class PermissionHolderRetriever
         }
 
         if ($context->subject instanceof LandAwareInterface) {
-            return $this->getLandMember($context->subject, $currentUser);
+            if ($currentUser instanceof LandApiKey) {
+                return $currentUser;
+            }
+            return $this->getLandMember($context->subject->getLand(), $currentUser);
         }
-        
+
         if ($currentUser instanceof Person) {
             $currentUser->setPermissions(PersonPermission::ALL);
         }

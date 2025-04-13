@@ -6,6 +6,7 @@ use App\Constant\GardeningLevel;
 use App\Constant\LandInteractionMode;
 use App\Constant\LandSharingCondition;
 use App\Repository\LandMemberRepository;
+use App\Security\Constant\PersonPermission;
 use App\Security\Voter\LandRequestVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
@@ -63,7 +64,7 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // API Key
         $person = $this->createPerson();
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::POST]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::POST]);
         $this->browser()->actingAs($personApiKey)
             ->post('/api/land_requests', ['json' => $data])
             ->assertStatus(403);
@@ -92,12 +93,12 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::GET]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::GET]);
         $this->browser()->actingAs($personApiKey)
             ->get($this->getIriFromResource($landRequest))
             ->assertStatus(403);
 
-        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => LandRequestVoter::ALL]);
+        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => PersonPermission::ALL]);
         $this->browser()->actingAs($personApiKey2)
             ->get($this->getIriFromResource($landRequest))
             ->assertStatus(403);
@@ -120,12 +121,12 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::PATCH]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::PATCH]);
         $this->browser()->actingAs($personApiKey)
             ->patch($this->getIriFromResource($landRequest), ['json' => []])
             ->assertStatus(403);
 
-        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => LandRequestVoter::ALL]);
+        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => PersonPermission::ALL]);
         $this->browser()->actingAs($personApiKey2)
             ->patch($this->getIriFromResource($landRequest), ['json' => []])
             ->assertStatus(403);
@@ -148,12 +149,12 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::DELETE]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::DELETE]);
         $this->browser()->actingAs($personApiKey)
             ->delete($this->getIriFromResource($landRequest))
             ->assertStatus(403);
 
-        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => LandRequestVoter::ALL]);
+        $personApiKey2 = $this->createPersonApiKey($person2, ['permissions' => PersonPermission::ALL]);
         $this->browser()->actingAs($personApiKey2)
             ->delete($this->getIriFromResource($landRequest))
             ->assertStatus(403);
@@ -186,7 +187,7 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].ulid', $landRequest3->getUlid()->toString());
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::COLLECTION]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::COLLECTION]);
         $this->browser()->actingAs($personApiKey)
             ->get('/api/land_requests')
             ->assertStatus(403);
@@ -201,7 +202,7 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // API Key
         $person = $this->createPerson();
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => LandRequestVoter::ALL], [LandRequestVoter::COLLECTION_PUBLIC]);
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::COLLECTION_PUBLIC]);
         $this->browser()->actingAs($personApiKey)
             ->get('/api/land_requests/public')
             ->assertStatus(403);

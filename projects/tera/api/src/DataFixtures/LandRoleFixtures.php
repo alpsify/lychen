@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Land;
 use App\Factory\LandRoleFactory;
-use App\Security\Constant\LandPermission;
+use App\Security\Constant\LandMemberPermission;
 use App\Security\Constant\LandSettingPermission;
 use App\Security\Constant\Permissions;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -49,7 +49,7 @@ class LandRoleFixtures extends Fixture implements DependentFixtureInterface
         $this->createLandRoleAndAddReference(self::LAND_4_ROLE_COLLABORATOR, [
             'land' => $this->getReference(LandFixtures::LAND_4, Land::class),
             'name' => 'Collaborator L4',
-            'permissions' => array_diff(Permissions::LAND_MEMBER_RELATED, LandSettingPermission::ALL, [LandPermission::UPDATE, LandPermission::TRANSFER, LandPermission::DELETE]),
+            'permissions' => array_diff(Permissions::LAND_MEMBER_RELATED, LandSettingPermission::ALL, [LandMemberPermission::UPDATE, LandMemberPermission::TRANSFER, LandMemberPermission::DELETE]),
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_3_ROLE_COLLABORATOR, [

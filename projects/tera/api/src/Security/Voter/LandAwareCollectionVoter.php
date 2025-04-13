@@ -26,6 +26,7 @@ class LandAwareCollectionVoter extends Voter
 
     protected function supports(string $attribute, mixed $subject): bool
     {
+        return false;
         $attributeIsSupported = in_array($attribute, Permissions::LAND_MEMBER_RELATED);
 
         $this->currentRequest = $this->requestStack->getCurrentRequest();

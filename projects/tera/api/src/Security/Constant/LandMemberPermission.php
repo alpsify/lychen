@@ -2,21 +2,15 @@
 
 namespace App\Security\Constant;
 
-use App\Security\Service\PermissionManager;
-use JetBrains\PhpStorm\Deprecated;
+use App\Security\Voter\LandMemberVoter;
+use App\Security\Voter\LandVoter;
 
-#[Deprecated]
-final readonly class LandMemberPermission
+final class LandMemberPermission
 {
-    public const string PREFIX = 'landmember' . PermissionManager::SEPARATOR;
-
-    public const string READ = self::PREFIX . 'read';
-    public const string UPDATE = self::PREFIX . 'update';
-    public const string DELETE = self::PREFIX . 'delete';
+    public const string PREFIX = 'land';
 
     public const array ALL = [
-        self::READ,
-        self::UPDATE,
-        self::DELETE,
+        ...LandVoter::ALL_LAND,
+        ...LandMemberVoter::ALL_LAND,
     ];
 }

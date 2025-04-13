@@ -13,8 +13,8 @@ use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandRoleRepository;
+use App\Security\Constant\LandMemberPermission;
 use App\Security\Constant\LandRolePermission;
-use App\Security\Constant\Permissions;
 use App\Security\Interface\LandAwareInterface;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -66,12 +66,12 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     private Collection $landMembers;
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
-    #[Assert\Choice(Permissions::ALL, multiple: true)]
+    #[Assert\Choice(LandMemberPermission::ALL, multiple: true)]
     #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post", "user:land_member:get-me"])]
     #[ApiProperty(openapiContext: [
         'type' => 'array',
-        'enum' => Permissions::LAND_MEMBER_RELATED,
-        'example' => Permissions::LAND_MEMBER_RELATED
+        'enum' => LandMemberPermission::ALL,
+        'example' => LandMemberPermission::ALL
     ])]
     private ?array $permissions = null;
 

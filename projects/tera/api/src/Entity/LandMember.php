@@ -12,9 +12,9 @@ use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Provider\LandMembersMeProvider;
 use App\Repository\LandMemberRepository;
-use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Interface\PermissionHolder;
+use App\Security\Voter\LandMemberVoter;
 use App\Validator\LandRolesBelongToLand;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -29,18 +29,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ApiResource()]
 #[Patch(
     denormalizationContext: ['groups' => ['user:land_member:patch']],
-    security: "is_granted('" . LandMemberPermission::UPDATE . "', object)")
+    security: "is_granted('" . LandMemberVoter::PATCH . "', previous_object)")
 ]
-#[Delete(security: "(is_granted('" . LandMemberPermission::DELETE . "', object) or object.getPerson() == user) and !object.isOwner()")]
+#[Delete(security: "is_granted('" . LandMemberVoter::DELETE . "', object)")]
 #[Get(
     uriTemplate: '/land_members/{ulid}',
     requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
     normalizationContext: ['groups' => ['user:land_member:get']],
-    security: "is_granted('" . LandMemberPermission::READ . "', object) or object.getPerson() == user"
+    security: "is_granted('" . LandMemberVoter::GET . "', object)"
 )]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_member:collection']],
-    security: "is_granted('" . LandMemberPermission::READ . "')",
+    security: "is_granted('" . LandMemberVoter::COLLECTION . "')",
     parameters: [
         new QueryParameter(
             key: 'land',
@@ -56,21 +56,29 @@ use Symfony\Component\Validator\Constraints as Assert;
             required: true
         ),
     ])]
-#[Get(uriTemplate: '/land_members/me', normalizationContext: ['groups' => ['user:land_member:get-me']], priority: 10, name: 'get-me', provider: LandMembersMeProvider::class, parameters: [
-    new QueryParameter(
-        key: 'land',
-        schema: ['type' => 'string'],
-        openApi: new Parameter(
-            name: 'land',
-            in: 'query',
-            description: 'Filter by land',
-            required: true,
-            allowEmptyValue: false
+#[Get(
+    uriTemplate: '/land_members/me',
+    normalizationContext: ['groups' => ['user:land_member:get-me']],
+    security: "is_granted('" . LandMemberVoter::ME . "')",
+    priority: 10,
+    name: 'get-me',
+    provider: LandMembersMeProvider::class,
+    parameters: [
+        new QueryParameter(
+            key: 'land',
+            schema: ['type' => 'string'],
+            openApi: new Parameter(
+                name: 'land',
+                in: 'query',
+                description: 'Filter by land',
+                required: true,
+                allowEmptyValue: false
+            ),
+            filter: LandFilter::class,
+            required: true
         ),
-        filter: LandFilter::class,
-        required: true
-    ),
-])]
+
+    ])]
 #[ORM\HasLifecycleCallbacks]
 #[LandRolesBelongToLand]
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface, PermissionHolder

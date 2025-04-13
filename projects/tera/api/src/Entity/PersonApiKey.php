@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PersonApiKeyRepository;
+use App\Security\Constant\PersonPermission;
 use App\Security\Interface\PermissionHolder;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PersonApiKeyRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -20,6 +22,7 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
     public const string PREFIX = 'tera-person_';
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
+    #[Assert\Choice(PersonPermission::ALL, multiple: true)]
     private array $permissions = [];
 
     #[ORM\ManyToOne(inversedBy: 'personApiKeys')]

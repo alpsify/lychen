@@ -6,6 +6,7 @@ use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Entity\Person;
+use App\Entity\PersonApiKey;
 use App\Repository\LandMemberRepository;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -25,8 +26,12 @@ final readonly class LandMembersMeProvider implements ProviderInterface
     {
         $user = $this->security->getUser();
 
-        if (!$user instanceof Person) {
+        if (!$user instanceof Person && !$user instanceof PersonApiKey) {
             throw new BadRequestHttpException('User not found');
+        }
+
+        if ($user instanceof PersonApiKey) {
+            $user = $user->getPerson();
         }
 
         $land = $this->iriConverter->getResourceFromIri($context['filters']['land']);
