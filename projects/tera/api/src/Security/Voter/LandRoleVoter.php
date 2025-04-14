@@ -9,7 +9,7 @@ class LandRoleVoter extends AbstractLandAwareVoterInterface
 
     public const string DELETE = 'land_member:land_role:delete';
     public const string PATCH = 'land_member:land_role:patch';
-    public const string POST = 'land_member:land_role:patch';
+    public const string POST = 'land_member:land_role:post';
     public const string GET = 'land_member:land_role:get';
     public const string COLLECTION = 'land_member:land_role:collection';
 

@@ -10,11 +10,11 @@ class LandTaskVoter extends AbstractLandAwareVoterInterface
 
     public const string DELETE = 'land_member:land_task:delete';
     public const string PATCH = 'land_member:land_task:patch';
-    public const string POST = 'land_member:land_task:patch';
+    public const string POST = 'land_member:land_task:post';
     public const string GET = 'land_member:land_task:get';
     public const string COLLECTION = 'land_member:land_task:collection';
-    public const string MARK_AS_DONE = 'person:land_task:mark_as_done';
-    public const string MARK_AS_IN_PROGRESS = 'person:land_task:mark_as_in_progress';
+    public const string MARK_AS_DONE = 'land_member:land_task:mark_as_done';
+    public const string MARK_AS_IN_PROGRESS = 'land_member:land_task:mark_as_in_progress';
 
     public const array ALL = [
         self::DELETE,

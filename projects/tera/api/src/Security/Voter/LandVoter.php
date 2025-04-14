@@ -8,7 +8,7 @@ use App\Entity\Land;
 use App\Entity\LandApiKey;
 use App\Security\Interface\PermissionHolder;
 use Exception;
-use Symfony\Component\Cache\Exception\LogicException;
+use LogicException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 class LandVoter extends AbstractPermissionVoter
@@ -38,7 +38,8 @@ class LandVoter extends AbstractPermissionVoter
         self::GET,
     ];
 
-    protected function supports(string $attribute, mixed $subject): bool
+    protected function supports(string $attribute,
+                                mixed  $subject): bool
     {
         $currentRequest = $this->requestStack->getCurrentRequest();
         $operation = $currentRequest->attributes->get('_api_operation');
@@ -51,7 +52,9 @@ class LandVoter extends AbstractPermissionVoter
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
-    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string         $attribute,
+                                       mixed          $subject,
+                                       TokenInterface $token): bool
     {
         $permissionHolder = $this->getPermissionHolder($subject);
 
@@ -65,12 +68,15 @@ class LandVoter extends AbstractPermissionVoter
         };
     }
 
-    private function canGet(Land $land, PermissionHolder $permissionHolder): bool
+    private function canGet(Land             $land,
+                            PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($land, $permissionHolder, self::GET);
     }
 
-    private function canPerformAction(Land $land, PermissionHolder $permissionHolder, string $action): bool
+    private function canPerformAction(Land             $land,
+                                      PermissionHolder $permissionHolder,
+                                      string           $action): bool
     {
         if ($permissionHolder instanceof LandApiKey) {
             $hasPermission = $this->can($permissionHolder, $action);
@@ -96,12 +102,14 @@ class LandVoter extends AbstractPermissionVoter
         return $this->can($permissionHolder, self::POST);
     }
 
-    private function canPatch(Land $land, PermissionHolder $permissionHolder): bool
+    private function canPatch(Land             $land,
+                              PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($land, $permissionHolder, self::PATCH);
     }
 
-    private function canDelete(Land $land, PermissionHolder $permissionHolder): bool
+    private function canDelete(Land             $land,
+                               PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($land, $permissionHolder, self::DELETE);
     }

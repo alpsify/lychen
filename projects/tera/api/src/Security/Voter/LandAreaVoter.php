@@ -9,7 +9,7 @@ class LandAreaVoter extends AbstractLandAwareVoterInterface
 
     public const string DELETE = 'land_member:land_area:delete';
     public const string PATCH = 'land_member:land_area:patch';
-    public const string POST = 'land_member:land_area:patch';
+    public const string POST = 'land_member:land_area:post';
     public const string GET = 'land_member:land_area:get';
     public const string COLLECTION = 'land_member:land_area:collection';
 

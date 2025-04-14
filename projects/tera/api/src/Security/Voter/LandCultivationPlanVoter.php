@@ -7,11 +7,11 @@ use App\Entity\LandCultivationPlan;
 class LandCultivationPlanVoter extends AbstractLandAwareVoterInterface
 {
 
-    public const string DELETE = 'land_member:land_task:delete';
-    public const string PATCH = 'land_member:land_task:patch';
-    public const string POST = 'land_member:land_task:patch';
-    public const string GET = 'land_member:land_task:get';
-    public const string COLLECTION = 'land_member:land_task:collection';
+    public const string DELETE = 'land_member:land_cultivation_plan:delete';
+    public const string PATCH = 'land_member:land_cultivation_plan:patch';
+    public const string POST = 'land_member:land_cultivation_plan:post';
+    public const string GET = 'land_member:land_cultivation_plan:get';
+    public const string COLLECTION = 'land_member:land_cultivation_plan:collection';
 
     public const array ALL = [
         self::DELETE,
