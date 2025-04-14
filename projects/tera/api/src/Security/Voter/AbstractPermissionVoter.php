@@ -13,7 +13,9 @@ use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
 use App\Security\Service\PermissionHolderRetrieverContext;
+use Exception;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 abstract class AbstractPermissionVoter extends Voter
@@ -31,7 +33,11 @@ abstract class AbstractPermissionVoter extends Voter
 
     protected function getPermissionHolder(mixed $subject): PermissionHolder
     {
-        return $this->permissionHolderRetriever->fromContext(new PermissionHolderRetrieverContext($subject));
+        try {
+            return $this->permissionHolderRetriever->fromContext(new PermissionHolderRetrieverContext($subject));
+        } catch (Exception $exception) {
+            throw new HttpException(403, $exception->getMessage());
+        }
     }
 
     protected function can(PermissionHolder $permissionHolder, string $permission): bool

@@ -15,17 +15,19 @@ use App\Security\Checker\PersonApiKeyPermissionChecker;
 use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
+use Exception;
 use LogicException;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 class LandMemberVoter extends AbstractPermissionVoter
 {
-    public const string DELETE = 'land_member:land:delete';
-    public const string PATCH = 'land_member:land:patch';
-    public const string GET = 'land_member:land:get';
-    public const string COLLECTION = 'land_member:land:collection';
-    public const string ME = 'person:land:me';
+    public const string DELETE = 'land_member:land_member:delete';
+    public const string PATCH = 'land_member:land_member:patch';
+    public const string GET = 'land_member:land_member:get';
+    public const string COLLECTION = 'land_member:land_member:collection';
+    public const string ME = 'person:land_member:me';
 
     public const array ALL = [
         self::DELETE,
@@ -46,9 +48,16 @@ class LandMemberVoter extends AbstractPermissionVoter
         self::COLLECTION,
     ];
 
-    public function __construct(PermissionHolderRetriever $permissionHolderRetriever, PersonApiKeyPermissionChecker $personApiKeyPermissionChecker, LandApiKeyPermissionChecker $landApiKeyPermissionChecker, PersonPermissionChecker $personPermissionChecker, LandMemberPermissionChecker $landMemberPermissionChecker, RequestStack $requestStack, private readonly IriConverterInterface $iriConverter)
+    public function __construct(PermissionHolderRetriever              $permissionHolderRetriever,
+                                PersonApiKeyPermissionChecker          $personApiKeyPermissionChecker,
+                                LandApiKeyPermissionChecker            $landApiKeyPermissionChecker,
+                                PersonPermissionChecker                $personPermissionChecker,
+                                LandMemberPermissionChecker            $landMemberPermissionChecker,
+                                RequestStack                           $requestStack,
+                                private readonly IriConverterInterface $iriConverter)
     {
-        parent::__construct($permissionHolderRetriever, $personApiKeyPermissionChecker, $landApiKeyPermissionChecker, $personPermissionChecker, $landMemberPermissionChecker, $requestStack);
+        parent::__construct($permissionHolderRetriever, $personApiKeyPermissionChecker, $landApiKeyPermissionChecker,
+            $personPermissionChecker, $landMemberPermissionChecker, $requestStack);
     }
 
     protected function supports(string $attribute, mixed $subject): bool
@@ -71,7 +80,7 @@ class LandMemberVoter extends AbstractPermissionVoter
 
         return match ($attribute) {
             self::GET => $this->canGet($subject, $permissionHolder),
-            self::PATCH => $this->canPatch($subject, $permissionHolder),
+            self::PATCH => $this->canPatch($permissionHolder),
             self::DELETE => $this->canDelete($subject, $permissionHolder),
             self::COLLECTION => $this->canCollection($permissionHolder),
             self::ME => $this->canMe($permissionHolder),
@@ -88,7 +97,7 @@ class LandMemberVoter extends AbstractPermissionVoter
         return $this->can($permissionHolder, self::GET);
     }
 
-    private function canPatch(LandMember $landMember, PermissionHolder $permissionHolder): bool
+    private function canPatch(PermissionHolder $permissionHolder): bool
     {
         return $this->can($permissionHolder, self::PATCH);
     }
@@ -119,7 +128,11 @@ class LandMemberVoter extends AbstractPermissionVoter
             throw new LogicException('Land not found.');
         }
 
-        $landMember = $this->permissionHolderRetriever->getLandMember($land, $permissionHolder);
+        try {
+            $landMember = $this->permissionHolderRetriever->getLandMember($land, $permissionHolder);
+        } catch (Exception $exception) {
+            throw new HttpException(403, $exception->getMessage());
+        }
 
         return $this->can($landMember, self::COLLECTION);
     }

@@ -3,6 +3,7 @@
 namespace App\Security\Constant;
 
 use App\Security\Voter\LandMemberVoter;
+use App\Security\Voter\LandTaskVoter;
 use App\Security\Voter\LandVoter;
 
 final class LandMemberPermission
@@ -12,5 +13,6 @@ final class LandMemberPermission
     public const array ALL = [
         ...LandVoter::ALL_LAND,
         ...LandMemberVoter::ALL_LAND,
+        ...LandTaskVoter::ALL_LAND,
     ];
 }

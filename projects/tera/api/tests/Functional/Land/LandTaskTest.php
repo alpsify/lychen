@@ -4,7 +4,7 @@ namespace App\Tests\Functional\Land;
 
 use App\Factory\LandTaskFactory;
 use App\Repository\LandTaskRepository;
-use App\Security\Constant\LandTaskPermission;
+use App\Security\Voter\LandTaskVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use App\Workflow\LandTask\LandTaskWorkflowPlace;
 use App\Workflow\LandTask\LandTaskWorkflowTransition;
@@ -36,7 +36,7 @@ class LandTaskTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandTaskPermission::CREATE]);
+        $landRole = $this->createLandRole($context->land, [LandTaskVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
         $title = faker()->title();
@@ -77,7 +77,7 @@ class LandTaskTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandTaskPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandTaskVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -120,7 +120,7 @@ class LandTaskTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandTaskPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandTaskVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $newTitle = faker()->title();
@@ -164,7 +164,7 @@ class LandTaskTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].state', $context->landTasks[1]->getState());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandTaskPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandTaskVoter::COLLECTION]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -187,7 +187,8 @@ class LandTaskTest extends AbstractApiTestCase
         array_map(fn() => $this->addOneLandTask($context), range(1, 25));
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+            ->get('/api/land_tasks',
+                ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
             ->use(function (Json $json) {
@@ -212,17 +213,20 @@ class LandTaskTest extends AbstractApiTestCase
         ]);
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::TO_BE_DONE]])
+            ->get('/api/land_tasks',
+                ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::TO_BE_DONE]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 3);
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::IN_PROGRESS]])
+            ->get('/api/land_tasks',
+                ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::IN_PROGRESS]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 12);
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::DONE]])
+            ->get('/api/land_tasks',
+                ['query' => ['land' => $this->getIriFromResource($context->land), 'state' => LandTaskWorkflowPlace::DONE]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 6);
     }
@@ -239,7 +243,7 @@ class LandTaskTest extends AbstractApiTestCase
 
         // Member with permissions
         $this->addOneLandTask($context);
-        $landRole = $this->createLandRole($context->land, [LandTaskPermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandTaskVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

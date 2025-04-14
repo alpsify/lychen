@@ -16,8 +16,8 @@ use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Doctrine\Filter\LandFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandTaskRepository;
-use App\Security\Constant\LandTaskPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandTaskVoter;
 use App\Workflow\LandTask\LandTaskWorkflowPlace;
 use App\Workflow\LandTask\LandTaskWorkflowTransition;
 use ArrayObject;
@@ -34,11 +34,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
 #[ApiResource()]
-#[Post(openapi: new Operation(operationId: 'post'), securityPostDenormalize: "is_granted('" . LandTaskPermission::CREATE . "', object)")]
-#[Patch(openapi: new Operation(operationId: 'patch'), security: "is_granted('" . LandTaskPermission::UPDATE . "', object)")]
-#[Delete(openapi: new Operation(operationId: 'delete'), security: "is_granted('" . LandTaskPermission::DELETE . "', object)")]
-#[Get(openapi: new Operation(operationId: 'get'), security: "is_granted('" . LandTaskPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandTaskPermission::READ . "')", parameters: [
+#[Post(openapi: new Operation(operationId: 'post'), securityPostDenormalize: "is_granted('" . LandTaskVoter::POST . "', object)")]
+#[Patch(openapi: new Operation(operationId: 'patch'), security: "is_granted('" . LandTaskVoter::PATCH . "', object)")]
+#[Delete(openapi: new Operation(operationId: 'delete'), security: "is_granted('" . LandTaskVoter::DELETE . "', object)")]
+#[Get(openapi: new Operation(operationId: 'get'), security: "is_granted('" . LandTaskVoter::GET . "', object)")]
+#[GetCollection(security: "is_granted('" . LandTaskVoter::COLLECTION . "')", parameters: [
     new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
     'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
     new QueryParameter(key: 'state', schema: ['type' => 'string', 'enum' => LandTaskWorkflowPlace::PLACES, 'example' => LandTaskWorkflowPlace::TO_BE_DONE], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_task.state_filter'),
@@ -59,7 +59,7 @@ use Symfony\Component\Validator\Constraints as Assert;
             ])
         )
     ),
-    security: "is_granted('" . LandTaskPermission::MARK_AS_DONE . "', object)",
+    security: "is_granted('" . LandTaskVoter::MARK_AS_DONE . "', object)",
     name: 'mark-as-done',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
@@ -78,7 +78,7 @@ use Symfony\Component\Validator\Constraints as Assert;
             ])
         )
     ),
-    security: "is_granted('" . LandTaskPermission::MARK_AS_IN_PROGRESS . "', object)",
+    security: "is_granted('" . LandTaskVoter::MARK_AS_IN_PROGRESS . "', object)",
     name: 'mark-as-in-progress',
     processor: WorkflowTransitionProcessor::class)]
 #[ORM\HasLifecycleCallbacks]
