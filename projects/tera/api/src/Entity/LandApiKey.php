@@ -2,9 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\QueryParameter;
+use ApiPlatform\OpenApi\Model\Parameter;
+use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandApiKeyRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\PermissionHolder;
+use App\Security\Voter\LandApiKeyVoter;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,6 +23,15 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandApiKeyRepository::class)]
+#[ApiResource]
+#[Post(denormalizationContext: ['groups' => ['user:land_api_key:post']], securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)")]
+#[Delete(security: "is_granted('" . LandApiKeyVoter::DELETE . "', object)")]
+#[Get(normalizationContext: ['groups' => ['user:land_api_key:get']], security: "is_granted('" . LandApiKeyVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['user:land_api_key:collection']], security: "is_granted('" . LandApiKeyVoter::COLLECTION . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
+        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
+        required: true),
+])]
 #[ORM\HasLifecycleCallbacks]
 class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface
 {
@@ -47,7 +65,7 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
         return $this;
     }
 
-    public function getRoles(): array
+    public function getApiKeys(): array
     {
         return [];
     }
@@ -96,5 +114,10 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
         $this->land = $land;
 
         return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return [];
     }
 }

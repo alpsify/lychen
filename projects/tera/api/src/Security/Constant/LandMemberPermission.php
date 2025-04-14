@@ -2,6 +2,7 @@
 
 namespace App\Security\Constant;
 
+use App\Security\Voter\LandApiKeyVoter;
 use App\Security\Voter\LandAreaParameterVoter;
 use App\Security\Voter\LandAreaSettingVoter;
 use App\Security\Voter\LandAreaVoter;
@@ -29,6 +30,7 @@ final class LandMemberPermission
         ...LandGreenhouseSettingVoter::ALL_LAND,
         ...LandGreenhouseParameterVoter::ALL_LAND,
         ...LandCultivationPlanVoter::ALL_LAND,
-        ...LandMemberInvitationVoter::ALL_LAND
+        ...LandMemberInvitationVoter::ALL_LAND,
+        ...LandApiKeyVoter::ALL_LAND,
     ];
 }

@@ -33,7 +33,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
 #[Post(denormalizationContext: ['groups' => ['user:land_role:post']], securityPostDenormalize: "is_granted('" . LandRoleVoter::POST . "', object)")]
-#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRoleVoter::PATCH . "', object)")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRoleVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandRoleVoter::DELETE . "', object)")]
 #[Get(normalizationContext: ['groups' => ['user:land_role:get']], security: "is_granted('" . LandRoleVoter::GET . "', object)")]
 #[GetCollection(normalizationContext: ['groups' => ['user:land_role:collection']], security: "is_granted('" . LandRoleVoter::COLLECTION . "')", parameters: [

@@ -6,6 +6,7 @@ use App\Security\Voter\LandMemberInvitationVoter;
 use App\Security\Voter\LandMemberVoter;
 use App\Security\Voter\LandRequestVoter;
 use App\Security\Voter\LandVoter;
+use App\Security\Voter\PersonApiKeyVoter;
 
 final readonly class PersonPermission
 {
@@ -13,6 +14,7 @@ final readonly class PersonPermission
         ...LandRequestVoter::ALL,
         ...LandVoter::ALL_PERSON,
         ...LandMemberVoter::ALL_PERSON,
-        ...LandMemberInvitationVoter::ALL_PERSON
+        ...LandMemberInvitationVoter::ALL_PERSON,
+        ...PersonApiKeyVoter::ALL_PERSON
     ];
 }

@@ -2,9 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
 use App\Repository\PersonApiKeyRepository;
 use App\Security\Constant\PersonPermission;
 use App\Security\Interface\PermissionHolder;
+use App\Security\Voter\LandApiKeyVoter;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,6 +20,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PersonApiKeyRepository::class)]
+#[ApiResource]
+#[Post(denormalizationContext: ['groups' => ['user:person_api_key:post']], securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)")]
+#[Delete(security: "is_granted('" . LandApiKeyVoter::DELETE . "', object)")]
+#[Get(normalizationContext: ['groups' => ['user:person_api_key:get']], security: "is_granted('" . LandApiKeyVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['user:person_api_key:collection']], security: "is_granted('" . LandApiKeyVoter::COLLECTION . "')")]
 #[ORM\HasLifecycleCallbacks]
 class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface
 {
