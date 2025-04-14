@@ -36,6 +36,11 @@ services:
       $secret: '%env(JWT_SECRET)%'
       $algorithm: '%env(JWT_ALGORITHM)%'
 
+  App\Security\JWT\JWTDecoder:
+    arguments:
+      $secret: '%env(JWT_SECRET)%'
+      $algorithm: '%env(JWT_ALGORITHM)%'
+
   # default configuration for services in *this* file
   _defaults:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

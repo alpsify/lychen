@@ -3,8 +3,10 @@
 namespace App\Security\Authenticator;
 
 use App\Entity\PersonApiKey;
+use App\Security\JWT\JWTDecoder;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +22,8 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
 {
     public const string HEADER_ATTRIBUTE = 'tera-personal-token';
 
-    public function __construct(private readonly EntityManagerInterface $entityManager)
+    public function __construct(private readonly EntityManagerInterface $entityManager,
+                                private readonly JWTDecoder             $JWTDecoder)
     {
     }
 
@@ -34,17 +37,27 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
         $token = $request->headers->get(self::HEADER_ATTRIBUTE);
 
         if (null === $token) {
-            throw new CustomUserMessageAuthenticationException(sprintf('Authentication failed: Missing required header "%s"', self::HEADER_ATTRIBUTE));
+            throw new CustomUserMessageAuthenticationException(sprintf('Authentication failed: Missing required header "%s"',
+                self::HEADER_ATTRIBUTE));
         }
 
         if (!str_starts_with($token, PersonApiKey::PREFIX)) {
             throw new CustomUserMessageAuthenticationException('Invalid token format : missing prefix.');
         }
 
-        return new SelfValidatingPassport(new UserBadge($token));
+        try {
+            $token = substr($token, strlen(PersonApiKey::PREFIX));
+            $decodedToken = $this->JWTDecoder->decode($token);
+        } catch (Exception $e) {
+            throw new CustomUserMessageAuthenticationException('Invalid token format : ' . $e->getMessage());
+        }
+
+        return new SelfValidatingPassport(new UserBadge($decodedToken->jti));
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
+    public function onAuthenticationSuccess(Request        $request,
+                                            TokenInterface $token,
+                                            string         $firewallName): ?Response
     {
         /** @var PersonApiKey $personApiKey */
         $personApiKey = $token->getUser();
@@ -55,7 +68,8 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
         return null;
     }
 
-    public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
+    public function onAuthenticationFailure(Request                 $request,
+                                            AuthenticationException $exception): ?Response
     {
         $data = [
             // you may want to customize or obfuscate the message first
