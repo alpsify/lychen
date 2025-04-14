@@ -2,34 +2,50 @@
 
 namespace App\Security\Voter;
 
-use App\Entity\LandMemberInvitation;
-use App\Security\Constant\LandMemberInvitationPermission;
-use JetBrains\PhpStorm\Deprecated;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
-#[Deprecated]
-class LandMemberInvitationVoter extends Voter
+class LandMemberInvitationVoter extends AbstractPermissionVoter
 {
+    public const string DELETE = 'land_member:land_member:delete';
+    public const string PATCH = 'land_member:land_member:patch';
+    public const string GET = 'land_member:land_member:get';
+    public const string COLLECTION = 'land_member:land_member:collection';
+    public const string CHECK_EMAIl_UNICITY = 'land_member:land_member:check_email_unicity';
+    public const string COLLECTION_BY_EMAIL = 'person:land_member:collection';
+    public const string ACCEPT = 'person:land_member_invitation:accept';
+    public const string REFUSE = 'person:land_member_invitation:refuse';
 
-    public function __construct()
+    public const array ALL = [
+        self::DELETE,
+        self::PATCH,
+        self::GET,
+        self::COLLECTION,
+    ];
+
+    public const array ALL_PERSON = [
+        self::ACCEPT,
+        self::REFUSE,
+        self::COLLECTION_BY_EMAIL,
+    ];
+
+    public const array ALL_LAND = [
+        self::DELETE,
+        self::PATCH,
+        self::GET,
+        self::COLLECTION,
+        self::CHECK_EMAIl_UNICITY,
+    ];
+
+    protected function supports(string $attribute,
+                                mixed  $subject): bool
     {
+        return false;
     }
 
-    protected function supports(string $attribute, mixed $subject): bool
+    protected function voteOnAttribute(string         $attribute,
+                                       mixed          $subject,
+                                       TokenInterface $token): bool
     {
-        $subjectIsLandAware = $subject instanceof LandMemberInvitation;
-        $attributeIsSupported = in_array($attribute, [LandMemberInvitationPermission::ACCEPT, LandMemberInvitationPermission::REFUSE]);
-
-        return $subjectIsLandAware && $attributeIsSupported;
-    }
-
-    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
-    {
-        if ($subject->getEmail() === $token->getUser()->getEmail()) {
-            return true;
-        }
-
         return false;
     }
 }

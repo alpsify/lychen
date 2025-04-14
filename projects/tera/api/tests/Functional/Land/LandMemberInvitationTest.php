@@ -4,7 +4,7 @@ namespace App\Tests\Functional\Land;
 
 use App\Repository\LandMemberInvitationRepository;
 use App\Repository\LandMemberRepository;
-use App\Security\Constant\LandMemberInvitationPermission;
+use App\Security\Voter\LandMemberInvitationVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
@@ -32,7 +32,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberInvitationPermission::CREATE]);
+        $landRole = $this->createLandRole($context->land, [LandMemberInvitationVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
         $email = faker()->email();
@@ -69,7 +69,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberInvitationPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandMemberInvitationVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -103,11 +103,12 @@ class LandMemberInvitationTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].state', $context->landMemberInvitations[1]->getState());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberInvitationPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandMemberInvitationVoter::COLLECTION]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->get('/api/land_member_invitations',
+                ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landMemberInvitations))
             ->assertJsonMatches('member[0].ulid', $context->landMemberInvitations[0]->getUlid()->toString())
@@ -124,7 +125,8 @@ class LandMemberInvitationTest extends AbstractApiTestCase
         array_map(fn() => $this->addOneLandMemberInvitation($context), range(1, 25));
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+            ->get('/api/land_member_invitations',
+                ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
             ->use(function (Json $json) {
@@ -144,7 +146,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
 
         // Member with permissions
         $this->addOneLandMemberInvitation($context);
-        $landRole = $this->createLandRole($context->land, [LandMemberInvitationPermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandMemberInvitationVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -169,7 +171,8 @@ class LandMemberInvitationTest extends AbstractApiTestCase
         $landMember = $landMemberRepository->findOneBy(['person' => $invited->_real(), 'land' => $context->land->_real()]);
 
         $this->assertNotNull($landMember);
-        $this->assertArrayIsEqualToArrayIgnoringListOfKeys($landMember->getLandRoles()->toArray(), $context->landMemberInvitations[0]->getLandRoles()->toArray(), []);
+        $this->assertArrayIsEqualToArrayIgnoringListOfKeys($landMember->getLandRoles()->toArray(),
+            $context->landMemberInvitations[0]->getLandRoles()->toArray(), []);
 
         $landMemberInvitationRepository = static::getContainer()->get(LandMemberInvitationRepository::class);
         $landMemberInvitation = $landMemberInvitationRepository->findOneBy(['person' => $invited->_real(), 'land' => $context->land->_real(), 'state' => LandMemberInvitationWorkflowPlace::ACCEPTED]);

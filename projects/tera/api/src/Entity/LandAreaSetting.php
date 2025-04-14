@@ -6,8 +6,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandAreaSettingRepository;
-use App\Security\Constant\LandAreaSettingPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandAreaSettingVoter;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -15,8 +15,8 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaSettingRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandAreaSettingPermission::UPDATE . "', object)")]
-#[Get(security: "is_granted('" . LandAreaSettingPermission::READ . "', object)")]
+#[Patch(security: "is_granted('" . LandAreaSettingVoter::PATCH . "', previous_object)")]
+#[Get(security: "is_granted('" . LandAreaSettingVoter::GET . "', object)")]
 class LandAreaSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landAreaSetting', cascade: ['persist', 'remove'])]

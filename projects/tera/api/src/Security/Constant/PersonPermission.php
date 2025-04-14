@@ -2,6 +2,7 @@
 
 namespace App\Security\Constant;
 
+use App\Security\Voter\LandMemberInvitationVoter;
 use App\Security\Voter\LandMemberVoter;
 use App\Security\Voter\LandRequestVoter;
 use App\Security\Voter\LandVoter;
@@ -12,5 +13,6 @@ final readonly class PersonPermission
         ...LandRequestVoter::ALL,
         ...LandVoter::ALL_PERSON,
         ...LandMemberVoter::ALL_PERSON,
+        ...LandMemberInvitationVoter::ALL_PERSON
     ];
 }

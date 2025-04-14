@@ -12,8 +12,8 @@ use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandGreenhouseRepository;
-use App\Security\Constant\LandGreenhousePermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandGreenhouseVoter;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -29,12 +29,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandGreenhousePermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandGreenhousePermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandGreenhousePermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandGreenhousePermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandGreenhousePermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+#[Post(securityPostDenormalize: "is_granted('" . LandGreenhouseVoter::POST . "')")]
+#[Patch(security: "is_granted('" . LandGreenhouseVoter::PATCH . "', previous_object)")]
+#[Delete(security: "is_granted('" . LandGreenhouseVoter::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandGreenhouseVoter::GET . "', object)")]
+#[GetCollection(security: "is_granted('" . LandGreenhouseVoter::COLLECTION . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
+        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
+        required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface

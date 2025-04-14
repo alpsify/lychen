@@ -14,6 +14,7 @@ use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandCultivationPlanRepository;
 use App\Security\Constant\LandCultivationPlanPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandCultivationPlanVoter;
 use App\Workflow\LandCultivationPlan\LandCultivationPlanWorkflowPlace;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -27,12 +28,14 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandCultivationPlanRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandCultivationPlanPermission::CREATE . "', object)")]
-#[Patch(security: "is_granted('" . LandCultivationPlanPermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandCultivationPlanPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandCultivationPlanPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandCultivationPlanPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+#[Post(securityPostDenormalize: "is_granted('" . LandCultivationPlanVoter::POST . "')")]
+#[Patch(security: "is_granted('" . LandCultivationPlanVoter::PATCH . "', previous_object)")]
+#[Delete(security: "is_granted('" . LandCultivationPlanVoter::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandCultivationPlanVoter::GET . "', object)")]
+#[GetCollection(security: "is_granted('" . LandCultivationPlanVoter::COLLECTION . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
+        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
+        required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface

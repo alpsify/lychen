@@ -6,8 +6,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandGreenhouseSettingRepository;
-use App\Security\Constant\LandGreenhouseSettingPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandGreenhouseSettingVoter;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -15,8 +15,8 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseSettingRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandGreenhouseSettingPermission::UPDATE . "', object)")]
-#[Get(security: "is_granted('" . LandGreenhouseSettingPermission::READ . "', object)")]
+#[Patch(security: "is_granted('" . LandGreenhouseSettingVoter::PATCH . "', previous_object)")]
+#[Get(security: "is_granted('" . LandGreenhouseSettingVoter::GET . "', object)")]
 class LandGreenhouseSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landGreenhouseSetting', cascade: ['persist', 'remove'])]

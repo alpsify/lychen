@@ -15,8 +15,8 @@ use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Constant\LandAreaKind;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
-use App\Security\Constant\LandAreaPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandAreaVoter;
 use App\Workflow\LandArea\LandAreaWorkflowPlace;
 use ArrayObject;
 use DateTimeImmutable;
@@ -56,12 +56,14 @@ use Symfony\Component\Validator\Constraints as Assert;
             ]
         ])
     )
-), securityPostDenormalize: "is_granted('" . LandAreaPermission::CREATE . "', object)",)]
-#[Patch(security: "is_granted('" . LandAreaPermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandAreaPermission::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandAreaPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandAreaPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true)
+), securityPostDenormalize: "is_granted('" . LandAreaVoter::POST . "', object)",)]
+#[Patch(security: "is_granted('" . LandAreaVoter::PATCH . "', previous_object)")]
+#[Delete(security: "is_granted('" . LandAreaVoter::DELETE . "', object)")]
+#[Get(security: "is_granted('" . LandAreaVoter::GET . "', object)")]
+#[GetCollection(security: "is_granted('" . LandAreaVoter::COLLECTION . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
+        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
+        required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface

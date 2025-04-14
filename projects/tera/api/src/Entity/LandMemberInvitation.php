@@ -17,8 +17,8 @@ use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Provider\LandMemberInvitationCheckEmailUnicityProvider;
 use App\Repository\LandMemberInvitationRepository;
-use App\Security\Constant\LandMemberInvitationPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandMemberInvitationVoter;
 use App\Validator\LandRolesBelongToLand;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowPlace;
 use App\Workflow\LandMemberInvitation\LandMemberInvitationWorkflowTransition;
@@ -35,32 +35,32 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberInvitationRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['user:land_member_invitation:post']], securityPostDenormalize: "is_granted('" . LandMemberInvitationPermission::CREATE . "', object)")]
-#[Patch(denormalizationContext: ['groups' => ['user:land_member_invitation:patch']], security: "is_granted('" . LandMemberInvitationPermission::UPDATE . "', object)")]
+#[Post(denormalizationContext: ['groups' => ['user:land_member_invitation:post']], securityPostDenormalize: "is_granted('" . LandMemberInvitationVoter::POST . "')")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_member_invitation:patch']], security: "is_granted('" . LandMemberInvitationVoter::PATCH . "', previous_object)")]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
     options: ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
     denormalizationContext: ['groups' => ['user:land_member_invitation:accept']],
-    security: "is_granted('" . LandMemberInvitationPermission::ACCEPT . "', object)",
+    security: "is_granted('" . LandMemberInvitationVoter::ACCEPT . "', object)",
     name: 'accept',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
     options: ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
     denormalizationContext: ['groups' => ['user:land_member_invitation:refuse']],
-    security: "is_granted('" . LandMemberInvitationPermission::REFUSE . "', object)",
+    security: "is_granted('" . LandMemberInvitationVoter::REFUSE . "', object)",
     name: 'refuse',
     processor: WorkflowTransitionProcessor::class)]
-#[Delete(security: "is_granted('" . LandMemberInvitationPermission::DELETE . "', object)")]
+#[Delete(security: "is_granted('" . LandMemberInvitationVoter::DELETE . "', object)")]
 #[Get(
     uriTemplate: '/land_member_invitations/{ulid}',
     requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
     normalizationContext: ['groups' => ['user:land_member_invitation:get']],
-    security: "is_granted('" . LandMemberInvitationPermission::READ . "', object)",
+    security: "is_granted('" . LandMemberInvitationVoter::GET . "', object)",
     priority: 10)]
 #[GetCollection(
     normalizationContext: ['groups' => ['user:land_member_invitation:collection']],
-    security: "is_granted('" . LandMemberInvitationPermission::READ . "')",
+    security: "is_granted('" . LandMemberInvitationVoter::COLLECTION . "')",
     parameters: [
         new QueryParameter(
             key: 'land',
@@ -79,7 +79,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(
     uriTemplate: '/land_member_invitations/by_email',
     normalizationContext: ['groups' => ['user:land_member_invitation:collection-by-email']],
-    security: "user.getEmail() === request.query.get('email')",
+    security: "is_granted('" . LandMemberInvitationVoter::COLLECTION_BY_EMAIL . "') and user.getEmail() === request.query.get('email')",
     name: 'collection-by-email',
     parameters: [
         new QueryParameter(
@@ -95,7 +95,10 @@ use Symfony\Component\Validator\Constraints as Assert;
             filter: EmailFilter::class,
             required: true
         ),
-        new QueryParameter(key: 'state', schema: ['type' => 'string', 'enum' => LandMemberInvitationWorkflowPlace::PLACES, 'example' => LandMemberInvitationWorkflowPlace::PENDING], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_member_invitation.state_filter')
+        new QueryParameter(key: 'state',
+            schema: ['type' => 'string', 'enum' => LandMemberInvitationWorkflowPlace::PLACES, 'example' => LandMemberInvitationWorkflowPlace::PENDING],
+            openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false,
+                allowEmptyValue: true), filter: 'land_member_invitation.state_filter')
     ]
 )]
 #[Get(
@@ -138,6 +141,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         ],
         requestBody: null,
     ),
+    security: "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIl_UNICITY . "')",
     output: LandMemberInvitationCheckEmailUnicityDto::class,
     priority: 20,
     name: 'check-email-unicity',

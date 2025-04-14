@@ -14,8 +14,8 @@ use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandRoleRepository;
 use App\Security\Constant\LandMemberPermission;
-use App\Security\Constant\LandRolePermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandRoleVoter;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -32,12 +32,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['user:land_role:post']], securityPostDenormalize: "is_granted('" . LandRolePermission::CREATE . "', object)")]
-#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRolePermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandRolePermission::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['user:land_role:get']], security: "is_granted('" . LandRolePermission::READ . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['user:land_role:collection']], security: "is_granted('" . LandRolePermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
+#[Post(denormalizationContext: ['groups' => ['user:land_role:post']], securityPostDenormalize: "is_granted('" . LandRoleVoter::POST . "', object)")]
+#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRoleVoter::PATCH . "', object)")]
+#[Delete(security: "is_granted('" . LandRoleVoter::DELETE . "', object)")]
+#[Get(normalizationContext: ['groups' => ['user:land_role:get']], security: "is_granted('" . LandRoleVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['user:land_role:collection']], security: "is_granted('" . LandRoleVoter::COLLECTION . "')", parameters: [
+    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
+        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
+        required: true),
     'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
 ])]
 #[ORM\HasLifecycleCallbacks]

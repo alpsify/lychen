@@ -4,10 +4,8 @@ namespace App\Security\Voter;
 
 use App\Entity\LandTask;
 use App\Security\Interface\PermissionHolder;
-use LogicException;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-class LandTaskVoter extends AbstractLandAwareVoter
+class LandTaskVoter extends AbstractLandAwareVoterInterface
 {
 
     public const string DELETE = 'land_member:land_task:delete';
@@ -40,35 +38,35 @@ class LandTaskVoter extends AbstractLandAwareVoter
         self::MARK_AS_IN_PROGRESS,
     ];
 
-
-    protected function supports(string $attribute, mixed $subject): bool
+    function getSupportedClass(): string
     {
-        return $this->genericSupports($attribute, $subject, self::ALL, LandTask::class);
+        return LandTask::class;
     }
 
-    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
+    function getAvailablePermissions(): array
     {
-        $permissionHolder = $this->getPermissionHolder($subject);
+        return self::ALL;
+    }
 
+    protected function voteOnCustomAttribute(string           $attribute,
+                                             mixed            $subject,
+                                             PermissionHolder $permissionHolder): bool
+    {
         return match ($attribute) {
-            self::GET => $this->canGet($permissionHolder, self::GET),
-            self::PATCH => $this->canPatch($permissionHolder, self::PATCH),
-            self::POST => $this->canPatch($permissionHolder, self::POST),
-            self::DELETE => $this->canDelete($permissionHolder, self::DELETE),
-            self::COLLECTION => $this->canCollection($permissionHolder, self::COLLECTION),
-            self::MARK_AS_DONE => $this->canMarkAsDone($subject, $permissionHolder),
-            self::MARK_AS_IN_PROGRESS => $this->canMarkAsInProgress($subject, $permissionHolder),
-            default => throw new LogicException($attribute . ' is not supported.')
+            self::MARK_AS_DONE => $this->canMarkAsDone($permissionHolder),
+            self::MARK_AS_IN_PROGRESS => $this->canMarkAsInProgress($permissionHolder),
+            default => parent::voteOnCustomAttribute($attribute, $subject, $permissionHolder)
         };
     }
 
-    private function canMarkAsDone(LandTask $landTask, PermissionHolder $permissionHolder): bool
+    private function canMarkAsDone(PermissionHolder $permissionHolder): bool
     {
         return $this->can($permissionHolder, self::MARK_AS_DONE);
     }
 
-    private function canMarkAsInProgress(LandTask $landTask, PermissionHolder $permissionHolder): bool
+    private function canMarkAsInProgress(PermissionHolder $permissionHolder): bool
     {
         return $this->can($permissionHolder, self::MARK_AS_IN_PROGRESS);
     }
 }
+

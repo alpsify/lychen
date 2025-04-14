@@ -3,6 +3,7 @@
 namespace App\Tests\Functional\Land;
 
 use App\Security\Constant\LandSettingPermission;
+use App\Security\Voter\LandSettingVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandSettingTest extends AbstractApiTestCase
@@ -20,7 +21,7 @@ class LandSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('lookingForMember', $landSetting->isLookingForMember());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandSettingPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandSettingVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -45,7 +46,7 @@ class LandSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('lookingForMember', true);
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandSettingPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandSettingVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
