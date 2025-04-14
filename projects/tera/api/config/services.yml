@@ -30,6 +30,12 @@ services:
   Stripe\StripeClient:
     arguments:
       - api_key: '%env(STRIPE_SECRET_KEY)%'
+
+  App\Security\JWT\JWTEncoder:
+    arguments:
+      $secret: '%env(JWT_SECRET)%'
+      $algorithm: '%env(JWT_ALGORITHM)%'
+
   # default configuration for services in *this* file
   _defaults:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

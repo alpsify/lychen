@@ -6,7 +6,6 @@ use App\Entity\LandApiKey;
 
 class LandApiKeyVoter extends AbstractLandAwareVoterInterface
 {
-
     public const string DELETE = 'land_member:land_api_key:delete';
     public const string POST = 'land_member:land_api_key:post';
     public const string GET = 'land_member:land_api_key:get';

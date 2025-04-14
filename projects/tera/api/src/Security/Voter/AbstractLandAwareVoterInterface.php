@@ -11,6 +11,7 @@ use App\Security\Checker\LandApiKeyPermissionChecker;
 use App\Security\Checker\LandMemberPermissionChecker;
 use App\Security\Checker\PersonApiKeyPermissionChecker;
 use App\Security\Checker\PersonPermissionChecker;
+use App\Security\Interface\LandAwareInterface;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
 use Exception;
@@ -59,25 +60,46 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
 
         // Handle standard CRUD operations
         return match ($attribute) {
-            static::GET => $this->canGet($permissionHolder, static::GET),
-            static::PATCH => $this->canPatch($permissionHolder, static::PATCH),
-            static::POST => $this->canPost($permissionHolder, static::POST),
-            static::DELETE => $this->canDelete($permissionHolder, static::DELETE),
-            static::COLLECTION => $this->canCollection($permissionHolder, static::COLLECTION),
+            defined('static::GET') ? static::GET : 'not-defined-get' => $this->canGet($subject, $permissionHolder,
+                $attribute),
+            defined('static::PATCH') ? static::PATCH : 'not-defined-patch' => $this->canPatch($subject,
+                $permissionHolder,
+                $attribute),
+            defined('static::POST') ? static::POST : 'not-defined-post' => $this->canPost($permissionHolder,
+                $attribute),
+            defined('static::DELETE') ? static::DELETE : 'not-defined-delete' => $this->canDelete($subject,
+                $permissionHolder,
+                $attribute),
+            defined('static::COLLECTION') ? static::COLLECTION : 'not-defined-collection' => $this->canCollection($permissionHolder,
+                $attribute),
             default => $this->voteOnCustomAttribute($attribute, $subject, $permissionHolder)
         };
     }
 
-    protected function canGet(PermissionHolder $permissionHolder,
-                              string           $permission): bool
+    protected function canGet(LandAwareInterface $subject,
+                              PermissionHolder   $permissionHolder,
+                              string             $permission): bool
     {
-        return $this->can($permissionHolder, $permission);
+        return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
-    protected function canPatch(PermissionHolder $permissionHolder,
-                                string           $permission): bool
+    private function canWithLandCheck(LandAwareInterface $subject = null,
+                                      PermissionHolder   $permissionHolder,
+                                      string             $permission): bool
     {
-        return $this->can($permissionHolder, $permission);
+        $hasPermission = $this->can($permissionHolder, $permission);
+        if ($permissionHolder instanceof LandApiKey && $subject !== null) {
+            $belongToLand = $permissionHolder->getLand() === $subject->getLand();
+            return $hasPermission && $belongToLand;
+        }
+        return $hasPermission;
+    }
+
+    protected function canPatch(LandAwareInterface $subject,
+                                PermissionHolder   $permissionHolder,
+                                string             $permission): bool
+    {
+        return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
     protected function canPost(PermissionHolder $permissionHolder,
@@ -86,10 +108,11 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
         return $this->can($permissionHolder, $permission);
     }
 
-    protected function canDelete(PermissionHolder $permissionHolder,
-                                 string           $permission): bool
+    protected function canDelete(LandAwareInterface $subject,
+                                 PermissionHolder   $permissionHolder,
+                                 string             $permission): bool
     {
-        return $this->can($permissionHolder, $permission);
+        return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
     protected function canCollection(PermissionHolder $permissionHolder,

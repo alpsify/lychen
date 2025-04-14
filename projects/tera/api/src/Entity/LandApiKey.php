@@ -12,14 +12,19 @@ use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandApiKeyRepository;
 use App\Security\Constant\LandMemberPermission;
+use App\Security\Interface\LandAwareInterface;
 use App\Security\Interface\PermissionHolder;
+use App\Security\JWT\JWTPayloadable;
 use App\Security\Voter\LandApiKeyVoter;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandApiKeyRepository::class)]
@@ -33,7 +38,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         required: true),
 ])]
 #[ORM\HasLifecycleCallbacks]
-class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface
+class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface, JWTPayloadable, LandAwareInterface
 {
     use CreatedAtTrait;
 
@@ -41,17 +46,36 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(LandMemberPermission::ALL, multiple: true)]
+    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
     private array $permissions = [];
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['user:land_api_key:get'])]
     private ?DateTimeInterface $lastUsedDate = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
     private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'landApiKeys')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
     private ?Land $land = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $jti = null;
+
+    private ?string $token = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    private ?DateTimeImmutable $expirationDate = null;
+
+    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    public function getUlid(): Ulid
+    {
+        return parent::getUlid();
+    }
 
     public function getPermissions(): array
     {
@@ -92,18 +116,6 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
         return $this;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function getLand(): ?Land
     {
         return $this->land;
@@ -119,5 +131,68 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
     public function getRoles(): array
     {
         return [];
+    }
+
+    public function getJWTPayload(): array
+    {
+        return [
+            'sub' => 'LandApiKey',
+            'name' => $this->getName(),
+            'aud' => 'tera',
+            'jti' => $this->getJti(),
+            'exp' => $this->getExpirationDate()?->getTimestamp(),
+        ];
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getJti(): string
+    {
+        return $this->jti;
+    }
+
+    public function setJti(string $jti): static
+    {
+        $this->jti = $jti;
+
+        return $this;
+    }
+
+    public function getExpirationDate(): ?DateTimeImmutable
+    {
+        return $this->expirationDate;
+    }
+
+    public function setExpirationDate(?DateTimeImmutable $expirationDate): static
+    {
+        $this->expirationDate = $expirationDate;
+
+        return $this;
+    }
+
+    #[Groups(['user:land_api_key:post'])]
+    public function getToken(): string
+    {
+        $token = $this->token;
+        $this->setToken(null);
+
+        return $token;
+    }
+
+    public function setToken(?string $token): static
+    {
+        $this->token = $token;
+
+        return $this;
     }
 }

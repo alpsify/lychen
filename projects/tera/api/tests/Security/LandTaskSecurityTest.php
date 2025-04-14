@@ -3,6 +3,8 @@
 namespace App\Tests\Security;
 
 use App\Entity\Land;
+use App\Security\Constant\LandMemberPermission;
+use App\Security\Voter\LandTaskVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandTaskSecurityTest extends AbstractApiTestCase
@@ -63,7 +65,8 @@ class LandTaskSecurityTest extends AbstractApiTestCase
 
         // User cannot patch a LandTask with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($context1->landTasks[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->patch($this->getIriFromResource($context1->landTasks[0]),
+                ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
@@ -79,6 +82,18 @@ class LandTaskSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
+            ->patch($this->getIriFromResource($context1->landTasks[0]), ['json' => []])
+            ->assertStatus(403);
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context1->land, ['permissions' => LandMemberPermission::ALL],
+            [LandTaskVoter::PATCH]);
+        $this->browser()->actingAs($landApiKey)
+            ->patch($this->getIriFromResource($context1->landTasks[0]), ['json' => []])
+            ->assertStatus(403);
+
+        $landApiKey2 = $this->createLandApiKey($context2->land, ['permissions' => LandMemberPermission::ALL]);
+        $this->browser()->actingAs($landApiKey2)
             ->patch($this->getIriFromResource($context1->landTasks[0]), ['json' => []])
             ->assertStatus(403);
     }

@@ -2,7 +2,6 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandSettingPermission;
 use App\Security\Voter\LandSettingVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
