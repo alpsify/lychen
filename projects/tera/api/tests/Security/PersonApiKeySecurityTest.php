@@ -3,6 +3,7 @@
 namespace App\Tests\Security;
 
 use App\Security\Authenticator\PersonApiKeyAuthenticator;
+use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class PersonApiKeySecurityTest extends AbstractApiTestCase
@@ -13,10 +14,11 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
         $person = $this->createPerson();
 
         $response = $this->browser()->actingAs($person)
-            ->post('/api/person_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['person:land:post', 'person:land:collection'],
-            ]])
+            ->post('/api/person_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => [LandVoter::POST, LandVoter::COLLECTION],
+                ]])
             ->assertSuccessful()
             ->json()->decoded();
 
@@ -50,15 +52,17 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
             ['permissions' => ['person:person_api_key:post']]);
 
         $this->browser()->actingAs($apiKey)
-            ->post('/api/person_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['person:land:post', 'person:land:collection'],
-            ]])->assertStatus(403);
+            ->post('/api/person_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => ['person:land:post', 'person:land:collection'],
+                ]])->assertStatus(403);
 
         $this->browser()->actingAs($landApiKey)
-            ->post('/api/person_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['person:land:post', 'person:land:collection'],
-            ]])->assertStatus(403);
+            ->post('/api/person_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => ['person:land:post', 'person:land:collection'],
+                ]])->assertStatus(403);
     }
 }

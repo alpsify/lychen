@@ -2,7 +2,6 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Voter\LandMemberVoter;
 use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -12,7 +11,8 @@ use function Zenstruck\Foundry\faker;
 class LandTest extends AbstractApiTestCase
 {
     #[DataProvider('landDataProvider')]
-    public function testPost(int $surface, int $altitude)
+    public function testPost(int $surface,
+                             int $altitude)
     {
         $person = $this->createPerson();
 
@@ -36,8 +36,9 @@ class LandTest extends AbstractApiTestCase
         $person = $this->createPerson();
         $personApiKey = $this->createPersonApiKey($person, ['permissions' => [LandVoter::POST]]);
         $this->browser()->actingAs($personApiKey)
-            ->post('/api/lands', ['json' => ['name' => faker()->name(), 'surface' => $surface,
-                'altitude' => $altitude]])
+            ->post('/api/lands', ['json' => ['name' => faker()->name(),
+                                             'surface' => $surface,
+                                             'altitude' => $altitude]])
             ->assertStatus(201);
     }
 
@@ -58,7 +59,7 @@ class LandTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberVoter::GET]);
+        $landRole = $this->createLandRole($context->land, [LandVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -108,7 +109,7 @@ class LandTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandMemberVoter::PATCH]);
+        $landRole = $this->createLandRole($context->land, [LandVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $newName = faker()->name();
@@ -201,11 +202,11 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].altitude', $context1->land->getAltitude());
 
         // API Key
-        $person = $this->createPerson();
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => [LandVoter::COLLECTION]]);
+        $personApiKey = $this->createPersonApiKey($context1->owner, ['permissions' => [LandVoter::COLLECTION]]);
         $this->browser()->actingAs($personApiKey)
             ->get('/api/lands')
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJsonMatches('totalItems', 2);
     }
 
     public function testCollectionPagination()

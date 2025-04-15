@@ -120,7 +120,11 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
             return $this->can($permissionHolder, $permission);
         }
 
-        $land = $this->iriConverter->getResourceFromIri($this->currentRequest->query->get('land'));
+        if (!$landIri = $this->currentRequest->query->get('land')) {
+            throw new HttpException(422, "Land query parameter shouldn't be empty");
+        }
+
+        $land = $this->iriConverter->getResourceFromIri($landIri);
 
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');

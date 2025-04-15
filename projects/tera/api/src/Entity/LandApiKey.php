@@ -29,14 +29,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandApiKeyRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['user:land_api_key:post']], securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)")]
+#[Post(securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)")]
 #[Delete(security: "is_granted('" . LandApiKeyVoter::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['user:land_api_key:get']], security: "is_granted('" . LandApiKeyVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['user:land_api_key:collection']], security: "is_granted('" . LandApiKeyVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
-        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
-        required: true),
-])]
+#[Get(security: "is_granted('" . LandApiKeyVoter::GET . "', object)")]
+#[GetCollection(
+    security  : "is_granted('" . LandApiKeyVoter::COLLECTION . "')",
+    parameters: [
+        new QueryParameter(key     : 'land',
+                           schema  : ['type' => 'string'],
+                           openApi : new Parameter(name           : 'land',
+                                                   in             : 'query',
+                                                   description    : 'Filter by land',
+                                                   required       : true,
+                                                   allowEmptyValue: false),
+                           filter  : LandFilter::class,
+                           required: true),
+    ])]
 #[ORM\HasLifecycleCallbacks]
 class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface, JWTPayloadable, LandAwareInterface
 {
@@ -46,20 +54,20 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(LandMemberPermission::ALL, multiple: true)]
-    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    #[Groups(['land_api_key:post', 'land_api_key:get'])]
     private array $permissions = [];
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['user:land_api_key:get'])]
+    #[Groups(['land_api_key:get'])]
     private ?DateTimeInterface $lastUsedDate = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    #[Groups(['land_api_key:post', 'land_api_key:get'])]
     private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'landApiKeys')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    #[Groups(['land_api_key:post', 'land_api_key:get'])]
     private ?Land $land = null;
 
     #[ORM\Column(length: 255)]
@@ -68,10 +76,10 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
     private ?string $token = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    #[Groups(['land_api_key:post:output', 'land_api_key:get'])]
     private ?DateTimeImmutable $expirationDate = null;
 
-    #[Groups(['user:land_api_key:post', 'user:land_api_key:get'])]
+    #[Groups(['land_api_key:post:output', 'land_api_key:get'])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
@@ -180,7 +188,7 @@ class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permission
         return $this;
     }
 
-    #[Groups(['user:land_api_key:post'])]
+    #[Groups(['land_api_key:post:output'])]
     public function getToken(): string
     {
         $token = $this->token;

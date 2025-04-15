@@ -17,8 +17,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 final readonly class LandMembersMeProvider implements ProviderInterface
 {
     public function __construct(
-        private LandMemberRepository  $landMemberRepository,
-        private Security              $security,
+        private LandMemberRepository $landMemberRepository,
+        private Security $security,
         private IriConverterInterface $iriConverter
     )
     {
@@ -37,7 +37,7 @@ final readonly class LandMembersMeProvider implements ProviderInterface
         }
 
         $land = $this->iriConverter->getResourceFromIri($context['filters']['land']);
-        
+
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');
         }
@@ -45,7 +45,7 @@ final readonly class LandMembersMeProvider implements ProviderInterface
         $landMember = $this->landMemberRepository->findOneBy(['person' => $user, 'land' => $land]);
 
         if (!$landMember) {
-            throw new HttpException(403, "You are not a member of this land.");
+            throw new HttpException(403, "Access Denied. You are not a member of this land.");
         }
 
         return $landMember;

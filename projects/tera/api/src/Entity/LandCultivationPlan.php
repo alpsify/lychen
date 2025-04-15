@@ -12,7 +12,6 @@ use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Parameter;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandCultivationPlanRepository;
-use App\Security\Constant\LandCultivationPlanPermission;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Voter\LandCultivationPlanVoter;
 use App\Workflow\LandCultivationPlan\LandCultivationPlanWorkflowPlace;
@@ -33,9 +32,15 @@ use Symfony\Component\Uid\Ulid;
 #[Delete(security: "is_granted('" . LandCultivationPlanVoter::DELETE . "', object)")]
 #[Get(security: "is_granted('" . LandCultivationPlanVoter::GET . "', object)")]
 #[GetCollection(security: "is_granted('" . LandCultivationPlanVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
-        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
-        required: true)
+    new QueryParameter(key     : 'land',
+                       schema  : ['type' => 'string'],
+                       openApi : new Parameter(name           : 'land',
+                                               in             : 'query',
+                                               description    : 'Filter by land',
+                                               required       : true,
+                                               allowEmptyValue: false),
+                       filter  : LandFilter::class,
+                       required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
@@ -44,72 +49,108 @@ class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements L
     use UpdatedAtTrait;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $startDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $endDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedSowingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $sowingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedPlantingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $plantingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $expectedHarvestingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $harvestingDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?DateTimeInterface $forecastedEndDate = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get"])]
+    #[Groups(["land_cultivation_plan:collection", "land_cultivation_plan:get"])]
     private ?string $state = LandCultivationPlanWorkflowPlace::DRAFT;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?Plant $plant = null;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:get", "land_cultivation_plan:post", "land_cultivation_plan:patch:output"])]
     private ?Land $land = null;
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch",
+              "land_cultivation_plan:post"])]
     private ?LandArea $landArea = null;
 
-    #[Groups(["user:land_cultivation_plan:collection", "user:land_cultivation_plan:get", "user:land_cultivation_plan:patch", "user:land_cultivation_plan:post"])]
+    #[Groups(["land_cultivation_plan:collection",
+              "land_cultivation_plan:get",
+              "land_cultivation_plan:patch:output",
+              "land_cultivation_plan:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:patch"])]
+    #[Groups(["land_cultivation_plan:get", "land_cultivation_plan:patch:output", "land_cultivation_plan:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land_cultivation_plan:get", "user:land_cultivation_plan:patch"])]
+    #[Groups(["land_cultivation_plan:get", "land_cultivation_plan:patch:output", "land_cultivation_plan:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;

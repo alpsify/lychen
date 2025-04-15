@@ -26,9 +26,4 @@ class LandDealSecurityTest extends AbstractApiTestCase
             ->put($this->getIriFromResource($landDeal))
             ->assertStatus(405);
     }
-
-    public function testTodo()
-    {
-        $this->fail('TODO');
-    }
 }

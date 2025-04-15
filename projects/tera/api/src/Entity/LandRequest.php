@@ -34,63 +34,59 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRequestRepository::class)]
 #[ApiResource()]
 #[GetCollection(
-    normalizationContext: ['groups' => ['user:land_request:collection']],
-    security: "is_granted('" . LandRequestVoter::COLLECTION . "')",
+    security  : "is_granted('" . LandRequestVoter::COLLECTION . "')",
     parameters: [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
         ),
         new QueryParameter(
-            key: 'state',
-            schema: [
+            key    : 'state',
+            schema : [
                 'type' => 'string',
                 'enum' => LandRequestWorkflowPlace::PLACES,
                 'example' => LandRequestWorkflowPlace::ARCHIVED,
             ],
             openApi: new Parameter(
-                name: 'state',
-                in: 'query',
-                description: 'Filter by state',
-                required: false,
+                name           : 'state',
+                in             : 'query',
+                description    : 'Filter by state',
+                required       : false,
                 allowEmptyValue: true
             ),
-            filter: 'land_request.state_filter'),
+            filter : 'land_request.state_filter'),
     ]
 )]
 #[GetCollection(
     uriTemplate: '/land_requests/public',
-    normalizationContext: ['groups' => ['user:land_request:collection_public']],
-    security: "is_granted('" . LandRequestVoter::COLLECTION_PUBLIC . "')",
-    parameters: [
+    security   : "is_granted('" . LandRequestVoter::COLLECTION_PUBLIC . "')",
+    name       : 'land-request_collection-public',
+    parameters : [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
         ),
     ]
 )]
 #[Get(
-    normalizationContext: ['groups' => ['user:land_request:get']],
     security: "is_granted('" . LandRequestVoter::GET . "', object)"
 )]
 #[Post(
-    denormalizationContext: ['groups' => ['user:land_request:post']],
     security: "is_granted('" . LandRequestVoter::POST . "')"
 )]
 #[Patch(
-    denormalizationContext: ['groups' => ['user:land_request:patch']],
     security: "is_granted('" . LandRequestVoter::PATCH . "', previous_object)"
 )]
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
-    options: ['transition' => LandRequestWorkflowTransition::PUBLISH],
-    normalizationContext: ['groups' => ['user:land_request:publish']],
-    security: "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
-    processor: WorkflowTransitionProcessor::class)]
+    options    : ['transition' => LandRequestWorkflowTransition::PUBLISH],
+    security   : "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
+    name       : 'land-request_publish',
+    processor  : WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
-    options: ['transition' => LandRequestWorkflowTransition::ARCHIVE],
-    normalizationContext: ['groups' => ['user:land_request:archive']],
-    security: "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
-    processor: WorkflowTransitionProcessor::class)]
+    options    : ['transition' => LandRequestWorkflowTransition::ARCHIVE],
+    security   : "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
+    name       : 'land-request_archive',
+    processor  : WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandRequestVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 #[UniqueStatePerPerson(states: [LandRequestWorkflowPlace::DRAFT, LandRequestWorkflowPlace::PUBLISHED])]
@@ -105,72 +101,148 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(length: 255)]
     #[Assert\Choice(LandRequestWorkflowPlace::PLACES)]
-    #[Groups(["user:land_request:collection", "user:land_request:get"])]
+    #[Groups(["land_request:collection",
+              "land_request:collection-public",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?string $state = LandRequestWorkflowPlace::DRAFT;
 
     /**
      * @var array|null Tiptap JSON Object
      */
     #[ORM\Column(type: Types::JSON, nullable: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?array $message = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?int $minimumSurfaceWanted = null;
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?string $gardeningLevel = GardeningLevel::BEGINNER;
 
     #[ORM\Column]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?bool $hasTools = false;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?string $title = null;
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: LandInteractionMode::ALL)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
     #[ORM\Column]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?bool $supportsLocalFoodSecurity = false;
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post",
+              "land_request:patch",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?array $sharingConditions = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?DateTimeImmutable $publishedAt = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?DateTimeImmutable $archivedAt = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_request:collection", "user:land_request:get"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     private ?DateTimeImmutable $expirationDate = null;
 
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch", "user:land_request:publish", "user:land_request:archive"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch", "user:land_request:publish", "user:land_request:archive"])]
+    #[Groups(["land_request:collection",
+              "land_request:get",
+              "land_request:post:output",
+              "land_request:patch:output",
+              "land_request:publish:output",
+              "land_request:archive:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
@@ -188,7 +260,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getState(): ?string
     {
         return $this->state;
@@ -201,7 +272,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getMessage(): ?array
     {
         return $this->message;
@@ -214,7 +284,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getMinimumSurfaceWanted(): ?int
     {
         return $this->minimumSurfaceWanted;
@@ -227,7 +296,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getGardeningLevel(): ?string
     {
         return $this->gardeningLevel;
@@ -240,7 +308,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getHasTools(): ?bool
     {
         return $this->hasTools;
@@ -253,7 +320,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getTitle(): ?string
     {
         return $this->title;
@@ -266,7 +332,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getPreferredGardenInteractionMode(): ?string
     {
         return $this->preferredGardenInteractionMode;
@@ -279,7 +344,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getSupportsLocalFoodSecurity(): ?bool
     {
         return $this->supportsLocalFoodSecurity;
@@ -292,7 +356,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getSharingConditions(): ?array
     {
         return $this->sharingConditions;
@@ -305,7 +368,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getPublishedAt(): ?DateTimeImmutable
     {
         return $this->publishedAt;
@@ -318,7 +380,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getArchivedAt(): ?DateTimeImmutable
     {
         return $this->archivedAt;
@@ -331,7 +392,6 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    #[Groups(["user:land_request:publish", "user:land_request:archive"])]
     public function getExpirationDate(): ?DateTimeImmutable
     {
         return $this->expirationDate;

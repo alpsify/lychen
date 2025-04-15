@@ -21,10 +21,10 @@ class LandGreenhouseSetting extends AbstractIdOrmAndUlidApiIdentified implements
 {
     #[ORM\OneToOne(inversedBy: 'landGreenhouseSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_greenhouse_setting:get"])]
+    #[Groups(["land_greenhouse_setting:get"])]
     private ?LandGreenhouse $landGreenhouse = null;
 
-    #[Groups(["user:land_greenhouse_setting:patch", "user:land_greenhouse_setting:get"])]
+    #[Groups(["land_greenhouse_setting:patch:output", "land_greenhouse_setting:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

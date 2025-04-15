@@ -21,14 +21,14 @@ class LandSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAware
 {
     #[ORM\OneToOne(inversedBy: 'landSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_setting:get"])]
+    #[Groups(["land_setting:get", "land_setting:patch:output"])]
     private ?Land $land = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_setting:get", "user:land_setting:patch"])]
+    #[Groups(["land_setting:get", "land_setting:patch"])]
     private ?bool $lookingForMember = false;
 
-    #[Groups(["user:land_setting:patch", "user:land_setting:get"])]
+    #[Groups(["land_setting:patch:output", "land_setting:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

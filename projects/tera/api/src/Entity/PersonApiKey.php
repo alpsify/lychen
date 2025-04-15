@@ -25,10 +25,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PersonApiKeyRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['user:person_api_key:post']], security: "is_granted('" . PersonApiKeyVoter::POST . "')")]
+#[Post(denormalizationContext: ['groups' => ['person_api_key:post']], security: "is_granted('" . PersonApiKeyVoter::POST . "')")]
 #[Delete(security: "is_granted('" . PersonApiKeyVoter::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['user:person_api_key:get']], security: "is_granted('" . PersonApiKeyVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['user:person_api_key:collection']], security: "is_granted('" . PersonApiKeyVoter::COLLECTION . "')")]
+#[Get(normalizationContext: ['groups' => ['person_api_key:get']], security: "is_granted('" . PersonApiKeyVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['person_api_key:collection']], security: "is_granted('" . PersonApiKeyVoter::COLLECTION . "')")]
 #[ORM\HasLifecycleCallbacks]
 class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface, JWTPayloadable
 {
@@ -38,7 +38,7 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(PersonPermission::ALL, multiple: true)]
-    #[Groups(['user:person_api_key:post', 'user:person_api_key:get'])]
+    #[Groups(['person_api_key:post', 'person_api_key:get'])]
     private array $permissions = [];
 
     #[ORM\ManyToOne(inversedBy: 'personApiKeys')]
@@ -46,11 +46,11 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
     private ?Person $person = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['user:person_api_key:get'])]
+    #[Groups(['person_api_key:get'])]
     private ?DateTimeInterface $lastUsedDate = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['user:person_api_key:post', 'user:person_api_key:get'])]
+    #[Groups(['person_api_key:post', 'person_api_key:get'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -59,10 +59,10 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
     private ?string $token = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['user:person_api_key:post', 'user:person_api_key:get'])]
+    #[Groups(['person_api_key:post:output', 'person_api_key:get'])]
     private ?DateTimeImmutable $expirationDate = null;
 
-    #[Groups(['user:person_api_key:post', 'user:person_api_key:get'])]
+    #[Groups(['person_api_key:post:output', 'person_api_key:get'])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
@@ -165,7 +165,7 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
         return $this;
     }
 
-    #[Groups(['user:person_api_key:post'])]
+    #[Groups(['person_api_key:post:output'])]
     public function getToken(): string
     {
         $token = $this->token;

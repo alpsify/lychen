@@ -29,14 +29,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandGreenhouseVoter::POST . "')")]
+#[Post(securityPostDenormalize: "is_granted('" . LandGreenhouseVoter::POST . "', object)")]
 #[Patch(security: "is_granted('" . LandGreenhouseVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandGreenhouseVoter::DELETE . "', object)")]
 #[Get(security: "is_granted('" . LandGreenhouseVoter::GET . "', object)")]
 #[GetCollection(security: "is_granted('" . LandGreenhouseVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query',
-        description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class,
-        required: true)
+    new QueryParameter(key     : 'land',
+                       schema  : ['type' => 'string'],
+                       openApi : new Parameter(name           : 'land',
+                                               in             : 'query',
+                                               description    : 'Filter by land',
+                                               required       : true,
+                                               allowEmptyValue: false),
+                       filter  : LandFilter::class,
+                       required: true)
 ])]
 #[ORM\HasLifecycleCallbacks]
 class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
@@ -45,32 +51,44 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
     use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get", "user:land_greenhouse:patch", "user:land_greenhouse:post"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:patch",
+              "land_greenhouse:post"])]
     #[Assert\NotBlank()]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get", "user:land_greenhouse:patch", "user:land_greenhouse:post"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:patch",
+              "land_greenhouse:post"])]
     private ?DateTimeInterface $constructionDate = null;
 
     /**
      * @var Collection<int, LandArea>
      */
     #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'landGreenhouse')]
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get"])]
+    #[Groups(["land_greenhouse:collection", "land_greenhouse:get"])]
     private Collection $landAreas;
 
     #[ORM\ManyToOne(inversedBy: 'landGreenhouses')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_greenhouse:get", "user:land_greenhouse:post"])]
+    #[Groups(["land_greenhouse:get", "land_greenhouse:post", "land_greenhouse:patch:output"])]
     private ?Land $land = null;
 
     #[ORM\OneToOne(mappedBy: 'landGreenhouse', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:post:output",
+              "land_greenhouse:patch:output"])]
     private ?LandGreenhouseParameter $landGreenhouseParameter = null;
 
     #[ORM\OneToOne(mappedBy: 'landGreenhouse', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:post:output",
+              "land_greenhouse:patch:output"])]
     private ?LandGreenhouseSetting $landGreenhouseSetting = null;
 
     public function __construct()
@@ -81,19 +99,28 @@ class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAw
         $this->setLandGreenhouseParameter(new LandGreenhouseParameter());
     }
 
-    #[Groups(["user:land_greenhouse:collection", "user:land_greenhouse:get", "user:land_greenhouse:patch", "user:land_greenhouse:post"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:patch:output",
+              "land_greenhouse:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_greenhouse:get", "user:land_greenhouse:patch"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:patch:output",
+              "land_greenhouse:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land_greenhouse:get", "user:land_greenhouse:patch"])]
+    #[Groups(["land_greenhouse:collection",
+              "land_greenhouse:get",
+              "land_greenhouse:patch:output",
+              "land_greenhouse:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;

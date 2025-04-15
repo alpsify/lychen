@@ -27,25 +27,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[Delete()]
 #[Patch(
     uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
-    options: ['transition' => LandDealWorkflowTransition::ACCEPT],
-    denormalizationContext: ['groups' => ['user:land_deal:accept']],
+    options    : ['transition' => LandDealWorkflowTransition::ACCEPT],
     //security: "true",
-    name: 'accept',
-    processor: WorkflowTransitionProcessor::class)]
+    name       : 'accept',
+    processor  : WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
-    options: ['transition' => LandDealWorkflowTransition::REFUSE],
-    denormalizationContext: ['groups' => ['user:land_deal:refuse']],
+    options    : ['transition' => LandDealWorkflowTransition::REFUSE],
     //security: "true",
-    name: 'refuse',
-    processor: WorkflowTransitionProcessor::class)]
+    name       : 'refuse',
+    processor  : WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
-    options: ['transition' => LandDealWorkflowTransition::ARCHIVE],
-    denormalizationContext: ['groups' => ['user:land_deal:archive']],
+    options    : ['transition' => LandDealWorkflowTransition::ARCHIVE],
     //security: "true",
-    name: 'archive',
-    processor: WorkflowTransitionProcessor::class)]
+    name       : 'archive',
+    processor  : WorkflowTransitionProcessor::class)]
 #[ORM\HasLifecycleCallbacks]
 class LandDeal extends AbstractIdOrmAndUlidApiIdentified
 {

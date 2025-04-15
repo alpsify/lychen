@@ -28,53 +28,49 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
 #[Patch(
-    denormalizationContext: ['groups' => ['user:land_member:patch']],
     security: "is_granted('" . LandMemberVoter::PATCH . "', previous_object)")
 ]
 #[Delete(security: "is_granted('" . LandMemberVoter::DELETE . "', object)")]
 #[Get(
-    uriTemplate: '/land_members/{ulid}',
+    uriTemplate : '/land_members/{ulid}',
     requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
-    normalizationContext: ['groups' => ['user:land_member:get']],
-    security: "is_granted('" . LandMemberVoter::GET . "', object)"
+    security    : "is_granted('" . LandMemberVoter::GET . "', object)"
 )]
 #[GetCollection(
-    normalizationContext: ['groups' => ['user:land_member:collection']],
-    security: "is_granted('" . LandMemberVoter::COLLECTION . "')",
+    security  : "is_granted('" . LandMemberVoter::COLLECTION . "')",
     parameters: [
         new QueryParameter(
-            key: 'land',
-            schema: ['type' => 'string'],
-            openApi: new Parameter(
-                name: 'land',
-                in: 'query',
-                description: 'Filter by land',
-                required: true,
+            key     : 'land',
+            schema  : ['type' => 'string'],
+            openApi : new Parameter(
+                name           : 'land',
+                in             : 'query',
+                description    : 'Filter by land',
+                required       : true,
                 allowEmptyValue: false
             ),
-            filter: LandFilter::class,
+            filter  : LandFilter::class,
             required: true
         ),
     ])]
 #[Get(
     uriTemplate: '/land_members/me',
-    normalizationContext: ['groups' => ['user:land_member:get-me']],
-    security: "is_granted('" . LandMemberVoter::ME . "')",
-    priority: 10,
-    name: 'get-me',
-    provider: LandMembersMeProvider::class,
-    parameters: [
+    security   : "is_granted('" . LandMemberVoter::ME . "')",
+    priority   : 10,
+    name       : 'land-member_me',
+    provider   : LandMembersMeProvider::class,
+    parameters : [
         new QueryParameter(
-            key: 'land',
-            schema: ['type' => 'string'],
-            openApi: new Parameter(
-                name: 'land',
-                in: 'query',
-                description: 'Filter by land',
-                required: true,
+            key     : 'land',
+            schema  : ['type' => 'string'],
+            openApi : new Parameter(
+                name           : 'land',
+                in             : 'query',
+                description    : 'Filter by land',
+                required       : true,
                 allowEmptyValue: false
             ),
-            filter: LandFilter::class,
+            filter  : LandFilter::class,
             required: true
         ),
 
@@ -84,32 +80,35 @@ use Symfony\Component\Validator\Constraints as Assert;
 class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface, PermissionHolder
 {
     #[ORM\Column]
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["land_member:collection", "land_member:get", "land_member:patch:output"])]
     private ?DateTimeImmutable $joinedAt = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:get-me"])]
+    #[Groups(["land_member:collection", "land_member:get", "land_member:me", "land_member:patch:output"])]
     private ?bool $owner = false;
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_member:get-me"])]
+    #[Groups(["land_member:me", "land_member:patch:output"])]
     private ?Land $land = null;
 
     #[ORM\ManyToOne(inversedBy: 'landMembers')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["land_member:collection", "land_member:get", "land_member:patch:output"])]
     private ?Person $person = null;
 
     #[ORM\OneToOne(mappedBy: 'landMember', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land_member:collection", "user:land_member:get"])]
+    #[Groups(["land_member:collection", "land_member:get", "land_member:patch:output"])]
     private ?LandMemberSetting $landMemberSetting = null;
 
     /**
      * @var Collection<int, LandRole>
      */
     #[ORM\ManyToMany(targetEntity: LandRole::class, inversedBy: 'landMembers')]
-    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch", "user:land_member:get-me"])]
+    #[Groups(["land_member:collection",
+              "land_member:get",
+              "land_member:patch",
+              "land_member:me"])]
     #[Assert\Valid()]
     private Collection $landRoles;
 
@@ -120,7 +119,10 @@ class LandMember extends AbstractIdOrmAndUlidApiIdentified implements LandAwareI
         $this->landRoles = new ArrayCollection();
     }
 
-    #[Groups(["user:land_member:collection", "user:land_member:get", "user:land_member:patch", "user:land_member:get-me"])]
+    #[Groups(["land_member:collection",
+              "land_member:get",
+              "land_member:patch:output",
+              "land_member:me"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

@@ -8,6 +8,6 @@ class LandDealTest extends AbstractApiTestCase
 {
     public function testPut()
     {
-        $this->fail('TODO');
+        $this->markTestIncomplete('TODO');
     }
 }

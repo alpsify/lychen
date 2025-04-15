@@ -5,8 +5,8 @@ namespace App\DataFixtures;
 use App\Entity\Land;
 use App\Factory\LandRoleFactory;
 use App\Security\Constant\LandMemberPermission;
-use App\Security\Constant\LandSettingPermission;
-use App\Security\Constant\Permissions;
+use App\Security\Voter\LandSettingVoter;
+use App\Security\Voter\LandVoter;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -25,41 +25,43 @@ class LandRoleFixtures extends Fixture implements DependentFixtureInterface
         $this->createLandRoleAndAddReference(self::LAND_1_ROLE_ADMIN, [
             'land' => $this->getReference(LandFixtures::LAND_1, Land::class),
             'name' => 'Administrateur L1',
-            'permissions' => Permissions::LAND_MEMBER_RELATED,
+            'permissions' => LandMemberPermission::ALL,
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_1_ROLE_COLLABORATOR, [
             'land' => $this->getReference(LandFixtures::LAND_1, Land::class),
             'name' => 'Collaborateur L1',
-            'permissions' => Permissions::LAND_MEMBER_RELATED,
+            'permissions' => LandMemberPermission::ALL,
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_2_ROLE_ADMIN, [
             'land' => $this->getReference(LandFixtures::LAND_2, Land::class),
             'name' => 'Admin L2',
-            'permissions' => Permissions::LAND_MEMBER_RELATED,
+            'permissions' => LandMemberPermission::ALL,
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_2_ROLE_MANAGER, [
             'land' => $this->getReference(LandFixtures::LAND_2, Land::class),
             'name' => 'Manager L2',
-            'permissions' => Permissions::LAND_MEMBER_RELATED,
+            'permissions' => LandMemberPermission::ALL,
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_4_ROLE_COLLABORATOR, [
             'land' => $this->getReference(LandFixtures::LAND_4, Land::class),
             'name' => 'Collaborator L4',
-            'permissions' => array_diff(Permissions::LAND_MEMBER_RELATED, LandSettingPermission::ALL, [LandMemberPermission::UPDATE, LandMemberPermission::TRANSFER, LandMemberPermission::DELETE]),
+            'permissions' => array_diff(LandMemberPermission::ALL, LandSettingVoter::ALL,
+                [LandVoter::PATCH, LandVoter::DELETE]),
         ]);
 
         $this->createLandRoleAndAddReference(self::LAND_3_ROLE_COLLABORATOR, [
             'land' => $this->getReference(LandFixtures::LAND_3, Land::class),
             'name' => 'Collaborator L3',
-            'permissions' => Permissions::LAND_MEMBER_RELATED,
+            'permissions' => LandMemberPermission::ALL,
         ]);
     }
 
-    private function createLandRoleAndAddReference(string $reference, array|callable $attributes = []): void
+    private function createLandRoleAndAddReference(string         $reference,
+                                                   array|callable $attributes = []): void
     {
         $landRole = LandRoleFactory::new()->create($attributes);
         $this->addReference($reference, $landRole->_real());

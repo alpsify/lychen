@@ -21,22 +21,22 @@ class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements Lan
 {
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_area_parameter:get"])]
+    #[Groups(["land_area_parameter:get"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
+    #[Groups(["land_area_parameter:patch", "land_area_parameter:get"])]
     private ?bool $aboveGround = false;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
+    #[Groups(["land_area_parameter:patch", "land_area_parameter:get"])]
     private ?int $width = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
+    #[Groups(["land_area_parameter:patch", "land_area_parameter:get"])]
     private ?int $length = null;
 
-    #[Groups(["user:land_area_parameter:patch", "user:land_area_parameter:get"])]
+    #[Groups(["land_area_parameter:patch:output", "land_area_parameter:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

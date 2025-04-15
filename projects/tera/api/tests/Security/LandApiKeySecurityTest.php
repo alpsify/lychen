@@ -3,6 +3,8 @@
 namespace App\Tests\Security;
 
 use App\Security\Authenticator\LandApiKeyAuthenticator;
+use App\Security\Voter\LandTaskVoter;
+use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandApiKeySecurityTest extends AbstractApiTestCase
@@ -17,11 +19,12 @@ class LandApiKeySecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
 
         $this->browser()->actingAs($context->owner)
-            ->post('/api/land_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['land_member:land_task:post', 'land_member:land_task:collection'],
-                'land' => $this->getIriFromResource($context2->land),
-            ]])
+            ->post('/api/land_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => [LandTaskVoter::POST, LandTaskVoter::COLLECTION],
+                    'land' => $this->getIriFromResource($context2->land),
+                ]])
             ->assertStatus(403);
     }
 
@@ -30,11 +33,12 @@ class LandApiKeySecurityTest extends AbstractApiTestCase
         $context = $this->createLandContext();
 
         $response = $this->browser()->actingAs($context->owner)
-            ->post('/api/land_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['land_member:land:get', 'land_member:land_task:post', 'land_member:land_task:collection'],
-                'land' => $this->getIriFromResource($context->land),
-            ]])
+            ->post('/api/land_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => [LandVoter::GET, LandTaskVoter::POST, LandTaskVoter::COLLECTION],
+                    'land' => $this->getIriFromResource($context->land),
+                ]])
             ->assertSuccessful()
             ->json()->decoded();
 
@@ -68,17 +72,19 @@ class LandApiKeySecurityTest extends AbstractApiTestCase
             ['permissions' => ['land_member:land_api_key:post']]);
 
         $this->browser()->actingAs($apiKey)
-            ->post('/api/land_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['land_member:land_task:post'],
-                'land' => $this->getIriFromResource($context->land->_real())
-            ]])->assertStatus(403);
+            ->post('/api/land_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => ['land_member:land_task:post'],
+                    'land' => $this->getIriFromResource($context->land->_real())
+                ]])->assertStatus(403);
 
         $this->browser()->actingAs($landApiKey)
-            ->post('/api/land_api_keys', ['json' => [
-                'name' => 'Test API Key',
-                'permissions' => ['land_member:land_task:post'],
-                'land' => $this->getIriFromResource($context->land->_real())
-            ]])->assertStatus(403);
+            ->post('/api/land_api_keys',
+                ['json' => [
+                    'name' => 'Test API Key',
+                    'permissions' => ['land_member:land_task:post'],
+                    'land' => $this->getIriFromResource($context->land->_real())
+                ]])->assertStatus(403);
     }
 }

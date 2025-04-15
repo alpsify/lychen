@@ -7,6 +7,7 @@ use ApiPlatform\Doctrine\Orm\Extension\QueryItemExtensionInterface;
 use ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use ApiPlatform\Metadata\Operation;
 use App\Entity\Land;
+use App\Entity\PersonApiKey;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -18,15 +19,24 @@ final readonly class LandExtension implements QueryCollectionExtensionInterface,
     {
     }
 
-    public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, ?Operation $operation = null, array $context = []): void
+    public function applyToCollection(QueryBuilder                $queryBuilder,
+                                      QueryNameGeneratorInterface $queryNameGenerator,
+                                      string                      $resourceClass,
+                                      ?Operation                  $operation = null,
+                                      array                       $context = []): void
     {
         $this->addWhere($queryBuilder, $resourceClass);
     }
 
-    private function addWhere(QueryBuilder $queryBuilder, string $resourceClass): void
+    private function addWhere(QueryBuilder $queryBuilder,
+                              string       $resourceClass): void
     {
         if (Land::class !== $resourceClass || $this->security->isGranted('ROLE_ADMIN') || null === $user = $this->security->getUser()) {
             return;
+        }
+
+        if ($user instanceof PersonApiKey) {
+            $user = $user->getPerson();
         }
 
         $rootAlias = $queryBuilder->getRootAliases()[0];
@@ -35,7 +45,12 @@ final readonly class LandExtension implements QueryCollectionExtensionInterface,
         $queryBuilder->setParameter('current_user', $user->getId());
     }
 
-    public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, ?Operation $operation = null, array $context = []): void
+    public function applyToItem(QueryBuilder                $queryBuilder,
+                                QueryNameGeneratorInterface $queryNameGenerator,
+                                string                      $resourceClass,
+                                array                       $identifiers,
+                                ?Operation                  $operation = null,
+                                array                       $context = []): void
     {
     }
 }

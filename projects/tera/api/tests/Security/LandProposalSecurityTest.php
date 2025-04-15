@@ -65,7 +65,8 @@ class LandProposalSecurityTest extends AbstractApiTestCase
 
         // User cannot patch with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($landProposal), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->patch($this->getIriFromResource($landProposal),
+                ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
@@ -170,12 +171,14 @@ class LandProposalSecurityTest extends AbstractApiTestCase
 
         // User not authenticated
         $this->browser()
-            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::PUBLISH, ['json' => []])
+            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::PUBLISH,
+                ['json' => []])
             ->assertStatus(401);
 
         // User not the creator
         $this->browser()->actingAs($context2->owner)
-            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::PUBLISH, ['json' => []])
+            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::PUBLISH,
+                ['json' => []])
             ->assertStatus(403);
     }
 
@@ -187,12 +190,14 @@ class LandProposalSecurityTest extends AbstractApiTestCase
 
         // User not authenticated
         $this->browser()
-            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::ARCHIVE, ['json' => []])
+            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::ARCHIVE,
+                ['json' => []])
             ->assertStatus(401);
 
         // User not the creator
         $this->browser()->actingAs($context2->owner)
-            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::ARCHIVE, ['json' => []])
+            ->patch($this->getIriFromResource($landProposal) . '/' . LandProposalWorkflowTransition::ARCHIVE,
+                ['json' => []])
             ->assertStatus(403);
     }
 }

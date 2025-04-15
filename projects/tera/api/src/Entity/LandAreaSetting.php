@@ -21,14 +21,14 @@ class LandAreaSetting extends AbstractIdOrmAndUlidApiIdentified implements LandA
 {
     #[ORM\OneToOne(inversedBy: 'landAreaSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_area_setting:get"])]
+    #[Groups(["land_area_setting:get"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_area_setting:get", "user:land_area_setting:patch"])]
+    #[Groups(["land_area_setting:get", "land_area_setting:patch"])]
     private ?bool $rotationActivated = false;
 
-    #[Groups(["user:land_area_setting:patch", "user:land_area_setting:get"])]
+    #[Groups(["land_area_setting:patch:output", "land_area_setting:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

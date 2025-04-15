@@ -24,23 +24,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Patch(
-    denormalizationContext: ['groups' => ['user:land:patch']],
-    security: "is_granted('" . LandVoter::PATCH . "', previous_object)",)
-]
+#[Get(security: "is_granted('" . LandVoter::GET . "', object)")]
+#[GetCollection(security: "is_granted('" . LandVoter::COLLECTION . "')")]
+#[Post(security: "is_granted('" . LandVoter::POST . "')")]
+#[Patch(security: "is_granted('" . LandVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandVoter::DELETE . "', object)")]
-#[Get(
-    normalizationContext: ['groups' => ['user:land:get']],
-    security: "is_granted('" . LandVoter::GET . "', object)")
-]
-#[GetCollection(
-    normalizationContext: ['groups' => ['user:land:collection']],
-    security: "is_granted('" . LandVoter::COLLECTION . "')",
-)]
-#[Post(
-    denormalizationContext: ['groups' => ['user:land:post']],
-    security: "is_granted('" . LandVoter::POST . "')",
-)]
 #[ORM\HasLifecycleCallbacks]
 class Land extends AbstractIdOrmAndUlidApiIdentified
 {
@@ -51,25 +39,29 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post", "user:land_member_invitation:collection-by-email"])]
+    #[Groups(["land:collection",
+              "land:get",
+              "land:patch",
+              "land:post",
+              "land_member_invitation:collection-by-email"])]
     private ?string $name = null;
 
     /**
      * @var Collection<int, LandMember>
      */
     #[ORM\OneToMany(targetEntity: LandMember::class, mappedBy: 'land', orphanRemoval: true)]
-    #[Groups(["user:land:collection", "user:land:get"])]
+    #[Groups(["land:collection", "land:get"])]
     private Collection $landMembers;
 
     #[ORM\OneToOne(mappedBy: 'land', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land:collection", "user:land:get"])]
+    #[Groups(["land:collection", "land:get"])]
     private ?LandSetting $landSetting = null;
 
     /**
      * @var Collection<int, LandArea>
      */
     #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'land', orphanRemoval: true)]
-    #[Groups(["user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     private Collection $landAreas;
 
     /**
@@ -86,7 +78,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(nullable: true)]
     #[Assert\GreaterThanOrEqual(0)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post"])]
     private ?int $surface = null;
 
     /**
@@ -112,7 +104,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     private Collection $landGreenhouses;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post"])]
     private ?int $altitude = 1;
 
     /**
@@ -165,19 +157,19 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land:get", "user:land:patch"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land:get", "user:land:patch"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;

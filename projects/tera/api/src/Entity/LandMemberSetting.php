@@ -22,10 +22,10 @@ class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified
     private ?LandMember $landMember = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_member_setting:get", "user:land_member_setting:patch"])]
+    #[Groups(["land_member_setting:get", "land_member_setting:patch"])]
     private ?bool $emailNotificationActivated = false;
 
-    #[Groups(["user:land_member_setting:get", "user:land_member_setting:patch"])]
+    #[Groups(["land_member_setting:get", "land_member_setting:patch:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

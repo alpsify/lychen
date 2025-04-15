@@ -16,7 +16,7 @@ class LandVoter extends AbstractPermissionVoter
     public const string POST = 'person:land:post';
     public const string DELETE = 'land_member:land:delete';
     public const string PATCH = 'land_member:land:patch';
-    public const string GET = 'land_member:land:get';
+    public const string GET = 'person-land_member:land:get';
     public const string COLLECTION = 'person:land:collection';
 
     public const array ALL = [
@@ -29,6 +29,7 @@ class LandVoter extends AbstractPermissionVoter
 
     public const array ALL_PERSON = [
         self::POST,
+        self::GET,
         self::COLLECTION,
     ];
 
@@ -68,8 +69,7 @@ class LandVoter extends AbstractPermissionVoter
         };
     }
 
-    private function canGet(Land             $land,
-                            PermissionHolder $permissionHolder): bool
+    private function canGet(Land $land, PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($land, $permissionHolder, self::GET);
     }

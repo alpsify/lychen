@@ -48,16 +48,20 @@ class LandMemberVoter extends AbstractPermissionVoter
         self::COLLECTION,
     ];
 
-    public function __construct(PermissionHolderRetriever              $permissionHolderRetriever,
-                                PersonApiKeyPermissionChecker          $personApiKeyPermissionChecker,
-                                LandApiKeyPermissionChecker            $landApiKeyPermissionChecker,
-                                PersonPermissionChecker                $personPermissionChecker,
-                                LandMemberPermissionChecker            $landMemberPermissionChecker,
-                                RequestStack                           $requestStack,
-                                private readonly IriConverterInterface $iriConverter)
+    public function __construct(PermissionHolderRetriever $permissionHolderRetriever,
+        PersonApiKeyPermissionChecker $personApiKeyPermissionChecker,
+        LandApiKeyPermissionChecker $landApiKeyPermissionChecker,
+        PersonPermissionChecker $personPermissionChecker,
+        LandMemberPermissionChecker $landMemberPermissionChecker,
+        RequestStack $requestStack,
+        private readonly IriConverterInterface $iriConverter)
     {
-        parent::__construct($permissionHolderRetriever, $personApiKeyPermissionChecker, $landApiKeyPermissionChecker,
-            $personPermissionChecker, $landMemberPermissionChecker, $requestStack);
+        parent::__construct($permissionHolderRetriever,
+            $personApiKeyPermissionChecker,
+            $landApiKeyPermissionChecker,
+            $personPermissionChecker,
+            $landMemberPermissionChecker,
+            $requestStack);
     }
 
     protected function supports(string $attribute, mixed $subject): bool
@@ -66,7 +70,7 @@ class LandMemberVoter extends AbstractPermissionVoter
         $operation = $currentRequest->attributes->get('_api_operation');
         $operationIsPost = $operation instanceof Post;
         $operationIsCollection = $operation instanceof GetCollection;
-        $operationIsGetMe = $operation instanceof Get && $operation->getName() === 'get-me';
+        $operationIsGetMe = $operation instanceof Get && $operation->getName() === 'land-member_me';
 
         $supportsSubject = $subject instanceof LandMember;
         $supportsAttribute = in_array($attribute, self::ALL);

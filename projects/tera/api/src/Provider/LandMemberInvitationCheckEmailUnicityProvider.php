@@ -7,7 +7,7 @@ use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
 use App\Repository\LandMemberInvitationRepository;
-use App\Security\Constant\LandMemberInvitationPermission;
+use App\Security\Voter\LandMemberInvitationVoter;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
@@ -16,8 +16,8 @@ final readonly class LandMemberInvitationCheckEmailUnicityProvider implements Pr
 {
     public function __construct(
         private LandMemberInvitationRepository $landMemberInvitationRepository,
-        private IriConverterInterface          $iriConverter,
-        private Security                       $security
+        private IriConverterInterface $iriConverter,
+        private Security $security
     )
     {
     }
@@ -36,7 +36,7 @@ final readonly class LandMemberInvitationCheckEmailUnicityProvider implements Pr
             throw new BadRequestHttpException('Land not found.');
         }
 
-        if (!$this->security->isGranted(LandMemberInvitationPermission::CREATE, $land)) {
+        if (!$this->security->isGranted(LandMemberInvitationVoter::CHECK_EMAIL_UNICITY, $land)) {
             throw new UnauthorizedHttpException('You are not allowed to check the email unicity of invitations for this land.');
         }
 
