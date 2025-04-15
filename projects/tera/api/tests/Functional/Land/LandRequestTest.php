@@ -41,6 +41,8 @@ class LandRequestTest extends AbstractApiTestCase
             ->assertJsonMatches('sharingConditions', $data['sharingConditions'])
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
             });
     }
 
@@ -90,7 +92,8 @@ class LandRequestTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].gardeningLevel', $landRequest1->getGardeningLevel())
             ->assertJsonMatches('member[0].hasTools', $landRequest1->getHasTools())
             ->assertJsonMatches('member[0].title', $landRequest1->getTitle())
-            ->assertJsonMatches('member[0].preferredGardenInteractionMode', $landRequest1->getPreferredGardenInteractionMode())
+            ->assertJsonMatches('member[0].preferredGardenInteractionMode',
+                $landRequest1->getPreferredGardenInteractionMode())
             ->assertJsonMatches('member[0].supportsLocalFoodSecurity', $landRequest1->getSupportsLocalFoodSecurity())
             ->assertJsonMatches('member[0].sharingConditions', $landRequest1->getSharingConditions());
 
@@ -171,6 +174,7 @@ class LandRequestTest extends AbstractApiTestCase
             ->assertJsonMatches('sharingConditions', $data['sharingConditions'])
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
             });
     }
 

@@ -33,7 +33,19 @@ class LandRequestVoter extends AbstractPermissionVoter
         self::COLLECTION_PUBLIC,
     ];
 
-    protected function supports(string $attribute, mixed $subject): bool
+    public const array ALL_PERSON = [
+        self::POST,
+        self::PATCH,
+        self::DELETE,
+        self::PUBLISH,
+        self::ARCHIVE,
+        self::GET,
+        self::COLLECTION,
+        self::COLLECTION_PUBLIC,
+    ];
+
+    protected function supports(string $attribute,
+                                mixed  $subject): bool
     {
         $currentRequest = $this->requestStack->getCurrentRequest();
         $operation = $currentRequest->attributes->get('_api_operation');
@@ -46,7 +58,9 @@ class LandRequestVoter extends AbstractPermissionVoter
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
-    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string         $attribute,
+                                       mixed          $subject,
+                                       TokenInterface $token): bool
     {
         $permissionHolder = $this->getPermissionHolder($subject);
 
@@ -63,7 +77,8 @@ class LandRequestVoter extends AbstractPermissionVoter
         };
     }
 
-    private function canGet(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
+    private function canGet(LandRequest      $landRequest,
+                            PermissionHolder $permissionHolder): bool
     {
         $hasPermission = $this->can($permissionHolder, self::GET);
 
@@ -87,12 +102,16 @@ class LandRequestVoter extends AbstractPermissionVoter
         return $this->can($permissionHolder, self::POST);
     }
 
-    private function canPatch(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
+    private function canPatch(LandRequest      $landRequest,
+                              PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($landRequest, $permissionHolder, self::PATCH, LandRequestWorkflowPlace::DRAFT);
     }
 
-    private function canPerformAction(LandRequest $landRequest, PermissionHolder $permissionHolder, string $action, ?string $requiredState = null): bool
+    private function canPerformAction(LandRequest      $landRequest,
+                                      PermissionHolder $permissionHolder,
+                                      string           $action,
+                                      ?string          $requiredState = null): bool
     {
         $hasPermission = $this->can($permissionHolder, $action);
 
@@ -114,19 +133,23 @@ class LandRequestVoter extends AbstractPermissionVoter
         return $userIsOwner;
     }
 
-    private function canDelete(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
+    private function canDelete(LandRequest      $landRequest,
+                               PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($landRequest, $permissionHolder, self::DELETE, LandRequestWorkflowPlace::DRAFT);
     }
 
-    private function canPublish(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
+    private function canPublish(LandRequest      $landRequest,
+                                PermissionHolder $permissionHolder): bool
     {
         return $this->canPerformAction($landRequest, $permissionHolder, self::PUBLISH, LandRequestWorkflowPlace::DRAFT);
     }
 
-    private function canArchive(LandRequest $landRequest, PermissionHolder $permissionHolder): bool
+    private function canArchive(LandRequest      $landRequest,
+                                PermissionHolder $permissionHolder): bool
     {
-        return $this->canPerformAction($landRequest, $permissionHolder, self::ARCHIVE, LandRequestWorkflowPlace::PUBLISHED);
+        return $this->canPerformAction($landRequest, $permissionHolder, self::ARCHIVE,
+            LandRequestWorkflowPlace::PUBLISHED);
     }
 
     private function canCollection(PermissionHolder $permissionHolder): bool

@@ -15,7 +15,8 @@ use Symfony\Bundle\SecurityBundle\Security;
 
 readonly class PermissionHolderRetriever
 {
-    public function __construct(private Security $security, private LandMemberRepository $landMemberRepository)
+    public function __construct(private Security             $security,
+                                private LandMemberRepository $landMemberRepository)
     {
     }
 
@@ -31,7 +32,11 @@ readonly class PermissionHolderRetriever
             if ($currentUser instanceof LandApiKey) {
                 return $currentUser;
             }
-            return $this->getLandMember($context->subject->getLand(), $currentUser);
+            try {
+                return $this->getLandMember($context->subject->getLand(), $currentUser);
+            } catch (Exception $exception) {
+
+            }
         }
 
         if ($currentUser instanceof Person) {
@@ -41,7 +46,8 @@ readonly class PermissionHolderRetriever
         return $currentUser;
     }
 
-    public function getLandMember(Land $land, PermissionHolder $permissionHolder): LandMember
+    public function getLandMember(Land             $land,
+                                  PermissionHolder $permissionHolder): LandMember
     {
         if (!$permissionHolder instanceof Person) {
             throw new Exception('User must be an instance of Person');

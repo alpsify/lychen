@@ -21,6 +21,7 @@ use App\Validator\UniqueStatePerPerson;
 use App\Workflow\LandRequest\LandRequestWorkflowPlace;
 use App\Workflow\LandRequest\LandRequestWorkflowTransition;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
@@ -81,16 +82,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
     options: ['transition' => LandRequestWorkflowTransition::PUBLISH],
-    denormalizationContext: ['groups' => ['user:land_request:publish']],
+    normalizationContext: ['groups' => ['user:land_request:publish']],
     security: "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
-    name: 'publish',
     processor: WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
     options: ['transition' => LandRequestWorkflowTransition::ARCHIVE],
-    denormalizationContext: ['groups' => ['user:land_request:archive']],
+    normalizationContext: ['groups' => ['user:land_request:archive']],
     security: "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
-    name: 'archive',
     processor: WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandRequestVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
@@ -163,6 +162,18 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     public function getUlid(): Ulid
     {
         return parent::getUlid();
+    }
+
+    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch", "user:land_request:publish", "user:land_request:archive"])]
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["user:land_request:collection", "user:land_request:get", "user:land_request:post", "user:land_request:patch", "user:land_request:publish", "user:land_request:archive"])]
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 
     public function getPerson(): ?Person

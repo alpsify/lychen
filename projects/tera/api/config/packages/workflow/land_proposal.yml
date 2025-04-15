@@ -1,6 +1,6 @@
 framework:
   workflows:
-    land_proposal:
+    !php/const App\Workflow\LandProposal\LandProposalWorkflow::NAME:
       audit_trail:
         enabled: true
       initial_marking: !php/const App\Workflow\LandProposal\LandProposalWorkflowPlace::DRAFT

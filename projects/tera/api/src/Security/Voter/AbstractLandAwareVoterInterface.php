@@ -48,7 +48,6 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
 
         $supportsSubject = $subject instanceof ($this->getSupportedClass());
         $supportsAttribute = in_array($attribute, $this->getAvailablePermissions());
-
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
@@ -57,7 +56,6 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
                                        TokenInterface $token): bool
     {
         $permissionHolder = $this->getPermissionHolder($subject);
-
         // Handle standard CRUD operations
         return match ($attribute) {
             defined('static::GET') ? static::GET : 'not-defined-get' => $this->canGet($subject, $permissionHolder,
