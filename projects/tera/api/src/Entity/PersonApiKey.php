@@ -171,7 +171,7 @@ class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements Permissi
         $token = $this->token;
         $this->setToken(null);
 
-        return $token;
+        return self::PREFIX . $token;
     }
 
     public function setToken(?string $token): static

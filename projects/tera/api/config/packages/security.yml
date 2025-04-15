@@ -16,9 +16,10 @@ security:
       custom_authenticators:
         - Lychen\UtilZitadelBundle\Authenticator\ZitadelUserAuthenticator
         - App\Security\Authenticator\PersonApiKeyAuthenticator
+        - App\Security\Authenticator\LandApiKeyAuthenticator
       lazy: true
       pattern: ^/
-      provider: zitadel_user_provider
+      provider: all_users
       stateless: true
 
   providers:
@@ -28,6 +29,10 @@ security:
       entity:
         class: App\Entity\PersonApiKey
         property: jti
+    land_api_key:
+      entity:
+        class: App\Entity\LandApiKey
+        property: jti
     all_users:
       chain:
-        providers: [ 'zitadel_user_provider', 'person_api_key', ]
+        providers: [ 'land_api_key', 'person_api_key', 'zitadel_user_provider' ]

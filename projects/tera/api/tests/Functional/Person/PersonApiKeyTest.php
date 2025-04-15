@@ -2,6 +2,7 @@
 
 namespace App\Tests\Functional\Person;
 
+use App\Entity\PersonApiKey;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
 
@@ -24,6 +25,7 @@ class PersonApiKeyTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('token', fn(Json $json) => $json->isNotNull());
+                $json->assertThat('token', fn(Json $json) => str_starts_with($json->decoded(), PersonApiKey::PREFIX));
             });
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Security\Authenticator;
 
-use App\Entity\PersonApiKey;
+use App\Entity\LandApiKey;
 use App\Security\JWT\JWTDecoder;
 use App\Security\JWT\JWTValidator;
 use DateTime;
@@ -19,9 +19,9 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 
-class PersonApiKeyAuthenticator extends AbstractAuthenticator
+class LandApiKeyAuthenticator extends AbstractAuthenticator
 {
-    public const string HEADER_ATTRIBUTE = 'tera-personal-token';
+    public const string HEADER_ATTRIBUTE = 'tera-land-token';
 
     public function __construct(private readonly EntityManagerInterface $entityManager,
                                 private readonly JWTDecoder             $JWTDecoder,
@@ -43,12 +43,12 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
                 self::HEADER_ATTRIBUTE));
         }
 
-        if (!str_starts_with($token, PersonApiKey::PREFIX)) {
+        if (!str_starts_with($token, LandApiKey::PREFIX)) {
             throw new CustomUserMessageAuthenticationException('Invalid token format : missing prefix.');
         }
 
         try {
-            $token = substr($token, strlen(PersonApiKey::PREFIX));
+            $token = substr($token, strlen(LandApiKey::PREFIX));
             $decodedToken = $this->JWTDecoder->decode($token);
             if ($this->JWTValidator->validate($decodedToken)) {
                 throw new Exception();
@@ -64,10 +64,10 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
                                             TokenInterface $token,
                                             string         $firewallName): ?Response
     {
-        /** @var PersonApiKey $personApiKey */
-        $personApiKey = $token->getUser();
-        $personApiKey->setLastUsedDate(new DateTime());
-        $this->entityManager->persist($personApiKey);
+        /** @var LandApiKey $landApiKey */
+        $landApiKey = $token->getUser();
+        $landApiKey->setLastUsedDate(new DateTime());
+        $this->entityManager->persist($landApiKey);
         $this->entityManager->flush();
 
         return null;

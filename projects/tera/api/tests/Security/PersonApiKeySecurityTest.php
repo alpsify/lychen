@@ -2,7 +2,6 @@
 
 namespace App\Tests\Security;
 
-use App\Entity\PersonApiKey;
 use App\Security\Authenticator\PersonApiKeyAuthenticator;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
@@ -24,7 +23,7 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
         $this->browser()->setDefaultHttpOptions(
             [
                 'headers' => [
-                    PersonApiKeyAuthenticator::HEADER_ATTRIBUTE => PersonApiKey::PREFIX . $response["token"]
+                    PersonApiKeyAuthenticator::HEADER_ATTRIBUTE => $response["token"]
                 ]
             ]
         )->get('/api/lands')->assertSuccessful();
