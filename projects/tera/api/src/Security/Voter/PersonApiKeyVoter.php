@@ -4,6 +4,7 @@ namespace App\Security\Voter;
 
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
+use App\Entity\Person;
 use App\Entity\PersonApiKey;
 use App\Security\Interface\PermissionHolder;
 use LogicException;
@@ -45,7 +46,7 @@ class PersonApiKeyVoter extends AbstractPermissionVoter
 
         $supportsSubject = $subject instanceof PersonApiKey;
         $supportsAttribute = in_array($attribute, self::ALL);
-        
+
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
@@ -71,6 +72,9 @@ class PersonApiKeyVoter extends AbstractPermissionVoter
 
     private function canPost($permissionHolder): bool
     {
+        if (!$permissionHolder instanceof Person) {
+            return false;
+        }
         return $this->can($permissionHolder, self::POST);
     }
 

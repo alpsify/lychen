@@ -28,4 +28,37 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
             ]
         )->get('/api/lands')->assertSuccessful();
     }
+
+    public function testAuthenticationWithInvalidToken(): void
+    {
+        $this->browser()->setDefaultHttpOptions(
+            [
+                'headers' => [
+                    PersonApiKeyAuthenticator::HEADER_ATTRIBUTE => 'invalid-token'
+                ]
+            ]
+        )->get('/api/lands')->assertStatus(401);
+    }
+
+    public function testCannotCreateApiKeyThroughApi(): void
+    {
+        $context = $this->createLandContext();
+        $apiKey = $this->createPersonApiKey($context->owner,
+            ['permissions' => ['person:person_api_key:post']]);
+
+        $landApiKey = $this->createLandApiKey($context->land,
+            ['permissions' => ['person:person_api_key:post']]);
+
+        $this->browser()->actingAs($apiKey)
+            ->post('/api/person_api_keys', ['json' => [
+                'name' => 'Test API Key',
+                'permissions' => ['person:land:post', 'person:land:collection'],
+            ]])->assertStatus(403);
+
+        $this->browser()->actingAs($landApiKey)
+            ->post('/api/person_api_keys', ['json' => [
+                'name' => 'Test API Key',
+                'permissions' => ['person:land:post', 'person:land:collection'],
+            ]])->assertStatus(403);
+    }
 }

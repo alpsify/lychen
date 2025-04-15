@@ -46,4 +46,39 @@ class LandApiKeySecurityTest extends AbstractApiTestCase
             ]
         )->get($this->getIriFromResource($context->land))->assertSuccessful();
     }
+
+    public function testAuthenticationWithInvalidToken()
+    {
+        $this->browser()->setDefaultHttpOptions(
+            [
+                'headers' => [
+                    LandApiKeyAuthenticator::HEADER_ATTRIBUTE => 'invalid-token'
+                ]
+            ]
+        )->get('/api/lands')->assertStatus(401);
+    }
+
+    public function testCannotCreateApiKeyThroughApi(): void
+    {
+        $context = $this->createLandContext();
+        $apiKey = $this->createPersonApiKey($context->owner,
+            ['permissions' => ['land_member:land_api_key:post']]);
+
+        $landApiKey = $this->createLandApiKey($context->land,
+            ['permissions' => ['land_member:land_api_key:post']]);
+
+        $this->browser()->actingAs($apiKey)
+            ->post('/api/land_api_keys', ['json' => [
+                'name' => 'Test API Key',
+                'permissions' => ['land_member:land_task:post'],
+                'land' => $this->getIriFromResource($context->land->_real())
+            ]])->assertStatus(403);
+
+        $this->browser()->actingAs($landApiKey)
+            ->post('/api/land_api_keys', ['json' => [
+                'name' => 'Test API Key',
+                'permissions' => ['land_member:land_task:post'],
+                'land' => $this->getIriFromResource($context->land->_real())
+            ]])->assertStatus(403);
+    }
 }

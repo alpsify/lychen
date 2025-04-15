@@ -3,6 +3,8 @@
 namespace App\Security\Voter;
 
 use App\Entity\LandApiKey;
+use App\Entity\LandMember;
+use App\Security\Interface\PermissionHolder;
 
 class LandApiKeyVoter extends AbstractLandAwareVoterInterface
 {
@@ -35,6 +37,15 @@ class LandApiKeyVoter extends AbstractLandAwareVoterInterface
     function getAvailablePermissions(): array
     {
         return self::ALL;
+    }
+
+    protected function canPost(PermissionHolder $permissionHolder,
+                               string           $permission): bool
+    {
+        if (!$permissionHolder instanceof LandMember) {
+            return false;
+        }
+        return parent::canPost($permissionHolder, $permission);
     }
 }
 
