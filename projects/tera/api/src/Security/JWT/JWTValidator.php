@@ -6,9 +6,9 @@ use stdClass;
 
 readonly class JWTValidator
 {
-    public function validate(stdClass $decodedJwt): bool
+    public function isValid(stdClass $decodedJwt): bool
     {
-        if (isset($decodedJwt->iat)) {
+        if (!isset($decodedJwt->iat)) {
             return false;
         }
 

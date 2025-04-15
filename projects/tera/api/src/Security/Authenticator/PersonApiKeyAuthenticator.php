@@ -50,7 +50,7 @@ class PersonApiKeyAuthenticator extends AbstractAuthenticator
         try {
             $token = substr($token, strlen(PersonApiKey::PREFIX));
             $decodedToken = $this->JWTDecoder->decode($token);
-            if ($this->JWTValidator->validate($decodedToken)) {
+            if (!$this->JWTValidator->isValid($decodedToken)) {
                 throw new Exception();
             }
         } catch (Exception $e) {

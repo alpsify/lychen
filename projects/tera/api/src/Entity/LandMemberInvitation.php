@@ -141,7 +141,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         ],
         requestBody: null,
     ),
-    security: "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIl_UNICITY . "')",
+    security: "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIL_UNICITY . "')",
     output: LandMemberInvitationCheckEmailUnicityDto::class,
     priority: 20,
     name: 'check-email-unicity',

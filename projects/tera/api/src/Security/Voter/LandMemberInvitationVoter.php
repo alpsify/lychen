@@ -11,7 +11,7 @@ class LandMemberInvitationVoter extends AbstractPermissionVoter
     public const string POST = 'land_member:land_member_invitation:post';
     public const string GET = 'land_member:land_member_invitation:get';
     public const string COLLECTION = 'land_member:land_member_invitation:collection';
-    public const string CHECK_EMAIl_UNICITY = 'land_member:land_member_invitation:check_email_unicity';
+    public const string CHECK_EMAIL_UNICITY = 'land_member:land_member_invitation:check_email_unicity';
     public const string COLLECTION_BY_EMAIL = 'person:land_member_invitation:collection';
     public const string ACCEPT = 'person:land_member_invitation:accept';
     public const string REFUSE = 'person:land_member_invitation:refuse';
@@ -22,7 +22,7 @@ class LandMemberInvitationVoter extends AbstractPermissionVoter
         self::POST,
         self::GET,
         self::COLLECTION,
-        self::CHECK_EMAIl_UNICITY,
+        self::CHECK_EMAIL_UNICITY,
         self::COLLECTION_BY_EMAIL,
         self::ACCEPT,
         self::REFUSE,
@@ -40,7 +40,7 @@ class LandMemberInvitationVoter extends AbstractPermissionVoter
         self::POST,
         self::GET,
         self::COLLECTION,
-        self::CHECK_EMAIl_UNICITY,
+        self::CHECK_EMAIL_UNICITY,
     ];
 
     protected function supports(string $attribute,
