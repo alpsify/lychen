@@ -15,8 +15,15 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandSettingRepository::class)]
 #[ApiResource()]
-#[Patch(security: "is_granted('" . LandSettingVoter::PATCH . "', previous_object)")]
-#[Get(security: "is_granted('" . LandSettingVoter::GET . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_setting:patch', 'land_setting:patch:output']],
+    denormalizationContext: ['groups' => ['land_setting:patch', 'land_setting:patch:input']],
+    security              : "is_granted('" . LandSettingVoter::PATCH . "', previous_object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_setting:get']],
+    security            : "is_granted('" . LandSettingVoter::GET . "', object)"
+)]
 class LandSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landSetting', cascade: ['persist', 'remove'])]

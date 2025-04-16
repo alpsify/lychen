@@ -25,10 +25,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PersonApiKeyRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['person_api_key:post']], security: "is_granted('" . PersonApiKeyVoter::POST . "')")]
-#[Delete(security: "is_granted('" . PersonApiKeyVoter::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['person_api_key:get']], security: "is_granted('" . PersonApiKeyVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['person_api_key:collection']], security: "is_granted('" . PersonApiKeyVoter::COLLECTION . "')")]
+#[Post(
+    normalizationContext  : ['groups' => ['person_api_key:post', 'person_api_key:post:output']],
+    denormalizationContext: ['groups' => ['person_api_key:post', 'person_api_key:post:input']],
+    security              : "is_granted('" . PersonApiKeyVoter::POST . "')"
+)]
+#[Delete(
+    security: "is_granted('" . PersonApiKeyVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['person_api_key:get']],
+    security            : "is_granted('" . PersonApiKeyVoter::GET . "', object)"
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['person_api_key:collection']],
+    security            : "is_granted('" . PersonApiKeyVoter::COLLECTION . "')"
+)]
 #[ORM\HasLifecycleCallbacks]
 class PersonApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface, JWTPayloadable
 {

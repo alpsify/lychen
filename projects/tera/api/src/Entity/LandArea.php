@@ -9,16 +9,13 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use ApiPlatform\OpenApi\Model\RequestBody;
 use App\Constant\LandAreaKind;
 use App\Doctrine\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Voter\LandAreaVoter;
 use App\Workflow\LandArea\LandAreaWorkflowPlace;
-use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -35,44 +32,28 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandAreaRepository::class)]
 #[ApiResource()]
 #[Post(
-       openapi                : new Operation(
-        summary    : 'Create a land area',
-        requestBody: new RequestBody(
-            content: new ArrayObject(
-                ['application/ld+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [
-                            'name' => ['type' => 'string'],
-                            'description' => ['type' => 'string'],
-                            'land' => ['type' => 'string'],
-                        ],
-                        'required' => ['name', 'land']
-                    ],
-                    'example' => [
-                        'name' => 'Table 1',
-                        'description' => 'An amazing growing table',
-                        'land' => '/api/lands/{ulid}'
-                    ]
-                ]
-                ]
-            )
-        )
-    ), securityPostDenormalize: "is_granted('" . LandAreaVoter::POST . "', object)")]
-#[Patch(security: "is_granted('" . LandAreaVoter::PATCH . "', previous_object)")]
+    normalizationContext   : ['groups' => ['land_area:post', 'land_area:post:output']],
+    denormalizationContext : ['groups' => ['land_area:post', 'land_area:post:input']],
+    securityPostDenormalize: "is_granted('" . LandAreaVoter::POST . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_area:patch', 'land_area:patch:output']],
+    denormalizationContext: ['groups' => ['land_area:patch', 'land_area:patch:input']],
+    security              : "is_granted('" . LandAreaVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandAreaVoter::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandAreaVoter::GET . "', object)")]
-#[GetCollection(security: "is_granted('" . LandAreaVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key     : 'land',
-                       schema  : ['type' => 'string'],
-                       openApi : new Parameter(name           : 'land',
-                                               in             : 'query',
-                                               description    : 'Filter by land',
-                                               required       : true,
-                                               allowEmptyValue: false),
-                       filter  : LandFilter::class,
-                       required: true)
-])]
+#[Get(normalizationContext: ['groups' => ['land_area:get']], security: "is_granted('" . LandAreaVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['land_area:collection']],
+                security            : "is_granted('" . LandAreaVoter::COLLECTION . "')",
+                parameters          : [
+        new QueryParameter(key     : 'land',
+                           schema  : ['type' => 'string'],
+                           openApi : new Parameter(name           : 'land',
+                                                   in             : 'query',
+                                                   description    : 'Filter by land',
+                                                   required       : true,
+                                                   allowEmptyValue: false),
+                           filter  : LandFilter::class,
+                           required: true)
+    ])]
 #[ORM\HasLifecycleCallbacks]
 class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

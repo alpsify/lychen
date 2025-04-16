@@ -32,22 +32,38 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['land_role:post']], securityPostDenormalize: "is_granted('" . LandRoleVoter::POST . "', object)")]
-#[Patch(denormalizationContext: ['groups' => ['land_role:patch']], security: "is_granted('" . LandRoleVoter::PATCH . "', previous_object)")]
-#[Delete(security: "is_granted('" . LandRoleVoter::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['land_role:get']], security: "is_granted('" . LandRoleVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['land_role:collection']], security: "is_granted('" . LandRoleVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key     : 'land',
-                       schema  : ['type' => 'string'],
-                       openApi : new Parameter(name           : 'land',
-                                               in             : 'query',
-                                               description    : 'Filter by land',
-                                               required       : true,
-                                               allowEmptyValue: false),
-                       filter  : LandFilter::class,
-                       required: true),
-    'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
-])]
+#[Post(
+    normalizationContext   : ['groups' => ['land_role:post', 'land_role:post:output']],
+    denormalizationContext : ['groups' => ['land_role:post', 'land_role:post:input']],
+    securityPostDenormalize: "is_granted('" . LandRoleVoter::POST . "', object)"
+)]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_role:patch', 'land_role:patch:output']],
+    denormalizationContext: ['groups' => ['land_role:patch', 'land_role:patch:input']],
+    security              : "is_granted('" . LandRoleVoter::PATCH . "', previous_object)"
+)]
+#[Delete(
+    security: "is_granted('" . LandRoleVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_role:get']], security: "is_granted('" . LandRoleVoter::GET . "', object)"
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_role:collection']],
+    security            : "is_granted('" . LandRoleVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(key     : 'land',
+                           schema  : ['type' => 'string'],
+                           openApi : new Parameter(name           : 'land',
+                                                   in             : 'query',
+                                                   description    : 'Filter by land',
+                                                   required       : true,
+                                                   allowEmptyValue: false),
+                           filter  : LandFilter::class,
+                           required: true),
+        'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

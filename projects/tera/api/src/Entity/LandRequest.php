@@ -34,8 +34,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandRequestRepository::class)]
 #[ApiResource()]
 #[GetCollection(
-    security  : "is_granted('" . LandRequestVoter::COLLECTION . "')",
-    parameters: [
+    normalizationContext: ['groups' => ['land_request:collection']],
+    security            : "is_granted('" . LandRequestVoter::COLLECTION . "')",
+    parameters          : [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
         ),
@@ -57,36 +58,43 @@ use Symfony\Component\Validator\Constraints as Assert;
     ]
 )]
 #[GetCollection(
-    uriTemplate: '/land_requests/public',
-    security   : "is_granted('" . LandRequestVoter::COLLECTION_PUBLIC . "')",
-    name       : 'land-request_collection-public',
-    parameters : [
+    uriTemplate         : '/land_requests/public',
+    normalizationContext: ['groups' => ['land_request:collection-public']],
+    security            : "is_granted('" . LandRequestVoter::COLLECTION_PUBLIC . "')",
+    parameters          : [
         'order[:property]' => new QueryParameter(
             filter: 'land_request.order_filter'
         ),
     ]
 )]
 #[Get(
-    security: "is_granted('" . LandRequestVoter::GET . "', object)"
+    normalizationContext: ['groups' => ['land_request:get']],
+    security            : "is_granted('" . LandRequestVoter::GET . "', object)"
 )]
 #[Post(
-    security: "is_granted('" . LandRequestVoter::POST . "')"
+    normalizationContext  : ['groups' => ['land_request:post', 'land_request:post:output']],
+    denormalizationContext: ['groups' => ['land_request:post', 'land_request:post:input']],
+    security              : "is_granted('" . LandRequestVoter::POST . "')"
 )]
 #[Patch(
-    security: "is_granted('" . LandRequestVoter::PATCH . "', previous_object)"
+    normalizationContext  : ['groups' => ['land_request:patch', 'land_request:patch:output']],
+    denormalizationContext: ['groups' => ['land_request:patch', 'land_request:patch:input']],
+    security              : "is_granted('" . LandRequestVoter::PATCH . "', previous_object)"
 )]
 #[Patch(
-    uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
-    options    : ['transition' => LandRequestWorkflowTransition::PUBLISH],
-    security   : "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
-    name       : 'land-request_publish',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_requests/{ulid}/' . LandRequestWorkflowTransition::PUBLISH,
+    options               : ['transition' => LandRequestWorkflowTransition::PUBLISH],
+    normalizationContext  : ['groups' => ['land_request:publish', 'land_request:publish:output']],
+    denormalizationContext: ['groups' => ['land_request:publish', 'land_request:publish:input']],
+    security              : "is_granted('" . LandRequestVoter::PUBLISH . "', previous_object)",
+    processor             : WorkflowTransitionProcessor::class)]
 #[Patch(
-    uriTemplate: '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
-    options    : ['transition' => LandRequestWorkflowTransition::ARCHIVE],
-    security   : "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
-    name       : 'land-request_archive',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_requests/{ulid}/' . LandRequestWorkflowTransition::ARCHIVE,
+    options               : ['transition' => LandRequestWorkflowTransition::ARCHIVE],
+    normalizationContext  : ['groups' => ['land_request:archive', 'land_request:archive:output']],
+    denormalizationContext: ['groups' => ['land_request:archive', 'land_request:archive:input']],
+    security              : "is_granted('" . LandRequestVoter::ARCHIVE . "', previous_object)",
+    processor             : WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandRequestVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 #[UniqueStatePerPerson(states: [LandRequestWorkflowPlace::DRAFT, LandRequestWorkflowPlace::PUBLISHED])]

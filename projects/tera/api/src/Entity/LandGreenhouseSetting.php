@@ -15,8 +15,15 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseSettingRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandGreenhouseSettingVoter::PATCH . "', previous_object)")]
-#[Get(security: "is_granted('" . LandGreenhouseSettingVoter::GET . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_greenhouse_setting:patch', 'land_greenhouse_setting:patch:output']],
+    denormalizationContext: ['groups' => ['land_greenhouse_setting:patch', 'land_greenhouse_setting:patch:input']],
+    security              : "is_granted('" . LandGreenhouseSettingVoter::PATCH . "', previous_object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_greenhouse_setting:get']],
+    security            : "is_granted('" . LandGreenhouseSettingVoter::GET . "', object)"
+)]
 class LandGreenhouseSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landGreenhouseSetting', cascade: ['persist', 'remove'])]

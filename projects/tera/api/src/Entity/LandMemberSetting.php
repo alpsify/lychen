@@ -13,8 +13,15 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandMemberSettingRepository::class)]
 #[ApiResource()]
-#[Patch(security: "object.getLandMember().getPerson() == user")]
-#[Get(security: "object.getLandMember().getPerson() == user")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_member_setting:patch', 'land_member_setting:patch:output']],
+    denormalizationContext: ['groups' => ['land_member_setting:patch', 'land_member_setting:patch:input']],
+    security              : "object.getLandMember().getPerson() == user"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_member_setting:get']],
+    security            : "object.getLandMember().getPerson() == user"
+)]
 class LandMemberSetting extends AbstractIdOrmAndUlidApiIdentified
 {
     #[ORM\OneToOne(inversedBy: 'landMemberSetting', cascade: ['persist', 'remove'])]

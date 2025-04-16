@@ -28,17 +28,21 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandMemberRepository::class)]
 #[ApiResource()]
 #[Patch(
-    security: "is_granted('" . LandMemberVoter::PATCH . "', previous_object)")
+    normalizationContext  : ['groups' => ['land_member:patch', 'land_member:patch:output']],
+    denormalizationContext: ['groups' => ['land_member:patch', 'land_member:patch:input']],
+    security              : "is_granted('" . LandMemberVoter::PATCH . "', previous_object)")
 ]
 #[Delete(security: "is_granted('" . LandMemberVoter::DELETE . "', object)")]
 #[Get(
-    uriTemplate : '/land_members/{ulid}',
-    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
-    security    : "is_granted('" . LandMemberVoter::GET . "', object)"
+    uriTemplate         : '/land_members/{ulid}',
+    requirements        : ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
+    normalizationContext: ['groups' => ['land_member:get']],
+    security            : "is_granted('" . LandMemberVoter::GET . "', object)"
 )]
 #[GetCollection(
-    security  : "is_granted('" . LandMemberVoter::COLLECTION . "')",
-    parameters: [
+    normalizationContext: ['groups' => ['land_member:collection']],
+    security            : "is_granted('" . LandMemberVoter::COLLECTION . "')",
+    parameters          : [
         new QueryParameter(
             key     : 'land',
             schema  : ['type' => 'string'],
@@ -54,12 +58,13 @@ use Symfony\Component\Validator\Constraints as Assert;
         ),
     ])]
 #[Get(
-    uriTemplate: '/land_members/me',
-    security   : "is_granted('" . LandMemberVoter::ME . "')",
-    priority   : 10,
-    name       : 'land-member_me',
-    provider   : LandMembersMeProvider::class,
-    parameters : [
+    uriTemplate         : '/land_members/me',
+    normalizationContext: ['groups' => ['land_member:me']],
+    security            : "is_granted('" . LandMemberVoter::ME . "')",
+    priority            : 10,
+    name                : 'land-member_me',
+    provider            : LandMembersMeProvider::class,
+    parameters          : [
         new QueryParameter(
             key     : 'land',
             schema  : ['type' => 'string'],

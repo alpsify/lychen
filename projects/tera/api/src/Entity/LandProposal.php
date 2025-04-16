@@ -37,8 +37,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: LandProposalRepository::class)]
 #[ApiResource]
 #[GetCollection(
-    security  : "is_granted('" . LandProposalVoter::COLLECTION . "')",
-    parameters: [
+    normalizationContext: ['groups' => ['land_proposal:collection']],
+    security            : "is_granted('" . LandProposalVoter::COLLECTION . "')",
+    parameters          : [
         'order[:property]' => new QueryParameter(
             filter: 'land_proposal.order_filter'
         ),
@@ -60,36 +61,44 @@ use Symfony\Component\Validator\Constraints as Assert;
     ]
 )]
 #[GetCollection(
-    uriTemplate: '/land_proposals/public',
-    security   : "is_granted('" . LandProposalVoter::COLLECTION_PUBLIC . "')",
-    name       : 'land-proposal_collection-public',
-    parameters : [
+    uriTemplate         : '/land_proposals/public',
+    normalizationContext: ['groups' => ['land_proposal:collection-public']],
+    security            : "is_granted('" . LandProposalVoter::COLLECTION_PUBLIC . "')",
+    name                : 'land-proposal_collection-public',
+    parameters          : [
         'order[:property]' => new QueryParameter(
             filter: 'land_proposal.order_filter'
         ),
     ]
 )]
 #[Get(
-    security: "is_granted('" . LandProposalVoter::GET . "', object)"
+    normalizationContext: ['groups' => ['land_proposal:get']],
+    security            : "is_granted('" . LandProposalVoter::GET . "', object)"
 )]
 #[Post(
+    normalizationContext   : ['groups' => ['land_proposal:post', 'land_proposal:post:output']],
+    denormalizationContext : ['groups' => ['land_proposal:post', 'land_proposal:post:input']],
     securityPostDenormalize: "is_granted('" . LandProposalVoter::POST . "', object)"
 )]
 #[Patch(
-    security: "is_granted('" . LandProposalVoter::PATCH . "', previous_object)"
+    normalizationContext  : ['groups' => ['land_proposal:patch', 'land_proposal:patch:output']],
+    denormalizationContext: ['groups' => ['land_proposal:patch', 'land_proposal:patch:input']],
+    security              : "is_granted('" . LandProposalVoter::PATCH . "', previous_object)"
 )]
 #[Patch(
-    uriTemplate: '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::PUBLISH,
-    options    : ['transition' => LandProposalWorkflowTransition::PUBLISH],
-    security   : "is_granted('" . LandProposalVoter::PUBLISH . "', previous_object)",
-    name       : 'land-proposal_publish',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::PUBLISH,
+    options               : ['transition' => LandProposalWorkflowTransition::PUBLISH],
+    normalizationContext  : ['groups' => ['land_proposal:publish', 'land_proposal:publish:output']],
+    denormalizationContext: ['groups' => ['land_proposal:publish', 'land_proposal:publish:input']],
+    security              : "is_granted('" . LandProposalVoter::PUBLISH . "', previous_object)",
+    processor             : WorkflowTransitionProcessor::class)]
 #[Patch(
-    uriTemplate: '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
-    options    : ['transition' => LandProposalWorkflowTransition::ARCHIVE],
-    security   : "is_granted('" . LandProposalVoter::ARCHIVE . "', previous_object)",
-    name       : 'land-proposal_archive',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
+    options               : ['transition' => LandProposalWorkflowTransition::ARCHIVE],
+    normalizationContext  : ['groups' => ['land_proposal:archive', 'land_proposal:archive:output']],
+    denormalizationContext: ['groups' => ['land_proposal:archive', 'land_proposal:archive:input']],
+    security              : "is_granted('" . LandProposalVoter::ARCHIVE . "', previous_object)",
+    processor             : WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandProposalVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 #[LandProposalOnlyOneStatePerLand(states: [LandProposalWorkflowPlace::DRAFT, LandProposalWorkflowPlace::PUBLISHED])]

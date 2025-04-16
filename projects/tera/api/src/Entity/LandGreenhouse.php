@@ -29,21 +29,36 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandGreenhouseVoter::POST . "', object)")]
-#[Patch(security: "is_granted('" . LandGreenhouseVoter::PATCH . "', previous_object)")]
-#[Delete(security: "is_granted('" . LandGreenhouseVoter::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandGreenhouseVoter::GET . "', object)")]
-#[GetCollection(security: "is_granted('" . LandGreenhouseVoter::COLLECTION . "')", parameters: [
-    new QueryParameter(key     : 'land',
-                       schema  : ['type' => 'string'],
-                       openApi : new Parameter(name           : 'land',
-                                               in             : 'query',
-                                               description    : 'Filter by land',
-                                               required       : true,
-                                               allowEmptyValue: false),
-                       filter  : LandFilter::class,
-                       required: true)
-])]
+#[Post(
+    normalizationContext   : ['groups' => ['land_greenhouse:post', 'land_greenhouse:post:output']],
+    denormalizationContext : ['groups' => ['land_greenhouse:post', 'land_greenhouse:post:input']],
+    securityPostDenormalize: "is_granted('" . LandGreenhouseVoter::POST . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_greenhouse:patch', 'land_greenhouse:patch:output']],
+    denormalizationContext: ['groups' => ['land_greenhouse:patch', 'land_greenhouse:patch:input']],
+    security              : "is_granted('" . LandGreenhouseVoter::PATCH . "', previous_object)")]
+#[Delete(
+    security: "is_granted('" . LandGreenhouseVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_greenhouse:get']],
+    security            : "is_granted('" . LandGreenhouseVoter::GET . "', object)"
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_greenhouse:collection']],
+    security            : "is_granted('" . LandGreenhouseVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(key     : 'land',
+                           schema  : ['type' => 'string'],
+                           openApi : new Parameter(name           : 'land',
+                                                   in             : 'query',
+                                                   description    : 'Filter by land',
+                                                   required       : true,
+                                                   allowEmptyValue: false),
+                           filter  : LandFilter::class,
+                           required: true)
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandGreenhouse extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

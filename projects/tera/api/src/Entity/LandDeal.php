@@ -20,29 +20,35 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandDealRepository::class)]
 #[ApiResource()]
-#[Get()]
-#[GetCollection()]
-#[Post()]
-#[Patch()]
+#[Get(normalizationContext: ['groups' => ['land_deal:get']],)]
+#[GetCollection(normalizationContext: ['groups' => ['land_deal:collection']],)]
+#[Post(
+    normalizationContext  : ['groups' => ['land_deal:post', 'land_deal:post:output']],
+    denormalizationContext: ['groups' => ['land_deal:post', 'land_deal:post:input']],
+)]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_deal:patch', 'land_deal:patch:output']],
+    denormalizationContext: ['groups' => ['land_deal:patch', 'land_deal:patch:input']],
+)]
 #[Delete()]
 #[Patch(
-    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
-    options    : ['transition' => LandDealWorkflowTransition::ACCEPT],
-    //security: "true",
-    name       : 'accept',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_deals/{ulid}/' . LandDealWorkflowTransition::ACCEPT,
+    options               : ['transition' => LandDealWorkflowTransition::ACCEPT],
+    normalizationContext  : ['groups' => ['land_deal:accept', 'land_deal:accept:output']],
+    denormalizationContext: ['groups' => ['land_deal:accept', 'land_deal:accept:input']],
+    processor             : WorkflowTransitionProcessor::class)]
 #[Patch(
-    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
-    options    : ['transition' => LandDealWorkflowTransition::REFUSE],
-    //security: "true",
-    name       : 'refuse',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_deals/{ulid}/' . LandDealWorkflowTransition::REFUSE,
+    options               : ['transition' => LandDealWorkflowTransition::REFUSE],
+    normalizationContext  : ['groups' => ['land_deal:refuse', 'land_deal:refuse:output']],
+    denormalizationContext: ['groups' => ['land_deal:refuse', 'land_deal:refuse:input']],
+    processor             : WorkflowTransitionProcessor::class)]
 #[Patch(
-    uriTemplate: '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
-    options    : ['transition' => LandDealWorkflowTransition::ARCHIVE],
-    //security: "true",
-    name       : 'archive',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_deals/{ulid}/' . LandDealWorkflowTransition::ARCHIVE,
+    options               : ['transition' => LandDealWorkflowTransition::ARCHIVE],
+    normalizationContext  : ['groups' => ['land_deal_archive', 'land_deal_archive:output']],
+    denormalizationContext: ['groups' => ['land_deal_archive', 'land_deal_archive:input']],
+    processor             : WorkflowTransitionProcessor::class)]
 #[ORM\HasLifecycleCallbacks]
 class LandDeal extends AbstractIdOrmAndUlidApiIdentified
 {

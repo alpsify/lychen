@@ -3,10 +3,7 @@
 namespace App\Serializer\ContextBuilder;
 
 
-use ApiPlatform\State\ApiResource\Error;
 use ApiPlatform\State\SerializerContextBuilderInterface;
-use ReflectionClass;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 use Symfony\Component\DependencyInjection\Attribute\AutowireDecorated;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +13,7 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
 {
     public const string SEPARATOR = ':';
 
-    public function __construct(#[AutowireDecorated] private SerializerContextBuilderInterface $decorated,
-        private Security $security)
+    public function __construct(#[AutowireDecorated] private SerializerContextBuilderInterface $decorated)
     {
     }
 
@@ -25,16 +21,16 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
         bool $normalization,
         ?array $extractedAttributes = null): array
     {
-        $context = $this->decorated->createFromRequest($request, $normalization, $extractedAttributes);
+        return $this->decorated->createFromRequest($request, $normalization, $extractedAttributes);
 
-        $context['groups'] = $context['groups'] ?? [];
+        /*$context['groups'] = $context['groups'] ?? [];
         $context['groups'] = array_unique(array_merge($context['groups'],
             $this->generateGroups($context, $normalization)));
 
-        return $context;
+        return $context;*/
     }
 
-    public function generateGroups(array $context,
+    /*public function generateGroups(array $context,
         bool $normalization): array
     {
         $resourceClass = $context['resource_class'] ?? null;
@@ -64,7 +60,7 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
             // {resourceClass}:{operationName}:{input/output}
             sprintf('%s' . self::SEPARATOR . '%s:%s', $classAlias, $operationName, $inOrOutput),
             // {userClassAlias}:{resourceClass}:{operationName}
-            /*sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s',
+            sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s',
                 $userClassAlias,
                 $classAlias,
                 $operationName),
@@ -73,10 +69,9 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
                 $userClassAlias,
                 $classAlias,
                 $operationName,
-                $inOrOutput)*/
+                $inOrOutput)
         ];
 
-        //dump($context['operation_name'], $groups);
         return $groups;
-    }
+    }*/
 }

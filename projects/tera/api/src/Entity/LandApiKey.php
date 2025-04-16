@@ -29,12 +29,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandApiKeyRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)")]
-#[Delete(security: "is_granted('" . LandApiKeyVoter::DELETE . "', object)")]
-#[Get(security: "is_granted('" . LandApiKeyVoter::GET . "', object)")]
+#[Post(
+    normalizationContext   : ['groups' => ['land_api_key:post', 'land_api_key:post:output']],
+    denormalizationContext : ['groups' => ['land_api_key:post', 'land_api_key:post:input']],
+    securityPostDenormalize: "is_granted('" . LandApiKeyVoter::POST . "', object)"
+)]
+#[Delete(
+    security: "is_granted('" . LandApiKeyVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_api_key:get']],
+    security            : "is_granted('" . LandApiKeyVoter::GET . "', object)"
+)]
 #[GetCollection(
-    security  : "is_granted('" . LandApiKeyVoter::COLLECTION . "')",
-    parameters: [
+    normalizationContext: ['groups' => ['land_api_key:collection']],
+    security            : "is_granted('" . LandApiKeyVoter::COLLECTION . "')",
+    parameters          : [
         new QueryParameter(key     : 'land',
                            schema  : ['type' => 'string'],
                            openApi : new Parameter(name           : 'land',
@@ -44,7 +54,8 @@ use Symfony\Component\Validator\Constraints as Assert;
                                                    allowEmptyValue: false),
                            filter  : LandFilter::class,
                            required: true),
-    ])]
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandApiKey extends AbstractIdOrmAndUlidApiIdentified implements PermissionHolder, UserInterface, JWTPayloadable, LandAwareInterface
 {

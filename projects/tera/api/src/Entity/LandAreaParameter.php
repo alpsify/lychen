@@ -15,8 +15,15 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaParameterRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandAreaParameterVoter::PATCH . "', previous_object)")]
-#[Get(security: "is_granted('" . LandAreaParameterVoter::GET . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_area_parameter:patch', 'land_area_parameter:patch:output']],
+    denormalizationContext: ['groups' => ['land_area_parameter:patch', 'land_area_parameter:patch:input']],
+    security              : "is_granted('" . LandAreaParameterVoter::PATCH . "', previous_object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_area_parameter:get']],
+    security            : "is_granted('" . LandAreaParameterVoter::GET . "', object)"
+)]
 class LandAreaParameter extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landAreaParameter', cascade: ['persist', 'remove'])]

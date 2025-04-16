@@ -15,8 +15,13 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandGreenhouseParameterRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandGreenhouseParameterVoter::PATCH . "', previous_object)")]
-#[Get(security: "is_granted('" . LandGreenhouseParameterVoter::GET . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_greenhouse_parameter:patch', 'land_greenhouse_parameter:patch:output']],
+    denormalizationContext: ['groups' => ['land_greenhouse_parameter:patch', 'land_greenhouse_parameter:patch:input']],
+    security              : "is_granted('" . LandGreenhouseParameterVoter::PATCH . "', previous_object)")]
+#[Get(
+    normalizationContext: ['groups' => ['land_greenhouse_parameter:get']],
+    security            : "is_granted('" . LandGreenhouseParameterVoter::GET . "', object)")]
 class LandGreenhouseParameter extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landGreenhouseParameter', cascade: ['persist', 'remove'])]

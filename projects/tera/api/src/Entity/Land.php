@@ -24,10 +24,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Get(security: "is_granted('" . LandVoter::GET . "', object)")]
-#[GetCollection(security: "is_granted('" . LandVoter::COLLECTION . "')")]
-#[Post(security: "is_granted('" . LandVoter::POST . "')")]
-#[Patch(security: "is_granted('" . LandVoter::PATCH . "', previous_object)")]
+#[Get(normalizationContext: ['groups' => ['land:get']], security: "is_granted('" . LandVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['land:collection']], security: "is_granted('" . LandVoter::COLLECTION . "')")]
+#[Post(
+    normalizationContext  : ['groups' => ['land:post', 'land:post:output']],
+    denormalizationContext: ['groups' => ['land:post', 'land:post:input']],
+    security              : "is_granted('" . LandVoter::POST . "')")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land:patch', 'land:patch:output']],
+    denormalizationContext: ['groups' => ['land:patch', 'land:patch:input']],
+    security              : "is_granted('" . LandVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
 class Land extends AbstractIdOrmAndUlidApiIdentified

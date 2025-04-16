@@ -35,29 +35,42 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandMemberInvitationRepository::class)]
 #[ApiResource]
-#[Post(securityPostDenormalize: "is_granted('" . LandMemberInvitationVoter::POST . "', object)")]
-#[Patch(security: "is_granted('" . LandMemberInvitationVoter::PATCH . "', previous_object)")]
+#[Post(
+    normalizationContext   : ['groups' => ['land_member_invitation:post', 'land_member_invitation:post:output']],
+    denormalizationContext : ['groups' => ['land_member_invitation:post', 'land_member_invitation:post:input']],
+    securityPostDenormalize: "is_granted('" . LandMemberInvitationVoter::POST . "', object)")]
 #[Patch(
-    uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
-    options    : ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
-    security   : "is_granted('" . LandMemberInvitationVoter::ACCEPT . "', object)",
-    name       : 'land-member-invitation_accept',
-    processor  : WorkflowTransitionProcessor::class)]
+    normalizationContext  : ['groups' => ['land_member_invitation:patch', 'land_member_invitation:patch:output']],
+    denormalizationContext: ['groups' => ['land_member_invitation:patch', 'land_member_invitation:patch:input']],
+    security              : "is_granted('" . LandMemberInvitationVoter::PATCH . "', previous_object)")]
 #[Patch(
-    uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
-    options    : ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
-    security   : "is_granted('" . LandMemberInvitationVoter::REFUSE . "', object)",
-    name       : 'land-member-invitation_refuse',
-    processor  : WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
+    options               : ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
+    normalizationContext  : ['groups' => ['land_member_invitation:accept', 'land_member_invitation:accept:output']],
+    denormalizationContext: ['groups' => ['land_member_invitation:accept', 'land_member_invitation:accept:input']],
+    security              : "is_granted('" . LandMemberInvitationVoter::ACCEPT . "', object)",
+    name                  : 'land-member-invitation_accept',
+    processor             : WorkflowTransitionProcessor::class)]
+#[Patch(
+    uriTemplate           : '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
+    options               : ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
+    normalizationContext  : ['groups' => ['land_member_invitation:refuse', 'land_member_invitation:refuse:output']],
+    denormalizationContext: ['groups' => ['land_member_invitation:refuse', 'land_member_invitation:refuse:input']],
+    security              : "is_granted('" . LandMemberInvitationVoter::REFUSE . "', object)",
+    name                  : 'land-member-invitation_refuse',
+    processor             : WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandMemberInvitationVoter::DELETE . "', object)")]
 #[Get(
-    uriTemplate : '/land_member_invitations/{ulid}',
-    requirements: ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
-    security    : "is_granted('" . LandMemberInvitationVoter::GET . "', object)",
-    priority    : 10)]
+    uriTemplate         : '/land_member_invitations/{ulid}',
+    requirements        : ['ulid' => '[0-9A-HJKMNP-TV-Z]{26}'],
+    normalizationContext: ['groups' => ['land_member_invitation:get']],
+    security            : "is_granted('" . LandMemberInvitationVoter::GET . "', object)",
+    priority            : 10
+)]
 #[GetCollection(
-    security  : "is_granted('" . LandMemberInvitationVoter::COLLECTION . "')",
-    parameters: [
+    normalizationContext: ['groups' => ['land_member_invitation:collection']],
+    security            : "is_granted('" . LandMemberInvitationVoter::COLLECTION . "')",
+    parameters          : [
         new QueryParameter(
             key     : 'land',
             schema  : ['type' => 'string'],
@@ -73,10 +86,10 @@ use Symfony\Component\Validator\Constraints as Assert;
         )
     ])]
 #[GetCollection(
-    uriTemplate: '/land_member_invitations/by_email',
-    security   : "is_granted('" . LandMemberInvitationVoter::COLLECTION_BY_EMAIL . "') and user.getEmail() === request.query.get('email')",
-    name       : 'land-member-invitation_collection-by-email',
-    parameters : [
+    uriTemplate         : '/land_member_invitations/by_email',
+    normalizationContext: ['groups' => ['land_member_invitation:collection-by-email']],
+    security            : "is_granted('" . LandMemberInvitationVoter::COLLECTION_BY_EMAIL . "') and user.getEmail() === request.query.get('email')",
+    parameters          : [
         new QueryParameter(
             key     : 'email',
             schema  : ['type' => 'string'],
@@ -103,8 +116,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     ]
 )]
 #[Get(
-    uriTemplate: '/land_member_invitations/check_email_unicity',
-    openapi    : new Operation(
+    uriTemplate         : '/land_member_invitations/check_email_unicity',
+    openapi             : new Operation(
         responses  : [
             Response::HTTP_OK => [
                 'description' => 'Email unicity check result',
@@ -142,11 +155,12 @@ use Symfony\Component\Validator\Constraints as Assert;
         ],
         requestBody: null,
     ),
-    security   : "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIL_UNICITY . "')",
-    output     : LandMemberInvitationCheckEmailUnicityDto::class,
-    priority   : 20,
-    name       : 'land-member-invitation_check-email-unicity',
-    provider   : LandMemberInvitationCheckEmailUnicityProvider::class
+    normalizationContext: ['groups' => ['land_member_invitation:check-email-unicity']],
+    security            : "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIL_UNICITY . "')",
+    output              : LandMemberInvitationCheckEmailUnicityDto::class,
+    priority            : 20,
+    name                : 'land-member-invitation_check-email-unicity',
+    provider            : LandMemberInvitationCheckEmailUnicityProvider::class
 )]
 #[ORM\HasLifecycleCallbacks]
 #[ORM\UniqueConstraint(name: 'land_member_invitation_unique_email_land', columns: ['email', 'land_id'])]
