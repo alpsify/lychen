@@ -3,6 +3,8 @@
 namespace App\Security\Voter;
 
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
 use App\Entity\LandMemberInvitation;
 use App\Entity\Person;
 use App\Entity\PersonApiKey;
@@ -47,6 +49,31 @@ class LandMemberInvitationVoter extends AbstractLandAwareVoterInterface
         self::CHECK_EMAIL_UNICITY,
     ];
 
+    /*protected function supports(string $attribute, mixed $subject): bool
+    {
+        $parentSupport = parent::supports($attribute, $subject);
+        $operation = $this->currentRequest->attributes->get('_api_operation');
+        $operationIsCheckUnicity = $operation instanceof Get && $operation->getName() === 'land-member-invitation_check-email-unicity';
+        return $parentSupport || $operationIsCheckUnicity;
+    }*/
+
+    protected function supports(string $attribute,
+        mixed $subject,
+    ): bool
+    {
+        $this->currentRequest = $this->requestStack->getCurrentRequest();
+        $operation = $this->currentRequest->attributes->get('_api_operation');
+        $operationIsPost = $operation instanceof Post;
+        $operationIsCollection = $operation instanceof GetCollection;
+
+        $operationIsCheckUnicity = $operation instanceof Get && $operation->getName() === 'land-member-invitation_check-email-unicity';
+
+        $supportsSubject = $subject instanceof ($this->getSupportedClass());
+        $supportsAttribute = in_array($attribute, $this->getAvailablePermissions());
+
+        return ($supportsSubject || $operationIsPost || $operationIsCollection || $operationIsCheckUnicity) && $supportsAttribute;
+    }
+
     function getSupportedClass(): string
     {
         return LandMemberInvitation::class;
@@ -55,14 +82,6 @@ class LandMemberInvitationVoter extends AbstractLandAwareVoterInterface
     function getAvailablePermissions(): array
     {
         return self::ALL;
-    }
-
-    protected function supports(string $attribute, mixed $subject): bool
-    {
-        $parentSupport = parent::supports($attribute, $subject);
-        $operation = $this->currentRequest->attributes->get('_api_operation');
-        $operationIsCheckUnicity = $operation instanceof Get && $operation->getName() === 'land-member-invitation_check-email-unicity';
-        return $parentSupport || $operationIsCheckUnicity;
     }
 
     /**
@@ -122,6 +141,6 @@ class LandMemberInvitationVoter extends AbstractLandAwareVoterInterface
 
     private function canCheckEmailUnicity(PermissionHolder $permissionHolder): bool
     {
-        return $this->can($permissionHolder, self::CHECK_EMAIL_UNICITY);
+        return $this->canCollection($permissionHolder, self::CHECK_EMAIL_UNICITY);
     }
 }

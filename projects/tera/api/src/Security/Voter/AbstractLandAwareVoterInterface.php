@@ -52,6 +52,7 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
 
         $supportsSubject = $subject instanceof ($this->getSupportedClass());
         $supportsAttribute = in_array($attribute, $this->getAvailablePermissions());
+   
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 

@@ -44,7 +44,8 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->post('/api/land_member_invitations', ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->post('/api/land_member_invitations',
+                ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
     }
 
@@ -66,7 +67,8 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
 
         // User cannot patch a LandMemberInvitation with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($context1->landMemberInvitations[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->patch($this->getIriFromResource($context1->landMemberInvitations[0]),
+                ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
@@ -208,7 +210,8 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->get('/api/land_member_invitations',
+                ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
     }
 
@@ -219,21 +222,23 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $email = faker()->email();
         $this->addOneLandMemberInvitation($context1, null, $email);
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_member_invitations/check_email_unicity', ['query'
-            => [
-                    'email' => $email,
-                    'land' => $this->getIriFromResource($context1->land)
-                ]])
-            ->assertStatus(401);
+            ->get('/api/land_member_invitations/check_email_unicity',
+                ['query'
+                 => [
+                        'email' => $email,
+                        'land' => $this->getIriFromResource($context1->land)
+                    ]])
+            ->assertStatus(403);
 
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_member_invitations/check_email_unicity', ['query'
-            => [
-                    'email' => $email,
-                    'land' => $this->getIriFromResource($context1->land->_real())
-                ]])
+            ->get('/api/land_member_invitations/check_email_unicity',
+                ['query'
+                 => [
+                        'email' => $email,
+                        'land' => $this->getIriFromResource($context1->land->_real())
+                    ]])
             ->assertStatus(401);
     }
 
