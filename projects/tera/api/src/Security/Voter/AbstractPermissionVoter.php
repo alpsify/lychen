@@ -21,12 +21,12 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 abstract class AbstractPermissionVoter extends Voter
 {
     public function __construct(
-        protected readonly PermissionHolderRetriever     $permissionHolderRetriever,
+        protected readonly PermissionHolderRetriever $permissionHolderRetriever,
         protected readonly PersonApiKeyPermissionChecker $personApiKeyPermissionChecker,
-        protected readonly LandApiKeyPermissionChecker   $landApiKeyPermissionChecker,
-        protected readonly PersonPermissionChecker       $personPermissionChecker,
-        protected readonly LandMemberPermissionChecker   $landMemberPermissionChecker,
-        protected readonly RequestStack                  $requestStack
+        protected readonly LandApiKeyPermissionChecker $landApiKeyPermissionChecker,
+        protected readonly PersonPermissionChecker $personPermissionChecker,
+        protected readonly LandMemberPermissionChecker $landMemberPermissionChecker,
+        protected readonly RequestStack $requestStack
     )
     {
     }

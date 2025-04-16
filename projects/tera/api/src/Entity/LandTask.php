@@ -34,10 +34,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
 #[ApiResource()]
-#[Post(openapi: new Operation(operationId: 'post'), securityPostDenormalize: "is_granted('" . LandTaskVoter::POST . "', object)")]
-#[Patch(openapi: new Operation(operationId: 'patch'), security: "is_granted('" . LandTaskVoter::PATCH . "', object)")]
-#[Delete(openapi: new Operation(operationId: 'delete'), security: "is_granted('" . LandTaskVoter::DELETE . "', object)")]
-#[Get(openapi: new Operation(operationId: 'get'), security: "is_granted('" . LandTaskVoter::GET . "', object)")]
+#[Post(
+    normalizationContext   : ['groups' => ['land_task:post', 'land_task:post:output']],
+    denormalizationContext : ['groups' => ['land_task:post', 'land_task:post:input']],
+    securityPostDenormalize: "is_granted('" . LandTaskVoter::POST . "', object)",
+)]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_task:patch', 'land_task:patch:output']],
+    denormalizationContext: ['groups' => ['land_task:patch', 'land_task:patch:input']],
+    security              : "is_granted('" . LandTaskVoter::PATCH . "', object)"
+)]
+#[Delete(security: "is_granted('" . LandTaskVoter::DELETE . "', object)")]
+#[Get(normalizationContext: ['groups' => ['land_task:get',
+                                          'land_task:get:output']], security: "is_granted('" . LandTaskVoter::GET . "', object)",)]
 #[GetCollection(security: "is_granted('" . LandTaskVoter::COLLECTION . "')", parameters: [
     new QueryParameter(key     : 'land',
                        schema  : ['type' => 'string'],

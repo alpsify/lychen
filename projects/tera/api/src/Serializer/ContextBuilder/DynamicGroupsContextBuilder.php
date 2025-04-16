@@ -57,17 +57,23 @@ readonly class DynamicGroupsContextBuilder implements SerializerContextBuilderIn
                 '_\\0',
                 lcfirst((new ReflectionClass($user))->getShortName())));
         }
-        
+
         $groups = [
             // {resourceClass}:{operationName}
             sprintf('%s' . self::SEPARATOR . '%s', $classAlias, $operationName),
             // {resourceClass}:{operationName}:{input/output}
             sprintf('%s' . self::SEPARATOR . '%s:%s', $classAlias, $operationName, $inOrOutput),
             // {userClassAlias}:{resourceClass}:{operationName}
-            sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s',
+            /*sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s',
                 $userClassAlias,
                 $classAlias,
-                $operationName)
+                $operationName),
+            // {userClassAlias}:{resourceClass}:{operationName}:{input/output}
+            sprintf('%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s' . self::SEPARATOR . '%s',
+                $userClassAlias,
+                $classAlias,
+                $operationName,
+                $inOrOutput)*/
         ];
 
         //dump($context['operation_name'], $groups);
