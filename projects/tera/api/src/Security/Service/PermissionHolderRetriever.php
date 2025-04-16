@@ -15,8 +15,8 @@ use Symfony\Bundle\SecurityBundle\Security;
 
 readonly class PermissionHolderRetriever
 {
-    public function __construct(private Security             $security,
-                                private LandMemberRepository $landMemberRepository)
+    public function __construct(private Security $security,
+        private LandMemberRepository $landMemberRepository)
     {
     }
 
@@ -24,16 +24,14 @@ readonly class PermissionHolderRetriever
     {
         $currentUser = $this->security->getUser();
 
-        if (!$currentUser instanceof PermissionHolder) {
-            throw new Exception('No permission holder available for this context');
-        }
-
         if ($context->subject instanceof LandAwareInterface) {
             if ($currentUser instanceof LandApiKey) {
                 return $currentUser;
             }
             try {
-                return $this->getLandMember($context->subject->getLand(), $currentUser);
+                if ($currentUser instanceof Person) {
+                    return $this->getLandMember($context->subject->getLand(), $currentUser);
+                }
             } catch (Exception $exception) {
 
             }
@@ -43,11 +41,15 @@ readonly class PermissionHolderRetriever
             $currentUser->setPermissions(PersonPermission::ALL);
         }
 
+        if (!$currentUser instanceof PermissionHolder) {
+            throw new Exception('No permission holder available for this context');
+        }
+
         return $currentUser;
     }
 
-    public function getLandMember(Land             $land,
-                                  PermissionHolder $permissionHolder): LandMember
+    public function getLandMember(Land $land,
+        PermissionHolder $permissionHolder): LandMember
     {
         if (!$permissionHolder instanceof Person) {
             throw new Exception('User must be an instance of Person');

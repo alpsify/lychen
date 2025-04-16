@@ -57,9 +57,12 @@ class LandProposalVoter extends AbstractLandAwareVoterInterface
         return self::ALL;
     }
 
-    protected function voteOnCustomAttribute(string           $attribute,
-                                             mixed            $subject,
-                                             PermissionHolder $permissionHolder): bool
+    /**
+     * @param LandProposal $subject
+     */
+    protected function voteOnCustomAttribute(string $attribute,
+        mixed $subject,
+        PermissionHolder $permissionHolder): bool
     {
         return match ($attribute) {
             self::COLLECTION_PUBLIC => $this->canCollectionPublic($permissionHolder),
@@ -88,8 +91,8 @@ class LandProposalVoter extends AbstractLandAwareVoterInterface
      * @param LandProposal $subject
      */
     protected function canGet(LandAwareInterface $subject,
-                              PermissionHolder   $permissionHolder,
-                              string             $permission): bool
+        PermissionHolder $permissionHolder,
+        string $permission): bool
     {
         $hasPermission = $this->can($permissionHolder, self::GET);
 

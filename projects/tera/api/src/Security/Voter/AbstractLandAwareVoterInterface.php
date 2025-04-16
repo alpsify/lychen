@@ -25,20 +25,24 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
 {
     protected Request|null $currentRequest = null;
 
-    public function __construct(PermissionHolderRetriever                $permissionHolderRetriever,
-                                PersonApiKeyPermissionChecker            $personApiKeyPermissionChecker,
-                                LandApiKeyPermissionChecker              $landApiKeyPermissionChecker,
-                                PersonPermissionChecker                  $personPermissionChecker,
-                                LandMemberPermissionChecker              $landMemberPermissionChecker,
-                                RequestStack                             $requestStack,
-                                protected readonly IriConverterInterface $iriConverter)
+    public function __construct(PermissionHolderRetriever $permissionHolderRetriever,
+        PersonApiKeyPermissionChecker $personApiKeyPermissionChecker,
+        LandApiKeyPermissionChecker $landApiKeyPermissionChecker,
+        PersonPermissionChecker $personPermissionChecker,
+        LandMemberPermissionChecker $landMemberPermissionChecker,
+        RequestStack $requestStack,
+        protected readonly IriConverterInterface $iriConverter)
     {
-        parent::__construct($permissionHolderRetriever, $personApiKeyPermissionChecker, $landApiKeyPermissionChecker,
-            $personPermissionChecker, $landMemberPermissionChecker, $requestStack);
+        parent::__construct($permissionHolderRetriever,
+            $personApiKeyPermissionChecker,
+            $landApiKeyPermissionChecker,
+            $personPermissionChecker,
+            $landMemberPermissionChecker,
+            $requestStack);
     }
 
     protected function supports(string $attribute,
-                                mixed  $subject,
+        mixed $subject,
     ): bool
     {
         $this->currentRequest = $this->requestStack->getCurrentRequest();
@@ -51,14 +55,16 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
-    protected function voteOnAttribute(string         $attribute,
-                                       mixed          $subject,
-                                       TokenInterface $token): bool
+    protected function voteOnAttribute(string $attribute,
+        mixed $subject,
+        TokenInterface $token): bool
     {
         $permissionHolder = $this->getPermissionHolder($subject);
+
         // Handle standard CRUD operations
         return match ($attribute) {
-            defined('static::GET') ? static::GET : 'not-defined-get' => $this->canGet($subject, $permissionHolder,
+            defined('static::GET') ? static::GET : 'not-defined-get' => $this->canGet($subject,
+                $permissionHolder,
                 $attribute),
             defined('static::PATCH') ? static::PATCH : 'not-defined-patch' => $this->canPatch($subject,
                 $permissionHolder,
@@ -75,15 +81,15 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
     }
 
     protected function canGet(LandAwareInterface $subject,
-                              PermissionHolder   $permissionHolder,
-                              string             $permission): bool
+        PermissionHolder $permissionHolder,
+        string $permission): bool
     {
         return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
     private function canWithLandCheck(LandAwareInterface $subject = null,
-                                      PermissionHolder   $permissionHolder,
-                                      string             $permission): bool
+        PermissionHolder $permissionHolder,
+        string $permission): bool
     {
         $hasPermission = $this->can($permissionHolder, $permission);
         if ($permissionHolder instanceof LandApiKey && $subject !== null) {
@@ -94,27 +100,27 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
     }
 
     protected function canPatch(LandAwareInterface $subject,
-                                PermissionHolder   $permissionHolder,
-                                string             $permission): bool
+        PermissionHolder $permissionHolder,
+        string $permission): bool
     {
         return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
     protected function canPost(PermissionHolder $permissionHolder,
-                               string           $permission): bool
+        string $permission): bool
     {
         return $this->can($permissionHolder, $permission);
     }
 
     protected function canDelete(LandAwareInterface $subject,
-                                 PermissionHolder   $permissionHolder,
-                                 string             $permission): bool
+        PermissionHolder $permissionHolder,
+        string $permission): bool
     {
         return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
     protected function canCollection(PermissionHolder $permissionHolder,
-                                     string           $permission): bool
+        string $permission): bool
     {
         if ($permissionHolder instanceof LandApiKey) {
             return $this->can($permissionHolder, $permission);
@@ -143,9 +149,9 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
      * Handle custom attributes not covered by standard CRUD operations
      * @return bool|null Return bool for handled attributes, null for unhandled ones
      */
-    protected function voteOnCustomAttribute(string           $attribute,
-                                             mixed            $subject,
-                                             PermissionHolder $permissionHolder): bool
+    protected function voteOnCustomAttribute(string $attribute,
+        mixed $subject,
+        PermissionHolder $permissionHolder): bool
     {
         throw new LogicException($attribute . ' is not supported.');
     }

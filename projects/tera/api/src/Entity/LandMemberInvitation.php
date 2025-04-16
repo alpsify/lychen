@@ -41,13 +41,13 @@ use Symfony\Component\Validator\Constraints as Assert;
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::ACCEPT,
     options    : ['transition' => LandMemberInvitationWorkflowTransition::ACCEPT],
     security   : "is_granted('" . LandMemberInvitationVoter::ACCEPT . "', object)",
-    name       : 'land_member_invitation-accept',
+    name       : 'land-member-invitation_accept',
     processor  : WorkflowTransitionProcessor::class)]
 #[Patch(
     uriTemplate: '/land_member_invitations/{ulid}/' . LandMemberInvitationWorkflowTransition::REFUSE,
     options    : ['transition' => LandMemberInvitationWorkflowTransition::REFUSE],
     security   : "is_granted('" . LandMemberInvitationVoter::REFUSE . "', object)",
-    name       : 'land_member_invitation-refuse',
+    name       : 'land-member-invitation_refuse',
     processor  : WorkflowTransitionProcessor::class)]
 #[Delete(security: "is_granted('" . LandMemberInvitationVoter::DELETE . "', object)")]
 #[Get(
@@ -75,7 +75,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[GetCollection(
     uriTemplate: '/land_member_invitations/by_email',
     security   : "is_granted('" . LandMemberInvitationVoter::COLLECTION_BY_EMAIL . "') and user.getEmail() === request.query.get('email')",
-    name       : 'land_member_invitation-collection-by-email',
+    name       : 'land-member-invitation_collection-by-email',
     parameters : [
         new QueryParameter(
             key     : 'email',
@@ -145,7 +145,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     security   : "is_granted('" . LandMemberInvitationVoter::CHECK_EMAIL_UNICITY . "')",
     output     : LandMemberInvitationCheckEmailUnicityDto::class,
     priority   : 20,
-    name       : 'land_member_invitation-check-email-unicity',
+    name       : 'land-member-invitation_check-email-unicity',
     provider   : LandMemberInvitationCheckEmailUnicityProvider::class
 )]
 #[ORM\HasLifecycleCallbacks]

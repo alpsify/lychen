@@ -2,9 +2,13 @@
 
 namespace App\Security\Voter;
 
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use ApiPlatform\Metadata\Get;
+use App\Entity\LandMemberInvitation;
+use App\Entity\Person;
+use App\Entity\PersonApiKey;
+use App\Security\Interface\PermissionHolder;
 
-class LandMemberInvitationVoter extends AbstractPermissionVoter
+class LandMemberInvitationVoter extends AbstractLandAwareVoterInterface
 {
     public const string DELETE = 'land_member:land_member_invitation:delete';
     public const string PATCH = 'land_member:land_member_invitation:patch';
@@ -12,7 +16,7 @@ class LandMemberInvitationVoter extends AbstractPermissionVoter
     public const string GET = 'land_member:land_member_invitation:get';
     public const string COLLECTION = 'land_member:land_member_invitation:collection';
     public const string CHECK_EMAIL_UNICITY = 'land_member:land_member_invitation:check_email_unicity';
-    public const string COLLECTION_BY_EMAIL = 'person:land_member_invitation:collection';
+    public const string COLLECTION_BY_EMAIL = 'person:land_member_invitation:collection_by_email';
     public const string ACCEPT = 'person:land_member_invitation:accept';
     public const string REFUSE = 'person:land_member_invitation:refuse';
 
@@ -43,16 +47,81 @@ class LandMemberInvitationVoter extends AbstractPermissionVoter
         self::CHECK_EMAIL_UNICITY,
     ];
 
-    protected function supports(string $attribute,
-                                mixed  $subject): bool
+    function getSupportedClass(): string
     {
+        return LandMemberInvitation::class;
+    }
+
+    function getAvailablePermissions(): array
+    {
+        return self::ALL;
+    }
+
+    protected function supports(string $attribute, mixed $subject): bool
+    {
+        $parentSupport = parent::supports($attribute, $subject);
+        $operation = $this->currentRequest->attributes->get('_api_operation');
+        $operationIsCheckUnicity = $operation instanceof Get && $operation->getName() === 'land-member-invitation_check-email-unicity';
+        return $parentSupport || $operationIsCheckUnicity;
+    }
+
+    /**
+     * @param LandMemberInvitation $subject
+     */
+    protected function voteOnCustomAttribute(string $attribute,
+        mixed $subject,
+        PermissionHolder $permissionHolder): bool
+    {
+        return match ($attribute) {
+            self::ACCEPT => $this->canAccept($subject),
+            self::REFUSE => $this->canRefuse($subject),
+            self::COLLECTION_BY_EMAIL => $this->canCollectionByEmail($permissionHolder),
+            self::CHECK_EMAIL_UNICITY => $this->canCheckEmailUnicity($permissionHolder),
+            default => parent::voteOnCustomAttribute($attribute, $subject, $permissionHolder)
+        };
+    }
+
+    private function canAccept(LandMemberInvitation $subject): bool
+    {
+        $permissionHolder = $this->getPermissionHolder(null);
+
+        return $this->can($permissionHolder, self::ACCEPT) && $this->isEmailMatchingWithCurrentUser($subject,
+                $permissionHolder);
+    }
+
+    private function isEmailMatchingWithCurrentUser(LandMemberInvitation $subject,
+        PermissionHolder $permissionHolder): bool
+    {
+        $email = null;
+        if ($permissionHolder instanceof Person) {
+            $email = $permissionHolder->getEmail();
+        }
+
+        if ($permissionHolder instanceof PersonApiKey) {
+            $email = $permissionHolder->getPerson()->getEmail();
+        }
+
+        if ($subject->getEmail() === $email) {
+            return true;
+        }
+
         return false;
     }
 
-    protected function voteOnAttribute(string         $attribute,
-                                       mixed          $subject,
-                                       TokenInterface $token): bool
+    private function canRefuse(LandMemberInvitation $subject): bool
     {
-        return false;
+        $permissionHolder = $this->getPermissionHolder(null);
+        return $this->can($permissionHolder, self::REFUSE) && $this->isEmailMatchingWithCurrentUser($subject,
+                $permissionHolder);
+    }
+
+    private function canCollectionByEmail(PermissionHolder $permissionHolder): bool
+    {
+        return $this->can($permissionHolder, self::COLLECTION_BY_EMAIL);
+    }
+
+    private function canCheckEmailUnicity(PermissionHolder $permissionHolder): bool
+    {
+        return $this->can($permissionHolder, self::CHECK_EMAIL_UNICITY);
     }
 }
