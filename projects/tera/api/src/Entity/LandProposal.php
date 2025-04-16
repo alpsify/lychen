@@ -91,15 +91,19 @@ use Symfony\Component\Validator\Constraints as Assert;
     normalizationContext  : ['groups' => ['land_proposal:publish', 'land_proposal:publish:output']],
     denormalizationContext: ['groups' => ['land_proposal:publish', 'land_proposal:publish:input']],
     security              : "is_granted('" . LandProposalVoter::PUBLISH . "', previous_object)",
-    processor             : WorkflowTransitionProcessor::class)]
+    processor             : WorkflowTransitionProcessor::class
+)]
 #[Patch(
     uriTemplate           : '/land_proposals/{ulid}/' . LandProposalWorkflowTransition::ARCHIVE,
     options               : ['transition' => LandProposalWorkflowTransition::ARCHIVE],
     normalizationContext  : ['groups' => ['land_proposal:archive', 'land_proposal:archive:output']],
     denormalizationContext: ['groups' => ['land_proposal:archive', 'land_proposal:archive:input']],
     security              : "is_granted('" . LandProposalVoter::ARCHIVE . "', previous_object)",
-    processor             : WorkflowTransitionProcessor::class)]
-#[Delete(security: "is_granted('" . LandProposalVoter::DELETE . "', object)")]
+    processor             : WorkflowTransitionProcessor::class
+)]
+#[Delete(
+    security: "is_granted('" . LandProposalVoter::DELETE . "', object)"
+)]
 #[ORM\HasLifecycleCallbacks]
 #[LandProposalOnlyOneStatePerLand(states: [LandProposalWorkflowPlace::DRAFT, LandProposalWorkflowPlace::PUBLISHED])]
 class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLandInterface, LandAwareInterface
@@ -200,7 +204,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
-    private ?string $gardenState = null; //TODO Create constante for that
+    private ?string $gardenState = null;
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: LandInteractionMode::ALL)]

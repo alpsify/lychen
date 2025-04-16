@@ -21,7 +21,11 @@ class LandProposalTest extends AbstractApiTestCase
 
         $data = [
             'title' => 'My Awesome Garden Proposal',
-            'description' => ['type' => 'doc', 'content' => [['type' => 'paragraph', 'content' => [['type' => 'text', 'text' => 'Detailed description here.']]]]], // Example Tiptap JSON
+            'description' => ['type' => 'doc',
+                              'content' => [['type' => 'paragraph',
+                                             'content' => [['type' => 'text',
+                                                            'text' => 'Detailed description here.']]]]],
+            // Example Tiptap JSON
             'soilType' => SoilType::LOAMY,
             'orientation' => Orientation::SOUTH,
             'hasParking' => true,
@@ -29,7 +33,8 @@ class LandProposalTest extends AbstractApiTestCase
             'hasShed' => false,
             'hasWaterPoint' => true,
             'hasIndependentAccess' => true,
-            'gardenState' => 'Well maintained', // TODO: Use constant when created
+            'gardenState' => 'Well maintained',
+            // TODO: Use constant when created
             'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
             'gardeningLevel' => GardeningLevel::BEGINNER,
             'lookingForGardenerLevel' => GardeningLevel::ADVANCED,
@@ -68,13 +73,17 @@ class LandProposalTest extends AbstractApiTestCase
             });
     }
 
-    public function testGet(): void
+
+    public function testPatch(): void
     {
         $context = $this->createLandContext();
-        $landProposal = $this->createLandProposal($context->land, [
-            'state' => LandProposalWorkflowPlace::PUBLISHED, // Make it published for public access test
-            'title' => 'Test Get Proposal',
-            'description' => ['type' => 'doc', 'content' => [['type' => 'paragraph', 'content' => [['type' => 'text', 'text' => 'Get description.']]]]],
+        $landProposal = $this->createLandProposal($context->land);
+
+        $data = [
+            'title' => 'Updated Garden Proposal',
+            'description' => ['type' => 'doc',
+                              'content' => [['type' => 'paragraph',
+                                             'content' => [['type' => 'text', 'text' => 'Updated description.']]]]],
             'soilType' => SoilType::SANDY,
             'orientation' => Orientation::NORTH,
             'hasParking' => false,
@@ -89,7 +98,57 @@ class LandProposalTest extends AbstractApiTestCase
             'gardenTotalSurface' => 50,
             'foodSecurityParticipation' => false,
             'sharingConditions' => [LandSharingCondition::GARDENING],
-        ]);
+        ];
+
+        $this->browser()->actingAs($context->owner)
+            ->patch($this->getIriFromResource($landProposal), ['json' => $data])
+            ->assertStatus(200)
+            ->assertJsonMatches('title', $data['title'])
+            ->assertJsonMatches('description', $data['description'])
+            ->assertJsonMatches('soilType', $data['soilType'])
+            ->assertJsonMatches('orientation', $data['orientation'])
+            ->assertJsonMatches('hasParking', $data['hasParking'])
+            ->assertJsonMatches('hasTools', $data['hasTools'])
+            ->assertJsonMatches('hasShed', $data['hasShed'])
+            ->assertJsonMatches('hasWaterPoint', $data['hasWaterPoint'])
+            ->assertJsonMatches('hasIndependentAccess', $data['hasIndependentAccess'])
+            ->assertJsonMatches('gardenState', $data['gardenState'])
+            ->assertJsonMatches('preferredGardenInteractionMode', $data['preferredGardenInteractionMode'])
+            ->assertJsonMatches('gardeningLevel', $data['gardeningLevel'])
+            ->assertJsonMatches('lookingForGardenerLevel', $data['lookingForGardenerLevel'])
+            ->assertJsonMatches('gardenTotalSurface', $data['gardenTotalSurface'])
+            ->assertJsonMatches('foodSecurityParticipation', $data['foodSecurityParticipation'])
+            ->assertJsonMatches('sharingConditions', $data['sharingConditions'])
+            ->use(function (Json $json) {
+                $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
+            });
+    }
+
+    public function testGet(): void
+    {
+        $context = $this->createLandContext();
+        $landProposal = $this->createLandProposal($context->land,
+            [
+                'state' => LandProposalWorkflowPlace::PUBLISHED, // Make it published for public access test
+                'title' => 'Test Get Proposal',
+                'description' => ['type' => 'doc',
+                                  'content' => [['type' => 'paragraph',
+                                                 'content' => [['type' => 'text', 'text' => 'Get description.']]]]],
+                'soilType' => SoilType::SANDY,
+                'orientation' => Orientation::NORTH,
+                'hasParking' => false,
+                'hasTools' => false,
+                'hasShed' => true,
+                'hasWaterPoint' => false,
+                'hasIndependentAccess' => false,
+                'gardenState' => 'Needs some work',
+                'preferredGardenInteractionMode' => LandInteractionMode::ALONE,
+                'gardeningLevel' => GardeningLevel::ADVANCED,
+                'lookingForGardenerLevel' => GardeningLevel::BEGINNER,
+                'gardenTotalSurface' => 50,
+                'foodSecurityParticipation' => false,
+                'sharingConditions' => [LandSharingCondition::GARDENING],
+            ]);
 
         // --- Test Get as Owner ---
         $this->browser()->actingAs($context->owner)
@@ -133,25 +192,29 @@ class LandProposalTest extends AbstractApiTestCase
         $context = $this->createLandContext();
 
         // Create proposals with specific states for filtering tests
-        $landProposal1 = $this->createLandProposal($context->land, [
-            'state' => LandProposalWorkflowPlace::ARCHIVED,
-            'title' => 'Archived Proposal 1',
-            'gardenTotalSurface' => 100,
-            'foodSecurityParticipation' => false,
-            'sharingConditions' => [LandSharingCondition::GARDENING],
-        ]);
-        $landProposal2 = $this->createLandProposal($context->land, [
-            'state' => LandProposalWorkflowPlace::ARCHIVED,
-            'title' => 'Archived Proposal 2'
-        ]);
-        $landProposal3 = $this->createLandProposal($context->land, [
-            'state' => LandProposalWorkflowPlace::DRAFT,
-            'title' => 'Draft Proposal'
-        ]); // Default state is DRAFT, but explicitly setting for clarity
-        $landProposal4 = $this->createLandProposal($context->land, [
-            'state' => LandProposalWorkflowPlace::PUBLISHED,
-            'title' => 'Published Proposal'
-        ]);
+        $landProposal1 = $this->createLandProposal($context->land,
+            [
+                'state' => LandProposalWorkflowPlace::ARCHIVED,
+                'title' => 'Archived Proposal 1',
+                'gardenTotalSurface' => 100,
+                'foodSecurityParticipation' => false,
+                'sharingConditions' => [LandSharingCondition::GARDENING],
+            ]);
+        $landProposal2 = $this->createLandProposal($context->land,
+            [
+                'state' => LandProposalWorkflowPlace::ARCHIVED,
+                'title' => 'Archived Proposal 2'
+            ]);
+        $landProposal3 = $this->createLandProposal($context->land,
+            [
+                'state' => LandProposalWorkflowPlace::DRAFT,
+                'title' => 'Draft Proposal'
+            ]); // Default state is DRAFT, but explicitly setting for clarity
+        $landProposal4 = $this->createLandProposal($context->land,
+            [
+                'state' => LandProposalWorkflowPlace::PUBLISHED,
+                'title' => 'Published Proposal'
+            ]);
 
         // --- Test fetching the whole collection (as owner) ---
         $this->browser()->actingAs($context->owner) // Use the owner from the context
@@ -188,7 +251,8 @@ class LandProposalTest extends AbstractApiTestCase
         // --- Test filtering by state: ARCHIVED ---
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
-            ['query' => ['state' => LandProposalWorkflowPlace::ARCHIVED, 'land' => $this->getIriFromResource($context->land)]])
+            ['query' => ['state' => LandProposalWorkflowPlace::ARCHIVED,
+                         'land' => $this->getIriFromResource($context->land)]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
             // Check ULIDs to ensure the correct items are returned (order might vary)
@@ -199,7 +263,8 @@ class LandProposalTest extends AbstractApiTestCase
         // --- Test filtering by state: DRAFT ---
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
-            ['query' => ['state' => LandProposalWorkflowPlace::DRAFT, 'land' => $this->getIriFromResource($context->land)]])
+            ['query' => ['state' => LandProposalWorkflowPlace::DRAFT,
+                         'land' => $this->getIriFromResource($context->land)]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 1)
             ->assertJsonMatches('member[0].ulid', $landProposal3->getUlid()->toString());
@@ -208,7 +273,8 @@ class LandProposalTest extends AbstractApiTestCase
         // --- Test filtering by state: PUBLISHED ---
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
-            ['query' => ['state' => LandProposalWorkflowPlace::PUBLISHED, 'land' => $this->getIriFromResource($context->land)]])
+            ['query' => ['state' => LandProposalWorkflowPlace::PUBLISHED,
+                         'land' => $this->getIriFromResource($context->land)]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 1)
             ->assertJsonMatches('member[0].ulid', $landProposal4->getUlid()->toString());
@@ -290,7 +356,11 @@ class LandProposalTest extends AbstractApiTestCase
 
         $data = [
             'title' => 'My Awesome Garden Proposal',
-            'description' => ['type' => 'doc', 'content' => [['type' => 'paragraph', 'content' => [['type' => 'text', 'text' => 'Detailed description here.']]]]], // Example Tiptap JSON
+            'description' => ['type' => 'doc',
+                              'content' => [['type' => 'paragraph',
+                                             'content' => [['type' => 'text',
+                                                            'text' => 'Detailed description here.']]]]],
+            // Example Tiptap JSON
             'soilType' => SoilType::LOAMY,
             'orientation' => Orientation::SOUTH,
             'hasParking' => true,
@@ -298,7 +368,7 @@ class LandProposalTest extends AbstractApiTestCase
             'hasShed' => false,
             'hasWaterPoint' => true,
             'hasIndependentAccess' => true,
-            'gardenState' => 'Well maintained', // TODO: Use constant when created
+            'gardenState' => 'Well maintained',
             'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
             'gardeningLevel' => GardeningLevel::BEGINNER,
             'lookingForGardenerLevel' => GardeningLevel::ADVANCED,
