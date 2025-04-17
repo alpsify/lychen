@@ -2,13 +2,12 @@
 
 namespace App\Security\Voter;
 
-use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Post;
 use App\Entity\Land;
 use App\Entity\LandApiKey;
-use App\Entity\LandMember;
+use App\Entity\LandDeal;
 use App\Security\Checker\LandApiKeyPermissionChecker;
 use App\Security\Checker\LandMemberPermissionChecker;
 use App\Security\Checker\PersonApiKeyPermissionChecker;
@@ -68,12 +67,11 @@ class LandDealVoter extends AbstractPermissionVoter
         $operation = $currentRequest->attributes->get('_api_operation');
         $operationIsPost = $operation instanceof Post;
         $operationIsCollection = $operation instanceof GetCollection;
-        $operationIsGetMe = $operation instanceof Get && $operation->getName() === 'land-member_me';
 
-        $supportsSubject = $subject instanceof LandMember;
+        $supportsSubject = $subject instanceof LandDeal;
         $supportsAttribute = in_array($attribute, self::ALL);
 
-        return ($supportsSubject || $operationIsPost || $operationIsCollection || $operationIsGetMe) && $supportsAttribute;
+        return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
@@ -90,12 +88,8 @@ class LandDealVoter extends AbstractPermissionVoter
         };
     }
 
-    private function canGet(LandMember $landMember, PermissionHolder $permissionHolder): bool
+    private function canGet(LandDeal $landDeal, PermissionHolder $permissionHolder): bool
     {
-        if ($landMember === $permissionHolder) {
-            return true;
-        }
-
         return $this->can($permissionHolder, self::GET);
     }
 
@@ -104,16 +98,8 @@ class LandDealVoter extends AbstractPermissionVoter
         return $this->can($permissionHolder, self::PATCH);
     }
 
-    private function canDelete(LandMember $landMember, PermissionHolder $permissionHolder): bool
+    private function canDelete(LandDeal $landDeal, PermissionHolder $permissionHolder): bool
     {
-        if ($landMember->isOwner()) {
-            return false;
-        }
-
-        if ($landMember === $permissionHolder) {
-            return true;
-        }
-
         return $this->can($permissionHolder, self::DELETE);
     }
 
