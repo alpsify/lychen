@@ -147,7 +147,7 @@ const navigation = {
       {
         icon: faPeopleSimple,
         to: RoutePageCoGardening,
-        title: 'Co-jardiner',
+        title: 'Co-jardinage',
       },
       {
         icon: faBuildingWheat,

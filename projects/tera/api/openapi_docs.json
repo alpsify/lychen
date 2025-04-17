@@ -15250,7 +15250,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -15258,7 +15258,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -15271,7 +15272,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -15299,8 +15301,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -15318,7 +15325,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -15327,16 +15335,24 @@
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     }
                 }
@@ -15406,7 +15422,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -15414,7 +15430,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -15427,7 +15444,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -15455,8 +15473,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -15474,7 +15497,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -15498,16 +15522,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -15628,7 +15660,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -15636,7 +15668,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -15649,7 +15682,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -15677,8 +15711,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -15696,7 +15735,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -15715,16 +15755,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -15814,7 +15862,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -15822,7 +15870,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -15835,7 +15884,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -15863,8 +15913,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -15882,7 +15937,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -15901,16 +15957,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -16000,7 +16064,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16008,7 +16072,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16021,7 +16086,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -16049,8 +16115,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -16068,7 +16139,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -16090,16 +16162,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "expirationDate": {
@@ -16179,7 +16259,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16187,7 +16267,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16200,7 +16281,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -16228,8 +16310,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -16247,7 +16334,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -16271,16 +16359,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -16397,7 +16493,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16405,7 +16501,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16418,7 +16515,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -16446,8 +16544,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -16465,7 +16568,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -16489,16 +16593,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -16580,7 +16692,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16588,7 +16700,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16601,7 +16714,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -16629,8 +16743,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -16648,7 +16767,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -16662,16 +16782,24 @@
                         "example": "https://example.com/"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     }
                 }
@@ -16736,7 +16864,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16744,7 +16872,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16757,7 +16886,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -16785,8 +16915,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -16804,7 +16939,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -16828,16 +16964,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -16954,7 +17098,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -16962,7 +17106,8 @@
                             "peaty",
                             "chalky"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "humus_rich"
                     },
                     "orientation": {
                         "enum": [
@@ -16975,7 +17120,8 @@
                             "west",
                             "north_west"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "south_west"
                     },
                     "hasParking": {
                         "type": "boolean"
@@ -17003,8 +17149,13 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "gardeningLevel": {
                         "enum": [
@@ -17022,7 +17173,8 @@
                             "intermediate",
                             "advanced"
                         ],
-                        "type": "string"
+                        "type": "string",
+                        "example": "beginner"
                     },
                     "gardenTotalSurface": {
                         "type": "integer"
@@ -17041,16 +17193,24 @@
                         "type": "string"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -17171,23 +17331,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -17307,23 +17480,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     }
                 }
@@ -17434,23 +17620,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -17609,23 +17808,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -17753,23 +17965,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -17949,23 +18174,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -18120,23 +18358,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -18246,23 +18497,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     }
                 }
@@ -18365,23 +18629,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -18536,23 +18813,36 @@
                             "no_preference"
                         ],
                         "default": "no_preference",
-                        "example": "no_preference",
-                        "type": "string"
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
                     },
                     "supportsLocalFoodSecurity": {
                         "type": "boolean"
                     },
                     "sharingConditions": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "anyOf": [
-                            {
-                                "type": "array"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
                         ]
                     },
                     "publishedAt": {
@@ -22059,9 +22349,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -22072,7 +22362,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -22092,9 +22382,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -22140,12 +22430,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {
@@ -22349,9 +22639,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -22362,7 +22652,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -22382,9 +22672,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -22430,12 +22720,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {
@@ -22788,9 +23078,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -22801,7 +23091,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -22821,9 +23111,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -22884,12 +23174,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {
@@ -23093,9 +23383,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -23106,7 +23396,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -23126,9 +23416,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -23189,12 +23479,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {
@@ -23356,9 +23646,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -23369,7 +23659,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -23389,9 +23679,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -23452,12 +23742,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {
@@ -23654,9 +23944,9 @@
                         "enum": [
                             "very_early",
                             "early",
-                            "mid-early",
+                            "mid_early",
                             "standard",
-                            "mid-late",
+                            "mid_late",
                             "late",
                             "very_late"
                         ],
@@ -23667,7 +23957,7 @@
                     "soilType": {
                         "enum": [
                             "sandy",
-                            "humus-rich",
+                            "humus_rich",
                             "clay",
                             "silty",
                             "loamy",
@@ -23687,9 +23977,9 @@
                     "exposure": {
                         "enum": [
                             "full-sun",
-                            "partial-shade",
+                            "partial_shade",
                             "shade",
-                            "bright-indirect",
+                            "bright_indirect",
                             "adaptable"
                         ],
                         "default": "full-sun",
@@ -23750,12 +24040,12 @@
                     },
                     "species": {
                         "enum": [
-                            "lactuca-sativa",
-                            "brassica-oleracea",
-                            "solanum-lycopersicum",
-                            "daucus-carota",
-                            "phaseolus-vulgaris",
-                            "cucumis-sativus"
+                            "lactuca_sativa",
+                            "brassica_oleracea",
+                            "solanum_lycopersicum",
+                            "daucus_carota",
+                            "phaseolus_vulgaris",
+                            "cucumis_sativus"
                         ],
                         "anyOf": [
                             {

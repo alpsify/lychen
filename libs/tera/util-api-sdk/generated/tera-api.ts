@@ -3354,9 +3354,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalLand_proposalPatch_land_proposalPatchInputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalLand_proposalPatch_land_proposalPatchInputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3366,8 +3372,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalLand_proposalPatch_land_proposalPatchInputPreferredGardenInteractionMode;
       /**
@@ -3376,11 +3387,26 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalLand_proposalPatch_land_proposalPatchInputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalLand_proposalPatch_land_proposalPatchInputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalLand_proposalPatch_land_proposalPatchInputSharingConditions;
     };
     'LandProposal-land_proposal.publish_land_proposal.publish.input': Record<string, never>;
     'LandProposal.jsonld': {
@@ -3398,9 +3424,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3410,8 +3442,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldPreferredGardenInteractionMode;
       /**
@@ -3420,7 +3457,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3435,7 +3475,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3465,9 +3517,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3477,8 +3535,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredGardenInteractionMode;
       /**
@@ -3487,7 +3550,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3497,7 +3563,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3517,9 +3595,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalCollectionSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalCollectionOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3529,8 +3613,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPreferredGardenInteractionMode;
       /**
@@ -3539,7 +3628,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalCollectionGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3549,7 +3641,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalCollectionState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalCollectionSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3569,9 +3673,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalCollectionPublicSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalCollectionPublicOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3581,8 +3691,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPublicPreferredGardenInteractionMode;
       /**
@@ -3591,7 +3706,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalCollectionPublicGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionPublicLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3602,7 +3720,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalCollectionPublicState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalCollectionPublicSharingConditions;
       /** Format: date-time */
       expirationDate?: string | null;
       /** Format: ulid */
@@ -3623,9 +3753,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalGetSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalGetOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3635,8 +3771,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalGetPreferredGardenInteractionMode;
       /**
@@ -3645,7 +3786,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalGetGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalGetLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3660,7 +3804,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalGetState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalGetSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3689,9 +3845,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3701,8 +3863,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredGardenInteractionMode;
       /**
@@ -3711,7 +3878,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3726,7 +3896,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3744,9 +3926,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalPost_land_proposalPostInputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostInputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3756,8 +3944,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredGardenInteractionMode;
       /**
@@ -3766,7 +3959,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalPost_land_proposalPostInputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostInputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3775,7 +3971,19 @@ export interface components {
        * @example https://example.com/
        */
       land?: string;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalPost_land_proposalPostInputSharingConditions;
     };
     'LandProposal.jsonld-land_proposal.post_land_proposal.post.output': {
       readonly '@context'?:
@@ -3792,9 +4000,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3804,8 +4018,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredGardenInteractionMode;
       /**
@@ -3814,7 +4033,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalPost_land_proposalPostOutputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3829,7 +4051,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalPost_land_proposalPostOutputState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3858,9 +4092,15 @@ export interface components {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
-      /** @enum {string} */
+      /**
+       * @example humus_rich
+       * @enum {string}
+       */
       soilType?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSoilType;
-      /** @enum {string} */
+      /**
+       * @example south_west
+       * @enum {string}
+       */
       orientation?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
@@ -3870,8 +4110,13 @@ export interface components {
       gardenState?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredGardenInteractionMode;
       /**
@@ -3880,7 +4125,10 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputGardeningLevel;
-      /** @enum {string} */
+      /**
+       * @example beginner
+       * @enum {string}
+       */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
@@ -3890,7 +4138,19 @@ export interface components {
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputState;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -3924,12 +4184,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestSharingConditions;
       /** Format: date-time */
       readonly publishedAt?: string | null;
       /** Format: date-time */
@@ -3958,12 +4235,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestLand_requestPatch_land_requestPatchInputSharingConditions;
     };
     'LandRequest-land_request.publish_land_request.publish.input': Record<string, never>;
     'LandRequest.jsonld': {
@@ -3998,12 +4292,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4049,12 +4360,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4090,12 +4418,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestCollectionSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4150,12 +4495,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestGetPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestGetSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4200,12 +4562,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestPatch_land_requestPatchOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4233,12 +4612,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestPost_land_requestPostInputSharingConditions;
     };
     'LandRequest.jsonld-land_request.post_land_request.post.output': {
       readonly '@context'?:
@@ -4271,12 +4667,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestPost_land_requestPostOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -4321,12 +4734,29 @@ export interface components {
       title?: string;
       /**
        * @default no_preference
-       * @example no_preference
-       * @enum {string}
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
        */
       preferredGardenInteractionMode: LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
-      sharingConditions?: unknown[] | null;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestPublish_land_requestPublishOutputSharingConditions;
       /** Format: date-time */
       publishedAt?: string | null;
       /** Format: date-time */
@@ -12235,7 +12665,7 @@ export enum LandMemberSettingJsonldLand_member_settingPatch_land_member_settingP
 }
 export enum LandProposalLand_proposalPatch_land_proposalPatchInputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12269,12 +12699,21 @@ export enum LandProposalLand_proposalPatch_land_proposalPatchInputLookingForGard
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12313,12 +12752,21 @@ export enum LandProposalJsonldState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12357,9 +12805,18 @@ export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSta
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalCollectionSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12398,9 +12855,18 @@ export enum LandProposalJsonldLand_proposalCollectionState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalCollectionSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalCollectionPublicSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12439,12 +12905,21 @@ export enum LandProposalJsonldLand_proposalCollectionPublicState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalCollectionPublicSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalGetContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldLand_proposalGetSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12483,12 +12958,21 @@ export enum LandProposalJsonldLand_proposalGetState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalGetSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12527,9 +13011,18 @@ export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12563,12 +13056,21 @@ export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputLookingFor
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12607,12 +13109,21 @@ export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputState {
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -12651,6 +13162,15 @@ export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSta
   published = 'published',
   archived = 'archived',
 }
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestState {
   draft = 'draft',
   published = 'published',
@@ -12667,6 +13187,15 @@ export enum LandRequestPreferredGardenInteractionMode {
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestLand_requestPatch_land_requestPatchInputGardeningLevel {
   beginner = 'beginner',
   intermediate = 'intermediate',
@@ -12677,6 +13206,15 @@ export enum LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenIn
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
+}
+export enum LandRequestLand_requestPatch_land_requestPatchInputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
 }
 export enum LandRequestJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
@@ -12697,6 +13235,15 @@ export enum LandRequestJsonldPreferredGardenInteractionMode {
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestJsonldSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
@@ -12716,6 +13263,15 @@ export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPrefer
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestJsonldLand_requestCollectionState {
   draft = 'draft',
   published = 'published',
@@ -12731,6 +13287,15 @@ export enum LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMod
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestCollectionSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
 }
 export enum LandRequestJsonldLand_requestCollectionPublicState {
   draft = 'draft',
@@ -12756,6 +13321,15 @@ export enum LandRequestJsonldLand_requestGetPreferredGardenInteractionMode {
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestJsonldLand_requestGetSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
@@ -12775,6 +13349,15 @@ export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredG
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestJsonldLand_requestPost_land_requestPostInputGardeningLevel {
   beginner = 'beginner',
   intermediate = 'intermediate',
@@ -12785,6 +13368,15 @@ export enum LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGard
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostInputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
 }
 export enum LandRequestJsonldLand_requestPost_land_requestPostOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
@@ -12805,6 +13397,15 @@ export enum LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGar
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
+}
 export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
@@ -12823,6 +13424,15 @@ export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputPrefer
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
 }
 export enum LandRoleLand_rolePatch_land_rolePatchInputPermissions {
   land_member_land_delete = 'land_member:land:delete',
@@ -13391,15 +14001,15 @@ export enum PersonApiKeyJsonldPerson_api_keyPost_person_api_keyPostOutputContext
 export enum PlantMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13409,18 +14019,18 @@ export enum PlantSoilType {
 }
 export enum PlantExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum PlantJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
@@ -13428,15 +14038,15 @@ export enum PlantJsonldContextHydra {
 export enum PlantJsonldMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantJsonldSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13446,18 +14056,18 @@ export enum PlantJsonldSoilType {
 }
 export enum PlantJsonldExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantJsonldSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum PlantConversionRequestState {
   opened = 'opened',
@@ -13475,15 +14085,15 @@ export enum PlantConversionRequestJsonldState {
 export enum PlantCustomMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantCustomSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13493,18 +14103,18 @@ export enum PlantCustomSoilType {
 }
 export enum PlantCustomExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantCustomSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum PlantCustomJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
@@ -13512,15 +14122,15 @@ export enum PlantCustomJsonldContextHydra {
 export enum PlantCustomJsonldMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantCustomJsonldSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13530,31 +14140,31 @@ export enum PlantCustomJsonldSoilType {
 }
 export enum PlantCustomJsonldExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantCustomJsonldSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum PlantGlobalMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantGlobalSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13564,18 +14174,18 @@ export enum PlantGlobalSoilType {
 }
 export enum PlantGlobalExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantGlobalSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum PlantGlobalJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
@@ -13583,15 +14193,15 @@ export enum PlantGlobalJsonldContextHydra {
 export enum PlantGlobalJsonldMaturity {
   very_early = 'very_early',
   early = 'early',
-  mid_early = 'mid-early',
+  mid_early = 'mid_early',
   standard = 'standard',
-  mid_late = 'mid-late',
+  mid_late = 'mid_late',
   late = 'late',
   very_late = 'very_late',
 }
 export enum PlantGlobalJsonldSoilType {
   sandy = 'sandy',
-  humus_rich = 'humus-rich',
+  humus_rich = 'humus_rich',
   clay = 'clay',
   silty = 'silty',
   loamy = 'loamy',
@@ -13601,18 +14211,18 @@ export enum PlantGlobalJsonldSoilType {
 }
 export enum PlantGlobalJsonldExposure {
   full_sun = 'full-sun',
-  partial_shade = 'partial-shade',
+  partial_shade = 'partial_shade',
   shade = 'shade',
-  bright_indirect = 'bright-indirect',
+  bright_indirect = 'bright_indirect',
   adaptable = 'adaptable',
 }
 export enum PlantGlobalJsonldSpecies {
-  lactuca_sativa = 'lactuca-sativa',
-  brassica_oleracea = 'brassica-oleracea',
-  solanum_lycopersicum = 'solanum-lycopersicum',
-  daucus_carota = 'daucus-carota',
-  phaseolus_vulgaris = 'phaseolus-vulgaris',
-  cucumis_sativus = 'cucumis-sativus',
+  lactuca_sativa = 'lactuca_sativa',
+  brassica_oleracea = 'brassica_oleracea',
+  solanum_lycopersicum = 'solanum_lycopersicum',
+  daucus_carota = 'daucus_carota',
+  phaseolus_vulgaris = 'phaseolus_vulgaris',
+  cucumis_sativus = 'cucumis_sativus',
 }
 export enum SeedStockJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',

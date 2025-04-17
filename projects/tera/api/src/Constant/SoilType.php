@@ -5,7 +5,7 @@ namespace App\Constant;
 final class SoilType
 {
     public const string SANDY = 'sandy';
-    public const string HUMUS_RICH = 'humus-rich';
+    public const string HUMUS_RICH = 'humus_rich';
     public const string CLAY = 'clay';
     public const string SILTY = 'silty';
     public const string LOAMY = 'loamy';

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -175,6 +176,11 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
               "land_request:patch",
               "land_request:publish:output",
               "land_request:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'array',
+        'enum' => LandInteractionMode::ALL,
+        'example' => LandInteractionMode::ALL
+    ])]
     private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
     #[ORM\Column]
@@ -194,6 +200,11 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
               "land_request:patch",
               "land_request:publish:output",
               "land_request:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'array',
+        'enum' => LandSharingCondition::ALL,
+        'example' => LandSharingCondition::ALL
+    ])]
     private ?array $sharingConditions = null;
 
     #[ORM\Column(nullable: true)]

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
@@ -143,6 +144,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'string',
+        'enum' => SoilType::ALL,
+        'example' => SoilType::HUMUS_RICH
+    ])]
     private ?string $soilType = null;
 
     #[ORM\Column(length: 20)]
@@ -154,6 +160,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'string',
+        'enum' => Orientation::ALL,
+        'example' => Orientation::SOUTH_WEST
+    ])]
     private ?string $orientation = null;
 
     #[ORM\Column]
@@ -225,6 +236,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'array',
+        'enum' => LandInteractionMode::ALL,
+        'example' => LandInteractionMode::ALL
+    ])]
     private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
     #[ORM\Column(length: 30)]
@@ -236,6 +252,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'string',
+        'enum' => GardeningLevel::ALL,
+        'example' => GardeningLevel::BEGINNER
+    ])]
     private ?string $gardeningLevel = GardeningLevel::BEGINNER;
 
     #[ORM\Column(length: 30)]
@@ -247,6 +268,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
+    #[ApiProperty(openapiContext: [
+        'type' => 'string',
+        'enum' => GardeningLevel::ALL,
+        'example' => GardeningLevel::BEGINNER
+    ])]
     private ?string $lookingForGardenerLevel = null;
 
     #[ORM\Column]
@@ -297,6 +323,11 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:patch",
               "land_proposal:publish:output",
               "land_proposal:archive:output"])]
+    #[ApiProperty(openapiContext: [
+        'type' => 'array',
+        'enum' => LandSharingCondition::ALL,
+        'example' => LandSharingCondition::ALL
+    ])]
     private ?array $sharingConditions = null;
 
     #[ORM\Column(nullable: true)]
