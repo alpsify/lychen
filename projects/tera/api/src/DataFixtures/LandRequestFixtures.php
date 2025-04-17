@@ -13,6 +13,10 @@ class LandRequestFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         LandRequestFactory::new()->create([
+            'person' => $this->getReference(PersonFixtures::PERSON_5, Person::class)
+        ]);
+
+        LandRequestFactory::new()->create([
             'person' => $this->getReference(PersonFixtures::PERSON_6, Person::class)
         ]);
 
