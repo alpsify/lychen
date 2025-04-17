@@ -14,7 +14,7 @@ export const VARIANT_VALUES = {
   warning: 'bg-warning text-on-warning hover:bg-warning/90',
   ghost: 'hover:bg-surface-container hover:text-on-surface-container',
   outline:
-    'outline-1 outline-on-surface/70 bg-surface-container-lowest hover:bg-surface-container-low',
+    'border-2 border-on-surface/50 bg-surface-container-lowest hover:bg-surface-container-low',
 } as const;
 
 export const VARIANT = Object.keys(VARIANT_VALUES);
