@@ -80,26 +80,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/api/lands/looking_for_members': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieves the collection of Land resources.
-     * @description Retrieves the collection of Land resources.
-     */
-    get: operations['get-collection-looking-for-members'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   '/api/lands/{ulid}': {
     parameters: {
       query?: never;
@@ -128,6 +108,54 @@ export interface paths {
     patch: operations['api_lands_ulid_patch'];
     trace?: never;
   };
+  '/api/land_api_keys': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves the collection of LandApiKey resources.
+     * @description Retrieves the collection of LandApiKey resources.
+     */
+    get: operations['api_land_api_keys_get_collection'];
+    put?: never;
+    /**
+     * Creates a LandApiKey resource.
+     * @description Creates a LandApiKey resource.
+     */
+    post: operations['api_land_api_keys_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/land_api_keys/{ulid}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves a LandApiKey resource.
+     * @description Retrieves a LandApiKey resource.
+     */
+    get: operations['api_land_api_keys_ulid_get'];
+    put?: never;
+    post?: never;
+    /**
+     * Removes the LandApiKey resource.
+     * @description Removes the LandApiKey resource.
+     */
+    delete: operations['api_land_api_keys_ulid_delete'];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/land_areas': {
     parameters: {
       query?: never;
@@ -142,7 +170,7 @@ export interface paths {
     get: operations['api_land_areas_get_collection'];
     put?: never;
     /**
-     * Create a land area
+     * Creates a LandArea resource.
      * @description Creates a LandArea resource.
      */
     post: operations['api_land_areas_post'];
@@ -332,6 +360,66 @@ export interface paths {
     patch: operations['api_land_deals_ulid_patch'];
     trace?: never;
   };
+  '/api/land_deals/{ulid}/accept': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Updates the LandDeal resource.
+     * @description Updates the LandDeal resource.
+     */
+    patch: operations['api_land_deals_ulidaccept_patch'];
+    trace?: never;
+  };
+  '/api/land_deals/{ulid}/archive': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Updates the LandDeal resource.
+     * @description Updates the LandDeal resource.
+     */
+    patch: operations['api_land_deals_ulidarchive_patch'];
+    trace?: never;
+  };
+  '/api/land_deals/{ulid}/refuse': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Updates the LandDeal resource.
+     * @description Updates the LandDeal resource.
+     */
+    patch: operations['api_land_deals_ulidrefuse_patch'];
+    trace?: never;
+  };
   '/api/land_greenhouses': {
     parameters: {
       query?: never;
@@ -463,7 +551,7 @@ export interface paths {
      * Retrieves a LandMember resource.
      * @description Retrieves a LandMember resource.
      */
-    get: operations['get-me'];
+    get: operations['land-member_me'];
     put?: never;
     post?: never;
     delete?: never;
@@ -535,7 +623,7 @@ export interface paths {
      * Retrieves the collection of LandMemberInvitation resources.
      * @description Retrieves the collection of LandMemberInvitation resources.
      */
-    get: operations['collection-by-email'];
+    get: operations['api_land_member_invitationsby_email_get_collection'];
     put?: never;
     post?: never;
     delete?: never;
@@ -555,7 +643,7 @@ export interface paths {
      * Check if an email is unique for a given land
      * @description Retrieves a LandMemberInvitation resource.
      */
-    get: operations['checkLandMemberInvitationEmailUnicity'];
+    get: operations['land-member-invitation_check-email-unicity'];
     put?: never;
     post?: never;
     delete?: never;
@@ -609,7 +697,7 @@ export interface paths {
      * Updates the LandMemberInvitation resource.
      * @description Updates the LandMemberInvitation resource.
      */
-    patch: operations['accept'];
+    patch: operations['land-member-invitation_accept'];
     trace?: never;
   };
   '/api/land_member_invitations/{ulid}/refuse': {
@@ -629,7 +717,7 @@ export interface paths {
      * Updates the LandMemberInvitation resource.
      * @description Updates the LandMemberInvitation resource.
      */
-    patch: operations['refuse'];
+    patch: operations['land-member-invitation_refuse'];
     trace?: never;
   };
   '/api/land_member_settings/{ulid}': {
@@ -680,6 +768,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/land_proposals/public': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves the collection of LandProposal resources.
+     * @description Retrieves the collection of LandProposal resources.
+     */
+    get: operations['land-proposal_collection-public'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/land_proposals/{ulid}': {
     parameters: {
       query?: never;
@@ -708,6 +816,46 @@ export interface paths {
     patch: operations['api_land_proposals_ulid_patch'];
     trace?: never;
   };
+  '/api/land_proposals/{ulid}/archive': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Updates the LandProposal resource.
+     * @description Updates the LandProposal resource.
+     */
+    patch: operations['api_land_proposals_ulidarchive_patch'];
+    trace?: never;
+  };
+  '/api/land_proposals/{ulid}/publish': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Updates the LandProposal resource.
+     * @description Updates the LandProposal resource.
+     */
+    patch: operations['api_land_proposals_ulidpublish_patch'];
+    trace?: never;
+  };
   '/api/land_requests': {
     parameters: {
       query?: never;
@@ -726,6 +874,26 @@ export interface paths {
      * @description Creates a LandRequest resource.
      */
     post: operations['api_land_requests_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/land_requests/public': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves the collection of LandRequest resources.
+     * @description Retrieves the collection of LandRequest resources.
+     */
+    get: operations['api_land_requestspublic_get_collection'];
+    put?: never;
+    post?: never;
     delete?: never;
     options?: never;
     head?: never;
@@ -777,7 +945,7 @@ export interface paths {
      * Updates the LandRequest resource.
      * @description Updates the LandRequest resource.
      */
-    patch: operations['archive'];
+    patch: operations['api_land_requests_ulidarchive_patch'];
     trace?: never;
   };
   '/api/land_requests/{ulid}/publish': {
@@ -797,7 +965,7 @@ export interface paths {
      * Updates the LandRequest resource.
      * @description Updates the LandRequest resource.
      */
-    patch: operations['publish'];
+    patch: operations['api_land_requests_ulidpublish_patch'];
     trace?: never;
   };
   '/api/land_roles': {
@@ -893,7 +1061,7 @@ export interface paths {
      * Creates a LandTask resource.
      * @description Creates a LandTask resource.
      */
-    post: operations['post'];
+    post: operations['api_land_tasks_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -911,21 +1079,21 @@ export interface paths {
      * Retrieves a LandTask resource.
      * @description Retrieves a LandTask resource.
      */
-    get: operations['get'];
+    get: operations['api_land_tasks_ulid_get'];
     put?: never;
     post?: never;
     /**
      * Removes the LandTask resource.
      * @description Removes the LandTask resource.
      */
-    delete: operations['delete'];
+    delete: operations['api_land_tasks_ulid_delete'];
     options?: never;
     head?: never;
     /**
      * Updates the LandTask resource.
      * @description Updates the LandTask resource.
      */
-    patch: operations['patch'];
+    patch: operations['api_land_tasks_ulid_patch'];
     trace?: never;
   };
   '/api/land_tasks/{ulid}/mark_as_done': {
@@ -942,10 +1110,10 @@ export interface paths {
     options?: never;
     head?: never;
     /**
-     * Mark as done
+     * Updates the LandTask resource.
      * @description Updates the LandTask resource.
      */
-    patch: operations['mark-as-done'];
+    patch: operations['api_land_tasks_ulidmark_as_done_patch'];
     trace?: never;
   };
   '/api/land_tasks/{ulid}/mark_as_in_progress': {
@@ -962,10 +1130,58 @@ export interface paths {
     options?: never;
     head?: never;
     /**
-     * Mark as in progress
+     * Updates the LandTask resource.
      * @description Updates the LandTask resource.
      */
-    patch: operations['mark-as-in-progress'];
+    patch: operations['api_land_tasks_ulidmark_as_in_progress_patch'];
+    trace?: never;
+  };
+  '/api/person_api_keys': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves the collection of PersonApiKey resources.
+     * @description Retrieves the collection of PersonApiKey resources.
+     */
+    get: operations['api_person_api_keys_get_collection'];
+    put?: never;
+    /**
+     * Creates a PersonApiKey resource.
+     * @description Creates a PersonApiKey resource.
+     */
+    post: operations['api_person_api_keys_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/person_api_keys/{ulid}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieves a PersonApiKey resource.
+     * @description Retrieves a PersonApiKey resource.
+     */
+    get: operations['api_person_api_keys_ulid_get'];
+    put?: never;
+    post?: never;
+    /**
+     * Removes the PersonApiKey resource.
+     * @description Removes the PersonApiKey resource.
+     */
+    delete: operations['api_person_api_keys_ulid_delete'];
+    options?: never;
+    head?: never;
+    patch?: never;
     trace?: never;
   };
   '/api/plants': {
@@ -1321,21 +1537,14 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    'Land-user.land.patch': {
+    'Land-land.patch_land.patch.input': {
       name?: string;
-      landAreas?: string[];
       surface?: number | null;
       /**
        * @default 1
        * @example 1
        */
       altitude: number | null;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
     };
     'Land.jsonld': {
       readonly '@context'?:
@@ -1343,7 +1552,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1382,6 +1591,7 @@ export interface components {
        * @example https://example.com/
        */
       address?: string | null;
+      landApiKeys?: string[];
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -1391,7 +1601,7 @@ export interface components {
       updatedAt?: string | null;
       readonly land?: components['schemas']['static.jsonld'];
     };
-    'Land.jsonld-user.land.collection': {
+    'Land.jsonld-land.collection': {
       readonly '@id'?: string;
       readonly '@type'?: string;
       name?: string;
@@ -1410,14 +1620,18 @@ export interface components {
       altitude: number | null;
       /** Format: ulid */
       ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
     };
-    'Land.jsonld-user.land.get': {
+    'Land.jsonld-land.get': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandJsonldLandGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1444,20 +1658,18 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    'Land.jsonld-user.land.get-collection-looking-for-members': {
+    'Land.jsonld-land.patch_land.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldLandPatch_landPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      name?: string;
-      surface?: number | null;
-      /**
-       * @default 1
-       * @example 1
-       */
-      altitude: number | null;
-      /** Format: ulid */
-      ulid?: string;
-    };
-    'Land.jsonld-user.land.post': {
       name?: string;
       landAreas?: string[];
       surface?: number | null;
@@ -1468,14 +1680,54 @@ export interface components {
       altitude: number | null;
       /** Format: ulid */
       ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
     };
-    'Land.jsonld-user.land_member_invitation.collection-by-email': {
+    'Land.jsonld-land.post_land.post.input': {
+      name?: string;
+      surface?: number | null;
+      /**
+       * @default 1
+       * @example 1
+       */
+      altitude: number | null;
+    };
+    'Land.jsonld-land.post_land.post.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandJsonldLandPost_landPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name?: string;
+      landAreas?: string[];
+      surface?: number | null;
+      /**
+       * @default 1
+       * @example 1
+       */
+      altitude: number | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'Land.jsonld-land_member_invitation.collection-by-email': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldLand_member_invitationCollectionByEmailContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1483,63 +1735,127 @@ export interface components {
       readonly '@type'?: string;
       name?: string;
     };
-    LandArea: {
-      name: string;
+    'LandApiKey.jsonld': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandApiKeyJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
+      /** Format: date-time */
+      lastUsedDate?: string | null;
+      name?: string;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
       land?: string;
-      description?: string | null;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landAreaSetting?: string | null;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landAreaParameter?: string | null;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landGreenhouse?: string | null;
-      landTasks?: string[];
-      /**
-       * @default active
-       * @example active
-       * @enum {string}
-       */
-      state: LandAreaState;
-      landCultivationPlans?: string[];
-      /**
-       * @default open_soil
-       * @example open_soil
-       * @enum {string}
-       */
-      kind: LandAreaKind;
+      jti?: string;
+      token?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
       createdAt?: string;
+      readonly apiKeys?: string[];
+      readonly userIdentifier?: string;
+      readonly roles?: string[];
+      readonly jWTPayload?: string[];
+    };
+    'LandApiKey.jsonld-land_api_key.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandApiKey.jsonld-land_api_key.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandApiKeyJsonldLand_api_keyGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
       /** Format: date-time */
-      updatedAt?: string | null;
+      lastUsedDate?: string | null;
+      name?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandApiKey.jsonld-land_api_key.post_land_api_key.post.input': {
+      permissions?: unknown[] | null;
+      name?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+    };
+    'LandApiKey.jsonld-land_api_key.post_land_api_key.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandApiKeyJsonldLand_api_keyPost_land_api_keyPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
+      name?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      token?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandArea-land_area.patch_land_area.patch.input': {
+      name: string;
+      description?: string | null;
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaLand_areaPatch_land_areaPatchInputKind;
     };
     'LandArea.jsonld': {
-      readonly '@id'?: string;
-      readonly '@type'?: string;
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandAreaJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
       name: string;
       /**
        * Format: iri-reference
@@ -1568,14 +1884,14 @@ export interface components {
        * @example active
        * @enum {string}
        */
-      state: LandAreaState;
+      state: LandAreaJsonldState;
       landCultivationPlans?: string[];
       /**
        * @default open_soil
        * @example open_soil
        * @enum {string}
        */
-      kind: LandAreaKind;
+      kind: LandAreaJsonldKind;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -1584,214 +1900,388 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    LandAreaParameter: {
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landArea?: string;
-      aboveGround?: boolean;
-      width?: number | null;
-      length?: number | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
-    };
-    'LandAreaParameter.jsonld': {
-      readonly '@context'?:
-        | string
-        | ({
-            '@vocab': string;
-            /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
-          } & {
-            [key: string]: unknown;
-          });
+    'LandArea.jsonld-land_area.collection': {
       readonly '@id'?: string;
       readonly '@type'?: string;
+      name: string;
+      description?: string | null;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      landArea?: string;
-      aboveGround?: boolean;
-      width?: number | null;
-      length?: number | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
+      landAreaSetting?: string | null;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      readonly land?: string | null;
-    };
-    LandAreaSetting: {
+      landAreaParameter?: string | null;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      landArea?: string;
-      rotationActivated?: boolean;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
+      landGreenhouse?: string | null;
+      landTasks?: string[];
       /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
-    };
-    'LandAreaSetting.jsonld': {
-      readonly '@context'?:
-        | string
-        | ({
-            '@vocab': string;
-            /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
-          } & {
-            [key: string]: unknown;
-          });
-      readonly '@id'?: string;
-      readonly '@type'?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landArea?: string;
-      rotationActivated?: boolean;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
-    };
-    LandCultivationPlan: {
-      /** Format: date-time */
-      startDate?: string | null;
-      /** Format: date-time */
-      endDate?: string | null;
-      /** Format: date-time */
-      expectedSowingDate?: string | null;
-      /** Format: date-time */
-      sowingDate?: string | null;
-      /** Format: date-time */
-      expectedPlantingDate?: string | null;
-      /** Format: date-time */
-      plantingDate?: string | null;
-      /** Format: date-time */
-      expectedHarvestingDate?: string | null;
-      /** Format: date-time */
-      harvestingDate?: string | null;
-      /** Format: date-time */
-      forecastedEndDate?: string | null;
-      /**
-       * @default draft
-       * @example draft
-       */
-      state: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      plant?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landArea?: string | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
-    };
-    'LandCultivationPlan.jsonld': {
-      readonly '@id'?: string;
-      readonly '@type'?: string;
-      readonly '@context'?:
-        | string
-        | ({
-            '@vocab': string;
-            /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
-          } & {
-            [key: string]: unknown;
-          });
-      /** Format: date-time */
-      startDate?: string | null;
-      /** Format: date-time */
-      endDate?: string | null;
-      /** Format: date-time */
-      expectedSowingDate?: string | null;
-      /** Format: date-time */
-      sowingDate?: string | null;
-      /** Format: date-time */
-      expectedPlantingDate?: string | null;
-      /** Format: date-time */
-      plantingDate?: string | null;
-      /** Format: date-time */
-      expectedHarvestingDate?: string | null;
-      /** Format: date-time */
-      harvestingDate?: string | null;
-      /** Format: date-time */
-      forecastedEndDate?: string | null;
-      /**
-       * @default draft
-       * @example draft
-       */
-      state: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      plant?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landArea?: string | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
-    };
-    LandDeal: {
-      /**
-       * @default opened
-       * @example opened
+       * @default active
+       * @example active
        * @enum {string}
        */
-      state: LandDealState;
+      state: LandAreaJsonldLand_areaCollectionState;
+      landCultivationPlans?: string[];
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaJsonldLand_areaCollectionKind;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandArea.jsonld-land_area.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaJsonldLand_areaGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
       land?: string;
-      person?: components['schemas']['Person'];
+      description?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaSetting?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouse?: string | null;
+      landTasks?: string[];
+      /**
+       * @default active
+       * @example active
+       * @enum {string}
+       */
+      state: LandAreaJsonldLand_areaGetState;
+      landCultivationPlans?: string[];
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaJsonldLand_areaGetKind;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandArea.jsonld-land_area.patch_land_area.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaJsonldLand_areaPatch_land_areaPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      description?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaSetting?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouse?: string | null;
+      landTasks?: string[];
+      /**
+       * @default active
+       * @example active
+       * @enum {string}
+       */
+      state: LandAreaJsonldLand_areaPatch_land_areaPatchOutputState;
+      landCultivationPlans?: string[];
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaJsonldLand_areaPatch_land_areaPatchOutputKind;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandArea.jsonld-land_area.post_land_area.post.input': {
+      name: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      description?: string | null;
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaJsonldLand_areaPost_land_areaPostInputKind;
+    };
+    'LandArea.jsonld-land_area.post_land_area.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaJsonldLand_areaPost_land_areaPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      description?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaSetting?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landAreaParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouse?: string | null;
+      landTasks?: string[];
+      /**
+       * @default active
+       * @example active
+       * @enum {string}
+       */
+      state: LandAreaJsonldLand_areaPost_land_areaPostOutputState;
+      landCultivationPlans?: string[];
+      /**
+       * @default open_soil
+       * @example open_soil
+       * @enum {string}
+       */
+      kind: LandAreaJsonldLand_areaPost_land_areaPostOutputKind;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandAreaParameter-land_area_parameter.patch_land_area_parameter.patch.input': {
+      aboveGround?: boolean;
+      width?: number | null;
+      length?: number | null;
+    };
+    'LandAreaParameter.jsonld-land_area_parameter.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaParameterJsonldLand_area_parameterGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string;
+      aboveGround?: boolean;
+      width?: number | null;
+      length?: number | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandAreaParameter.jsonld-land_area_parameter.patch_land_area_parameter.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaParameterJsonldLand_area_parameterPatch_land_area_parameterPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      aboveGround?: boolean;
+      width?: number | null;
+      length?: number | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandAreaSetting-land_area_setting.patch_land_area_setting.patch.input': {
+      rotationActivated?: boolean;
+    };
+    'LandAreaSetting.jsonld-land_area_setting.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaSettingJsonldLand_area_settingGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string;
+      rotationActivated?: boolean;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandAreaSetting.jsonld-land_area_setting.patch_land_area_setting.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandAreaSettingJsonldLand_area_settingPatch_land_area_settingPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      rotationActivated?: boolean;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandCultivationPlan-land_cultivation_plan.patch_land_cultivation_plan.patch.input': {
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+    };
+    'LandCultivationPlan.jsonld': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandCultivationPlanJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * @default draft
+       * @example draft
+       */
+      state: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -1800,16 +2290,253 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    'LandDeal-user.land_deal.accept': Record<string, never>;
-    'LandDeal-user.land_deal.archive': Record<string, never>;
-    'LandDeal-user.land_deal.refuse': Record<string, never>;
+    'LandCultivationPlan.jsonld-land_cultivation_plan.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * @default draft
+       * @example draft
+       */
+      state: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandCultivationPlan.jsonld-land_cultivation_plan.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandCultivationPlanJsonldLand_cultivation_planGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * @default draft
+       * @example draft
+       */
+      state: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandCultivationPlan.jsonld-land_cultivation_plan.patch_land_cultivation_plan.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandCultivationPlanJsonldLand_cultivation_planPatch_land_cultivation_planPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandCultivationPlan.jsonld-land_cultivation_plan.post_land_cultivation_plan.post.input': {
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+    };
+    'LandCultivationPlan.jsonld-land_cultivation_plan.post_land_cultivation_plan.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandCultivationPlanJsonldLand_cultivation_planPost_land_cultivation_planPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      startDate?: string | null;
+      /** Format: date-time */
+      endDate?: string | null;
+      /** Format: date-time */
+      expectedSowingDate?: string | null;
+      /** Format: date-time */
+      sowingDate?: string | null;
+      /** Format: date-time */
+      expectedPlantingDate?: string | null;
+      /** Format: date-time */
+      plantingDate?: string | null;
+      /** Format: date-time */
+      expectedHarvestingDate?: string | null;
+      /** Format: date-time */
+      harvestingDate?: string | null;
+      /** Format: date-time */
+      forecastedEndDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      plant?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    LandDeal: Record<string, never>;
+    'LandDeal-land_deal.accept_land_deal.accept.input': Record<string, never>;
+    'LandDeal-land_deal.patch_land_deal.patch.input': Record<string, never>;
+    'LandDeal-land_deal.refuse_land_deal.refuse.input': Record<string, never>;
+    'LandDeal-land_deal_archive_land_deal_archive.input': Record<string, never>;
     'LandDeal.jsonld': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandDealJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1820,13 +2547,25 @@ export interface components {
        * @example opened
        * @enum {string}
        */
-      state: LandDealState;
+      state: LandDealJsonldState;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
       land?: string;
       person?: components['schemas']['Person.jsonld'];
+      /** Format: date-time */
+      landAcceptedAt?: string | null;
+      /** Format: date-time */
+      landRefusedAt?: string | null;
+      isLandAccepted?: boolean;
+      isLandRefused?: boolean;
+      /** Format: date-time */
+      personAcceptedAt?: string | null;
+      /** Format: date-time */
+      personRefusedAt?: string | null;
+      isPersonAccepted?: boolean;
+      isPersonRefused?: boolean;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -1835,46 +2574,106 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    LandGreenhouse: {
+    'LandDeal.jsonld-land_deal.accept_land_deal.accept.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_dealAccept_land_dealAcceptOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_dealGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal.patch_land_deal.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_dealPatch_land_dealPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal.post_land_deal.post.input': Record<string, never>;
+    'LandDeal.jsonld-land_deal.post_land_deal.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_dealPost_land_dealPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal.refuse_land_deal.refuse.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_dealRefuse_land_dealRefuseOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandDeal.jsonld-land_deal_archive_land_deal_archive.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandDealJsonldLand_deal_archive_land_deal_archiveOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandGreenhouse-land_greenhouse.patch_land_greenhouse.patch.input': {
       name: string;
       /** Format: date-time */
       constructionDate?: string | null;
-      landAreas?: string[];
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landGreenhouseParameter?: string | null;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landGreenhouseSetting?: string | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
     };
     'LandGreenhouse.jsonld': {
-      readonly '@id'?: string;
-      readonly '@type'?: string;
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandGreenhouseJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
       name: string;
       /** Format: date-time */
       constructionDate?: string | null;
@@ -1902,28 +2701,163 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
-    LandGreenhouseParameter: {
+    'LandGreenhouse.jsonld-land_greenhouse.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /** Format: date-time */
+      constructionDate?: string | null;
+      landAreas?: string[];
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      landGreenhouse?: string;
-      readonly id?: number;
+      landGreenhouseParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseSetting?: string | null;
       /** Format: ulid */
       ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
     };
-    'LandGreenhouseParameter.jsonld': {
+    'LandGreenhouse.jsonld-land_greenhouse.get': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandGreenhouseJsonldLand_greenhouseGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /** Format: date-time */
+      constructionDate?: string | null;
+      landAreas?: string[];
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseSetting?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandGreenhouse.jsonld-land_greenhouse.patch_land_greenhouse.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandGreenhouseJsonldLand_greenhousePatch_land_greenhousePatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /** Format: date-time */
+      constructionDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseSetting?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandGreenhouse.jsonld-land_greenhouse.post_land_greenhouse.post.input': {
+      name: string;
+      /** Format: date-time */
+      constructionDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+    };
+    'LandGreenhouse.jsonld-land_greenhouse.post_land_greenhouse.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandGreenhouseJsonldLand_greenhousePost_land_greenhousePostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /** Format: date-time */
+      constructionDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseParameter?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landGreenhouseSetting?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandGreenhouseParameter-land_greenhouse_parameter.patch_land_greenhouse_parameter.patch.input': Record<
+      string,
+      never
+    >;
+    'LandGreenhouseParameter.jsonld-land_greenhouse_parameter.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandGreenhouseParameterJsonldLand_greenhouse_parameterGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1934,37 +2868,35 @@ export interface components {
        * @example https://example.com/
        */
       landGreenhouse?: string;
-      readonly id?: number;
       /** Format: ulid */
       ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
     };
-    LandGreenhouseSetting: {
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landGreenhouse?: string;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
-    };
-    'LandGreenhouseSetting.jsonld': {
+    'LandGreenhouseParameter.jsonld-land_greenhouse_parameter.patch_land_greenhouse_parameter.patch.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandGreenhouseParameterJsonldLand_greenhouse_parameterPatch_land_greenhouse_parameterPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandGreenhouseSetting-land_greenhouse_setting.patch_land_greenhouse_setting.patch.input': Record<
+      string,
+      never
+    >;
+    'LandGreenhouseSetting.jsonld-land_greenhouse_setting.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandGreenhouseSettingJsonldLand_greenhouse_settingGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -1975,39 +2907,45 @@ export interface components {
        * @example https://example.com/
        */
       landGreenhouse?: string;
-      readonly id?: number;
       /** Format: ulid */
       ulid?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      readonly land?: string | null;
+    };
+    'LandGreenhouseSetting.jsonld-land_greenhouse_setting.patch_land_greenhouse_setting.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandGreenhouseSettingJsonldLand_greenhouse_settingPatch_land_greenhouse_settingPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: ulid */
+      ulid?: string;
     };
     LandMember: {
       /** Format: date-time */
-      joinedAt?: string;
-      owner?: boolean;
+      readonly joinedAt?: string;
+      readonly owner?: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      land?: string;
-      person?: components['schemas']['Person'];
+      readonly land?: string;
+      readonly person?: components['schemas']['Person'];
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
-      landMemberSetting?: string | null;
+      readonly landMemberSetting?: string | null;
       landRoles?: string[];
-      readonly id?: number;
       /** Format: ulid */
       ulid?: string;
     };
-    'LandMember-user.land_member.patch': {
+    'LandMember-land_member.patch_land_member.patch.input': {
       landRoles?: string[];
-      /** Format: ulid */
-      ulid?: string;
     };
     'LandMember.jsonld': {
       readonly '@context'?:
@@ -2015,7 +2953,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2039,30 +2977,31 @@ export interface components {
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
+      readonly permissions?: string[];
     };
-    'LandMember.jsonld-user.land_member.collection': {
+    'LandMember.jsonld-land_member.collection': {
       readonly '@id'?: string;
       readonly '@type'?: string;
       /** Format: date-time */
       joinedAt?: string;
       owner?: boolean;
-      person?: components['schemas']['Person.jsonld-user.land_member.collection'];
+      person?: components['schemas']['Person.jsonld-land_member.collection'];
       /**
        * Format: iri-reference
        * @example https://example.com/
        */
       landMemberSetting?: string | null;
-      landRoles?: components['schemas']['LandRole.jsonld-user.land_member.collection'][];
+      landRoles?: components['schemas']['LandRole.jsonld-land_member.collection'][];
       /** Format: ulid */
       ulid?: string;
     };
-    'LandMember.jsonld-user.land_member.get': {
+    'LandMember.jsonld-land_member.get': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberJsonldLand_memberGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2071,7 +3010,7 @@ export interface components {
       /** Format: date-time */
       joinedAt?: string;
       owner?: boolean;
-      person?: components['schemas']['Person.jsonld-user.land_member.get'];
+      person?: components['schemas']['Person.jsonld-land_member.get'];
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -2081,13 +3020,13 @@ export interface components {
       /** Format: ulid */
       ulid?: string;
     };
-    'LandMember.jsonld-user.land_member.get-me': {
+    'LandMember.jsonld-land_member.me': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberJsonldLand_memberMeContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2099,7 +3038,37 @@ export interface components {
        * @example https://example.com/
        */
       land?: string;
-      landRoles?: components['schemas']['LandRole.jsonld-user.land_member.get-me'][];
+      landRoles?: components['schemas']['LandRole.jsonld-land_member.me'][];
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandMember.jsonld-land_member.patch_land_member.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberJsonldLand_memberPatch_land_memberPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: date-time */
+      joinedAt?: string;
+      owner?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      person?: components['schemas']['Person.jsonld-land_member.patch_land_member.patch.output'];
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landMemberSetting?: string | null;
+      landRoles?: string[];
       /** Format: ulid */
       ulid?: string;
     };
@@ -2112,35 +3081,27 @@ export interface components {
       /** Format: email */
       email?: string;
       landRoles?: string[];
-      /**
-       * @default pending
-       * @example pending
-       * @enum {string}
-       */
-      state: LandMemberInvitationState;
-      person?: components['schemas']['Person'] | null;
-      /** Format: date-time */
-      acceptedAt?: string | null;
-      /** Format: date-time */
-      refusedAt?: string | null;
-      readonly id?: number;
       /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
+      readonly ulid?: string;
     };
-    'LandMemberInvitation-user.land_member_invitation.accept': Record<string, never>;
-    'LandMemberInvitation-user.land_member_invitation.patch': {
+    'LandMemberInvitation-land_member_invitation.accept_land_member_invitation.accept.input': Record<
+      string,
+      never
+    >;
+    'LandMemberInvitation-land_member_invitation.patch_land_member_invitation.patch.input': {
       landRoles?: string[];
     };
-    'LandMemberInvitation-user.land_member_invitation.refuse': Record<string, never>;
-    'LandMemberInvitation.LandMemberInvitationCheckEmailUnicityDto.jsonld': {
+    'LandMemberInvitation-land_member_invitation.refuse_land_member_invitation.refuse.input': Record<
+      string,
+      never
+    >;
+    'LandMemberInvitation.LandMemberInvitationCheckEmailUnicityDto.jsonld-land_member_invitation.check-email-unicity': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberInvitationLandMemberInvitationCheckEmailUnicityDtoJsonldLand_member_invitationCheckEmailUnicityContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2154,7 +3115,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberInvitationJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2173,7 +3134,7 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
+      state: LandMemberInvitationJsonldState;
       person?: components['schemas']['Person.jsonld'] | null;
       /** Format: date-time */
       acceptedAt?: string | null;
@@ -2185,39 +3146,52 @@ export interface components {
       /** Format: date-time */
       createdAt?: string;
     };
-    'LandMemberInvitation.jsonld-user.land_member_invitation.collection': {
-      readonly '@id'?: string;
-      readonly '@type'?: string;
-      /** Format: email */
-      email?: string;
-      landRoles?: components['schemas']['LandRole.jsonld-user.land_member_invitation.collection'][];
-      /**
-       * @default pending
-       * @example pending
-       * @enum {string}
-       */
-      state: LandMemberInvitationState;
-      person?: components['schemas']['Person.jsonld-user.land_member_invitation.collection'] | null;
-      /** Format: ulid */
-      ulid?: string;
-    };
-    'LandMemberInvitation.jsonld-user.land_member_invitation.collection-by-email': {
-      readonly '@id'?: string;
-      readonly '@type'?: string;
-      land?: components['schemas']['Land.jsonld-user.land_member_invitation.collection-by-email'];
-      landRoles?: components['schemas']['LandRole.jsonld-user.land_member_invitation.collection-by-email'][];
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-    };
-    'LandMemberInvitation.jsonld-user.land_member_invitation.get': {
+    'LandMemberInvitation.jsonld-land_member_invitation.accept_land_member_invitation.accept.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberInvitationJsonldLand_member_invitationAccept_land_member_invitationAcceptOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandMemberInvitation.jsonld-land_member_invitation.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** Format: email */
+      email?: string;
+      landRoles?: components['schemas']['LandRole.jsonld-land_member_invitation.collection'][];
+      /**
+       * @default pending
+       * @example pending
+       * @enum {string}
+       */
+      state: LandMemberInvitationJsonldLand_member_invitationCollectionState;
+      person?: components['schemas']['Person.jsonld-land_member_invitation.collection'] | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandMemberInvitation.jsonld-land_member_invitation.collection-by-email': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      land?: components['schemas']['Land.jsonld-land_member_invitation.collection-by-email'];
+      landRoles?: components['schemas']['LandRole.jsonld-land_member_invitation.collection-by-email'][];
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+    };
+    'LandMemberInvitation.jsonld-land_member_invitation.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberInvitationJsonldLand_member_invitationGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2236,14 +3210,51 @@ export interface components {
        * @example pending
        * @enum {string}
        */
-      state: LandMemberInvitationState;
-      person?: components['schemas']['Person.jsonld-user.land_member_invitation.get'] | null;
+      state: LandMemberInvitationJsonldLand_member_invitationGetState;
+      person?: components['schemas']['Person.jsonld-land_member_invitation.get'] | null;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
       createdAt?: string;
     };
-    'LandMemberInvitation.jsonld-user.land_member_invitation.post': {
+    'LandMemberInvitation.jsonld-land_member_invitation.patch_land_member_invitation.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberInvitationJsonldLand_member_invitationPatch_land_member_invitationPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      landRoles?: string[];
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandMemberInvitation.jsonld-land_member_invitation.post_land_member_invitation.post.input': {
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** Format: email */
+      email?: string;
+      landRoles?: string[];
+    };
+    'LandMemberInvitation.jsonld-land_member_invitation.post_land_member_invitation.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberInvitationJsonldLand_member_invitationPost_land_member_invitationPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -2255,47 +3266,63 @@ export interface components {
       /** Format: ulid */
       ulid?: string;
     };
-    LandMemberSetting: {
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landMember?: string;
-      emailNotificationActivated?: boolean;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-    };
-    'LandMemberSetting.jsonld': {
+    'LandMemberInvitation.jsonld-land_member_invitation.refuse_land_member_invitation.refuse.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandMemberInvitationJsonldLand_member_invitationRefuse_land_member_invitationRefuseOutputContextHydra;
           } & {
             [key: string]: unknown;
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      landMember?: string;
+    };
+    'LandMemberSetting-land_member_setting.patch_land_member_setting.patch.input': {
       emailNotificationActivated?: boolean;
-      readonly id?: number;
+    };
+    'LandMemberSetting.jsonld-land_member_setting.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberSettingJsonldLand_member_settingGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      emailNotificationActivated?: boolean;
       /** Format: ulid */
       ulid?: string;
     };
-    LandProposal: {
+    'LandMemberSetting.jsonld-land_member_setting.patch_land_member_setting.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandMemberSettingJsonldLand_member_settingPatch_land_member_settingPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      emailNotificationActivated?: boolean;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandProposal-land_proposal.archive_land_proposal.archive.input': Record<string, never>;
+    'LandProposal-land_proposal.patch_land_proposal.patch.input': {
       title?: string;
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
       /** @enum {string} */
-      soilType?: LandProposalSoilType;
+      soilType?: LandProposalLand_proposalPatch_land_proposalPatchInputSoilType;
       /** @enum {string} */
-      orientation?: LandProposalOrientation;
+      orientation?: LandProposalLand_proposalPatch_land_proposalPatchInputOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
       hasShed?: boolean;
@@ -2307,51 +3334,27 @@ export interface components {
        * @example no_preference
        * @enum {string}
        */
-      preferredGardenInteractionMode: LandProposalPreferredGardenInteractionMode;
+      preferredGardenInteractionMode: LandProposalLand_proposalPatch_land_proposalPatchInputPreferredGardenInteractionMode;
       /**
        * @default beginner
        * @example beginner
        * @enum {string}
        */
-      gardeningLevel: LandProposalGardeningLevel;
+      gardeningLevel: LandProposalLand_proposalPatch_land_proposalPatchInputGardeningLevel;
       /** @enum {string} */
-      lookingForGardenerLevel?: LandProposalGardeningLevel;
+      lookingForGardenerLevel?: LandProposalLand_proposalPatch_land_proposalPatchInputLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      /**
-       * @default draft
-       * @example draft
-       * @enum {string}
-       */
-      state: LandProposalState;
       sharingConditions?: unknown[] | null;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
-      readonly parking?: boolean | null;
-      readonly tools?: boolean | null;
-      readonly shed?: boolean | null;
-      readonly waterPoint?: boolean | null;
-      readonly independentAccess?: boolean | null;
     };
-    'LandProposal-user.land_deal.archive': Record<string, never>;
-    'LandProposal-user.land_deal.publish': Record<string, never>;
+    'LandProposal-land_proposal.publish_land_proposal.publish.input': Record<string, never>;
     'LandProposal.jsonld': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandProposalJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2361,9 +3364,9 @@ export interface components {
       /** @description Tiptap JSON Object */
       description?: unknown[] | null;
       /** @enum {string} */
-      soilType?: LandProposalSoilType;
+      soilType?: LandProposalJsonldSoilType;
       /** @enum {string} */
-      orientation?: LandProposalOrientation;
+      orientation?: LandProposalJsonldOrientation;
       hasParking?: boolean;
       hasTools?: boolean;
       hasShed?: boolean;
@@ -2375,15 +3378,15 @@ export interface components {
        * @example no_preference
        * @enum {string}
        */
-      preferredGardenInteractionMode: LandProposalPreferredGardenInteractionMode;
+      preferredGardenInteractionMode: LandProposalJsonldPreferredGardenInteractionMode;
       /**
        * @default beginner
        * @example beginner
        * @enum {string}
        */
-      gardeningLevel: LandProposalGardeningLevel;
+      gardeningLevel: LandProposalJsonldGardeningLevel;
       /** @enum {string} */
-      lookingForGardenerLevel?: LandProposalGardeningLevel;
+      lookingForGardenerLevel?: LandProposalJsonldLookingForGardenerLevel;
       gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
       /**
@@ -2396,8 +3399,14 @@ export interface components {
        * @example draft
        * @enum {string}
        */
-      state: LandProposalState;
+      state: LandProposalJsonldState;
       sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -2405,20 +3414,431 @@ export interface components {
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
-      readonly parking?: boolean | null;
-      readonly tools?: boolean | null;
-      readonly shed?: boolean | null;
-      readonly waterPoint?: boolean | null;
-      readonly independentAccess?: boolean | null;
     };
-    LandRequest: {
-      person?: components['schemas']['Person'];
+    'LandProposal.jsonld-land_proposal.archive_land_proposal.archive.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputLookingForGardenerLevel;
+      foodSecurityParticipation?: boolean;
       /**
        * @default draft
        * @example draft
        * @enum {string}
        */
-      state: LandProposalState;
+      state: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandProposal.jsonld-land_proposal.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalCollectionSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalCollectionOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalCollectionGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalCollectionState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandProposal.jsonld-land_proposal.collection-public': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalCollectionPublicState;
+    };
+    'LandProposal.jsonld-land_proposal.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandProposalJsonldLand_proposalGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalGetSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalGetOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalGetPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalGetGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalGetLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalGetState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandProposal.jsonld-land_proposal.patch_land_proposal.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandProposal.jsonld-land_proposal.post_land_proposal.post.input': {
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalPost_land_proposalPostInputSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostInputOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalPost_land_proposalPostInputGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostInputLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      sharingConditions?: unknown[] | null;
+    };
+    'LandProposal.jsonld-land_proposal.post_land_proposal.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandProposalJsonldLand_proposalPost_land_proposalPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalPost_land_proposalPostOutputGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalPost_land_proposalPostOutputState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandProposal.jsonld-land_proposal.publish_land_proposal.publish.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputLookingForGardenerLevel;
+      foodSecurityParticipation?: boolean;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    LandRequest: {
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      readonly state: LandRequestState;
       /** @description Tiptap JSON Object */
       message?: unknown[] | null;
       minimumSurfaceWanted?: number | null;
@@ -2427,7 +3847,7 @@ export interface components {
        * @example beginner
        * @enum {string}
        */
-      gardeningLevel: LandProposalGardeningLevel;
+      gardeningLevel: LandRequestGardeningLevel;
       hasTools?: boolean;
       title?: string;
       /**
@@ -2435,27 +3855,52 @@ export interface components {
        * @example no_preference
        * @enum {string}
        */
-      preferredGardenInteractionMode: LandProposalPreferredGardenInteractionMode;
+      preferredGardenInteractionMode: LandRequestPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       sharingConditions?: unknown[] | null;
-      readonly id?: number;
+      /** Format: date-time */
+      readonly publishedAt?: string | null;
+      /** Format: date-time */
+      readonly archivedAt?: string | null;
+      /** Format: date-time */
+      readonly expirationDate?: string | null;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
-      createdAt?: string;
+      readonly createdAt?: string;
       /** Format: date-time */
-      updatedAt?: string | null;
-      readonly tools?: boolean | null;
+      readonly updatedAt?: string | null;
     };
-    'LandRequest-user.land_deal.archive': Record<string, never>;
-    'LandRequest-user.land_deal.publish': Record<string, never>;
+    'LandRequest-land_request.archive_land_request.archive.input': Record<string, never>;
+    'LandRequest-land_request.patch_land_request.patch.input': {
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestLand_requestPatch_land_requestPatchInputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+    };
+    'LandRequest-land_request.publish_land_request.publish.input': Record<string, never>;
     'LandRequest.jsonld': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRequestJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2467,7 +3912,7 @@ export interface components {
        * @example draft
        * @enum {string}
        */
-      state: LandProposalState;
+      state: LandRequestJsonldState;
       /** @description Tiptap JSON Object */
       message?: unknown[] | null;
       minimumSurfaceWanted?: number | null;
@@ -2476,7 +3921,7 @@ export interface components {
        * @example beginner
        * @enum {string}
        */
-      gardeningLevel: LandProposalGardeningLevel;
+      gardeningLevel: LandRequestJsonldGardeningLevel;
       hasTools?: boolean;
       title?: string;
       /**
@@ -2484,9 +3929,15 @@ export interface components {
        * @example no_preference
        * @enum {string}
        */
-      preferredGardenInteractionMode: LandProposalPreferredGardenInteractionMode;
+      preferredGardenInteractionMode: LandRequestJsonldPreferredGardenInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -2494,65 +3945,393 @@ export interface components {
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
-      readonly tools?: boolean | null;
     };
-    'LandRole-user.land_role.patch': {
-      name: string;
+    'LandRequest.jsonld-land_request.archive_land_request.archive.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
       /**
-       * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
-       *     ]
-       * @enum {array}
+       * @default draft
+       * @example draft
+       * @enum {string}
        */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
+      state: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
+    };
+    'LandRequest.jsonld-land_request.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestCollectionState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestCollectionGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRequest.jsonld-land_request.collection-public': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestCollectionPublicState;
+    };
+    'LandRequest.jsonld-land_request.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRequestJsonldLand_requestGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestGetState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestGetGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestGetPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRequest.jsonld-land_request.patch_land_request.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRequestJsonldLand_requestPatch_land_requestPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestPatch_land_requestPatchOutputState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestPatch_land_requestPatchOutputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRequest.jsonld-land_request.post_land_request.post.input': {
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestPost_land_requestPostInputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+    };
+    'LandRequest.jsonld-land_request.post_land_request.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRequestJsonldLand_requestPost_land_requestPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestPost_land_requestPostOutputState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestPost_land_requestPostOutputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRequest.jsonld-land_request.publish_land_request.publish.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRequestJsonldLand_requestPublish_land_requestPublishOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default draft
+       * @example draft
+       * @enum {string}
+       */
+      state: LandRequestJsonldLand_requestPublish_land_requestPublishOutputState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestPublish_land_requestPublishOutputGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRole-land_role.patch_land_role.patch.input': {
+      name: string;
+      /**
+       * @example [
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
+       *     ]
+       * @enum {array}
+       */
+      permissions?: LandRoleLand_rolePatch_land_rolePatchInputPermissions;
     };
     'LandRole.jsonld': {
       readonly '@context'?:
@@ -2560,7 +4339,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2575,53 +4354,66 @@ export interface components {
       landMembers?: string[];
       /**
        * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
        *     ]
        * @enum {array}
        */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
+      permissions?: LandRoleJsonldPermissions;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -2631,13 +4423,13 @@ export interface components {
       updatedAt?: string | null;
       position?: number;
     };
-    'LandRole.jsonld-user.land_member.collection': {
+    'LandRole.jsonld-land_member.collection': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldLand_memberCollectionContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2645,13 +4437,13 @@ export interface components {
       readonly '@type'?: string;
       name: string;
     };
-    'LandRole.jsonld-user.land_member.get-me': {
+    'LandRole.jsonld-land_member.me': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldLand_memberMeContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2660,61 +4452,74 @@ export interface components {
       name: string;
       /**
        * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
        *     ]
        * @enum {array}
        */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
+      permissions?: LandRoleJsonldLand_memberMePermissions;
     };
-    'LandRole.jsonld-user.land_member_invitation.collection': {
+    'LandRole.jsonld-land_member_invitation.collection': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldLand_member_invitationCollectionContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2722,13 +4527,13 @@ export interface components {
       readonly '@type'?: string;
       name: string;
     };
-    'LandRole.jsonld-user.land_member_invitation.collection-by-email': {
+    'LandRole.jsonld-land_member_invitation.collection-by-email': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldLand_member_invitationCollectionByEmailContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2736,132 +4541,73 @@ export interface components {
       readonly '@type'?: string;
       name: string;
     };
-    'LandRole.jsonld-user.land_role.collection': {
+    'LandRole.jsonld-land_role.collection': {
       readonly '@id'?: string;
       readonly '@type'?: string;
       name: string;
       landMembers?: string[];
       /**
        * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
        *     ]
        * @enum {array}
        */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
-      /** Format: ulid */
-      ulid?: string;
-      position?: number;
-    };
-    'LandRole.jsonld-user.land_role.get': {
-      readonly '@context'?:
-        | string
-        | ({
-            '@vocab': string;
-            /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
-          } & {
-            [key: string]: unknown;
-          });
-      readonly '@id'?: string;
-      readonly '@type'?: string;
-      name: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      landMembers?: string[];
-      /**
-       * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
-       *     ]
-       * @enum {array}
-       */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
+      permissions?: LandRoleJsonldLand_roleCollectionPermissions;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
@@ -2870,7 +4616,178 @@ export interface components {
       updatedAt?: string | null;
       position?: number;
     };
-    'LandRole.jsonld-user.land_role.post': {
+    'LandRole.jsonld-land_role.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRoleJsonldLand_roleGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      landMembers?: string[];
+      /**
+       * @example [
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
+       *     ]
+       * @enum {array}
+       */
+      permissions?: LandRoleJsonldLand_roleGetPermissions;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+      position?: number;
+    };
+    'LandRole.jsonld-land_role.patch_land_role.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandRoleJsonldLand_rolePatch_land_rolePatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /**
+       * @example [
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
+       *     ]
+       * @enum {array}
+       */
+      permissions?: LandRoleJsonldLand_rolePatch_land_rolePatchOutputPermissions;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandRole.jsonld-land_role.post_land_role.post.input': {
       name: string;
       /**
        * Format: iri-reference
@@ -2879,74 +4796,164 @@ export interface components {
       land?: string;
       /**
        * @example [
-       *       "land_read",
-       *       "land_update",
-       *       "land_delete",
-       *       "land_transfer",
-       *       "landgreenhouse_read",
-       *       "landgreenhouse_create",
-       *       "landgreenhouse_update",
-       *       "landgreenhouse_delete",
-       *       "landgreenhouseparameter_read",
-       *       "landgreenhouseparameter_update",
-       *       "landgreenhousesetting_read",
-       *       "landgreenhousesetting_update",
-       *       "landarea_read",
-       *       "landarea_create",
-       *       "landarea_update",
-       *       "landarea_delete",
-       *       "landareaparameter_read",
-       *       "landareaparameter_update",
-       *       "landareasetting_read",
-       *       "landareasetting_update",
-       *       "landmember_read",
-       *       "landmember_update",
-       *       "landmember_delete",
-       *       "landtask_read",
-       *       "landtask_create",
-       *       "landtask_update",
-       *       "landtask_delete",
-       *       "landtask_mark_as_done",
-       *       "landtask_mark_as_in_progress",
-       *       "landcultivationplan_read",
-       *       "landcultivationplan_create",
-       *       "landcultivationplan_update",
-       *       "landcultivationplan_delete",
-       *       "landrole_read",
-       *       "landrole_create",
-       *       "landrole_update",
-       *       "landrole_delete",
-       *       "landmemberinvitation_read",
-       *       "landmemberinvitation_create",
-       *       "landmemberinvitation_update",
-       *       "landmemberinvitation_delete",
-       *       "landsetting_read",
-       *       "landsetting_update"
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
        *     ]
        * @enum {array}
        */
-      permissions?: LandRoleUserLand_rolePatchPermissions;
-      /** Format: ulid */
-      ulid?: string;
+      permissions?: LandRoleJsonldLand_rolePost_land_rolePostInputPermissions;
     };
-    LandSetting: {
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
-      lookingForMember?: boolean;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-    };
-    'LandSetting.jsonld': {
+    'LandRole.jsonld-land_role.post_land_role.post.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandRoleJsonldLand_rolePost_land_rolePostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /**
+       * @example [
+       *       "land_member:land:delete",
+       *       "land_member:land:patch",
+       *       "person-land_member:land:get",
+       *       "land_member:land_member:delete",
+       *       "land_member:land_member:patch",
+       *       "land_member:land_member:get",
+       *       "land_member:land_member:collection",
+       *       "land_member:land_task:delete",
+       *       "land_member:land_task:post",
+       *       "land_member:land_task:patch",
+       *       "land_member:land_task:get",
+       *       "land_member:land_task:collection",
+       *       "land_member:land_task:mark_as_done",
+       *       "land_member:land_task:mark_as_in_progress",
+       *       "land_member:land_area:delete",
+       *       "land_member:land_area:post",
+       *       "land_member:land_area:patch",
+       *       "land_member:land_area:get",
+       *       "land_member:land_area:collection",
+       *       "land_member:land_area_setting:patch",
+       *       "land_member:land_area_setting:get",
+       *       "land_member:land_area_parameter:patch",
+       *       "land_member:land_area_parameter:get",
+       *       "land_member:land_setting:patch",
+       *       "land_member:land_setting:get",
+       *       "land_member:land_greenhouse:delete",
+       *       "land_member:land_greenhouse:post",
+       *       "land_member:land_greenhouse:patch",
+       *       "land_member:land_greenhouse:get",
+       *       "land_member:land_greenhouse:collection",
+       *       "land_member:land_greenhouse_setting:patch",
+       *       "land_member:land_greenhouse_setting:get",
+       *       "land_member:land_greenhouse_parameter:patch",
+       *       "land_member:land_greenhouse_parameter:get",
+       *       "land_member:land_cultivation_plan:delete",
+       *       "land_member:land_cultivation_plan:post",
+       *       "land_member:land_cultivation_plan:patch",
+       *       "land_member:land_cultivation_plan:get",
+       *       "land_member:land_cultivation_plan:collection",
+       *       "land_member:land_member_invitation:delete",
+       *       "land_member:land_member_invitation:patch",
+       *       "land_member:land_member_invitation:post",
+       *       "land_member:land_member_invitation:get",
+       *       "land_member:land_member_invitation:collection",
+       *       "land_member:land_member_invitation:check_email_unicity",
+       *       "land_member:land_api_key:delete",
+       *       "land_member:land_api_key:post",
+       *       "land_member:land_api_key:get",
+       *       "land_member:land_api_key:collection",
+       *       "land_member:land_proposal:post",
+       *       "person-land_member:land_proposal:get",
+       *       "land_member:land_proposal:patch",
+       *       "land_member:land_proposal:delete",
+       *       "land_member:land_proposal:publish",
+       *       "land_member:land_proposal:archive",
+       *       "land_member:land_proposal:collection"
+       *     ]
+       * @enum {array}
+       */
+      permissions?: LandRoleJsonldLand_rolePost_land_rolePostOutputPermissions;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandSetting-land_setting.patch_land_setting.patch.input': {
+      lookingForMember?: boolean;
+    };
+    'LandSetting.jsonld-land_setting.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandSettingJsonldLand_settingGetContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -2958,17 +4965,37 @@ export interface components {
        */
       land?: string;
       lookingForMember?: boolean;
-      readonly id?: number;
       /** Format: ulid */
       ulid?: string;
     };
-    LandTask: {
+    'LandSetting.jsonld-land_setting.patch_land_setting.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandSettingJsonldLand_settingPatch_land_settingPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      lookingForMember?: boolean;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'LandTask-land_task.mark-as-done_land_task.mark-as-done.input': Record<string, never>;
+    'LandTask-land_task.mark-as-in-progress_land_task.mark-as-in-progress.input': Record<
+      string,
+      never
+    >;
+    'LandTask-land_task.patch_land_task.patch.input': {
       title: string;
-      /**
-       * Format: iri-reference
-       * @example https://example.com/
-       */
-      land?: string;
       /** @description Tiptap JSON Object */
       content?: unknown[] | null;
       /** Format: date-time */
@@ -2980,19 +5007,6 @@ export interface components {
        * @example https://example.com/
        */
       landArea?: string | null;
-      /**
-       * @default to_be_done
-       * @example to_be_done
-       * @enum {string}
-       */
-      state: LandTaskState;
-      readonly id?: number;
-      /** Format: ulid */
-      ulid?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      updatedAt?: string | null;
     };
     'LandTask.jsonld': {
       readonly '@context'?:
@@ -3000,7 +5014,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: LandTaskJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3028,8 +5042,205 @@ export interface components {
        * @example to_be_done
        * @enum {string}
        */
-      state: LandTaskState;
+      state: LandTaskJsonldState;
       readonly id?: number;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandTask.jsonld-land_task.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title: string;
+      /** Format: date-time */
+      dueDate?: string | null;
+      /** Format: date-time */
+      startDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /**
+       * @default to_be_done
+       * @example to_be_done
+       * @enum {string}
+       */
+      state: LandTaskJsonldLand_taskCollectionState;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandTask.jsonld-land_task.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandTaskJsonldLand_taskGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** @description Tiptap JSON Object */
+      content?: unknown[] | null;
+      /** Format: date-time */
+      dueDate?: string | null;
+      /** Format: date-time */
+      startDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /**
+       * @default to_be_done
+       * @example to_be_done
+       * @enum {string}
+       */
+      state: LandTaskJsonldLand_taskGetState;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandTask.jsonld-land_task.mark-as-done_land_task.mark-as-done.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandTaskJsonldLand_taskMarkAsDone_land_taskMarkAsDoneOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandTask.jsonld-land_task.mark-as-in-progress_land_task.mark-as-in-progress.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandTaskJsonldLand_taskMarkAsInProgress_land_taskMarkAsInProgressOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'LandTask.jsonld-land_task.patch_land_task.patch.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandTaskJsonldLand_taskPatch_land_taskPatchOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** @description Tiptap JSON Object */
+      content?: unknown[] | null;
+      /** Format: date-time */
+      dueDate?: string | null;
+      /** Format: date-time */
+      startDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /**
+       * @default to_be_done
+       * @example to_be_done
+       * @enum {string}
+       */
+      state: LandTaskJsonldLand_taskPatch_land_taskPatchOutputState;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
+    };
+    'LandTask.jsonld-land_task.post_land_task.post.input': {
+      title: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** @description Tiptap JSON Object */
+      content?: unknown[] | null;
+      /** Format: date-time */
+      dueDate?: string | null;
+      /** Format: date-time */
+      startDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+    };
+    'LandTask.jsonld-land_task.post_land_task.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandTaskJsonldLand_taskPost_land_taskPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      title: string;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      land?: string;
+      /** @description Tiptap JSON Object */
+      content?: unknown[] | null;
+      /** Format: date-time */
+      dueDate?: string | null;
+      /** Format: date-time */
+      startDate?: string | null;
+      /**
+       * Format: iri-reference
+       * @example https://example.com/
+       */
+      landArea?: string | null;
+      /**
+       * @default to_be_done
+       * @example to_be_done
+       * @enum {string}
+       */
+      state: LandTaskJsonldLand_taskPost_land_taskPostOutputState;
       /** Format: ulid */
       ulid?: string;
       /** Format: date-time */
@@ -3044,6 +5255,8 @@ export interface components {
       seedStocks?: components['schemas']['SeedStock'][];
       landMemberInvitations?: components['schemas']['LandMemberInvitation'][];
       landDeals?: components['schemas']['LandDeal'][];
+      permissions?: unknown[] | null;
+      personApiKeys?: components['schemas']['PersonApiKey'][];
       authId?: string;
       /** @description The user roles */
       roles?: string[];
@@ -3059,7 +5272,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PersonJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3071,6 +5284,8 @@ export interface components {
       seedStocks?: components['schemas']['SeedStock.jsonld'][];
       landMemberInvitations?: components['schemas']['LandMemberInvitation.jsonld'][];
       landDeals?: components['schemas']['LandDeal.jsonld'][];
+      permissions?: unknown[] | null;
+      personApiKeys?: components['schemas']['PersonApiKey.jsonld'][];
       authId?: string;
       /** @description The user roles */
       roles?: string[];
@@ -3080,13 +5295,13 @@ export interface components {
       familyName?: string | null;
       readonly userIdentifier?: string;
     };
-    'Person.jsonld-user.land_member.collection': {
+    'Person.jsonld-land_member.collection': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PersonJsonldLand_memberCollectionContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3095,44 +5310,145 @@ export interface components {
       givenName?: string | null;
       familyName?: string | null;
     };
-    'Person.jsonld-user.land_member.get': {
+    'Person.jsonld-land_member.get': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PersonJsonldLand_memberGetContextHydra;
           } & {
             [key: string]: unknown;
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
     };
-    'Person.jsonld-user.land_member_invitation.collection': {
+    'Person.jsonld-land_member.patch_land_member.patch.output': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PersonJsonldLand_memberPatch_land_memberPatchOutputContextHydra;
           } & {
             [key: string]: unknown;
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
     };
-    'Person.jsonld-user.land_member_invitation.get': {
+    'Person.jsonld-land_member_invitation.collection': {
       readonly '@context'?:
         | string
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PersonJsonldLand_member_invitationCollectionContextHydra;
           } & {
             [key: string]: unknown;
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
+    };
+    'Person.jsonld-land_member_invitation.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: PersonJsonldLand_member_invitationGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    PersonApiKey: {
+      permissions?: unknown[] | null;
+      name?: string;
+      readonly token?: string | null;
+      /** Format: date-time */
+      readonly expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'PersonApiKey.jsonld': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: PersonApiKeyJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
+      person?: components['schemas']['Person.jsonld'];
+      /** Format: date-time */
+      lastUsedDate?: string | null;
+      name?: string;
+      jti?: string;
+      token?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      readonly id?: number;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      readonly roles?: string[];
+      readonly jWTPayload?: string[];
+      readonly userIdentifier?: string;
+    };
+    'PersonApiKey.jsonld-person_api_key.collection': {
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+    };
+    'PersonApiKey.jsonld-person_api_key.get': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: PersonApiKeyJsonldPerson_api_keyGetContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
+      /** Format: date-time */
+      lastUsedDate?: string | null;
+      name?: string;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+    };
+    'PersonApiKey.jsonld-person_api_key.post_person_api_key.post.input': {
+      permissions?: unknown[] | null;
+      name?: string;
+    };
+    'PersonApiKey.jsonld-person_api_key.post_person_api_key.post.output': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: PersonApiKeyJsonldPerson_api_keyPost_person_api_keyPostOutputContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      permissions?: unknown[] | null;
+      name?: string;
+      token?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
     };
     Plant: {
       readonly id?: number;
@@ -3155,7 +5471,7 @@ export interface components {
        */
       maturity: PlantMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantSoilType;
       /**
        * @default full-sun
        * @example full-sun
@@ -3182,7 +5498,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PlantJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3206,20 +5522,20 @@ export interface components {
        * @example standard
        * @enum {string}
        */
-      maturity: PlantMaturity;
+      maturity: PlantJsonldMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantJsonldSoilType;
       /**
        * @default full-sun
        * @example full-sun
        * @enum {unknown}
        */
-      exposure: PlantExposure;
+      exposure: PlantJsonldExposure;
       vegetationThreshold?: number | null;
       daysToHarvestMin?: number | null;
       daysToHarvestMax?: number | null;
       /** @enum {unknown} */
-      species?: PlantSpecies;
+      species?: PlantJsonldSpecies;
       family?: unknown[] | null;
       plantingSpacingInCm?: number | null;
       landCultivationPlans?: string[];
@@ -3261,7 +5577,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PlantConversionRequestJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3277,7 +5593,7 @@ export interface components {
        * @example opened
        * @enum {string}
        */
-      state: PlantConversionRequestState;
+      state: PlantConversionRequestJsonldState;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3317,15 +5633,15 @@ export interface components {
        * @example standard
        * @enum {string}
        */
-      maturity: PlantMaturity;
+      maturity: PlantCustomMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantCustomSoilType;
       /**
        * @default full-sun
        * @example full-sun
        * @enum {unknown}
        */
-      exposure: PlantExposure;
+      exposure: PlantCustomExposure;
       vegetationThreshold?: number | null;
       daysToHarvestMin?: number | null;
       daysToHarvestMax?: number | null;
@@ -3334,7 +5650,7 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
       /** @enum {unknown} */
-      species?: PlantSpecies;
+      species?: PlantCustomSpecies;
       family?: unknown[] | null;
       plantingSpacingInCm?: number | null;
       landCultivationPlans?: string[];
@@ -3346,7 +5662,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PlantCustomJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3376,15 +5692,15 @@ export interface components {
        * @example standard
        * @enum {string}
        */
-      maturity: PlantMaturity;
+      maturity: PlantCustomJsonldMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantCustomJsonldSoilType;
       /**
        * @default full-sun
        * @example full-sun
        * @enum {unknown}
        */
-      exposure: PlantExposure;
+      exposure: PlantCustomJsonldExposure;
       vegetationThreshold?: number | null;
       daysToHarvestMin?: number | null;
       daysToHarvestMax?: number | null;
@@ -3393,7 +5709,7 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
       /** @enum {unknown} */
-      species?: PlantSpecies;
+      species?: PlantCustomJsonldSpecies;
       family?: unknown[] | null;
       plantingSpacingInCm?: number | null;
       landCultivationPlans?: string[];
@@ -3419,15 +5735,15 @@ export interface components {
        * @example standard
        * @enum {string}
        */
-      maturity: PlantMaturity;
+      maturity: PlantGlobalMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantGlobalSoilType;
       /**
        * @default full-sun
        * @example full-sun
        * @enum {unknown}
        */
-      exposure: PlantExposure;
+      exposure: PlantGlobalExposure;
       vegetationThreshold?: number | null;
       daysToHarvestMin?: number | null;
       daysToHarvestMax?: number | null;
@@ -3436,7 +5752,7 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
       /** @enum {unknown} */
-      species?: PlantSpecies;
+      species?: PlantGlobalSpecies;
       family?: unknown[] | null;
       plantingSpacingInCm?: number | null;
       landCultivationPlans?: string[];
@@ -3448,7 +5764,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: PlantGlobalJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3473,15 +5789,15 @@ export interface components {
        * @example standard
        * @enum {string}
        */
-      maturity: PlantMaturity;
+      maturity: PlantGlobalJsonldMaturity;
       /** @enum {unknown} */
-      soilType?: LandProposalSoilType;
+      soilType?: PlantGlobalJsonldSoilType;
       /**
        * @default full-sun
        * @example full-sun
        * @enum {unknown}
        */
-      exposure: PlantExposure;
+      exposure: PlantGlobalJsonldExposure;
       vegetationThreshold?: number | null;
       daysToHarvestMin?: number | null;
       daysToHarvestMax?: number | null;
@@ -3490,7 +5806,7 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
       /** @enum {unknown} */
-      species?: PlantSpecies;
+      species?: PlantGlobalJsonldSpecies;
       family?: unknown[] | null;
       plantingSpacingInCm?: number | null;
       landCultivationPlans?: string[];
@@ -3514,7 +5830,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: SeedStockJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3561,7 +5877,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: SeedStockEntryJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3596,7 +5912,7 @@ export interface components {
         | ({
             '@vocab': string;
             /** @enum {string} */
-            hydra: AddressJsonldContextHydra;
+            hydra: StaticJsonldContextHydra;
           } & {
             [key: string]: unknown;
           });
@@ -3843,7 +6159,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['Land.jsonld-user.land.collection'][];
+            member: components['schemas']['Land.jsonld-land.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -3879,6 +6195,13 @@ export interface operations {
             };
           };
         };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
     };
   };
@@ -3892,7 +6215,7 @@ export interface operations {
     /** @description The new Land resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['Land.jsonld-user.land.post'];
+        'application/ld+json': components['schemas']['Land.jsonld-land.post_land.post.input'];
       };
     };
     responses: {
@@ -3902,11 +6225,18 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['Land.jsonld'];
+          'application/ld+json': components['schemas']['Land.jsonld-land.post_land.post.output'];
         };
       };
       /** @description Invalid input */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -3918,68 +6248,6 @@ export interface operations {
           [name: string]: unknown;
         };
         content?: never;
-      };
-    };
-  };
-  'get-collection-looking-for-members': {
-    parameters: {
-      query?: {
-        /** @description The collection page number */
-        page?: number;
-        /** @description The number of items per page */
-        itemsPerPage?: number;
-        /** @description Enable or disable pagination */
-        pagination?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Land collection */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/ld+json': {
-            member: components['schemas']['Land.jsonld-user.land.get-collection-looking-for-members'][];
-            totalItems?: number;
-            /** @example {
-             *       "@id": "string",
-             *       "type": "string",
-             *       "first": "string",
-             *       "last": "string",
-             *       "previous": "string",
-             *       "next": "string"
-             *     } */
-            view?: {
-              /** Format: iri-reference */
-              '@id'?: string;
-              '@type'?: string;
-              /** Format: iri-reference */
-              first?: string;
-              /** Format: iri-reference */
-              last?: string;
-              /** Format: iri-reference */
-              previous?: string;
-              /** Format: iri-reference */
-              next?: string;
-            };
-            search?: {
-              '@type'?: string;
-              template?: string;
-              variableRepresentation?: string;
-              mapping?: {
-                '@type'?: string;
-                variable?: string;
-                property?: string | null;
-                required?: boolean;
-              }[];
-            };
-          };
-        };
       };
     };
   };
@@ -4001,7 +6269,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['Land.jsonld-user.land.get'];
+          'application/ld+json': components['schemas']['Land.jsonld-land.get'];
         };
       };
       /** @description Forbidden */
@@ -4068,7 +6336,7 @@ export interface operations {
     /** @description The updated Land resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['Land-user.land.patch'];
+        'application/merge-patch+json': components['schemas']['Land-land.patch_land.patch.input'];
       };
     };
     responses: {
@@ -4078,7 +6346,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['Land.jsonld'];
+          'application/ld+json': components['schemas']['Land.jsonld-land.patch_land.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -4111,6 +6379,188 @@ export interface operations {
       };
     };
   };
+  api_land_api_keys_get_collection: {
+    parameters: {
+      query: {
+        /** @description The collection page number */
+        page?: number;
+        /** @description The number of items per page */
+        itemsPerPage?: number;
+        /** @description Enable or disable pagination */
+        pagination?: boolean;
+        /** @description Filter by land */
+        land: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandApiKey collection */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': {
+            member: components['schemas']['LandApiKey.jsonld-land_api_key.collection'][];
+            totalItems?: number;
+            /** @example {
+             *       "@id": "string",
+             *       "type": "string",
+             *       "first": "string",
+             *       "last": "string",
+             *       "previous": "string",
+             *       "next": "string"
+             *     } */
+            view?: {
+              /** Format: iri-reference */
+              '@id'?: string;
+              '@type'?: string;
+              /** Format: iri-reference */
+              first?: string;
+              /** Format: iri-reference */
+              last?: string;
+              /** Format: iri-reference */
+              previous?: string;
+              /** Format: iri-reference */
+              next?: string;
+            };
+            search?: {
+              '@type'?: string;
+              template?: string;
+              variableRepresentation?: string;
+              mapping?: {
+                '@type'?: string;
+                variable?: string;
+                property?: string | null;
+                required?: boolean;
+              }[];
+            };
+          };
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_api_keys_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description The new LandApiKey resource */
+    requestBody: {
+      content: {
+        'application/ld+json': components['schemas']['LandApiKey.jsonld-land_api_key.post_land_api_key.post.input'];
+      };
+    };
+    responses: {
+      /** @description LandApiKey resource created */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandApiKey.jsonld-land_api_key.post_land_api_key.post.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_api_keys_ulid_get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandApiKey identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandApiKey resource */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandApiKey.jsonld-land_api_key.get'];
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_api_keys_ulid_delete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandApiKey identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandApiKey resource deleted */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
   api_land_areas_get_collection: {
     parameters: {
       query: {
@@ -4136,7 +6586,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandArea.jsonld'][];
+            member: components['schemas']['LandArea.jsonld-land_area.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -4190,18 +6640,9 @@ export interface operations {
       cookie?: never;
     };
     /** @description The new LandArea resource */
-    requestBody?: {
+    requestBody: {
       content: {
-        /** @example {
-         *       "name": "Table 1",
-         *       "description": "An amazing growing table",
-         *       "land": "/api/lands/{ulid}"
-         *     } */
-        'application/ld+json': {
-          name: string;
-          description?: string;
-          land: string;
-        };
+        'application/ld+json': components['schemas']['LandArea.jsonld-land_area.post_land_area.post.input'];
       };
     };
     responses: {
@@ -4211,7 +6652,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandArea.jsonld'];
+          'application/ld+json': components['schemas']['LandArea.jsonld-land_area.post_land_area.post.output'];
         };
       };
       /** @description Invalid input */
@@ -4248,7 +6689,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandArea.jsonld'];
+          'application/ld+json': components['schemas']['LandArea.jsonld-land_area.get'];
         };
       };
       /** @description Forbidden */
@@ -4315,7 +6756,7 @@ export interface operations {
     /** @description The updated LandArea resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandArea'];
+        'application/merge-patch+json': components['schemas']['LandArea-land_area.patch_land_area.patch.input'];
       };
     };
     responses: {
@@ -4325,7 +6766,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandArea.jsonld'];
+          'application/ld+json': components['schemas']['LandArea.jsonld-land_area.patch_land_area.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -4376,7 +6817,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandAreaParameter.jsonld'];
+          'application/ld+json': components['schemas']['LandAreaParameter.jsonld-land_area_parameter.get'];
         };
       };
       /** @description Forbidden */
@@ -4408,7 +6849,7 @@ export interface operations {
     /** @description The updated LandAreaParameter resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandAreaParameter'];
+        'application/merge-patch+json': components['schemas']['LandAreaParameter-land_area_parameter.patch_land_area_parameter.patch.input'];
       };
     };
     responses: {
@@ -4418,7 +6859,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandAreaParameter.jsonld'];
+          'application/ld+json': components['schemas']['LandAreaParameter.jsonld-land_area_parameter.patch_land_area_parameter.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -4469,7 +6910,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandAreaSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandAreaSetting.jsonld-land_area_setting.get'];
         };
       };
       /** @description Forbidden */
@@ -4501,7 +6942,7 @@ export interface operations {
     /** @description The updated LandAreaSetting resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandAreaSetting'];
+        'application/merge-patch+json': components['schemas']['LandAreaSetting-land_area_setting.patch_land_area_setting.patch.input'];
       };
     };
     responses: {
@@ -4511,7 +6952,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandAreaSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandAreaSetting.jsonld-land_area_setting.patch_land_area_setting.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -4569,7 +7010,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandCultivationPlan.jsonld'][];
+            member: components['schemas']['LandCultivationPlan.jsonld-land_cultivation_plan.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -4625,7 +7066,7 @@ export interface operations {
     /** @description The new LandCultivationPlan resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandCultivationPlan.jsonld'];
+        'application/ld+json': components['schemas']['LandCultivationPlan.jsonld-land_cultivation_plan.post_land_cultivation_plan.post.input'];
       };
     };
     responses: {
@@ -4635,7 +7076,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld'];
+          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld-land_cultivation_plan.post_land_cultivation_plan.post.output'];
         };
       };
       /** @description Invalid input */
@@ -4672,7 +7113,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld'];
+          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld-land_cultivation_plan.get'];
         };
       };
       /** @description Forbidden */
@@ -4739,7 +7180,7 @@ export interface operations {
     /** @description The updated LandCultivationPlan resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandCultivationPlan'];
+        'application/merge-patch+json': components['schemas']['LandCultivationPlan-land_cultivation_plan.patch_land_cultivation_plan.patch.input'];
       };
     };
     responses: {
@@ -4749,7 +7190,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld'];
+          'application/ld+json': components['schemas']['LandCultivationPlan.jsonld-land_cultivation_plan.patch_land_cultivation_plan.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -4805,7 +7246,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandDeal.jsonld'][];
+            member: components['schemas']['LandDeal.jsonld-land_deal.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -4854,7 +7295,7 @@ export interface operations {
     /** @description The new LandDeal resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandDeal.jsonld'];
+        'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.post_land_deal.post.input'];
       };
     };
     responses: {
@@ -4864,7 +7305,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandDeal.jsonld'];
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.post_land_deal.post.output'];
         };
       };
       /** @description Invalid input */
@@ -4901,7 +7342,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandDeal.jsonld'];
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.get'];
         };
       };
       /** @description Resource not found */
@@ -4954,7 +7395,7 @@ export interface operations {
     /** @description The updated LandDeal resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandDeal'];
+        'application/merge-patch+json': components['schemas']['LandDeal-land_deal.patch_land_deal.patch.input'];
       };
     };
     responses: {
@@ -4964,7 +7405,154 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandDeal.jsonld'];
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.patch_land_deal.patch.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_deals_ulidaccept_patch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandDeal identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    /** @description The updated LandDeal resource */
+    requestBody: {
+      content: {
+        'application/merge-patch+json': components['schemas']['LandDeal-land_deal.accept_land_deal.accept.input'];
+      };
+    };
+    responses: {
+      /** @description LandDeal resource updated */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.accept_land_deal.accept.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_deals_ulidarchive_patch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandDeal identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    /** @description The updated LandDeal resource */
+    requestBody: {
+      content: {
+        'application/merge-patch+json': components['schemas']['LandDeal-land_deal_archive_land_deal_archive.input'];
+      };
+    };
+    responses: {
+      /** @description LandDeal resource updated */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal_archive_land_deal_archive.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_deals_ulidrefuse_patch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandDeal identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    /** @description The updated LandDeal resource */
+    requestBody: {
+      content: {
+        'application/merge-patch+json': components['schemas']['LandDeal-land_deal.refuse_land_deal.refuse.input'];
+      };
+    };
+    responses: {
+      /** @description LandDeal resource updated */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.refuse_land_deal.refuse.output'];
         };
       };
       /** @description Invalid input */
@@ -5015,7 +7603,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandGreenhouse.jsonld'][];
+            member: components['schemas']['LandGreenhouse.jsonld-land_greenhouse.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -5071,7 +7659,7 @@ export interface operations {
     /** @description The new LandGreenhouse resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandGreenhouse.jsonld'];
+        'application/ld+json': components['schemas']['LandGreenhouse.jsonld-land_greenhouse.post_land_greenhouse.post.input'];
       };
     };
     responses: {
@@ -5081,7 +7669,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouse.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouse.jsonld-land_greenhouse.post_land_greenhouse.post.output'];
         };
       };
       /** @description Invalid input */
@@ -5118,7 +7706,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouse.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouse.jsonld-land_greenhouse.get'];
         };
       };
       /** @description Forbidden */
@@ -5185,7 +7773,7 @@ export interface operations {
     /** @description The updated LandGreenhouse resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandGreenhouse'];
+        'application/merge-patch+json': components['schemas']['LandGreenhouse-land_greenhouse.patch_land_greenhouse.patch.input'];
       };
     };
     responses: {
@@ -5195,7 +7783,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouse.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouse.jsonld-land_greenhouse.patch_land_greenhouse.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -5246,7 +7834,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouseParameter.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouseParameter.jsonld-land_greenhouse_parameter.get'];
         };
       };
       /** @description Forbidden */
@@ -5278,7 +7866,7 @@ export interface operations {
     /** @description The updated LandGreenhouseParameter resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandGreenhouseParameter'];
+        'application/merge-patch+json': components['schemas']['LandGreenhouseParameter-land_greenhouse_parameter.patch_land_greenhouse_parameter.patch.input'];
       };
     };
     responses: {
@@ -5288,7 +7876,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouseParameter.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouseParameter.jsonld-land_greenhouse_parameter.patch_land_greenhouse_parameter.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -5339,7 +7927,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouseSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouseSetting.jsonld-land_greenhouse_setting.get'];
         };
       };
       /** @description Forbidden */
@@ -5371,7 +7959,7 @@ export interface operations {
     /** @description The updated LandGreenhouseSetting resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandGreenhouseSetting'];
+        'application/merge-patch+json': components['schemas']['LandGreenhouseSetting-land_greenhouse_setting.patch_land_greenhouse_setting.patch.input'];
       };
     };
     responses: {
@@ -5381,7 +7969,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandGreenhouseSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandGreenhouseSetting.jsonld-land_greenhouse_setting.patch_land_greenhouse_setting.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -5439,7 +8027,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandMember.jsonld-user.land_member.collection'][];
+            member: components['schemas']['LandMember.jsonld-land_member.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -5485,7 +8073,7 @@ export interface operations {
       };
     };
   };
-  'get-me': {
+  'land-member_me': {
     parameters: {
       query: {
         /** @description Filter by land */
@@ -5503,8 +8091,15 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMember.jsonld-user.land_member.get-me'];
+          'application/ld+json': components['schemas']['LandMember.jsonld-land_member.me'];
         };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
       /** @description Resource not found */
       404: {
@@ -5533,7 +8128,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMember.jsonld-user.land_member.get'];
+          'application/ld+json': components['schemas']['LandMember.jsonld-land_member.get'];
         };
       };
       /** @description Forbidden */
@@ -5600,7 +8195,7 @@ export interface operations {
     /** @description The updated LandMember resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandMember-user.land_member.patch'];
+        'application/merge-patch+json': components['schemas']['LandMember-land_member.patch_land_member.patch.input'];
       };
     };
     responses: {
@@ -5610,7 +8205,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMember.jsonld'];
+          'application/ld+json': components['schemas']['LandMember.jsonld-land_member.patch_land_member.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -5668,7 +8263,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandMemberInvitation.jsonld-user.land_member_invitation.collection'][];
+            member: components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -5724,7 +8319,7 @@ export interface operations {
     /** @description The new LandMemberInvitation resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-user.land_member_invitation.post'];
+        'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.post_land_member_invitation.post.input'];
       };
     };
     responses: {
@@ -5734,7 +8329,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.post_land_member_invitation.post.output'];
         };
       };
       /** @description Invalid input */
@@ -5753,7 +8348,7 @@ export interface operations {
       };
     };
   };
-  'collection-by-email': {
+  api_land_member_invitationsby_email_get_collection: {
     parameters: {
       query: {
         /** @description The collection page number */
@@ -5780,7 +8375,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandMemberInvitation.jsonld-user.land_member_invitation.collection-by-email'][];
+            member: components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.collection-by-email'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -5826,7 +8421,7 @@ export interface operations {
       };
     };
   };
-  checkLandMemberInvitationEmailUnicity: {
+  'land-member-invitation_check-email-unicity': {
     parameters: {
       query: {
         /** @description The email to check */
@@ -5853,6 +8448,13 @@ export interface operations {
       };
       /** @description Bad request */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -5885,7 +8487,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-user.land_member_invitation.get'];
+          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.get'];
         };
       };
       /** @description Forbidden */
@@ -5952,7 +8554,7 @@ export interface operations {
     /** @description The updated LandMemberInvitation resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandMemberInvitation-user.land_member_invitation.patch'];
+        'application/merge-patch+json': components['schemas']['LandMemberInvitation-land_member_invitation.patch_land_member_invitation.patch.input'];
       };
     };
     responses: {
@@ -5962,7 +8564,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.patch_land_member_invitation.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -5995,7 +8597,7 @@ export interface operations {
       };
     };
   };
-  accept: {
+  'land-member-invitation_accept': {
     parameters: {
       query?: never;
       header?: never;
@@ -6008,7 +8610,7 @@ export interface operations {
     /** @description The updated LandMemberInvitation resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandMemberInvitation-user.land_member_invitation.accept'];
+        'application/merge-patch+json': components['schemas']['LandMemberInvitation-land_member_invitation.accept_land_member_invitation.accept.input'];
       };
     };
     responses: {
@@ -6018,7 +8620,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.accept_land_member_invitation.accept.output'];
         };
       };
       /** @description Invalid input */
@@ -6051,7 +8653,7 @@ export interface operations {
       };
     };
   };
-  refuse: {
+  'land-member-invitation_refuse': {
     parameters: {
       query?: never;
       header?: never;
@@ -6064,7 +8666,7 @@ export interface operations {
     /** @description The updated LandMemberInvitation resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandMemberInvitation-user.land_member_invitation.refuse'];
+        'application/merge-patch+json': components['schemas']['LandMemberInvitation-land_member_invitation.refuse_land_member_invitation.refuse.input'];
       };
     };
     responses: {
@@ -6074,7 +8676,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberInvitation.jsonld-land_member_invitation.refuse_land_member_invitation.refuse.output'];
         };
       };
       /** @description Invalid input */
@@ -6125,7 +8727,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberSetting.jsonld-land_member_setting.get'];
         };
       };
       /** @description Forbidden */
@@ -6157,7 +8759,7 @@ export interface operations {
     /** @description The updated LandMemberSetting resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandMemberSetting'];
+        'application/merge-patch+json': components['schemas']['LandMemberSetting-land_member_setting.patch_land_member_setting.patch.input'];
       };
     };
     responses: {
@@ -6167,7 +8769,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandMemberSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandMemberSetting.jsonld-land_member_setting.patch_land_member_setting.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -6209,6 +8811,13 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
+        'order[archivedAt]'?: PathsApiLand_proposalsGetParametersQueryOrderArchivedAt;
+        'order[publishedAt]'?: PathsApiLand_proposalsGetParametersQueryOrderPublishedAt;
+        'order[expirationDate]'?: PathsApiLand_proposalsGetParametersQueryOrderExpirationDate;
+        'order[createdAt]'?: PathsApiLand_proposalsGetParametersQueryOrderCreatedAt;
+        'order[updatedAt]'?: PathsApiLand_proposalsGetParametersQueryOrderUpdatedAt;
+        state?: string;
+        'state[]'?: string[];
       };
       header?: never;
       path?: never;
@@ -6223,7 +8832,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandProposal.jsonld'][];
+            member: components['schemas']['LandProposal.jsonld-land_proposal.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -6260,6 +8869,13 @@ export interface operations {
           };
         };
       };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
     };
   };
   api_land_proposals_post: {
@@ -6272,7 +8888,7 @@ export interface operations {
     /** @description The new LandProposal resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandProposal.jsonld'];
+        'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.post_land_proposal.post.input'];
       };
     };
     responses: {
@@ -6282,7 +8898,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandProposal.jsonld'];
+          'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.post_land_proposal.post.output'];
         };
       };
       /** @description Invalid input */
@@ -6294,6 +8910,80 @@ export interface operations {
       };
       /** @description Unprocessable entity */
       422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  'land-proposal_collection-public': {
+    parameters: {
+      query?: {
+        /** @description The collection page number */
+        page?: number;
+        /** @description The number of items per page */
+        itemsPerPage?: number;
+        /** @description Enable or disable pagination */
+        pagination?: boolean;
+        'order[archivedAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderArchivedAt;
+        'order[publishedAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderPublishedAt;
+        'order[expirationDate]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderExpirationDate;
+        'order[createdAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderCreatedAt;
+        'order[updatedAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderUpdatedAt;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandProposal collection */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': {
+            member: components['schemas']['LandProposal.jsonld-land_proposal.collection-public'][];
+            totalItems?: number;
+            /** @example {
+             *       "@id": "string",
+             *       "type": "string",
+             *       "first": "string",
+             *       "last": "string",
+             *       "previous": "string",
+             *       "next": "string"
+             *     } */
+            view?: {
+              /** Format: iri-reference */
+              '@id'?: string;
+              '@type'?: string;
+              /** Format: iri-reference */
+              first?: string;
+              /** Format: iri-reference */
+              last?: string;
+              /** Format: iri-reference */
+              previous?: string;
+              /** Format: iri-reference */
+              next?: string;
+            };
+            search?: {
+              '@type'?: string;
+              template?: string;
+              variableRepresentation?: string;
+              mapping?: {
+                '@type'?: string;
+                variable?: string;
+                property?: string | null;
+                required?: boolean;
+              }[];
+            };
+          };
+        };
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6319,8 +9009,15 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandProposal.jsonld'];
+          'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.get'];
         };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
       /** @description Resource not found */
       404: {
@@ -6350,6 +9047,13 @@ export interface operations {
         };
         content?: never;
       };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
       /** @description Resource not found */
       404: {
         headers: {
@@ -6372,7 +9076,7 @@ export interface operations {
     /** @description The updated LandProposal resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandProposal'];
+        'application/merge-patch+json': components['schemas']['LandProposal-land_proposal.patch_land_proposal.patch.input'];
       };
     };
     responses: {
@@ -6382,11 +9086,130 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandProposal.jsonld'];
+          'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.patch_land_proposal.patch.output'];
         };
       };
       /** @description Invalid input */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_proposals_ulidarchive_patch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandProposal identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    /** @description The updated LandProposal resource */
+    requestBody: {
+      content: {
+        'application/merge-patch+json': components['schemas']['LandProposal-land_proposal.archive_land_proposal.archive.input'];
+      };
+    };
+    responses: {
+      /** @description LandProposal resource updated */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.archive_land_proposal.archive.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_proposals_ulidpublish_patch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description LandProposal identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    /** @description The updated LandProposal resource */
+    requestBody: {
+      content: {
+        'application/merge-patch+json': components['schemas']['LandProposal-land_proposal.publish_land_proposal.publish.input'];
+      };
+    };
+    responses: {
+      /** @description LandProposal resource updated */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['LandProposal.jsonld-land_proposal.publish_land_proposal.publish.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6417,6 +9240,13 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
+        'order[archivedAt]'?: PathsApiLand_requestsGetParametersQueryOrderArchivedAt;
+        'order[publishedAt]'?: PathsApiLand_requestsGetParametersQueryOrderPublishedAt;
+        'order[expirationDate]'?: PathsApiLand_requestsGetParametersQueryOrderExpirationDate;
+        'order[createdAt]'?: PathsApiLand_requestsGetParametersQueryOrderCreatedAt;
+        'order[updatedAt]'?: PathsApiLand_requestsGetParametersQueryOrderUpdatedAt;
+        state?: string;
+        'state[]'?: string[];
       };
       header?: never;
       path?: never;
@@ -6431,7 +9261,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandRequest.jsonld'][];
+            member: components['schemas']['LandRequest.jsonld-land_request.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -6468,6 +9298,13 @@ export interface operations {
           };
         };
       };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
     };
   };
   api_land_requests_post: {
@@ -6480,7 +9317,7 @@ export interface operations {
     /** @description The new LandRequest resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandRequest.jsonld'];
+        'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.post_land_request.post.input'];
       };
     };
     responses: {
@@ -6490,7 +9327,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRequest.jsonld'];
+          'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.post_land_request.post.output'];
         };
       };
       /** @description Invalid input */
@@ -6500,8 +9337,89 @@ export interface operations {
         };
         content?: never;
       };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
       /** @description Unprocessable entity */
       422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_land_requestspublic_get_collection: {
+    parameters: {
+      query?: {
+        /** @description The collection page number */
+        page?: number;
+        /** @description The number of items per page */
+        itemsPerPage?: number;
+        /** @description Enable or disable pagination */
+        pagination?: boolean;
+        'order[archivedAt]'?: PathsApiLand_requestsPublicGetParametersQueryOrderArchivedAt;
+        'order[publishedAt]'?: PathsApiLand_requestsPublicGetParametersQueryOrderPublishedAt;
+        'order[expirationDate]'?: PathsApiLand_requestsPublicGetParametersQueryOrderExpirationDate;
+        'order[createdAt]'?: PathsApiLand_requestsPublicGetParametersQueryOrderCreatedAt;
+        'order[updatedAt]'?: PathsApiLand_requestsPublicGetParametersQueryOrderUpdatedAt;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description LandRequest collection */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': {
+            member: components['schemas']['LandRequest.jsonld-land_request.collection-public'][];
+            totalItems?: number;
+            /** @example {
+             *       "@id": "string",
+             *       "type": "string",
+             *       "first": "string",
+             *       "last": "string",
+             *       "previous": "string",
+             *       "next": "string"
+             *     } */
+            view?: {
+              /** Format: iri-reference */
+              '@id'?: string;
+              '@type'?: string;
+              /** Format: iri-reference */
+              first?: string;
+              /** Format: iri-reference */
+              last?: string;
+              /** Format: iri-reference */
+              previous?: string;
+              /** Format: iri-reference */
+              next?: string;
+            };
+            search?: {
+              '@type'?: string;
+              template?: string;
+              variableRepresentation?: string;
+              mapping?: {
+                '@type'?: string;
+                variable?: string;
+                property?: string | null;
+                required?: boolean;
+              }[];
+            };
+          };
+        };
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6527,8 +9445,15 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRequest.jsonld'];
+          'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.get'];
         };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
       /** @description Resource not found */
       404: {
@@ -6558,6 +9483,13 @@ export interface operations {
         };
         content?: never;
       };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
       /** @description Resource not found */
       404: {
         headers: {
@@ -6580,7 +9512,7 @@ export interface operations {
     /** @description The updated LandRequest resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandRequest'];
+        'application/merge-patch+json': components['schemas']['LandRequest-land_request.patch_land_request.patch.input'];
       };
     };
     responses: {
@@ -6590,11 +9522,18 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRequest.jsonld'];
+          'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.patch_land_request.patch.output'];
         };
       };
       /** @description Invalid input */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6616,7 +9555,7 @@ export interface operations {
       };
     };
   };
-  archive: {
+  api_land_requests_ulidarchive_patch: {
     parameters: {
       query?: never;
       header?: never;
@@ -6629,7 +9568,7 @@ export interface operations {
     /** @description The updated LandRequest resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandRequest-user.land_deal.archive'];
+        'application/merge-patch+json': components['schemas']['LandRequest-land_request.archive_land_request.archive.input'];
       };
     };
     responses: {
@@ -6639,11 +9578,18 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRequest.jsonld'];
+          'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.archive_land_request.archive.output'];
         };
       };
       /** @description Invalid input */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6665,7 +9611,7 @@ export interface operations {
       };
     };
   };
-  publish: {
+  api_land_requests_ulidpublish_patch: {
     parameters: {
       query?: never;
       header?: never;
@@ -6678,7 +9624,7 @@ export interface operations {
     /** @description The updated LandRequest resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandRequest-user.land_deal.publish'];
+        'application/merge-patch+json': components['schemas']['LandRequest-land_request.publish_land_request.publish.input'];
       };
     };
     responses: {
@@ -6688,11 +9634,18 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRequest.jsonld'];
+          'application/ld+json': components['schemas']['LandRequest.jsonld-land_request.publish_land_request.publish.output'];
         };
       };
       /** @description Invalid input */
       400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
         headers: {
           [name: string]: unknown;
         };
@@ -6740,7 +9693,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandRole.jsonld-user.land_role.collection'][];
+            member: components['schemas']['LandRole.jsonld-land_role.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -6796,7 +9749,7 @@ export interface operations {
     /** @description The new LandRole resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandRole.jsonld-user.land_role.post'];
+        'application/ld+json': components['schemas']['LandRole.jsonld-land_role.post_land_role.post.input'];
       };
     };
     responses: {
@@ -6806,7 +9759,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRole.jsonld'];
+          'application/ld+json': components['schemas']['LandRole.jsonld-land_role.post_land_role.post.output'];
         };
       };
       /** @description Invalid input */
@@ -6843,7 +9796,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRole.jsonld-user.land_role.get'];
+          'application/ld+json': components['schemas']['LandRole.jsonld-land_role.get'];
         };
       };
       /** @description Forbidden */
@@ -6910,7 +9863,7 @@ export interface operations {
     /** @description The updated LandRole resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandRole-user.land_role.patch'];
+        'application/merge-patch+json': components['schemas']['LandRole-land_role.patch_land_role.patch.input'];
       };
     };
     responses: {
@@ -6920,7 +9873,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandRole.jsonld'];
+          'application/ld+json': components['schemas']['LandRole.jsonld-land_role.patch_land_role.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -6971,7 +9924,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandSetting.jsonld-land_setting.get'];
         };
       };
       /** @description Forbidden */
@@ -7003,7 +9956,7 @@ export interface operations {
     /** @description The updated LandSetting resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandSetting'];
+        'application/merge-patch+json': components['schemas']['LandSetting-land_setting.patch_land_setting.patch.input'];
       };
     };
     responses: {
@@ -7013,7 +9966,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandSetting.jsonld'];
+          'application/ld+json': components['schemas']['LandSetting.jsonld-land_setting.patch_land_setting.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -7057,7 +10010,7 @@ export interface operations {
         pagination?: boolean;
         /** @description Filter by land */
         land: string;
-        'order[dueDate]'?: PathsApiLand_rolesGetParametersQueryOrderPosition;
+        'order[dueDate]'?: PathsApiLand_tasksGetParametersQueryOrderDueDate;
         state?: string;
         'state[]'?: string[];
       };
@@ -7074,7 +10027,7 @@ export interface operations {
         };
         content: {
           'application/ld+json': {
-            member: components['schemas']['LandTask.jsonld'][];
+            member: components['schemas']['LandTask.jsonld-land_task.collection'][];
             totalItems?: number;
             /** @example {
              *       "@id": "string",
@@ -7120,7 +10073,7 @@ export interface operations {
       };
     };
   };
-  post: {
+  api_land_tasks_post: {
     parameters: {
       query?: never;
       header?: never;
@@ -7130,7 +10083,7 @@ export interface operations {
     /** @description The new LandTask resource */
     requestBody: {
       content: {
-        'application/ld+json': components['schemas']['LandTask.jsonld'];
+        'application/ld+json': components['schemas']['LandTask.jsonld-land_task.post_land_task.post.input'];
       };
     };
     responses: {
@@ -7140,7 +10093,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandTask.jsonld'];
+          'application/ld+json': components['schemas']['LandTask.jsonld-land_task.post_land_task.post.output'];
         };
       };
       /** @description Invalid input */
@@ -7159,7 +10112,7 @@ export interface operations {
       };
     };
   };
-  get: {
+  api_land_tasks_ulid_get: {
     parameters: {
       query?: never;
       header?: never;
@@ -7177,7 +10130,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandTask.jsonld'];
+          'application/ld+json': components['schemas']['LandTask.jsonld-land_task.get'];
         };
       };
       /** @description Forbidden */
@@ -7196,7 +10149,7 @@ export interface operations {
       };
     };
   };
-  delete: {
+  api_land_tasks_ulid_delete: {
     parameters: {
       query?: never;
       header?: never;
@@ -7231,7 +10184,7 @@ export interface operations {
       };
     };
   };
-  patch: {
+  api_land_tasks_ulid_patch: {
     parameters: {
       query?: never;
       header?: never;
@@ -7244,7 +10197,7 @@ export interface operations {
     /** @description The updated LandTask resource */
     requestBody: {
       content: {
-        'application/merge-patch+json': components['schemas']['LandTask'];
+        'application/merge-patch+json': components['schemas']['LandTask-land_task.patch_land_task.patch.input'];
       };
     };
     responses: {
@@ -7254,7 +10207,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandTask.jsonld'];
+          'application/ld+json': components['schemas']['LandTask.jsonld-land_task.patch_land_task.patch.output'];
         };
       };
       /** @description Invalid input */
@@ -7287,7 +10240,7 @@ export interface operations {
       };
     };
   };
-  'mark-as-done': {
+  api_land_tasks_ulidmark_as_done_patch: {
     parameters: {
       query?: never;
       header?: never;
@@ -7298,9 +10251,9 @@ export interface operations {
       cookie?: never;
     };
     /** @description The updated LandTask resource */
-    requestBody?: {
+    requestBody: {
       content: {
-        'application/merge-patch+json': Record<string, never>;
+        'application/merge-patch+json': components['schemas']['LandTask-land_task.mark-as-done_land_task.mark-as-done.input'];
       };
     };
     responses: {
@@ -7310,7 +10263,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandTask.jsonld'];
+          'application/ld+json': components['schemas']['LandTask.jsonld-land_task.mark-as-done_land_task.mark-as-done.output'];
         };
       };
       /** @description Invalid input */
@@ -7343,7 +10296,7 @@ export interface operations {
       };
     };
   };
-  'mark-as-in-progress': {
+  api_land_tasks_ulidmark_as_in_progress_patch: {
     parameters: {
       query?: never;
       header?: never;
@@ -7354,9 +10307,9 @@ export interface operations {
       cookie?: never;
     };
     /** @description The updated LandTask resource */
-    requestBody?: {
+    requestBody: {
       content: {
-        'application/merge-patch+json': Record<string, never>;
+        'application/merge-patch+json': components['schemas']['LandTask-land_task.mark-as-in-progress_land_task.mark-as-in-progress.input'];
       };
     };
     responses: {
@@ -7366,7 +10319,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/ld+json': components['schemas']['LandTask.jsonld'];
+          'application/ld+json': components['schemas']['LandTask.jsonld-land_task.mark-as-in-progress_land_task.mark-as-in-progress.output'];
         };
       };
       /** @description Invalid input */
@@ -7392,6 +10345,193 @@ export interface operations {
       };
       /** @description Unprocessable entity */
       422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_person_api_keys_get_collection: {
+    parameters: {
+      query?: {
+        /** @description The collection page number */
+        page?: number;
+        /** @description The number of items per page */
+        itemsPerPage?: number;
+        /** @description Enable or disable pagination */
+        pagination?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description PersonApiKey collection */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': {
+            member: components['schemas']['PersonApiKey.jsonld-person_api_key.collection'][];
+            totalItems?: number;
+            /** @example {
+             *       "@id": "string",
+             *       "type": "string",
+             *       "first": "string",
+             *       "last": "string",
+             *       "previous": "string",
+             *       "next": "string"
+             *     } */
+            view?: {
+              /** Format: iri-reference */
+              '@id'?: string;
+              '@type'?: string;
+              /** Format: iri-reference */
+              first?: string;
+              /** Format: iri-reference */
+              last?: string;
+              /** Format: iri-reference */
+              previous?: string;
+              /** Format: iri-reference */
+              next?: string;
+            };
+            search?: {
+              '@type'?: string;
+              template?: string;
+              variableRepresentation?: string;
+              mapping?: {
+                '@type'?: string;
+                variable?: string;
+                property?: string | null;
+                required?: boolean;
+              }[];
+            };
+          };
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_person_api_keys_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description The new PersonApiKey resource */
+    requestBody: {
+      content: {
+        'application/ld+json': components['schemas']['PersonApiKey.jsonld-person_api_key.post_person_api_key.post.input'];
+      };
+    };
+    responses: {
+      /** @description PersonApiKey resource created */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['PersonApiKey.jsonld-person_api_key.post_person_api_key.post.output'];
+        };
+      };
+      /** @description Invalid input */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Unprocessable entity */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_person_api_keys_ulid_get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description PersonApiKey identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description PersonApiKey resource */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/ld+json': components['schemas']['PersonApiKey.jsonld-person_api_key.get'];
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_person_api_keys_ulid_delete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description PersonApiKey identifier */
+        ulid: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description PersonApiKey resource deleted */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Forbidden */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Resource not found */
+      404: {
         headers: {
           [name: string]: unknown;
         };
@@ -8711,33 +11851,311 @@ export interface operations {
     };
   };
 }
+export enum PathsApiLand_proposalsGetParametersQueryOrderArchivedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsGetParametersQueryOrderPublishedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsGetParametersQueryOrderExpirationDate {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsGetParametersQueryOrderCreatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsGetParametersQueryOrderUpdatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsPublicGetParametersQueryOrderArchivedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsPublicGetParametersQueryOrderPublishedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsPublicGetParametersQueryOrderExpirationDate {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsPublicGetParametersQueryOrderCreatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_proposalsPublicGetParametersQueryOrderUpdatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsGetParametersQueryOrderArchivedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsGetParametersQueryOrderPublishedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsGetParametersQueryOrderExpirationDate {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsGetParametersQueryOrderCreatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsGetParametersQueryOrderUpdatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsPublicGetParametersQueryOrderArchivedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsPublicGetParametersQueryOrderPublishedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsPublicGetParametersQueryOrderExpirationDate {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsPublicGetParametersQueryOrderCreatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_requestsPublicGetParametersQueryOrderUpdatedAt {
+  asc = 'asc',
+  desc = 'desc',
+}
 export enum PathsApiLand_rolesGetParametersQueryOrderPosition {
+  asc = 'asc',
+  desc = 'desc',
+}
+export enum PathsApiLand_tasksGetParametersQueryOrderDueDate {
   asc = 'asc',
   desc = 'desc',
 }
 export enum AddressJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
-export enum LandAreaState {
-  active = 'active',
-  archived = 'archived',
+export enum LandJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
-export enum LandAreaKind {
+export enum LandJsonldLandGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandJsonldLandPatch_landPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandJsonldLandPost_landPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandJsonldLand_member_invitationCollectionByEmailContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandApiKeyJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandApiKeyJsonldLand_api_keyGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandApiKeyJsonldLand_api_keyPost_land_api_keyPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaLand_areaPatch_land_areaPatchInputKind {
   open_soil = 'open_soil',
   soil_less = 'soil_less',
 }
-export enum LandDealState {
+export enum LandAreaJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaJsonldState {
+  active = 'active',
+  archived = 'archived',
+}
+export enum LandAreaJsonldKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaJsonldLand_areaCollectionState {
+  active = 'active',
+  archived = 'archived',
+}
+export enum LandAreaJsonldLand_areaCollectionKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaJsonldLand_areaGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaJsonldLand_areaGetState {
+  active = 'active',
+  archived = 'archived',
+}
+export enum LandAreaJsonldLand_areaGetKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaJsonldLand_areaPatch_land_areaPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaJsonldLand_areaPatch_land_areaPatchOutputState {
+  active = 'active',
+  archived = 'archived',
+}
+export enum LandAreaJsonldLand_areaPatch_land_areaPatchOutputKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaJsonldLand_areaPost_land_areaPostInputKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaJsonldLand_areaPost_land_areaPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaJsonldLand_areaPost_land_areaPostOutputState {
+  active = 'active',
+  archived = 'archived',
+}
+export enum LandAreaJsonldLand_areaPost_land_areaPostOutputKind {
+  open_soil = 'open_soil',
+  soil_less = 'soil_less',
+}
+export enum LandAreaParameterJsonldLand_area_parameterGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaParameterJsonldLand_area_parameterPatch_land_area_parameterPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaSettingJsonldLand_area_settingGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandAreaSettingJsonldLand_area_settingPatch_land_area_settingPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandCultivationPlanJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandCultivationPlanJsonldLand_cultivation_planGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandCultivationPlanJsonldLand_cultivation_planPatch_land_cultivation_planPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandCultivationPlanJsonldLand_cultivation_planPost_land_cultivation_planPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldState {
   opened = 'opened',
   archived = 'archived',
   accepted = 'accepted',
   refused = 'refused',
 }
-export enum LandMemberInvitationState {
+export enum LandDealJsonldLand_dealAccept_land_dealAcceptOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldLand_dealGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldLand_dealPatch_land_dealPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldLand_dealPost_land_dealPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldLand_dealRefuse_land_dealRefuseOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandDealJsonldLand_deal_archive_land_deal_archiveOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseJsonldLand_greenhouseGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseJsonldLand_greenhousePatch_land_greenhousePatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseJsonldLand_greenhousePost_land_greenhousePostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseParameterJsonldLand_greenhouse_parameterGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseParameterJsonldLand_greenhouse_parameterPatch_land_greenhouse_parameterPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseSettingJsonldLand_greenhouse_settingGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandGreenhouseSettingJsonldLand_greenhouse_settingPatch_land_greenhouse_settingPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberJsonldLand_memberGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberJsonldLand_memberMeContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberJsonldLand_memberPatch_land_memberPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationLandMemberInvitationCheckEmailUnicityDtoJsonldLand_member_invitationCheckEmailUnicityContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldState {
   pending = 'pending',
   accepted = 'accepted',
   refused = 'refused',
 }
-export enum LandProposalSoilType {
+export enum LandMemberInvitationJsonldLand_member_invitationAccept_land_member_invitationAcceptOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationCollectionState {
+  pending = 'pending',
+  accepted = 'accepted',
+  refused = 'refused',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationGetState {
+  pending = 'pending',
+  accepted = 'accepted',
+  refused = 'refused',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationPatch_land_member_invitationPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationPost_land_member_invitationPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberInvitationJsonldLand_member_invitationRefuse_land_member_invitationRefuseOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberSettingJsonldLand_member_settingGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandMemberSettingJsonldLand_member_settingPatch_land_member_settingPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputSoilType {
   sandy = 'sandy',
   humus_rich = 'humus-rich',
   clay = 'clay',
@@ -8747,7 +12165,7 @@ export enum LandProposalSoilType {
   peaty = 'peaty',
   chalky = 'chalky',
 }
-export enum LandProposalOrientation {
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputOrientation {
   north = 'north',
   north_east = 'north_east',
   east = 'east',
@@ -8757,71 +12175,1104 @@ export enum LandProposalOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalPreferredGardenInteractionMode {
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputPreferredGardenInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
   no_preference = 'no_preference',
 }
-export enum LandProposalGardeningLevel {
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputGardeningLevel {
   beginner = 'beginner',
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandProposalState {
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalJsonldSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldState {
   draft = 'draft',
   published = 'published',
   archived = 'archived',
 }
-export enum LandRoleUserLand_rolePatchPermissions {
-  land_read = 'land_read',
-  land_update = 'land_update',
-  land_delete = 'land_delete',
-  land_transfer = 'land_transfer',
-  landgreenhouse_read = 'landgreenhouse_read',
-  landgreenhouse_create = 'landgreenhouse_create',
-  landgreenhouse_update = 'landgreenhouse_update',
-  landgreenhouse_delete = 'landgreenhouse_delete',
-  landgreenhouseparameter_read = 'landgreenhouseparameter_read',
-  landgreenhouseparameter_update = 'landgreenhouseparameter_update',
-  landgreenhousesetting_read = 'landgreenhousesetting_read',
-  landgreenhousesetting_update = 'landgreenhousesetting_update',
-  landarea_read = 'landarea_read',
-  landarea_create = 'landarea_create',
-  landarea_update = 'landarea_update',
-  landarea_delete = 'landarea_delete',
-  landareaparameter_read = 'landareaparameter_read',
-  landareaparameter_update = 'landareaparameter_update',
-  landareasetting_read = 'landareasetting_read',
-  landareasetting_update = 'landareasetting_update',
-  landmember_read = 'landmember_read',
-  landmember_update = 'landmember_update',
-  landmember_delete = 'landmember_delete',
-  landtask_read = 'landtask_read',
-  landtask_create = 'landtask_create',
-  landtask_update = 'landtask_update',
-  landtask_delete = 'landtask_delete',
-  landtask_mark_as_done = 'landtask_mark_as_done',
-  landtask_mark_as_in_progress = 'landtask_mark_as_in_progress',
-  landcultivationplan_read = 'landcultivationplan_read',
-  landcultivationplan_create = 'landcultivationplan_create',
-  landcultivationplan_update = 'landcultivationplan_update',
-  landcultivationplan_delete = 'landcultivationplan_delete',
-  landrole_read = 'landrole_read',
-  landrole_create = 'landrole_create',
-  landrole_update = 'landrole_update',
-  landrole_delete = 'landrole_delete',
-  landmemberinvitation_read = 'landmemberinvitation_read',
-  landmemberinvitation_create = 'landmemberinvitation_create',
-  landmemberinvitation_update = 'landmemberinvitation_update',
-  landmemberinvitation_delete = 'landmemberinvitation_delete',
-  landsetting_read = 'landsetting_read',
-  landsetting_update = 'landsetting_update',
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
-export enum LandTaskState {
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalCollectionSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalCollectionOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalCollectionPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalCollectionGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalCollectionLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalCollectionState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalJsonldLand_proposalGetSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalGetOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalGetPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalGetGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalGetLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalGetState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestLand_requestPatch_land_requestPatchInputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestCollectionState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestCollectionGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestCollectionPublicState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldLand_requestGetState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestGetGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestGetPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostInputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputState {
+  draft = 'draft',
+  published = 'published',
+  archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRoleLand_rolePatch_land_rolePatchInputPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_memberCollectionContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_memberMeContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_memberMePermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_member_invitationCollectionContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_member_invitationCollectionByEmailContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_roleCollectionPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_roleGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_roleGetPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_rolePatch_land_rolePatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_rolePatch_land_rolePatchOutputPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_rolePost_land_rolePostInputPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandRoleJsonldLand_rolePost_land_rolePostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandRoleJsonldLand_rolePost_land_rolePostOutputPermissions {
+  land_member_land_delete = 'land_member:land:delete',
+  land_member_land_patch = 'land_member:land:patch',
+  person_land_member_land_get = 'person-land_member:land:get',
+  land_member_land_member_delete = 'land_member:land_member:delete',
+  land_member_land_member_patch = 'land_member:land_member:patch',
+  land_member_land_member_get = 'land_member:land_member:get',
+  land_member_land_member_collection = 'land_member:land_member:collection',
+  land_member_land_task_delete = 'land_member:land_task:delete',
+  land_member_land_task_post = 'land_member:land_task:post',
+  land_member_land_task_patch = 'land_member:land_task:patch',
+  land_member_land_task_get = 'land_member:land_task:get',
+  land_member_land_task_collection = 'land_member:land_task:collection',
+  land_member_land_task_mark_as_done = 'land_member:land_task:mark_as_done',
+  land_member_land_task_mark_as_in_progress = 'land_member:land_task:mark_as_in_progress',
+  land_member_land_area_delete = 'land_member:land_area:delete',
+  land_member_land_area_post = 'land_member:land_area:post',
+  land_member_land_area_patch = 'land_member:land_area:patch',
+  land_member_land_area_get = 'land_member:land_area:get',
+  land_member_land_area_collection = 'land_member:land_area:collection',
+  land_member_land_area_setting_patch = 'land_member:land_area_setting:patch',
+  land_member_land_area_setting_get = 'land_member:land_area_setting:get',
+  land_member_land_area_parameter_patch = 'land_member:land_area_parameter:patch',
+  land_member_land_area_parameter_get = 'land_member:land_area_parameter:get',
+  land_member_land_setting_patch = 'land_member:land_setting:patch',
+  land_member_land_setting_get = 'land_member:land_setting:get',
+  land_member_land_greenhouse_delete = 'land_member:land_greenhouse:delete',
+  land_member_land_greenhouse_post = 'land_member:land_greenhouse:post',
+  land_member_land_greenhouse_patch = 'land_member:land_greenhouse:patch',
+  land_member_land_greenhouse_get = 'land_member:land_greenhouse:get',
+  land_member_land_greenhouse_collection = 'land_member:land_greenhouse:collection',
+  land_member_land_greenhouse_setting_patch = 'land_member:land_greenhouse_setting:patch',
+  land_member_land_greenhouse_setting_get = 'land_member:land_greenhouse_setting:get',
+  land_member_land_greenhouse_parameter_patch = 'land_member:land_greenhouse_parameter:patch',
+  land_member_land_greenhouse_parameter_get = 'land_member:land_greenhouse_parameter:get',
+  land_member_land_cultivation_plan_delete = 'land_member:land_cultivation_plan:delete',
+  land_member_land_cultivation_plan_post = 'land_member:land_cultivation_plan:post',
+  land_member_land_cultivation_plan_patch = 'land_member:land_cultivation_plan:patch',
+  land_member_land_cultivation_plan_get = 'land_member:land_cultivation_plan:get',
+  land_member_land_cultivation_plan_collection = 'land_member:land_cultivation_plan:collection',
+  land_member_land_member_invitation_delete = 'land_member:land_member_invitation:delete',
+  land_member_land_member_invitation_patch = 'land_member:land_member_invitation:patch',
+  land_member_land_member_invitation_post = 'land_member:land_member_invitation:post',
+  land_member_land_member_invitation_get = 'land_member:land_member_invitation:get',
+  land_member_land_member_invitation_collection = 'land_member:land_member_invitation:collection',
+  land_member_land_member_invitation_check_email_unicity = 'land_member:land_member_invitation:check_email_unicity',
+  land_member_land_api_key_delete = 'land_member:land_api_key:delete',
+  land_member_land_api_key_post = 'land_member:land_api_key:post',
+  land_member_land_api_key_get = 'land_member:land_api_key:get',
+  land_member_land_api_key_collection = 'land_member:land_api_key:collection',
+  land_member_land_proposal_post = 'land_member:land_proposal:post',
+  person_land_member_land_proposal_get = 'person-land_member:land_proposal:get',
+  land_member_land_proposal_patch = 'land_member:land_proposal:patch',
+  land_member_land_proposal_delete = 'land_member:land_proposal:delete',
+  land_member_land_proposal_publish = 'land_member:land_proposal:publish',
+  land_member_land_proposal_archive = 'land_member:land_proposal:archive',
+  land_member_land_proposal_collection = 'land_member:land_proposal:collection',
+}
+export enum LandSettingJsonldLand_settingGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandSettingJsonldLand_settingPatch_land_settingPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldState {
   to_be_done = 'to_be_done',
   in_progress = 'in_progress',
   done = 'done',
+}
+export enum LandTaskJsonldLand_taskCollectionState {
+  to_be_done = 'to_be_done',
+  in_progress = 'in_progress',
+  done = 'done',
+}
+export enum LandTaskJsonldLand_taskGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldLand_taskGetState {
+  to_be_done = 'to_be_done',
+  in_progress = 'in_progress',
+  done = 'done',
+}
+export enum LandTaskJsonldLand_taskMarkAsDone_land_taskMarkAsDoneOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldLand_taskMarkAsInProgress_land_taskMarkAsInProgressOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldLand_taskPatch_land_taskPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldLand_taskPatch_land_taskPatchOutputState {
+  to_be_done = 'to_be_done',
+  in_progress = 'in_progress',
+  done = 'done',
+}
+export enum LandTaskJsonldLand_taskPost_land_taskPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum LandTaskJsonldLand_taskPost_land_taskPostOutputState {
+  to_be_done = 'to_be_done',
+  in_progress = 'in_progress',
+  done = 'done',
+}
+export enum PersonJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonJsonldLand_memberCollectionContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonJsonldLand_memberGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonJsonldLand_memberPatch_land_memberPatchOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonJsonldLand_member_invitationCollectionContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonJsonldLand_member_invitationGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonApiKeyJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonApiKeyJsonldPerson_api_keyGetContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PersonApiKeyJsonldPerson_api_keyPost_person_api_keyPostOutputContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum PlantMaturity {
   very_early = 'very_early',
@@ -8831,6 +13282,16 @@ export enum PlantMaturity {
   mid_late = 'mid-late',
   late = 'late',
   very_late = 'very_late',
+}
+export enum PlantSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
 }
 export enum PlantExposure {
   full_sun = 'full-sun',
@@ -8847,8 +13308,204 @@ export enum PlantSpecies {
   phaseolus_vulgaris = 'phaseolus-vulgaris',
   cucumis_sativus = 'cucumis-sativus',
 }
+export enum PlantJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PlantJsonldMaturity {
+  very_early = 'very_early',
+  early = 'early',
+  mid_early = 'mid-early',
+  standard = 'standard',
+  mid_late = 'mid-late',
+  late = 'late',
+  very_late = 'very_late',
+}
+export enum PlantJsonldSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum PlantJsonldExposure {
+  full_sun = 'full-sun',
+  partial_shade = 'partial-shade',
+  shade = 'shade',
+  bright_indirect = 'bright-indirect',
+  adaptable = 'adaptable',
+}
+export enum PlantJsonldSpecies {
+  lactuca_sativa = 'lactuca-sativa',
+  brassica_oleracea = 'brassica-oleracea',
+  solanum_lycopersicum = 'solanum-lycopersicum',
+  daucus_carota = 'daucus-carota',
+  phaseolus_vulgaris = 'phaseolus-vulgaris',
+  cucumis_sativus = 'cucumis-sativus',
+}
 export enum PlantConversionRequestState {
   opened = 'opened',
   completed = 'completed',
   published = 'published',
+}
+export enum PlantConversionRequestJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PlantConversionRequestJsonldState {
+  opened = 'opened',
+  completed = 'completed',
+  published = 'published',
+}
+export enum PlantCustomMaturity {
+  very_early = 'very_early',
+  early = 'early',
+  mid_early = 'mid-early',
+  standard = 'standard',
+  mid_late = 'mid-late',
+  late = 'late',
+  very_late = 'very_late',
+}
+export enum PlantCustomSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum PlantCustomExposure {
+  full_sun = 'full-sun',
+  partial_shade = 'partial-shade',
+  shade = 'shade',
+  bright_indirect = 'bright-indirect',
+  adaptable = 'adaptable',
+}
+export enum PlantCustomSpecies {
+  lactuca_sativa = 'lactuca-sativa',
+  brassica_oleracea = 'brassica-oleracea',
+  solanum_lycopersicum = 'solanum-lycopersicum',
+  daucus_carota = 'daucus-carota',
+  phaseolus_vulgaris = 'phaseolus-vulgaris',
+  cucumis_sativus = 'cucumis-sativus',
+}
+export enum PlantCustomJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PlantCustomJsonldMaturity {
+  very_early = 'very_early',
+  early = 'early',
+  mid_early = 'mid-early',
+  standard = 'standard',
+  mid_late = 'mid-late',
+  late = 'late',
+  very_late = 'very_late',
+}
+export enum PlantCustomJsonldSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum PlantCustomJsonldExposure {
+  full_sun = 'full-sun',
+  partial_shade = 'partial-shade',
+  shade = 'shade',
+  bright_indirect = 'bright-indirect',
+  adaptable = 'adaptable',
+}
+export enum PlantCustomJsonldSpecies {
+  lactuca_sativa = 'lactuca-sativa',
+  brassica_oleracea = 'brassica-oleracea',
+  solanum_lycopersicum = 'solanum-lycopersicum',
+  daucus_carota = 'daucus-carota',
+  phaseolus_vulgaris = 'phaseolus-vulgaris',
+  cucumis_sativus = 'cucumis-sativus',
+}
+export enum PlantGlobalMaturity {
+  very_early = 'very_early',
+  early = 'early',
+  mid_early = 'mid-early',
+  standard = 'standard',
+  mid_late = 'mid-late',
+  late = 'late',
+  very_late = 'very_late',
+}
+export enum PlantGlobalSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum PlantGlobalExposure {
+  full_sun = 'full-sun',
+  partial_shade = 'partial-shade',
+  shade = 'shade',
+  bright_indirect = 'bright-indirect',
+  adaptable = 'adaptable',
+}
+export enum PlantGlobalSpecies {
+  lactuca_sativa = 'lactuca-sativa',
+  brassica_oleracea = 'brassica-oleracea',
+  solanum_lycopersicum = 'solanum-lycopersicum',
+  daucus_carota = 'daucus-carota',
+  phaseolus_vulgaris = 'phaseolus-vulgaris',
+  cucumis_sativus = 'cucumis-sativus',
+}
+export enum PlantGlobalJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum PlantGlobalJsonldMaturity {
+  very_early = 'very_early',
+  early = 'early',
+  mid_early = 'mid-early',
+  standard = 'standard',
+  mid_late = 'mid-late',
+  late = 'late',
+  very_late = 'very_late',
+}
+export enum PlantGlobalJsonldSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum PlantGlobalJsonldExposure {
+  full_sun = 'full-sun',
+  partial_shade = 'partial-shade',
+  shade = 'shade',
+  bright_indirect = 'bright-indirect',
+  adaptable = 'adaptable',
+}
+export enum PlantGlobalJsonldSpecies {
+  lactuca_sativa = 'lactuca-sativa',
+  brassica_oleracea = 'brassica-oleracea',
+  solanum_lycopersicum = 'solanum-lycopersicum',
+  daucus_carota = 'daucus-carota',
+  phaseolus_vulgaris = 'phaseolus-vulgaris',
+  cucumis_sativus = 'cucumis-sativus',
+}
+export enum SeedStockJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum SeedStockEntryJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum StaticJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }

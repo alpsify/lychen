@@ -2828,13 +2828,13 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/util-tiptap",
-                "reference": "3ef34e8133df09917bb4180c168073948462df68"
+                "reference": "826825ca64631a4c94e43d0f5bc6564976fdd221"
             },
             "require": {
                 "ueberdosis/tiptap-php": "1.4.*"
             },
             "require-dev": {
-                "zenstruck/foundry": "2.2.*"
+                "zenstruck/foundry": "2.3.*"
             },
             "type": "library",
             "autoload": {

@@ -98,7 +98,7 @@ import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
 import { RoutePageCoGardening } from '../co-gardening';
 

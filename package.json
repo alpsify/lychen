@@ -33,6 +33,7 @@
   },
   "workspaces": [
     "projects/**/*",
-    "libs/**/*"
+    "libs/**/*",
+    "!**/vendor/**"
   ]
 }

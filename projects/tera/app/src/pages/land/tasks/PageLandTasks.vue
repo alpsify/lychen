@@ -110,7 +110,7 @@ import DialogTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/dialo
 import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
 //import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 import {
-  LandTaskState,
+  LandTaskJsonldState as LandTaskState,
   PathsApiLand_rolesGetParametersQueryOrderPosition,
   type components,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
