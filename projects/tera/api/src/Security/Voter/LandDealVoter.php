@@ -24,7 +24,7 @@ class LandDealVoter extends AbstractPermissionVoter
 {
     public const string DELETE = 'land_member:land_deal:delete';
     public const string PATCH = 'land_member:land_deal:patch';
-    public const string POST = 'person:land_deal:post';
+    public const string POST = 'person-land_member:land_deal:post';
     public const string GET = 'land_member:land_deal:get';
     public const string COLLECTION = 'land_member:land_deal:collection';
 
@@ -33,12 +33,15 @@ class LandDealVoter extends AbstractPermissionVoter
         self::PATCH,
         self::GET,
         self::COLLECTION,
+        self::POST,
     ];
 
     public const array ALL_PERSON = [
+        self::POST,
     ];
 
     public const array ALL_LAND = [
+        self::POST,
         self::DELETE,
         self::PATCH,
         self::GET,
@@ -110,7 +113,12 @@ class LandDealVoter extends AbstractPermissionVoter
         }
 
         $currentRequest = $this->requestStack->getCurrentRequest();
-        $land = $this->iriConverter->getResourceFromIri($currentRequest->query->get('land'));
+        $landIri = $currentRequest->query->get('land');
+        if ($landIri === null) {
+            throw new HttpException(400, '`land` query parameter is required.');
+        }
+
+        $land = $this->iriConverter->getResourceFromIri($landIri);
 
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');
