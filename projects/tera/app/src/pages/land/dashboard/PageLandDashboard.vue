@@ -138,23 +138,7 @@
             disabled
           />
         </Card>
-        <Card class="bg-gradient-to-tr from-surface-container to-blue-300/30 gap-4">
-          <div class="flex flex-col gap-0">
-            <BaseHeading variant="h3">Données</BaseHeading>
-            <p class="opacity-80">On s'occupe de vous générer des revenus grâce à vos données.</p>
-          </div>
-          <p class="font-bold flex flex-row gap-2 items-center">
-            Valeur estimé : <Skeleton class="w-[30px] h-5" /> € /mois
-          </p>
-          <BadgeDevelopmentInProgress class="self-start" />
-          <Button
-            disabled
-            label="Configurer"
-            variant="ghost"
-            class="self-end"
-            :icon="faDatabase"
-          />
-        </Card>
+        <BannerTeraShareYourLand />
       </div>
     </div>
 
@@ -265,6 +249,7 @@ import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2P
 import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
 import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
+import BannerTeraShareYourLand from '@lychen/tera-ui-components/land-proposal/banner/BannerTeraShareYourLand.vue';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

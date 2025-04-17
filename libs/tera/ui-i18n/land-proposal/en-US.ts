@@ -4,43 +4,29 @@ export default {
       label: 'Title',
       placeholder: 'Search co-gardeners',
     },
-  },
-  action: {
-    create: {
-      label: 'Create the cultivated space',
-      success: {
-        message: 'Cultivated space created',
-      },
-      error: {
-        message: 'Error creating the cultivated space',
-      },
-      pending: {
-        message: 'Creating the cultivated space',
+    preferred_garden_interaction_mode: {
+      label: 'Preferred interaction mode',
+      placeholder: 'Select the preferred interaction mode',
+      options: {
+        together: 'Together',
+        alone: 'Alone',
+        no_preference: 'No preference',
+        together_but_not_all_time: 'Together but not all the time',
       },
     },
-    update: {
-      label: 'Update the cultivated space',
-      success: {
-        message: 'Cultivated space updated',
-      },
-      error: {
-        message: 'Error updating the cultivated space',
-      },
-      pending: {
-        message: 'Updating the cultivated space',
-      },
-    },
-    delete: {
-      label: 'Delete the cultivated space',
-      success: {
-        message: 'Cultivated space deleted',
-      },
-      error: {
-        message: 'Error deleting the cultivated space',
-      },
-      pending: {
-        message: 'Deleting the cultivated space',
+    sharing_conditions: {
+      label: 'Sharing conditions',
+      placeholder: 'Select sharing conditions',
+      options: {
+        general_maintenance: 'General maintenance',
+        gardening: 'Gardening',
+        beehives: 'Beehives',
+        vegetable_sharing: 'Vegetable sharing',
+        fruit_sharing: 'Fruit sharing',
+        flower_planting: 'Flower planting',
+        tree_planting: 'Tree planting',
       },
     },
   },
+  action: {},
 };

@@ -28,42 +28,5 @@ export default {
       },
     },
   },
-  action: {
-    create: {
-      label: "Créer l'espace de culture",
-      success: {
-        message: 'Espace de culture créé',
-      },
-      error: {
-        message: "Erreur lors de la création de l'espace de culture",
-      },
-      pending: {
-        message: "Création de l'espace de culture en cours",
-      },
-    },
-    update: {
-      label: "Mettre à jour l'espace de culture",
-      success: {
-        message: 'Espace de culture mis à jour',
-      },
-      error: {
-        message: "Erreur lors de la mise à jour de l'espace de culture",
-      },
-      pending: {
-        message: "Mise à jour de l'espace de culture en cours",
-      },
-    },
-    delete: {
-      label: "Supprimer l'espace de culture",
-      success: {
-        message: 'Espace de culture supprimé',
-      },
-      error: {
-        message: "Erreur lors de la suppression de l'espace de culture",
-      },
-      pending: {
-        message: "Suppression de l'espace de culture en cours",
-      },
-    },
-  },
+  action: {},
 };
