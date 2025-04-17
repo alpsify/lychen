@@ -1735,6 +1735,26 @@ export interface components {
       readonly '@type'?: string;
       name?: string;
     };
+    'Land.jsonld-land_proposal.collection-public': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: LandJsonldLand_proposalCollectionPublicContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      name?: string;
+      surface?: number | null;
+      /**
+       * @default 1
+       * @example 1
+       */
+      altitude: number | null;
+    };
     'LandApiKey.jsonld': {
       readonly '@context'?:
         | string
@@ -3454,6 +3474,7 @@ export interface components {
       gardeningLevel: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputGardeningLevel;
       /** @enum {string} */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputLookingForGardenerLevel;
+      gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
       /**
        * @default draft
@@ -3530,12 +3551,47 @@ export interface components {
     'LandProposal.jsonld-land_proposal.collection-public': {
       readonly '@id'?: string;
       readonly '@type'?: string;
+      title?: string;
+      /** @description Tiptap JSON Object */
+      description?: unknown[] | null;
+      /** @enum {string} */
+      soilType?: LandProposalJsonldLand_proposalCollectionPublicSoilType;
+      /** @enum {string} */
+      orientation?: LandProposalJsonldLand_proposalCollectionPublicOrientation;
+      hasParking?: boolean;
+      hasTools?: boolean;
+      hasShed?: boolean;
+      hasWaterPoint?: boolean;
+      hasIndependentAccess?: boolean;
+      gardenState?: string;
+      /**
+       * @default no_preference
+       * @example no_preference
+       * @enum {string}
+       */
+      preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPublicPreferredGardenInteractionMode;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandProposalJsonldLand_proposalCollectionPublicGardeningLevel;
+      /** @enum {string} */
+      lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionPublicLookingForGardenerLevel;
+      gardenTotalSurface?: number;
+      foodSecurityParticipation?: boolean;
+      land?: components['schemas']['Land.jsonld-land_proposal.collection-public'];
       /**
        * @default draft
        * @example draft
        * @enum {string}
        */
       state: LandProposalJsonldLand_proposalCollectionPublicState;
+      sharingConditions?: unknown[] | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
     };
     'LandProposal.jsonld-land_proposal.get': {
       readonly '@context'?:
@@ -3811,6 +3867,7 @@ export interface components {
       gardeningLevel: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputGardeningLevel;
       /** @enum {string} */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputLookingForGardenerLevel;
+      gardenTotalSurface?: number;
       foodSecurityParticipation?: boolean;
       /**
        * @default draft
@@ -11957,6 +12014,9 @@ export enum LandJsonldLandPost_landPostOutputContextHydra {
 export enum LandJsonldLand_member_invitationCollectionByEmailContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
+export enum LandJsonldLand_proposalCollectionPublicContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
 export enum LandApiKeyJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
@@ -12319,6 +12379,42 @@ export enum LandProposalJsonldLand_proposalCollectionState {
   draft = 'draft',
   published = 'published',
   archived = 'archived',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicSoilType {
+  sandy = 'sandy',
+  humus_rich = 'humus-rich',
+  clay = 'clay',
+  silty = 'silty',
+  loamy = 'loamy',
+  stony = 'stony',
+  peaty = 'peaty',
+  chalky = 'chalky',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicOrientation {
+  north = 'north',
+  north_east = 'north_east',
+  east = 'east',
+  south_east = 'south_east',
+  south = 'south',
+  south_west = 'south_west',
+  west = 'west',
+  north_west = 'north_west',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandProposalJsonldLand_proposalCollectionPublicLookingForGardenerLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
 }
 export enum LandProposalJsonldLand_proposalCollectionPublicState {
   draft = 'draft',

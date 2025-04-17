@@ -49,7 +49,8 @@ final class LandProposalFactory extends PersistentProxyObjectFactory
             'gardenState' => self::faker()->sentence(3),
             'preferredGardenInteractionMode' => self::faker()->randomElement(LandInteractionMode::ALL),
             'foodSecurityParticipation' => self::faker()->boolean(),
-            'sharingConditions' => self::faker()->randomElements(LandSharingCondition::ALL, self::faker()->numberBetween(0, count(LandSharingCondition::ALL))),
+            'sharingConditions' => self::faker()->randomElements(LandSharingCondition::ALL,
+                self::faker()->numberBetween(2, count(LandSharingCondition::ALL))),
         ];
 
     }

@@ -113,6 +113,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column(length: 255)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -125,6 +126,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
      */
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -135,6 +137,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     #[ORM\Column(length: 20)]
     #[Assert\Choice(choices: SoilType::ALL)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -145,6 +148,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     #[ORM\Column(length: 20)]
     #[Assert\Choice(choices: Orientation::ALL)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -154,6 +158,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -163,6 +168,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -172,6 +178,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -181,6 +188,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -190,6 +198,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -199,6 +208,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column(length: 255)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -209,6 +219,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: LandInteractionMode::ALL)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -219,6 +230,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -228,6 +240,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column(length: 30)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -238,13 +251,17 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
-              "land_proposal:patch"])]
+              "land_proposal:patch",
+              "land_proposal:publish:output",
+              "land_proposal:archive:output"])]
     private ?int $gardenTotalSurface = null;
 
     #[ORM\Column]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -254,7 +271,10 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\ManyToOne(inversedBy: 'landProposals')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["land_proposal:get", "land_proposal:post", "land_proposal:patch:output"])]
+    #[Groups(["land_proposal:collection-public",
+              "land_proposal:get",
+              "land_proposal:post",
+              "land_proposal:patch:output"])]
     private ?Land $land = null;
 
     #[ORM\Column(length: 255)]
@@ -271,6 +291,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post",
               "land_proposal:patch",
@@ -298,6 +319,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
 
     #[ORM\Column(nullable: true)]
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post:output",
               "land_proposal:patch:output",
@@ -306,6 +328,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
     private ?DateTimeImmutable $expirationDate = null;
 
     #[Groups(["land_proposal:collection",
+              "land_proposal:collection-public",
               "land_proposal:get",
               "land_proposal:post:output",
               "land_proposal:patch:output",

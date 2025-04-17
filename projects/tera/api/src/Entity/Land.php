@@ -49,7 +49,8 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
               "land:get",
               "land:patch",
               "land:post",
-              "land_member_invitation:collection-by-email"])]
+              "land_member_invitation:collection-by-email",
+              "land_proposal:collection-public"])]
     private ?string $name = null;
 
     /**
@@ -84,7 +85,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column(nullable: true)]
     #[Assert\GreaterThanOrEqual(0)]
-    #[Groups(["land:collection", "land:get", "land:patch", "land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post", "land_proposal:collection-public"])]
     private ?int $surface = null;
 
     /**
@@ -110,7 +111,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     private Collection $landGreenhouses;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["land:collection", "land:get", "land:patch", "land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post", "land_proposal:collection-public"])]
     private ?int $altitude = 1;
 
     /**

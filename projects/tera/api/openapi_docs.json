@@ -10137,6 +10137,74 @@
                     }
                 }
             },
+            "Land.jsonld-land_proposal.collection-public": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@vocab": {
+                                        "type": "string"
+                                    },
+                                    "hydra": {
+                                        "type": "string",
+                                        "enum": [
+                                            "http://www.w3.org/ns/hydra/core#"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "@vocab",
+                                    "hydra"
+                                ],
+                                "additionalProperties": true
+                            }
+                        ]
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "surface": {
+                        "minimum": 0,
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "altitude": {
+                        "default": 1,
+                        "example": 1,
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                }
+            },
             "LandApiKey.jsonld": {
                 "type": "object",
                 "description": "",
@@ -15568,6 +15636,9 @@
                         ],
                         "type": "string"
                     },
+                    "gardenTotalSurface": {
+                        "type": "integer"
+                    },
                     "foodSecurityParticipation": {
                         "type": "boolean"
                     },
@@ -15847,6 +15918,105 @@
                         "readOnly": true,
                         "type": "string"
                     },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "soilType": {
+                        "enum": [
+                            "sandy",
+                            "humus-rich",
+                            "clay",
+                            "silty",
+                            "loamy",
+                            "stony",
+                            "peaty",
+                            "chalky"
+                        ],
+                        "type": "string"
+                    },
+                    "orientation": {
+                        "enum": [
+                            "north",
+                            "north_east",
+                            "east",
+                            "south_east",
+                            "south",
+                            "south_west",
+                            "west",
+                            "north_west"
+                        ],
+                        "type": "string"
+                    },
+                    "hasParking": {
+                        "type": "boolean"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "hasShed": {
+                        "type": "boolean"
+                    },
+                    "hasWaterPoint": {
+                        "type": "boolean"
+                    },
+                    "hasIndependentAccess": {
+                        "type": "boolean"
+                    },
+                    "gardenState": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": "no_preference",
+                        "type": "string"
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "lookingForGardenerLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "type": "string"
+                    },
+                    "gardenTotalSurface": {
+                        "type": "integer"
+                    },
+                    "foodSecurityParticipation": {
+                        "type": "boolean"
+                    },
+                    "land": {
+                        "$ref": "#/components/schemas/Land.jsonld-land_proposal.collection-public"
+                    },
                     "state": {
                         "enum": [
                             "draft",
@@ -15856,6 +16026,34 @@
                         "default": "draft",
                         "example": "draft",
                         "type": "string"
+                    },
+                    "sharingConditions": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "expirationDate": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
                     }
                 }
             },
@@ -16763,6 +16961,9 @@
                             "advanced"
                         ],
                         "type": "string"
+                    },
+                    "gardenTotalSurface": {
+                        "type": "integer"
                     },
                     "foodSecurityParticipation": {
                         "type": "boolean"
