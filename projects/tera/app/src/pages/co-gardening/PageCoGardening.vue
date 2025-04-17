@@ -21,6 +21,7 @@
           :land-name="landProposal.land?.name"
           :land-altitude="landProposal.land?.altitude"
           :land-surface="landProposal.land?.surface"
+          :land-city="landProposal.land?.address?.city"
           :expiration-date="landProposal.expirationDate"
           :sharing-conditions="landProposal.sharingConditions"
           :preferred-garden-interaction-mode="landProposal.preferredGardenInteractionMode"

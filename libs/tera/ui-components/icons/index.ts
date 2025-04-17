@@ -1,7 +1,6 @@
 import { faPeopleArrows } from '@fortawesome/pro-light-svg-icons/faPeopleArrows';
 import { faPeoplePulling } from '@fortawesome/pro-light-svg-icons/faPeoplePulling';
 import { faPerson } from '@fortawesome/pro-light-svg-icons/faPerson';
-import { faUnicorn } from '@fortawesome/pro-light-svg-icons/faUnicorn';
 import { faShovel } from '@fortawesome/pro-light-svg-icons/faShovel';
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
 import { faLeafyGreen } from '@fortawesome/pro-light-svg-icons/faLeafyGreen';
@@ -9,11 +8,12 @@ import { faTreeDeciduous } from '@fortawesome/pro-light-svg-icons/faTreeDeciduou
 import { faFlower } from '@fortawesome/pro-light-svg-icons/faFlower';
 import { faStrawberry } from '@fortawesome/pro-light-svg-icons/faStrawberry';
 import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
+import { faMessagesQuestion } from '@fortawesome/pro-light-svg-icons/faMessagesQuestion';
 
 export const LAND_INTERACTION_MODE = {
   together: faPeoplePulling,
   alone: faPerson,
-  no_preference: faUnicorn,
+  no_preference: faMessagesQuestion,
   together_but_not_all_time: faPeopleArrows,
 } as const;
 

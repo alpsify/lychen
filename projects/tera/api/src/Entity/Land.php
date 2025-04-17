@@ -128,6 +128,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\OneToOne(cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    #[Groups(["land_proposal:collection-public"])]
     private ?Address $address = null;
 
     /**

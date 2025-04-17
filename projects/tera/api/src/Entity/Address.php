@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
@@ -39,6 +40,9 @@ class Address extends AbstractIdOrmAndUlidApiIdentified
     private ?string $countryCode = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups([
+        "land_proposal:collection-public"
+    ])]
     private ?string $city = null;
 
     public function getPostalCode(): ?string

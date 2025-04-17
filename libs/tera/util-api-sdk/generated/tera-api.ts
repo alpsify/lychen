@@ -1537,6 +1537,20 @@ export interface components {
       /** Format: date-time */
       updatedAt?: string | null;
     };
+    'Address.jsonld-land_proposal.collection-public': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: AddressJsonldLand_proposalCollectionPublicContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      city?: string | null;
+    };
     'Land-land.patch_land.patch.input': {
       name?: string;
       surface?: number | null;
@@ -1754,6 +1768,7 @@ export interface components {
        * @example 1
        */
       altitude: number | null;
+      address?: components['schemas']['Address.jsonld-land_proposal.collection-public'] | null;
     };
     'LandApiKey.jsonld': {
       readonly '@context'?:
@@ -11997,6 +12012,9 @@ export enum PathsApiLand_tasksGetParametersQueryOrderDueDate {
   desc = 'desc',
 }
 export enum AddressJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum AddressJsonldLand_proposalCollectionPublicContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandJsonldContextHydra {

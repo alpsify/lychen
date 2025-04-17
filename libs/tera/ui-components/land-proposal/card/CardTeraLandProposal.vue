@@ -1,68 +1,74 @@
 <template>
   <Card
     hoverable
-    class="h-full justify-between items-stretch active:bg-surface-container-highest"
+    class="grid md:grid-cols-[1fr_auto_auto] gap-4 items-center"
   >
-    <div class="flex flex-row gap-2 items-center justify-between">
-      <div class="flex flex-col">
+    <div class="flex flex-col">
+      <div class="flex flex-row gap-2">
+        <Badge
+          v-if="landCity"
+          size="sm"
+          variant="outline"
+        >
+          <Icon :icon="faMapLocation" />
+          {{ landCity }}
+        </Badge>
         <Badge
           v-if="expirationDate"
           size="sm"
-          class="self-start"
         >
+          <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
         </Badge>
-        <BaseHeading variant="h3">{{ title }}</BaseHeading>
-        <div class="flex flex-row gap-2 opacity-70">
-          <p>{{ landName }}</p>
-          <p v-if="landSurface">• {{ tLand('property.surface.default', landSurface) }}</p>
-          <p v-if="landAltitude">
-            •
-            <Icon :icon="faMountains" />
-            {{ tLand('property.altitude.default', landAltitude) }}
-          </p>
-        </div>
       </div>
+      <BaseHeading variant="h3">{{ title }}</BaseHeading>
+      <div class="flex flex-row gap-2 opacity-70">
+        <p>{{ landName }}</p>
+        <p v-if="landSurface">• {{ tLand('property.surface.default', landSurface) }}</p>
+        <p v-if="landAltitude">
+          •
+          <Icon :icon="faMountains" />
+          {{ tLand('property.altitude.default', landAltitude) }}
+        </p>
+      </div>
+    </div>
 
+    <div
+      v-if="sharingConditions"
+      class="flex flex-row"
+    >
       <div
-        v-if="sharingConditions"
-        class="flex flex-row"
+        v-for="(condition, index) in [...sharingConditions].sort((a, b) => a.localeCompare(b))"
+        :key="condition"
       >
-        <Tooltip
-          v-for="(condition, index) in sharingConditions"
-          :key="condition"
-        >
-          <TooltipTrigger>
-            <Icon
-              :icon="LAND_SHARING_CONDITION[condition]"
-              class="p-2 rounded-full bg-surface-container-highest -ml-1 border-2 border-surface-container hover:-translate-y-2 transition-all duration-200 ease-in-out"
-              :class="`z-${index}`"
-            />
-          </TooltipTrigger>
-          <TooltipContent>
-            {{ t(`property.sharing_conditions.options.${condition}`) }}
-          </TooltipContent>
-        </Tooltip>
+        <Icon
+          :icon="LAND_SHARING_CONDITION[condition]"
+          class="p-2 rounded-2xl bg-surface-container-highest border-3 -ml-2 border-surface-container-low"
+          :class="`z-${index}`"
+          :style="{
+            background: `oklch(from var(--color-surface-container-highest) l calc(c * ${index}) h)`,
+          }"
+        />
       </div>
+    </div>
 
-      <div>
-        <Tooltip>
-          <TooltipTrigger>
-            <Icon
-              v-if="preferredGardenInteractionMode"
-              :icon="LAND_INTERACTION_MODE[preferredGardenInteractionMode]"
-              class="p-2 rounded-full bg-surface-container-highest"
-            />
-          </TooltipTrigger>
-          <TooltipContent>
-            {{
-              t(
-                `property.preferred_garden_interaction_mode.options.${preferredGardenInteractionMode}`,
-              )
-            }}
-          </TooltipContent>
-        </Tooltip>
-      </div>
+    <div>
+      <Tooltip>
+        <TooltipTrigger>
+          <Icon
+            v-if="preferredGardenInteractionMode"
+            :icon="LAND_INTERACTION_MODE[preferredGardenInteractionMode]"
+            class="p-2"
+          />
+        </TooltipTrigger>
+        <TooltipContent>
+          {{
+            t(
+              `property.preferred_garden_interaction_mode.options.${preferredGardenInteractionMode}`,
+            )
+          }}
+        </TooltipContent>
+      </Tooltip>
     </div>
   </Card>
 </template>
@@ -85,6 +91,8 @@ import {
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';
+import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
+import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -99,6 +107,7 @@ const props = defineProps<{
   landName?: string;
   landSurface?: number | null;
   landAltitude?: number | null;
+  landCity?: string | null;
   expirationDate?: string | null;
   preferredGardenInteractionMode?: LandInteractionMode;
   sharingConditions?: LandSharingCondition[] | null;

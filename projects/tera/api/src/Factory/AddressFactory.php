@@ -2,16 +2,18 @@
 
 namespace App\Factory;
 
-use App\Entity\Land;
+use App\Entity\Address;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
- * @extends PersistentProxyObjectFactory<Land>
+ * @extends PersistentProxyObjectFactory<Address>
  */
-final class LandFactory extends PersistentProxyObjectFactory
+final class AddressFactory extends PersistentProxyObjectFactory
 {
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
+     *
+     * @todo inject services if required
      */
     public function __construct()
     {
@@ -19,19 +21,20 @@ final class LandFactory extends PersistentProxyObjectFactory
 
     public static function class(): string
     {
-        return Land::class;
+        return Address::class;
     }
 
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
+     *
+     * @todo add your default values here
      */
     protected function defaults(): array|callable
     {
         return [
-            'name' => self::faker()->text(255),
-            'surface' => self::faker()->numberBetween(30, 300),
-            'altitude' => self::faker()->numberBetween(200, 1500),
-            'address' => AddressFactory::new()
+            'streetLine' => self::faker()->streetAddress(),
+            'city' => 'Annecy',
+            'postalCode' => self::faker()->postcode(),
         ];
     }
 
@@ -40,7 +43,7 @@ final class LandFactory extends PersistentProxyObjectFactory
      */
     protected function initialize(): static
     {
-        return $this// ->afterInstantiate(function(Land $land): void {})
+        return $this// ->afterInstantiate(function(Address $address): void {})
             ;
     }
 }
