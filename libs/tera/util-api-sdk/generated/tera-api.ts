@@ -3380,7 +3380,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalLand_proposalPatch_land_proposalPatchInputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalLand_proposalPatch_land_proposalPatchInputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3450,7 +3450,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3543,7 +3543,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3621,7 +3621,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalCollectionPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3699,7 +3699,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalCollectionPublicPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalCollectionPublicPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3779,7 +3779,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalGetPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalGetPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3871,7 +3871,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -3952,7 +3952,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -4026,7 +4026,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -4118,7 +4118,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredInteractionMode;
       /**
        * @default beginner
        * @example beginner
@@ -4192,7 +4192,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4243,7 +4243,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestLand_requestPatch_land_requestPatchInputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4300,7 +4300,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4368,7 +4368,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4426,7 +4426,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestCollectionPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4484,7 +4484,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestCollectionPublicPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestCollectionPublicPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4551,7 +4551,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestGetPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestGetPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4618,7 +4618,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4668,7 +4668,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostInputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4723,7 +4723,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -4790,7 +4790,7 @@ export interface components {
        *     ]
        * @enum {array}
        */
-      preferredGardenInteractionMode: LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredGardenInteractionMode;
+      preferredInteractionMode: LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredInteractionMode;
       supportsLocalFoodSecurity?: boolean;
       /**
        * @example [
@@ -9481,6 +9481,10 @@ export interface operations {
         'order[expirationDate]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderExpirationDate;
         'order[createdAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderCreatedAt;
         'order[updatedAt]'?: PathsApiLand_proposalsPublicGetParametersQueryOrderUpdatedAt;
+        preferredInteractionMode?: string;
+        'preferredInteractionMode[]'?: string[];
+        /** @description Filter by sharing conditions */
+        sharingConditions?: string;
       };
       header?: never;
       path?: never;
@@ -12731,7 +12735,7 @@ export enum LandProposalLand_proposalPatch_land_proposalPatchInputOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalLand_proposalPatch_land_proposalPatchInputPreferredGardenInteractionMode {
+export enum LandProposalLand_proposalPatch_land_proposalPatchInputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -12779,7 +12783,7 @@ export enum LandProposalJsonldOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldPreferredGardenInteractionMode {
+export enum LandProposalJsonldPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -12832,7 +12836,7 @@ export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputOri
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -12882,7 +12886,7 @@ export enum LandProposalJsonldLand_proposalCollectionOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalCollectionPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalCollectionPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -12932,7 +12936,7 @@ export enum LandProposalJsonldLand_proposalCollectionPublicOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalCollectionPublicPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalCollectionPublicPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -12985,7 +12989,7 @@ export enum LandProposalJsonldLand_proposalGetOrientation {
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalGetPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalGetPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13038,7 +13042,7 @@ export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputOrienta
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13088,7 +13092,7 @@ export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputOrientatio
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostInputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13136,7 +13140,7 @@ export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputOrientati
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalPost_land_proposalPostOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13189,7 +13193,7 @@ export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputOri
   west = 'west',
   north_west = 'north_west',
 }
-export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredGardenInteractionMode {
+export enum LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13229,7 +13233,7 @@ export enum LandRequestGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestPreferredGardenInteractionMode {
+export enum LandRequestPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13249,7 +13253,7 @@ export enum LandRequestLand_requestPatch_land_requestPatchInputGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestLand_requestPatch_land_requestPatchInputPreferredGardenInteractionMode {
+export enum LandRequestLand_requestPatch_land_requestPatchInputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13277,7 +13281,7 @@ export enum LandRequestJsonldGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldPreferredGardenInteractionMode {
+export enum LandRequestJsonldPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13305,7 +13309,7 @@ export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputGarden
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13330,7 +13334,7 @@ export enum LandRequestJsonldLand_requestCollectionGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestCollectionPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestCollectionPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13355,7 +13359,7 @@ export enum LandRequestJsonldLand_requestCollectionPublicGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestCollectionPublicPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestCollectionPublicPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13383,7 +13387,7 @@ export enum LandRequestJsonldLand_requestGetGardeningLevel {
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestGetPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestGetPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13411,7 +13415,7 @@ export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputGardeningL
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13431,7 +13435,7 @@ export enum LandRequestJsonldLand_requestPost_land_requestPostInputGardeningLeve
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestPost_land_requestPostInputPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestPost_land_requestPostInputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13459,7 +13463,7 @@ export enum LandRequestJsonldLand_requestPost_land_requestPostOutputGardeningLev
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',
@@ -13487,7 +13491,7 @@ export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputGarden
   intermediate = 'intermediate',
   advanced = 'advanced',
 }
-export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredGardenInteractionMode {
+export enum LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredInteractionMode {
   alone = 'alone',
   together = 'together',
   together_but_not_all_time = 'together_but_not_all_time',

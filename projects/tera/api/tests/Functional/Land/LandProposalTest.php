@@ -35,7 +35,7 @@ class LandProposalTest extends AbstractApiTestCase
             'hasIndependentAccess' => true,
             'gardenState' => 'Well maintained',
             // TODO: Use constant when created
-            'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
+            'preferredInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
             'gardeningLevel' => GardeningLevel::BEGINNER,
             'lookingForGardenerLevel' => GardeningLevel::ADVANCED,
             'gardenTotalSurface' => 150,
@@ -57,7 +57,7 @@ class LandProposalTest extends AbstractApiTestCase
             ->assertJsonMatches('hasWaterPoint', $data['hasWaterPoint'])
             ->assertJsonMatches('hasIndependentAccess', $data['hasIndependentAccess'])
             ->assertJsonMatches('gardenState', $data['gardenState'])
-            ->assertJsonMatches('preferredGardenInteractionMode', $data['preferredGardenInteractionMode'])
+            ->assertJsonMatches('preferredInteractionMode', $data['preferredInteractionMode'])
             ->assertJsonMatches('gardeningLevel', $data['gardeningLevel'])
             ->assertJsonMatches('lookingForGardenerLevel', $data['lookingForGardenerLevel'])
             ->assertJsonMatches('gardenTotalSurface', $data['gardenTotalSurface'])
@@ -92,7 +92,7 @@ class LandProposalTest extends AbstractApiTestCase
             'hasWaterPoint' => false,
             'hasIndependentAccess' => false,
             'gardenState' => 'Needs some work',
-            'preferredGardenInteractionMode' => LandInteractionMode::ALONE,
+            'preferredInteractionMode' => LandInteractionMode::ALONE,
             'gardeningLevel' => GardeningLevel::ADVANCED,
             'lookingForGardenerLevel' => GardeningLevel::BEGINNER,
             'gardenTotalSurface' => 50,
@@ -113,7 +113,7 @@ class LandProposalTest extends AbstractApiTestCase
             ->assertJsonMatches('hasWaterPoint', $data['hasWaterPoint'])
             ->assertJsonMatches('hasIndependentAccess', $data['hasIndependentAccess'])
             ->assertJsonMatches('gardenState', $data['gardenState'])
-            ->assertJsonMatches('preferredGardenInteractionMode', $data['preferredGardenInteractionMode'])
+            ->assertJsonMatches('preferredInteractionMode', $data['preferredInteractionMode'])
             ->assertJsonMatches('gardeningLevel', $data['gardeningLevel'])
             ->assertJsonMatches('lookingForGardenerLevel', $data['lookingForGardenerLevel'])
             ->assertJsonMatches('gardenTotalSurface', $data['gardenTotalSurface'])
@@ -142,7 +142,7 @@ class LandProposalTest extends AbstractApiTestCase
                 'hasWaterPoint' => false,
                 'hasIndependentAccess' => false,
                 'gardenState' => 'Needs some work',
-                'preferredGardenInteractionMode' => LandInteractionMode::ALONE,
+                'preferredInteractionMode' => LandInteractionMode::ALONE,
                 'gardeningLevel' => GardeningLevel::ADVANCED,
                 'lookingForGardenerLevel' => GardeningLevel::BEGINNER,
                 'gardenTotalSurface' => 50,
@@ -165,7 +165,7 @@ class LandProposalTest extends AbstractApiTestCase
             ->assertJsonMatches('hasWaterPoint', $landProposal->getHasWaterPoint())
             ->assertJsonMatches('hasIndependentAccess', $landProposal->getHasIndependentAccess())
             ->assertJsonMatches('gardenState', $landProposal->getGardenState())
-            ->assertJsonMatches('preferredGardenInteractionMode', $landProposal->getPreferredGardenInteractionMode())
+            ->assertJsonMatches('preferredInteractionMode', $landProposal->getPreferredInteractionMode())
             ->assertJsonMatches('gardeningLevel', $landProposal->getGardeningLevel())
             ->assertJsonMatches('lookingForGardenerLevel', $landProposal->getLookingForGardenerLevel())
             ->assertJsonMatches('gardenTotalSurface', $landProposal->getGardenTotalSurface())
@@ -235,8 +235,8 @@ class LandProposalTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].hasWaterPoint', $landProposal1->getHasWaterPoint())
             ->assertJsonMatches('member[0].hasIndependentAccess', $landProposal1->getHasIndependentAccess())
             ->assertJsonMatches('member[0].gardenState', $landProposal1->getGardenState())
-            ->assertJsonMatches('member[0].preferredGardenInteractionMode',
-                $landProposal1->getPreferredGardenInteractionMode())
+            ->assertJsonMatches('member[0].preferredInteractionMode',
+                $landProposal1->getPreferredInteractionMode())
             ->assertJsonMatches('member[0].gardeningLevel', $landProposal1->getGardeningLevel())
             ->assertJsonMatches('member[0].lookingForGardenerLevel', $landProposal1->getLookingForGardenerLevel())
             ->assertJsonMatches('member[0].gardenTotalSurface', $landProposal1->getGardenTotalSurface())
@@ -369,7 +369,7 @@ class LandProposalTest extends AbstractApiTestCase
             'hasWaterPoint' => true,
             'hasIndependentAccess' => true,
             'gardenState' => 'Well maintained',
-            'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
+            'preferredInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
             'gardeningLevel' => GardeningLevel::BEGINNER,
             'lookingForGardenerLevel' => GardeningLevel::ADVANCED,
             'gardenTotalSurface' => 150,

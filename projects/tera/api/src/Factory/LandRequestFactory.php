@@ -37,9 +37,10 @@ final class LandRequestFactory extends PersistentProxyObjectFactory
             'gardeningLevel' => self::faker()->randomElement(GardeningLevel::ALL),
             'hasTools' => self::faker()->boolean(),
             'title' => self::faker()->sentence(4),
-            'preferredGardenInteractionMode' => self::faker()->randomElement(LandInteractionMode::ALL),
+            'preferredInteractionMode' => self::faker()->randomElement(LandInteractionMode::ALL),
             'supportsLocalFoodSecurity' => self::faker()->boolean(),
-            'sharingConditions' => self::faker()->randomElements(LandSharingCondition::ALL, self::faker()->numberBetween(0, count(LandSharingCondition::ALL))),
+            'sharingConditions' => self::faker()->randomElements(LandSharingCondition::ALL,
+                self::faker()->numberBetween(0, count(LandSharingCondition::ALL))),
         ];
 
     }

@@ -52,7 +52,7 @@ const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: tr
 defineProps<{
   title?: string;
   description?: unknown[] | null;
-  preferredGardenInteractionMode?: string;
+  preferredInteractionMode?: string;
   sharingConditions?: string[];
   expirationDate?: string;
   land?: {

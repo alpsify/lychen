@@ -56,14 +56,15 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
 import TeraLandProposalSharingConditions from '../../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { DISPLAY } from '../../../common/sharing-conditions-icons';
+import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
 defineProps<{
   title?: string;
   description?: unknown[] | null;
-  preferredGardenInteractionMode?: string;
-  sharingConditions?: string[];
+  preferredInteractionMode?: string;
+  sharingConditions?: LandSharingCondition[];
   expirationDate?: string;
   land?: {
     name: string;

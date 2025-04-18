@@ -17,6 +17,7 @@ use App\Constant\LandSharingCondition;
 use App\Constant\Orientation;
 use App\Constant\SoilType;
 use App\Entity\Interface\StateLandInterface;
+use App\Filter\JsonbContainsFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandProposalRepository;
 use App\Security\Interface\LandAwareInterface;
@@ -58,7 +59,8 @@ use Symfony\Component\Validator\Constraints as Assert;
                 required       : false,
                 allowEmptyValue: true
             ),
-            filter : 'land_proposal.state_filter'),
+            filter : 'land_proposal.state_filter'
+        ),
     ]
 )]
 #[GetCollection(
@@ -69,6 +71,28 @@ use Symfony\Component\Validator\Constraints as Assert;
     parameters          : [
         'order[:property]' => new QueryParameter(
             filter: 'land_proposal.order_filter'
+        ),
+        new QueryParameter(
+            key    : 'preferredInteractionMode',
+            openApi: new Parameter(
+                name           : 'preferredInteractionMode',
+                in             : 'query',
+                description    : 'Filter by preferred interaction mode',
+                required       : false,
+                allowEmptyValue: true
+            ),
+            filter : 'land_proposal.preferred_interaction_mode_filter'
+        ),
+        new QueryParameter(
+            key    : 'sharingConditions',
+            openApi: new Parameter(
+                name           : 'sharingConditions',
+                in             : 'query',
+                description    : 'Filter by sharing conditions',
+                required       : false,
+                allowEmptyValue: true
+            ),
+            filter : JsonbContainsFilter::class
         ),
     ]
 )]
@@ -241,7 +265,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
         'enum' => LandInteractionMode::ALL,
         'example' => LandInteractionMode::ALL
     ])]
-    private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
+    private ?string $preferredInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
@@ -314,7 +338,7 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
               "land_proposal:archive:output"])]
     private ?string $state = LandProposalWorkflowPlace::DRAFT;
 
-    #[ORM\Column(type: Types::JSON, nullable: true)]
+    #[ORM\Column(type: Types::JSON, nullable: true, options: ['jsonb' => true])]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     #[Groups(["land_proposal:collection",
               "land_proposal:collection-public",
@@ -513,14 +537,14 @@ class LandProposal extends AbstractIdOrmAndUlidApiIdentified implements StateLan
         return $this;
     }
 
-    public function getPreferredGardenInteractionMode(): ?string
+    public function getPreferredInteractionMode(): ?string
     {
-        return $this->preferredGardenInteractionMode;
+        return $this->preferredInteractionMode;
     }
 
-    public function setPreferredGardenInteractionMode(string $preferredGardenInteractionMode): static
+    public function setPreferredInteractionMode(string $preferredInteractionMode): static
     {
-        $this->preferredGardenInteractionMode = $preferredGardenInteractionMode;
+        $this->preferredInteractionMode = $preferredInteractionMode;
 
         return $this;
     }

@@ -9,7 +9,7 @@
         <RouterLink
           v-if="landRequests && landRequests.totalItems"
           :to="{ name: 'co-gardening-requests' }"
-          class="text-primary underline"
+          class="underline"
         >
           {{ t('searchCount', landRequests.totalItems) }}
         </RouterLink>

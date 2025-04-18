@@ -19,7 +19,7 @@
           :city="landRequest.city"
           :expiration-date="landRequest.expirationDate"
           :sharing-conditions="landRequest.sharingConditions"
-          :preferred-garden-interaction-mode="landRequest.preferredGardenInteractionMode"
+          :preferred-interaction-mode="landRequest.preferredInteractionMode"
         />
       </DialogTeraLandRequestView>
     </div>

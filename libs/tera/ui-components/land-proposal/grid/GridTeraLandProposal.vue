@@ -1,122 +1,150 @@
 <template>
-  <div class="flex flex-row gap-4">
-    <DropdownMenu>
-      <DropdownMenuTrigger as-child>
-        <Button
-          variant="ghost"
-          class="ml-auto"
-          size="sm"
+  <div class="flex flex-row gap-4 justify-between items-center">
+    <ToggleGroup
+      v-model="sharingConditionFilter"
+      type="multiple"
+    >
+      <Tooltip
+        v-for="(sharingConditionOption, index) in [...LAND_SHARING_CONDITIONS].sort((a, b) =>
+          a.localeCompare(b),
+        )"
+        :key="sharingConditionOption"
+      >
+        <TooltipTrigger>
+          <ToggleGroupItem
+            size="sm"
+            class="rounded-2xl"
+            :value="sharingConditionOption"
+            :aria-label="sharingConditionOption"
+            :style="
+              sharingConditionFilter.includes(sharingConditionOption)
+                ? {}
+                : {
+                    background: `oklch(from var(--color-surface-container-highest) l calc(c * ${index}) h)`,
+                  }
+            "
+          >
+            <Icon :icon="LAND_SHARING_CONDITION_ICON[sharingConditionOption]" />
+          </ToggleGroupItem>
+        </TooltipTrigger>
+        <TooltipContent
+          class=""
+          :style="{
+            background: `oklch(from var(--color-surface-container-highest) l calc(c * ${index}) h)`,
+          }"
         >
-          Interaction
-          <Icon
-            :icon="faChevronDown"
-            class="ml-2 h-4 w-4"
-          />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuCheckboxItem
-          v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
-          :key="column.id"
-          class="capitalize"
-          :model-value="column.getIsVisible()"
-          @update:model-value="
-            (value) => {
-              column.toggleVisibility(!!value);
-            }
-          "
-        >
-          {{ column.id }}
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+          {{ t(`property.sharing_conditions.options.${sharingConditionOption}`) }}
+        </TooltipContent>
+      </Tooltip>
+    </ToggleGroup>
+    <ToggleGroup
+      v-model="interactionModeFilter"
+      type="multiple"
+    >
+      <ToggleGroupItem
+        v-for="interactionModeOption in LAND_INTERACTION_MODES"
+        :key="interactionModeOption"
+        size="sm"
+        :value="interactionModeOption"
+        :aria-label="interactionModeOption"
+      >
+        <Icon :icon="LAND_INTERACTION_MODE_ICON[interactionModeOption]" />
+      </ToggleGroupItem>
+    </ToggleGroup>
   </div>
   <div
-    v-if="table.getRowModel().rows.length"
+    v-if="landProposals"
     class="flex flex-col gap-4"
   >
     <div
-      v-for="row in table.getRowModel().rows"
-      :key="row.id"
+      v-for="landProposal in landProposals.member"
+      :key="landProposal.ulid"
     >
       <DialogTeraLandProposalView
-        :key="row.original.ulid"
-        :title="row.original.title"
-        :description="row.original.description"
-        :sharing-conditions="row.original.sharingConditions"
+        :key="landProposal.ulid"
+        :title="landProposal.title"
+        :description="landProposal.description"
+        :sharing-conditions="
+          () => landProposal.sharingConditions as unknown as LandSharingCondition[]
+        "
       >
         <CardTeraLandProposal
-          :title="row.original.title"
-          :land-name="row.original.land?.name"
-          :land-altitude="row.original.land?.altitude"
-          :land-surface="row.original.land?.surface"
-          :land-city="row.original.land?.address?.city"
-          :expiration-date="row.original.expirationDate"
-          :sharing-conditions="row.original.sharingConditions"
-          :preferred-garden-interaction-mode="row.original.preferredGardenInteractionMode"
+          :title="landProposal.title"
+          :land-name="landProposal.land?.name"
+          :land-altitude="landProposal.land?.altitude"
+          :land-surface="landProposal.land?.surface"
+          :land-city="landProposal.land?.address?.city"
+          :expiration-date="landProposal.expirationDate"
+          :sharing-conditions="
+            () => landProposal.sharingConditions as unknown as LandSharingCondition[]
+          "
+          :preferred-interaction-mode="landProposal.preferredInteractionMode"
         />
       </DialogTeraLandProposalView>
     </div>
   </div>
 
   <div v-else>
-    <!-- Optional: Show a message when there's no data -->
-    No land proposals found.
+    <div
+      v-if="status === 'pending'"
+      class="flex flex-row gap-4 items-center"
+    >
+      <Icon
+        :icon="faSpinnerThird"
+        class="fa-spin"
+      />
+      Recherche en cours
+    </div>
+    <div v-else>No land proposals found.</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import {
-  useVueTable,
-  createColumnHelper,
-  getCoreRowModel,
-  type ColumnDef,
-} from '@tanstack/vue-table';
 import CardTeraLandProposal from '@lychen/tera-ui-components/land-proposal/card/CardTeraLandProposal.vue';
 import DialogTeraLandProposalView from '@lychen/tera-ui-components/land-proposal/dialogs/view/DialogTeraLandProposalView.vue';
-import { computed } from 'vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
-import { DropdownMenu } from '@lychen/vue-ui-components-core/dropdown-menu';
-import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuTrigger.vue';
-import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
-import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
-import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import { ToggleGroup, ToggleGroupItem } from '@lychen/vue-ui-components-core/toggle-group';
+import { ref } from 'vue';
+import { Icon } from '@lychen/vue-ui-components-core/icon';
+import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons/faSpinnerThird';
+import {
+  LAND_INTERACTION_MODES,
+  type LandInteractionMode,
+} from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
+import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-ui-components/icons/IconLandInteractionMode';
+import {
+  LAND_SHARING_CONDITIONS,
+  type LandSharingCondition,
+} from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-ui-components/icons/IconLandSharingCondition';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
+import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
+import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
 export type LandProposalPublicRead =
   components['schemas']['LandProposal.jsonld-land_proposal.collection-public'];
 
 const { api } = useTeraApi();
 
-const { data: queryData } = useQuery({
-  queryKey: ['landProposalsPublic'],
+const interactionModeFilter = ref<LandInteractionMode[]>([]);
+const sharingConditionFilter = ref<LandSharingCondition[]>([]);
+
+const { data: landProposals, status } = useQuery({
+  queryKey: ['landProposalsPublic', interactionModeFilter, sharingConditionFilter],
   queryFn: async () => {
-    const response = await api.GET('/api/land_proposals/public', {});
+    const response = await api.GET('/api/land_proposals/public', {
+      params: {
+        query: {
+          'preferredInteractionMode[]': interactionModeFilter.value,
+          'sharingConditions[]': sharingConditionFilter.value,
+        },
+      },
+    });
     return response.data;
   },
 });
 
-const landProposals = computed(() => queryData.value?.member || []);
-
-const columnHelper = createColumnHelper<LandProposalPublicRead>();
-
-// Define columns - even if you render a card, defining columns helps structure the data access
-const columns = [
-  columnHelper.accessor('title', { header: 'Title', enableSorting: true }),
-  columnHelper.accessor((row) => row.land?.name, { id: 'landName', header: 'Land Name' }),
-  columnHelper.accessor((row) => row.land?.address?.city, { id: 'city', header: 'City' }),
-  columnHelper.accessor('preferredGardenInteractionMode', {
-    id: 'preferredGardenInteractionMode',
-    header: 'Interaction Mode',
-  }),
-];
-
-const table = useVueTable({
-  data: landProposals,
-  columns,
-  getCoreRowModel: getCoreRowModel(),
-});
+const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

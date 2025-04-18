@@ -47,13 +47,14 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             'gardeningLevel' => GardeningLevel::BEGINNER,
             'hasTools' => true,
             'title' => 'test',
-            'preferredGardenInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
+            'preferredInteractionMode' => LandInteractionMode::TOGETHER_BUT_NOT_ALL_TIME,
             'supportsLocalFoodSecurity' => true,
             'sharingConditions' => [LandSharingCondition::VEGETABLE_SHARING, LandSharingCondition::GARDENING],
         ];
 
         $this->browser()->actingAs($person)
-            ->post('/api/land_requests', ['json' => array_merge($data, ['person' => $this->getIriFromResource($person2)])])
+            ->post('/api/land_requests',
+                ['json' => array_merge($data, ['person' => $this->getIriFromResource($person2)])])
             ->assertStatus(201);
 
         $landRequestRepository = static::getContainer()->get(LandMemberRepository::class);
@@ -64,7 +65,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // API Key
         $person = $this->createPerson();
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::POST]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::POST]);
         $this->browser()->actingAs($personApiKey)
             ->post('/api/land_requests', ['json' => $data])
             ->assertStatus(403);
@@ -93,7 +96,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::GET]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::GET]);
         $this->browser()->actingAs($personApiKey)
             ->get($this->getIriFromResource($landRequest))
             ->assertStatus(403);
@@ -121,7 +126,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::PATCH]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::PATCH]);
         $this->browser()->actingAs($personApiKey)
             ->patch($this->getIriFromResource($landRequest), ['json' => []])
             ->assertStatus(403);
@@ -149,7 +156,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::DELETE]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::DELETE]);
         $this->browser()->actingAs($personApiKey)
             ->delete($this->getIriFromResource($landRequest))
             ->assertStatus(403);
@@ -187,7 +196,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].ulid', $landRequest3->getUlid()->toString());
 
         // API Key
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::COLLECTION]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::COLLECTION]);
         $this->browser()->actingAs($personApiKey)
             ->get('/api/land_requests')
             ->assertStatus(403);
@@ -202,7 +213,9 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // API Key
         $person = $this->createPerson();
-        $personApiKey = $this->createPersonApiKey($person, ['permissions' => PersonPermission::ALL], [LandRequestVoter::COLLECTION_PUBLIC]);
+        $personApiKey = $this->createPersonApiKey($person,
+            ['permissions' => PersonPermission::ALL],
+            [LandRequestVoter::COLLECTION_PUBLIC]);
         $this->browser()->actingAs($personApiKey)
             ->get('/api/land_requests/public')
             ->assertStatus(403);
@@ -216,12 +229,14 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // User not authenticated
         $this->browser()
-            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::PUBLISH, ['json' => []])
+            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::PUBLISH,
+                ['json' => []])
             ->assertStatus(401);
 
         // User not the creator
         $this->browser()->actingAs($person2)
-            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::PUBLISH, ['json' => []])
+            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::PUBLISH,
+                ['json' => []])
             ->assertStatus(403);
     }
 
@@ -233,12 +248,14 @@ class LandRequestSecurityTest extends AbstractApiTestCase
 
         // User not authenticated
         $this->browser()
-            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::ARCHIVE, ['json' => []])
+            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::ARCHIVE,
+                ['json' => []])
             ->assertStatus(401);
 
         // User not the creator
         $this->browser()->actingAs($person2)
-            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::ARCHIVE, ['json' => []])
+            ->patch($this->getIriFromResource($landRequest) . '/' . LandRequestWorkflowTransition::ARCHIVE,
+                ['json' => []])
             ->assertStatus(403);
     }
 }

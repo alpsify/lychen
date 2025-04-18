@@ -187,7 +187,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         'enum' => LandInteractionMode::ALL,
         'example' => LandInteractionMode::ALL
     ])]
-    private ?string $preferredGardenInteractionMode = LandInteractionMode::NO_PREFERENCE;
+    private ?string $preferredInteractionMode = LandInteractionMode::NO_PREFERENCE;
 
     #[ORM\Column]
     #[Groups(["land_request:collection",
@@ -365,14 +365,14 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
         return $this;
     }
 
-    public function getPreferredGardenInteractionMode(): ?string
+    public function getPreferredInteractionMode(): ?string
     {
-        return $this->preferredGardenInteractionMode;
+        return $this->preferredInteractionMode;
     }
 
-    public function setPreferredGardenInteractionMode(?string $preferredGardenInteractionMode): static
+    public function setPreferredInteractionMode(?string $preferredInteractionMode): static
     {
-        $this->preferredGardenInteractionMode = $preferredGardenInteractionMode;
+        $this->preferredInteractionMode = $preferredInteractionMode;
 
         return $this;
     }

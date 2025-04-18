@@ -93,6 +93,12 @@ services:
     parent: 'api_platform.doctrine.orm.search_filter'
     tags: [ 'api_platform.filter' ]
 
+  land_proposal.preferred_interaction_mode_filter:
+    arguments:
+      $properties: { preferredInteractionMode: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: [ 'api_platform.filter' ]
+
   land_proposal.order_filter:
     arguments:
       $orderParameterName: order

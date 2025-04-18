@@ -49,17 +49,13 @@
       <Tooltip>
         <TooltipTrigger>
           <Icon
-            v-if="preferredGardenInteractionMode"
-            :icon="LAND_INTERACTION_MODE[preferredGardenInteractionMode]"
+            v-if="preferredInteractionMode"
+            :icon="LAND_INTERACTION_MODE_ICON[preferredInteractionMode]"
             class="p-2"
           />
         </TooltipTrigger>
         <TooltipContent>
-          {{
-            t(
-              `property.preferred_garden_interaction_mode.options.${preferredGardenInteractionMode}`,
-            )
-          }}
+          {{ t(`property.preferred_garden_interaction_mode.options.${preferredInteractionMode}`) }}
         </TooltipContent>
       </Tooltip>
     </div>
@@ -75,11 +71,6 @@ import {
   TRANSLATION_KEY as LAND_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import {
-  LAND_INTERACTION_MODE,
-  type LandInteractionMode,
-  type LandSharingCondition,
-} from '../../icons';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';
@@ -87,6 +78,9 @@ import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
+import { LAND_INTERACTION_MODE_ICON } from '../../icons/IconLandInteractionMode';
+import type { LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
+import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -96,14 +90,14 @@ const BaseHeading = defineAsyncComponent(
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-const props = defineProps<{
+defineProps<{
   title?: string;
   landName?: string;
   landSurface?: number | null;
   landAltitude?: number | null;
   landCity?: string | null;
   expirationDate?: string | null;
-  preferredGardenInteractionMode?: LandInteractionMode;
+  preferredInteractionMode?: LandInteractionMode;
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 

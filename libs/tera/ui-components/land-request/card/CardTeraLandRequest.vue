@@ -39,17 +39,13 @@
       <Tooltip>
         <TooltipTrigger>
           <Icon
-            v-if="preferredGardenInteractionMode"
-            :icon="LAND_INTERACTION_MODE[preferredGardenInteractionMode]"
+            v-if="preferredInteractionMode"
+            :icon="LAND_INTERACTION_MODE_ICON[preferredInteractionMode]"
             class="p-2"
           />
         </TooltipTrigger>
         <TooltipContent>
-          {{
-            t(
-              `property.preferred_garden_interaction_mode.options.${preferredGardenInteractionMode}`,
-            )
-          }}
+          {{ t(`property.preferred_garden_interaction_mode.options.${preferredInteractionMode}`) }}
         </TooltipContent>
       </Tooltip>
     </div>
@@ -61,17 +57,15 @@ import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import {
-  LAND_INTERACTION_MODE,
-  type LandInteractionMode,
-  type LandSharingCondition,
-} from '../../icons';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 import { faUserVneck } from '@fortawesome/pro-light-svg-icons/faUserVneck';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
+import { type LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
+import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-ui-components/icons/IconLandInteractionMode';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -85,7 +79,7 @@ const props = defineProps<{
   title?: string;
   city?: string | null;
   expirationDate?: string | null;
-  preferredGardenInteractionMode?: LandInteractionMode;
+  preferredInteractionMode?: LandInteractionMode;
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 

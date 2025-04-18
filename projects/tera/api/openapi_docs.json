@@ -4793,6 +4793,51 @@
                         "style": "form",
                         "explode": false,
                         "allowReserved": false
+                    },
+                    {
+                        "name": "preferredInteractionMode",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "preferredInteractionMode[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "sharingConditions",
+                        "in": "query",
+                        "description": "Filter by sharing conditions",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
                     }
                 ],
                 "deprecated": false
@@ -15293,7 +15338,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -15465,7 +15510,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -15703,7 +15748,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -15905,7 +15950,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -16107,7 +16152,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -16302,7 +16347,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -16536,7 +16581,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -16735,7 +16780,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -16907,7 +16952,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17141,7 +17186,7 @@
                     "gardenState": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17323,7 +17368,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17472,7 +17517,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17612,7 +17657,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17800,7 +17845,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -17957,7 +18002,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18114,7 +18159,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18298,7 +18343,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18482,7 +18527,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18621,7 +18666,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18753,7 +18798,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",
@@ -18937,7 +18982,7 @@
                     "title": {
                         "type": "string"
                     },
-                    "preferredGardenInteractionMode": {
+                    "preferredInteractionMode": {
                         "enum": [
                             "alone",
                             "together",

@@ -13,7 +13,7 @@
         background: `oklch(from var(--color-surface-container-highest) l calc(c * ${index}) h)`,
       }"
     >
-      <Icon :icon="LAND_SHARING_CONDITION[condition]" />
+      <Icon :icon="LAND_SHARING_CONDITION_ICON[condition]" />
       <span v-if="displayLabel && display === DISPLAY.Vertical">{{
         t(`property.sharing_conditions.options.${condition}`)
       }}</span>
@@ -24,10 +24,11 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
-import { LAND_SHARING_CONDITION, type LandSharingCondition } from '../../icons';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { type Display, DISPLAY } from '.';
+import { type LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-ui-components/icons/IconLandSharingCondition';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 
