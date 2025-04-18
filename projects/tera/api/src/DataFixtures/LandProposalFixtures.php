@@ -52,6 +52,7 @@ class LandProposalFixtures extends Fixture implements DependentFixtureInterface
             'land' => $this->getReference(LandFixtures::LAND_7, Land::class)
         ]);
         $this->landProposalStateMachine->apply($landProposal7->_real(), LandProposalWorkflowTransition::PUBLISH);
+        $landProposal7->_save();
     }
 
 

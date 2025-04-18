@@ -5,20 +5,20 @@
   >
     <div class="bg-surface-container-high rounded-full size-12 flex items-center justify-center">
       <Icon
-        :icon="faFence"
+        :icon="faUserVneck"
         class="p-2"
       />
     </div>
-
     <div class="flex flex-col">
-      <div class="flex flex-row gap-2">
+      <BaseHeading variant="h3">{{ title }}</BaseHeading>
+      <div class="flex flex-row gap-2 opacity-70">
         <Badge
-          v-if="landCity"
+          v-if="city"
           size="sm"
           variant="outline"
         >
           <Icon :icon="faMapLocation" />
-          {{ landCity }}
+          {{ city }}
         </Badge>
         <Badge
           v-if="expirationDate"
@@ -27,16 +27,6 @@
           <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
         </Badge>
-      </div>
-      <BaseHeading variant="h3">{{ title }}</BaseHeading>
-      <div class="flex flex-row gap-2 opacity-70">
-        <p>{{ landName }}</p>
-        <p v-if="landSurface">• {{ tLand('property.surface.default', landSurface) }}</p>
-        <p v-if="landAltitude">
-          •
-          <Icon :icon="faMountains" />
-          {{ tLand('property.altitude.default', landAltitude) }}
-        </p>
       </div>
     </div>
 
@@ -70,10 +60,6 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
-import {
-  messages as landMessages,
-  TRANSLATION_KEY as LAND_TRANSLATION_KEY,
-} from '@lychen/tera-ui-i18n/land';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import {
   LAND_INTERACTION_MODE,
@@ -82,10 +68,9 @@ import {
 } from '../../icons';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
-import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';
 import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
-import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
+import { faUserVneck } from '@fortawesome/pro-light-svg-icons/faUserVneck';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
@@ -98,19 +83,11 @@ const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/
 
 const props = defineProps<{
   title?: string;
-  landName?: string;
-  landSurface?: number | null;
-  landAltitude?: number | null;
-  landCity?: string | null;
+  city?: string | null;
   expirationDate?: string | null;
   preferredGardenInteractionMode?: LandInteractionMode;
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 
 const { t, d } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
-const { t: tLand } = useI18nExtended({
-  messages: landMessages,
-  rootKey: LAND_TRANSLATION_KEY,
-  prefixed: true,
-});
 </script>

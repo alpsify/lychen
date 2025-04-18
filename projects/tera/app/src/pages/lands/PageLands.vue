@@ -105,7 +105,7 @@ import {
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
 import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
-import { RoutePageCoGardening } from '../co-gardening';
+import { RoutePageCoGardening } from '../co-gardening/dashboard';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),

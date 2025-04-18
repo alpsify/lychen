@@ -8,6 +8,7 @@ use ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use ApiPlatform\Metadata\Operation;
 use App\Entity\LandProposal;
 use App\Entity\Person;
+use App\Entity\PersonApiKey;
 use App\Repository\LandMemberRepository;
 use App\Workflow\LandProposal\LandProposalWorkflowPlace;
 use Doctrine\ORM\QueryBuilder;
@@ -16,18 +17,18 @@ use Symfony\Bundle\SecurityBundle\Security;
 final readonly class LandProposalExtension implements QueryCollectionExtensionInterface, QueryItemExtensionInterface
 {
     public function __construct(
-        private Security             $security,
+        private Security $security,
         private LandMemberRepository $landMemberRepository
     )
     {
     }
 
     public function applyToCollection(
-        QueryBuilder                $queryBuilder,
+        QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        string                      $resourceClass,
-        ?Operation                  $operation = null,
-        array                       $context = []
+        string $resourceClass,
+        ?Operation $operation = null,
+        array $context = []
     ): void
     {
         // Only apply this logic to LandProposal entities
@@ -55,6 +56,10 @@ final readonly class LandProposalExtension implements QueryCollectionExtensionIn
         // 2. Filter out proposals linked to lands the user is a member of
         $user = $this->security->getUser();
 
+        if ($user instanceof PersonApiKey) {
+            $user = $user->getPerson();
+        }
+        
         // Proceed only if the user is logged in and is a standard user (not admin, as admins might need to see all)
         // If you want admins to also be filtered, remove the !isGranted('ROLE_ADMIN') check
         if ($user instanceof Person && !$this->security->isGranted('ROLE_ADMIN')) {
@@ -83,12 +88,12 @@ final readonly class LandProposalExtension implements QueryCollectionExtensionIn
      * Access control is handled by Voters.
      */
     public function applyToItem(
-        QueryBuilder                $queryBuilder,
+        QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        string                      $resourceClass,
-        array                       $identifiers,
-        ?Operation                  $operation = null,
-        array                       $context = []
+        string $resourceClass,
+        array $identifiers,
+        ?Operation $operation = null,
+        array $context = []
     ): void
     {
         // If you needed to restrict item access based on similar criteria,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DialogClose, type DialogCloseProps } from 'reka-ui';
-import Icon from '../icon/Icon.vue';
+import Button from '../button/Button.vue';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 
 const props = defineProps<DialogCloseProps>();
@@ -9,9 +9,10 @@ const props = defineProps<DialogCloseProps>();
 <template>
   <DialogClose v-bind="props">
     <slot>
-      <Icon
-        class="size-4 cursor-pointer"
+      <Button
         :icon="faTimes"
+        variant="ghost"
+        size="sm"
       />
       <span class="sr-only">Close</span>
     </slot>

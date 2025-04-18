@@ -3200,7 +3200,7 @@ __metadata:
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/typescript-util-tailwind": "workspace:*"
     "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.1.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     embla-carousel-vue: "npm:^8.5.2"
@@ -5327,6 +5327,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/core@npm:^13.1.0":
+  version: 13.1.0
+  resolution: "@vueuse/core@npm:13.1.0"
+  dependencies:
+    "@types/web-bluetooth": "npm:^0.0.21"
+    "@vueuse/metadata": "npm:13.1.0"
+    "@vueuse/shared": "npm:13.1.0"
+  peerDependencies:
+    vue: ^3.5.0
+  checksum: 10c0/1ce0af53ff53c9cffc100a4bb215691a7c97ec1620f0e13133a0bab3ddc6ae9ec0452ba6d8b8c20564a3e3196e7ca966c9fdb61fdcffc0ce0d6868d5654ddb9c
+  languageName: node
+  linkType: hard
+
 "@vueuse/metadata@npm:10.11.1":
   version: 10.11.1
   resolution: "@vueuse/metadata@npm:10.11.1"
@@ -5345,6 +5358,13 @@ __metadata:
   version: 13.0.0
   resolution: "@vueuse/metadata@npm:13.0.0"
   checksum: 10c0/335d09b15088b47c52487a74316f4298dc5323c261d9d17aba30cf5e21a3cb8b623134cf10fa538cf29952bb77dcdc4a25b6ed92db1633218125eb6c7b64a053
+  languageName: node
+  linkType: hard
+
+"@vueuse/metadata@npm:13.1.0":
+  version: 13.1.0
+  resolution: "@vueuse/metadata@npm:13.1.0"
+  checksum: 10c0/335b61dc36241827f6689d1a79b86b11c003a8be7211338a40ff94c8188348e7f748d9980171cfeae5593bb0ca9b559434f83a3777ab8e8f9c836a0d94e56893
   languageName: node
   linkType: hard
 
@@ -5372,6 +5392,15 @@ __metadata:
   peerDependencies:
     vue: ^3.5.0
   checksum: 10c0/d7730ed05f90a421763f9b5e6e5ac64f0e085fade6090724f09990018106bca8dd63ed6070f2f471a472b84eaf98e0fc8307c282ec0ecb798eaf4035cb195cee
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:13.1.0":
+  version: 13.1.0
+  resolution: "@vueuse/shared@npm:13.1.0"
+  peerDependencies:
+    vue: ^3.5.0
+  checksum: 10c0/1c6c2d8f98db0fa503887e517dbe948802a568ff230c870d3afa9dd874b2a85a7d20df495886f06787840c65616236958b7723c97db484657922eb825ba25f4a
   languageName: node
   linkType: hard
 

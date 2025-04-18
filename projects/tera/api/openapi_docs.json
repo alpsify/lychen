@@ -18073,6 +18073,138 @@
                         "default": "draft",
                         "example": "draft",
                         "type": "string"
+                    },
+                    "message": {
+                        "description": "Tiptap JSON Object",
+                        "items": {
+                            "type": "string"
+                        },
+                        "anyOf": [
+                            {
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "minimumSurfaceWanted": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "gardeningLevel": {
+                        "enum": [
+                            "beginner",
+                            "intermediate",
+                            "advanced"
+                        ],
+                        "default": "beginner",
+                        "example": "beginner",
+                        "type": "string"
+                    },
+                    "hasTools": {
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "preferredGardenInteractionMode": {
+                        "enum": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "default": "no_preference",
+                        "example": [
+                            "alone",
+                            "together",
+                            "together_but_not_all_time",
+                            "no_preference"
+                        ],
+                        "type": "array"
+                    },
+                    "supportsLocalFoodSecurity": {
+                        "type": "boolean"
+                    },
+                    "sharingConditions": {
+                        "type": "array",
+                        "enum": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ],
+                        "example": [
+                            "general_maintenance",
+                            "beehives",
+                            "gardening",
+                            "vegetable_sharing",
+                            "fruit_sharing",
+                            "flower_planting",
+                            "tree_planting"
+                        ]
+                    },
+                    "publishedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "archivedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "expirationDate": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "format": "ulid"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     }
                 }
             },

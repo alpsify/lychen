@@ -8,7 +8,8 @@ import { RoutePageFoodSafety } from '../pages/food-safety';
 import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageCalendars } from '@/pages/calendars';
 import { RoutePageCultureItinaries } from '@/pages/culture-itinaries';
-import { RoutePageCoGardening } from '@/pages/co-gardening';
+import { NODE_PATH } from '@/pages/co-gardening';
+import { RoutePageCoGardening } from '@/pages/co-gardening/dashboard';
 import { RoutePageDiary } from '@/pages/diary';
 import { RoutePageData } from '@/pages/data';
 import { RoutePageGrainLibrary } from '@/pages/grain-library';
@@ -23,6 +24,8 @@ import { RoutePageLandCultureItinaries } from '@/pages/land/culture-itinaries';
 import { RoutePageLandCalendars } from '@/pages/land/calendars';
 import { RoutePageLandSettings } from '@/pages/land/settings';
 import { RoutePageLandMemberSettings } from '@/pages/land/member-settings';
+import { RoutePageCoGardeningRequests } from '@/pages/co-gardening/requests';
+import { RoutePageCoGardeningProposals } from '@/pages/co-gardening/proposals';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -51,7 +54,14 @@ const routes: RouteRecordRaw[] = [
       RoutePageGreeningPermit,
       RoutePageCalendars,
       RoutePageCultureItinaries,
-      RoutePageCoGardening,
+      {
+        path: NODE_PATH,
+        children: [
+          RoutePageCoGardening,
+          RoutePageCoGardeningRequests,
+          RoutePageCoGardeningProposals,
+        ],
+      },
       RoutePageDiary,
       RoutePageData,
       RoutePageGrainLibrary,

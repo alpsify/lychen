@@ -82,7 +82,7 @@ import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageLandCalendars } from '@/pages/land/calendars';
 import { RoutePageLandCultureItinaries } from '@/pages/land/culture-itinaries';
 import { RoutePageLandDiary } from '@/pages/land/diary';
-import { RoutePageCoGardening } from '@/pages/co-gardening';
+import { RoutePageCoGardening } from '@/pages/co-gardening/dashboard';
 
 import { RoutePageData } from '@/pages/data';
 import { RoutePageGrainLibrary } from '@/pages/grain-library';

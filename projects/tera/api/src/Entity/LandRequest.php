@@ -124,6 +124,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
      */
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -133,6 +134,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(nullable: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -143,6 +145,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: GardeningLevel::ALL)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -152,6 +155,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -161,6 +165,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(length: 255)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -171,6 +176,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     #[ORM\Column(length: 30)]
     #[Assert\Choice(choices: LandInteractionMode::ALL)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -185,6 +191,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -195,6 +202,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     #[ORM\Column(type: Types::JSON, nullable: true)]
     #[Assert\Choice(choices: LandSharingCondition::ALL, multiple: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post",
               "land_request:patch",
@@ -209,6 +217,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(nullable: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",
@@ -218,6 +227,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(nullable: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",
@@ -227,6 +237,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
 
     #[ORM\Column(nullable: true)]
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",
@@ -235,6 +246,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     private ?DateTimeImmutable $expirationDate = null;
 
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",
@@ -246,6 +258,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     }
 
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",
@@ -257,6 +270,7 @@ class LandRequest extends AbstractIdOrmAndUlidApiIdentified implements StatePers
     }
 
     #[Groups(["land_request:collection",
+              "land_request:collection-public",
               "land_request:get",
               "land_request:post:output",
               "land_request:patch:output",

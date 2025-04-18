@@ -244,12 +244,10 @@ import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldi
 import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalendarCirclePlus';
 import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
 import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
-import { faDatabase } from '@fortawesome/pro-light-svg-icons/faDatabase';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
-import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
 import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
-import BannerTeraShareYourLand from '@lychen/tera-ui-components/land-proposal/banner/BannerTeraShareYourLand.vue';
+import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),

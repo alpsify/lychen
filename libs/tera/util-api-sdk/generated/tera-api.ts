@@ -4463,6 +4463,54 @@ export interface components {
        * @enum {string}
        */
       state: LandRequestJsonldLand_requestCollectionPublicState;
+      /** @description Tiptap JSON Object */
+      message?: unknown[] | null;
+      minimumSurfaceWanted?: number | null;
+      /**
+       * @default beginner
+       * @example beginner
+       * @enum {string}
+       */
+      gardeningLevel: LandRequestJsonldLand_requestCollectionPublicGardeningLevel;
+      hasTools?: boolean;
+      title?: string;
+      /**
+       * @default no_preference
+       * @example [
+       *       "alone",
+       *       "together",
+       *       "together_but_not_all_time",
+       *       "no_preference"
+       *     ]
+       * @enum {array}
+       */
+      preferredGardenInteractionMode: LandRequestJsonldLand_requestCollectionPublicPreferredGardenInteractionMode;
+      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @example [
+       *       "general_maintenance",
+       *       "beehives",
+       *       "gardening",
+       *       "vegetable_sharing",
+       *       "fruit_sharing",
+       *       "flower_planting",
+       *       "tree_planting"
+       *     ]
+       * @enum {array}
+       */
+      sharingConditions?: LandRequestJsonldLand_requestCollectionPublicSharingConditions;
+      /** Format: date-time */
+      publishedAt?: string | null;
+      /** Format: date-time */
+      archivedAt?: string | null;
+      /** Format: date-time */
+      expirationDate?: string | null;
+      /** Format: ulid */
+      ulid?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      updatedAt?: string | null;
     };
     'LandRequest.jsonld-land_request.get': {
       readonly '@context'?:
@@ -13301,6 +13349,26 @@ export enum LandRequestJsonldLand_requestCollectionPublicState {
   draft = 'draft',
   published = 'published',
   archived = 'archived',
+}
+export enum LandRequestJsonldLand_requestCollectionPublicGardeningLevel {
+  beginner = 'beginner',
+  intermediate = 'intermediate',
+  advanced = 'advanced',
+}
+export enum LandRequestJsonldLand_requestCollectionPublicPreferredGardenInteractionMode {
+  alone = 'alone',
+  together = 'together',
+  together_but_not_all_time = 'together_but_not_all_time',
+  no_preference = 'no_preference',
+}
+export enum LandRequestJsonldLand_requestCollectionPublicSharingConditions {
+  general_maintenance = 'general_maintenance',
+  beehives = 'beehives',
+  gardening = 'gardening',
+  vegetable_sharing = 'vegetable_sharing',
+  fruit_sharing = 'fruit_sharing',
+  flower_planting = 'flower_planting',
+  tree_planting = 'tree_planting',
 }
 export enum LandRequestJsonldLand_requestGetContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',

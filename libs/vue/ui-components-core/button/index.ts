@@ -21,10 +21,10 @@ export const VARIANT = Object.keys(VARIANT_VALUES);
 export type VariantKey = keyof typeof VARIANT_VALUES;
 
 export const SIZE_VALUES = {
-  default: 'h-10 px-4 py-2',
-  xs: 'h-7 px-2',
-  sm: 'h-9 px-3',
-  lg: 'h-11 px-8',
+  default: 'h-10 px-4 py-2 rounded-2xl',
+  xs: 'h-7 px-2 rounded-xl',
+  sm: 'h-9 px-3 rounded-2xl',
+  lg: 'h-11 px-8 rounded-2xl',
 } as const;
 
 export const SIZE = Object.keys(SIZE_VALUES);
