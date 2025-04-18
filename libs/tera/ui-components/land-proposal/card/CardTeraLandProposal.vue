@@ -55,7 +55,7 @@
           />
         </TooltipTrigger>
         <TooltipContent>
-          {{ t(`property.preferred_garden_interaction_mode.options.${preferredInteractionMode}`) }}
+          {{ t(`property.preferred_interaction_mode.options.${preferredInteractionMode}`) }}
         </TooltipContent>
       </Tooltip>
     </div>

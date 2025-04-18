@@ -4,7 +4,7 @@ export default {
       label: 'Titre',
       placeholder: 'Recherche co-jardiniers',
     },
-    preferred_garden_interaction_mode: {
+    preferred_interaction_mode: {
       label: "Mode d'interaction préféré",
       placeholder: "Sélectionner le mode d'interaction préféré",
       options: {
