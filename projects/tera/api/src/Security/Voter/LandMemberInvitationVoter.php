@@ -49,14 +49,6 @@ class LandMemberInvitationVoter extends AbstractLandAwareVoterInterface
         self::CHECK_EMAIL_UNICITY,
     ];
 
-    /*protected function supports(string $attribute, mixed $subject): bool
-    {
-        $parentSupport = parent::supports($attribute, $subject);
-        $operation = $this->currentRequest->attributes->get('_api_operation');
-        $operationIsCheckUnicity = $operation instanceof Get && $operation->getName() === 'land-member-invitation_check-email-unicity';
-        return $parentSupport || $operationIsCheckUnicity;
-    }*/
-
     protected function supports(string $attribute,
         mixed $subject,
     ): bool

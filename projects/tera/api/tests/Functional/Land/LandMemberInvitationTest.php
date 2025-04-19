@@ -94,7 +94,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
 
         // Owner
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->get('/api/land_member_invitations', ['query' => ['land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landMemberInvitations))
             ->assertJsonMatches('member[0].ulid', $context->landMemberInvitations[0]->getUlid()->toString())
@@ -110,7 +110,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->get('/api/land_member_invitations',
-                ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+                ['query' => ['land' => $context->land->_real()->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landMemberInvitations))
             ->assertJsonMatches('member[0].ulid', $context->landMemberInvitations[0]->getUlid()->toString())
@@ -128,7 +128,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
 
         $this->browser()->actingAs($context->owner)
             ->get('/api/land_member_invitations',
-                ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+                ['query' => ['land' => $context->land->getUlid()->toString(), 'itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
             ->use(function (Json $json) {
@@ -255,7 +255,7 @@ class LandMemberInvitationTest extends AbstractApiTestCase
                 ['query'
                  => [
                         'email' => $email,
-                        'land' => $this->getIriFromResource($context->land)
+                        'land' => $context->land->getUlid()->toString()
                     ]])
             ->assertSuccessful()
             ->assertJsonMatches('isUnique', false);

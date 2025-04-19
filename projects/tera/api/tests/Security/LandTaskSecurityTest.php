@@ -86,7 +86,8 @@ class LandTaskSecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // API Key
-        $landApiKey = $this->createLandApiKey($context1->land, ['permissions' => LandMemberPermission::ALL],
+        $landApiKey = $this->createLandApiKey($context1->land,
+            ['permissions' => LandMemberPermission::ALL],
             [LandTaskVoter::PATCH]);
         $this->browser()->actingAs($landApiKey)
             ->patch($this->getIriFromResource($context1->landTasks[0]), ['json' => []])
@@ -154,24 +155,24 @@ class LandTaskSecurityTest extends AbstractApiTestCase
 
         // User cannot list LandTask if they are not authenticated
         $this->browser()
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_tasks', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(401);
 
         // User cannot list LandTask without a Land query parameter
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_tasks', ['query' => ['land' => '']])
-            ->assertStatus(422);
+            ->assertStatus(400);
 
         // User cannot list LandTask for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_tasks', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(403);
 
         // User cannot list LandTask for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_tasks', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->get('/api/land_tasks', ['query' => ['land' => $context1->land->_real()->getUlid()->toString()]])
             ->assertStatus(403);
     }
 }

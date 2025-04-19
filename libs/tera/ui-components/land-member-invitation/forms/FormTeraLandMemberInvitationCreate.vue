@@ -56,14 +56,14 @@ const emailFieldSchema = toTypedSchema(
     .email()
     .refine(
       async (email) => {
-        if (!land['@id']) {
-          throw new Error('missing.land_id');
+        if (!land.ulid) {
+          throw new Error('missing.ulid');
         }
         if (!email) {
           return true;
         }
         const response = await api.GET('/api/land_member_invitations/check_email_unicity', {
-          params: { query: { email, land: land['@id'] } },
+          params: { query: { email, land: land.ulid } },
         });
         return response.data?.isUnique;
       },

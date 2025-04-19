@@ -18,6 +18,7 @@ use App\Constant\Orientation;
 use App\Constant\SoilType;
 use App\Entity\Interface\StateLandInterface;
 use App\Filter\JsonbContainsFilter;
+use App\Filter\LandFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandProposalRepository;
 use App\Security\Interface\LandAwareInterface;
@@ -46,6 +47,10 @@ use Symfony\Component\Validator\Constraints as Assert;
             filter: 'land_proposal.order_filter'
         ),
         new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class
+        ),
+        new QueryParameter(
             key    : 'state',
             schema : [
                 'type' => 'string',
@@ -59,7 +64,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                 required       : false,
                 allowEmptyValue: true
             ),
-            filter : 'land_proposal.state_filter'
+            filter : 'common.collection_state_filter',
         ),
     ]
 )]

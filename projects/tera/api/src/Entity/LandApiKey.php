@@ -8,8 +8,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Parameter;
-use App\Doctrine\Filter\LandFilter;
+use App\Filter\LandFilter;
 use App\Repository\LandApiKeyRepository;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
@@ -45,15 +44,10 @@ use Symfony\Component\Validator\Constraints as Assert;
     normalizationContext: ['groups' => ['land_api_key:collection']],
     security            : "is_granted('" . LandApiKeyVoter::COLLECTION . "')",
     parameters          : [
-        new QueryParameter(key     : 'land',
-                           schema  : ['type' => 'string'],
-                           openApi : new Parameter(name           : 'land',
-                                                   in             : 'query',
-                                                   description    : 'Filter by land',
-                                                   required       : true,
-                                                   allowEmptyValue: false),
-                           filter  : LandFilter::class,
-                           required: true),
+        new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class,
+        ),
     ]
 )]
 #[ORM\HasLifecycleCallbacks]

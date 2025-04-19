@@ -190,6 +190,7 @@ class LandProposalTest extends AbstractApiTestCase
     public function testCollection()
     {
         $context = $this->createLandContext();
+        $context2 = $this->createLandContext();
 
         // Create proposals with specific states for filtering tests
         $landProposal1 = $this->createLandProposal($context->land,
@@ -216,9 +217,15 @@ class LandProposalTest extends AbstractApiTestCase
                 'title' => 'Published Proposal'
             ]);
 
+        $landProposal5 = $this->createLandProposal($context2->land,
+            [
+                'state' => LandProposalWorkflowPlace::PUBLISHED,
+                'title' => 'Published Proposal'
+            ]);
+
         // --- Test fetching the whole collection (as owner) ---
         $this->browser()->actingAs($context->owner) // Use the owner from the context
-        ->get('/api/land_proposals', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+        ->get('/api/land_proposals', ['query' => ['land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 4) // Use totalItems for API Platform collections
             // Check properties of the first item (adjust index/order based on default sorting if needed)
@@ -252,7 +259,7 @@ class LandProposalTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
             ['query' => ['state' => LandProposalWorkflowPlace::ARCHIVED,
-                         'land' => $this->getIriFromResource($context->land)]])
+                         'land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 2)
             // Check ULIDs to ensure the correct items are returned (order might vary)
@@ -264,7 +271,7 @@ class LandProposalTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
             ['query' => ['state' => LandProposalWorkflowPlace::DRAFT,
-                         'land' => $this->getIriFromResource($context->land)]])
+                         'land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 1)
             ->assertJsonMatches('member[0].ulid', $landProposal3->getUlid()->toString());
@@ -274,7 +281,7 @@ class LandProposalTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->owner) // Use the owner
         ->get('/api/land_proposals',
             ['query' => ['state' => LandProposalWorkflowPlace::PUBLISHED,
-                         'land' => $this->getIriFromResource($context->land)]])
+                         'land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 1)
             ->assertJsonMatches('member[0].ulid', $landProposal4->getUlid()->toString());

@@ -55,7 +55,7 @@ use Symfony\Component\Validator\Constraints as Assert;
                 required       : false,
                 allowEmptyValue: true
             ),
-            filter : 'land_request.state_filter'),
+            filter : 'common.collection_state_filter'),
     ]
 )]
 #[GetCollection(

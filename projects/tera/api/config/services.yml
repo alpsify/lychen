@@ -87,9 +87,15 @@ services:
     parent: 'api_platform.doctrine.orm.order_filter'
     tags: [ 'api_platform.filter' ]
 
-  land_proposal.state_filter:
+  common.collection_state_filter:
     arguments:
       $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: [ 'api_platform.filter' ]
+
+  common.collection_land_filter:
+    arguments:
+      $properties: { land: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
     tags: [ 'api_platform.filter' ]
 

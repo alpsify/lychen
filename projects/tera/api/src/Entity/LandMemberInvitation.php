@@ -11,9 +11,9 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use App\Doctrine\Filter\EmailFilter;
-use App\Doctrine\Filter\LandFilter;
 use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
+use App\Filter\EmailFilter;
+use App\Filter\LandFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Provider\LandMemberInvitationCheckEmailUnicityProvider;
 use App\Repository\LandMemberInvitationRepository;
@@ -72,17 +72,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     security            : "is_granted('" . LandMemberInvitationVoter::COLLECTION . "')",
     parameters          : [
         new QueryParameter(
-            key     : 'land',
-            schema  : ['type' => 'string'],
-            openApi : new Parameter(
-                name           : 'land',
-                in             : 'query',
-                description    : 'Filter by land',
-                required       : true,
-                allowEmptyValue: false
-            ),
-            filter  : LandFilter::class,
-            required: true
+            key   : 'land',
+            filter: LandFilter::class,
         )
     ])]
 #[GetCollection(
@@ -103,16 +94,21 @@ use Symfony\Component\Validator\Constraints as Assert;
             filter  : EmailFilter::class,
             required: true
         ),
-        new QueryParameter(key    : 'state',
-                           schema : ['type' => 'string',
-                                     'enum' => LandMemberInvitationWorkflowPlace::PLACES,
-                                     'example' => LandMemberInvitationWorkflowPlace::PENDING],
-                           openApi: new Parameter(name           : 'state',
-                                                  in             : 'query',
-                                                  description    : 'Filter by state',
-                                                  required       : false,
-                                                  allowEmptyValue: true),
-                           filter : 'land_member_invitation.state_filter')
+        new QueryParameter(
+            key    : 'state',
+            schema : [
+                'type' => 'string',
+                'enum' => LandMemberInvitationWorkflowPlace::PLACES,
+                'example' => LandMemberInvitationWorkflowPlace::PENDING
+            ],
+            openApi: new Parameter(
+                name           : 'state',
+                in             : 'query',
+                description    : 'Filter by state',
+                required       : false,
+                allowEmptyValue: true
+            ),
+            filter : 'common.collection_state_filter')
     ]
 )]
 #[Get(

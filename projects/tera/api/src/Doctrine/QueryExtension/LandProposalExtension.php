@@ -36,13 +36,9 @@ final readonly class LandProposalExtension implements QueryCollectionExtensionIn
             return;
         }
 
-        // Specifically target the public collection endpoint
-        // Check the operation's URI template for robustness
         if ($operation?->getUriTemplate() === '/land_proposals/public') {
             $this->addWhereForPublicCollection($queryBuilder);
         }
-        // Add other conditions for non-public collections if needed,
-        // otherwise, the default security checks (Voters) will handle access.
     }
 
     private function addWhereForPublicCollection(QueryBuilder $queryBuilder): void
@@ -59,7 +55,7 @@ final readonly class LandProposalExtension implements QueryCollectionExtensionIn
         if ($user instanceof PersonApiKey) {
             $user = $user->getPerson();
         }
-        
+
         // Proceed only if the user is logged in and is a standard user (not admin, as admins might need to see all)
         // If you want admins to also be filtered, remove the !isGranted('ROLE_ADMIN') check
         if ($user instanceof Person && !$this->security->isGranted('ROLE_ADMIN')) {

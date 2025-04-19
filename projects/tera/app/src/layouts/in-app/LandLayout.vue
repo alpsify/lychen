@@ -58,17 +58,17 @@ watch(
   },
 );
 
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
 const { data: landMember } = useQuery({
-  queryKey: ['landMember', landId],
+  queryKey: ['landMember', landUlid],
   queryFn: async () => {
-    if (!landId.value) {
-      throw new Error('missing.@id');
+    if (!landUlid.value) {
+      throw new Error('missing.ulid');
     }
     const response = await api.GET('/api/land_members/me', {
-      params: { query: { land: landId.value } },
+      params: { query: { land: landUlid.value } },
     });
     return response.data;
   },

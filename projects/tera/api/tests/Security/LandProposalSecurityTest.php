@@ -142,24 +142,24 @@ class LandProposalSecurityTest extends AbstractApiTestCase
 
         // User not authenticated
         $this->browser()
-            ->get('/api/land_proposals', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_proposals', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(401);
 
         // User cannot list LandProposal without a Land query parameter
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_proposals', ['query' => ['land' => '']])
-            ->assertStatus(422);
+            ->assertStatus(400);
 
         // User cannot list LandProposal for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_proposals', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_proposals', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(403);
 
         // User cannot list LandRole for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_proposals', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->get('/api/land_proposals', ['query' => ['land' => $context1->land->_real()->getUlid()->toString()]])
             ->assertStatus(403);
     }
 

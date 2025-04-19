@@ -9,9 +9,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Parameter;
 use App\Constant\LandAreaKind;
-use App\Doctrine\Filter\LandFilter;
+use App\Filter\LandFilter;
 use App\Repository\LandAreaRepository;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Voter\LandAreaVoter;
@@ -41,19 +40,16 @@ use Symfony\Component\Validator\Constraints as Assert;
     security              : "is_granted('" . LandAreaVoter::PATCH . "', previous_object)")]
 #[Delete(security: "is_granted('" . LandAreaVoter::DELETE . "', object)")]
 #[Get(normalizationContext: ['groups' => ['land_area:get']], security: "is_granted('" . LandAreaVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['land_area:collection']],
-                security            : "is_granted('" . LandAreaVoter::COLLECTION . "')",
-                parameters          : [
-        new QueryParameter(key     : 'land',
-                           schema  : ['type' => 'string'],
-                           openApi : new Parameter(name           : 'land',
-                                                   in             : 'query',
-                                                   description    : 'Filter by land',
-                                                   required       : true,
-                                                   allowEmptyValue: false),
-                           filter  : LandFilter::class,
-                           required: true)
-    ])]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_area:collection']],
+    security            : "is_granted('" . LandAreaVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class,
+        )
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandArea extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

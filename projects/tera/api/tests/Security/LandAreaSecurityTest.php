@@ -63,7 +63,8 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot patch a LandArea with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($context1->landAreas[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->patch($this->getIriFromResource($context1->landAreas[0]),
+                ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
@@ -140,24 +141,24 @@ class LandAreaSecurityTest extends AbstractApiTestCase
 
         // User cannot list LandArea if they are not authenticated
         $this->browser()
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_areas', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(401);
 
         // User cannot list LandArea without a Land query parameter
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_areas', ['query' => ['land' => '']])
-            ->assertStatus(422);
+            ->assertStatus(400);
 
         // User cannot list LandArea for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_areas', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(403);
 
         // User cannot list LandArea for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->get('/api/land_areas', ['query' => ['land' => $context1->land->_real()->getUlid()->toString()]])
             ->assertStatus(403);
     }
 }

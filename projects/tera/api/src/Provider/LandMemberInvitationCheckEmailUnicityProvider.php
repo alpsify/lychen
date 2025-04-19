@@ -2,12 +2,13 @@
 
 namespace App\Provider;
 
-use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Dto\LandMemberInvitationCheckEmailUnicityDto;
+use App\Entity\Land;
 use App\Repository\LandMemberInvitationRepository;
 use App\Security\Voter\LandMemberInvitationVoter;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
@@ -16,7 +17,7 @@ final readonly class LandMemberInvitationCheckEmailUnicityProvider implements Pr
 {
     public function __construct(
         private LandMemberInvitationRepository $landMemberInvitationRepository,
-        private IriConverterInterface $iriConverter,
+        private ManagerRegistry $managerRegistry,
         private Security $security
     )
     {
@@ -25,12 +26,12 @@ final readonly class LandMemberInvitationCheckEmailUnicityProvider implements Pr
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): object|array|null
     {
         $email = $context['filters']['email'] ?? null;
-        $landIri = $context['filters']['land'] ?? null;
-        if (!$email || !$landIri) {
+        $landUlid = $context['filters']['land'] ?? null;
+        if (!$email || !$landUlid) {
             throw new BadRequestHttpException('Email and land are required.');
         }
 
-        $land = $this->iriConverter->getResourceFromIri($landIri);
+        $land = $this->managerRegistry->getRepository(Land::class)->findOneBy(['ulid' => $landUlid]);
 
         if (!$land) {
             throw new BadRequestHttpException('Land not found.');

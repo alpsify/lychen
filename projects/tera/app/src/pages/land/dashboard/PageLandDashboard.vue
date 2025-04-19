@@ -264,14 +264,14 @@ const landMember = inject(INJECT_LAND_MEMBER_KEY);
 
 const { allowed: settingsButtonAllowed } = useLandGuard(landMember, ['land_update']);
 
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
 const { data: landAreas } = useQuery({
-  queryKey: ['landAreas', landId],
+  queryKey: ['landAreas', landUlid],
   queryFn: async () => {
     const response = await api.GET('/api/land_areas', {
-      params: { query: { land: landId.value! } },
+      params: { query: { land: landUlid.value! } },
     });
 
     return response.data;
@@ -280,10 +280,10 @@ const { data: landAreas } = useQuery({
 });
 
 const { data: landGreenhouses } = useQuery({
-  queryKey: ['landGreenhouses', landId],
+  queryKey: ['landGreenhouses', landUlid],
   queryFn: async () => {
     const response = await api.GET('/api/land_greenhouses', {
-      params: { query: { land: landId.value! } },
+      params: { query: { land: landUlid.value! } },
     });
 
     return response.data;

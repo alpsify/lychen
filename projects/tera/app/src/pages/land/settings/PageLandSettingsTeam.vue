@@ -139,8 +139,8 @@ import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
 const land = inject(INJECT_LAND_KEY);
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
 const { t } = useI18nExtended({
   messages,
@@ -163,16 +163,16 @@ const { t: tLandMemberInvitation } = useI18nExtended({
 const { api } = useTeraApi();
 
 const { data: landRoles, refetch: refetchLandRoles } = useQuery({
-  queryKey: ['landRoles', landId],
+  queryKey: ['landRoles', landUlid],
   queryFn: async () => {
-    if (!landId.value) {
+    if (!landUlid.value) {
       throw new Error('missing.land_id');
     }
 
     const response = await api.GET('/api/land_roles', {
       params: {
         query: {
-          land: landId.value,
+          land: landUlid.value,
         },
       },
     });
@@ -199,16 +199,16 @@ const unsubscribeOnLandRoleDelete = onLandRoleDelete(() => {
 });
 
 const { data: landMemberInvitations, refetch: refetchLandMemberInvitations } = useQuery({
-  queryKey: ['landMemberInvitations', landId],
+  queryKey: ['landMemberInvitations', landUlid],
   queryFn: async () => {
-    if (!landId.value) {
+    if (!landUlid.value) {
       throw new Error('missing.land_id');
     }
 
     const response = await api.GET('/api/land_member_invitations', {
       params: {
         query: {
-          land: landId.value,
+          land: landUlid.value,
         },
       },
     });
@@ -235,16 +235,16 @@ const unsubscribeOnLandMemberInvitationDelete = onLandMemberInvitationDelete(() 
 });
 
 const { data: landMembers, refetch: refetchLandMembers } = useQuery({
-  queryKey: ['landMembers', landId],
+  queryKey: ['landMembers', landUlid],
   queryFn: async () => {
-    if (!landId.value) {
+    if (!landUlid.value) {
       throw new Error('missing.land_id');
     }
 
     const response = await api.GET('/api/land_members', {
       params: {
         query: {
-          land: landId.value,
+          land: landUlid.value,
         },
       },
     });

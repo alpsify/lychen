@@ -849,7 +849,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -1145,7 +1145,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -1714,7 +1714,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -2582,7 +2582,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3151,7 +3151,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3196,7 +3196,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -3513,7 +3513,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -4462,6 +4462,20 @@
                                 "asc",
                                 "desc"
                             ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "land",
+                        "in": "query",
+                        "description": "Filter by land using its IRI.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
                         },
                         "style": "form",
                         "explode": false,
@@ -6125,7 +6139,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -6607,7 +6621,7 @@
                     {
                         "name": "land",
                         "in": "query",
-                        "description": "Filter by land",
+                        "description": "Filter by land using its IRI.",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,

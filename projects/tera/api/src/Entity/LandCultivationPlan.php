@@ -9,8 +9,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Parameter;
-use App\Doctrine\Filter\LandFilter;
+use App\Filter\LandFilter;
 use App\Repository\LandCultivationPlanRepository;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Voter\LandCultivationPlanVoter;
@@ -30,27 +29,30 @@ use Symfony\Component\Uid\Ulid;
 #[Post(
     normalizationContext   : ['groups' => ['land_cultivation_plan:post', 'land_cultivation_plan:post:output']],
     denormalizationContext : ['groups' => ['land_cultivation_plan:post', 'land_cultivation_plan:post:input']],
-    securityPostDenormalize: "is_granted('" . LandCultivationPlanVoter::POST . "')")]
+    securityPostDenormalize: "is_granted('" . LandCultivationPlanVoter::POST . "')"
+)]
 #[Patch(
     normalizationContext  : ['groups' => ['land_cultivation_plan:patch', 'land_cultivation_plan:patch:output']],
     denormalizationContext: ['groups' => ['land_cultivation_plan:patch', 'land_cultivation_plan:patch:input']],
-    security              : "is_granted('" . LandCultivationPlanVoter::PATCH . "', previous_object)")]
-#[Delete(security: "is_granted('" . LandCultivationPlanVoter::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['land_cultivation_plan:get']],
-      security            : "is_granted('" . LandCultivationPlanVoter::GET . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['land_cultivation_plan:collection']],
-                security            : "is_granted('" . LandCultivationPlanVoter::COLLECTION . "')",
-                parameters          : [
-        new QueryParameter(key     : 'land',
-                           schema  : ['type' => 'string'],
-                           openApi : new Parameter(name           : 'land',
-                                                   in             : 'query',
-                                                   description    : 'Filter by land',
-                                                   required       : true,
-                                                   allowEmptyValue: false),
-                           filter  : LandFilter::class,
-                           required: true)
-    ])]
+    security              : "is_granted('" . LandCultivationPlanVoter::PATCH . "', previous_object)"
+)]
+#[Delete(
+    security: "is_granted('" . LandCultivationPlanVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_cultivation_plan:get']],
+    security            : "is_granted('" . LandCultivationPlanVoter::GET . "', object)"
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_cultivation_plan:collection']],
+    security            : "is_granted('" . LandCultivationPlanVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class,
+        )
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {

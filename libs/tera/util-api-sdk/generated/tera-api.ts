@@ -6938,7 +6938,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -7120,7 +7120,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -7544,7 +7544,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -8137,7 +8137,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -8561,7 +8561,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -8626,7 +8626,7 @@ export interface operations {
   'land-member_me': {
     parameters: {
       query: {
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -8797,7 +8797,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
       };
       header?: never;
@@ -9354,7 +9354,7 @@ export interface operations {
   };
   api_land_proposals_get_collection: {
     parameters: {
-      query?: {
+      query: {
         /** @description The collection page number */
         page?: number;
         /** @description The number of items per page */
@@ -9366,6 +9366,8 @@ export interface operations {
         'order[expirationDate]'?: PathsApiLand_proposalsGetParametersQueryOrderExpirationDate;
         'order[createdAt]'?: PathsApiLand_proposalsGetParametersQueryOrderCreatedAt;
         'order[updatedAt]'?: PathsApiLand_proposalsGetParametersQueryOrderUpdatedAt;
+        /** @description Filter by land using its IRI. */
+        land: string;
         state?: string;
         'state[]'?: string[];
       };
@@ -10230,7 +10232,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
         'order[position]'?: PathsApiLand_rolesGetParametersQueryOrderPosition;
       };
@@ -10562,7 +10564,7 @@ export interface operations {
         itemsPerPage?: number;
         /** @description Enable or disable pagination */
         pagination?: boolean;
-        /** @description Filter by land */
+        /** @description Filter by land using its IRI. */
         land: string;
         'order[dueDate]'?: PathsApiLand_tasksGetParametersQueryOrderDueDate;
         state?: string;

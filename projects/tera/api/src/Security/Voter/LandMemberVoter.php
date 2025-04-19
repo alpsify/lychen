@@ -4,7 +4,6 @@ namespace App\Security\Voter;
 
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Post;
 use App\Entity\Land;
 use App\Entity\LandApiKey;
@@ -15,6 +14,7 @@ use App\Security\Checker\PersonApiKeyPermissionChecker;
 use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
+use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use LogicException;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -54,7 +54,7 @@ class LandMemberVoter extends AbstractPermissionVoter
         PersonPermissionChecker $personPermissionChecker,
         LandMemberPermissionChecker $landMemberPermissionChecker,
         RequestStack $requestStack,
-        private readonly IriConverterInterface $iriConverter)
+        private readonly ManagerRegistry $managerRegistry)
     {
         parent::__construct($permissionHolderRetriever,
             $personApiKeyPermissionChecker,
@@ -126,7 +126,12 @@ class LandMemberVoter extends AbstractPermissionVoter
         }
 
         $currentRequest = $this->requestStack->getCurrentRequest();
-        $land = $this->iriConverter->getResourceFromIri($currentRequest->query->get('land'));
+        $landUlid = $currentRequest->query->get('land');
+        if (empty($landUlid)) {
+            throw new HttpException(422, "Land query parameter shouldn't be empty");
+        }
+
+        $land = $this->managerRegistry->getRepository(Land::class)->findOneBy(['ulid' => $landUlid]);
 
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');

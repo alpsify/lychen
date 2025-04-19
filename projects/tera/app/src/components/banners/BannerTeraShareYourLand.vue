@@ -15,11 +15,13 @@
         </RouterLink>
       </div>
 
-      <Button
-        class="self-end @md:self-auto"
-        :label="t('share')"
-        :icon="faShare"
-      />
+      <DialogTeraLandProposalManage>
+        <Button
+          class="self-end @md:self-auto"
+          :label="t('share')"
+          :icon="faShare"
+        />
+      </DialogTeraLandProposalManage>
     </div>
   </div>
 </template>
@@ -33,6 +35,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
+import DialogTeraLandProposalManage from '@lychen/tera-ui-components/land-proposal/dialogs/manage/DialogTeraLandProposalManage.vue';
 
 const { t } = useI18nExtended({
   messages,

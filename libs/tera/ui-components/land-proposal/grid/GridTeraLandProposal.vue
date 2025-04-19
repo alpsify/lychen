@@ -53,11 +53,11 @@ import DialogTeraLandProposalView from '@lychen/tera-ui-components/land-proposal
 import { Icon } from '@lychen/vue-ui-components-core/icon';
 import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons/faSpinnerThird';
 import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { operations } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import type { QueryStatus } from '@tanstack/vue-query';
 
 defineProps<{
-  queryResult: components['schemas']['LandProposal.jsonld-land_proposal.collection-public'];
+  queryResult?: operations['land-proposal_collection-public']['responses']['200']['content']['application/ld+json'];
   status: QueryStatus;
 }>();
 </script>

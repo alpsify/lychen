@@ -2,13 +2,13 @@
 
 namespace App\Provider;
 
-use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Entity\Land;
 use App\Entity\Person;
 use App\Entity\PersonApiKey;
 use App\Repository\LandMemberRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use LogicException;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -19,7 +19,7 @@ final readonly class LandMembersMeProvider implements ProviderInterface
     public function __construct(
         private LandMemberRepository $landMemberRepository,
         private Security $security,
-        private IriConverterInterface $iriConverter
+        private ManagerRegistry $managerRegistry
     )
     {
     }
@@ -36,7 +36,7 @@ final readonly class LandMembersMeProvider implements ProviderInterface
             $user = $user->getPerson();
         }
 
-        $land = $this->iriConverter->getResourceFromIri($context['filters']['land']);
+        $land = $this->managerRegistry->getRepository(Land::class)->findOneBy(['ulid' => $context['filters']['land']]);
 
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');

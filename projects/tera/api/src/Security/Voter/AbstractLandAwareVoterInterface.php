@@ -3,7 +3,6 @@
 namespace App\Security\Voter;
 
 use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\IriConverterInterface;
 use ApiPlatform\Metadata\Post;
 use App\Entity\Land;
 use App\Entity\LandApiKey;
@@ -14,6 +13,7 @@ use App\Security\Checker\PersonPermissionChecker;
 use App\Security\Interface\LandAwareInterface;
 use App\Security\Interface\PermissionHolder;
 use App\Security\Service\PermissionHolderRetriever;
+use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use LogicException;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
         PersonPermissionChecker $personPermissionChecker,
         LandMemberPermissionChecker $landMemberPermissionChecker,
         RequestStack $requestStack,
-        protected readonly IriConverterInterface $iriConverter)
+        protected readonly ManagerRegistry $managerRegistry)
     {
         parent::__construct($permissionHolderRetriever,
             $personApiKeyPermissionChecker,
@@ -52,7 +52,7 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
 
         $supportsSubject = $subject instanceof ($this->getSupportedClass());
         $supportsAttribute = in_array($attribute, $this->getAvailablePermissions());
-   
+
         return ($supportsSubject || $operationIsPost || $operationIsCollection) && $supportsAttribute;
     }
 
@@ -127,11 +127,8 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
             return $this->can($permissionHolder, $permission);
         }
 
-        if (!$landIri = $this->currentRequest->query->get('land')) {
-            throw new HttpException(422, "Land query parameter shouldn't be empty");
-        }
-
-        $land = $this->iriConverter->getResourceFromIri($landIri);
+        $landUlid = $this->currentRequest->query->get('land');
+        $land = $this->managerRegistry->getRepository(Land::class)->findOneBy(['ulid' => $landUlid]);
 
         if (!$land instanceof Land) {
             throw new LogicException('Land not found.');
