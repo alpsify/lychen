@@ -9,7 +9,7 @@
     <div
       :class="
         cn(
-          'rounded-xl min-h-[200px] md:min-h-full bg-secondary-container text-on-secondary-container',
+          'rounded-xl min-h-[200px] md:min-h-full bg-secondary-container text-on-secondary-container p-4',
           sideClass,
         )
       "

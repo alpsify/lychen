@@ -40,6 +40,7 @@ class LandMemberFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             LandFixtures::class,
+            LandRoleFixtures::class,
             PersonFixtures::class
         ];
     }

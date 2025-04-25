@@ -7,4 +7,5 @@ tasks:
   affected:
     command: noop
     options:
+      cache: false
       internal: true

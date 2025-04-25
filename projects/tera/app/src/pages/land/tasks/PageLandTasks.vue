@@ -110,8 +110,7 @@ import DialogTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/dialo
 import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
 //import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
 import {
-  LandTaskState,
-  PathsApiLand_rolesGetParametersQueryOrderPosition,
+  LandTaskJsonldState as LandTaskState,
   type components,
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
@@ -123,8 +122,8 @@ import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-componen
 const land = inject(INJECT_LAND_KEY);
 provide(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND, land);
 
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
 const { api } = useTeraApi();
 
@@ -133,13 +132,13 @@ const states = computed(() => Object.values(LandTaskState));
 const queries = computed(() =>
   states.value.map((state) => {
     return {
-      queryKey: ['landTasks', state, landId],
+      queryKey: ['landTasks', state, landUlid],
       queryFn: async () => {
         const response = await api.GET('/api/land_tasks', {
           params: {
             query: {
-              land: landId.value!,
-              'order[dueDate]': PathsApiLand_rolesGetParametersQueryOrderPosition.asc,
+              land: landUlid.value!,
+              'order[dueDate]': 'asc',
               state: state,
             },
           },

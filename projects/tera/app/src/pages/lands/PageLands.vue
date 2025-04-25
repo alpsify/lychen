@@ -18,19 +18,24 @@
             </p>
           </div>
         </div>
-        <div class="flex flex-row items-center gap-4 z-10">
-          <DialogTeraLandCreate v-model:open="open">
-            <Button
-              :label="t('add_land')"
-              :icon="faPlus"
-              size="sm" /></DialogTeraLandCreate
-          ><RouterLink :to="RoutePageCoGardening">
-            <Button
-              :icon="faSearch"
-              :label="t('search_land')"
-              size="sm"
-            />
-          </RouterLink>
+        <div class="flex flex-col md:flex-row md:items-center gap-4 z-10">
+          <div>
+            <DialogTeraLandCreate v-model:open="open">
+              <Button
+                :label="t('add_land')"
+                :icon="faPlus"
+                size="sm"
+            /></DialogTeraLandCreate>
+          </div>
+          <div>
+            <RouterLink :to="RoutePageCoGardening">
+              <Button
+                :icon="faSearch"
+                :label="t('search_land')"
+                size="sm"
+              />
+            </RouterLink>
+          </div>
         </div>
       </DivWithBackgroundImg>
     </template>
@@ -98,9 +103,9 @@ import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import { LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
-import { RoutePageCoGardening } from '../co-gardening';
+import { RoutePageCoGardening } from '../co-gardening/dashboard';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),

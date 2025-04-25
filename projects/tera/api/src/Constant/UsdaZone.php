@@ -4,51 +4,65 @@ namespace App\Constant;
 
 final class UsdaZone
 {
-    public const string ZONE_0A = 'zone-0a';
-    public const string ZONE_0B = 'zone-0b';
-    public const string ZONE_1A = 'zone-1a';
-    public const string ZONE_1B = 'zone-1b';
-    public const string ZONE_2A = 'zone-2a';
-    public const string ZONE_2B = 'zone-2b';
-    public const string ZONE_3A = 'zone-3a';
-    public const string ZONE_3B = 'zone-3b';
-    public const string ZONE_4A = 'zone-4a';
-    public const string ZONE_4B = 'zone-4b';
-    public const string ZONE_5A = 'zone-5a';
-    public const string ZONE_5B = 'zone-5b';
-    public const string ZONE_6A = 'zone-6a';
-    public const string ZONE_6B = 'zone-6b';
-    public const string ZONE_7A = 'zone-7a';
-    public const string ZONE_7B = 'zone-7b';
-    public const string ZONE_8A = 'zone-8a';
-    public const string ZONE_8B = 'zone-8b';
-    public const string ZONE_9A = 'zone-9a';
-    public const string ZONE_9B = 'zone-9b';
-    public const string ZONE_10A = 'zone-10a';
-    public const string ZONE_10B = 'zone-10b';
-    public const string ZONE_11A = 'zone-11a';
-    public const string ZONE_11B = 'zone-11b';
-    public const string ZONE_12A = 'zone-12a';
-    public const string ZONE_12B = 'zone-12b';
-    public const string ZONE_13A = 'zone-13a';
-    public const string ZONE_13B = 'zone-13b';
-    public const string ZONE_14A = 'zone-14a';
+    public const string ZONE_0A = 'zone_0a';
+    public const string ZONE_0B = 'zone_0b';
+    public const string ZONE_1A = 'zone_1a';
+    public const string ZONE_1B = 'zone_1b';
+    public const string ZONE_2A = 'zone_2a';
+    public const string ZONE_2B = 'zone_2b';
+    public const string ZONE_3A = 'zone_3a';
+    public const string ZONE_3B = 'zone_3b';
+    public const string ZONE_4A = 'zone_4a';
+    public const string ZONE_4B = 'zone_4b';
+    public const string ZONE_5A = 'zone_5a';
+    public const string ZONE_5B = 'zone_5b';
+    public const string ZONE_6A = 'zone_6a';
+    public const string ZONE_6B = 'zone_6b';
+    public const string ZONE_7A = 'zone_7a';
+    public const string ZONE_7B = 'zone_7b';
+    public const string ZONE_8A = 'zone_8a';
+    public const string ZONE_8B = 'zone_8b';
+    public const string ZONE_9A = 'zone_9a';
+    public const string ZONE_9B = 'zone_9b';
+    public const string ZONE_10A = 'zone_10a';
+    public const string ZONE_10B = 'zone_10b';
+    public const string ZONE_11A = 'zone_11a';
+    public const string ZONE_11B = 'zone_11b';
+    public const string ZONE_12A = 'zone_12a';
+    public const string ZONE_12B = 'zone_12b';
+    public const string ZONE_13A = 'zone_13a';
+    public const string ZONE_13B = 'zone_13b';
+    public const string ZONE_14A = 'zone_14a';
 
     public const array ALL = [
-        self::ZONE_0A, self::ZONE_0B,
-        self::ZONE_1A, self::ZONE_1B,
-        self::ZONE_2A, self::ZONE_2B,
-        self::ZONE_3A, self::ZONE_3B,
-        self::ZONE_4A, self::ZONE_4B,
-        self::ZONE_5A, self::ZONE_5B,
-        self::ZONE_6A, self::ZONE_6B,
-        self::ZONE_7A, self::ZONE_7B,
-        self::ZONE_8A, self::ZONE_8B,
-        self::ZONE_9A, self::ZONE_9B,
-        self::ZONE_10A, self::ZONE_10B,
-        self::ZONE_11A, self::ZONE_11B,
-        self::ZONE_12A, self::ZONE_12B,
-        self::ZONE_13A, self::ZONE_13B,
+        self::ZONE_0A,
+        self::ZONE_0B,
+        self::ZONE_1A,
+        self::ZONE_1B,
+        self::ZONE_2A,
+        self::ZONE_2B,
+        self::ZONE_3A,
+        self::ZONE_3B,
+        self::ZONE_4A,
+        self::ZONE_4B,
+        self::ZONE_5A,
+        self::ZONE_5B,
+        self::ZONE_6A,
+        self::ZONE_6B,
+        self::ZONE_7A,
+        self::ZONE_7B,
+        self::ZONE_8A,
+        self::ZONE_8B,
+        self::ZONE_9A,
+        self::ZONE_9B,
+        self::ZONE_10A,
+        self::ZONE_10B,
+        self::ZONE_11A,
+        self::ZONE_11B,
+        self::ZONE_12A,
+        self::ZONE_12B,
+        self::ZONE_13A,
+        self::ZONE_13B,
         self::ZONE_14A
     ];
 

@@ -13,7 +13,7 @@
 @layer base {
   :root {
     * {
-      min-width: 0;
+      /*min-width: 0;*/
     }
   }
 }

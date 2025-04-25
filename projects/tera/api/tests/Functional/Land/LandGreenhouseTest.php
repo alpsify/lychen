@@ -2,7 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandGreenhousePermission;
+use App\Security\Voter\LandGreenhouseVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use DateTime;
 use Zenstruck\Browser\Json;
@@ -19,11 +19,12 @@ class LandGreenhouseTest extends AbstractApiTestCase
 
         // Owner
         $this->browser()->actingAs($context->owner)
-            ->post('/api/land_greenhouses', ['json' => [
-                'name' => $name,
-                'constructionDate' => $constructionDate,
-                'land' => $this->getIriFromResource($context->land)
-            ]])
+            ->post('/api/land_greenhouses',
+                ['json' => [
+                    'name' => $name,
+                    'constructionDate' => $constructionDate,
+                    'land' => $this->getIriFromResource($context->land)
+                ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
             ->assertJsonMatches('constructionDate', $constructionDate)
@@ -32,18 +33,19 @@ class LandGreenhouseTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhousePermission::CREATE]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
         $name = faker()->name();
         $constructionDate = (new DateTime())->format('c');
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->post('/api/land_greenhouses', ['json' => [
-                'name' => $name,
-                'constructionDate' => $constructionDate,
-                'land' => $this->getIriFromResource($context->land->_real())
-            ]])
+            ->post('/api/land_greenhouses',
+                ['json' => [
+                    'name' => $name,
+                    'constructionDate' => $constructionDate,
+                    'land' => $this->getIriFromResource($context->land->_real())
+                ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
             ->assertJsonMatches('constructionDate', $constructionDate)
@@ -74,7 +76,7 @@ class LandGreenhouseTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhousePermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -102,12 +104,13 @@ class LandGreenhouseTest extends AbstractApiTestCase
         $newConstructionDate = (new DateTime())->format('c');
 
         $this->browser()->actingAs($context->owner)
-            ->patch($this->getIriFromResource($landGreenhouse), [
-                'json' => [
-                    'name' => $newName,
-                    'constructionDate' => $newConstructionDate
-                ]
-            ])
+            ->patch($this->getIriFromResource($landGreenhouse),
+                [
+                    'json' => [
+                        'name' => $newName,
+                        'constructionDate' => $newConstructionDate
+                    ]
+                ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $landGreenhouse->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
@@ -118,19 +121,20 @@ class LandGreenhouseTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhousePermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $newName = faker()->name();
         $newConstructionDate = (new DateTime())->format('c');
-        
+
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->patch($this->getIriFromResource($landGreenhouse), [
-                'json' => [
-                    'name' => $newName,
-                    'constructionDate' => $newConstructionDate
-                ]
-            ])
+            ->patch($this->getIriFromResource($landGreenhouse),
+                [
+                    'json' => [
+                        'name' => $newName,
+                        'constructionDate' => $newConstructionDate
+                    ]
+                ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $landGreenhouse->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
@@ -149,7 +153,7 @@ class LandGreenhouseTest extends AbstractApiTestCase
 
         // Owner
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_greenhouses', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->get('/api/land_greenhouses', ['query' => ['land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landGreenhouses))
             ->assertJsonMatches('member[0].ulid', $context->landGreenhouses[0]->getUlid()->toString())
@@ -160,11 +164,11 @@ class LandGreenhouseTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].constructionDate', $context->landGreenhouses[1]->getConstructionDate());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhousePermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseVoter::COLLECTION]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->get('/api/land_greenhouses', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->get('/api/land_greenhouses', ['query' => ['land' => $context->land->_real()->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landGreenhouses))
             ->assertJsonMatches('member[0].ulid', $context->landGreenhouses[0]->getUlid()->toString())
@@ -181,7 +185,8 @@ class LandGreenhouseTest extends AbstractApiTestCase
         array_map(fn() => $this->addOneLandGreenhouse($context), range(1, 25));
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_greenhouses', ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+            ->get('/api/land_greenhouses',
+                ['query' => ['land' => $context->land->getUlid()->toString(), 'itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
             ->use(function (Json $json) {
@@ -201,7 +206,7 @@ class LandGreenhouseTest extends AbstractApiTestCase
 
         // Member with permissions
         $this->addOneLandGreenhouse($context);
-        $landRole = $this->createLandRole($context->land, [LandGreenhousePermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

@@ -8,10 +8,8 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Provider\LandsLookingForMembersProvider;
 use App\Repository\LandRepository;
-use App\Security\Constant\LandPermission;
-use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandVoter;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -26,30 +24,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRepository::class)]
 #[ApiResource()]
-#[Patch(
-    denormalizationContext: ['groups' => ['user:land:patch']],
-    security: "is_granted('" . LandPermission::UPDATE . "', object)",)
-]
-#[Delete(security: "is_granted('" . LandPermission::DELETE . "', object)")]
-#[GetCollection(
-    uriTemplate: '/lands/looking_for_members',
-    paginationFetchJoinCollection: true,
-    normalizationContext: ['groups' => ['user:land:get-collection-looking-for-members']],
-    name: 'get-collection-looking-for-members',
-    provider: LandsLookingForMembersProvider::class)
-]
-#[Get(
-    normalizationContext: ['groups' => ['user:land:get']],
-    security: "is_granted('" . LandPermission::READ . "', object)")
-]
-#[GetCollection(
-    normalizationContext: ['groups' => ['user:land:collection']],
-)]
+#[Get(normalizationContext: ['groups' => ['land:get']], security: "is_granted('" . LandVoter::GET . "', object)")]
+#[GetCollection(normalizationContext: ['groups' => ['land:collection']], security: "is_granted('" . LandVoter::COLLECTION . "')")]
 #[Post(
-    denormalizationContext: ['groups' => ['user:land:post']],
-)]
+    normalizationContext  : ['groups' => ['land:post', 'land:post:output']],
+    denormalizationContext: ['groups' => ['land:post', 'land:post:input']],
+    security              : "is_granted('" . LandVoter::POST . "')")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land:patch', 'land:patch:output']],
+    denormalizationContext: ['groups' => ['land:patch', 'land:patch:input']],
+    security              : "is_granted('" . LandVoter::PATCH . "', previous_object)")]
+#[Delete(security: "is_granted('" . LandVoter::DELETE . "', object)")]
 #[ORM\HasLifecycleCallbacks]
-class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
+class Land extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
@@ -58,25 +45,30 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public ?Person $owner = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post", "user:land_member_invitation:collection-by-email"])]
+    #[Groups(["land:collection",
+              "land:get",
+              "land:patch",
+              "land:post",
+              "land_member_invitation:collection-by-email",
+              "land_proposal:collection-public"])]
     private ?string $name = null;
 
     /**
      * @var Collection<int, LandMember>
      */
     #[ORM\OneToMany(targetEntity: LandMember::class, mappedBy: 'land', orphanRemoval: true)]
-    #[Groups(["user:land:collection", "user:land:get"])]
+    #[Groups(["land:collection", "land:get"])]
     private Collection $landMembers;
 
     #[ORM\OneToOne(mappedBy: 'land', cascade: ['persist', 'remove'])]
-    #[Groups(["user:land:collection", "user:land:get"])]
+    #[Groups(["land:collection", "land:get"])]
     private ?LandSetting $landSetting = null;
 
     /**
      * @var Collection<int, LandArea>
      */
     #[ORM\OneToMany(targetEntity: LandArea::class, mappedBy: 'land', orphanRemoval: true)]
-    #[Groups(["user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     private Collection $landAreas;
 
     /**
@@ -93,7 +85,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
 
     #[ORM\Column(nullable: true)]
     #[Assert\GreaterThanOrEqual(0)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post", "land_proposal:collection-public"])]
     private ?int $surface = null;
 
     /**
@@ -109,6 +101,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     private Collection $landRoles;
 
     #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?LandRole $defaultRole = null;
 
     /**
@@ -118,8 +111,31 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     private Collection $landGreenhouses;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch", "land:post", "land_proposal:collection-public"])]
     private ?int $altitude = 1;
+
+    /**
+     * @var Collection<int, LandProposal>
+     */
+    #[ORM\OneToMany(targetEntity: LandProposal::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landProposals;
+
+    /**
+     * @var Collection<int, LandDeal>
+     */
+    #[ORM\OneToMany(targetEntity: LandDeal::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landDeals;
+
+    #[ORM\OneToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    #[Groups(["land_proposal:collection-public"])]
+    private ?Address $address = null;
+
+    /**
+     * @var Collection<int, LandApiKey>
+     */
+    #[ORM\OneToMany(targetEntity: LandApiKey::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landApiKeys;
 
     public function __construct(?Ulid $ulid = null)
     {
@@ -132,6 +148,9 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         $this->landRoles = new ArrayCollection();
         $this->landCultivationPlans = new ArrayCollection();
         $this->landGreenhouses = new ArrayCollection();
+        $this->landProposals = new ArrayCollection();
+        $this->landDeals = new ArrayCollection();
+        $this->landApiKeys = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -146,19 +165,19 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
         return $this;
     }
 
-    #[Groups(["user:land:get-collection-looking-for-members", "user:land:collection", "user:land:get", "user:land:patch", "user:land:post"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land:get", "user:land:patch"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land:get", "user:land:patch"])]
+    #[Groups(["land:collection", "land:get", "land:patch:output", "land:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
@@ -428,6 +447,108 @@ class Land extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterfa
     public function setAltitude(?int $altitude): static
     {
         $this->altitude = $altitude;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandProposal>
+     */
+    public function getLandProposals(): Collection
+    {
+        return $this->landProposals;
+    }
+
+    public function addLandProposal(LandProposal $landProposal): static
+    {
+        if (!$this->landProposals->contains($landProposal)) {
+            $this->landProposals->add($landProposal);
+            $landProposal->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandProposal(LandProposal $landProposal): static
+    {
+        if ($this->landProposals->removeElement($landProposal)) {
+            // set the owning side to null (unless already changed)
+            if ($landProposal->getLand() === $this) {
+                $landProposal->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandDeal>
+     */
+    public function getLandDeals(): Collection
+    {
+        return $this->landDeals;
+    }
+
+    public function addLandDeal(LandDeal $landDeal): static
+    {
+        if (!$this->landDeals->contains($landDeal)) {
+            $this->landDeals->add($landDeal);
+            $landDeal->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandDeal(LandDeal $landDeal): static
+    {
+        if ($this->landDeals->removeElement($landDeal)) {
+            // set the owning side to null (unless already changed)
+            if ($landDeal->getLand() === $this) {
+                $landDeal->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): static
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandApiKey>
+     */
+    public function getLandApiKeys(): Collection
+    {
+        return $this->landApiKeys;
+    }
+
+    public function addLandApiKey(LandApiKey $landApiKey): static
+    {
+        if (!$this->landApiKeys->contains($landApiKey)) {
+            $this->landApiKeys->add($landApiKey);
+            $landApiKey->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandApiKey(LandApiKey $landApiKey): static
+    {
+        if ($this->landApiKeys->removeElement($landApiKey)) {
+            // set the owning side to null (unless already changed)
+            if ($landApiKey->getLand() === $this) {
+                $landApiKey->setLand(null);
+            }
+        }
 
         return $this;
     }

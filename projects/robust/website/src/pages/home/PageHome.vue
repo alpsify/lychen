@@ -7,13 +7,11 @@
   <Container wrapper-class="bg-gradient-to-b from-surface-container to-surface">
     <Title variant="h2">Gratuit. Fun. A ton rythme.</Title>
   </Container>
-  <SectionCrowdfunding />
 </template>
 
 <script lang="ts" setup>
 import ogImageUrl from './assets/HomeOgImage.webp';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import SectionCrowdfunding from '@lychen/vue-ui-components-website/section-crowdfunding/SectionCrowdfunding.vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';

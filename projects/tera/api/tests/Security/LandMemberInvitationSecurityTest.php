@@ -44,7 +44,8 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->post('/api/land_member_invitations', ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->post('/api/land_member_invitations',
+                ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
     }
 
@@ -66,7 +67,8 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
 
         // User cannot patch a LandMemberInvitation with a Land they are not a member of (land property should be ignored)
         $this->browser()->actingAs($context1->owner)
-            ->patch($this->getIriFromResource($context1->landMemberInvitations[0]), ['json' => ['land' => $this->getIriFromResource($context2->land)]])
+            ->patch($this->getIriFromResource($context1->landMemberInvitations[0]),
+                ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
 
         $this->browser()->actingAs($context1->owner)
@@ -191,24 +193,26 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
 
         // User cannot list LandMemberInvitation if they are not authenticated
         $this->browser()
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_member_invitations', ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(401);
 
         // User cannot list LandMemberInvitation without a Land query parameter
         $this->browser()->actingAs($context1->owner)
             ->get('/api/land_member_invitations', ['query' => ['land' => '']])
-            ->assertStatus(422);
+            ->assertStatus(400);
 
         // User cannot list LandMemberInvitation for a Land they are not a member of
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context1->land)]])
+            ->get('/api/land_member_invitations',
+                ['query' => ['land' => $context1->land->getUlid()->toString()]])
             ->assertStatus(403);
 
         // User cannot list LandMemberInvitation for a Land for which they do not have permission
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_member_invitations', ['query' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->get('/api/land_member_invitations',
+                ['query' => ['land' => $context1->land->_real()->getUlid()->toString()]])
             ->assertStatus(403);
     }
 
@@ -219,21 +223,23 @@ class LandMemberInvitationSecurityTest extends AbstractApiTestCase
         $email = faker()->email();
         $this->addOneLandMemberInvitation($context1, null, $email);
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_member_invitations/check_email_unicity', ['query'
-            => [
-                    'email' => $email,
-                    'land' => $this->getIriFromResource($context1->land)
-                ]])
-            ->assertStatus(401);
+            ->get('/api/land_member_invitations/check_email_unicity',
+                ['query'
+                 => [
+                        'email' => $email,
+                        'land' => $context1->land->_real()->getUlid()->toString()
+                    ]])
+            ->assertStatus(403);
 
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->get('/api/land_member_invitations/check_email_unicity', ['query'
-            => [
-                    'email' => $email,
-                    'land' => $this->getIriFromResource($context1->land->_real())
-                ]])
+            ->get('/api/land_member_invitations/check_email_unicity',
+                ['query'
+                 => [
+                        'email' => $email,
+                        'land' => $context1->land->_real()->getUlid()->toString()
+                    ]])
             ->assertStatus(401);
     }
 

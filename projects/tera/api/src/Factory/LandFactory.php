@@ -31,6 +31,7 @@ final class LandFactory extends PersistentProxyObjectFactory
             'name' => self::faker()->text(255),
             'surface' => self::faker()->numberBetween(30, 300),
             'altitude' => self::faker()->numberBetween(200, 1500),
+            'address' => AddressFactory::new()
         ];
     }
 

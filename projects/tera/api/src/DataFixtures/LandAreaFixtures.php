@@ -20,7 +20,7 @@ class LandAreaFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies(): array
     {
         return [
-            LandMemberFixtures::class
+            LandFixtures::class
         ];
     }
 }

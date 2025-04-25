@@ -2,7 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandAreaParameterPermission;
+use App\Security\Voter\LandAreaParameterVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandAreaParameterTest extends AbstractApiTestCase
@@ -23,7 +23,7 @@ class LandAreaParameterTest extends AbstractApiTestCase
             ->assertJsonMatches('length', $landAreaParameter->getLength());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaParameterPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandAreaParameterVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -56,7 +56,7 @@ class LandAreaParameterTest extends AbstractApiTestCase
             ->assertJsonMatches('length', $newWidthAndLength);
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaParameterPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandAreaParameterVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
         $newWidthAndLength = 40;
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

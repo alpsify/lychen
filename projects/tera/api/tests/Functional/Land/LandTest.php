@@ -2,7 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandPermission;
+use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Zenstruck\Browser\Json;
@@ -11,7 +11,8 @@ use function Zenstruck\Foundry\faker;
 class LandTest extends AbstractApiTestCase
 {
     #[DataProvider('landDataProvider')]
-    public function testPost(int $surface, int $altitude)
+    public function testPost(int $surface,
+                             int $altitude)
     {
         $person = $this->createPerson();
 
@@ -30,6 +31,15 @@ class LandTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
+
+        // API Key
+        $person = $this->createPerson();
+        $personApiKey = $this->createPersonApiKey($person, ['permissions' => [LandVoter::POST]]);
+        $this->browser()->actingAs($personApiKey)
+            ->post('/api/lands', ['json' => ['name' => faker()->name(),
+                                             'surface' => $surface,
+                                             'altitude' => $altitude]])
+            ->assertStatus(201);
     }
 
     public function testGet()
@@ -49,7 +59,7 @@ class LandTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -64,6 +74,12 @@ class LandTest extends AbstractApiTestCase
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNull());
                 $json->assertThat('landSetting', fn(Json $json) => $json->isNotNull());
             });
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandVoter::GET]]);
+        $this->browser()->actingAs($landApiKey)
+            ->get($this->getIriFromResource($context->land->_real()))
+            ->assertStatus(200);
     }
 
     public function testPatch()
@@ -93,7 +109,7 @@ class LandTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $newName = faker()->name();
@@ -117,6 +133,18 @@ class LandTest extends AbstractApiTestCase
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
             });
+
+        // API Key
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandVoter::PATCH]]);
+        $this->browser()->actingAs($landApiKey)
+            ->patch($this->getIriFromResource($context->land->_real()), [
+                'json' => [
+                    'name' => $newName,
+                    'surface' => $newSurface,
+                    'altitude' => $newAltitude,
+                ]
+            ])
+            ->assertStatus(200);
     }
 
     public function testPatchWithInvalidSurface()
@@ -142,10 +170,17 @@ class LandTest extends AbstractApiTestCase
 
         // Member with permissions
         $context = $this->createLandContext();
-        $landRole = $this->createLandRole($context->land, [LandPermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
+            ->delete($this->getIriFromResource($context->land->_real()))
+            ->assertStatus(204);
+
+        // API Key
+        $context = $this->createLandContext();
+        $landApiKey = $this->createLandApiKey($context->land, ['permissions' => [LandVoter::DELETE]]);
+        $this->browser()->actingAs($landApiKey)
             ->delete($this->getIriFromResource($context->land->_real()))
             ->assertStatus(204);
     }
@@ -165,6 +200,13 @@ class LandTest extends AbstractApiTestCase
             ->assertJsonMatches('member[0].name', $context1->land->getName())
             ->assertJsonMatches('member[0].surface', $context1->land->getSurface())
             ->assertJsonMatches('member[0].altitude', $context1->land->getAltitude());
+
+        // API Key
+        $personApiKey = $this->createPersonApiKey($context1->owner, ['permissions' => [LandVoter::COLLECTION]]);
+        $this->browser()->actingAs($personApiKey)
+            ->get('/api/lands')
+            ->assertStatus(200)
+            ->assertJsonMatches('totalItems', 2);
     }
 
     public function testCollectionPagination()
@@ -176,59 +218,6 @@ class LandTest extends AbstractApiTestCase
             ->get('/api/lands', ['query' => ['itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
-            ->use(function (Json $json) {
-                $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
-            });
-    }
-
-    public function testLookingForMembers()
-    {
-        $context1 = $this->createLandContext();
-        $context1->land->getLandSetting()->setLookingForMember(true);
-        array_map(fn() => $this->createLand($context1->owner), range(1, 3));
-
-        $context2 = $this->createLandContext();
-        $context2->land->getLandSetting()->setLookingForMember(true);
-        $context2->land->_save();
-
-        $this->browser()->actingAs($context1->owner)
-            ->get('/api/lands/looking_for_members')
-            ->assertSuccessful()
-            ->assertJsonMatches('totalItems', 2)
-            ->use(function (Json $json) {
-                $json->assertThat('view', fn(Json $json) => $json->isNull());
-            })
-            ->assertJsonMatches('member[0].ulid', $context1->land->getUlid()->toString())
-            ->assertJsonMatches('member[0].name', $context1->land->getName())
-            ->assertJsonMatches('member[0].surface', $context1->land->getSurface())
-            ->assertJsonMatches('member[0].altitude', $context1->land->getAltitude())
-            ->assertJsonMatches('member[1].ulid', $context2->land->getUlid()->toString())
-            ->assertJsonMatches('member[1].name', $context2->land->getName())
-            ->assertJsonMatches('member[1].surface', $context2->land->getSurface())
-            ->assertJsonMatches('member[1].altitude', $context2->land->getAltitude());
-    }
-
-    public function testLookingForMembersPagination()
-    {
-        $context = $this->createLandContext();
-        $lands = [];
-        for ($i = 0; $i < 25; $i++) {
-            $land = $this->createLand($context->owner);
-            $land->getLandSetting()->setLookingForMember(true);
-            $lands[] = $land;
-        }
-
-        $context2 = $this->createLandContext();
-        $context2->land->getLandSetting()->setLookingForMember(true);
-        $context2->land->_save();
-
-        $this->browser()->actingAs($context->owner)
-            ->get('/api/lands/looking_for_members', ['query' => ['itemsPerPage' => 10, 'page' => 2]])
-            ->assertSuccessful()
-            ->assertJsonMatches('totalItems', 26)
-            ->use(function (Json $json) {
-                $json->assertThat('view', fn(Json $json) => $json->isNotNull());
-            })
             ->use(function (Json $json) {
                 $json->assertThat('member', fn(Json $json) => $json->hasCount(10));
             });

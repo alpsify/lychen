@@ -10,12 +10,11 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Parameter;
-use App\Doctrine\Filter\LandFilter;
+use App\Filter\LandFilter;
 use App\Repository\LandRoleRepository;
-use App\Security\Constant\LandRolePermission;
-use App\Security\Constant\Permissions;
+use App\Security\Constant\LandMemberPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandRoleVoter;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -32,14 +31,33 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandRoleRepository::class)]
 #[ApiResource]
-#[Post(denormalizationContext: ['groups' => ['user:land_role:post']], securityPostDenormalize: "is_granted('" . LandRolePermission::CREATE . "', object)")]
-#[Patch(denormalizationContext: ['groups' => ['user:land_role:patch']], security: "is_granted('" . LandRolePermission::UPDATE . "', object)")]
-#[Delete(security: "is_granted('" . LandRolePermission::DELETE . "', object)")]
-#[Get(normalizationContext: ['groups' => ['user:land_role:get']], security: "is_granted('" . LandRolePermission::READ . "', object)")]
-#[GetCollection(normalizationContext: ['groups' => ['user:land_role:collection']], security: "is_granted('" . LandRolePermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
-    'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
-])]
+#[Post(
+    normalizationContext   : ['groups' => ['land_role:post', 'land_role:post:output']],
+    denormalizationContext : ['groups' => ['land_role:post', 'land_role:post:input']],
+    securityPostDenormalize: "is_granted('" . LandRoleVoter::POST . "', object)"
+)]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_role:patch', 'land_role:patch:output']],
+    denormalizationContext: ['groups' => ['land_role:patch', 'land_role:patch:input']],
+    security              : "is_granted('" . LandRoleVoter::PATCH . "', previous_object)"
+)]
+#[Delete(
+    security: "is_granted('" . LandRoleVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_role:get']], security: "is_granted('" . LandRoleVoter::GET . "', object)"
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_role:collection']],
+    security            : "is_granted('" . LandRoleVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class,
+        ),
+        'order[:property]' => new QueryParameter(filter: 'land_role.order_filter'),
+    ]
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
@@ -48,30 +66,37 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use PositionTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_role:collection", "user:land_member:collection", "user:land_member_invitation:collection", "user:land_role:get", "user:land_role:patch", "user:land_member:get-me", "user:land_role:post", "user:land_member_invitation:collection-by-email"])]
+    #[Groups(["land_role:collection",
+              "land_member:collection",
+              "land_member_invitation:collection",
+              "land_role:get",
+              "land_role:patch",
+              "land_member:me",
+              "land_role:post",
+              "land_member_invitation:collection-by-email"])]
     #[Assert\NotBlank()]
     private ?string $name = null;
 
     #[Gedmo\SortableGroup()]
     #[ORM\ManyToOne(inversedBy: 'landRoles')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_role:get", "user:land_role:post"])]
+    #[Groups(["land_role:get", "land_role:post"])]
     private ?Land $land = null;
 
     /**
      * @var Collection<int, LandMember>
      */
     #[ORM\ManyToMany(targetEntity: LandMember::class, mappedBy: 'landRoles')]
-    #[Groups(["user:land_role:collection", "user:land_role:get"])]
+    #[Groups(["land_role:collection", "land_role:get"])]
     private Collection $landMembers;
 
     #[ORM\Column(nullable: true, options: ['jsonb' => true])]
-    #[Assert\Choice(Permissions::ALL, multiple: true)]
-    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post", "user:land_member:get-me"])]
+    #[Assert\Choice(LandMemberPermission::ALL, multiple: true)]
+    #[Groups(["land_role:collection", "land_role:get", "land_role:patch", "land_role:post", "land_member:me"])]
     #[ApiProperty(openapiContext: [
         'type' => 'array',
-        'enum' => Permissions::LAND_MEMBER_RELATED,
-        'example' => Permissions::LAND_MEMBER_RELATED
+        'enum' => LandMemberPermission::ALL,
+        'example' => LandMemberPermission::ALL
     ])]
     private ?array $permissions = null;
 
@@ -81,19 +106,19 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         $this->landMembers = new ArrayCollection();
     }
 
-    #[Groups(["user:land_role:collection", "user:land_role:get", "user:land_role:patch", "user:land_role:post"])]
+    #[Groups(["land_role:collection", "land_role:get", "land_role:patch:output", "land_role:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_role:get", "user:land_role:patch"])]
+    #[Groups(["land_role:collection", "land_role:get", "land_role:patch:output", "land_role:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land_role:get", "user:land_role:patch"])]
+    #[Groups(["land_role:collection", "land_role:get", "land_role:patch:output", "land_role:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
@@ -162,7 +187,7 @@ class LandRole extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         return $this;
     }
 
-    #[Groups(["user:land_role:collection", "user:land_role:get"])]
+    #[Groups(["land_role:collection", "land_role:get"])]
     public function getPosition(): int
     {
         return $this->position;

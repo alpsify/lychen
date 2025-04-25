@@ -3,7 +3,7 @@
 namespace App\Tests\Functional\Land;
 
 use App\Constant\LandAreaKind;
-use App\Security\Constant\LandAreaPermission;
+use App\Security\Voter\LandAreaVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Zenstruck\Browser\Json;
 use function Zenstruck\Foundry\faker;
@@ -20,12 +20,13 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Owner
         $this->browser()->actingAs($context->owner)
-            ->post('/api/land_areas', ['json' => [
-                'name' => $name,
-                'description' => $description,
-                'kind' => $kind,
-                'land' => $this->getIriFromResource($context->land)
-            ]])
+            ->post('/api/land_areas',
+                ['json' => [
+                    'name' => $name,
+                    'description' => $description,
+                    'kind' => $kind,
+                    'land' => $this->getIriFromResource($context->land)
+                ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
             ->assertJsonMatches('description', $description)
@@ -35,18 +36,19 @@ class LandAreaTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaPermission::CREATE]);
+        $landRole = $this->createLandRole($context->land, [LandAreaVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
         $name = faker()->name();
         $description = faker()->text();
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->post('/api/land_areas', ['json' => [
-                'name' => $name,
-                'description' => $description,
-                'land' => $this->getIriFromResource($context->land->_real())
-            ]])
+            ->post('/api/land_areas',
+                ['json' => [
+                    'name' => $name,
+                    'description' => $description,
+                    'land' => $this->getIriFromResource($context->land->_real())
+                ]])
             ->assertStatus(201)
             ->assertJsonMatches('name', $name)
             ->assertJsonMatches('description', $description)
@@ -78,7 +80,7 @@ class LandAreaTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandAreaVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -107,12 +109,13 @@ class LandAreaTest extends AbstractApiTestCase
         $newDescription = faker()->paragraph();
 
         $this->browser()->actingAs($context->owner)
-            ->patch($this->getIriFromResource($landArea), [
-                'json' => [
-                    'name' => $newName,
-                    'description' => $newDescription
-                ]
-            ])
+            ->patch($this->getIriFromResource($landArea),
+                [
+                    'json' => [
+                        'name' => $newName,
+                        'description' => $newDescription
+                    ]
+                ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
@@ -123,16 +126,17 @@ class LandAreaTest extends AbstractApiTestCase
             });
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandAreaVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->patch($this->getIriFromResource($landArea), [
-                'json' => [
-                    'name' => $newName,
-                    'description' => $newDescription
-                ]
-            ])
+            ->patch($this->getIriFromResource($landArea),
+                [
+                    'json' => [
+                        'name' => $newName,
+                        'description' => $newDescription
+                    ]
+                ])
             ->assertStatus(200)
             ->assertJsonMatches('ulid', $landArea->getUlid()->toString())
             ->assertJsonMatches('name', $newName)
@@ -151,7 +155,7 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Owner
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->get('/api/land_areas', ['query' => ['land' => $context->land->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landAreas))
             ->assertJsonMatches('member[0].ulid', $context->landAreas[0]->getUlid()->toString())
@@ -164,11 +168,11 @@ class LandAreaTest extends AbstractApiTestCase
             ->assertJsonMatches('member[1].state', $context->landAreas[1]->getState());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandAreaVoter::COLLECTION]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land->_real())]])
+            ->get('/api/land_areas', ['query' => ['land' => $context->land->_real()->getUlid()->toString()]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', count($context->landAreas))
             ->assertJsonMatches('member[0].ulid', $context->landAreas[0]->getUlid()->toString())
@@ -187,7 +191,8 @@ class LandAreaTest extends AbstractApiTestCase
         array_map(fn() => $this->addOneLandArea($context), range(1, 25));
 
         $this->browser()->actingAs($context->owner)
-            ->get('/api/land_areas', ['query' => ['land' => $this->getIriFromResource($context->land), 'itemsPerPage' => 10, 'page' => 2]])
+            ->get('/api/land_areas',
+                ['query' => ['land' => $context->land->getUlid()->toString(), 'itemsPerPage' => 10, 'page' => 2]])
             ->assertSuccessful()
             ->assertJsonMatches('totalItems', 25)
             ->use(function (Json $json) {
@@ -207,7 +212,7 @@ class LandAreaTest extends AbstractApiTestCase
 
         // Member with permissions
         $this->addOneLandArea($context);
-        $landRole = $this->createLandRole($context->land, [LandAreaPermission::DELETE]);
+        $landRole = $this->createLandRole($context->land, [LandAreaVoter::DELETE]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

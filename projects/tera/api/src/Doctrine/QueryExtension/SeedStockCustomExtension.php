@@ -28,12 +28,12 @@ final readonly class SeedStockCustomExtension implements QueryCollectionExtensio
             return;
         }
 
-        $queryBuilder->where('lm.person = :current_user');
+        $rootAlias = $queryBuilder->getRootAliases()[0];
+        $queryBuilder->andWhere(sprintf('%s.person = :current_user', $rootAlias));
         $queryBuilder->setParameter('current_user', $user->getId());
     }
 
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, ?Operation $operation = null, array $context = []): void
     {
-        // TODO: Implement applyToItem() method.
     }
 }

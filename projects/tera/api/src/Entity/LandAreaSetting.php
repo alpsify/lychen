@@ -6,8 +6,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use App\Repository\LandAreaSettingRepository;
-use App\Security\Constant\LandAreaSettingPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandAreaSettingVoter;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Symfony\Component\Serializer\Attribute\Groups;
@@ -15,20 +15,25 @@ use Symfony\Component\Uid\Ulid;
 
 #[ORM\Entity(repositoryClass: LandAreaSettingRepository::class)]
 #[ApiResource]
-#[Patch(security: "is_granted('" . LandAreaSettingPermission::UPDATE . "', object)")]
-#[Get(security: "is_granted('" . LandAreaSettingPermission::READ . "', object)")]
+#[Patch(
+    normalizationContext  : ['groups' => ['land_area_setting:patch', 'land_area_setting:patch:output']],
+    denormalizationContext: ['groups' => ['land_area_setting:patch', 'land_area_setting:patch:input']],
+    security              : "is_granted('" . LandAreaSettingVoter::PATCH . "', previous_object)")]
+#[Get(
+    normalizationContext: ['groups' => ['land_area_setting:get']],
+    security            : "is_granted('" . LandAreaSettingVoter::GET . "', object)")]
 class LandAreaSetting extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     #[ORM\OneToOne(inversedBy: 'landAreaSetting', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_area_setting:get"])]
+    #[Groups(["land_area_setting:get"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column]
-    #[Groups(["user:land_area_setting:get", "user:land_area_setting:patch"])]
+    #[Groups(["land_area_setting:get", "land_area_setting:patch"])]
     private ?bool $rotationActivated = false;
 
-    #[Groups(["user:land_area_setting:patch", "user:land_area_setting:get"])]
+    #[Groups(["land_area_setting:patch:output", "land_area_setting:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();

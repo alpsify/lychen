@@ -72,6 +72,7 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@components/*": ["src/components/*"],
       "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
       "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],

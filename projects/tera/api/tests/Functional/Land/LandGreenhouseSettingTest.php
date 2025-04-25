@@ -2,7 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandGreenhouseSettingPermission;
+use App\Security\Voter\LandGreenhouseSettingVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandGreenhouseSettingTest extends AbstractApiTestCase
@@ -20,7 +20,7 @@ class LandGreenhouseSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('ulid', $landGreenhouseSetting->getUlid()->toString());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhouseSettingPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseSettingVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -44,7 +44,7 @@ class LandGreenhouseSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('ulid', $landGreenhouseSetting->getUlid()->toString());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandGreenhouseSettingPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandGreenhouseSettingVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

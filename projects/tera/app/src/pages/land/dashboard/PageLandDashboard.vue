@@ -138,23 +138,7 @@
             disabled
           />
         </Card>
-        <Card class="bg-gradient-to-tr from-surface-container to-blue-300/30 gap-4">
-          <div class="flex flex-col gap-0">
-            <BaseHeading variant="h3">Données</BaseHeading>
-            <p class="opacity-80">On s'occupe de vous générer des revenus grâce à vos données.</p>
-          </div>
-          <p class="font-bold flex flex-row gap-2 items-center">
-            Valeur estimé : <Skeleton class="w-[30px] h-5" /> € /mois
-          </p>
-          <BadgeDevelopmentInProgress class="self-start" />
-          <Button
-            disabled
-            label="Configurer"
-            variant="ghost"
-            class="self-end"
-            :icon="faDatabase"
-          />
-        </Card>
+        <BannerTeraShareYourLand />
       </div>
     </div>
 
@@ -260,11 +244,10 @@ import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldi
 import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalendarCirclePlus';
 import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
 import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
-import { faDatabase } from '@fortawesome/pro-light-svg-icons/faDatabase';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
-import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
 import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
+import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
 
 const Title = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/title/Title.vue'),
@@ -281,14 +264,14 @@ const landMember = inject(INJECT_LAND_MEMBER_KEY);
 
 const { allowed: settingsButtonAllowed } = useLandGuard(landMember, ['land_update']);
 
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
 const { data: landAreas } = useQuery({
-  queryKey: ['landAreas', landId],
+  queryKey: ['landAreas', landUlid],
   queryFn: async () => {
     const response = await api.GET('/api/land_areas', {
-      params: { query: { land: landId.value! } },
+      params: { query: { land: landUlid.value! } },
     });
 
     return response.data;
@@ -297,10 +280,10 @@ const { data: landAreas } = useQuery({
 });
 
 const { data: landGreenhouses } = useQuery({
-  queryKey: ['landGreenhouses', landId],
+  queryKey: ['landGreenhouses', landUlid],
   queryFn: async () => {
     const response = await api.GET('/api/land_greenhouses', {
-      params: { query: { land: landId.value! } },
+      params: { query: { land: landUlid.value! } },
     });
 
     return response.data;

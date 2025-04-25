@@ -68,133 +68,133 @@ class PlantGlobal extends Plant
         return $this;
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getName(): ?string
     {
         return parent::getName();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getLatinName(): ?string
     {
         return parent::getLatinName();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function isPerpetual(): ?bool
     {
         return parent::isPerpetual();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getDaysToGerminationAverage(): ?int
     {
         return parent::getDaysToGerminationAverage();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getVariety(): ?string
     {
         return parent::getVariety();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getSowingMinimalTemperature(): ?int
     {
         return parent::getSowingMinimalTemperature();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getSowingOptimalTemperature(): ?int
     {
         return parent::getSowingOptimalTemperature();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getSowingMonths(): ?array
     {
         return parent::getSowingMonths();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getHarvestingMonths(): ?array
     {
         return parent::getHarvestingMonths();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function isBio(): ?bool
     {
         return parent::isBio();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getMaturity(): ?string
     {
         return parent::getMaturity();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getSoilType(): ?string
     {
         return parent::getSoilType();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getExposure(): ?string
     {
         return parent::getExposure();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getVegetationThreshold(): ?int
     {
         return parent::getVegetationThreshold();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getDaysToHarvestMin(): ?int
     {
         return parent::getDaysToHarvestMin();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getDaysToHarvestMax(): ?int
     {
         return parent::getDaysToHarvestMax();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getSpecies(): ?string
     {
         return parent::getSpecies();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getFamily(): ?array
     {
         return parent::getFamily();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getPlantingSpacingInCm(): ?int
     {
         return parent::getPlantingSpacingInCm();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return parent::getCreatedAt();
     }
 
-    #[Groups(['user:plant_global:get', 'user:plant_global:collection'])]
+    #[Groups(['plant_global:get', 'plant_global:collection'])]
     public function getUpdatedAt(): ?DateTimeInterface
     {
         return parent::getUpdatedAt();

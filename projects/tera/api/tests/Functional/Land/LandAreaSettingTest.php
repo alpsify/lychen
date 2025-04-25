@@ -2,7 +2,7 @@
 
 namespace App\Tests\Functional\Land;
 
-use App\Security\Constant\LandAreaSettingPermission;
+use App\Security\Voter\LandAreaSettingVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class LandAreaSettingTest extends AbstractApiTestCase
@@ -21,7 +21,7 @@ class LandAreaSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('rotationActivated', $landAreaSetting->isRotationActivated());
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaSettingPermission::READ]);
+        $landRole = $this->createLandRole($context->land, [LandAreaSettingVoter::GET]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
@@ -47,7 +47,7 @@ class LandAreaSettingTest extends AbstractApiTestCase
             ->assertJsonMatches('rotationActivated', true);
 
         // Member with permissions
-        $landRole = $this->createLandRole($context->land, [LandAreaSettingPermission::UPDATE]);
+        $landRole = $this->createLandRole($context->land, [LandAreaSettingVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
 
         $this->browser()->actingAs($context->landMembers[0]->getPerson())

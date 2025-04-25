@@ -1,7 +1,7 @@
-import { LandTaskState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandTaskJsonldState as State } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 export default {
-  [LandTaskState.to_be_done]: 'à faire',
-  [LandTaskState.in_progress]: 'en cours',
-  [LandTaskState.done]: 'terminé',
+  [State.to_be_done]: 'à faire',
+  [State.in_progress]: 'en cours',
+  [State.done]: 'terminé',
 };

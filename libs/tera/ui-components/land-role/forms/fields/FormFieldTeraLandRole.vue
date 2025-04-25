@@ -136,26 +136,26 @@ const fieldSchema = toTypedSchema(
   }),
 );
 
-const landId = computed(() => props.land['@id']);
+const landUlid = computed(() => props.land?.ulid);
 
 const { api } = useTeraApi();
 
 const { data: landRoles } = useQuery({
-  queryKey: ['landRoles', landId],
+  queryKey: ['landRoles', landUlid],
   queryFn: async () => {
-    if (!landId.value) {
-      throw new Error('missing.land_id');
+    if (!landUlid.value) {
+      throw new Error('missing.ulid');
     }
     const response = await api.GET('/api/land_roles', {
       params: {
         query: {
-          land: landId.value,
+          land: landUlid.value,
         },
       },
     });
     return response.data;
   },
-  enabled: !!landId.value,
+  enabled: !!landUlid.value,
 });
 
 const landRoleOptions = computed(() =>

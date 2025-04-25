@@ -10,17 +10,14 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Parameter;
-use ApiPlatform\OpenApi\Model\RequestBody;
-use App\Doctrine\Filter\LandFilter;
+use App\Filter\LandFilter;
 use App\Processor\WorkflowTransitionProcessor;
 use App\Repository\LandTaskRepository;
-use App\Security\Constant\LandTaskPermission;
 use App\Security\Interface\LandAwareInterface;
+use App\Security\Voter\LandTaskVoter;
 use App\Workflow\LandTask\LandTaskWorkflowPlace;
 use App\Workflow\LandTask\LandTaskWorkflowTransition;
-use ArrayObject;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -34,53 +31,60 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LandTaskRepository::class)]
 #[ApiResource()]
-#[Post(openapi: new Operation(operationId: 'post'), securityPostDenormalize: "is_granted('" . LandTaskPermission::CREATE . "', object)")]
-#[Patch(openapi: new Operation(operationId: 'patch'), security: "is_granted('" . LandTaskPermission::UPDATE . "', object)")]
-#[Delete(openapi: new Operation(operationId: 'delete'), security: "is_granted('" . LandTaskPermission::DELETE . "', object)")]
-#[Get(openapi: new Operation(operationId: 'get'), security: "is_granted('" . LandTaskPermission::READ . "', object)")]
-#[GetCollection(security: "is_granted('" . LandTaskPermission::READ . "')", parameters: [
-    new QueryParameter(key: 'land', schema: ['type' => 'string'], openApi: new Parameter(name: 'land', in: 'query', description: 'Filter by land', required: true, allowEmptyValue: false), filter: LandFilter::class, required: true),
-    'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
-    new QueryParameter(key: 'state', schema: ['type' => 'string', 'enum' => LandTaskWorkflowPlace::PLACES, 'example' => LandTaskWorkflowPlace::TO_BE_DONE], openApi: new Parameter(name: 'state', in: 'query', description: 'Filter by state', required: false, allowEmptyValue: true), filter: 'land_task.state_filter'),
-])]
+#[Post(
+    normalizationContext   : ['groups' => ['land_task:post', 'land_task:post:output']],
+    denormalizationContext : ['groups' => ['land_task:post', 'land_task:post:input']],
+    securityPostDenormalize: "is_granted('" . LandTaskVoter::POST . "', object)",
+)]
 #[Patch(
-    uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_DONE,
-    options: ['transition' => LandTaskWorkflowTransition::MARK_AS_DONE],
-    openapi: new Operation(
-        summary: 'Mark as done',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
-    security: "is_granted('" . LandTaskPermission::MARK_AS_DONE . "', object)",
-    name: 'mark-as-done',
-    processor: WorkflowTransitionProcessor::class)]
+    normalizationContext  : ['groups' => ['land_task:patch', 'land_task:patch:output']],
+    denormalizationContext: ['groups' => ['land_task:patch', 'land_task:patch:input']],
+    security              : "is_granted('" . LandTaskVoter::PATCH . "', object)"
+)]
+#[Delete(
+    security: "is_granted('" . LandTaskVoter::DELETE . "', object)"
+)]
+#[Get(
+    normalizationContext: ['groups' => ['land_task:get']],
+    security            : "is_granted('" . LandTaskVoter::GET . "', object)",
+)]
+#[GetCollection(
+    normalizationContext: ['groups' => ['land_task:collection']],
+    security            : "is_granted('" . LandTaskVoter::COLLECTION . "')",
+    parameters          : [
+        new QueryParameter(
+            key   : 'land',
+            filter: LandFilter::class,
+        ),
+        'order[:property]' => new QueryParameter(filter: 'land_task.order_filter'),
+        new QueryParameter(key    : 'state',
+                           schema : ['type' => 'string',
+                                     'enum' => LandTaskWorkflowPlace::PLACES,
+                                     'example' => LandTaskWorkflowPlace::TO_BE_DONE],
+                           openApi: new Parameter(name           : 'state',
+                                                  in             : 'query',
+                                                  description    : 'Filter by state',
+                                                  required       : false,
+                                                  allowEmptyValue: true),
+                           filter : 'land_task.state_filter'),
+    ]
+)]
 #[Patch(
-    uriTemplate: '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS,
-    options: ['transition' => LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS],
-    openapi: new Operation(
-        summary: 'Mark as in progress',
-        requestBody: new RequestBody(
-            content: new ArrayObject([
-                'application/merge-patch+json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
-                ],
-            ])
-        )
-    ),
-    security: "is_granted('" . LandTaskPermission::MARK_AS_IN_PROGRESS . "', object)",
-    name: 'mark-as-in-progress',
-    processor: WorkflowTransitionProcessor::class)]
+    uriTemplate           : '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_DONE,
+    options               : ['transition' => LandTaskWorkflowTransition::MARK_AS_DONE],
+    normalizationContext  : ['groups' => ['land_task:mark-as-done', 'land_task:mark-as-done:output']],
+    denormalizationContext: ['groups' => ['land_task:mark-as-done', 'land_task:mark-as-done:input']],
+    security              : "is_granted('" . LandTaskVoter::MARK_AS_DONE . "', object)",
+    processor             : WorkflowTransitionProcessor::class
+)]
+#[Patch(
+    uriTemplate           : '/land_tasks/{ulid}/' . LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS,
+    options               : ['transition' => LandTaskWorkflowTransition::MARK_AS_IN_PROGRESS],
+    normalizationContext  : ['groups' => ['land_task:mark-as-in-progress', 'land_task:mark-as-in-progress:output']],
+    denormalizationContext: ['groups' => ['land_task:mark-as-in-progress', 'land_task:mark-as-in-progress:input']],
+    security              : "is_granted('" . LandTaskVoter::MARK_AS_IN_PROGRESS . "', object)",
+    processor             : WorkflowTransitionProcessor::class
+)]
 #[ORM\HasLifecycleCallbacks]
 class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
@@ -88,51 +92,56 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
     use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch", "land_task:post"])]
     #[Assert\NotBlank()]
     private ?string $title = null;
 
     #[ORM\ManyToOne(inversedBy: 'landTasks')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["user:land_task:get", "user:land_task:post"])]
+    #[Groups(["land_task:get", "land_task:post", "land_task:patch:output"])]
     private ?Land $land = null;
 
-    #[ORM\Column(nullable: true)]
-    #[Groups(["user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    /**
+     * @var array|null Tiptap JSON Object
+     */
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    #[Groups(["land_task:get", "land_task:patch", "land_task:post"])]
     private ?array $content = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     #[Assert\GreaterThanOrEqual(propertyPath: "startDate")]
-    #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch", "land_task:post"])]
     private ?DateTimeInterface $dueDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch", "land_task:post"])]
     private ?DateTimeInterface $startDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'landTasks')]
-    #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch", "land_task:post"])]
     private ?LandArea $landArea = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["user:land_task:collection", "user:land_task:get"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch:output", "land_task:post:output"])]
     #[Assert\Choice(LandTaskWorkflowPlace::PLACES)]
-    #[ApiProperty(openapiContext: ['type' => 'string', 'enum' => LandTaskWorkflowPlace::PLACES, 'example' => LandTaskWorkflowPlace::TO_BE_DONE])]
+    #[ApiProperty(openapiContext: ['type' => 'string',
+                                   'enum' => LandTaskWorkflowPlace::PLACES,
+                                   'example' => LandTaskWorkflowPlace::TO_BE_DONE])]
     private ?string $state = LandTaskWorkflowPlace::TO_BE_DONE;
 
-    #[Groups(["user:land_task:collection", "user:land_task:get", "user:land_task:patch", "user:land_task:post"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch:output", "land_task:post:output"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
-    #[Groups(["user:land_task:get", "user:land_task:patch"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch:output", "land_task:post:output"])]
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["user:land_task:get", "user:land_task:patch"])]
+    #[Groups(["land_task:collection", "land_task:get", "land_task:patch:output", "land_task:post:output"])]
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
@@ -210,7 +219,6 @@ class LandTask extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInt
         return $this;
     }
 
-    #[Groups(["user:land_task:patch", "user:land_task:post"])]
     public function getState(): ?string
     {
         return $this->state;

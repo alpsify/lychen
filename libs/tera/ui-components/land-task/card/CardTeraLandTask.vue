@@ -2,7 +2,7 @@
   <div
     class="p-4 flex flex-row gap-4 justify-between items-center active:bg-surface-container-highest"
   >
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-1 overflow-hidden">
       <span class="whitespace-nowrap overflow-hidden text-ellipsis text-sm font-bold"
         >{{ landTask.title }}
       </span>

@@ -8,9 +8,9 @@ use App\Entity\Person;
 use PHPUnit\Framework\Exception;
 use Symfony\Bundle\SecurityBundle\Security;
 
-class LandMemberInvitationManager
+readonly class LandMemberInvitationManager
 {
-    public function __construct(private readonly Security $security)
+    public function __construct(private Security $security)
     {
 
     }
