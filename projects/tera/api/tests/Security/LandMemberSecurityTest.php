@@ -129,7 +129,7 @@ class LandMemberSecurityTest extends AbstractApiTestCase
         $context2 = $this->createLandContext();
 
         $this->browser()->actingAs($context2->owner)
-            ->get('/api/land_members/me', ['query' => ['land' => $this->getIriFromResource($context->land)]])
+            ->get('/api/land_members/me', ['query' => ['land' => $context->land->getUlid()->toString()]])
             ->assertStatus(403);
     }
 

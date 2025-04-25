@@ -17,7 +17,6 @@ tasks:
     deps:
       - args: '--write'
         target: 'format'
-    local: true
 
   lint:
     command:
@@ -37,4 +36,3 @@ tasks:
     deps:
       - args: '--fix'
         target: 'lint'
-    local: true

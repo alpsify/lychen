@@ -11,7 +11,7 @@ export type LandGuardStrategy = ObjectValues<typeof LAND_GUARD_STRATEGY>;
 
 export function useLandGuard(
   landMember:
-    | Ref<components['schemas']['LandMember.jsonld-user.land_member.get-me'] | undefined>
+    | Ref<components['schemas']['LandMember.jsonld-land_member.me'] | undefined>
     | undefined,
   permissions: string[],
   strategy: 'unanimous' | 'affirmative' = 'unanimous',
