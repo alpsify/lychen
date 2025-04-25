@@ -29,6 +29,8 @@
     "@storybook/vue3-vite": "^8.6.9",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "storybook": "^8.6.9",
     "storybook-dark-mode": "^4.0.2",
     "tailwindcss": "^4.1.3",
