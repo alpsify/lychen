@@ -20,9 +20,11 @@
           <Icon :icon="faMapLocation" />
           {{ landCity }}
         </Badge>
+        <!-- Updated Badge for expiration date -->
         <Badge
           v-if="expirationDate"
           size="sm"
+          :variant="isCloseToExpire ? 'warning' : undefined"
         >
           <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
@@ -63,7 +65,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent } from 'vue';
+// Import computed from vue and date utilities
+import { defineAsyncComponent, computed } from 'vue';
+import { today, getLocalTimeZone, parseDate } from '@internationalized/date';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
 import {
@@ -90,13 +94,14 @@ const BaseHeading = defineAsyncComponent(
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-defineProps<{
+// Define props
+const props = defineProps<{
   title?: string;
   landName?: string;
   landSurface?: number | null;
   landAltitude?: number | null;
   landCity?: string | null;
-  expirationDate?: string | null;
+  expirationDate?: string | null; // Expecting 'YYYY-MM-DD' format
   preferredInteractionMode?: LandInteractionMode;
   sharingConditions?: LandSharingCondition[] | null;
 }>();
@@ -106,5 +111,20 @@ const { t: tLand } = useI18nExtended({
   messages: landMessages,
   rootKey: LAND_TRANSLATION_KEY,
   prefixed: true,
+});
+
+// Computed property to check if the expiration date is close
+const isCloseToExpire = computed(() => {
+  if (!props.expirationDate) {
+    return false;
+  }
+  try {
+    const expiration = parseDate(props.expirationDate);
+    const now = today(getLocalTimeZone());
+    const differenceInDays = expiration.compare(now);
+    return differenceInDays >= 0 && differenceInDays <= 3;
+  } catch (error) {
+    return false;
+  }
 });
 </script>

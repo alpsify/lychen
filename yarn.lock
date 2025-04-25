@@ -2734,7 +2734,9 @@ __metadata:
     "@chromatic-com/storybook": "npm:^3"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@internationalized/date": "npm:^3.7.0"
+    "@lychen/tera-ui-components": "workspace:*"
     "@lychen/ui-css": "workspace:*"
+    "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
     "@lychen/vue-ui-components-website": "workspace:*"
@@ -2755,6 +2757,7 @@ __metadata:
     typescript: "npm:~5.7.2"
     vite: "npm:^6.2.6"
     vue: "npm:^3.5.13"
+    vue-i18n: "npm:^11.1.2"
     vue-tsc: "npm:^2.2.4"
   languageName: unknown
   linkType: soft
