@@ -21,7 +21,7 @@ const meta: Meta<typeof Button> = {
     icon: { control: 'text' },
   },
   args: {
-    label: 'Click me',
+    label: 'Action label',
   },
 } satisfies Meta<typeof Button>;
 
@@ -67,7 +67,7 @@ export const IconOnly: Story = {
 
 export const Loading: Story = {
   args: {
-    icon: faRocket,
     loading: true,
+    icon: faRocket,
   },
 };
