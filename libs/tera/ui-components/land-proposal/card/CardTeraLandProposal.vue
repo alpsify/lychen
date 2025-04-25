@@ -20,7 +20,6 @@
           <Icon :icon="faMapLocation" />
           {{ landCity }}
         </Badge>
-        <!-- Updated Badge for expiration date -->
         <Badge
           v-if="expirationDate"
           size="sm"
@@ -65,7 +64,6 @@
 </template>
 
 <script lang="ts" setup>
-// Import computed from vue and date utilities
 import { defineAsyncComponent, computed } from 'vue';
 import { today, getLocalTimeZone, parseDate } from '@internationalized/date';
 
@@ -94,15 +92,38 @@ const BaseHeading = defineAsyncComponent(
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-// Define props
 const props = defineProps<{
+  /**
+   * The main title of the land proposal card.
+   */
   title?: string;
+  /**
+   * The name of the associated land.
+   */
   landName?: string;
+  /**
+   * The surface area of the land (e.g., in square meters).
+   */
   landSurface?: number | null;
+  /**
+   * The altitude of the land (e.g., in meters).
+   */
   landAltitude?: number | null;
+  /**
+   * The city where the land is located.
+   */
   landCity?: string | null;
-  expirationDate?: string | null; // Expecting 'YYYY-MM-DD' format
+  /**
+   * The expiration date of the proposal in ISO format.
+   */
+  expirationDate?: string | null;
+  /**
+   * The preferred mode of interaction.
+   */
   preferredInteractionMode?: LandInteractionMode;
+  /**
+   * An array of sharing conditions applicable to the land proposal.
+   */
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 
@@ -113,7 +134,6 @@ const { t: tLand } = useI18nExtended({
   prefixed: true,
 });
 
-// Computed property to check if the expiration date is close
 const isCloseToExpire = computed(() => {
   if (!props.expirationDate) {
     return false;
