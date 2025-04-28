@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     'storybook-dark-mode',
     '@storybook/addon-backgrounds',
+    '@storybook/addon-interactions',
   ],
   framework: {
     name: '@storybook/vue3-vite',

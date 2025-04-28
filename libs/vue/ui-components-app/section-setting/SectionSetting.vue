@@ -1,5 +1,9 @@
 <template>
-  <div :class="cn(sectionSettingVariants({ variant }), props.class, 'component-section-setting')">
+  <div
+    :class="
+      cn(VARIANT_VALUES[variant], props.class, 'text-on-surface', 'component-section-setting')
+    "
+  >
     <div class="flex flex-col gap-1 p-4">
       <BaseHeading variant="h2">{{ title }}</BaseHeading>
       <p class="opacity-80">{{ description }}</p>
@@ -15,7 +19,7 @@
 
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-util-tailwind/Cn';
-import { sectionSettingVariants, type SectionSettingVariants } from '.';
+import { VARIANT_VALUES, type VariantKey } from '.';
 import type { HTMLAttributes } from 'vue';
 import BaseHeading from '../base-heading/BaseHeading.vue';
 
@@ -23,7 +27,7 @@ const props = withDefaults(
   defineProps<{
     title?: string;
     description?: string;
-    variant?: SectionSettingVariants['variant'];
+    variant?: VariantKey;
     class?: HTMLAttributes['class'];
   }>(),
   {

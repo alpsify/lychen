@@ -12,7 +12,16 @@
       "path": "./tsconfig.node.json"
     },
     {
+      "path": "../../libs/tera/ui-components"
+    },
+    {
       "path": "../../libs/ui-css"
+    },
+    {
+      "path": "../../libs/vue/i18n/util-configs"
+    },
+    {
+      "path": "../../libs/vue/ui-components-app"
     },
     {
       "path": "../../libs/vue/ui-components-core"
@@ -25,7 +34,10 @@
     }
   ],
   "include": [
+    "../../libs/tera/ui-components/**/*",
     "../../libs/ui-css/**/*",
+    "../../libs/vue/i18n/util-configs/**/*",
+    "../../libs/vue/ui-components-app/**/*",
     "../../libs/vue/ui-components-core/**/*",
     "../../libs/vue/ui-components-extra/**/*",
     "../../libs/vue/ui-components-website/**/*",
@@ -37,7 +49,10 @@
       "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
       "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"],
       "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
-      "@lychen/ui-css/*": ["../../libs/ui-css/*"]
+      "@lychen/ui-css/*": ["../../libs/ui-css/*"],
+      "@lychen/tera-ui-components/*": ["../../libs/tera/ui-components/*"],
+      "@lychen/vue-i18n-util-configs/*": ["../../libs/vue/i18n/util-configs/*"],
+      "@lychen/vue-ui-components-app/*": ["../../libs/vue/ui-components-app/*"]
     }
   }
 }

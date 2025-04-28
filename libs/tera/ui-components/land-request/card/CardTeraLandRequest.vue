@@ -23,6 +23,7 @@
         <Badge
           v-if="expirationDate"
           size="sm"
+          :variant="isCloseToExpire ? 'warning' : 'default'"
         >
           <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
@@ -66,6 +67,7 @@ import TeraLandProposalSharingConditions from '../../common/sharing-conditions-i
 import { type LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
 import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
 import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-ui-components/icons/IconLandInteractionMode';
+import { useCloseToExpire } from '@lychen/tera-util-composables/useCloseToExpire';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -76,12 +78,29 @@ const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/i
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
 const props = defineProps<{
+  /**
+   * The main title of the land request card.
+   */
   title?: string;
+  /**
+   * The city where the land is requested.
+   */
   city?: string | null;
+  /**
+   * The expiration date of the request in ISO format.
+   */
   expirationDate?: string | null;
+  /**
+   * The preferred mode of interaction for the request.
+   */
   preferredInteractionMode?: LandInteractionMode;
+  /**
+   * An array of sharing conditions applicable to the land request.
+   */
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 
 const { t, d } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
+
+const { isCloseToExpire } = useCloseToExpire(props.expirationDate);
 </script>

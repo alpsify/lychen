@@ -23,6 +23,7 @@
         <Badge
           v-if="expirationDate"
           size="sm"
+          :variant="isCloseToExpire ? 'warning' : 'default'"
         >
           <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
@@ -81,6 +82,7 @@ import TeraLandProposalSharingConditions from '../../common/sharing-conditions-i
 import { LAND_INTERACTION_MODE_ICON } from '../../icons/IconLandInteractionMode';
 import type { LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
 import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { useCloseToExpire } from '@lychen/tera-util-composables/useCloseToExpire';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -90,14 +92,38 @@ const BaseHeading = defineAsyncComponent(
 const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
 
-defineProps<{
+const props = defineProps<{
+  /**
+   * The main title of the land proposal card.
+   */
   title?: string;
+  /**
+   * The name of the associated land.
+   */
   landName?: string;
+  /**
+   * The surface area of the land (e.g., in square meters).
+   */
   landSurface?: number | null;
+  /**
+   * The altitude of the land (e.g., in meters).
+   */
   landAltitude?: number | null;
+  /**
+   * The city where the land is located.
+   */
   landCity?: string | null;
+  /**
+   * The expiration date of the proposal in ISO format.
+   */
   expirationDate?: string | null;
+  /**
+   * The preferred mode of interaction.
+   */
   preferredInteractionMode?: LandInteractionMode;
+  /**
+   * An array of sharing conditions applicable to the land proposal.
+   */
   sharingConditions?: LandSharingCondition[] | null;
 }>();
 
@@ -107,4 +133,6 @@ const { t: tLand } = useI18nExtended({
   rootKey: LAND_TRANSLATION_KEY,
   prefixed: true,
 });
+
+const { isCloseToExpire } = useCloseToExpire(props.expirationDate);
 </script>

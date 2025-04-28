@@ -3,7 +3,7 @@
     :class="
       cn(
         'cursor-pointer inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors gap-2',
-        'disabled:opacity-10 disabled:cursor-not-allowed',
+        'disabled:opacity-50 disabled:cursor-not-allowed',
         PRESETS.FocusOutline,
         VARIANT_VALUES[variant],
         SIZE_VALUES[size],

@@ -4,6 +4,7 @@ import type { Decorator } from '@storybook/vue3';
 import { faSun } from '@fortawesome/pro-light-svg-icons/faSun';
 import { faMoon } from '@fortawesome/pro-light-svg-icons/faMoon';
 import { Icon } from '@lychen/vue-ui-components-core/icon';
+import TooltipProvider from '@lychen/vue-ui-components-core/tooltip/TooltipProvider.vue';
 
 export function ModeDecorator(story: any, context: any): any {
   const isDarkMode = ref(false);
@@ -53,21 +54,23 @@ export function ModeDecorator(story: any, context: any): any {
   );
 
   return {
-    components: { Story: story(), Icon: Icon }, // Removed faSun from components as it's only used in setup
+    components: { Story: story(), Icon, TooltipProvider }, // Removed faSun from components as it's only used in setup
     template: `
-      <div class="grid grid-cols-[1fr_auto] gap-4">
-        <div class="flex flex-row">
-          <Story />
+      <TooltipProvider>
+        <div class="grid grid-cols-[1fr_auto] gap-4">
+          <div class="flex flex-row">
+            <Story />
+          </div>
+          <button
+            @click="toggleMode"
+            class="z-[9999] px-3 py-2 rounded-full border-none h-10 w-10 bg-surface-container-highest text-on-surface-container-highest cursor-pointer"
+            aria-label="Toggle dark mode"
+            :aria-pressed="isDarkMode"
+          >
+            <Icon :icon="isDarkMode ? faSun : faMoon" />
+          </button>
         </div>
-        <button
-          @click="toggleMode"
-          class="z-[9999] px-3 py-2 rounded-full border-none h-10 w-10 bg-surface-container-highest text-on-surface-container-highest cursor-pointer"
-          aria-label="Toggle dark mode"
-          :aria-pressed="isDarkMode"
-        >
-          <Icon :icon="isDarkMode ? faSun : faMoon" />
-        </button>
-      </div>
+      </TooltipProvider>
     `,
     setup() {
       // Expose necessary refs and functions to the template
