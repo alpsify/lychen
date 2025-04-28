@@ -37,7 +37,7 @@ export const CloseToExpire: Story = {
       },
     },
   },
-  name: 'Proposal close to expire',
+  name: 'Request close to expire',
   args: {
     title: 'Recherche un espace de culture',
     expirationDate: today(getLocalTimeZone()).add({ days: 3 }).toString(),
