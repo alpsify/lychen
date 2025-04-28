@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import CardTeraLandProposal from '@lychen/tera-ui-components/land-proposal/card/CardTeraLandProposal.vue';
+import CardTeraLandRequest from '@lychen/tera-ui-components/land-request/card/CardTeraLandRequest.vue';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
-const component = CardTeraLandProposal;
+const component = CardTeraLandRequest;
 
 const meta: Meta<typeof component> = {
-  title: 'Tera/Land Proposal/Card',
+  title: 'Tera/Land Request/Card',
   component: component,
   tags: ['autodocs'],
   argTypes: {
@@ -22,11 +22,7 @@ type Story = StoryObj<typeof component>;
 
 export const Default: Story = {
   args: {
-    title: 'Recherche un·e jardinier·ère non professionel·le',
-    landCity: 'Annecy',
-    landAltitude: 495,
-    landName: 'Yupo Garden',
-    landSurface: 450,
+    title: 'Recherche un espace de culture',
     expirationDate: today(getLocalTimeZone()).add({ days: 14 }).toString(),
     preferredInteractionMode: 'no_preference',
     sharingConditions: ['beehives', 'flower_planting', 'gardening'],
@@ -43,11 +39,7 @@ export const CloseToExpire: Story = {
   },
   name: 'Proposal close to expire',
   args: {
-    title: 'Recherche un·e jardinier·ère non professionel·le',
-    landCity: 'Annecy',
-    landAltitude: 495,
-    landName: 'Yupo Garden',
-    landSurface: 450,
+    title: 'Recherche un espace de culture',
     expirationDate: today(getLocalTimeZone()).add({ days: 3 }).toString(),
     preferredInteractionMode: 'no_preference',
     sharingConditions: [

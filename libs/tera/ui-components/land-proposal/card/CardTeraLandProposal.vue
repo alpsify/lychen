@@ -23,7 +23,7 @@
         <Badge
           v-if="expirationDate"
           size="sm"
-          :variant="isCloseToExpire ? 'warning' : undefined"
+          :variant="isCloseToExpire ? 'warning' : 'default'"
         >
           <Icon :icon="faClock" />
           {{ d(expirationDate, 'short') }}
@@ -64,8 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent, computed } from 'vue';
-import { today, getLocalTimeZone, parseDate } from '@internationalized/date';
+import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
 import {
@@ -83,6 +82,7 @@ import TeraLandProposalSharingConditions from '../../common/sharing-conditions-i
 import { LAND_INTERACTION_MODE_ICON } from '../../icons/IconLandInteractionMode';
 import type { LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
 import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { useCloseToExpire } from '@lychen/tera-util-composables/useCloseToExpire';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 
@@ -134,17 +134,5 @@ const { t: tLand } = useI18nExtended({
   prefixed: true,
 });
 
-const isCloseToExpire = computed(() => {
-  if (!props.expirationDate) {
-    return false;
-  }
-  try {
-    const expiration = parseDate(props.expirationDate);
-    const now = today(getLocalTimeZone());
-    const differenceInDays = expiration.compare(now);
-    return differenceInDays >= 0 && differenceInDays <= 3;
-  } catch (error) {
-    return false;
-  }
-});
+const { isCloseToExpire } = useCloseToExpire(props.expirationDate);
 </script>

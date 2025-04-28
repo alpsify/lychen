@@ -6,6 +6,7 @@
     "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
     "../util-api-sdk/**/*",
+    "../util-composables/**/*",
     "../util-events/**/*",
     "**/*"
   ],
@@ -19,12 +20,14 @@
     {
       "path": "../../vue/ui-components-core"
     },
-
     {
       "path": "../ui-i18n"
     },
     {
       "path": "../util-api-sdk"
+    },
+    {
+      "path": "../util-composables"
     },
     {
       "path": "../util-events"
@@ -39,7 +42,8 @@
       "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
       "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"],
       "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"],
-      "@lychen/tera-util-events/*": ["../util-events/*"]
+      "@lychen/tera-util-events/*": ["../util-events/*"],
+      "@lychen/tera-util-composables/*": ["../util-composables/*"]
     }
   }
 }

@@ -6,6 +6,7 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
+    "@lychen/tera-util-composables": "workspace:*",
     "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-object": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
