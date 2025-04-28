@@ -1,16 +1,12 @@
+###> Yarn ###
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+###< Yarn ###
 
-# Swap the comments on the following lines if you don't wish to use zero-installs
-# Documentation here: https://yarnpkg.com/features/zero-installs
-# !.yarn/cache
-#.pnp.*
-
-build/
 coverage/
 cjs/
 dist/
@@ -19,10 +15,47 @@ esm/
 mjs/
 tmp/
 umd/
-node_modules/
 
-# Moon
+###> Node ###
+node_modules/
+build/
+###< Node ###
+
+###> Moon ###
 .moon/cache
 .moon/dts
+###< Moon ###
 
 tsconfig.tsbuildinfo
+
+###> JetBrain/PHPStorm ###
+# Ignore all of .idea folder by default
+.idea/*
+
+# Allow some project-specific settings
+!.idea/codeStyles/
+!.idea/deployment.xml
+!.idea/modules.xml
+!.idea/vcs.xml
+!.idea/workspace.xml
+
+# Ignore user-specific or OS-specific settings
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/libraries
+.idea/assetWizardSettings.xml
+.idea/jsLibraryMappings.xml
+.idea/shelf
+
+# Ignore IDE caches
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/httpRequests
+.idea/inspectionProfiles
+.idea/runConfigurations/
+###< JetBrain/PHPStorm ###

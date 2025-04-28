@@ -17,9 +17,6 @@ yarn-error.log
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> JetBrain/PHPStorm ###
-.idea
-###< JetBrain/PHPStorm ###
 ###> Docker ###
 docker/database/data/*
 docker-compose.override.yml
