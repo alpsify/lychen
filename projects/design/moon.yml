@@ -1,5 +1,5 @@
 dependsOn:
-  - ui-css
+  - css-core
   - ui-i18n
   - vite-util-ssg
   - vue-i18n-util-composables

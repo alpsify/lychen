@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@import './colors.css';
+@import './gradients.css';
+@import './keyframes.css';
+@import './components/fonts.css';
+@import './components/scrollbar.css';
+@import './components/container.css';
+@import './components/grid.css';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));

@@ -3,11 +3,11 @@
   "files": [],
   "references": [
     {
-      "path": "../../../libs/kiro/ui-components"
+      "path": "../../../libs/css/core"
     },
 
     {
-      "path": "../../../libs/ui-css"
+      "path": "../../../libs/kiro/ui-components"
     },
     {
       "path": "../../../libs/vue/i18n/util-composables"
@@ -23,18 +23,17 @@
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
+      "@lychen/css-core/*": ["../../../libs/css/core/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
       "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-
       "@lychen/vue-ui-components-core/*": ["../../../libs/vue/ui-components-core/*"]
     },
     "outDir": "../../../.moon/cache/types/projects/kiro/member-app"
   },
   "include": [
-    "../../../libs/kiro/ui-components/**/*",
+    "../../../libs/css/core/**/*",
 
-    "../../../libs/ui-css/**/*",
+    "../../../libs/kiro/ui-components/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/ui-components-core/**/*",
     "**/*"

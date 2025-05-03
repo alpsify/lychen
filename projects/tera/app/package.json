@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
+    "@lychen/css-core": "workspace:*",
     "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
@@ -18,7 +19,6 @@
     "@lychen/tera-util-constants": "workspace:*",
     "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",
-    "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-ui-components-app": "workspace:*",
@@ -37,7 +37,7 @@
     "@vite-pwa/assets-generator": "^1.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "tailwindcss": "^4.1.3",
-    "vite": "^6.2.6",
+    "vite": "^6.3.4",
     "vite-plugin-mkcert": "^1.17.7",
     "vite-plugin-pwa": "^1.0.0"
   }

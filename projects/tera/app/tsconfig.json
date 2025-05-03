@@ -1,6 +1,8 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
+    "../../../libs/css/core/**/*",
+
     "../../../libs/tera/ui-components/**/*",
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-api-sdk/**/*",
@@ -8,7 +10,6 @@
     "../../../libs/tera/util-constants/**/*",
     "../../../libs/tera/util-events/**/*",
     "../../../libs/typescript/util-zitadel/**/*",
-    "../../../libs/ui-css/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
     "../../../libs/vue/ui-components-app/**/*",
@@ -19,6 +20,10 @@
     "**/*"
   ],
   "references": [
+    {
+      "path": "../../../libs/css/core"
+    },
+
     {
       "path": "../../../libs/tera/ui-components"
     },
@@ -39,9 +44,6 @@
     },
     {
       "path": "../../../libs/typescript/util-zitadel"
-    },
-    {
-      "path": "../../../libs/ui-css"
     },
     {
       "path": "../../../libs/vue/i18n/util-composables"
@@ -77,7 +79,7 @@
       "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
       "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
-      "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
+      "@lychen/css-core/*": ["../../../libs/css/core/*"],
       "@lychen/typescript-util-zitadel/*": ["../../../libs/typescript/util-zitadel/*"],
       "@lychen/tera-util-api-sdk/*": ["../../../libs/tera/util-api-sdk/*"],
       "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],

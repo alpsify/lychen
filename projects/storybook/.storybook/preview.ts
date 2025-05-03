@@ -4,7 +4,7 @@ import { setup } from '@storybook/vue3';
 import { createI18n } from 'vue-i18n';
 import { configDefault } from '@lychen/vue-i18n-util-configs/ConfigDefault';
 
-import '@lychen/ui-css/all.css';
+import '@lychen/css-core/all.css';
 
 const i18nConfig = configDefault();
 const i18n = createI18n(i18nConfig);

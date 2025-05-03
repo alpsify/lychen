@@ -4,11 +4,12 @@
     "../../libs/applications/ui-components/**/*",
     "../../libs/applications/util-composables/**/*",
     "../../libs/applications/util-constants/**/*",
+    "../../libs/css/core/**/*",
+
     "../../libs/diagrams/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/tailwind/util-configs/**/*",
     "../../libs/typescript/util-constants/**/*",
-    "../../libs/ui-css/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/vite/util-ssg/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
@@ -33,6 +34,10 @@
       "path": "../../libs/applications/util-constants"
     },
     {
+      "path": "../../libs/css/core"
+    },
+
+    {
       "path": "../../libs/diagrams"
     },
     {
@@ -40,9 +45,6 @@
     },
     {
       "path": "../../libs/typescript/util-constants"
-    },
-    {
-      "path": "../../libs/ui-css"
     },
     {
       "path": "../../libs/ui-i18n"
@@ -84,7 +86,7 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lychen/ui-css/*": ["../../libs/ui-css/*"],
+      "@lychen/css-core/*": ["../../libs/css/core/*"],
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
       "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],

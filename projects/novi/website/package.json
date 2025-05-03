@@ -12,13 +12,13 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/applications-ui-components": "workspace:*",
     "@lychen/applications-util-constants": "workspace:*",
+    "@lychen/css-core": "workspace:*",
     "@lychen/novi-ui-i18n": "workspace:*",
     "@lychen/novi-util-constants": "workspace:*",
     "@lychen/novi-util-features": "workspace:*",
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
-    "@lychen/ui-css": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.2.6",
+    "vite": "^6.3.4",
     "vite-plugin-mkcert": "^1.17.7",
     "vite-ssg": "^26.1.1",
     "vite-ssg-sitemap": "^0.8.1"

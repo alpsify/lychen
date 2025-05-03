@@ -1,12 +1,12 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
+  - css-core
   - meli-ui-i18n
   - meli-util-constants
-  - meli-util-features
 
+  - meli-util-features
   - typescript-util-constants
-  - ui-css
   - ui-i18n
   - vite-util-ssg
   - vue-i18n-util-composables
