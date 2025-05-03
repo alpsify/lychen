@@ -5,13 +5,13 @@
     "../../libs/applications/util-composables/**/*",
     "../../libs/applications/util-constants/**/*",
     "../../libs/css/core/**/*",
-
-    "../../libs/diagrams/**/*",
     "../../libs/odd/util-composables/**/*",
     "../../libs/tailwind/util-configs/**/*",
     "../../libs/typescript/util-constants/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/vite/util-ssg/**/*",
+    "../../libs/vue/drawio/core/**/*",
+    "../../libs/vue/drawio/ui-components/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/router/util-configs/**/*",
@@ -36,10 +36,6 @@
     {
       "path": "../../libs/css/core"
     },
-
-    {
-      "path": "../../libs/diagrams"
-    },
     {
       "path": "../../libs/odd/util-composables"
     },
@@ -51,6 +47,12 @@
     },
     {
       "path": "../../libs/vite/util-ssg"
+    },
+    {
+      "path": "../../libs/vue/drawio/core"
+    },
+    {
+      "path": "../../libs/vue/drawio/ui-components"
     },
     {
       "path": "../../libs/vue/i18n/util-composables"
@@ -99,12 +101,13 @@
       "@lychen/tailwind-util-configs/*": ["../../libs/tailwind/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../libs/vue/unhead/util-composables/*"],
       "@lychen/typescript-util-constants/*": ["../../libs/typescript/util-constants/*"],
-      "@lychen/diagrams/*": ["../../libs/diagrams/*"],
       "@lychen/applications-util-constants/*": ["../../libs/applications/util-constants/*"],
       "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
       "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
       "@lychen/vue-ui-layouts/*": ["../../libs/vue/ui-layouts/*"],
-      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"]
+      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"],
+      "@lychen/vue-drawio-ui-components/*": ["../../libs/vue/drawio/ui-components/*"],
+      "@lychen/vue-drawio-core/*": ["../../libs/vue/drawio/core/*"]
     },
     "outDir": "../../.moon/cache/types/projects/website"
   }

@@ -23,9 +23,6 @@
       "path": "libs/css/core"
     },
     {
-      "path": "libs/diagrams"
-    },
-    {
       "path": "libs/eko/ui-i18n"
     },
     {
@@ -183,6 +180,12 @@
     },
     {
       "path": "libs/vite/util-ssg"
+    },
+    {
+      "path": "libs/vue/drawio/core"
+    },
+    {
+      "path": "libs/vue/drawio/tera"
     },
     {
       "path": "libs/vue/drawio/ui-components"

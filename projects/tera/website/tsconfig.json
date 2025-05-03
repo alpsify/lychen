@@ -5,8 +5,6 @@
     "../../../libs/applications/util-composables/**/*",
     "../../../libs/applications/util-constants/**/*",
     "../../../libs/css/core/**/*",
-
-    "../../../libs/diagrams/**/*",
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/odd/util-composables/**/*",
     "../../../libs/tera/ui-i18n/**/*",
@@ -15,6 +13,7 @@
     "../../../libs/typescript/util-constants/**/*",
     "../../../libs/ui-i18n/**/*",
     "../../../libs/vite/util-ssg/**/*",
+    "../../../libs/vue/drawio/tera/**/*",
     "../../../libs/vue/drawio/ui-components/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
     "../../../libs/vue/i18n/util-configs/**/*",
@@ -39,10 +38,6 @@
     {
       "path": "../../../libs/css/core"
     },
-
-    {
-      "path": "../../../libs/diagrams"
-    },
     {
       "path": "../../../libs/kiro/ui-components"
     },
@@ -66,6 +61,9 @@
     },
     {
       "path": "../../../libs/vite/util-ssg"
+    },
+    {
+      "path": "../../../libs/vue/drawio/tera"
     },
     {
       "path": "../../../libs/vue/drawio/ui-components"
@@ -121,11 +119,11 @@
       "@lychen/tera-util-features/*": ["../../../libs/tera/util-features/*"],
       "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
       "@lychen/vue-drawio-ui-components/*": ["../../../libs/vue/drawio/ui-components/*"],
-      "@lychen/diagrams/*": ["../../../libs/diagrams/*"],
       "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
       "@lychen/vue-ui-components-core/*": ["../../../libs/vue/ui-components-core/*"],
       "@lychen/vue-ui-components-website/*": ["../../../libs/vue/ui-components-website/*"],
-      "@lychen/vue-ui-layouts/*": ["../../../libs/vue/ui-layouts/*"]
+      "@lychen/vue-ui-layouts/*": ["../../../libs/vue/ui-layouts/*"],
+      "@lychen/vue-drawio-tera/*": ["../../../libs/vue/drawio/tera/*"]
     }
   }
 }

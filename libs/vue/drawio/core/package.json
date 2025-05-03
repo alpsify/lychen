@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/vue-drawio-core",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/vue-drawio-ui-components": "workspace:*"
+  }
+}

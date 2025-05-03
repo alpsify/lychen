@@ -1,7 +1,7 @@
 dependsOn:
   - vue-drawio-ui-components
 
-id: diagrams
+id: vue-drawio-core
 
 language: typescript
 
