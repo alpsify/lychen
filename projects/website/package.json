@@ -19,7 +19,6 @@
     "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-util-composables": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
-    "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-drawio-core": "workspace:*",
     "@lychen/vue-drawio-ui-components": "workspace:*",

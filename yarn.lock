@@ -2063,7 +2063,6 @@ __metadata:
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2135,7 +2134,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2198,7 +2196,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2301,7 +2298,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2364,7 +2360,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2427,7 +2422,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2490,7 +2484,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2553,7 +2546,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2616,7 +2608,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2707,7 +2698,6 @@ __metadata:
     "@lychen/robust-util-constants": "workspace:*"
     "@lychen/robust-util-features": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -2906,7 +2896,6 @@ __metadata:
     "@lychen/tera-util-constants": "workspace:*"
     "@lychen/tera-util-features": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-drawio-tera": "workspace:*"
     "@lychen/vue-drawio-ui-components": "workspace:*"
@@ -2999,14 +2988,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/ui-i18n@workspace:*, @lychen/ui-i18n@workspace:libs/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/ui-i18n@workspace:libs/ui-i18n"
-  dependencies:
-    "@lychen/vue-i18n-util-composables": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/vara-ui-i18n@workspace:*, @lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n":
   version: 0.0.0-use.local
   resolution: "@lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n"
@@ -3043,7 +3024,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vara-ui-i18n": "workspace:*"
     "@lychen/vara-util-constants": "workspace:*"
     "@lychen/vara-util-features": "workspace:*"
@@ -3273,7 +3253,6 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
@@ -3317,7 +3296,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
     "@lychen/vue-drawio-core": "workspace:*"
     "@lychen/vue-drawio-ui-components": "workspace:*"

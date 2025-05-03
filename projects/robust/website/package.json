@@ -19,7 +19,6 @@
     "@lychen/robust-util-constants": "workspace:*",
     "@lychen/robust-util-features": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
-    "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",

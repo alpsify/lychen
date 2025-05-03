@@ -3,7 +3,7 @@ dependsOn:
   - applications-ui-components
   - css-core
   - typescript-util-constants
-  - ui-i18n
+
   - vara-ui-i18n
   - vara-util-constants
   - vara-util-features

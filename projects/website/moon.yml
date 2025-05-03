@@ -6,7 +6,6 @@ dependsOn:
   - odd-assets
   - odd-util-composables
   - typescript-util-constants
-  - ui-i18n
   - vite-util-ssg
   - vue-drawio-core
   - vue-i18n-util-composables

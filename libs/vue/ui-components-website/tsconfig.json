@@ -6,7 +6,8 @@
     "../ui-components-core/**/*",
     "../ui-components-extra/**/*",
     "../util-composables/**/*",
-    "**/*"
+    "**/*",
+    "**/*.json"
   ],
   "references": [
     {

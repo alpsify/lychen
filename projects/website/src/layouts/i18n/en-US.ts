@@ -60,6 +60,5 @@ export default {
   footer: {
     seo_paragraph:
       'Facilitating local symbiosis. We connect territory stakeholders for sustainable and environmentally friendly agriculture.',
-    pronounce: 'Pronunciation: \\li. kɛn\\',
   },
 };

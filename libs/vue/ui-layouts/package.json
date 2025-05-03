@@ -7,7 +7,6 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/applications-ui-components": "workspace:*",
     "@lychen/typescript-util-constants": "workspace:*",
-    "@lychen/ui-i18n": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@lychen/vue-ui-components-extra": "workspace:*",
