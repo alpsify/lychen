@@ -1,9 +1,0 @@
-dependsOn:
-  - typescript-util-json-ld-hydra
-  - typescript-util-zitadel
-
-id: typescript-util-api
-
-language: typescript
-
-type: library

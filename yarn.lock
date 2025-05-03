@@ -2921,16 +2921,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/typescript-util-api@workspace:libs/typescript/util-api":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-util-api@workspace:libs/typescript/util-api"
-  dependencies:
-    "@lychen/typescript-util-json-ld-hydra": "workspace:*"
-    "@lychen/typescript-util-zitadel": "workspace:*"
-    axios: "npm:^1.8.3"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/typescript-util-constants@workspace:*, @lychen/typescript-util-constants@workspace:libs/typescript/util-constants":
   version: 0.0.0-use.local
   resolution: "@lychen/typescript-util-constants@workspace:libs/typescript/util-constants"
@@ -2948,12 +2938,6 @@ __metadata:
   resolution: "@lychen/typescript-util-fontawesome@workspace:libs/typescript/util-fontawesome"
   dependencies:
     "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/typescript-util-json-ld-hydra@workspace:*, @lychen/typescript-util-json-ld-hydra@workspace:libs/typescript/util-json-ld-hydra":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-util-json-ld-hydra@workspace:libs/typescript/util-json-ld-hydra"
   languageName: unknown
   linkType: soft
 
@@ -5686,7 +5670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.8.1, axios@npm:^1.8.3":
+"axios@npm:^1.8.1":
   version: 1.8.3
   resolution: "axios@npm:1.8.3"
   dependencies:
