@@ -2084,11 +2084,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/diagrams@workspace:*, @lychen/diagrams@workspace:libs/diagrams":
+"@lychen/drawio-core@workspace:*, @lychen/drawio-core@workspace:libs/drawio/core":
   version: 0.0.0-use.local
-  resolution: "@lychen/diagrams@workspace:libs/diagrams"
-  dependencies:
-    "@lychen/vue-drawio-ui-components": "workspace:*"
+  resolution: "@lychen/drawio-core@workspace:libs/drawio/core"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/drawio-tera@workspace:libs/drawio/tera":
+  version: 0.0.0-use.local
+  resolution: "@lychen/drawio-tera@workspace:libs/drawio/tera"
   languageName: unknown
   linkType: soft
 
@@ -2896,7 +2900,6 @@ __metadata:
     "@lychen/applications-ui-components": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/css-core": "workspace:*"
-    "@lychen/diagrams": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/tera-ui-i18n": "workspace:*"
@@ -2905,6 +2908,7 @@ __metadata:
     "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-drawio-tera": "workspace:*"
     "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
@@ -3080,6 +3084,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-drawio-core@workspace:*, @lychen/vue-drawio-core@workspace:libs/vue/drawio/core":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-drawio-core@workspace:libs/vue/drawio/core"
+  dependencies:
+    "@lychen/vue-drawio-ui-components": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-drawio-tera@workspace:*, @lychen/vue-drawio-tera@workspace:libs/vue/drawio/tera":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-drawio-tera@workspace:libs/vue/drawio/tera"
+  dependencies:
+    "@lychen/vue-drawio-ui-components": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-drawio-ui-components@workspace:*, @lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components"
@@ -3174,7 +3194,6 @@ __metadata:
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/typescript-util-tailwind": "workspace:*"
-    "@lychen/ui-i18n": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-ui-components-core": "workspace:*"
     "@lychen/vue-ui-components-extra": "workspace:*"
@@ -3294,12 +3313,14 @@ __metadata:
     "@lychen/applications-util-composables": "workspace:*"
     "@lychen/applications-util-constants": "workspace:*"
     "@lychen/css-core": "workspace:*"
-    "@lychen/diagrams": "workspace:*"
+    "@lychen/drawio-core": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-util-composables": "workspace:*"
     "@lychen/typescript-util-constants": "workspace:*"
     "@lychen/ui-i18n": "workspace:*"
     "@lychen/vite-util-ssg": "workspace:*"
+    "@lychen/vue-drawio-core": "workspace:*"
+    "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
     "@lychen/vue-i18n-util-configs": "workspace:*"
     "@lychen/vue-router-util-configs": "workspace:*"

@@ -11,7 +11,7 @@
     >
       {{ t('use_cases.description') }}
     </Paragraph>
-    <LychenGlobal />
+    <LychenEcosystem />
   </Container>
 </template>
 
@@ -20,7 +20,9 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 
-const LychenGlobal = defineAsyncComponent(() => import('@lychen/diagrams/LychenGlobal.vue'));
+const LychenEcosystem = defineAsyncComponent(
+  () => import('@lychen/vue-drawio-core/LychenEcosystem.vue'),
+);
 
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),

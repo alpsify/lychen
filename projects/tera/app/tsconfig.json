@@ -2,7 +2,6 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "../../../libs/css/core/**/*",
-
     "../../../libs/tera/ui-components/**/*",
     "../../../libs/tera/ui-i18n/**/*",
     "../../../libs/tera/util-api-sdk/**/*",
@@ -23,7 +22,6 @@
     {
       "path": "../../../libs/css/core"
     },
-
     {
       "path": "../../../libs/tera/ui-components"
     },

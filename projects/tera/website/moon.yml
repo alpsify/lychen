@@ -2,13 +2,13 @@ dependsOn:
   - applications-assets
   - applications-ui-components
   - css-core
-  - diagrams
   - tera-ui-i18n
   - tera-util-constants
   - tera-util-features
   - typescript-util-constants
   - ui-i18n
   - vite-util-ssg
+  - vue-drawio-tera
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
