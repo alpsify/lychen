@@ -1,12 +1,12 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
+  - css-core
   - humu-ui-i18n
   - humu-util-constants
-  - humu-util-features
 
+  - humu-util-features
   - typescript-util-constants
-  - ui-css
   - ui-i18n
   - vite-util-ssg
   - vue-i18n-util-composables

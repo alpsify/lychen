@@ -1,8 +1,8 @@
-import { animationConfig } from '@lychen/ui-css/tailwind/animationConfig';
-import { fontsConfig } from '@lychen/ui-css/tailwind/fontsConfig';
-import { keyframesConfig } from '@lychen/ui-css/tailwind/keyframesConfig';
+import { animationConfig } from '@lychen/css-core/tailwind/animationConfig';
+import { fontsConfig } from '@lychen/css-core/tailwind/fontsConfig';
+import { keyframesConfig } from '@lychen/css-core/tailwind/keyframesConfig';
 import type { Config } from 'tailwindcss';
-import { contentConfig } from '@lychen/ui-css/tailwind/contentConfig';
+import { contentConfig } from '@lychen/css-core/tailwind/contentConfig';
 
 export default {
   darkMode: 'selector',

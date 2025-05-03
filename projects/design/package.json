@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/ui-css": "workspace:*",
+    "@lychen/css-core": "workspace:*",
     "@lychen/ui-i18n": "workspace:*",
     "@lychen/vite-util-ssg": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",

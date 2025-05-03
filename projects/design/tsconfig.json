@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "include": [
-    "../../libs/ui-css/**/*",
+    "../../libs/css/core/**/*",
     "../../libs/ui-i18n/**/*",
     "../../libs/vite/util-ssg/**/*",
     "../../libs/vue/i18n/util-composables/**/*",
@@ -13,7 +13,7 @@
   ],
   "references": [
     {
-      "path": "../../libs/ui-css"
+      "path": "../../libs/css/core"
     },
     {
       "path": "../../libs/ui-i18n"
@@ -44,7 +44,7 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lychen/ui-css/*": ["../../libs/ui-css/*"],
+      "@lychen/css-core/*": ["../../libs/css/core/*"],
       "@lychen/ui-i18n/*": ["../../libs/ui-i18n/*"],
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],

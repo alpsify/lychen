@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.7.0",
+    "@lychen/css-core": "workspace:*",
     "@lychen/tera-ui-components": "workspace:*",
-    "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-ui-components-app": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",

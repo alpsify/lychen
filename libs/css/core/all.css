@@ -2,18 +2,10 @@
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-@import './color/colors.css';
-@import './color/gradients.css';
-@import './color/keyframes.css';
+@import './colors.css';
+@import './gradients.css';
+@import './keyframes.css';
 @import './components/fonts.css';
 @import './components/scroll.css';
 @import './components/container.css';
 @import './components/grid.css';
-
-@layer base {
-  :root {
-    * {
-      /*min-width: 0;*/
-    }
-  }
-}

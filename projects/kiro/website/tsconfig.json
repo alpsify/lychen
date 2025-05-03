@@ -4,13 +4,14 @@
     "../../../libs/applications/ui-components/**/*",
     "../../../libs/applications/util-composables/**/*",
     "../../../libs/applications/util-constants/**/*",
+    "../../../libs/css/core/**/*",
+
     "../../../libs/kiro/ui-components/**/*",
     "../../../libs/kiro/ui-i18n/**/*",
     "../../../libs/kiro/util-constants/**/*",
     "../../../libs/kiro/util-features/**/*",
     "../../../libs/odd/util-composables/**/*",
     "../../../libs/typescript/util-constants/**/*",
-    "../../../libs/ui-css/**/*",
     "../../../libs/ui-i18n/**/*",
     "../../../libs/vite/util-ssg/**/*",
     "../../../libs/vue/i18n/util-composables/**/*",
@@ -34,6 +35,10 @@
       "path": "../../../libs/applications/util-constants"
     },
     {
+      "path": "../../../libs/css/core"
+    },
+
+    {
       "path": "../../../libs/kiro/ui-components"
     },
     {
@@ -52,12 +57,8 @@
       "path": "../../../libs/typescript/util-constants"
     },
     {
-      "path": "../../../libs/ui-css"
-    },
-    {
       "path": "../../../libs/ui-i18n"
     },
-
     {
       "path": "../../../libs/vite/util-ssg"
     },
@@ -98,7 +99,7 @@
       "@lychen/applications-util-composables/*": ["../../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../../libs/odd/util-composables/*"],
       "@lychen/tailwind-util-configs/*": ["../../../libs/tailwind/util-configs/*"],
-      "@lychen/ui-css/*": ["../../../libs/ui-css/*"],
+      "@lychen/css-core/*": ["../../../libs/css/core/*"],
       "@lychen/ui-i18n/*": ["../../../libs/ui-i18n/*"],
       "@lychen/vite-util-ssg/*": ["../../../libs/vite/util-ssg/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],

@@ -1,11 +1,11 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
+  - css-core
   - robust-ui-i18n
   - robust-util-constants
   - robust-util-features
   - typescript-util-constants
-  - ui-css
   - ui-i18n
   - vite-util-ssg
   - vue-i18n-util-composables

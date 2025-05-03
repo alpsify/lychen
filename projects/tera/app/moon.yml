@@ -1,11 +1,11 @@
 dependsOn:
+  - css-core
   - tera-ui-components
   - tera-ui-i18n
   - tera-util-api-sdk
   - tera-util-composables
   - tera-util-events
   - typescript-util-zitadel
-  - ui-css
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-ui-components-app

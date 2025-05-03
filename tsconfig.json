@@ -20,6 +20,12 @@
       "path": "libs/applications/util-model"
     },
     {
+      "path": "libs/css/core"
+    },
+    {
+      "path": "libs/css/css-core"
+    },
+    {
       "path": "libs/css/ui-app"
     },
     {
@@ -168,9 +174,6 @@
     },
     {
       "path": "libs/typescript/util-zitadel"
-    },
-    {
-      "path": "libs/ui-css"
     },
     {
       "path": "libs/ui-i18n"

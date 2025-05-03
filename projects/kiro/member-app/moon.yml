@@ -1,6 +1,6 @@
 dependsOn:
+  - css-core
   - kiro-ui-components
-  - ui-css
   - vue-i18n-util-composables
   - vue-ui-components-core
 

@@ -1,9 +1,8 @@
 dependsOn:
   - applications-assets
   - applications-ui-components
-
+  - css-core
   - typescript-util-constants
-  - ui-css
   - ui-i18n
   - vara-ui-i18n
   - vara-util-constants

@@ -2,11 +2,11 @@ dependsOn:
   - applications-ui-components
   - applications-util-composables
   - applications-util-constants
+  - css-core
   - diagrams
   - odd-assets
   - odd-util-composables
   - typescript-util-constants
-  - ui-css
   - ui-i18n
   - vite-util-ssg
   - vue-i18n-util-composables

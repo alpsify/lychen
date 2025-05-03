@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
+    "@lychen/css-core": "workspace:*",
     "@lychen/tera-ui-components": "workspace:*",
     "@lychen/tera-ui-i18n": "workspace:*",
     "@lychen/tera-util-api-sdk": "workspace:*",
@@ -18,7 +19,6 @@
     "@lychen/tera-util-constants": "workspace:*",
     "@lychen/tera-util-events": "workspace:*",
     "@lychen/typescript-util-zitadel": "workspace:*",
-    "@lychen/ui-css": "workspace:*",
     "@lychen/vue-i18n-util-composables": "workspace:*",
     "@lychen/vue-i18n-util-configs": "workspace:*",
     "@lychen/vue-ui-components-app": "workspace:*",
