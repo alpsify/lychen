@@ -60,6 +60,5 @@ export default {
   footer: {
     seo_paragraph:
       "Facilitateur de la symbiose locale. Nous connectons les acteurs du territoire pour une agriculture durable et respectueuse de l'environnement.",
-    pronounce: 'Prononciation : \\li. kɛn\\',
   },
 };

@@ -6,7 +6,7 @@ dependsOn:
   - eko-util-constants
   - eko-util-features
   - typescript-util-constants
-  - ui-i18n
+
   - vite-util-ssg
   - vue-i18n-util-composables
   - vue-i18n-util-configs

@@ -19,14 +19,7 @@
         <RouterView />
       </main>
     </slot>
-    <LayoutWebsiteApplicationFooter
-      class="footer"
-      :application-name
-    >
-      <template #underLogo>
-        <slot name="footerUnderLogo" />
-      </template>
-    </LayoutWebsiteApplicationFooter>
+    <LayoutWebsiteApplicationFooter :application-name />
   </div>
 </template>
 

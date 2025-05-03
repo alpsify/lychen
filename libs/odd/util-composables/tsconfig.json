@@ -1,10 +1,10 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "**/*",
     "../../vue/i18n/util-composables/**/*",
     "../ui-i18n/**/*",
-    "../util-model/**/*"
+    "../util-model/**/*",
+    "**/*"
   ],
   "references": [
     {
