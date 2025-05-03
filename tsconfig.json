@@ -140,9 +140,6 @@
       "path": "libs/tera/util-features"
     },
     {
-      "path": "libs/typescript/util-api"
-    },
-    {
       "path": "libs/typescript/util-constants"
     },
     {
@@ -150,9 +147,6 @@
     },
     {
       "path": "libs/typescript/util-fontawesome"
-    },
-    {
-      "path": "libs/typescript/util-json-ld-hydra"
     },
     {
       "path": "libs/typescript/util-object"

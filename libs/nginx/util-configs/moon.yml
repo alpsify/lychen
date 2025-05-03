@@ -1,5 +1,7 @@
 id: nginx-util-configs
 
+language: unknown
+
 tasks:
   sync-pwa:
     command:
