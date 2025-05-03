@@ -1,30 +1,25 @@
 <template>
-  <Dialog>
-    <DialogTrigger as-child>
-      <slot />
-    </DialogTrigger>
-    <DialogContentWithAction
-      :title="t('title')"
-      :description="t('description')"
-    >
-      <template #content></template>
-      <template #action>
-        <Button
-          variant="negative"
-          :disabled="isPending"
-          :loading="isPending"
-          @click="deleteLandMemberInvitation()"
-        >
-          {{ tLandMemberInvitation('action.delete.label') }}
-        </Button>
-      </template>
-    </DialogContentWithAction>
-  </Dialog>
+  <DialogWithCancelButton
+    :title="t('title')"
+    :description="t('description')"
+  >
+    <slot />
+    <template #content></template>
+    <template #action>
+      <Button
+        variant="negative"
+        :disabled="isPending"
+        :loading="isPending"
+        @click="deleteLandMemberInvitation()"
+      >
+        {{ tLandMemberInvitation('action.delete.label') }}
+      </Button>
+    </template>
+  </DialogWithCancelButton>
 </template>
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import {
   messages as landMemberInvitationMessages,
@@ -36,7 +31,7 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationDeleteSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
+import DialogWithCancelButton from '@lychen/vue-ui-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t: tLandMemberInvitation } = useI18nExtended({

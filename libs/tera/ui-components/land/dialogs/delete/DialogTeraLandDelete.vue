@@ -1,25 +1,21 @@
 <template>
-  <Dialog>
-    <DialogTrigger as-child>
-      <slot />
-    </DialogTrigger>
-    <DialogContentWithAction
-      :title="t('title')"
-      :description="t('description')"
-    >
-      <template #content></template>
-      <template #action>
-        <Button
-          variant="negative"
-          :disabled="isPending"
-          :loading="isPending"
-          @click="deleteLand()"
-        >
-          {{ tLand('action.delete.label') }}
-        </Button>
-      </template>
-    </DialogContentWithAction>
-  </Dialog>
+  <DialogWithCancelButton
+    :title="t('title')"
+    :description="t('description')"
+  >
+    <slot />
+    <template #content></template>
+    <template #action>
+      <Button
+        variant="negative"
+        :disabled="isPending"
+        :loading="isPending"
+        @click="deleteLand()"
+      >
+        {{ tLand('action.delete.label') }}
+      </Button>
+    </template>
+  </DialogWithCancelButton>
 </template>
 
 <script lang="ts" setup>
@@ -35,8 +31,7 @@ import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { landDeleteSucceededEvent } from '@lychen/tera-util-events/LandEvents';
-import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
+import DialogWithCancelButton from '@lychen/vue-ui-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t: tLand } = useI18nExtended({

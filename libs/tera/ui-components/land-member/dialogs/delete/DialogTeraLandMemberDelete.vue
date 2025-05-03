@@ -1,30 +1,25 @@
 <template>
-  <Dialog>
-    <DialogTrigger as-child>
-      <slot />
-    </DialogTrigger>
-    <DialogContentWithAction
-      :title="t(`${leave ? 'leave.' : ''}title`)"
-      :description="t(`${leave ? 'leave.' : ''}description`)"
-    >
-      <template #content></template>
-      <template #action>
-        <Button
-          variant="negative"
-          :disabled="isPending"
-          :loading="isPending"
-          @click="deleteLandMember()"
-        >
-          {{ tLandMember(`action.${leave ? 'leave' : 'delete'}.label`) }}
-        </Button>
-      </template>
-    </DialogContentWithAction>
-  </Dialog>
+  <DialogWithCancelButton
+    :title="t(`${leave ? 'leave.' : ''}title`)"
+    :description="t(`${leave ? 'leave.' : ''}description`)"
+  >
+    <slot />
+    <template #content></template>
+    <template #action>
+      <Button
+        variant="negative"
+        :disabled="isPending"
+        :loading="isPending"
+        @click="deleteLandMember()"
+      >
+        {{ tLandMember(`action.${leave ? 'leave' : 'delete'}.label`) }}
+      </Button>
+    </template>
+  </DialogWithCancelButton>
 </template>
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { Dialog, DialogTrigger } from '@lychen/vue-ui-components-core/dialog';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import {
   messages as landMemberMessages,
@@ -39,7 +34,7 @@ import {
   landMemberDeleteSucceededEvent,
   landMemberLeaveSucceededEvent,
 } from '@lychen/tera-util-events/LandMemberEvents';
-import DialogContentWithAction from '@lychen/vue-ui-components-app/dialogs/DialogContentWithAction.vue';
+import DialogWithCancelButton from '@lychen/vue-ui-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
 const { t: tLandMember } = useI18nExtended({
