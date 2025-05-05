@@ -4,10 +4,10 @@ constraints:
   enforceProjectTypeRelationships: true
 
 experiments:
-  fasterGlobWalk: false
-  gitV2: true
+  fasterGlobWalk: true
+  gitV2: false
   strictProjectIds: true
-  
+
 generator:
   templates:
     - ./templates
