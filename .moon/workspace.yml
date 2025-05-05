@@ -4,8 +4,8 @@ constraints:
   enforceProjectTypeRelationships: true
 
 experiments:
-  fasterGlobWalk: true
-  gitV2: false
+  fasterGlobWalk: false
+  gitV2: true
   strictProjectIds: true
 
 generator:
