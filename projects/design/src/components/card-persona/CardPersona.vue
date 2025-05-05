@@ -1,15 +1,31 @@
 <template>
-  <Card class="flex flex-row gap-10">
-    <div class="rounded-2xl basis-1/3">
+  <div
+    ref="cardPersona"
+    class="flex flex-row gap-10 bg-surface-container-low rounded-xl p-8 group"
+  >
+    <div class="rounded-2xl basis-1/3 relative">
       <img
         :src="`/persona/${id}.webp`"
         class="h-full aspect-2/3 object-cover rounded-2xl"
       />
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button
+            class="exclude-from-download absolute top-5 left-5 hidden group-hover:flex"
+            :icon="faDownload"
+            size="xs"
+            @click="downloadCard"
+          />
+        </TooltipTrigger>
+        <TooltipContent> Télécharger l'image </TooltipContent>
+      </Tooltip>
     </div>
     <div class="flex flex-col gap-8 items-stretch basis-2/3">
       <div class="flex flex-row justify-between items-center">
         <BaseHeading>{{ fullName }}</BaseHeading>
-        <Badge>{{ id }}</Badge>
+        <div class="flex flex-row gap-2">
+          <Badge class="bg-tertiary-container text-on-tertiary-container">{{ id }}</Badge>
+        </div>
       </div>
 
       <div class="flex flex-row gap-4">
@@ -80,16 +96,42 @@
         </div>
       </div>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script setup lang="ts">
-import Card from '@lychen/vue-ui-components-core/card/Card.vue';
-import type { Props } from '.';
+import { VARIANT, type Props } from '.';
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { Badge } from '@lychen/vue-ui-components-core/badge';
+import { toPng } from 'html-to-image';
+import { useTemplateRef } from 'vue';
+import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import { faDownload } from '@fortawesome/pro-light-svg-icons/faDownload';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 
-defineProps<Props>();
+const { id, variant = VARIANT.Default } = defineProps<Props>();
+
+const cardPersona = useTemplateRef('cardPersona');
+
+function filter(node: HTMLElement) {
+  // Exclude the button itself from the generated image
+  return !node.classList?.contains('exclude-from-download');
+}
+
+async function downloadCard() {
+  if (!cardPersona.value) {
+    return;
+  }
+
+  toPng(cardPersona.value, { cacheBust: true, filter })
+    .then(function (dataUrl) {
+      const link = document.createElement('a');
+      link.download = `${id}.png`;
+      link.href = dataUrl;
+      link.click();
+    })
+    .catch(function (error) {});
+}
 </script>
 
 <style lang="css" scoped>

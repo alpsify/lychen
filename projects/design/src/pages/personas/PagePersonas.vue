@@ -3,12 +3,21 @@
     :title="t('title')"
     :description="t('description')"
   >
-    <div class="persona-grid p-4">
-      <CardPersona
+    <div class="flex flex-col gap-4 p-4 items-start">
+      <div
         v-for="persona in personas"
         :key="persona.id"
-        v-bind="persona"
-      />
+        class="flex lg:flex-row gap-4"
+      >
+        <CardPersona
+          v-bind="persona"
+          class="basis-2/3"
+        />
+        <div class="flex flex-col gap-4">
+          <CardPersonaOverImage v-bind="persona" />
+          <CardPersonaSmall v-bind="persona" />
+        </div>
+      </div>
     </div>
   </Page>
 </template>
@@ -21,6 +30,8 @@ import type { Component } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 
 import type { Props as CardPersonaProps } from '@lychen/vue-ui-components-extra/persona';
+import CardPersonaSmall from '@/components/card-persona/CardPersonaSmall.vue';
+import CardPersonaOverImage from '@/components/card-persona/CardPersonaOverImage.vue';
 
 const Page = defineAsyncComponent(() => import('@components/Page.vue'));
 

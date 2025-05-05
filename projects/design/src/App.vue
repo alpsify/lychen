@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { TooltipProvider } from '@lychen/vue-ui-components-core/tooltip';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
@@ -27,5 +28,7 @@ useSchemaOrg([
 </script>
 
 <template>
-  <RouterView />
+  <TooltipProvider>
+    <RouterView />
+  </TooltipProvider>
 </template>
