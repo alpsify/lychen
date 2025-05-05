@@ -6,7 +6,7 @@ import { useHead } from '@unhead/vue';
 usePreferredColorScheme();
 
 useHead({
-  titleTemplate: `Design | %s`,
+  titleTemplate: `Lychen - Design System | %s`,
   templateParams: {
     schemaOrg: {
       host: import.meta.env.VITE_UNHEAD_HOST,
@@ -16,11 +16,11 @@ useHead({
 
 useSchemaOrg([
   defineOrganization({
-    name: 'Design',
+    name: 'Lychen - Design System',
     logo: '/logos/lychen/logo-lychen.svg',
   }),
   defineWebSite({
-    name: "Design'",
+    name: 'Lychen - Design System',
   }),
   defineWebPage(),
 ]);
