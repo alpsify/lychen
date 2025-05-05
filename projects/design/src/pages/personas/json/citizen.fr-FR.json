@@ -1,11 +1,11 @@
 {
   "id": "citizen",
-  "fullName": "Jane Doe",
+  "fullName": "Cécile Wazil",
   "jobTitle": "Assistante médicale",
   "age": "30",
   "painPoints": ["N'a pas de jardin pour cultiver", "Débute en jardinage"],
-  "values": ["Responsable", "Ecologie", "Work-Life Balance"],
+  "values": ["Responsable", "Ecologie", "Work-Life Balance", "Slow-life"],
   "goals": ["Trouver un terrain proche de chez lui", "Développer ces relations"],
   "location": "Annecy",
-  "biography": "Jane est une citoyenne engagée qui souhaite cultiver ses propres aliments mais n'a pas de jardin. Elle est passionnée par le jardinage et cherche un terrain près de chez elle pour commencer à cultiver."
+  "biography": "Cécile est une citoyenne engagée qui souhaite cultiver ses propres aliments mais n'a pas de jardin. Elle est passionnée par le jardinage et cherche un terrain près de chez elle pour commencer à cultiver."
 }

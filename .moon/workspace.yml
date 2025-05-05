@@ -6,7 +6,6 @@ constraints:
 experiments:
   fasterGlobWalk: false
   gitV2: true
-  strictProjectIds: true
 
 generator:
   templates:

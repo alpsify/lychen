@@ -11,6 +11,7 @@ tasks:
       - '!**/build/'
       - '!**/dist/'
       - '!**/playwright-report/'
+      - '!**/vendor/'
       - '!**/.vite-ssg-temp/'
 
   format-fix:
@@ -29,6 +30,7 @@ tasks:
       - '**/*.{vue,ts,js,yaml,yml,json,md}'
       - '!**/build/'
       - '!**/dist/'
+      - '!**/vendor/'
       - '!**/playwright-report/'
       - '!**/.vite-ssg-temp/'
 

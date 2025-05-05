@@ -13,14 +13,15 @@
       </div>
 
       <div class="flex flex-row gap-4">
-        <div class="flex flex-col basis-1/2">
+        <div class="flex flex-col basis-1/2 gap-2">
           <BaseHeading
-            variant="h4"
-            class=""
-            >{{ jobTitle }}</BaseHeading
+            variant="h5"
+            class="inline"
+            >Métier</BaseHeading
           >
+          <p>{{ jobTitle }}</p>
         </div>
-        <div class="flex flex-col basis-1/2">
+        <div class="flex flex-col basis-1/2 gap-2">
           <p>
             <BaseHeading
               variant="h5"
@@ -39,11 +40,11 @@
           </p>
         </div>
       </div>
-      <div>
+      <div class="flex flex-col gap-2">
         <BaseHeading variant="h5">Biography</BaseHeading>
         <p>{{ biography }}</p>
       </div>
-      <div>
+      <div class="flex flex-col gap-2">
         <BaseHeading variant="h5">Values</BaseHeading>
         <ul class="list-disc pl-4">
           <li
@@ -55,7 +56,7 @@
         </ul>
       </div>
       <div class="flex flex-row gap-4">
-        <div class="basis-1/2">
+        <div class="flex flex-col gap-2 basis-1/2">
           <BaseHeading variant="h5">Goals</BaseHeading>
           <ul class="list-disc pl-4">
             <li
@@ -66,7 +67,7 @@
             </li>
           </ul>
         </div>
-        <div class="basis-1/2">
+        <div class="flex flex-col gap-2 basis-1/2">
           <BaseHeading variant="h5">Pain Points</BaseHeading>
           <ul class="list-disc pl-4">
             <li
@@ -94,6 +95,5 @@ defineProps<Props>();
 <style lang="css" scoped>
 h5 {
   opacity: 0.6;
-  margin-bottom: 15px;
 }
 </style>
