@@ -3,17 +3,17 @@
     :title="t('title')"
     :description="t('description')"
   >
-    <div class="flex flex-col gap-4 p-4 items-start">
+    <div class="flex flex-col gap-10 p-4 items-start">
       <div
         v-for="persona in personas"
         :key="persona.id"
-        class="flex lg:flex-row gap-4"
+        class="flex flex-col lg:flex-row gap-4"
       >
         <CardPersona
           v-bind="persona"
           class="basis-2/3"
         />
-        <div class="flex flex-col gap-4">
+        <div class="flex lg:flex-col gap-4 lg:justify-between">
           <CardPersonaOverImage v-bind="persona" />
           <CardPersonaSmall v-bind="persona" />
         </div>
@@ -29,7 +29,7 @@ import type { Component } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 
-import type { Props as CardPersonaProps } from '@lychen/vue-ui-components-extra/persona';
+import type { Props as CardPersonaProps } from '@components/card-persona';
 import CardPersonaSmall from '@/components/card-persona/CardPersonaSmall.vue';
 import CardPersonaOverImage from '@/components/card-persona/CardPersonaOverImage.vue';
 

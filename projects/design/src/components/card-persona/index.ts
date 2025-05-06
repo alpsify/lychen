@@ -11,7 +11,6 @@ export interface Props {
   location: string;
   jobTitle: string;
   biography: string;
-  variant: Variant;
 }
 
 export const VARIANT = {
