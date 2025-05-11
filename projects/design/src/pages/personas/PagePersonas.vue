@@ -7,13 +7,13 @@
       <div
         v-for="persona in personas"
         :key="persona.id"
-        class="flex flex-col lg:flex-row gap-4"
+        class="flex flex-col lg:flex-row gap-8"
       >
         <CardPersona
           v-bind="persona"
           class="basis-2/3"
         />
-        <div class="flex lg:flex-col gap-4 lg:justify-between">
+        <div class="flex lg:flex-col gap-8 lg:justify-between">
           <CardPersonaOverImage v-bind="persona" />
           <CardPersonaSmall v-bind="persona" />
         </div>

@@ -43,14 +43,6 @@ const navigation = computed(() => {
           title: t('menu.personas'),
           to: RoutePagePersonas,
         },
-        {
-          title: t('menu.logos'),
-          to: '',
-        },
-        {
-          title: t('menu.images'),
-          to: '',
-        },
       ],
     },
     fundations: {
