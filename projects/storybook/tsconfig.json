@@ -36,7 +36,6 @@
   ],
   "include": [
     "../../libs/css/core/**/*",
-
     "../../libs/tera/ui-components/**/*",
     "../../libs/vue/i18n/util-configs/**/*",
     "../../libs/vue/ui-components-app/**/*",

@@ -51,7 +51,7 @@
         </PopoverContent>
       </Popover>
     </template>
-    <template #header></template>
+    <template #header><slot name="header" /></template>
   </LayoutInAppResponsiveBase>
 </template>
 

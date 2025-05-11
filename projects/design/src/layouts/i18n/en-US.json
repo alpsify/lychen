@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "Welcome",
+    "colors": "Colors",
+    "personas": "Personas"
+  },
+  "section": {
+    "foundations": "Foundations",
+    "brand": "Brand"
+  }
+}
