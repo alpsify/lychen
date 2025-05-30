@@ -225,7 +225,7 @@ import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselCon
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
-import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@/layouts/in-app';
+import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@lychen/tera-util-constants/InjectKeys';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';

@@ -28,6 +28,10 @@ import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { inject } from 'vue';
+import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectKeys';
+
+const land = inject(INJECT_LAND_KEY);
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -35,7 +39,9 @@ type LandTaskPostRequest =
   paths['/api/land_tasks']['post']['requestBody']['content']['application/ld+json'];
 
 const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandTaskPostRequest>({
-  initialValues: {},
+  initialValues: {
+    land: land?.value?.['@id'],
+  },
 });
 
 const { emit } = useEventBus(landPostSucceededEvent);
@@ -44,7 +50,9 @@ const { api } = useTeraApi();
 
 const { mutate, isPending } = useMutation({
   mutationFn: async (data: LandTaskPostRequest) => {
-    const response = await api.POST('/api/land_tasks', { body: data });
+    const response = await api.POST('/api/land_tasks', {
+      body: data,
+    });
     return response.data;
   },
   onSuccess: (data, variables, context) => {

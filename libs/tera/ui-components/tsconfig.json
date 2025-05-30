@@ -7,6 +7,7 @@
     "../ui-i18n/**/*",
     "../util-api-sdk/**/*",
     "../util-composables/**/*",
+    "../util-constants/**/*",
     "../util-events/**/*",
     "**/*"
   ],
@@ -30,6 +31,9 @@
       "path": "../util-composables"
     },
     {
+      "path": "../util-constants"
+    },
+    {
       "path": "../util-events"
     }
   ],
@@ -43,7 +47,8 @@
       "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"],
       "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"],
       "@lychen/tera-util-events/*": ["../util-events/*"],
-      "@lychen/tera-util-composables/*": ["../util-composables/*"]
+      "@lychen/tera-util-composables/*": ["../util-composables/*"],
+      "@lychen/tera-util-constants/*": ["../util-constants/*"]
     }
   }
 }
