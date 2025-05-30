@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.options.json",
   "files": [],
   "references": [
-    {
+    /*{
       "path": "."
     },
     {
@@ -10,7 +10,7 @@
     },
     {
       "path": "./tsconfig.node.json"
-    },
+    },*/
     {
       "path": "../../libs/css/core"
     },

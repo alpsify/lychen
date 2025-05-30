@@ -115,7 +115,7 @@ import {
 } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
-import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
+import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
 import { useRoute } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-components/land-task/dialogs/update';
 
@@ -157,7 +157,7 @@ function refetchAll() {
   tasksQueries.value.forEach((result) => result.refetch());
 }
 
-const { on: onDeleteTask } = useEventBus(landTaskDeleteSucceededEvent);
+const { on: onDeleteTask } = useEventBus(EVENT_landTaskDeleteSucceeded);
 
 onDeleteTask(() => {
   refetchAll();
