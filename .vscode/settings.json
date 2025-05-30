@@ -41,7 +41,8 @@
     "**/.moon/cache": true,
     "**/dist": true,
     "**/vendor/**": true,
-    "**/.yarn/**": true
+    "**/.yarn/**": true,
+    "yarn.lock": true,
   },
   "typescript.tsserver.maxTsServerMemory": 8192,
   "css.lint.unknownAtRules": "ignore",
