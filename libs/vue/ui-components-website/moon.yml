@@ -1,8 +1,8 @@
 dependsOn:
   - typescript-util-tailwind
+  - vue-composables
   - vue-i18n-util-composables
   - vue-ui-components-extra
-  - vue-util-composables
 
 id: vue-ui-components-website
 

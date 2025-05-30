@@ -7,13 +7,13 @@ dependsOn:
   - tera-util-constants
   - tera-util-events
   - typescript-util-zitadel
+  - vue-composables
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-ui-components-app
   - vue-ui-components-core
   - vue-ui-components-extra
   - vue-ui-layouts
-  - vue-util-composables
 
 env:
   DEV_DOMAIN: app.tera.lychen.local

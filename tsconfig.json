@@ -218,7 +218,7 @@
       "path": "libs/vue/unhead/util-composables"
     },
     {
-      "path": "libs/vue/util-composables"
+      "path": "libs/vue/composables"
     },
     {
       "path": "projects/design"

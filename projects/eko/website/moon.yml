@@ -8,6 +8,7 @@ dependsOn:
   - typescript-util-constants
 
   - vite-util-ssg
+  - vue-composables
   - vue-i18n-util-composables
   - vue-i18n-util-configs
   - vue-router-util-configs
@@ -15,7 +16,6 @@ dependsOn:
   - vue-ui-components-website
   - vue-ui-layouts
   - vue-unhead-util-composables
-  - vue-util-composables
 
 env:
   DEV_DOMAIN: eko.lychen.local
