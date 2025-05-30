@@ -18,7 +18,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@lychen/tera-util-constants/InjectKeys';
+import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@lychen/tera-util-constants/InjectionKeys';
 import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { useEventBus } from '@vueuse/core';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';

@@ -58,7 +58,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import DialogTeraLandDelete from '@lychen/tera-ui-components/land/dialogs/delete/DialogTeraLandDelete.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { inject } from 'vue';
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectKeys';
+import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
 import { useEventBus } from '@vueuse/core';
 import { landDeleteSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import { useRouter } from 'vue-router';

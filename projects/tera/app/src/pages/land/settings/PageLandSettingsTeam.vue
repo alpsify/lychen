@@ -108,7 +108,7 @@ import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { computed, inject, onUnmounted } from 'vue';
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectKeys';
+import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';

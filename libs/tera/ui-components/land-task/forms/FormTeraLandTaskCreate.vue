@@ -29,7 +29,7 @@ import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { inject } from 'vue';
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectKeys';
+import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
 
 const land = inject(INJECT_LAND_KEY);
 
