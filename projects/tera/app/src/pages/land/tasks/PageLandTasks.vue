@@ -88,7 +88,7 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-ui-components/land-task/card/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
@@ -119,7 +119,7 @@ import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskE
 import { useRoute } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-components/land-task/dialogs/update';
 
-const land = inject(INJECT_LAND_KEY);
+const land = inject(INJECTION_KEY_LAND);
 provide(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND, land);
 
 const landUlid = computed(() => land?.value?.ulid);

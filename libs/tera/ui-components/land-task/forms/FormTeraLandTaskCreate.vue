@@ -25,13 +25,13 @@ import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
 import { inject } from 'vue';
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
+import { EVENT_landTaskPostSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
 
-const land = inject(INJECT_LAND_KEY);
+const land = inject(INJECTION_KEY_LAND);
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
@@ -44,7 +44,7 @@ const { isFieldDirty, handleSubmit, meta, setFieldValue } = useForm<LandTaskPost
   },
 });
 
-const { emit } = useEventBus(landPostSucceededEvent);
+const { emit } = useEventBus(EVENT_landTaskPostSucceeded);
 
 const { api } = useTeraApi();
 

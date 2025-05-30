@@ -225,7 +225,10 @@ import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselCon
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
-import { INJECT_LAND_KEY, INJECT_LAND_MEMBER_KEY } from '@lychen/tera-util-constants/InjectionKeys';
+import {
+  INJECTION_KEY_LAND,
+  INJECTION_KEY_LAND_MEMBER,
+} from '@lychen/tera-util-constants/InjectionKeys';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
@@ -259,8 +262,8 @@ const Button = defineAsyncComponent(
 
 const { api } = useTeraApi();
 
-const land = inject(INJECT_LAND_KEY);
-const landMember = inject(INJECT_LAND_MEMBER_KEY);
+const land = inject(INJECTION_KEY_LAND);
+const landMember = inject(INJECTION_KEY_LAND_MEMBER);
 
 const { allowed: settingsButtonAllowed } = useLandGuard(landMember, ['land_update']);
 

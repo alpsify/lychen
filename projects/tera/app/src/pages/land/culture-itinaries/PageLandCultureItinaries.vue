@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECT_LAND_KEY } from '@lychen/tera-util-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, inject } from 'vue';
 
-const land = inject(INJECT_LAND_KEY);
+const land = inject(INJECTION_KEY_LAND);
 
 const landUlid = computed(() => land?.value?.ulid);
 const enabled = computed(() => !!landUlid.value);
