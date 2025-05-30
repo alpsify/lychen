@@ -108,7 +108,7 @@ import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { computed, inject, onUnmounted } from 'vue';
-import { INJECT_LAND_KEY } from '@/layouts/in-app';
+import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
@@ -138,7 +138,7 @@ import {
 import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 
-const land = inject(INJECT_LAND_KEY);
+const land = inject(INJECTION_KEY_LAND);
 const landUlid = computed(() => land?.value?.ulid);
 const enabled = computed(() => !!landUlid.value);
 

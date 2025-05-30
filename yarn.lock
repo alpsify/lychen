@@ -1585,9 +1585,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/vue-fontawesome@npm:latest-3":
+"@fortawesome/vue-fontawesome@npm:^3.0.8":
   version: 3.0.8
-  resolution: "@fortawesome/vue-fontawesome@npm:3.0.8::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fvue-fontawesome%2F-%2F3.0.8%2Fvue-fontawesome-3.0.8.tgz"
+  resolution: "@fortawesome/vue-fontawesome@npm:3.0.8"
   peerDependencies:
     "@fortawesome/fontawesome-svg-core": ~1 || ~6
     vue: ">= 3.0.0 < 4"
@@ -2814,6 +2814,7 @@ __metadata:
     "@lychen/tera-ui-i18n": "workspace:*"
     "@lychen/tera-util-api-sdk": "workspace:*"
     "@lychen/tera-util-composables": "workspace:*"
+    "@lychen/tera-util-constants": "workspace:*"
     "@lychen/tera-util-events": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"
     "@lychen/vue-i18n-util-composables": "workspace:*"
@@ -3178,7 +3179,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
     "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@fortawesome/vue-fontawesome": "npm:latest-3"
+    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
     "@internationalized/date": "npm:^3.7.0"
     "@lychen/typescript-util-fontawesome": "workspace:*"
     "@lychen/typescript-util-object": "workspace:*"

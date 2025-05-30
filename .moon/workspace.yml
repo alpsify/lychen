@@ -33,7 +33,8 @@ vcs:
   defaultBranch: main
   hooks:
     pre-commit:
-      - 'moon :format-fix --affected --logFile .moon/logs/pre-commit-format-fix.txt --log trace'
+      #- 'moon :format-fix --affected --logFile .moon/logs/pre-commit-format-fix.txt --log trace'
+      - 'moon :format-fix --affected'
       - 'moon :lint-fix --affected'
       - 'git add -u'
   manager: git

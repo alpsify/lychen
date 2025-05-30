@@ -5,24 +5,28 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECT_LAND_KEY } from '@/layouts/in-app';
+import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
 import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, inject } from 'vue';
 
-const land = inject(INJECT_LAND_KEY);
+const land = inject(INJECTION_KEY_LAND);
 
-const landId = computed(() => land?.value?.['@id']);
-const enabled = computed(() => !!landId.value);
+const landUlid = computed(() => land?.value?.ulid);
+const enabled = computed(() => !!landUlid.value);
 
-const api = useTeraApi('LandCultivationPlan');
+const { api } = useTeraApi();
 
 const { data: landCultivationPlans } = useQuery({
-  queryKey: ['landCultivationPlans', landId],
+  queryKey: ['landCultivationPlans', landUlid],
   queryFn: async () => {
-    const response = await api.landCultivationPlanGetCollection({
-      land: landId.value!,
+    const response = await api.GET('/api/land_cultivation_plans', {
+      params: {
+        query: {
+          land: landUlid.value!,
+        },
+      },
     });
 
     return response.data;
