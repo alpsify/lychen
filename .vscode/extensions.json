@@ -8,11 +8,10 @@
     "christian-kohler.npm-intellisense",
     "moonrepo.moon-console",
     "gruntfuggly.todo-tree",
-    "syler.sass-indented",
-    "sibiraj-s.vscode-scss-formatter",
     "mrmlnc.vscode-scss",
     "mrmlnc.vscode-duplicate",
-    "pascalreitermann93.vscode-yaml-sort"
+    "pascalreitermann93.vscode-yaml-sort",
+    "hediet.vscode-drawio"
   ],
   "unwantedRecommendations": [
     "octref.vetur",
