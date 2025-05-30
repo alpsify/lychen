@@ -39,7 +39,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
-import { landTaskPatchSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
+import { EVENT_landTaskPatchSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
@@ -59,7 +59,7 @@ const { handleSubmit, meta, setFieldValue, isFieldDirty } = useForm<FormType>({
   },
 });
 
-const { emit } = useEventBus(landTaskPatchSucceededEvent);
+const { emit } = useEventBus(EVENT_landTaskPatchSucceeded);
 
 const { api } = useTeraApi();
 
