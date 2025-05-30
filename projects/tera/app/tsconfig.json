@@ -15,7 +15,7 @@
     "../../../libs/vue/ui-components-core/**/*",
     "../../../libs/vue/ui-components-extra/**/*",
     "../../../libs/vue/ui-layouts/**/*",
-    "../../../libs/vue/util-composables/**/*",
+    "../../../libs/vue/composables/**/*",
     "**/*"
   ],
   "references": [
@@ -62,7 +62,7 @@
       "path": "../../../libs/vue/ui-layouts"
     },
     {
-      "path": "../../../libs/vue/util-composables"
+      "path": "../../../libs/vue/composables"
     }
   ],
   "compilerOptions": {
@@ -75,7 +75,7 @@
       "@components/*": ["src/components/*"],
       "@lychen/tera-ui-i18n": ["../../../libs/tera/ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../../../libs/tera/ui-i18n/*"],
-      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
+      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
       "@lychen/vue-i18n-util-composables/*": ["../../../libs/vue/i18n/util-composables/*"],
       "@lychen/css-core/*": ["../../../libs/css/core/*"],
       "@lychen/typescript-util-zitadel/*": ["../../../libs/typescript/util-zitadel/*"],

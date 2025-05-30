@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/vue/util-composables",
+    "outDir": "../../../.moon/cache/types/libs/vue/composables",
     "paths": {}
   }
 }

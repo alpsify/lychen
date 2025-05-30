@@ -21,7 +21,7 @@
     "../../../libs/vue/ui-components-website/**/*",
     "../../../libs/vue/ui-layouts/**/*",
     "../../../libs/vue/unhead/util-composables/**/*",
-    "../../../libs/vue/util-composables/**/*",
+    "../../../libs/vue/composables/**/*",
     "**/*"
   ],
   "references": [
@@ -82,7 +82,7 @@
       "path": "../../../libs/vue/unhead/util-composables"
     },
     {
-      "path": "../../../libs/vue/util-composables"
+      "path": "../../../libs/vue/composables"
     }
   ],
   "compilerOptions": {
@@ -104,7 +104,7 @@
       "@lychen/vue-i18n-util-configs/*": ["../../../libs/vue/i18n/util-configs/*"],
       "@lychen/vue-router-util-configs/*": ["../../../libs/vue/router/util-configs/*"],
       "@lychen/vue-unhead-util-composables/*": ["../../../libs/vue/unhead/util-composables/*"],
-      "@lychen/vue-util-composables/*": ["../../../libs/vue/util-composables/*"],
+      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
       "@lychen/typescript-util-constants/*": ["../../../libs/typescript/util-constants/*"],
       "@lychen/applications-util-constants/*": ["../../../libs/applications/util-constants/*"],
       "@lychen/vara-util-constants/*": ["../../../libs/vara/util-constants/*"],

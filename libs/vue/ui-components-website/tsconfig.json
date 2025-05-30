@@ -5,7 +5,7 @@
     "../i18n/util-composables/**/*",
     "../ui-components-core/**/*",
     "../ui-components-extra/**/*",
-    "../util-composables/**/*",
+    "../composables/**/*",
     "**/*",
     "**/*.json"
   ],
@@ -23,7 +23,7 @@
       "path": "../ui-components-extra"
     },
     {
-      "path": "../util-composables"
+      "path": "../composables"
     }
   ],
   "compilerOptions": {
@@ -33,7 +33,7 @@
       "@lychen/vue-i18n-util-composables/*": ["../i18n/util-composables/*"],
       "@lychen/vue-ui-components-core/*": ["../ui-components-core/*"],
       "@lychen/vue-ui-components-extra/*": ["../ui-components-extra/*"],
-      "@lychen/vue-util-composables/*": ["../util-composables/*"]
+      "@lychen/vue-composables/*": ["../composables/*"]
     }
   }
 }

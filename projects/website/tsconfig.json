@@ -20,7 +20,7 @@
     "../../libs/vue/ui-components-website/**/*",
     "../../libs/vue/ui-layouts/**/*",
     "../../libs/vue/unhead/util-composables/**/*",
-    "../../libs/vue/util-composables/**/*",
+    "../../libs/vue/composables/**/*",
     "**/*"
   ],
   "references": [
@@ -76,7 +76,7 @@
       "path": "../../libs/vue/unhead/util-composables"
     },
     {
-      "path": "../../libs/vue/util-composables"
+      "path": "../../libs/vue/composables"
     }
   ],
   "compilerOptions": {
@@ -88,7 +88,7 @@
       "@lychen/css-core/*": ["../../libs/css/core/*"],
 
       "@lychen/vue-i18n-util-composables/*": ["../../libs/vue/i18n/util-composables/*"],
-      "@lychen/vue-util-composables/*": ["../../libs/vue/util-composables/*"],
+      "@lychen/vue-composables/*": ["../../libs/vue/composables/*"],
       "@lychen/applications-util-composables/*": ["../../libs/applications/util-composables/*"],
       "@lychen/odd-util-composables/*": ["../../libs/odd/util-composables/*"],
       "@lychen/applications-ui-components/*": ["../../libs/applications/ui-components/*"],

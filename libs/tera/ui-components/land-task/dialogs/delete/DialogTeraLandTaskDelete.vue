@@ -30,7 +30,7 @@ import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
-import { landTaskDeleteSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
+import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
 import DialogWithCancelButton from '@lychen/vue-ui-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
@@ -46,7 +46,7 @@ const { t: t } = useI18nExtended({
   prefixed: true,
 });
 
-const { emit } = useEventBus(landTaskDeleteSucceededEvent);
+const { emit } = useEventBus(EVENT_landTaskDeleteSucceeded);
 
 const { landTask } = defineProps<{
   landTask: components['schemas']['LandTask.jsonld'];

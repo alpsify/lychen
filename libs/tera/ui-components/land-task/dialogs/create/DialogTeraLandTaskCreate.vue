@@ -28,7 +28,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
-import { landTaskPostSucceededEvent } from '@lychen/tera-util-events/LandTaskEvents';
+import { EVENT_landTaskPatchSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
 import { ref } from 'vue';
 import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
 
@@ -38,7 +38,7 @@ const { land } = defineProps<{ land: components['schemas']['Land.jsonld'] }>();
 
 const open = ref(false);
 
-const { on } = useEventBus(landTaskPostSucceededEvent);
+const { on } = useEventBus(EVENT_landTaskPatchSucceeded);
 on(() => {
   open.value = false;
 });

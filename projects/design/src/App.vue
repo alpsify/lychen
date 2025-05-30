@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TooltipProvider } from '@lychen/vue-ui-components-core/tooltip';
-import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
+import { usePreferredColorScheme } from '@lychen/vue-composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 

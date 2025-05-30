@@ -68,8 +68,8 @@ import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtend
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useEventBus } from '@vueuse/core';
 import {
-  landTaskDeleteSucceededEvent,
-  landTaskPatchSucceededEvent,
+  EVENT_landTaskDeleteSucceeded,
+  EVENT_landTaskPatchSucceeded,
 } from '@lychen/tera-util-events/LandTaskEvents';
 import { inject, watch } from 'vue';
 import {
@@ -95,8 +95,8 @@ const { landTask } = defineProps<{
 
 const open = defineModel<boolean>('open');
 
-const { on } = useEventBus(landTaskPatchSucceededEvent);
-const { on: onDelete } = useEventBus(landTaskDeleteSucceededEvent);
+const { on } = useEventBus(EVENT_landTaskPatchSucceeded);
+const { on: onDelete } = useEventBus(EVENT_landTaskDeleteSucceeded);
 const land = inject(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND);
 
 on(() => {
