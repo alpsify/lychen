@@ -10,6 +10,6 @@ export interface MenuStructure {
 
 export interface MenuItem {
   to: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
-  icon: IconDefinition;
+  icon?: IconDefinition;
   title: string;
 }

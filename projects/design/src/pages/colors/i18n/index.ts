@@ -1,5 +1,5 @@
-import enUs from './en-US';
-import frFr from './fr-FR';
+import enUs from './en-US.json';
+import frFr from './fr-FR.json';
 
 export const messages = {
   'fr-FR': frFr,

@@ -1,5 +1,5 @@
 export const RoutePageHome = {
-  path: '/',
+  path: '/welcome',
   component: () => import('./PageHome.vue'),
   name: 'home',
 };

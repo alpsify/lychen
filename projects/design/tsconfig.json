@@ -9,7 +9,8 @@
     "../../libs/vue/ui-components-app/**/*",
     "../../libs/vue/ui-components-core/**/*",
     "../../libs/vue/ui-components-extra/**/*",
-    "**/*"
+    "**/*",
+    "**/*.json"
   ],
   "references": [
     {
@@ -41,6 +42,7 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@components/*": ["src/components/*"],
       "@lychen/css-core/*": ["../../libs/css/core/*"],
 
       "@lychen/vite-util-ssg/*": ["../../libs/vite/util-ssg/*"],

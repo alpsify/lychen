@@ -1,10 +1,11 @@
-$schema: 'https://moonrepo.dev/schemas/workspace.json'
+$schema: './cache/schemas/workspace.json'
 
 constraints:
   enforceProjectTypeRelationships: true
 
-experiments:
-  strictProjectIds: true
+#experiments:
+  #fasterGlobWalk: true
+  #gitV2: true
 
 generator:
   templates:

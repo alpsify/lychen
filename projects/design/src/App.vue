@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { TooltipProvider } from '@lychen/vue-ui-components-core/tooltip';
 import { usePreferredColorScheme } from '@lychen/vue-util-composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
@@ -6,7 +7,7 @@ import { useHead } from '@unhead/vue';
 usePreferredColorScheme();
 
 useHead({
-  titleTemplate: `Design | %s`,
+  titleTemplate: `Lychen - Design System | %s`,
   templateParams: {
     schemaOrg: {
       host: import.meta.env.VITE_UNHEAD_HOST,
@@ -16,16 +17,18 @@ useHead({
 
 useSchemaOrg([
   defineOrganization({
-    name: 'Design',
+    name: 'Lychen - Design System',
     logo: '/logos/lychen/logo-lychen.svg',
   }),
   defineWebSite({
-    name: "Design'",
+    name: 'Lychen - Design System',
   }),
   defineWebPage(),
 ]);
 </script>
 
 <template>
-  <RouterView />
+  <TooltipProvider>
+    <RouterView />
+  </TooltipProvider>
 </template>
