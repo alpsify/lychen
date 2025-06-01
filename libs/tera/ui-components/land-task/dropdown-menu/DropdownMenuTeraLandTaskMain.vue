@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import { useClipboard } from '@vueuse/core';
 import {
   DropdownMenu,
@@ -55,7 +55,7 @@ import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-task';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { defineAsyncComponent, computed, ref } from 'vue';
 import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
 import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';

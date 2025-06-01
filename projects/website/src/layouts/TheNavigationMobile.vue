@@ -77,11 +77,11 @@
 </template>
 
 <script setup lang="ts">
-import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
-import { APPLICATION_ALIAS } from '@lychen/applications-util-constants/ApplicationAlias';
+import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
+import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { RoutePagePrice } from '@pages/price';
 import { RoutePageHome } from '@pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';

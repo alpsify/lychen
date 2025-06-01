@@ -10,7 +10,7 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const FooterMain = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-website/footer/FooterMain.vue'),

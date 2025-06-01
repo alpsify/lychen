@@ -1,8 +1,8 @@
 dependsOn:
-  - lychen-php-util-core
-  - lychen-php-util-model
-  - lychen-php-util-tiptap
-  - lychen-php-util-zitadel
+  - lychen-php-core
+  - lychen-php-model
+  - lychen-php-tiptap
+  - lychen-php-zitadel
 
 env:
   DEV_DOMAIN: api.tera.lychen.local

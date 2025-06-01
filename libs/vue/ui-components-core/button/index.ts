@@ -1,4 +1,4 @@
-import type { ObjectValues } from '@lychen/typescript-util-object/Object';
+import type { ObjectValues } from '@lychen/typescript-object/Object';
 
 export const ICON_POSITION = {
   Start: 'start',

@@ -49,7 +49,7 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import Container from '@lychen/vue-ui-components-website/container/Container.vue';
 import Title from '@lychen/vue-ui-components-website/title/Title.vue';
 import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

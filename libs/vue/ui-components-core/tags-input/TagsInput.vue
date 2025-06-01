@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PRESETS } from '../utils/Preset';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import {
   TagsInputRoot,
   type TagsInputRootEmits,

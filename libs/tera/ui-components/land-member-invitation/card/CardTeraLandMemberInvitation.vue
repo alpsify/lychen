@@ -77,21 +77,21 @@ import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import { defineAsyncComponent } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { TRANSLATION_KEY, messages } from './i18n';
 import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
   messages as messagesLandMemberInvitations,
 } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { toast } from '@lychen/vue-ui-components-core/toast';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
-} from '@lychen/tera-util-events/LandMemberInvitationEvents';
+} from '@lychen/tera-events/LandMemberInvitationEvents';
 import { useEventBus } from '@vueuse/core';
 
 const BaseHeading = defineAsyncComponent(

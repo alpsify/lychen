@@ -41,7 +41,7 @@ import imageUrl from './assets/ulule_horizontal_blanc.png';
 import imageUrlLight from './assets/ulule_horizontal.png';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { usePreferredColorScheme } from '@lychen/vue-composables/usePreferredColorScheme';
 
 import { GlowBorder } from '@lychen/vue-ui-components-extra/glow-border';

@@ -1,5 +1,5 @@
 dependsOn:
-  - luna-util-constants
+  - luna-constants
 
 id: luna-ui-i18n
 

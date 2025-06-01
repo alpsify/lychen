@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import Icon from '../icon/Icon.vue';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { TagsInputItemDelete, type TagsInputItemDeleteProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

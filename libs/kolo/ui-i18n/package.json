@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/kolo-util-constants": "workspace:*"
+    "@lychen/kolo-constants": "workspace:*"
   }
 }

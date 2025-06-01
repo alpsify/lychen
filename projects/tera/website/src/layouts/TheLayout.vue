@@ -20,9 +20,9 @@
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
 
-import { APP_STATE } from '@lychen/tera-util-constants/App';
+import { APP_STATE } from '@lychen/tera-constants/App';
 import { TRANSLATION_KEY, messages } from '@lychen/tera-ui-i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { defineAsyncComponent } from 'vue';
 
 const LayoutWebsiteApplication = defineAsyncComponent(

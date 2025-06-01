@@ -1,0 +1,10 @@
+dependsOn:
+  - odd-model
+  - odd-ui-i18n
+  - vue-i18n-composables
+
+id: odd-composables
+
+language: typescript
+
+type: library

@@ -89,21 +89,21 @@ import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
 import { ref, defineAsyncComponent } from 'vue';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
-import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 import { VARIANT } from '@lychen/tera-ui-components/land-member-invitation/card';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
-} from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-util-api-sdk/generated/tera-api';
+} from '@lychen/tera-events/LandMemberInvitationEvents';
+import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-api-sdk/generated/tera-api';
 import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
 

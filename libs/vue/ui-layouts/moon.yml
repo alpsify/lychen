@@ -1,7 +1,7 @@
 dependsOn:
   - applications-ui-components
-  - typescript-util-constants
-  - vue-i18n-util-composables
+  - typescript-constants
+  - vue-i18n-composables
   - vue-ui-components-core
   - vue-ui-components-extra
   - vue-ui-components-website

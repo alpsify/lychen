@@ -1,4 +1,4 @@
-import { LandTaskJsonldState as State } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandTaskJsonldState as State } from '@lychen/tera-api-sdk/generated/tera-api';
 
 export default {
   [State.to_be_done]: 'à faire',

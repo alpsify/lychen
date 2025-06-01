@@ -91,7 +91,7 @@ import { RoutePageSharedGardens } from '@/pages/shared-gardens';
 import { RoutePageLands } from '@/pages/lands';
 import { faListUl, faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Accordion from '@lychen/vue-ui-components-core/accordion/Accordion.vue';
 import AccordionContent from '@lychen/vue-ui-components-core/accordion/AccordionContent.vue';
@@ -105,11 +105,11 @@ import {
   landDeleteSucceededEvent,
   landPostSucceededEvent,
   landPatchSucceededEvent,
-} from '@lychen/tera-util-events/LandEvents';
-import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
+} from '@lychen/tera-events/LandEvents';
+import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
 import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
-import { landMemberLeaveSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
+import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 
 const open = ref(false);
 

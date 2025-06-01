@@ -1,22 +1,22 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "../../typescript/util-object/**/*",
-    "../../vue/i18n/util-composables/**/*",
+    "../../typescript/object/**/*",
+    "../../vue/i18n/composables/**/*",
     "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
-    "../util-api-sdk/**/*",
-    "../util-composables/**/*",
-    "../util-constants/**/*",
-    "../util-events/**/*",
+    "../api-sdk/**/*",
+    "../composables/**/*",
+    "../constants/**/*",
+    "../events/**/*",
     "**/*"
   ],
   "references": [
     {
-      "path": "../../typescript/util-object"
+      "path": "../../typescript/object"
     },
     {
-      "path": "../../vue/i18n/util-composables"
+      "path": "../../vue/i18n/composables"
     },
     {
       "path": "../../vue/ui-components-core"
@@ -25,30 +25,30 @@
       "path": "../ui-i18n"
     },
     {
-      "path": "../util-api-sdk"
+      "path": "../api-sdk"
     },
     {
-      "path": "../util-composables"
+      "path": "../composables"
     },
     {
-      "path": "../util-constants"
+      "path": "../constants"
     },
     {
-      "path": "../util-events"
+      "path": "../events"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/tera/ui-components",
     "paths": {
-      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
       "@lychen/tera-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/tera-ui-i18n/*": ["../ui-i18n/*"],
-      "@lychen/typescript-util-object/*": ["../../typescript/util-object/*"],
+      "@lychen/typescript-object/*": ["../../typescript/object/*"],
       "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"],
-      "@lychen/tera-util-api-sdk/*": ["../util-api-sdk/*"],
-      "@lychen/tera-util-events/*": ["../util-events/*"],
-      "@lychen/tera-util-composables/*": ["../util-composables/*"],
-      "@lychen/tera-util-constants/*": ["../util-constants/*"]
+      "@lychen/tera-api-sdk/*": ["../api-sdk/*"],
+      "@lychen/tera-events/*": ["../events/*"],
+      "@lychen/tera-composables/*": ["../composables/*"],
+      "@lychen/tera-constants/*": ["../constants/*"]
     }
   }
 }

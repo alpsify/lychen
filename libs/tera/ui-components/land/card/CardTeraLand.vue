@@ -40,7 +40,7 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 import { faUsers } from '@fortawesome/pro-light-svg-icons/faUsers';
 import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';

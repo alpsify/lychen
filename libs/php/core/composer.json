@@ -1,0 +1,24 @@
+{
+  "name": "lychen/core",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Lychen\\CoreBundle\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Nathan De Pachtere",
+      "email": "nathan.depachtere@alpsify.com"
+    }
+  ],
+  "require": {
+    "php": "^8.3"
+  },
+  "minimum-stability": "stable",
+  "archive": {
+    "exclude": [
+      "/moon.yml"
+    ]
+  }
+}

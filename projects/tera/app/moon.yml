@@ -1,15 +1,15 @@
 dependsOn:
   - css-core
+  - tera-api-sdk
+  - tera-composables
+  - tera-constants
+  - tera-events
   - tera-ui-components
   - tera-ui-i18n
-  - tera-util-api-sdk
-  - tera-util-composables
-  - tera-util-constants
-  - tera-util-events
-  - typescript-util-zitadel
+  - typescript-zitadel
   - vue-composables
-  - vue-i18n-util-composables
-  - vue-i18n-util-configs
+  - vue-i18n-composables
+  - vue-i18n-configs
   - vue-ui-components-app
   - vue-ui-components-core
   - vue-ui-components-extra
@@ -36,6 +36,6 @@ tags:
 tasks:
   dev:
     deps:
-      - tera-util-api-sdk:generate-api
+      - tera-api-sdk:generate-api
 
 type: application

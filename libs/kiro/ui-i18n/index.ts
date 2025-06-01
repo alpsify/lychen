@@ -1,4 +1,4 @@
-import { APP_ALIAS } from '@lychen/kiro-util-constants/App';
+import { APP_ALIAS } from '@lychen/kiro-constants/App';
 import enUs from './en-US';
 import frFr from './fr-FR';
 

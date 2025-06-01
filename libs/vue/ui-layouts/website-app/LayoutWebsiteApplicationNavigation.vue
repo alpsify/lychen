@@ -87,7 +87,7 @@ import { defineAsyncComponent, provide, ref } from 'vue';
 import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
-import { SOCIAL_LINK } from '@lychen/typescript-util-constants/Social';
+import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
 

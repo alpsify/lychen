@@ -57,17 +57,17 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 import { faUserVneck } from '@fortawesome/pro-light-svg-icons/faUserVneck';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
-import { type LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
-import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import { type LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
+import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
 import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-ui-components/icons/IconLandInteractionMode';
-import { useCloseToExpire } from '@lychen/tera-util-composables/useCloseToExpire';
+import { useCloseToExpire } from '@lychen/tera-composables/useCloseToExpire';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
 

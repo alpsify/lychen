@@ -173,10 +173,10 @@
     "league/mime-type-detection": {
         "version": "1.7.0"
     },
-    "lychen/util-core": {
+    "lychen/core": {
         "version": "0.0.0"
     },
-    "lychen/util-zitadel": {
+    "lychen/zitadel": {
         "version": "0.0.0"
     },
     "monolog/monolog": {

@@ -1,0 +1,5 @@
+id: luna-constants
+
+language: typescript
+
+type: library

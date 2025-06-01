@@ -42,16 +42,16 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
 import { RoutePageCoGardeningProposals } from '../proposals';
 import GridTeraLandProposal from '@lychen/tera-ui-components/land-proposal/grid/GridTeraLandProposal.vue';
 import ToggleGroupTeraLandSharingConditions from '@lychen/tera-ui-components/land-sharing-condition/ToggleGroupTeraLandSharingConditions.vue';
 import ToggleGroupTeraLandInteractionMode from '@lychen/tera-ui-components/land-interaction-mode/ToggleGroupTeraLandInteractionMode.vue';
-import { type LandInteractionMode } from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
-import { type LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { type LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
+import { type LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { ref } from 'vue';
 

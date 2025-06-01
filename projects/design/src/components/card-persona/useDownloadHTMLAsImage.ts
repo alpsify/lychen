@@ -1,4 +1,4 @@
-import type { ObjectValues } from '@lychen/typescript-util-object/Object';
+import type { ObjectValues } from '@lychen/typescript-object/Object';
 import { toPng, toSvg } from 'html-to-image';
 import { onMounted, ref } from 'vue';
 

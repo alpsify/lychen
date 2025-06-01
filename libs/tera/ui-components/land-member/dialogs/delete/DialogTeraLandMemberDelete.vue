@@ -20,22 +20,22 @@
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import {
   messages as landMemberMessages,
   TRANSLATION_KEY as LAND_MEMBER_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-member';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-ui-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import {
   landMemberDeleteSucceededEvent,
   landMemberLeaveSucceededEvent,
-} from '@lychen/tera-util-events/LandMemberEvents';
+} from '@lychen/tera-events/LandMemberEvents';
 import DialogWithCancelButton from '@lychen/vue-ui-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t: tLandMember } = useI18nExtended({
   messages: landMemberMessages,

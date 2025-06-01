@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-generic-composables
+  - applications-model
+  - luna-constants
+  - typescript-object
+
+id: luna-features
+
+language: typescript
+
+type: library

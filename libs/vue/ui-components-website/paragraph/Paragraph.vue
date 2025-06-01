@@ -11,7 +11,7 @@
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { type HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { type ParagraphVariants, paragraphVariants } from '.';
 
 interface Props extends PrimitiveProps {

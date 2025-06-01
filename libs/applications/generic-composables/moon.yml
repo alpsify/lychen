@@ -1,0 +1,10 @@
+dependsOn:
+  - applications-constants
+  - applications-model
+  - vue-i18n-composables
+
+id: applications-generic-composables
+
+language: typescript
+
+type: library

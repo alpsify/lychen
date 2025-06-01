@@ -1,5 +1,5 @@
 dependsOn:
-  - tera-util-constants
+  - tera-constants
 
 id: tera-ui-i18n
 

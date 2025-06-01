@@ -54,9 +54,9 @@
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { LINK } from '@lychen/typescript-util-constants/Link';
-import { EMAIL } from '@lychen/typescript-util-constants/Email';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { LINK } from '@lychen/typescript-constants/Link';
+import { EMAIL } from '@lychen/typescript-constants/Email';
 
 const LogoLychenFull = defineAsyncComponent(
   () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),

@@ -39,14 +39,14 @@ import {
   DialogDescription,
 } from '@lychen/vue-ui-components-core/dialog';
 import FormTeraLandRoleUpdate from '@lychen/tera-ui-components/land-role/forms/FormTeraLandRoleUpdate.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
 import {
   landRoleDeleteSucceededEvent,
   landRolePatchSucceededEvent,
-} from '@lychen/tera-util-events/LandRoleEvents';
+} from '@lychen/tera-events/LandRoleEvents';
 import { ref } from 'vue';
 import {
   messages as landRoleMessages,
@@ -55,7 +55,7 @@ import {
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { Separator } from '@lychen/vue-ui-components-core/separator';
 import DialogTeraLandRoleDelete from '../delete/DialogTeraLandRoleDelete.vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({

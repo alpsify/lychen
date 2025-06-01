@@ -1,4 +1,4 @@
-import { APPLICATION_STATE } from '@lychen/applications-util-constants/ApplicationState';
+import { APPLICATION_STATE } from '@lychen/applications-constants/ApplicationState';
 
 export default {
   state: {

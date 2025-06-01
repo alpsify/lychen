@@ -1,7 +1,7 @@
 dependsOn:
   - css-core
   - kiro-ui-components
-  - vue-i18n-util-composables
+  - vue-i18n-composables
   - vue-ui-components-core
 
 id: kiro-member-app

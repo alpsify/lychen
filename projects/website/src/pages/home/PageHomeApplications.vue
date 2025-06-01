@@ -78,8 +78,8 @@
 <script setup lang="ts">
 import { defineAsyncComponent, onBeforeUnmount, ref, watch } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
-import { useApplicationsCatalog } from '@lychen/applications-util-composables/useApplicationsCatalog';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
 import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
 import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
@@ -91,7 +91,7 @@ import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import DialogTrigger from '@lychen/vue-ui-components-core/dialog/DialogTrigger.vue';
-import { useApplicationsFeatures } from '@lychen/applications-util-composables/useApplicationsFeatures';
+import { useApplicationsFeatures } from '@lychen/applications-composables/useApplicationsFeatures';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
 import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';

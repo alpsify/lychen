@@ -159,10 +159,10 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem-local" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem-aws-s3-v3" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/vendor/lychen/util-model" />
-      <path value="$PROJECT_DIR$/vendor/lychen/util-zitadel" />
-      <path value="$PROJECT_DIR$/vendor/lychen/util-tiptap" />
-      <path value="$PROJECT_DIR$/vendor/lychen/util-core" />
+      <path value="$PROJECT_DIR$/vendor/lychen/model" />
+      <path value="$PROJECT_DIR$/vendor/lychen/zitadel" />
+      <path value="$PROJECT_DIR$/vendor/lychen/tiptap" />
+      <path value="$PROJECT_DIR$/vendor/lychen/core" />
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
       <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import LayoutInApp from '@lychen/vue-ui-layouts/in-app/LayoutInApp.vue';
 
 import { RoutePageColors } from '@/pages/colors';

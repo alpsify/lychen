@@ -30,15 +30,15 @@ usage() {
   echo "                  Use with extreme caution as this involves 'rm -rf'."
   echo ""
   echo "Example:"
-  echo "  $APP_NAME -n \"util-\"          (Dry-run: rename folders containing 'util-')"
-  echo "  (This will dry-run: 'tera-util-api-sdk' would become 'tera-api-sdk')"
+  echo "  $APP_NAME -n \"\"          (Dry-run: rename folders containing '')"
+  echo "  (This will dry-run: 'tera-api-sdk' would become 'tera-api-sdk')"
   echo ""
   echo "  $APP_NAME -D                  (Dry-run: delete 'node_modules' and 'vendor' folders)"
   echo ""
   echo "  $APP_NAME -D -f               (Execute: delete 'node_modules' and 'vendor' folders)"
   echo ""
-  echo "  $APP_NAME -n \"util-\" -f       (Execute: rename folders containing 'util-')"
-  echo "  (This will execute: 'tera-util-api-sdk' becomes 'tera-api-sdk')"
+  echo "  $APP_NAME -n \"\" -f       (Execute: rename folders containing '')"
+  echo "  (This will execute: 'tera-api-sdk' becomes 'tera-api-sdk')"
   exit 1
 }
 
@@ -128,7 +128,12 @@ if [ -n "$needle" ]; then
   echo "Searching for folders containing \"$needle\" in their name and removing it..."
   echo ""
 
-  find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
+  # Find directories for renaming.
+  # Exclude .moon/cache, node_modules, and vendor directories and their contents.
+  find . -mindepth 1 \
+    \( -path "./.moon/cache" -o -name "node_modules" -o -name "vendor" \) -type d -prune \
+    -o \
+    -depth -type d -print | while IFS= read -r current_dir_path; do
     original_basename=$(basename -- "$current_dir_path")
     parent_path=$(dirname -- "$current_dir_path")
 

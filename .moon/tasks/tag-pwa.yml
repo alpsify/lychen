@@ -6,7 +6,7 @@ tasks:
     deps:
       - assets-sync
       - args: $projectRoot/.nginx-build
-        target: nginx-util-configs:sync-pwa
+        target: nginx-configs:sync-pwa
     options:
       cache: false
 

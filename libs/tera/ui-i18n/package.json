@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/tera-util-constants": "workspace:*"
+    "@lychen/tera-constants": "workspace:*"
   }
 }

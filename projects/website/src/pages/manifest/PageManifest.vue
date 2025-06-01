@@ -4,8 +4,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useExtendedHead } from '@lychen/vue-unhead-util-composables/useExtendedHead';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useExtendedHead } from '@lychen/vue-unhead-composables/useExtendedHead';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 

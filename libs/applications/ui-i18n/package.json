@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/applications-util-constants": "workspace:*"
+    "@lychen/applications-constants": "workspace:*"
   }
 }

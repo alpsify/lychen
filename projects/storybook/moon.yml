@@ -1,7 +1,7 @@
 dependsOn:
   - css-core
   - tera-ui-components
-  - vue-i18n-util-configs
+  - vue-i18n-configs
   - vue-ui-components-app
   - vue-ui-components-core
   - vue-ui-components-extra

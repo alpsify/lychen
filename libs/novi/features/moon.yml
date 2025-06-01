@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-generic-composables
+  - applications-model
+  - novi-constants
+  - typescript-object
+
+id: novi-features
+
+language: typescript
+
+type: library

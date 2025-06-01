@@ -13,7 +13,7 @@
     "@fortawesome/pro-light-svg-icons": "^6.6.0",
     "@lychen/css-core": "workspace:*",
     "@lychen/kiro-ui-components": "workspace:*",
-    "@lychen/vue-i18n-util-composables": "workspace:*",
+    "@lychen/vue-i18n-composables": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@vueuse/core": "^13.0.0",
     "@zitadel/vue": "1.1.1",

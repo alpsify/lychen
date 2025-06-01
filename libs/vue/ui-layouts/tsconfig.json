@@ -2,8 +2,8 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "../../applications/ui-components/**/*",
-    "../../typescript/util-constants/**/*",
-    "../i18n/util-composables/**/*",
+    "../../typescript/constants/**/*",
+    "../i18n/composables/**/*",
     "../ui-components-core/**/*",
     "../ui-components-extra/**/*",
     "../ui-components-website/**/*",
@@ -14,10 +14,10 @@
       "path": "../../applications/ui-components"
     },
     {
-      "path": "../../typescript/util-constants"
+      "path": "../../typescript/constants"
     },
     {
-      "path": "../i18n/util-composables"
+      "path": "../i18n/composables"
     },
     {
       "path": "../ui-components-core"
@@ -34,8 +34,8 @@
     "paths": {
       "@lychen/vue-ui-components-core/*": ["../ui-components-core/*"],
       "@lychen/applications-ui-components/*": ["../../applications/ui-components/*"],
-      "@lychen/typescript-util-constants/*": ["../../typescript/util-constants/*"],
-      "@lychen/vue-i18n-util-composables/*": ["../i18n/util-composables/*"],
+      "@lychen/typescript-constants/*": ["../../typescript/constants/*"],
+      "@lychen/vue-i18n-composables/*": ["../i18n/composables/*"],
       "@lychen/vue-ui-components-extra/*": ["../ui-components-extra/*"],
       "@lychen/vue-ui-components-website/*": ["../ui-components-website/*"]
     }

@@ -2754,11 +2754,11 @@
             "time": "2024-09-21T08:32:55+00:00"
         },
         {
-            "name": "lychen/util-core",
+            "name": "lychen/core",
             "version": "0.0.0",
             "dist": {
                 "type": "path",
-                "url": "../packages/util-core",
+                "url": "../packages/core",
                 "reference": "6a2ea38927cf8fa0ad491d00f5f72e7a2acf249f"
             },
             "require": {
@@ -2787,11 +2787,11 @@
             }
         },
         {
-            "name": "lychen/util-model",
+            "name": "lychen/model",
             "version": "0.0.0",
             "dist": {
                 "type": "path",
-                "url": "../packages/util-model",
+                "url": "../packages/model",
                 "reference": "92745f3fc4cee70aac7b6ad27e18d97f49966f16"
             },
             "require": {
@@ -2823,11 +2823,11 @@
             }
         },
         {
-            "name": "lychen/util-tiptap",
+            "name": "lychen/tiptap",
             "version": "0.0.0",
             "dist": {
                 "type": "path",
-                "url": "../packages/util-tiptap",
+                "url": "../packages/tiptap",
                 "reference": "826825ca64631a4c94e43d0f5bc6564976fdd221"
             },
             "require": {
@@ -2859,11 +2859,11 @@
             }
         },
         {
-            "name": "lychen/util-zitadel",
+            "name": "lychen/zitadel",
             "version": "0.0.0",
             "dist": {
                 "type": "path",
-                "url": "../packages/util-zitadel",
+                "url": "../packages/zitadel",
                 "reference": "efbfa69ca12f63e048712b04e8db161d3bc32f08"
             },
             "require": {

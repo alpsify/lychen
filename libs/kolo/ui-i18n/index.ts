@@ -1,4 +1,4 @@
-import { APP_ALIAS } from '@lychen/kolo-util-constants/App';
+import { APP_ALIAS } from '@lychen/kolo-constants/App';
 import enUs from './en-US';
 import frFr from './fr-FR';
 

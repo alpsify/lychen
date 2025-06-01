@@ -1,0 +1,5 @@
+id: odd-model
+
+language: typescript
+
+type: library

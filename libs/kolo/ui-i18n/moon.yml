@@ -1,5 +1,5 @@
 dependsOn:
-  - kolo-util-constants
+  - kolo-constants
 
 id: kolo-ui-i18n
 

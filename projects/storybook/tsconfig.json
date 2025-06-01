@@ -19,7 +19,7 @@
       "path": "../../libs/tera/ui-components"
     },
     {
-      "path": "../../libs/vue/i18n/util-configs"
+      "path": "../../libs/vue/i18n/configs"
     },
     {
       "path": "../../libs/vue/ui-components-app"
@@ -37,7 +37,7 @@
   "include": [
     "../../libs/css/core/**/*",
     "../../libs/tera/ui-components/**/*",
-    "../../libs/vue/i18n/util-configs/**/*",
+    "../../libs/vue/i18n/configs/**/*",
     "../../libs/vue/ui-components-app/**/*",
     "../../libs/vue/ui-components-core/**/*",
     "../../libs/vue/ui-components-extra/**/*",
@@ -52,7 +52,7 @@
       "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
       "@lychen/css-core/*": ["../../libs/css/core/*"],
       "@lychen/tera-ui-components/*": ["../../libs/tera/ui-components/*"],
-      "@lychen/vue-i18n-util-configs/*": ["../../libs/vue/i18n/util-configs/*"],
+      "@lychen/vue-i18n-configs/*": ["../../libs/vue/i18n/configs/*"],
       "@lychen/vue-ui-components-app/*": ["../../libs/vue/ui-components-app/*"]
     }
   }

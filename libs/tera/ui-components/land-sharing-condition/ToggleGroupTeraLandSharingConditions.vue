@@ -44,11 +44,11 @@ import { Icon } from '@lychen/vue-ui-components-core/icon';
 import {
   LAND_SHARING_CONDITIONS,
   type LandSharingCondition,
-} from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+} from '@lychen/tera-api-sdk/constants/LandSharingCondition';
 import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-ui-components/icons/IconLandSharingCondition';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const model = defineModel<LandSharingCondition[]>({ default: [] });
 

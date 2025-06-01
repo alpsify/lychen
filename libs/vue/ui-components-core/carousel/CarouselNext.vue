@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from './interface';
 import Button from '../button/Button.vue';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { useCarousel } from './useCarousel';
 import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
 

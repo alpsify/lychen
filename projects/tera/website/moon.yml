@@ -2,21 +2,21 @@ dependsOn:
   - applications-assets
   - applications-ui-components
   - css-core
+  - tera-constants
+  - tera-features
   - tera-ui-i18n
-  - tera-util-constants
-  - tera-util-features
-  - typescript-util-constants
+  - typescript-constants
 
-  - vite-util-ssg
+  - vite-ssg
   - vue-composables
   - vue-drawio-tera
-  - vue-i18n-util-composables
-  - vue-i18n-util-configs
-  - vue-router-util-configs
+  - vue-i18n-composables
+  - vue-i18n-configs
+  - vue-router-configs
   - vue-ui-components-core
   - vue-ui-components-website
   - vue-ui-layouts
-  - vue-unhead-util-composables
+  - vue-unhead-composables
 
 env:
   DEV_DOMAIN: tera.lychen.local

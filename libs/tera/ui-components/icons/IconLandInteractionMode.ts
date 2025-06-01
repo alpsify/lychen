@@ -6,7 +6,7 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   LAND_INTERACTION_MODE,
   type LandInteractionMode,
-} from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
+} from '@lychen/tera-api-sdk/constants/LandInteractionMode';
 
 export const LAND_INTERACTION_MODE_ICON: {
   [key in LandInteractionMode]: IconDefinition;

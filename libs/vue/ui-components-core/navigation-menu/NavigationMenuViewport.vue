@@ -2,7 +2,7 @@
 import { NavigationMenuViewport, type NavigationMenuViewportProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 
 const props = defineProps<NavigationMenuViewportProps & { class?: HTMLAttributes['class'] }>();
 

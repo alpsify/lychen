@@ -1,5 +1,5 @@
 dependsOn:
-  - vara-util-constants
+  - vara-constants
 
 id: vara-ui-i18n
 

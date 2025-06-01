@@ -217,7 +217,7 @@
 import { defineAsyncComponent, computed, inject } from 'vue';
 import CardTeraLandGreenhouse from '@lychen/tera-ui-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
 import CardTeraLandArea from '@lychen/tera-ui-components/land-area/card/CardTeraLandArea.vue';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
@@ -228,16 +228,16 @@ import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 import {
   INJECTION_KEY_LAND,
   INJECTION_KEY_LAND_MEMBER,
-} from '@lychen/tera-util-constants/InjectionKeys';
+} from '@lychen/tera-constants/InjectionKeys';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
-import { useLandGuard } from '@lychen/tera-util-composables/useLandGuard';
+import { useLandGuard } from '@lychen/tera-composables/useLandGuard';
 import { RoutePageLandMemberSettings } from '../member-settings';
-import { landMemberLeaveSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
+import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 import { RoutePageDashboard } from '@/pages/dashboard';
 import { useEventBus } from '@vueuse/core';
 import { faUserPlus } from '@fortawesome/pro-light-svg-icons/faUserPlus';

@@ -19,10 +19,10 @@
 
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
-import { APP_STATE } from '@lychen/vara-util-constants/App';
+import { APP_STATE } from '@lychen/vara-constants/App';
 import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY, messages } from '@lychen/vara-ui-i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const LayoutWebsiteApplication = defineAsyncComponent(
   () => import('@lychen/vue-ui-layouts/website-app/LayoutWebsiteApplication.vue'),

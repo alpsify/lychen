@@ -1,0 +1,40 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "**/*",
+    "../../applications/generic-composables/**/*",
+    "../../applications/model/**/*",
+    "../../typescript/object/**/*",
+    "../../vara/constants/**/*",
+    "../constants/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../applications/generic-composables"
+    },
+    {
+      "path": "../../applications/model"
+    },
+    {
+      "path": "../../typescript/object"
+    },
+    {
+      "path": "../../vara/constants"
+    },
+    {
+      "path": "../constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/luna/features",
+    "paths": {
+      "@lychen/applications-model/*": ["../../applications/model/*"],
+      "@lychen/typescript-object/*": ["../../typescript/object/*"],
+      "@lychen/tera-constants/*": ["../constants/*"],
+      "@lychen/applications-generic-composables/*": ["../../applications/generic-composables/*"],
+      "@lychen/vara-constants/*": ["../../vara/constants/*"],
+      "@lychen/novi-constants/*": ["../constants/*"],
+      "@lychen/luna-constants/*": ["../constants/*"]
+    }
+  }
+}

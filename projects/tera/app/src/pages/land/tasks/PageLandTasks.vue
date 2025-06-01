@@ -88,10 +88,10 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-ui-components/land-task/card/CardTeraLandTask.vue';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
@@ -112,10 +112,10 @@ import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialo
 import {
   LandTaskJsonldState as LandTaskState,
   type components,
-} from '@lychen/tera-util-api-sdk/generated/tera-api';
+} from '@lychen/tera-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
-import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
+import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-events/LandTaskEvents';
 import { useRoute } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-components/land-task/dialogs/update';
 

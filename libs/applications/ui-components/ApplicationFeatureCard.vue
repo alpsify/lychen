@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type ApplicationFeature } from '@lychen/applications-util-model/ApplicationFeature';
+import { type ApplicationFeature } from '@lychen/applications-model/ApplicationFeature';
 
 defineProps<ApplicationFeature>();
 </script>

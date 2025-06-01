@@ -29,13 +29,13 @@ import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLan
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
-import { landMemberPatchSucceededEvent } from '@lychen/tera-util-events/LandMemberEvents';
-import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { landMemberPatchSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
+import { extractValuesByKey } from '@lychen/typescript-object/Object';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

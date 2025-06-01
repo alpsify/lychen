@@ -1,5 +1,5 @@
 dependsOn:
-  - novi-util-constants
+  - novi-constants
 
 id: novi-ui-i18n
 

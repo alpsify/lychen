@@ -1,5 +1,5 @@
 dependsOn:
-  - eko-util-constants
+  - eko-constants
 
 id: eko-ui-i18n
 

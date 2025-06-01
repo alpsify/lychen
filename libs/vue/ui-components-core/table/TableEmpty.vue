@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { computed, type HTMLAttributes } from 'vue';
 import TableCell from './TableCell.vue';
 import TableRow from './TableRow.vue';

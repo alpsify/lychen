@@ -14,7 +14,7 @@
     "@internationalized/date": "^3.7.0",
     "@lychen/css-core": "workspace:*",
     "@lychen/tera-ui-components": "workspace:*",
-    "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vue-i18n-configs": "workspace:*",
     "@lychen/vue-ui-components-app": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@lychen/vue-ui-components-extra": "workspace:*",

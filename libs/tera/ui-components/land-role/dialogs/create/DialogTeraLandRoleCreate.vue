@@ -32,13 +32,13 @@ import {
 } from '@lychen/vue-ui-components-core/dialog';
 import DialogDescription from '@lychen/vue-ui-components-core/dialog/DialogDescription.vue';
 import FormTeraLandRoleCreate from '@lychen/tera-ui-components/land-role/forms/FormTeraLandRoleCreate.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
-import { landRolePostSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
+import { landRolePostSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
 import { ref } from 'vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

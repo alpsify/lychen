@@ -28,18 +28,18 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-role';
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
-import { landRolePatchSucceededEvent } from '@lychen/tera-util-events/LandRoleEvents';
+import { landRolePatchSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
 import type {
   components,
   LandRoleUserLand_rolePatchPermissions,
   paths,
-} from '@lychen/tera-util-api-sdk/generated/tera-api';
+} from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

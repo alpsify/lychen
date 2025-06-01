@@ -120,7 +120,7 @@ import {
   type EditorModelValue,
   type EditorProps,
   useEditor,
-} from '@lychen/vue-tiptap-util-composables/useEditor';
+} from '@lychen/vue-tiptap-composables/useEditor';
 import { BubbleMenu, EditorContent } from '@tiptap/vue-3';
 import { onBeforeUnmount } from 'vue';
 

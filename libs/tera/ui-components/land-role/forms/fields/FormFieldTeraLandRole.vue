@@ -98,14 +98,14 @@ import {
 } from '@lychen/vue-ui-components-core/form';
 import { useFilter } from 'reka-ui';
 import { computed, ref, onMounted } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-role';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import { useQuery } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { z } from 'zod';
 import { toTypedSchema } from '@vee-validate/zod';
 import {
@@ -114,7 +114,7 @@ import {
   TagsInput,
   TagsInputInput,
 } from '@lychen/vue-ui-components-core/tags-input';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({
   messages: landRoleMessages,

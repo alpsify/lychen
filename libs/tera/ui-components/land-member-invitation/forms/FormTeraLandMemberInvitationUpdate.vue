@@ -28,14 +28,14 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-member-invi
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
 
-import { landMemberInvitationPatchSucceededEvent } from '@lychen/tera-util-events/LandMemberInvitationEvents';
-import { extractValuesByKey } from '@lychen/typescript-util-object/Object';
-import type { components, paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { landMemberInvitationPatchSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
+import { extractValuesByKey } from '@lychen/typescript-object/Object';
+import type { components, paths } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
