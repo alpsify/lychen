@@ -15,7 +15,8 @@
     "mylesmurphy.prettify-ts",
     "antfu.slidev",
     "wenfangdu.snippet-generator",
-    "jock.svg"
+    "jock.svg",
+    "eamodio.gitlens"
   ],
   "unwantedRecommendations": [
     "octref.vetur",
