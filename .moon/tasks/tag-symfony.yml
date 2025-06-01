@@ -32,11 +32,7 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php tools/vendor/bin/php-cs-fixer fix tests/ --rules=@Symfony
 
   ci-test-build-docker-image:
-    command: docker build $projectRoot --build-arg BUILDKIT_INLINE_CACHE=1 \
-      --cache-from ${TEST_IMAGE_NAME}:latest \
-      --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} \
-      --tag ${TEST_IMAGE_NAME}:latest \
-      --target frankenphp_test
+    command: docker build $projectRoot --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from ${TEST_IMAGE_NAME}:latest --tag ${TEST_IMAGE_NAME}:${GITHUB_SHA} --tag ${TEST_IMAGE_NAME}:latest --target frankenphp_test 
 
   ci-test-phpunit:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php php -d memory_limit=-1 ./vendor/bin/phpunit
