@@ -10,7 +10,7 @@ APP_NAME=$(basename "$0")
 
 # --- Functions ---
 usage() {
-  echo "Usage: $APP_NAME -n <needle> [-f] [-o]"
+  echo "Usage: $APP_NAME [-n <needle>] [-D] [-f] [-o]"
   echo ""
   echo "Recursively searches for folders within the current directory whose names"
   echo "contain the <needle> and renames them by removing the <needle>."
@@ -19,6 +19,8 @@ usage() {
   echo "  -n <needle>   The string to search for and remove from folder names."
   echo "                  Note: Glob characters (e.g., '*') in the needle will be active"
   echo "                  during the replacement part of the operation."
+  echo "  -D            Delete dependency directories. Recursively finds and deletes all"
+  echo "                  'node_modules' and 'vendor' folders. Requires -f to execute."
   echo "  -f            Force mode. Actually performs the renames."
   echo "                  Without this flag, the script runs in dry-run mode,"
   echo "                  showing what changes would be made."
@@ -28,10 +30,14 @@ usage() {
   echo "                  Use with extreme caution as this involves 'rm -rf'."
   echo ""
   echo "Example:"
-  echo "  $APP_NAME -n \"util-\""
+  echo "  $APP_NAME -n \"util-\"          (Dry-run: rename folders containing 'util-')"
   echo "  (This will dry-run: 'tera-util-api-sdk' would become 'tera-api-sdk')"
   echo ""
-  echo "  $APP_NAME -n \"util-\" -f"
+  echo "  $APP_NAME -D                  (Dry-run: delete 'node_modules' and 'vendor' folders)"
+  echo ""
+  echo "  $APP_NAME -D -f               (Execute: delete 'node_modules' and 'vendor' folders)"
+  echo ""
+  echo "  $APP_NAME -n \"util-\" -f       (Execute: rename folders containing 'util-')"
   echo "  (This will execute: 'tera-util-api-sdk' becomes 'tera-api-sdk')"
   exit 1
 }
@@ -40,8 +46,9 @@ usage() {
 dry_run=true
 needle=""
 overwrite_existing=false
+delete_dep_dirs=false
 
-while getopts ":n:fo" opt; do
+while getopts ":n:foD" opt; do
   case $opt in
     n)
       needle="$OPTARG"
@@ -51,6 +58,9 @@ while getopts ":n:fo" opt; do
       ;;
     o)
       overwrite_existing=true
+      ;;
+    D)
+      delete_dep_dirs=true
       ;;
     \?)
       echo "Error: Invalid option -$OPTARG" >&2
@@ -63,26 +73,62 @@ while getopts ":n:fo" opt; do
   esac
 done
 
-# Validate that needle is provided
-if [ -z "$needle" ]; then
-  echo "Error: The -n <needle> argument is mandatory." >&2
+# Validate that at least one action is requested
+if [ "$delete_dep_dirs" = false ] && [ -z "$needle" ]; then
+  echo "Error: No action specified. Use -n <needle> to rename folders, or -D to delete dependency directories." >&2
   usage
 fi
 
-# --- Main Logic ---
+# --- Initial Mode Announcement ---
 if [ "$dry_run" = true ]; then
   echo "--- DRY RUN MODE --- (No changes will be made)"
 else
   echo "--- ACTIVE MODE --- (Changes WILL be made)"
 fi
-echo "Searching for folders containing \"$needle\" in their name and removing it..."
 echo ""
 
 processed_count=0
 renamed_count=0
 deleted_count=0
+dep_dirs_deleted_count=0
 
-find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
+# --- Dependency Directory Deletion ---
+if [ "$delete_dep_dirs" = true ]; then
+  echo "--- Dependency Directory Deletion ---"
+  if [ "$dry_run" = true ]; then
+    echo "Searching for 'node_modules' and 'vendor' folders to report for deletion (dry run)..."
+  else
+    echo "Searching for 'node_modules' and 'vendor' folders for actual deletion..."
+  fi
+
+  # Find directories named "node_modules" or "vendor"
+  # -print0 and read -d $'\0' handle names with spaces/special chars
+  find . -type d \( -name "node_modules" -o -name "vendor" \) -print0 | while IFS= read -r -d $'\0' dir_to_delete; do
+    if [ "$dry_run" = true ]; then
+      echo "[DRY RUN] Would delete directory: '$dir_to_delete'"
+      ((dep_dirs_deleted_count++)) # Count what would be deleted for dry run summary
+    else
+      echo "Attempting to delete directory: '$dir_to_delete'..."
+      if rm -rf -- "$dir_to_delete"; then
+        echo "[SUCCESS] Deleted directory: '$dir_to_delete'"
+        ((dep_dirs_deleted_count++))
+      else
+        rm_exit_status=$?
+        echo "[FAIL] Failed to delete directory '$dir_to_delete'. 'rm' exited with status $rm_exit_status." >&2
+      fi
+    fi
+  done
+  echo "Dependency directory deletion scan complete."
+  echo ""
+fi
+
+# --- Folder Renaming Logic ---
+if [ -n "$needle" ]; then
+  echo "--- Folder Renaming by Removing Needle ---"
+  echo "Searching for folders containing \"$needle\" in their name and removing it..."
+  echo ""
+
+  find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
     original_basename=$(basename -- "$current_dir_path")
     parent_path=$(dirname -- "$current_dir_path")
 
@@ -140,16 +186,24 @@ find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
             echo "[FAIL] Failed to rename '$current_dir_path' to '$new_full_path'. 'mv' exited with status $mv_exit_status." >&2
         fi
     fi
-done
+  done
+  echo "Folder renaming scan complete."
+fi
 
 echo ""
 echo "--- Run Complete ---"
-echo "Processed $processed_count folder(s) that matched the criteria."
-if [ "$dry_run" = false ]; then
-  echo "Successfully renamed $renamed_count folder(s)."
-  if [ "$overwrite_existing" = true ] && [ "$deleted_count" -gt 0 ]; then
-    echo "Successfully deleted $deleted_count pre-existing target folder(s)."
-  fi
+if [ -n "$needle" ]; then
+  echo "Folder Renaming Summary:"
+  echo "  Processed $processed_count folder(s) that matched the renaming criteria (contained '$needle')."
 fi
+if [ "$delete_dep_dirs" = true ] && [ "$dry_run" = true ]; then
+    echo "Dependency Deletion Dry Run Summary: Would have attempted to delete $dep_dirs_deleted_count 'node_modules' or 'vendor' folder(s)."
+fi
+
+if [ "$dry_run" = false ]; then
+  [ -n "$needle" ] && echo "  Successfully renamed $renamed_count folder(s)."
+  [ -n "$needle" ] && [ "$overwrite_existing" = true ] && [ "$deleted_count" -gt 0 ] && echo "  Successfully deleted $deleted_count pre-existing target folder(s) during renaming."
+  [ "$delete_dep_dirs" = true ] && echo "Dependency Deletion Summary: Successfully deleted $dep_dirs_deleted_count 'node_modules' or 'vendor' folder(s)."
+  fi
 
 exit 0
