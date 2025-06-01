@@ -10,7 +10,7 @@ APP_NAME=$(basename "$0")
 
 # --- Functions ---
 usage() {
-  echo "Usage: $APP_NAME -n <needle> [-f]"
+  echo "Usage: $APP_NAME -n <needle> [-f] [-o]"
   echo ""
   echo "Recursively searches for folders within the current directory whose names"
   echo "contain the <needle> and renames them by removing the <needle>."
@@ -22,6 +22,10 @@ usage() {
   echo "  -f            Force mode. Actually performs the renames."
   echo "                  Without this flag, the script runs in dry-run mode,"
   echo "                  showing what changes would be made."
+  echo "  -o            Overwrite mode. If the target folder (after removing the needle)"
+  echo "                  already exists, it will be deleted before renaming."
+  echo "                  This option requires -f to take effect (i.e., it does not delete in dry-run mode)."
+  echo "                  Use with extreme caution as this involves 'rm -rf'."
   echo ""
   echo "Example:"
   echo "  $APP_NAME -n \"util-\""
@@ -35,14 +39,18 @@ usage() {
 # --- Argument Parsing ---
 dry_run=true
 needle=""
+overwrite_existing=false
 
-while getopts ":n:f" opt; do
+while getopts ":n:fo" opt; do
   case $opt in
     n)
       needle="$OPTARG"
       ;;
     f)
       dry_run=false
+      ;;
+    o)
+      overwrite_existing=true
       ;;
     \?)
       echo "Error: Invalid option -$OPTARG" >&2
@@ -72,6 +80,7 @@ echo ""
 
 processed_count=0
 renamed_count=0
+deleted_count=0
 
 find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
     original_basename=$(basename -- "$current_dir_path")
@@ -96,9 +105,27 @@ find . -mindepth 1 -depth -type d | while IFS= read -r current_dir_path; do
 
     new_full_path="$parent_path/$new_basename"
 
+    # Check if the target path already exists
     if [ -e "$new_full_path" ]; then
-        echo "[SKIP] Renaming '$current_dir_path' to '$new_full_path': Target already exists."
-        continue
+        if [ "$overwrite_existing" = true ]; then
+            if [ "$dry_run" = true ]; then
+                echo "[DRY RUN] Existing target '$new_full_path' would be deleted before renaming '$current_dir_path'."
+            else
+                echo "Attempting to delete existing target '$new_full_path' to make way for '$current_dir_path'..."
+                if rm -rf -- "$new_full_path"; then
+                    echo "[SUCCESS] Deleted existing target '$new_full_path'."
+                    ((deleted_count++))
+                else
+                    rm_exit_status=$?
+                    echo "[FAIL] Failed to delete existing target '$new_full_path'. 'rm' exited with status $rm_exit_status." >&2
+                    echo "[SKIP] Renaming '$current_dir_path' due to failure in deleting existing target."
+                    continue # Skip renaming this one
+                fi
+            fi
+        else # Target exists, and overwrite_existing is false
+            echo "[SKIP] Renaming '$current_dir_path' to '$new_full_path': Target already exists. Use -o to enable deletion of the existing target."
+            continue
+        fi
     fi
 
     if [ "$dry_run" = true ]; then
@@ -118,6 +145,11 @@ done
 echo ""
 echo "--- Run Complete ---"
 echo "Processed $processed_count folder(s) that matched the criteria."
-[ "$dry_run" = false ] && echo "Successfully renamed $renamed_count folder(s)."
+if [ "$dry_run" = false ]; then
+  echo "Successfully renamed $renamed_count folder(s)."
+  if [ "$overwrite_existing" = true ] && [ "$deleted_count" -gt 0 ]; then
+    echo "Successfully deleted $deleted_count pre-existing target folder(s)."
+  fi
+fi
 
 exit 0
