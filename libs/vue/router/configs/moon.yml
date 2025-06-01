@@ -1,0 +1,5 @@
+id: vue-router-configs
+
+language: typescript
+
+type: library

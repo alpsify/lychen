@@ -2,8 +2,8 @@ import '@lychen/css-core/all.css';
 
 import { createApp } from 'vue';
 
-import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
-import { useI18n } from '@lychen/vue-i18n-util-configs/useI18n';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
+import { useI18n } from '@lychen/vue-i18n-configs/useI18n';
 
 import { VueQueryPlugin } from '@tanstack/vue-query';
 

@@ -1,0 +1,78 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../eko/constants/**/*",
+    "../../humu/constants/**/*",
+    "../../kiro/constants/**/*",
+    "../../kolo/constants/**/*",
+    "../../luna/constants/**/*",
+    "../../meli/constants/**/*",
+    "../../myko/constants/**/*",
+    "../../novi/constants/**/*",
+    "../../robust/constants/**/*",
+    "../../tera/constants/**/*",
+    "../../typescript/date/**/*",
+    "../../typescript/object/**/*",
+    "../../vara/constants/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../eko/constants"
+    },
+    {
+      "path": "../../humu/constants"
+    },
+    {
+      "path": "../../kiro/constants"
+    },
+    {
+      "path": "../../kolo/constants"
+    },
+    {
+      "path": "../../luna/constants"
+    },
+    {
+      "path": "../../meli/constants"
+    },
+    {
+      "path": "../../myko/constants"
+    },
+    {
+      "path": "../../novi/constants"
+    },
+    {
+      "path": "../../robust/constants"
+    },
+    {
+      "path": "../../tera/constants"
+    },
+    {
+      "path": "../../typescript/date"
+    },
+    {
+      "path": "../../typescript/object"
+    },
+    {
+      "path": "../../vara/constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/constants",
+    "paths": {
+      "@lychen/typescript-date/*": ["../../typescript/date/*"],
+      "@lychen/typescript-object/*": ["../../typescript/object/*"],
+      "@lychen/tera-constants/*": ["../../tera/constants/*"],
+      "@lychen/myko-constants/*": ["../../myko/constants/*"],
+      "@lychen/kiro-constants/*": ["../../kiro/constants/*"],
+      "@lychen/meli-constants/*": ["../../meli/constants/*"],
+      "@lychen/humu-constants/*": ["../../humu/constants/*"],
+      "@lychen/kolo-constants/*": ["../../kolo/constants/*"],
+      "@lychen/vara-constants/*": ["../../vara/constants/*"],
+      "@lychen/eko-constants/*": ["../../eko/constants/*"],
+      "@lychen/novi-constants/*": ["../../novi/constants/*"],
+      "@lychen/luna-constants/*": ["../../luna/constants/*"],
+      "@lychen/robust-constants/*": ["../../robust/constants/*"]
+    }
+  }
+}

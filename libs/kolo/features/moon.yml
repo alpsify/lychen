@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-generic-composables
+  - applications-model
+  - kolo-constants
+  - typescript-object
+
+id: kolo-features
+
+language: typescript
+
+type: library

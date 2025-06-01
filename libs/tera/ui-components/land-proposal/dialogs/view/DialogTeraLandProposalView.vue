@@ -48,7 +48,7 @@ import {
   DialogTrigger,
 } from '@lychen/vue-ui-components-core/dialog';
 import DialogDescription from '@lychen/vue-ui-components-core/dialog/DialogDescription.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
 import { ref } from 'vue';
@@ -56,7 +56,7 @@ import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
 import TeraLandProposalSharingConditions from '../../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { DISPLAY } from '../../../common/sharing-conditions-icons';
-import type { LandSharingCondition } from '@lychen/tera-util-api-sdk/constants/LandSharingCondition';
+import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

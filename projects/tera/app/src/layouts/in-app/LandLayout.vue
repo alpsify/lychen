@@ -14,15 +14,15 @@
 
 <script lang="ts" setup>
 import { RoutePageDashboard } from '@/pages/dashboard';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import {
   INJECTION_KEY_LAND,
   INJECTION_KEY_LAND_MEMBER,
-} from '@lychen/tera-util-constants/InjectionKeys';
-import { landPatchSucceededEvent } from '@lychen/tera-util-events/LandEvents';
+} from '@lychen/tera-constants/InjectionKeys';
+import { landPatchSucceededEvent } from '@lychen/tera-events/LandEvents';
 import { useEventBus } from '@vueuse/core';
 import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
 

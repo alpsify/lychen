@@ -1,8 +1,0 @@
-dependsOn:
-  - typescript-util-types
-
-id: vue-tiptap-util-composables
-
-language: typescript
-
-type: library

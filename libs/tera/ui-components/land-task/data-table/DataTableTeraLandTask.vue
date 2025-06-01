@@ -149,7 +149,7 @@ import { Checkbox } from '@lychen/vue-ui-components-core/checkbox';
 import { faSort } from '@fortawesome/pro-light-svg-icons/faSort';
 import { cn, valueUpdater } from '@lychen/vue-ui-components-core/lib/utils';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { DropdownMenu } from '@lychen/vue-ui-components-core/dropdown-menu';
 import DropdownMenuTrigger from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuTrigger.vue';
 import DropdownMenuContent from '@lychen/vue-ui-components-core/dropdown-menu/DropdownMenuContent.vue';
@@ -157,7 +157,7 @@ import DropdownMenuCheckboxItem from '@lychen/vue-ui-components-core/dropdown-me
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import DialogTeraLandTaskUpdate from '../dialogs/update/DialogTeraLandTaskUpdate.vue';
 

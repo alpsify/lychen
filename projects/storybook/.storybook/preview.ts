@@ -2,7 +2,7 @@ import { ModeDecorator } from './modeDecorator';
 import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
 import { createI18n } from 'vue-i18n';
-import { configDefault } from '@lychen/vue-i18n-util-configs/ConfigDefault';
+import { configDefault } from '@lychen/vue-i18n-configs/ConfigDefault';
 
 import '@lychen/css-core/all.css';
 

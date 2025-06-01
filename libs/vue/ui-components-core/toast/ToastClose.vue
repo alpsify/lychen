@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '../icon';
 import { faTimes } from '@fortawesome/pro-light-svg-icons';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { ToastClose, type ToastCloseProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

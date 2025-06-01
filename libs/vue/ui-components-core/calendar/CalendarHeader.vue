@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { CalendarHeader, type CalendarHeaderProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

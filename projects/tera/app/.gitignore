@@ -29,4 +29,3 @@ dist-ssr
 *.sw?
 .vite-ssg-temp
 .nginx-build
-.env

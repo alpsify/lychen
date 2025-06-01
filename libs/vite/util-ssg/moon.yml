@@ -1,9 +1,0 @@
-dependsOn:
-  - vue-i18n-util-configs
-  - vue-router-util-configs
-
-id: vite-util-ssg
-
-language: typescript
-
-type: library

@@ -1,0 +1,9 @@
+dependsOn:
+  - applications-constants
+  - typescript-object
+
+id: applications-model
+
+language: typescript
+
+type: library

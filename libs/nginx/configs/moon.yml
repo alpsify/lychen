@@ -1,0 +1,30 @@
+id: nginx-configs
+
+language: unknown
+
+tasks:
+  sync-pwa:
+    command:
+      - 'yes'
+      - '|'
+      - cp
+      - -rf
+      - $projectRoot/pwa
+    inputs:
+      - '$projectRoot/pwa/'
+    options:
+      cache: false
+
+  sync-ssg:
+    command:
+      - 'yes'
+      - '|'
+      - cp
+      - -rf
+      - $projectRoot/ssg
+    inputs:
+      - '$projectRoot/ssg/'
+    options:
+      cache: false
+
+type: library

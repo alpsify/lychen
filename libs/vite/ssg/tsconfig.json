@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../../vue/i18n/configs/**/*", "../../vue/router/configs/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../vue/i18n/configs"
+    },
+    {
+      "path": "../../vue/router/configs"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vite/ssg",
+    "paths": {
+      "@lychen/vue-i18n-configs/*": ["../../vue/i18n/configs/*"],
+      "@lychen/vue-router-configs/*": ["../../vue/router/configs/*"]
+    }
+  }
+}

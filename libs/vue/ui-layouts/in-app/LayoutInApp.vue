@@ -60,7 +60,7 @@ import Avatar from '@lychen/vue-ui-components-core/avatar/Avatar.vue';
 import AvatarFallback from '@lychen/vue-ui-components-core/avatar/AvatarFallback.vue';
 import LayoutInAppResponsiveBase from './LayoutInAppResponsiveBase.vue';
 import type { MenuStructure } from '.';
-import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-ui-components-core/popover';
 import { computed } from 'vue';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';

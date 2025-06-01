@@ -1,0 +1,11 @@
+{
+  "name": "@lychen/humu-features",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/applications-generic-composables": "workspace:*",
+    "@lychen/applications-model": "workspace:*",
+    "@lychen/humu-constants": "workspace:*",
+    "@lychen/typescript-object": "workspace:*"
+  }
+}

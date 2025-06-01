@@ -1,4 +1,4 @@
-import DefaultConfig from '@lychen/tailwind-util-configs/DefaultConfig';
+import DefaultConfig from '@lychen/tailwind-configs/DefaultConfig';
 
 export default {
   ...DefaultConfig,

@@ -8,16 +8,16 @@
       "path": "libs/applications/ui-i18n"
     },
     {
-      "path": "libs/applications/util-composables"
+      "path": "libs/applications/composables"
     },
     {
-      "path": "libs/applications/util-constants"
+      "path": "libs/applications/constants"
     },
     {
-      "path": "libs/applications/util-generic-composables"
+      "path": "libs/applications/generic-composables"
     },
     {
-      "path": "libs/applications/util-model"
+      "path": "libs/applications/model"
     },
     {
       "path": "libs/css/core"
@@ -26,19 +26,19 @@
       "path": "libs/eko/ui-i18n"
     },
     {
-      "path": "libs/eko/util-constants"
+      "path": "libs/eko/constants"
     },
     {
-      "path": "libs/eko/util-features"
+      "path": "libs/eko/features"
     },
     {
       "path": "libs/humu/ui-i18n"
     },
     {
-      "path": "libs/humu/util-constants"
+      "path": "libs/humu/constants"
     },
     {
-      "path": "libs/humu/util-features"
+      "path": "libs/humu/features"
     },
     {
       "path": "libs/kiro/ui-components"
@@ -47,76 +47,76 @@
       "path": "libs/kiro/ui-i18n"
     },
     {
-      "path": "libs/kiro/util-constants"
+      "path": "libs/kiro/constants"
     },
     {
-      "path": "libs/kiro/util-features"
+      "path": "libs/kiro/features"
     },
     {
-      "path": "libs/kiro/util-sdk"
+      "path": "libs/kiro/sdk"
     },
     {
       "path": "libs/kolo/ui-i18n"
     },
     {
-      "path": "libs/kolo/util-constants"
+      "path": "libs/kolo/constants"
     },
     {
-      "path": "libs/kolo/util-features"
+      "path": "libs/kolo/features"
     },
     {
       "path": "libs/luna/ui-i18n"
     },
     {
-      "path": "libs/luna/util-constants"
+      "path": "libs/luna/constants"
     },
     {
-      "path": "libs/luna/util-features"
+      "path": "libs/luna/features"
     },
     {
       "path": "libs/meli/ui-i18n"
     },
     {
-      "path": "libs/meli/util-constants"
+      "path": "libs/meli/constants"
     },
     {
-      "path": "libs/meli/util-features"
+      "path": "libs/meli/features"
     },
     {
       "path": "libs/myko/ui-i18n"
     },
     {
-      "path": "libs/myko/util-constants"
+      "path": "libs/myko/constants"
     },
     {
-      "path": "libs/myko/util-features"
+      "path": "libs/myko/features"
     },
     {
       "path": "libs/novi/ui-i18n"
     },
     {
-      "path": "libs/novi/util-constants"
+      "path": "libs/novi/constants"
     },
     {
-      "path": "libs/novi/util-features"
+      "path": "libs/novi/features"
     },
     {
       "path": "libs/odd/ui-i18n"
     },
     {
-      "path": "libs/odd/util-composables"
+      "path": "libs/odd/composables"
     },
     {
-      "path": "libs/odd/util-model"
+      "path": "libs/odd/model"
     },
     {
       "path": "libs/robust/ui-i18n"
     },
     {
-      "path": "libs/robust/util-constants"
+      "path": "libs/robust/constants"
     },
     {
-      "path": "libs/robust/util-features"
+      "path": "libs/robust/features"
     },
     {
       "path": "libs/tera/ui-components"
@@ -125,52 +125,52 @@
       "path": "libs/tera/ui-i18n"
     },
     {
-      "path": "libs/tera/util-api-sdk"
+      "path": "libs/tera/api-sdk"
     },
     {
-      "path": "libs/tera/util-composables"
+      "path": "libs/tera/composables"
     },
     {
-      "path": "libs/tera/util-constants"
+      "path": "libs/tera/constants"
     },
     {
-      "path": "libs/tera/util-events"
+      "path": "libs/tera/events"
     },
     {
-      "path": "libs/tera/util-features"
+      "path": "libs/tera/features"
     },
     {
-      "path": "libs/typescript/util-constants"
+      "path": "libs/typescript/constants"
     },
     {
-      "path": "libs/typescript/util-date"
+      "path": "libs/typescript/date"
     },
     {
-      "path": "libs/typescript/util-fontawesome"
+      "path": "libs/typescript/fontawesome"
     },
     {
-      "path": "libs/typescript/util-object"
+      "path": "libs/typescript/object"
     },
     {
-      "path": "libs/typescript/util-tailwind"
+      "path": "libs/typescript/tailwind"
     },
     {
-      "path": "libs/typescript/util-types"
+      "path": "libs/typescript/types"
     },
     {
-      "path": "libs/typescript/util-zitadel"
+      "path": "libs/typescript/zitadel"
     },
     {
       "path": "libs/vara/ui-i18n"
     },
     {
-      "path": "libs/vara/util-constants"
+      "path": "libs/vara/constants"
     },
     {
-      "path": "libs/vara/util-features"
+      "path": "libs/vara/features"
     },
     {
-      "path": "libs/vite/util-ssg"
+      "path": "libs/vite/ssg"
     },
     {
       "path": "libs/vue/drawio/core"
@@ -182,22 +182,22 @@
       "path": "libs/vue/drawio/ui-components"
     },
     {
-      "path": "libs/vue/i18n/util-composables"
+      "path": "libs/vue/i18n/composables"
     },
     {
-      "path": "libs/vue/i18n/util-configs"
+      "path": "libs/vue/i18n/configs"
     },
     {
-      "path": "libs/vue/i18n/util-helpers"
+      "path": "libs/vue/i18n/helpers"
     },
     {
-      "path": "libs/vue/router/util-configs"
+      "path": "libs/vue/router/configs"
     },
     {
       "path": "libs/vue/tiptap/ui-components"
     },
     {
-      "path": "libs/vue/tiptap/util-composables"
+      "path": "libs/vue/tiptap/composables"
     },
     {
       "path": "libs/vue/ui-components-app"
@@ -215,7 +215,7 @@
       "path": "libs/vue/ui-layouts"
     },
     {
-      "path": "libs/vue/unhead/util-composables"
+      "path": "libs/vue/unhead/composables"
     },
     {
       "path": "libs/vue/composables"

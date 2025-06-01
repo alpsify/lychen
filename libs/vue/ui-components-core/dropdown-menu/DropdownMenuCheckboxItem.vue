@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Icon from '../icon/Icon.vue';
 import { faCheck } from '@fortawesome/pro-light-svg-icons';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import {
   DropdownMenuCheckboxItem,
   type DropdownMenuCheckboxItemEmits,

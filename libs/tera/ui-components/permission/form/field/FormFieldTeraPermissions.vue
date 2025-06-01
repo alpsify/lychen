@@ -108,7 +108,7 @@ import {
   TagsInput,
   TagsInputInput,
 } from '@lychen/vue-ui-components-core/tags-input';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/permission';
 import {
   messages as landRoleMessages,
@@ -116,7 +116,7 @@ import {
 } from '@lychen/tera-ui-i18n/land-role';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
 import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
-import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({

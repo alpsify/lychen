@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/vue-tiptap-util-composables": "workspace:*",
+    "@lychen/vue-tiptap-composables": "workspace:*",
     "@tiptap/core": "^2.11.5",
     "@tiptap/extension-bold": "^2.11.5",
     "@tiptap/extension-bullet-list": "^2.11.5",

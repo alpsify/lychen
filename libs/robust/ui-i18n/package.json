@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/robust-util-constants": "workspace:*"
+    "@lychen/robust-constants": "workspace:*"
   }
 }

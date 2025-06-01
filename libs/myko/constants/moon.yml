@@ -1,0 +1,5 @@
+id: myko-constants
+
+language: typescript
+
+type: library

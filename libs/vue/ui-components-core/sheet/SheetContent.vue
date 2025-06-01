@@ -11,7 +11,7 @@ import {
 import { computed, type HTMLAttributes } from 'vue';
 
 import Icon from '../icon/Icon.vue';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { type SheetVariants, sheetVariants } from '.';
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 

@@ -36,10 +36,10 @@
 import { computed } from 'vue';
 
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const {
   variant = VARIANT.Default,

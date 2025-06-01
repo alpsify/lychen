@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-generic-composables
+  - applications-model
+  - kiro-constants
+  - typescript-object
+
+id: kiro-features
+
+language: typescript
+
+type: library

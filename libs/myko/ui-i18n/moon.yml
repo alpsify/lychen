@@ -1,5 +1,5 @@
 dependsOn:
-  - myko-util-constants
+  - myko-constants
 
 id: myko-ui-i18n
 

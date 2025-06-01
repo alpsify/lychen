@@ -97,7 +97,7 @@
 <script setup lang="ts">
 import { SectionSetting } from '@lychen/vue-ui-components-app/section-setting';
 
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import {
   messages as landRoleMessages,
@@ -108,7 +108,7 @@ import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-member-invitation';
 import { computed, inject, onUnmounted } from 'vue';
-import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
@@ -122,21 +122,21 @@ import {
   landRolePostSucceededEvent,
   landRolePatchSucceededEvent,
   landRoleDeleteSucceededEvent,
-} from '@lychen/tera-util-events/LandRoleEvents';
+} from '@lychen/tera-events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
 import CardTeraLandMember from '@lychen/tera-ui-components/land-member/card/CardTeraLandMember.vue';
 import DialogTeraLandMemberUpdate from '@lychen/tera-ui-components/land-member/dialogs/update/DialogTeraLandMemberUpdate.vue';
 import {
   landMemberDeleteSucceededEvent,
   landMemberPatchSucceededEvent,
-} from '@lychen/tera-util-events/LandMemberEvents';
+} from '@lychen/tera-events/LandMemberEvents';
 import {
   landMemberInvitationDeleteSucceededEvent,
   landMemberInvitationPatchSucceededEvent,
   landMemberInvitationPostSucceededEvent,
-} from '@lychen/tera-util-events/LandMemberInvitationEvents';
+} from '@lychen/tera-events/LandMemberInvitationEvents';
 import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 
 const land = inject(INJECTION_KEY_LAND);
 const landUlid = computed(() => land?.value?.ulid);

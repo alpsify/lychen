@@ -1,0 +1,11 @@
+dependsOn:
+  - applications-generic-composables
+  - applications-model
+  - tera-constants
+  - typescript-object
+
+id: tera-features
+
+language: typescript
+
+type: library

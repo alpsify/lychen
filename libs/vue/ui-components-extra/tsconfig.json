@@ -1,9 +1,9 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../../typescript/util-tailwind/**/*", "../ui-components-core/**/*", "**/*"],
+  "include": ["../../typescript/tailwind/**/*", "../ui-components-core/**/*", "**/*"],
   "references": [
     {
-      "path": "../../typescript/util-tailwind"
+      "path": "../../typescript/tailwind"
     },
     {
       "path": "../ui-components-core"
@@ -12,7 +12,7 @@
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/vue/ui-components-extra",
     "paths": {
-      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
+      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
       "@lychen/vue-ui-components-core/*": ["../ui-components-core/*"]
     }
   }

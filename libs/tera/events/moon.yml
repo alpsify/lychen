@@ -1,0 +1,8 @@
+dependsOn:
+  - tera-api-sdk
+
+id: tera-events
+
+language: typescript
+
+type: library

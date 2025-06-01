@@ -1,21 +1,21 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../util-constants/**/*"],
+  "include": ["**/*", "../constants/**/*"],
   "references": [
     {
-      "path": "../util-constants"
+      "path": "../constants"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/novi/ui-i18n",
     "paths": {
-      "@lychen/myko-util-constants/*": ["../util-constants/*"],
-      "@lychen/meli-util-constants/*": ["../util-constants/*"],
-      "@lychen/humu-util-constants/*": ["../util-constants/*"],
-      "@lychen/kolo-util-constants/*": ["../util-constants/*"],
-      "@lychen/vara-util-constants/*": ["../util-constants/*"],
-      "@lychen/eko-util-constants/*": ["../util-constants/*"],
-      "@lychen/novi-util-constants/*": ["../util-constants/*"]
+      "@lychen/myko-constants/*": ["../constants/*"],
+      "@lychen/meli-constants/*": ["../constants/*"],
+      "@lychen/humu-constants/*": ["../constants/*"],
+      "@lychen/kolo-constants/*": ["../constants/*"],
+      "@lychen/vara-constants/*": ["../constants/*"],
+      "@lychen/eko-constants/*": ["../constants/*"],
+      "@lychen/novi-constants/*": ["../constants/*"]
     }
   }
 }

@@ -1,4 +1,4 @@
-import { APP_ALIAS } from '@lychen/humu-util-constants/App';
+import { APP_ALIAS } from '@lychen/humu-constants/App';
 import enUs from './en-US';
 import frFr from './fr-FR';
 

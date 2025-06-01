@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/novi-util-constants": "workspace:*"
+    "@lychen/novi-constants": "workspace:*"
   }
 }

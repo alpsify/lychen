@@ -64,20 +64,20 @@ import {
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import { Badge } from '@lychen/vue-ui-components-core/badge';
 import FormTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/forms/FormTeraLandTaskUpdate.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useEventBus } from '@vueuse/core';
 import {
   EVENT_landTaskDeleteSucceeded,
   EVENT_landTaskPatchSucceeded,
-} from '@lychen/tera-util-events/LandTaskEvents';
+} from '@lychen/tera-events/LandTaskEvents';
 import { inject, watch } from 'vue';
 import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-ui-i18n/land-task';
 import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import type { components } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import { useRouter } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '.';

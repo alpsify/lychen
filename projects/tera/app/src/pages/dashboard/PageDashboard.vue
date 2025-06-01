@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import zitadelAuth from '@lychen/typescript-util-zitadel/ZitadelAuth';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 import { defineAsyncComponent } from 'vue';
 import headerImg from './assets/header.webp';
 import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';

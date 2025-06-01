@@ -7,7 +7,7 @@ import {
 } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import NavigationMenuViewport from './NavigationMenuViewport.vue';
 
 const props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes['class'] }>();

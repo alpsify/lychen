@@ -1,5 +1,5 @@
 dependsOn:
-  - meli-util-constants
+  - meli-constants
 
 id: meli-ui-i18n
 

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/kiro-util-sdk": "workspace:*",
+    "@lychen/kiro-sdk": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "vue": "^3.5.13"
   },

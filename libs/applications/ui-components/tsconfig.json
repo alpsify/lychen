@@ -1,19 +1,19 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "../../typescript/util-tailwind/**/*",
-    "../../vue/i18n/util-composables/**/*",
+    "../../typescript/tailwind/**/*",
+    "../../vue/i18n/composables/**/*",
     "../../vue/ui-components-core/**/*",
     "../ui-i18n/**/*",
-    "../util-model/**/*",
+    "../model/**/*",
     "**/*"
   ],
   "references": [
     {
-      "path": "../../typescript/util-tailwind"
+      "path": "../../typescript/tailwind"
     },
     {
-      "path": "../../vue/i18n/util-composables"
+      "path": "../../vue/i18n/composables"
     },
     {
       "path": "../../vue/ui-components-core"
@@ -22,15 +22,15 @@
       "path": "../ui-i18n"
     },
     {
-      "path": "../util-model"
+      "path": "../model"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/applications/ui-components",
     "paths": {
-      "@lychen/applications-util-model/*": ["../util-model/*"],
-      "@lychen/typescript-util-tailwind/*": ["../../typescript/util-tailwind/*"],
-      "@lychen/vue-i18n-util-composables/*": ["../../vue/i18n/util-composables/*"],
+      "@lychen/applications-model/*": ["../model/*"],
+      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
+      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
       "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
       "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"],
       "@lychen/vue-ui-components-core/*": ["../../vue/ui-components-core/*"]

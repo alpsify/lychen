@@ -1,8 +1,0 @@
-id: kiro-util-sdk
-
-language: typescript
-
-tags:
-  - kiro
-
-type: library

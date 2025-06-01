@@ -1,15 +1,15 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../util-constants/**/*"],
+  "include": ["**/*", "../constants/**/*"],
   "references": [
     {
-      "path": "../util-constants"
+      "path": "../constants"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/tera/ui-i18n",
     "paths": {
-      "@lychen/tera-util-constants/*": ["../util-constants/*"]
+      "@lychen/tera-constants/*": ["../constants/*"]
     }
   }
 }

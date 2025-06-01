@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { BaseHeading } from '../base-heading';
 
 defineProps<{ title?: string; mainClass?: string; sideClass?: string }>();

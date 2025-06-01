@@ -1,0 +1,18 @@
+dependsOn:
+  - eko-constants
+  - humu-constants
+  - kiro-constants
+  - kolo-constants
+  - luna-constants
+  - meli-constants
+  - myko-constants
+  - novi-constants
+  - robust-constants
+  - tera-constants
+  - vara-constants
+
+id: applications-constants
+
+language: typescript
+
+type: library

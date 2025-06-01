@@ -1,5 +1,5 @@
 dependsOn:
-  - typescript-util-tailwind
+  - typescript-tailwind
   - vue-ui-components-core
 
 id: vue-ui-components-extra

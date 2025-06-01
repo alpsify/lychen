@@ -24,10 +24,10 @@
     "getbrevo/brevo-php": "2.0.*",
     "league/flysystem": "3.29.*",
     "league/flysystem-aws-s3-v3": "3.29.*",
-    "lychen/util-core": "*",
-    "lychen/util-model": "*",
-    "lychen/util-tiptap": "*",
-    "lychen/util-zitadel": "*",
+    "lychen/core": "*",
+    "lychen/model": "*",
+    "lychen/tiptap": "*",
+    "lychen/zitadel": "*",
     "martin-georgiev/postgresql-for-doctrine": "^2.8",
     "nelmio/cors-bundle": "2.5.*",
     "oneup/flysystem-bundle": "4.12.*",
@@ -94,10 +94,10 @@
       "options": {
         "symlink": false,
         "versions": {
-          "lychen/util-model": "0.0.0",
-          "lychen/util-zitadel": "0.0.0",
-          "lychen/util-tiptap": "0.0.0",
-          "lychen/util-core": "0.0.0"
+          "lychen/model": "0.0.0",
+          "lychen/zitadel": "0.0.0",
+          "lychen/tiptap": "0.0.0",
+          "lychen/core": "0.0.0"
         }
       }
     }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ComboboxSeparatorProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { ComboboxSeparator } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
       - name: Set up Moon Toolchain
         uses: 'moonrepo/setup-toolchain@v0'
-      - name: Run ESLint
-        run: moon ci :format
       - name: Run Prettier
+        run: moon ci :format
+      - name: Run ESLint
         run: moon ci :lint

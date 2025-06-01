@@ -11,9 +11,9 @@
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/css-core": "workspace:*",
-    "@lychen/vite-util-ssg": "workspace:*",
-    "@lychen/vue-i18n-util-composables": "workspace:*",
-    "@lychen/vue-i18n-util-configs": "workspace:*",
+    "@lychen/vite-ssg": "workspace:*",
+    "@lychen/vue-i18n-composables": "workspace:*",
+    "@lychen/vue-i18n-configs": "workspace:*",
     "@lychen/vue-ui-components-app": "workspace:*",
     "@lychen/vue-ui-components-core": "workspace:*",
     "@lychen/vue-ui-components-extra": "workspace:*",

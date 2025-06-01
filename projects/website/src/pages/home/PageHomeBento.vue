@@ -80,7 +80,7 @@
 import bentoCentralImageUrl from './assets/bento-central-9.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { faChartNetwork } from '@fortawesome/pro-light-svg-icons/faChartNetwork';
 import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
 

@@ -22,14 +22,14 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-task';
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-util-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
-import type { paths } from '@lychen/tera-util-api-sdk/generated/tera-api';
+import type { paths } from '@lychen/tera-api-sdk/generated/tera-api';
 import { inject } from 'vue';
-import { INJECTION_KEY_LAND } from '@lychen/tera-util-constants/InjectionKeys';
-import { EVENT_landTaskPostSucceeded } from '@lychen/tera-util-events/LandTaskEvents';
+import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
+import { EVENT_landTaskPostSucceeded } from '@lychen/tera-events/LandTaskEvents';
 
 const land = inject(INJECTION_KEY_LAND);
 

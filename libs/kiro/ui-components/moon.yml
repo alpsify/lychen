@@ -1,5 +1,5 @@
 dependsOn:
-  - kiro-util-sdk
+  - kiro-sdk
   - vue-ui-components-core
 
 id: kiro-ui-components

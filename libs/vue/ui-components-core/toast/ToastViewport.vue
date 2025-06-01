@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { ToastViewport, type ToastViewportProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

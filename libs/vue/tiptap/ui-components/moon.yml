@@ -1,5 +1,5 @@
 dependsOn:
-  - vue-tiptap-util-composables
+  - vue-tiptap-composables
 
 id: vue-tiptap-ui-components
 

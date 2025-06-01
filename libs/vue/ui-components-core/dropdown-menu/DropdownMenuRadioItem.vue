@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '../icon';
 import { faCircle } from '@fortawesome/pro-light-svg-icons';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,

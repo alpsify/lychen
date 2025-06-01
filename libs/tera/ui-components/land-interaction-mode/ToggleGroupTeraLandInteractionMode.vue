@@ -30,12 +30,12 @@ import { Icon } from '@lychen/vue-ui-components-core/icon';
 import {
   LAND_INTERACTION_MODES,
   type LandInteractionMode,
-} from '@lychen/tera-util-api-sdk/constants/LandInteractionMode';
+} from '@lychen/tera-api-sdk/constants/LandInteractionMode';
 import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-ui-components/icons/IconLandInteractionMode';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-ui-components-core/tooltip';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-ui-i18n/land-proposal';
-import { useI18nExtended } from '@lychen/vue-i18n-util-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const model = defineModel<LandInteractionMode[]>({ default: [] });
 

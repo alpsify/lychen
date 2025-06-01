@@ -1,0 +1,8 @@
+id: kiro-sdk
+
+language: typescript
+
+tags:
+  - kiro
+
+type: library

@@ -223,10 +223,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/zenstruck/callback" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zenstruck/foundry" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zenstruck/messenger-test" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/util-core" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/util-model" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/util-tiptap" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/util-zitadel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/core" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/model" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/tiptap" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lychen/zitadel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php84" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
     </content>

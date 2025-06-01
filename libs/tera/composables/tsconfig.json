@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../../typescript/object/**/*", "../api-sdk/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../typescript/object"
+    },
+    {
+      "path": "../api-sdk"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/tera/composables",
+    "paths": {
+      "@lychen/tera-api-sdk/*": ["../api-sdk/*"],
+      "@lychen/typescript-object/*": ["../../typescript/object/*"]
+    }
+  }
+}

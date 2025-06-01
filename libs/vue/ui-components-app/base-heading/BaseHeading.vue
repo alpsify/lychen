@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { baseHeadingVariants, type BaseHeadingVariants } from '.';
 import type { HTMLAttributes } from 'vue';
 

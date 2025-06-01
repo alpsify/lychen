@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NumberFieldIncrementProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-util-tailwind/Cn';
+import { cn } from '@lychen/typescript-tailwind/Cn';
 import { NumberFieldIncrement, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';

@@ -2,21 +2,21 @@ dependsOn:
   - applications-assets
   - applications-ui-components
   - css-core
+  - kolo-constants
+  - kolo-features
+
   - kolo-ui-i18n
-  - kolo-util-constants
+  - typescript-constants
 
-  - kolo-util-features
-  - typescript-util-constants
-
-  - vite-util-ssg
+  - vite-ssg
   - vue-composables
-  - vue-i18n-util-composables
-  - vue-i18n-util-configs
-  - vue-router-util-configs
+  - vue-i18n-composables
+  - vue-i18n-configs
+  - vue-router-configs
   - vue-ui-components-core
   - vue-ui-components-website
   - vue-ui-layouts
-  - vue-unhead-util-composables
+  - vue-unhead-composables
 
 env:
   DEV_DOMAIN: kolo.lychen.local

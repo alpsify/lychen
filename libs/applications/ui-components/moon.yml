@@ -1,8 +1,8 @@
 dependsOn:
+  - applications-model
   - applications-ui-i18n
-  - applications-util-model
-  - typescript-util-tailwind
-  - vue-i18n-util-composables
+  - typescript-tailwind
+  - vue-i18n-composables
   - vue-ui-components-core
 
 id: applications-ui-components
