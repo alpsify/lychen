@@ -1,0 +1,8 @@
+dependsOn:
+  - myko-constants
+
+id: myko-i18n
+
+language: typescript
+
+type: library

@@ -1,0 +1,8 @@
+dependsOn:
+  - eko-constants
+
+id: eko-i18n
+
+language: typescript
+
+type: library

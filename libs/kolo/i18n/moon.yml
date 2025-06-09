@@ -1,0 +1,8 @@
+dependsOn:
+  - kolo-constants
+
+id: kolo-i18n
+
+language: typescript
+
+type: library

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Toggle from '@lychen/vue-ui-components-core/toggle/Toggle.vue';
+import Toggle from '@lychen/vue-components-core/toggle/Toggle.vue';
 
 const meta: Meta<typeof Toggle> = {
   title: 'Core/Toggle',

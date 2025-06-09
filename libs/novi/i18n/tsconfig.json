@@ -1,0 +1,21 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "../constants/**/*"],
+  "references": [
+    {
+      "path": "../constants"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/novi/i18n",
+    "paths": {
+      "@lychen/myko-constants/*": ["../constants/*"],
+      "@lychen/meli-constants/*": ["../constants/*"],
+      "@lychen/humu-constants/*": ["../constants/*"],
+      "@lychen/kolo-constants/*": ["../constants/*"],
+      "@lychen/vara-constants/*": ["../constants/*"],
+      "@lychen/eko-constants/*": ["../constants/*"],
+      "@lychen/novi-constants/*": ["../constants/*"]
+    }
+  }
+}

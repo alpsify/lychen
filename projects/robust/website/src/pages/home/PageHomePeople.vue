@@ -43,9 +43,9 @@ import CityImageUrl from './assets/City.webp';
 import CompanyImageUrl from './assets/Company.webp';
 import AssociationImageUrl from './assets/Association.webp';
 import { messages, TRANSLATION_KEY } from './i18n';
-import Container from '@lychen/vue-ui-components-website/container/Container.vue';
-import Title from '@lychen/vue-ui-components-website/title/Title.vue';
-import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
+import Container from '@lychen/vue-components-website/container/Container.vue';
+import Title from '@lychen/vue-components-website/title/Title.vue';
+import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import CardActor from '@/components/CardActor.vue';
 

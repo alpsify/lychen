@@ -1,20 +1,20 @@
 dependsOn:
   - applications-assets
-  - applications-ui-components
+  - applications-components
   - css-core
   - robust-constants
   - robust-features
-  - robust-ui-i18n
+  - robust-i18n
   - typescript-constants
 
   - vite-ssg
+  - vue-components-core
+  - vue-components-website
   - vue-composables
   - vue-i18n-composables
   - vue-i18n-configs
+  - vue-layouts
   - vue-router-configs
-  - vue-ui-components-core
-  - vue-ui-components-website
-  - vue-ui-layouts
   - vue-unhead-composables
 
 env:

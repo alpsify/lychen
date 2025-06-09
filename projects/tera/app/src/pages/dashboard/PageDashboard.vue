@@ -47,13 +47,9 @@ import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
 import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
 import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
-const Button = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
-);
+const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 </script>
 
 <style lang="css" scoped></style>

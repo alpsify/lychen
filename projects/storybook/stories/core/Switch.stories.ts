@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Switch from '@lychen/vue-ui-components-core/switch/Switch.vue';
+import Switch from '@lychen/vue-components-core/switch/Switch.vue';
 
 const meta: Meta<typeof Switch> = {
   title: 'Core/Switch',

@@ -1,0 +1,8 @@
+dependsOn:
+  - vue-i18n-composables
+
+id: vue-drawio-components
+
+language: typescript
+
+type: library

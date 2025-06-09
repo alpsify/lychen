@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
+import BadgeDevelopmentInProgress from '@lychen/vue-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 
 const component = BadgeDevelopmentInProgress;
 

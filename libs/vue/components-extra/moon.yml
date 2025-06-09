@@ -1,0 +1,9 @@
+dependsOn:
+  - typescript-tailwind
+  - vue-components-core
+
+id: vue-components-extra
+
+language: typescript
+
+type: library

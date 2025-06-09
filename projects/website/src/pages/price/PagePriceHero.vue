@@ -16,15 +16,13 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
 const DivScalingDown = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
+  () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
-const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));
+const Hero = defineAsyncComponent(() => import('@lychen/vue-components-website/hero/Hero.vue'));
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

@@ -28,7 +28,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@lychen/vue-ui-components-core/dropdown-menu';
+} from '@lychen/vue-components-core/dropdown-menu';
 import { useClipboard } from '@vueuse/core';
 import DropdownMenuGroupDownloadHTMLAsImage from './DropdownMenuGroupDownloadHTMLAsImage.vue';
 import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';

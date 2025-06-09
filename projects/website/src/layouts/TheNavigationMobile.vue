@@ -86,14 +86,14 @@ import { RoutePagePrice } from '@pages/price';
 import { RoutePageHome } from '@pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
-import NavigationMenuSubLink from '@lychen/vue-ui-components-core/navigation-menu/NavigationMenuSubLink.vue';
-import Accordion from '@lychen/vue-ui-components-core/accordion/Accordion.vue';
-import AccordionTrigger from '@lychen/vue-ui-components-core/accordion/AccordionTrigger.vue';
-import AccordionContent from '@lychen/vue-ui-components-core/accordion/AccordionContent.vue';
-import AccordionItem from '@lychen/vue-ui-components-core/accordion/AccordionItem.vue';
+import NavigationMenuSubLink from '@lychen/vue-components-core/navigation-menu/NavigationMenuSubLink.vue';
+import Accordion from '@lychen/vue-components-core/accordion/Accordion.vue';
+import AccordionTrigger from '@lychen/vue-components-core/accordion/AccordionTrigger.vue';
+import AccordionContent from '@lychen/vue-components-core/accordion/AccordionContent.vue';
+import AccordionItem from '@lychen/vue-components-core/accordion/AccordionItem.vue';
 import { inject, type Ref, computed } from 'vue';
 import { RoutePageSponsor } from '@pages/sponsor';
-import ButtonTallyPreregister from '@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
+import ButtonTallyPreregister from '@lychen/vue-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

@@ -84,10 +84,10 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { faChartNetwork } from '@fortawesome/pro-light-svg-icons/faChartNetwork';
 import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

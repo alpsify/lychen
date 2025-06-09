@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Calendar from '@lychen/vue-ui-components-core/calendar/Calendar.vue';
+import Calendar from '@lychen/vue-components-core/calendar/Calendar.vue';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
 const meta: Meta<typeof Calendar> = {

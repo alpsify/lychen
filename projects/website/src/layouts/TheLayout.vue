@@ -17,10 +17,10 @@
 import { defineAsyncComponent } from 'vue';
 
 const LayoutMain = defineAsyncComponent(
-  () => import('@lychen/vue-ui-layouts/website-main/LayoutWebsiteMain.vue'),
+  () => import('@lychen/vue-layouts/website-main/LayoutWebsiteMain.vue'),
 );
 const LogoLychenFull = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),
+  () => import('@lychen/vue-components-extra/logo-lychen/LogoLychenFull.vue'),
 );
 
 const TheNavigation = defineAsyncComponent(() => import('./TheNavigation.vue'));

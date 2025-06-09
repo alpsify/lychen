@@ -2,10 +2,10 @@
   "extends": "./tsconfig.options.json",
   "references": [
     {
-      "path": "libs/applications/ui-components"
+      "path": "libs/applications/components"
     },
     {
-      "path": "libs/applications/ui-i18n"
+      "path": "libs/applications/i18n"
     },
     {
       "path": "libs/applications/composables"
@@ -23,7 +23,7 @@
       "path": "libs/css/core"
     },
     {
-      "path": "libs/eko/ui-i18n"
+      "path": "libs/eko/i18n"
     },
     {
       "path": "libs/eko/constants"
@@ -32,7 +32,7 @@
       "path": "libs/eko/features"
     },
     {
-      "path": "libs/humu/ui-i18n"
+      "path": "libs/humu/i18n"
     },
     {
       "path": "libs/humu/constants"
@@ -41,10 +41,10 @@
       "path": "libs/humu/features"
     },
     {
-      "path": "libs/kiro/ui-components"
+      "path": "libs/kiro/components"
     },
     {
-      "path": "libs/kiro/ui-i18n"
+      "path": "libs/kiro/i18n"
     },
     {
       "path": "libs/kiro/constants"
@@ -56,7 +56,7 @@
       "path": "libs/kiro/sdk"
     },
     {
-      "path": "libs/kolo/ui-i18n"
+      "path": "libs/kolo/i18n"
     },
     {
       "path": "libs/kolo/constants"
@@ -65,7 +65,7 @@
       "path": "libs/kolo/features"
     },
     {
-      "path": "libs/luna/ui-i18n"
+      "path": "libs/luna/i18n"
     },
     {
       "path": "libs/luna/constants"
@@ -74,7 +74,7 @@
       "path": "libs/luna/features"
     },
     {
-      "path": "libs/meli/ui-i18n"
+      "path": "libs/meli/i18n"
     },
     {
       "path": "libs/meli/constants"
@@ -83,7 +83,7 @@
       "path": "libs/meli/features"
     },
     {
-      "path": "libs/myko/ui-i18n"
+      "path": "libs/myko/i18n"
     },
     {
       "path": "libs/myko/constants"
@@ -92,7 +92,7 @@
       "path": "libs/myko/features"
     },
     {
-      "path": "libs/novi/ui-i18n"
+      "path": "libs/novi/i18n"
     },
     {
       "path": "libs/novi/constants"
@@ -101,7 +101,7 @@
       "path": "libs/novi/features"
     },
     {
-      "path": "libs/odd/ui-i18n"
+      "path": "libs/odd/i18n"
     },
     {
       "path": "libs/odd/composables"
@@ -110,7 +110,7 @@
       "path": "libs/odd/model"
     },
     {
-      "path": "libs/robust/ui-i18n"
+      "path": "libs/robust/i18n"
     },
     {
       "path": "libs/robust/constants"
@@ -119,10 +119,10 @@
       "path": "libs/robust/features"
     },
     {
-      "path": "libs/tera/ui-components"
+      "path": "libs/tera/components"
     },
     {
-      "path": "libs/tera/ui-i18n"
+      "path": "libs/tera/i18n"
     },
     {
       "path": "libs/tera/api-sdk"
@@ -161,7 +161,7 @@
       "path": "libs/typescript/zitadel"
     },
     {
-      "path": "libs/vara/ui-i18n"
+      "path": "libs/vara/i18n"
     },
     {
       "path": "libs/vara/constants"
@@ -179,7 +179,7 @@
       "path": "libs/vue/drawio/tera"
     },
     {
-      "path": "libs/vue/drawio/ui-components"
+      "path": "libs/vue/drawio/components"
     },
     {
       "path": "libs/vue/i18n/composables"
@@ -194,25 +194,25 @@
       "path": "libs/vue/router/configs"
     },
     {
-      "path": "libs/vue/tiptap/ui-components"
+      "path": "libs/vue/tiptap/components"
     },
     {
       "path": "libs/vue/tiptap/composables"
     },
     {
-      "path": "libs/vue/ui-components-app"
+      "path": "libs/vue/components-app"
     },
     {
-      "path": "libs/vue/ui-components-core"
+      "path": "libs/vue/components-core"
     },
     {
-      "path": "libs/vue/ui-components-extra"
+      "path": "libs/vue/components-extra"
     },
     {
-      "path": "libs/vue/ui-components-website"
+      "path": "libs/vue/components-website"
     },
     {
-      "path": "libs/vue/ui-layouts"
+      "path": "libs/vue/layouts"
     },
     {
       "path": "libs/vue/unhead/composables"

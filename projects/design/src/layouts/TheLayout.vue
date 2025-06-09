@@ -14,14 +14,14 @@
 
 <script lang="ts" setup>
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
-import LayoutInApp from '@lychen/vue-ui-layouts/in-app/LayoutInApp.vue';
+import LayoutInApp from '@lychen/vue-layouts/in-app/LayoutInApp.vue';
 
 import { RoutePageColors } from '@/pages/colors';
 import { RoutePagePersonas } from '@/pages/personas';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { RoutePageHome } from '@/pages/home';
-import ThemeSwitcher from '@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue';
-import LanguageSwitcher from '@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue';
+import ThemeSwitcher from '@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue';
+import LanguageSwitcher from '@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue';
 import { computed } from 'vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

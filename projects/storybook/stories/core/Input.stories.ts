@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Input from '@lychen/vue-ui-components-core/input/Input.vue';
+import Input from '@lychen/vue-components-core/input/Input.vue';
 
 const meta: Meta<typeof Input> = {
   title: 'Core/Input',

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 import { EXCLUDED_CLASS } from './useDownloadHTMLAsImage';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import DropdownMenuPersona from './DropdownMenuPersona.vue';

@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 
 import { LayoutInAppNavigationMenu } from '.';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 interface Props {
   menu: LayoutInAppNavigationMenu;

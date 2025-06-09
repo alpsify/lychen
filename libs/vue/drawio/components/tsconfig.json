@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.options.json",
+  "include": ["../../i18n/composables/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../i18n/composables"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../../.moon/cache/types/libs/vue/drawio/components",
+    "paths": {
+      "@lychen/vue-i18n-composables/*": ["../../i18n/composables/*"]
+    }
+  }
+}

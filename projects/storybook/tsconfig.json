@@ -16,44 +16,44 @@
     },
 
     {
-      "path": "../../libs/tera/ui-components"
+      "path": "../../libs/tera/components"
     },
     {
       "path": "../../libs/vue/i18n/configs"
     },
     {
-      "path": "../../libs/vue/ui-components-app"
+      "path": "../../libs/vue/components-app"
     },
     {
-      "path": "../../libs/vue/ui-components-core"
+      "path": "../../libs/vue/components-core"
     },
     {
-      "path": "../../libs/vue/ui-components-extra"
+      "path": "../../libs/vue/components-extra"
     },
     {
-      "path": "../../libs/vue/ui-components-website"
+      "path": "../../libs/vue/components-website"
     }
   ],
   "include": [
     "../../libs/css/core/**/*",
-    "../../libs/tera/ui-components/**/*",
+    "../../libs/tera/components/**/*",
     "../../libs/vue/i18n/configs/**/*",
-    "../../libs/vue/ui-components-app/**/*",
-    "../../libs/vue/ui-components-core/**/*",
-    "../../libs/vue/ui-components-extra/**/*",
-    "../../libs/vue/ui-components-website/**/*",
+    "../../libs/vue/components-app/**/*",
+    "../../libs/vue/components-core/**/*",
+    "../../libs/vue/components-extra/**/*",
+    "../../libs/vue/components-website/**/*",
     "**/*"
   ],
   "compilerOptions": {
     "outDir": "../../.moon/cache/types/projects/storybook",
     "paths": {
-      "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
-      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"],
-      "@lychen/vue-ui-components-website/*": ["../../libs/vue/ui-components-website/*"],
+      "@lychen/vue-components-core/*": ["../../libs/vue/components-core/*"],
+      "@lychen/vue-components-extra/*": ["../../libs/vue/components-extra/*"],
+      "@lychen/vue-components-website/*": ["../../libs/vue/components-website/*"],
       "@lychen/css-core/*": ["../../libs/css/core/*"],
-      "@lychen/tera-ui-components/*": ["../../libs/tera/ui-components/*"],
+      "@lychen/tera-components/*": ["../../libs/tera/components/*"],
       "@lychen/vue-i18n-configs/*": ["../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-ui-components-app/*": ["../../libs/vue/ui-components-app/*"]
+      "@lychen/vue-components-app/*": ["../../libs/vue/components-app/*"]
     }
   }
 }

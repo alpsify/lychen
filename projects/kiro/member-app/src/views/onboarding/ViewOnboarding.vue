@@ -65,11 +65,9 @@ import { computed, defineAsyncComponent, ref } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
-const Button = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
-);
+const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 const LychenTooltip = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/tooltip/LychenTooltip.vue'),
+  () => import('@lychen/vue-components-core/tooltip/LychenTooltip.vue'),
 );
 
 const step = ref(0);

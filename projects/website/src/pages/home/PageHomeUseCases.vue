@@ -25,15 +25,13 @@ const LychenEcosystem = defineAsyncComponent(
 );
 
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

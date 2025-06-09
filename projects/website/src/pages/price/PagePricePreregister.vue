@@ -43,24 +43,20 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-constants/Link';
 
 const DivWithBackgroundImg = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+  () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
 );
 
-const Button = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
-);
+const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

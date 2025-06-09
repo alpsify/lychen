@@ -80,36 +80,32 @@ import { defineAsyncComponent, onBeforeUnmount, ref, watch } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
-import ApplicationCard from '@lychen/applications-ui-components/ApplicationCard.vue';
-import ApplicationTitle from '@lychen/applications-ui-components/ApplicationTitle.vue';
-import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
-import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
-import CarouselPrevious from '@lychen/vue-ui-components-core/carousel/CarouselPrevious.vue';
-import CarouselNext from '@lychen/vue-ui-components-core/carousel/CarouselNext.vue';
-import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
-import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
-import DialogTrigger from '@lychen/vue-ui-components-core/dialog/DialogTrigger.vue';
+import ApplicationCard from '@lychen/applications-components/ApplicationCard.vue';
+import ApplicationTitle from '@lychen/applications-components/ApplicationTitle.vue';
+import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue';
+import CarouselPrevious from '@lychen/vue-components-core/carousel/CarouselPrevious.vue';
+import CarouselNext from '@lychen/vue-components-core/carousel/CarouselNext.vue';
+import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
+import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
+import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+import DialogTrigger from '@lychen/vue-components-core/dialog/DialogTrigger.vue';
 import { useApplicationsFeatures } from '@lychen/applications-composables/useApplicationsFeatures';
-import DialogClose from '@lychen/vue-ui-components-core/dialog/DialogClose.vue';
-import ApplicationsGridFeatures from '@lychen/applications-ui-components/grids/ApplicationsGridFeatures.vue';
+import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
+import ApplicationsGridFeatures from '@lychen/applications-components/grids/ApplicationsGridFeatures.vue';
 import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
 
-const Dialog = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/dialog/Dialog.vue'),
-);
+const Dialog = defineAsyncComponent(() => import('@lychen/vue-components-core/dialog/Dialog.vue'));
 
 const DialogContent = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/dialog/DialogContent.vue'),
+  () => import('@lychen/vue-components-core/dialog/DialogContent.vue'),
 );
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

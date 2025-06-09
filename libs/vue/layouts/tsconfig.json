@@ -1,0 +1,43 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../applications/components/**/*",
+    "../../typescript/constants/**/*",
+    "../i18n/composables/**/*",
+    "../components-core/**/*",
+    "../components-extra/**/*",
+    "../components-website/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../applications/components"
+    },
+    {
+      "path": "../../typescript/constants"
+    },
+    {
+      "path": "../i18n/composables"
+    },
+    {
+      "path": "../components-core"
+    },
+    {
+      "path": "../components-extra"
+    },
+    {
+      "path": "../components-website"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/layouts",
+    "paths": {
+      "@lychen/vue-components-core/*": ["../components-core/*"],
+      "@lychen/applications-components/*": ["../../applications/components/*"],
+      "@lychen/typescript-constants/*": ["../../typescript/constants/*"],
+      "@lychen/vue-i18n-composables/*": ["../i18n/composables/*"],
+      "@lychen/vue-components-extra/*": ["../components-extra/*"],
+      "@lychen/vue-components-website/*": ["../components-website/*"]
+    }
+  }
+}

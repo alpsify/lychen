@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import CardTeraLandProposal from '@lychen/tera-ui-components/land-proposal/card/CardTeraLandProposal.vue';
+import CardTeraLandProposal from '@lychen/tera-components/land-proposal/card/CardTeraLandProposal.vue';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
 const component = CardTeraLandProposal;

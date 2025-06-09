@@ -1,8 +1,0 @@
-dependsOn:
-  - luna-constants
-
-id: luna-ui-i18n
-
-language: typescript
-
-type: library

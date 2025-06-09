@@ -3,7 +3,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { usePreferredColorScheme } from '@lychen/vue-composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
-import { TRANSLATION_KEY, messages } from '@lychen/tera-ui-i18n';
+import { TRANSLATION_KEY, messages } from '@lychen/tera-i18n';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

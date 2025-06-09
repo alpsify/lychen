@@ -1,0 +1,12 @@
+dependsOn:
+  - kiro-sdk
+  - vue-components-core
+
+id: kiro-components
+
+language: typescript
+
+tags:
+  - kiro
+
+type: library

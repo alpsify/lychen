@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import LychenKiroCardAssociation from '@lychen/kiro-ui-components/card-association/LychenKiroCardAssociation.vue';
+import LychenKiroCardAssociation from '@lychen/kiro-components/card-association/LychenKiroCardAssociation.vue';
 import { Association } from '@lychen/kiro-sdk/model/Association';
 
 const associations: Association[] = [

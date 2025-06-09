@@ -1,4 +1,4 @@
-import { messages, TRANSLATION_KEY } from '@lychen/odd-ui-i18n';
+import { messages, TRANSLATION_KEY } from '@lychen/odd-i18n';
 import { type Odd } from '@lychen/odd-model/Odd';
 import { type Ref, ref } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';

@@ -43,19 +43,17 @@ import { defineAsyncComponent } from 'vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
+import Icon from '@lychen/vue-components-core/icon/Icon.vue';
 
 const DivScalingDown = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
+  () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
-const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Hero = defineAsyncComponent(() => import('@lychen/vue-components-website/hero/Hero.vue'));
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

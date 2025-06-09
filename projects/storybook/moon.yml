@@ -1,11 +1,11 @@
 dependsOn:
   - css-core
-  - tera-ui-components
+  - tera-components
+  - vue-components-app
+  - vue-components-core
+  - vue-components-extra
+  - vue-components-website
   - vue-i18n-configs
-  - vue-ui-components-app
-  - vue-ui-components-core
-  - vue-ui-components-extra
-  - vue-ui-components-website
 
 id: storybook
 

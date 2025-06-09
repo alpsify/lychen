@@ -1,8 +1,0 @@
-dependsOn:
-  - tera-constants
-
-id: tera-ui-i18n
-
-language: typescript
-
-type: library

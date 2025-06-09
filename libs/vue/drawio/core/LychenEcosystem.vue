@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import DrawIoViewer from '@lychen/vue-drawio-ui-components/DrawIoViewer.vue';
+import DrawIoViewer from '@lychen/vue-drawio-components/DrawIoViewer.vue';
 </script>

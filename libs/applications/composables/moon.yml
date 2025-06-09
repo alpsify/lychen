@@ -2,30 +2,30 @@ dependsOn:
   - applications-assets
   - applications-constants
   - applications-generic-composables
+  - applications-i18n
   - applications-model
-  - applications-ui-i18n
   - eko-features
-  - eko-ui-i18n
+  - eko-i18n
   - humu-features
-  - humu-ui-i18n
+  - humu-i18n
   - kiro-features
-  - kiro-ui-i18n
+  - kiro-i18n
   - kolo-features
-  - kolo-ui-i18n
+  - kolo-i18n
   - luna-features
-  - luna-ui-i18n
+  - luna-i18n
   - meli-features
-  - meli-ui-i18n
+  - meli-i18n
   - myko-features
-  - myko-ui-i18n
+  - myko-i18n
   - novi-features
-  - novi-ui-i18n
+  - novi-i18n
   - robust-features
-  - robust-ui-i18n
+  - robust-i18n
   - tera-features
-  - tera-ui-i18n
+  - tera-i18n
   - vara-features
-  - vara-ui-i18n
+  - vara-i18n
   - vue-i18n-composables
 
 id: applications-composables

@@ -15,7 +15,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeActors from './PageHomeActors.vue';
-//import SectionCrowdfunding from '@lychen/vue-ui-components-website/section-crowdfunding/SectionCrowdfunding.vue';
+//import SectionCrowdfunding from '@lychen/vue-components-website/section-crowdfunding/SectionCrowdfunding.vue';
 import PageHomeODD from './PageHomeODD.vue';
 import PageHomeHero from './PageHomeHero.vue';
 import PageHomeOSS from './PageHomeOSS.vue';

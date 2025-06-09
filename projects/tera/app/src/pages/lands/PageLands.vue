@@ -82,23 +82,23 @@
 
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
-import CardTeraLand from '@lychen/tera-ui-components/land/card/CardTeraLand.vue';
+import CardTeraLand from '@lychen/tera-components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
+import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
 import { ref, defineAsyncComponent } from 'vue';
-import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
-import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
+import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
+import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
-import CardTeraLandMemberInvitation from '@lychen/tera-ui-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
-import { VARIANT } from '@lychen/tera-ui-components/land-member-invitation/card';
+import { VARIANT } from '@lychen/tera-components/land-member-invitation/card';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
@@ -108,7 +108,7 @@ import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
 
 const DivWithBackgroundImg = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+  () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

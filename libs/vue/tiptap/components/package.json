@@ -1,0 +1,33 @@
+{
+  "name": "@lychen/vue-tiptap-components",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@lychen/vue-tiptap-composables": "workspace:*",
+    "@tiptap/core": "^2.11.5",
+    "@tiptap/extension-bold": "^2.11.5",
+    "@tiptap/extension-bullet-list": "^2.11.5",
+    "@tiptap/extension-character-count": "^2.11.5",
+    "@tiptap/extension-code": "^2.11.5",
+    "@tiptap/extension-document": "^2.11.5",
+    "@tiptap/extension-dropcursor": "^2.11.5",
+    "@tiptap/extension-gapcursor": "^2.11.5",
+    "@tiptap/extension-hard-break": "^2.11.5",
+    "@tiptap/extension-heading": "^2.11.5",
+    "@tiptap/extension-highlight": "^2.11.5",
+    "@tiptap/extension-horizontal-rule": "^2.11.5",
+    "@tiptap/extension-italic": "^2.11.5",
+    "@tiptap/extension-list-item": "^2.11.5",
+    "@tiptap/extension-ordered-list": "^2.11.5",
+    "@tiptap/extension-paragraph": "^2.11.5",
+    "@tiptap/extension-placeholder": "^2.11.5",
+    "@tiptap/extension-strike": "^2.11.5",
+    "@tiptap/extension-text": "^2.11.5",
+    "@tiptap/extension-text-align": "^2.11.5",
+    "@tiptap/extension-underline": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/suggestion": "^2.11.5",
+    "@tiptap/vue-3": "^2.11.5",
+    "vue": "^3.5.13"
+  }
+}

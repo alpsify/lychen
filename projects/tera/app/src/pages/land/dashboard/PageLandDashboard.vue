@@ -215,13 +215,13 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, computed, inject } from 'vue';
-import CardTeraLandGreenhouse from '@lychen/tera-ui-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
-import CardTeraLandArea from '@lychen/tera-ui-components/land-area/card/CardTeraLandArea.vue';
+import CardTeraLandGreenhouse from '@lychen/tera-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
+import CardTeraLandArea from '@lychen/tera-components/land-area/card/CardTeraLandArea.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import Carousel from '@lychen/vue-ui-components-core/carousel/Carousel.vue';
-import CarouselItem from '@lychen/vue-ui-components-core/carousel/CarouselItem.vue';
-import CarouselContent from '@lychen/vue-ui-components-core/carousel/CarouselContent.vue';
+import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
+import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue';
+import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
@@ -229,8 +229,8 @@ import {
   INJECTION_KEY_LAND,
   INJECTION_KEY_LAND_MEMBER,
 } from '@lychen/tera-constants/InjectionKeys';
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
-import DialogTeraLandMemberDelete from '@lychen/tera-ui-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
+import DialogTeraLandMemberDelete from '@lychen/tera-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
@@ -242,23 +242,19 @@ import { RoutePageDashboard } from '@/pages/dashboard';
 import { useEventBus } from '@vueuse/core';
 import { faUserPlus } from '@fortawesome/pro-light-svg-icons/faUserPlus';
 import { useRouter } from 'vue-router';
-import Card from '@lychen/vue-ui-components-core/card/Card.vue';
+import Card from '@lychen/vue-components-core/card/Card.vue';
 import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
 import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalendarCirclePlus';
 import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
 import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
-import BadgeDevelopmentInProgress from '@lychen/vue-ui-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
+import BadgeDevelopmentInProgress from '@lychen/vue-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
 import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
-const Button = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
-);
+const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 
 const { api } = useTeraApi();
 

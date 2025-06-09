@@ -1,9 +1,0 @@
-dependsOn:
-  - typescript-tailwind
-  - vue-ui-components-core
-
-id: vue-ui-components-extra
-
-language: typescript
-
-type: library

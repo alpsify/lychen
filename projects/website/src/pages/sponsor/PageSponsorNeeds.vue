@@ -179,23 +179,21 @@ import { faCoffee } from '@fortawesome/pro-light-svg-icons/faCoffee';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 import { faServer } from '@fortawesome/pro-light-svg-icons/faServer';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
-const Badge = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/badge/Badge.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
+const Badge = defineAsyncComponent(() => import('@lychen/vue-components-core/badge/Badge.vue'));
 
 const RainbowBox = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/rainbow-box/RainbowBox.vue'),
+  () => import('@lychen/vue-components-extra/rainbow-box/RainbowBox.vue'),
 );
 
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

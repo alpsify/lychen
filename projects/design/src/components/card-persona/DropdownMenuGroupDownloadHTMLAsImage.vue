@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { SUPPORTED_EXTENSION, useDownloadHTMLAsImage } from './useDownloadHTMLAsImage';
-import { DropdownMenuGroup, DropdownMenuItem } from '@lychen/vue-ui-components-core/dropdown-menu';
+import { DropdownMenuGroup, DropdownMenuItem } from '@lychen/vue-components-core/dropdown-menu';
 import { faFileSvg } from '@fortawesome/pro-light-svg-icons/faFileSvg';
 import { faFilePng } from '@fortawesome/pro-light-svg-icons/faFilePng';
 

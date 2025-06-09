@@ -1,0 +1,13 @@
+dependsOn:
+  - tera-api-sdk
+  - tera-composables
+  - tera-constants
+  - tera-events
+  - tera-i18n
+  - typescript-object
+  - vue-components-core
+  - vue-i18n-composables
+
+id: tera-components
+language: typescript
+type: library

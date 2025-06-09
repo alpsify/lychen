@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import { ICON_POSITION, SIZE, VARIANT } from '@lychen/vue-ui-components-core/button';
+import Button from '@lychen/vue-components-core/button/Button.vue';
+import { ICON_POSITION, SIZE, VARIANT } from '@lychen/vue-components-core/button';
 import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 
 const meta: Meta<typeof Button> = {
