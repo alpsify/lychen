@@ -20,10 +20,10 @@ usage() {
   echo "  --force: Apply changes. Without this flag, the script runs in dry-run mode."
   echo ""
   echo "This script will:"
-  echo "1. Find folders starting with 'ui-' under 'libs' and 'projects' (excluding 'vendors', 'node_modules')."
+  echo "1. Find folders starting with 'ui-' under 'libs' and 'projects' (excluding 'vendors', 'vendor', 'node_modules')."
   echo "2. Rename them by removing the 'ui-' prefix (deleting existing target folder if it exists when --force is used)."
   echo "3. Find and remove all occurrences of 'ui-' in files under 'libs', 'projects', and in './tsconfig.json'."
-  echo "   (excluding files in 'vendors', 'node_modules')."
+  echo "   (excluding files in 'vendors', 'vendor', 'node_modules')."
   echo ""
   echo "WARNING: The --force option is potentially destructive. Backup your work before using it."
   exit 1
@@ -88,7 +88,7 @@ rename_folders() {
   # Use process substitution and a while loop to read null-delimited paths
   while IFS= read -r -d $'\0' old_dir_path_loop; do
     parent_dir=$(dirname "$old_dir_path_loop")
-    dir_name=$(basename "$old_dir_path_loop")
+    dir_name=$(basename "$old_dir_path_loop") # e.g. ui-components
     
     # Ensure dir_name actually starts with ui- before stripping
     if [[ "$dir_name" != ui-* ]]; then
@@ -101,11 +101,11 @@ rename_folders() {
       folders_to_rename_details+=("  - $old_dir_path_loop -> SKIPPED (empty new name)")
       continue
     fi
-
+    
     new_dir_path="$parent_dir/$new_dir_name"
     folders_to_rename_details+=("  - $old_dir_path_loop -> $new_dir_path")
     count_folders_to_rename=$((count_folders_to_rename + 1))
-  done < <(find libs projects \( -name "vendors" -o -name "node_modules" \) -prune -o -type d -name "ui-*" -print0 2>/dev/null || true)
+  done < <(find libs projects \( -name "vendors" -o -name "node_modules" -o -name "vendor" \) -prune -o -type d -name "ui-*" -print0 2>/dev/null || true)
   # Added 2>/dev/null to suppress find errors if libs/projects don't exist (handled later)
   # `|| true` ensures the script doesn't exit if find returns non-zero (e.g. no paths found)
 
@@ -151,7 +151,7 @@ rename_folders() {
         # Ensure parent of new_dir_path exists (it's parent_dir, which must exist if old_dir_path was found)
         # mkdir -p "$(dirname "$new_dir_path")" # Generally not needed as parent_dir exists
         mv "$old_dir_path" "$new_dir_path"
-      done < <(find libs projects \( -name "vendors" -o -name "node_modules" \) -prune -o -type d -name "ui-*" -depth -print0 2>/dev/null || true)
+      done < <(find libs projects \( -name "vendors" -o -name "node_modules" -o -name "vendor" \) -prune -o -type d -name "ui-*" -depth -print0 2>/dev/null || true)
     fi
   fi
   echo
@@ -171,7 +171,7 @@ replace_in_files() {
         files_to_modify_list+=("$file_path_loop")
         count_files_to_modify=$((count_files_to_modify + 1))
     fi
-  done < <(find libs projects \( -name "vendors" -o -name "node_modules" \) -prune -o -type f -print0 2>/dev/null || true)
+  done < <(find libs projects \( -name "vendors" -o -name "node_modules" -o -name "vendor" \) -prune -o -type f -print0 2>/dev/null || true)
 
   # Add tsconfig.json at the root
   if [ -f "tsconfig.json" ]; then
