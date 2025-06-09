@@ -154,7 +154,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
-import { navigationMenuTriggerStyle } from '@lychen/vue-ui-components-core/navigation-menu';
+import { navigationMenuTriggerStyle } from '@lychen/vue-components-core/navigation-menu';
 import { computed, defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
@@ -168,44 +168,44 @@ import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
 import { RoutePageSponsor } from '@pages/sponsor';
 
-import ButtonTallyPreregister from '@lychen/vue-ui-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
-import LogoLychenFull from '@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue';
+import ButtonTallyPreregister from '@lychen/vue-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
+import LogoLychenFull from '@lychen/vue-components-extra/logo-lychen/LogoLychenFull.vue';
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 
 const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/language-switcher/LanguageSwitcher.vue'),
+  () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
 );
 
 const NavigationMenuSubLink = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuSubLink.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuSubLink.vue'),
 );
 
 const ThemeSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/theme-switcher/ThemeSwitcher.vue'),
+  () => import('@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 const NavigationMenu = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenu.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenu.vue'),
 );
 const NavigationMenuContent = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuContent.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuContent.vue'),
 );
 const NavigationMenuItem = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuItem.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuItem.vue'),
 );
 
 const NavigationMenuLink = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuLink.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuLink.vue'),
 );
 
 const NavigationMenuList = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuList.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuList.vue'),
 );
 
 const NavigationMenuTrigger = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/navigation-menu/NavigationMenuTrigger.vue'),
+  () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuTrigger.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

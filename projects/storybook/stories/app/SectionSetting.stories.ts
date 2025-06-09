@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import SectionSetting from '@lychen/vue-ui-components-app/section-setting/SectionSetting.vue';
-import { VARIANT } from '@lychen/vue-ui-components-app/section-setting';
-import { Skeleton } from '@lychen/vue-ui-components-core/skeleton';
+import SectionSetting from '@lychen/vue-components-app/section-setting/SectionSetting.vue';
+import { VARIANT } from '@lychen/vue-components-app/section-setting';
+import { Skeleton } from '@lychen/vue-components-core/skeleton';
 
 const component = SectionSetting;
 

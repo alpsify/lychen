@@ -1955,36 +1955,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lychen/applications-components@workspace:*, @lychen/applications-components@workspace:libs/applications/components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-components@workspace:libs/applications/components"
+  dependencies:
+    "@lychen/applications-i18n": "workspace:*"
+    "@lychen/applications-model": "workspace:*"
+    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-i18n-composables": "workspace:*"
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/applications-composables@workspace:*, @lychen/applications-composables@workspace:libs/applications/composables":
   version: 0.0.0-use.local
   resolution: "@lychen/applications-composables@workspace:libs/applications/composables"
   dependencies:
     "@lychen/applications-constants": "workspace:*"
     "@lychen/applications-generic-composables": "workspace:*"
+    "@lychen/applications-i18n": "workspace:*"
     "@lychen/applications-model": "workspace:*"
-    "@lychen/applications-ui-i18n": "workspace:*"
     "@lychen/eko-features": "workspace:*"
-    "@lychen/eko-ui-i18n": "workspace:*"
+    "@lychen/eko-i18n": "workspace:*"
     "@lychen/humu-features": "workspace:*"
-    "@lychen/humu-ui-i18n": "workspace:*"
+    "@lychen/humu-i18n": "workspace:*"
     "@lychen/kiro-features": "workspace:*"
-    "@lychen/kiro-ui-i18n": "workspace:*"
+    "@lychen/kiro-i18n": "workspace:*"
     "@lychen/kolo-features": "workspace:*"
-    "@lychen/kolo-ui-i18n": "workspace:*"
+    "@lychen/kolo-i18n": "workspace:*"
     "@lychen/luna-features": "workspace:*"
-    "@lychen/luna-ui-i18n": "workspace:*"
+    "@lychen/luna-i18n": "workspace:*"
     "@lychen/meli-features": "workspace:*"
-    "@lychen/meli-ui-i18n": "workspace:*"
+    "@lychen/meli-i18n": "workspace:*"
     "@lychen/myko-features": "workspace:*"
-    "@lychen/myko-ui-i18n": "workspace:*"
+    "@lychen/myko-i18n": "workspace:*"
     "@lychen/novi-features": "workspace:*"
-    "@lychen/novi-ui-i18n": "workspace:*"
+    "@lychen/novi-i18n": "workspace:*"
     "@lychen/robust-features": "workspace:*"
-    "@lychen/robust-ui-i18n": "workspace:*"
+    "@lychen/robust-i18n": "workspace:*"
     "@lychen/tera-features": "workspace:*"
-    "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-i18n": "workspace:*"
     "@lychen/vara-features": "workspace:*"
-    "@lychen/vara-ui-i18n": "workspace:*"
+    "@lychen/vara-i18n": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
@@ -2019,33 +2032,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/applications-i18n@workspace:*, @lychen/applications-i18n@workspace:libs/applications/i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/applications-i18n@workspace:libs/applications/i18n"
+  dependencies:
+    "@lychen/applications-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/applications-model@workspace:*, @lychen/applications-model@workspace:libs/applications/model":
   version: 0.0.0-use.local
   resolution: "@lychen/applications-model@workspace:libs/applications/model"
   dependencies:
     "@lychen/applications-constants": "workspace:*"
     "@lychen/typescript-object": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/applications-ui-components@workspace:*, @lychen/applications-ui-components@workspace:libs/applications/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/applications-ui-components@workspace:libs/applications/ui-components"
-  dependencies:
-    "@lychen/applications-model": "workspace:*"
-    "@lychen/applications-ui-i18n": "workspace:*"
-    "@lychen/typescript-tailwind": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/applications-ui-i18n@workspace:*, @lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/applications-ui-i18n@workspace:libs/applications/ui-i18n"
-  dependencies:
-    "@lychen/applications-constants": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2064,11 +2064,11 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-app": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
-    "@lychen/vue-ui-components-app": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
@@ -2113,9 +2113,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/eko-ui-i18n@workspace:*, @lychen/eko-ui-i18n@workspace:libs/eko/ui-i18n":
+"@lychen/eko-i18n@workspace:*, @lychen/eko-i18n@workspace:libs/eko/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/eko-ui-i18n@workspace:libs/eko/ui-i18n"
+  resolution: "@lychen/eko-i18n@workspace:libs/eko/i18n"
   dependencies:
     "@lychen/eko-constants": "workspace:*"
   languageName: unknown
@@ -2126,23 +2126,23 @@ __metadata:
   resolution: "@lychen/eko-website@workspace:projects/eko/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/eko-constants": "workspace:*"
     "@lychen/eko-features": "workspace:*"
-    "@lychen/eko-ui-i18n": "workspace:*"
+    "@lychen/eko-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2175,9 +2175,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/humu-ui-i18n@workspace:*, @lychen/humu-ui-i18n@workspace:libs/humu/ui-i18n":
+"@lychen/humu-i18n@workspace:*, @lychen/humu-i18n@workspace:libs/humu/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/humu-ui-i18n@workspace:libs/humu/ui-i18n"
+  resolution: "@lychen/humu-i18n@workspace:libs/humu/i18n"
   dependencies:
     "@lychen/humu-constants": "workspace:*"
   languageName: unknown
@@ -2188,23 +2188,23 @@ __metadata:
   resolution: "@lychen/humu-website@workspace:projects/humu/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/humu-constants": "workspace:*"
     "@lychen/humu-features": "workspace:*"
-    "@lychen/humu-ui-i18n": "workspace:*"
+    "@lychen/humu-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2217,6 +2217,17 @@ __metadata:
     vite-ssg-sitemap: "npm:^0.8.1"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/kiro-components@workspace:*, @lychen/kiro-components@workspace:libs/kiro/components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kiro-components@workspace:libs/kiro/components"
+  dependencies:
+    "@lychen/kiro-sdk": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    tailwindcss: "npm:^4.1.3"
+    vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -2237,6 +2248,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/kiro-i18n@workspace:*, @lychen/kiro-i18n@workspace:libs/kiro/i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/kiro-i18n@workspace:libs/kiro/i18n"
+  dependencies:
+    "@lychen/kiro-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/kiro-member-app@workspace:projects/kiro/member-app":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-member-app@workspace:projects/kiro/member-app"
@@ -2244,9 +2263,9 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": "npm:^6.6.0"
     "@fortawesome/pro-light-svg-icons": "npm:^6.6.0"
     "@lychen/css-core": "workspace:*"
-    "@lychen/kiro-ui-components": "workspace:*"
+    "@lychen/kiro-components": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:^13.0.0"
@@ -2266,47 +2285,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/kiro-ui-components@workspace:*, @lychen/kiro-ui-components@workspace:libs/kiro/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/kiro-ui-components@workspace:libs/kiro/ui-components"
-  dependencies:
-    "@lychen/kiro-sdk": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    tailwindcss: "npm:^4.1.3"
-    vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/kiro-ui-i18n@workspace:*, @lychen/kiro-ui-i18n@workspace:libs/kiro/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/kiro-ui-i18n@workspace:libs/kiro/ui-i18n"
-  dependencies:
-    "@lychen/kiro-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/kiro-website@workspace:projects/kiro/website":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/kiro-constants": "workspace:*"
     "@lychen/kiro-features": "workspace:*"
-    "@lychen/kiro-ui-i18n": "workspace:*"
+    "@lychen/kiro-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2339,9 +2339,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/kolo-ui-i18n@workspace:*, @lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n":
+"@lychen/kolo-i18n@workspace:*, @lychen/kolo-i18n@workspace:libs/kolo/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/kolo-ui-i18n@workspace:libs/kolo/ui-i18n"
+  resolution: "@lychen/kolo-i18n@workspace:libs/kolo/i18n"
   dependencies:
     "@lychen/kolo-constants": "workspace:*"
   languageName: unknown
@@ -2352,23 +2352,23 @@ __metadata:
   resolution: "@lychen/kolo-website@workspace:projects/kolo/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/kolo-constants": "workspace:*"
     "@lychen/kolo-features": "workspace:*"
-    "@lychen/kolo-ui-i18n": "workspace:*"
+    "@lychen/kolo-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2401,9 +2401,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/luna-ui-i18n@workspace:*, @lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n":
+"@lychen/luna-i18n@workspace:*, @lychen/luna-i18n@workspace:libs/luna/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/luna-ui-i18n@workspace:libs/luna/ui-i18n"
+  resolution: "@lychen/luna-i18n@workspace:libs/luna/i18n"
   dependencies:
     "@lychen/luna-constants": "workspace:*"
   languageName: unknown
@@ -2414,23 +2414,23 @@ __metadata:
   resolution: "@lychen/luna-website@workspace:projects/luna/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/luna-constants": "workspace:*"
     "@lychen/luna-features": "workspace:*"
-    "@lychen/luna-ui-i18n": "workspace:*"
+    "@lychen/luna-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2463,9 +2463,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/meli-ui-i18n@workspace:*, @lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n":
+"@lychen/meli-i18n@workspace:*, @lychen/meli-i18n@workspace:libs/meli/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/meli-ui-i18n@workspace:libs/meli/ui-i18n"
+  resolution: "@lychen/meli-i18n@workspace:libs/meli/i18n"
   dependencies:
     "@lychen/meli-constants": "workspace:*"
   languageName: unknown
@@ -2476,23 +2476,23 @@ __metadata:
   resolution: "@lychen/meli-website@workspace:projects/meli/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/meli-constants": "workspace:*"
     "@lychen/meli-features": "workspace:*"
-    "@lychen/meli-ui-i18n": "workspace:*"
+    "@lychen/meli-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2525,9 +2525,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/myko-ui-i18n@workspace:*, @lychen/myko-ui-i18n@workspace:libs/myko/ui-i18n":
+"@lychen/myko-i18n@workspace:*, @lychen/myko-i18n@workspace:libs/myko/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/myko-ui-i18n@workspace:libs/myko/ui-i18n"
+  resolution: "@lychen/myko-i18n@workspace:libs/myko/i18n"
   dependencies:
     "@lychen/myko-constants": "workspace:*"
   languageName: unknown
@@ -2538,23 +2538,23 @@ __metadata:
   resolution: "@lychen/myko-website@workspace:projects/myko/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/myko-constants": "workspace:*"
     "@lychen/myko-features": "workspace:*"
-    "@lychen/myko-ui-i18n": "workspace:*"
+    "@lychen/myko-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2587,9 +2587,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/novi-ui-i18n@workspace:*, @lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n":
+"@lychen/novi-i18n@workspace:*, @lychen/novi-i18n@workspace:libs/novi/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/novi-ui-i18n@workspace:libs/novi/ui-i18n"
+  resolution: "@lychen/novi-i18n@workspace:libs/novi/i18n"
   dependencies:
     "@lychen/novi-constants": "workspace:*"
   languageName: unknown
@@ -2600,23 +2600,23 @@ __metadata:
   resolution: "@lychen/novi-website@workspace:projects/novi/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/novi-constants": "workspace:*"
     "@lychen/novi-features": "workspace:*"
-    "@lychen/novi-ui-i18n": "workspace:*"
+    "@lychen/novi-i18n": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2642,21 +2642,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/odd-composables@workspace:libs/odd/composables"
   dependencies:
+    "@lychen/odd-i18n": "workspace:*"
     "@lychen/odd-model": "workspace:*"
-    "@lychen/odd-ui-i18n": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/odd-i18n@workspace:*, @lychen/odd-i18n@workspace:libs/odd/i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/odd-i18n@workspace:libs/odd/i18n"
   languageName: unknown
   linkType: soft
 
 "@lychen/odd-model@workspace:*, @lychen/odd-model@workspace:libs/odd/model":
   version: 0.0.0-use.local
   resolution: "@lychen/odd-model@workspace:libs/odd/model"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/odd-ui-i18n@workspace:*, @lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/odd-ui-i18n@workspace:libs/odd/ui-i18n"
   languageName: unknown
   linkType: soft
 
@@ -2677,9 +2677,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/robust-ui-i18n@workspace:*, @lychen/robust-ui-i18n@workspace:libs/robust/ui-i18n":
+"@lychen/robust-i18n@workspace:*, @lychen/robust-i18n@workspace:libs/robust/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/robust-ui-i18n@workspace:libs/robust/ui-i18n"
+  resolution: "@lychen/robust-i18n@workspace:libs/robust/i18n"
   dependencies:
     "@lychen/robust-constants": "workspace:*"
   languageName: unknown
@@ -2690,23 +2690,23 @@ __metadata:
   resolution: "@lychen/robust-website@workspace:projects/robust/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/robust-constants": "workspace:*"
     "@lychen/robust-features": "workspace:*"
-    "@lychen/robust-ui-i18n": "workspace:*"
+    "@lychen/robust-i18n": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2730,12 +2730,12 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@internationalized/date": "npm:^3.7.0"
     "@lychen/css-core": "workspace:*"
-    "@lychen/tera-ui-components": "workspace:*"
+    "@lychen/tera-components": "workspace:*"
+    "@lychen/vue-components-app": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
-    "@lychen/vue-ui-components-app": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
     "@storybook/addon-essentials": "npm:^8.6.12"
     "@storybook/addon-interactions": "npm:^8.6.12"
     "@storybook/addon-onboarding": "npm:^8.6.12"
@@ -2775,19 +2775,19 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
     "@lychen/tera-api-sdk": "workspace:*"
+    "@lychen/tera-components": "workspace:*"
     "@lychen/tera-composables": "workspace:*"
     "@lychen/tera-constants": "workspace:*"
     "@lychen/tera-events": "workspace:*"
-    "@lychen/tera-ui-components": "workspace:*"
-    "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
+    "@lychen/vue-components-app": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
-    "@lychen/vue-ui-components-app": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@tanstack/vue-query": "npm:^5.66.11"
     "@tanstack/vue-table": "npm:^8.21.2"
@@ -2800,6 +2800,30 @@ __metadata:
     vite-plugin-pwa: "npm:^1.0.0"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/tera-components@workspace:*, @lychen/tera-components@workspace:libs/tera/components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/tera-components@workspace:libs/tera/components"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/tera-api-sdk": "workspace:*"
+    "@lychen/tera-composables": "workspace:*"
+    "@lychen/tera-constants": "workspace:*"
+    "@lychen/tera-events": "workspace:*"
+    "@lychen/tera-i18n": "workspace:*"
+    "@lychen/typescript-object": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-i18n-composables": "workspace:*"
+    "@tanstack/vue-query": "npm:^5.67.3"
+    "@tanstack/vue-table": "npm:^8.21.2"
+    "@vee-validate/zod": "npm:^4.15.0"
+    "@vueuse/core": "npm:^13.0.0"
+    vee-validate: "npm:^4.15.0"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
+    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -2839,6 +2863,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/tera-i18n@workspace:*, @lychen/tera-i18n@workspace:libs/tera/i18n":
+  version: 0.0.0-use.local
+  resolution: "@lychen/tera-i18n@workspace:libs/tera/i18n"
+  dependencies:
+    "@lychen/tera-constants": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/tera-tests-app@workspace:projects/tera/tests-app":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-tests-app@workspace:projects/tera/tests-app"
@@ -2852,62 +2884,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-ui-components@workspace:*, @lychen/tera-ui-components@workspace:libs/tera/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-ui-components@workspace:libs/tera/ui-components"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/tera-api-sdk": "workspace:*"
-    "@lychen/tera-composables": "workspace:*"
-    "@lychen/tera-constants": "workspace:*"
-    "@lychen/tera-events": "workspace:*"
-    "@lychen/tera-ui-i18n": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@tanstack/vue-query": "npm:^5.67.3"
-    "@tanstack/vue-table": "npm:^8.21.2"
-    "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^13.0.0"
-    vee-validate: "npm:^4.15.0"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
-    zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-ui-i18n@workspace:*, @lychen/tera-ui-i18n@workspace:libs/tera/ui-i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-ui-i18n@workspace:libs/tera/ui-i18n"
-  dependencies:
-    "@lychen/tera-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/tera-website@workspace:projects/tera/website":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-website@workspace:projects/tera/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/tera-constants": "workspace:*"
     "@lychen/tera-features": "workspace:*"
-    "@lychen/tera-ui-i18n": "workspace:*"
+    "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
+    "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-tera": "workspace:*"
-    "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -2991,9 +2991,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vara-ui-i18n@workspace:*, @lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n":
+"@lychen/vara-i18n@workspace:*, @lychen/vara-i18n@workspace:libs/vara/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/vara-ui-i18n@workspace:libs/vara/ui-i18n"
+  resolution: "@lychen/vara-i18n@workspace:libs/vara/i18n"
   dependencies:
     "@lychen/vara-constants": "workspace:*"
   languageName: unknown
@@ -3004,23 +3004,23 @@ __metadata:
   resolution: "@lychen/vara-website@workspace:projects/vara/website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vara-constants": "workspace:*"
     "@lychen/vara-features": "workspace:*"
-    "@lychen/vara-ui-i18n": "workspace:*"
+    "@lychen/vara-i18n": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"
@@ -3050,6 +3050,83 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-components-app@workspace:*, @lychen/vue-components-app@workspace:libs/vue/components-app":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-app@workspace:libs/vue/components-app"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
+    "@lychen/vue-composables": "workspace:*"
+    "@lychen/vue-i18n-composables": "workspace:*"
+    "@vueuse/core": "npm:^13.0.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.2.0"
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-components-core@workspace:*, @lychen/vue-components-core@workspace:libs/vue/components-core":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-core@workspace:libs/vue/components-core"
+  dependencies:
+    "@fortawesome/duotone-light-svg-icons": "npm:^6.7.2"
+    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
+    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
+    "@internationalized/date": "npm:^3.7.0"
+    "@lychen/typescript-fontawesome": "workspace:*"
+    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-tailwind": "workspace:*"
+    "@vee-validate/zod": "npm:^4.15.0"
+    "@vueuse/core": "npm:^13.1.0"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    embla-carousel-vue: "npm:^8.5.2"
+    reka-ui: "npm:^2.2.0"
+    tailwind-merge: "npm:^3.1.0"
+    tailwindcss: "npm:^4.1.3"
+    vaul-vue: "npm:^0.3.0"
+    vee-validate: "npm:^4.15.0"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
+    zod: "npm:^3.24.2"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-components-extra@workspace:*, @lychen/vue-components-extra@workspace:libs/vue/components-extra":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-extra@workspace:libs/vue/components-extra"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@vueuse/core": "npm:^13.0.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.2.0"
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-components-website@workspace:*, @lychen/vue-components-website@workspace:libs/vue/components-website":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-website@workspace:libs/vue/components-website"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
+    "@lychen/vue-composables": "workspace:*"
+    "@lychen/vue-i18n-composables": "workspace:*"
+    "@vueuse/core": "npm:^13.0.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.2.0"
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-composables@workspace:*, @lychen/vue-composables@workspace:libs/vue/composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-composables@workspace:libs/vue/composables"
@@ -3059,11 +3136,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-drawio-components@workspace:*, @lychen/vue-drawio-components@workspace:libs/vue/drawio/components":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-drawio-components@workspace:libs/vue/drawio/components"
+  dependencies:
+    "@lychen/vue-i18n-composables": "workspace:*"
+    vue: "npm:^3.5.13"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-drawio-core@workspace:*, @lychen/vue-drawio-core@workspace:libs/vue/drawio/core":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-drawio-core@workspace:libs/vue/drawio/core"
   dependencies:
-    "@lychen/vue-drawio-ui-components": "workspace:*"
+    "@lychen/vue-drawio-components": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3071,16 +3157,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-drawio-tera@workspace:libs/vue/drawio/tera"
   dependencies:
-    "@lychen/vue-drawio-ui-components": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-drawio-ui-components@workspace:*, @lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-drawio-ui-components@workspace:libs/vue/drawio/ui-components"
-  dependencies:
-    "@lychen/vue-i18n-composables": "workspace:*"
-    vue: "npm:^3.5.13"
+    "@lychen/vue-drawio-components": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3113,6 +3190,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-layouts@workspace:*, @lychen/vue-layouts@workspace:libs/vue/layouts":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-layouts@workspace:libs/vue/layouts"
+  dependencies:
+    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
+    "@lychen/typescript-constants": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
+    "@lychen/vue-i18n-composables": "workspace:*"
+    "@vueuse/core": "npm:^13.0.0"
+    vue: "npm:^3.5.13"
+    vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-router-configs@workspace:*, @lychen/vue-router-configs@workspace:libs/vue/router/configs":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-router-configs@workspace:libs/vue/router/configs"
@@ -3122,17 +3217,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-tiptap-composables@workspace:*, @lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables":
+"@lychen/vue-tiptap-components@workspace:libs/vue/tiptap/components":
   version: 0.0.0-use.local
-  resolution: "@lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables"
-  dependencies:
-    "@lychen/typescript-types": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-tiptap-ui-components@workspace:libs/vue/tiptap/ui-components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-tiptap-ui-components@workspace:libs/vue/tiptap/ui-components"
+  resolution: "@lychen/vue-tiptap-components@workspace:libs/vue/tiptap/components"
   dependencies:
     "@lychen/vue-tiptap-composables": "workspace:*"
     "@tiptap/core": "npm:^2.11.5"
@@ -3163,98 +3250,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-ui-components-app@workspace:*, @lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app":
+"@lychen/vue-tiptap-composables@workspace:*, @lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables":
   version: 0.0.0-use.local
-  resolution: "@lychen/vue-ui-components-app@workspace:libs/vue/ui-components-app"
+  resolution: "@lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
-    "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
-    class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.2.0"
-    vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-ui-components-core@workspace:*, @lychen/vue-ui-components-core@workspace:libs/vue/ui-components-core":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-ui-components-core@workspace:libs/vue/ui-components-core"
-  dependencies:
-    "@fortawesome/duotone-light-svg-icons": "npm:^6.7.2"
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
-    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
-    "@internationalized/date": "npm:^3.7.0"
-    "@lychen/typescript-fontawesome": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
-    "@lychen/typescript-tailwind": "workspace:*"
-    "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^13.1.0"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    embla-carousel-vue: "npm:^8.5.2"
-    reka-ui: "npm:^2.2.0"
-    tailwind-merge: "npm:^3.1.0"
-    tailwindcss: "npm:^4.1.3"
-    vaul-vue: "npm:^0.3.0"
-    vee-validate: "npm:^4.15.0"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
-    zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-ui-components-extra@workspace:*, @lychen/vue-ui-components-extra@workspace:libs/vue/ui-components-extra":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-ui-components-extra@workspace:libs/vue/ui-components-extra"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
-    class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.2.0"
-    vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-ui-components-website@workspace:*, @lychen/vue-ui-components-website@workspace:libs/vue/ui-components-website":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-ui-components-website@workspace:libs/vue/ui-components-website"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
-    "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
-    class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.2.0"
-    vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-ui-layouts@workspace:*, @lychen/vue-ui-layouts@workspace:libs/vue/ui-layouts":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-ui-layouts@workspace:libs/vue/ui-layouts"
-  dependencies:
-    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/applications-ui-components": "workspace:*"
-    "@lychen/typescript-constants": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
+    "@lychen/typescript-types": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3274,25 +3274,25 @@ __metadata:
   dependencies:
     "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@lychen/applications-components": "workspace:*"
     "@lychen/applications-composables": "workspace:*"
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/applications-ui-components": "workspace:*"
     "@lychen/css-core": "workspace:*"
     "@lychen/drawio-core": "workspace:*"
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-components-extra": "workspace:*"
+    "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
+    "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-core": "workspace:*"
-    "@lychen/vue-drawio-ui-components": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-ui-components-core": "workspace:*"
-    "@lychen/vue-ui-components-extra": "workspace:*"
-    "@lychen/vue-ui-components-website": "workspace:*"
-    "@lychen/vue-ui-layouts": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@unhead/schema-org": "npm:^1.11.14"

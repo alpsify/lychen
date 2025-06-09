@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import LayoutInApp from '@lychen/vue-ui-layouts/in-app/LayoutInApp.vue';
+import LayoutInApp from '@lychen/vue-layouts/in-app/LayoutInApp.vue';
 import { faHouse } from '@fortawesome/pro-light-svg-icons/faHouse';
 import { faClipboardListCheck } from '@fortawesome/pro-light-svg-icons/faClipboardListCheck';
 import { faCalendarDays } from '@fortawesome/pro-light-svg-icons/faCalendarDays';
@@ -90,16 +90,16 @@ import { RoutePageHerbarium } from '@/pages/herbarium';
 import { RoutePageSharedGardens } from '@/pages/shared-gardens';
 import { RoutePageLands } from '@/pages/lands';
 import { faListUl, faPlus } from '@fortawesome/pro-light-svg-icons';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import Accordion from '@lychen/vue-ui-components-core/accordion/Accordion.vue';
-import AccordionContent from '@lychen/vue-ui-components-core/accordion/AccordionContent.vue';
-import AccordionTrigger from '@lychen/vue-ui-components-core/accordion/AccordionTrigger.vue';
-import AccordionItem from '@lychen/vue-ui-components-core/accordion/AccordionItem.vue';
+import Accordion from '@lychen/vue-components-core/accordion/Accordion.vue';
+import AccordionContent from '@lychen/vue-components-core/accordion/AccordionContent.vue';
+import AccordionTrigger from '@lychen/vue-components-core/accordion/AccordionTrigger.vue';
+import AccordionItem from '@lychen/vue-components-core/accordion/AccordionItem.vue';
 import { RoutePageLandTasks } from '../../pages/land/tasks';
 import { RoutePageLandDashboard } from '@/pages/land/dashboard';
-import LayoutInAppNavigationMenuItem from '@lychen/vue-ui-layouts/in-app/LayoutInAppNavigationMenuItem.vue';
+import LayoutInAppNavigationMenuItem from '@lychen/vue-layouts/in-app/LayoutInAppNavigationMenuItem.vue';
 import { useEventBus } from '@vueuse/core';
 import {
   landDeleteSucceededEvent,
@@ -107,7 +107,7 @@ import {
   landPatchSucceededEvent,
 } from '@lychen/tera-events/LandEvents';
 import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
-import DialogTeraLandCreate from '@lychen/tera-ui-components/land/dialogs/create/DialogTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 

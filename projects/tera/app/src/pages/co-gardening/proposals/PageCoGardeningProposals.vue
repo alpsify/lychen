@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts" setup>
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
-import GridTeraLandProposal from '@lychen/tera-ui-components/land-proposal/grid/GridTeraLandProposal.vue';
+import GridTeraLandProposal from '@lychen/tera-components/land-proposal/grid/GridTeraLandProposal.vue';
 
 const { t } = useI18nExtended({
   messages,

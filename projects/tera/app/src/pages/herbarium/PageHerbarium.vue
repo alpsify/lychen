@@ -33,15 +33,15 @@
 
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
-import SectionWithTitle from '@lychen/vue-ui-components-app/section-with-title/SectionWithTitle.vue';
+import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import { defineAsyncComponent } from 'vue';
-import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
+import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 
 const DivWithBackgroundImg = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+  () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

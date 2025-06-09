@@ -33,15 +33,13 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 const Container = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/container/Container.vue'),
+  () => import('@lychen/vue-components-website/container/Container.vue'),
 );
-const Card = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/card/Card.vue'));
+const Card = defineAsyncComponent(() => import('@lychen/vue-components-core/card/Card.vue'));
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

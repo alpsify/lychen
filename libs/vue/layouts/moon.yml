@@ -1,0 +1,13 @@
+dependsOn:
+  - applications-components
+  - typescript-constants
+  - vue-components-core
+  - vue-components-extra
+  - vue-components-website
+  - vue-i18n-composables
+
+id: vue-layouts
+
+language: typescript
+
+type: library

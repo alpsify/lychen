@@ -1,0 +1,54 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../typescript/object/**/*",
+    "../../vue/i18n/composables/**/*",
+    "../../vue/components-core/**/*",
+    "../i18n/**/*",
+    "../api-sdk/**/*",
+    "../composables/**/*",
+    "../constants/**/*",
+    "../events/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../typescript/object"
+    },
+    {
+      "path": "../../vue/i18n/composables"
+    },
+    {
+      "path": "../../vue/components-core"
+    },
+    {
+      "path": "../i18n"
+    },
+    {
+      "path": "../api-sdk"
+    },
+    {
+      "path": "../composables"
+    },
+    {
+      "path": "../constants"
+    },
+    {
+      "path": "../events"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/tera/components",
+    "paths": {
+      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
+      "@lychen/tera-i18n": ["../i18n/index.ts"],
+      "@lychen/tera-i18n/*": ["../i18n/*"],
+      "@lychen/typescript-object/*": ["../../typescript/object/*"],
+      "@lychen/vue-components-core/*": ["../../vue/components-core/*"],
+      "@lychen/tera-api-sdk/*": ["../api-sdk/*"],
+      "@lychen/tera-events/*": ["../events/*"],
+      "@lychen/tera-composables/*": ["../composables/*"],
+      "@lychen/tera-constants/*": ["../constants/*"]
+    }
+  }
+}

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
+import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
 import ButtonPersonaMore from './ButtonPersonaMore.vue';
 
 interface Props {

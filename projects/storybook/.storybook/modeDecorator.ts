@@ -3,8 +3,8 @@ import { onMounted, onUnmounted, ref, watch } from 'vue';
 import type { Decorator } from '@storybook/vue3';
 import { faSun } from '@fortawesome/pro-light-svg-icons/faSun';
 import { faMoon } from '@fortawesome/pro-light-svg-icons/faMoon';
-import { Icon } from '@lychen/vue-ui-components-core/icon';
-import TooltipProvider from '@lychen/vue-ui-components-core/tooltip/TooltipProvider.vue';
+import { Icon } from '@lychen/vue-components-core/icon';
+import TooltipProvider from '@lychen/vue-components-core/tooltip/TooltipProvider.vue';
 
 export function ModeDecorator(story: any, context: any): any {
   const isDarkMode = ref(false);

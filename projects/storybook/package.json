@@ -13,12 +13,12 @@
   "dependencies": {
     "@internationalized/date": "^3.7.0",
     "@lychen/css-core": "workspace:*",
-    "@lychen/tera-ui-components": "workspace:*",
+    "@lychen/tera-components": "workspace:*",
+    "@lychen/vue-components-app": "workspace:*",
+    "@lychen/vue-components-core": "workspace:*",
+    "@lychen/vue-components-extra": "workspace:*",
+    "@lychen/vue-components-website": "workspace:*",
     "@lychen/vue-i18n-configs": "workspace:*",
-    "@lychen/vue-ui-components-app": "workspace:*",
-    "@lychen/vue-ui-components-core": "workspace:*",
-    "@lychen/vue-ui-components-extra": "workspace:*",
-    "@lychen/vue-ui-components-website": "workspace:*",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.2"
   },

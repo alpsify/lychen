@@ -1,10 +1,10 @@
 dependsOn:
   - css-core
   - vite-ssg
+  - vue-components-app
+  - vue-components-core
+  - vue-components-extra
   - vue-i18n-composables
-  - vue-ui-components-app
-  - vue-ui-components-core
-  - vue-ui-components-extra
 
 env:
   DEV_DOMAIN: design.lychen.local

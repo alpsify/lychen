@@ -24,7 +24,7 @@ import {
 } from '@lychen/tera-constants/InjectionKeys';
 import { landPatchSucceededEvent } from '@lychen/tera-events/LandEvents';
 import { useEventBus } from '@vueuse/core';
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 
 const route = useRoute();
 const router = useRouter();

@@ -1,0 +1,39 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": [
+    "../../typescript/tailwind/**/*",
+    "../../vue/i18n/composables/**/*",
+    "../../vue/components-core/**/*",
+    "../i18n/**/*",
+    "../model/**/*",
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../../typescript/tailwind"
+    },
+    {
+      "path": "../../vue/i18n/composables"
+    },
+    {
+      "path": "../../vue/components-core"
+    },
+    {
+      "path": "../i18n"
+    },
+    {
+      "path": "../model"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/applications/components",
+    "paths": {
+      "@lychen/applications-model/*": ["../model/*"],
+      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
+      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
+      "@lychen/applications-i18n": ["../i18n/index.ts"],
+      "@lychen/applications-i18n/*": ["../i18n/*"],
+      "@lychen/vue-components-core/*": ["../../vue/components-core/*"]
+    }
+  }
+}

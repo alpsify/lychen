@@ -41,8 +41,8 @@
 
 <script setup lang="ts">
 import { type Props } from '.';
-import BaseHeading from '@lychen/vue-ui-components-app/base-heading/BaseHeading.vue';
-import { Badge } from '@lychen/vue-ui-components-core/badge';
+import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
+import { Badge } from '@lychen/vue-components-core/badge';
 import { useId } from 'vue';
 import CardPersonaWrapper from './CardPersonaWrapper.vue';
 

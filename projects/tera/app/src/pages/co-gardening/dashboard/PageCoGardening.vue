@@ -35,10 +35,10 @@
 </template>
 
 <script lang="ts" setup>
-import SectionTwoThird from '@lychen/vue-ui-components-app/section-two-third/SectionTwoThird.vue';
-import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import SectionTwoThird from '@lychen/vue-components-app/section-two-third/SectionTwoThird.vue';
+import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 
@@ -46,9 +46,9 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
 import { RoutePageCoGardeningProposals } from '../proposals';
-import GridTeraLandProposal from '@lychen/tera-ui-components/land-proposal/grid/GridTeraLandProposal.vue';
-import ToggleGroupTeraLandSharingConditions from '@lychen/tera-ui-components/land-sharing-condition/ToggleGroupTeraLandSharingConditions.vue';
-import ToggleGroupTeraLandInteractionMode from '@lychen/tera-ui-components/land-interaction-mode/ToggleGroupTeraLandInteractionMode.vue';
+import GridTeraLandProposal from '@lychen/tera-components/land-proposal/grid/GridTeraLandProposal.vue';
+import ToggleGroupTeraLandSharingConditions from '@lychen/tera-components/land-sharing-condition/ToggleGroupTeraLandSharingConditions.vue';
+import ToggleGroupTeraLandInteractionMode from '@lychen/tera-components/land-interaction-mode/ToggleGroupTeraLandInteractionMode.vue';
 import { type LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
 import { type LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';

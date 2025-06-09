@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../../typescript/tailwind/**/*", "../components-core/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../../typescript/tailwind"
+    },
+    {
+      "path": "../components-core"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/components-extra",
+    "paths": {
+      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
+      "@lychen/vue-components-core/*": ["../components-core/*"]
+    }
+  }
+}

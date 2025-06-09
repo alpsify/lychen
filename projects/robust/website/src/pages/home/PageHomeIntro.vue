@@ -141,11 +141,11 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import Container from '@lychen/vue-ui-components-website/container/Container.vue';
-import Title from '@lychen/vue-ui-components-website/title/Title.vue';
-import Paragraph from '@lychen/vue-ui-components-website/paragraph/Paragraph.vue';
-import { TextHighlight } from '@lychen/vue-ui-components-extra/text-highlight';
-import Icon from '@lychen/vue-ui-components-core/icon/Icon.vue';
+import Container from '@lychen/vue-components-website/container/Container.vue';
+import Title from '@lychen/vue-components-website/title/Title.vue';
+import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
+import { TextHighlight } from '@lychen/vue-components-extra/text-highlight';
+import Icon from '@lychen/vue-components-core/icon/Icon.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 import { faStar } from '@fortawesome/pro-light-svg-icons/faStar';
 

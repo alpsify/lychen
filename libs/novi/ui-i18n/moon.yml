@@ -1,8 +1,0 @@
-dependsOn:
-  - novi-constants
-
-id: novi-ui-i18n
-
-language: typescript
-
-type: library

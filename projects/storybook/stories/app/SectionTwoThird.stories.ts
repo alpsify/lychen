@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import SectionTwoThird from '@lychen/vue-ui-components-app/section-two-third/SectionTwoThird.vue';
+import SectionTwoThird from '@lychen/vue-components-app/section-two-third/SectionTwoThird.vue';
 
 const component = SectionTwoThird;
 

@@ -50,12 +50,12 @@
 </template>
 
 <script setup lang="ts">
-import { BaseHeading } from '@lychen/vue-ui-components-app/base-heading';
-import { SectionSetting } from '@lychen/vue-ui-components-app/section-setting';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
+import { BaseHeading } from '@lychen/vue-components-app/base-heading';
+import { SectionSetting } from '@lychen/vue-components-app/section-setting';
+import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
-import DialogTeraLandDelete from '@lychen/tera-ui-components/land/dialogs/delete/DialogTeraLandDelete.vue';
+import DialogTeraLandDelete from '@lychen/tera-components/land/dialogs/delete/DialogTeraLandDelete.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { inject } from 'vue';
 import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
@@ -63,7 +63,7 @@ import { useEventBus } from '@vueuse/core';
 import { landDeleteSucceededEvent } from '@lychen/tera-events/LandEvents';
 import { useRouter } from 'vue-router';
 import { RoutePageLands } from '@/pages/lands';
-import FormTeraLandUpdate from '@lychen/tera-ui-components/land/forms/FormTeraLandUpdate.vue';
+import FormTeraLandUpdate from '@lychen/tera-components/land/forms/FormTeraLandUpdate.vue';
 
 const land = inject(INJECTION_KEY_LAND);
 

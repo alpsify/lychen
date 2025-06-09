@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Input } from '@lychen/ui-components/input';
+import { Input } from '@lychen/components/input';
 </script>
 
 <style lang="css" scoped>

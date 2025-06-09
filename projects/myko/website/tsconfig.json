@@ -1,13 +1,13 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "../../../libs/applications/ui-components/**/*",
+    "../../../libs/applications/components/**/*",
     "../../../libs/applications/composables/**/*",
     "../../../libs/applications/constants/**/*",
     "../../../libs/css/core/**/*",
 
-    "../../../libs/kiro/ui-components/**/*",
-    "../../../libs/myko/ui-i18n/**/*",
+    "../../../libs/kiro/components/**/*",
+    "../../../libs/myko/i18n/**/*",
     "../../../libs/myko/constants/**/*",
     "../../../libs/myko/features/**/*",
     "../../../libs/odd/composables/**/*",
@@ -17,16 +17,16 @@
     "../../../libs/vue/i18n/composables/**/*",
     "../../../libs/vue/i18n/configs/**/*",
     "../../../libs/vue/router/configs/**/*",
-    "../../../libs/vue/ui-components-core/**/*",
-    "../../../libs/vue/ui-components-website/**/*",
-    "../../../libs/vue/ui-layouts/**/*",
+    "../../../libs/vue/components-core/**/*",
+    "../../../libs/vue/components-website/**/*",
+    "../../../libs/vue/layouts/**/*",
     "../../../libs/vue/unhead/composables/**/*",
     "../../../libs/vue/composables/**/*",
     "**/*"
   ],
   "references": [
     {
-      "path": "../../../libs/applications/ui-components"
+      "path": "../../../libs/applications/components"
     },
     {
       "path": "../../../libs/applications/composables"
@@ -39,10 +39,10 @@
     },
 
     {
-      "path": "../../../libs/kiro/ui-components"
+      "path": "../../../libs/kiro/components"
     },
     {
-      "path": "../../../libs/myko/ui-i18n"
+      "path": "../../../libs/myko/i18n"
     },
     {
       "path": "../../../libs/myko/constants"
@@ -70,13 +70,13 @@
       "path": "../../../libs/vue/router/configs"
     },
     {
-      "path": "../../../libs/vue/ui-components-core"
+      "path": "../../../libs/vue/components-core"
     },
     {
-      "path": "../../../libs/vue/ui-components-website"
+      "path": "../../../libs/vue/components-website"
     },
     {
-      "path": "../../../libs/vue/ui-layouts"
+      "path": "../../../libs/vue/layouts"
     },
     {
       "path": "../../../libs/vue/unhead/composables"
@@ -92,8 +92,8 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lychen/kiro-ui-components/*": ["../../../libs/kiro/ui-components/*"],
-      "@lychen/applications-ui-components/*": ["../../../libs/applications/ui-components/*"],
+      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
+      "@lychen/applications-components/*": ["../../../libs/applications/components/*"],
       "@lychen/applications-composables/*": ["../../../libs/applications/composables/*"],
       "@lychen/odd-composables/*": ["../../../libs/odd/composables/*"],
       "@lychen/tailwind-configs/*": ["../../../libs/tailwind/configs/*"],
@@ -109,11 +109,11 @@
       "@lychen/applications-constants/*": ["../../../libs/applications/constants/*"],
       "@lychen/myko-constants/*": ["../../../libs/myko/constants/*"],
       "@lychen/myko-features/*": ["../../../libs/myko/features/*"],
-      "@lychen/myko-ui-i18n": ["../../../libs/myko/ui-i18n/index.ts"],
-      "@lychen/myko-ui-i18n/*": ["../../../libs/myko/ui-i18n/*"],
-      "@lychen/vue-ui-components-core/*": ["../../../libs/vue/ui-components-core/*"],
-      "@lychen/vue-ui-components-website/*": ["../../../libs/vue/ui-components-website/*"],
-      "@lychen/vue-ui-layouts/*": ["../../../libs/vue/ui-layouts/*"]
+      "@lychen/myko-i18n": ["../../../libs/myko/i18n/index.ts"],
+      "@lychen/myko-i18n/*": ["../../../libs/myko/i18n/*"],
+      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
+      "@lychen/vue-components-website/*": ["../../../libs/vue/components-website/*"],
+      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"]
     }
   }
 }

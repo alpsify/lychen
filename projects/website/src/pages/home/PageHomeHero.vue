@@ -58,23 +58,19 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { RoutePageSponsor } from '../sponsor';
 
 const DivScalingDown = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-scaling-down/DivScalingDown.vue'),
+  () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),
 );
 
-const Hero = defineAsyncComponent(() => import('@lychen/vue-ui-components-website/hero/Hero.vue'));
-const Button = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-core/button/Button.vue'),
-);
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
+const Hero = defineAsyncComponent(() => import('@lychen/vue-components-website/hero/Hero.vue'));
+const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const RainbowBox = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/rainbow-box/RainbowBox.vue'),
+  () => import('@lychen/vue-components-extra/rainbow-box/RainbowBox.vue'),
 );
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

@@ -49,7 +49,7 @@ import { defineAsyncComponent } from 'vue';
 
 const Page = defineAsyncComponent(() => import('@components/Page.vue'));
 const BaseHeading = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-app/base-heading/BaseHeading.vue'),
+  () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

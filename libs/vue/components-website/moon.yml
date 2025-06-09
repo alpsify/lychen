@@ -1,0 +1,11 @@
+dependsOn:
+  - typescript-tailwind
+  - vue-components-extra
+  - vue-composables
+  - vue-i18n-composables
+
+id: vue-components-website
+
+language: typescript
+
+type: library

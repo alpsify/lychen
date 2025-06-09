@@ -29,12 +29,10 @@ import { defineAsyncComponent } from 'vue';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
 const Paragraph = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/paragraph/Paragraph.vue'),
+  () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
-const Title = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-website/title/Title.vue'),
-);
-const Icon = defineAsyncComponent(() => import('@lychen/vue-ui-components-core/icon/Icon.vue'));
+const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
+const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 interface Props {
   title: string;

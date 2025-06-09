@@ -21,14 +21,14 @@
 import { RoutePageHome } from '@/pages/home';
 import { APP_STATE } from '@lychen/humu-constants/App';
 import { defineAsyncComponent } from 'vue';
-import { TRANSLATION_KEY, messages } from '@lychen/humu-ui-i18n';
+import { TRANSLATION_KEY, messages } from '@lychen/humu-i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 
 const LayoutWebsiteApplication = defineAsyncComponent(
-  () => import('@lychen/vue-ui-layouts/website-app/LayoutWebsiteApplication.vue'),
+  () => import('@lychen/vue-layouts/website-app/LayoutWebsiteApplication.vue'),
 );
 const LogoLychenFull = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/logo-lychen/LogoLychenFull.vue'),
+  () => import('@lychen/vue-components-extra/logo-lychen/LogoLychenFull.vue'),
 );
 
 const TheNavigation = defineAsyncComponent(() => import('./TheNavigation.vue'));

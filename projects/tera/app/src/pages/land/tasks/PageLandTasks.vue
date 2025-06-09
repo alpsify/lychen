@@ -90,34 +90,34 @@
 <script lang="ts" setup>
 import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import CardTeraLandTask from '@lychen/tera-ui-components/land-task/card/CardTeraLandTask.vue';
+import CardTeraLandTask from '@lychen/tera-components/land-task/card/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
-import Button from '@lychen/vue-ui-components-core/button/Button.vue';
-import Kanban from '@lychen/vue-ui-components-extra/kanban/Kanban.vue';
-import KanbanColumn from '@lychen/vue-ui-components-extra/kanban/KanbanColumn.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
+import Kanban from '@lychen/vue-components-extra/kanban/Kanban.vue';
+import KanbanColumn from '@lychen/vue-components-extra/kanban/KanbanColumn.vue';
 import { useQueries, useQuery } from '@tanstack/vue-query';
 import { computed, inject, watch, ref, provide, onMounted } from 'vue';
-import KanbanItem from '@lychen/vue-ui-components-extra/kanban/KanbanItem.vue';
-import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-ui-components-core/tabs';
-import TabsContent from '@lychen/vue-ui-components-core/tabs/TabsContent.vue';
+import KanbanItem from '@lychen/vue-components-extra/kanban/KanbanItem.vue';
+import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-components-core/tabs';
+import TabsContent from '@lychen/vue-components-core/tabs/TabsContent.vue';
 import { faChartKanban } from '@fortawesome/pro-light-svg-icons/faChartKanban';
-import { Icon } from '@lychen/vue-ui-components-core/icon';
+import { Icon } from '@lychen/vue-components-core/icon';
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
-import DataTableTeraLandTask from '@lychen/tera-ui-components/land-task/data-table/DataTableTeraLandTask.vue';
-import BadgeTeraLandTaskState from '@lychen/tera-ui-components/land-task/badges/state/BadgeTeraLandTaskState.vue';
-import DialogTeraLandTaskUpdate from '@lychen/tera-ui-components/land-task/dialogs/update/DialogTeraLandTaskUpdate.vue';
-import DialogTeraLandTaskCreate from '@lychen/tera-ui-components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
-//import Gantt from '@lychen/vue-ui-components-extra/gantt/Gantt.vue';
+import DataTableTeraLandTask from '@lychen/tera-components/land-task/data-table/DataTableTeraLandTask.vue';
+import BadgeTeraLandTaskState from '@lychen/tera-components/land-task/badges/state/BadgeTeraLandTaskState.vue';
+import DialogTeraLandTaskUpdate from '@lychen/tera-components/land-task/dialogs/update/DialogTeraLandTaskUpdate.vue';
+import DialogTeraLandTaskCreate from '@lychen/tera-components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
+//import Gantt from '@lychen/vue-components-extra/gantt/Gantt.vue';
 import {
   LandTaskJsonldState as LandTaskState,
   type components,
 } from '@lychen/tera-api-sdk/generated/tera-api';
-import SectionDevelopmentInProgress from '@lychen/vue-ui-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
+import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
 import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-events/LandTaskEvents';
 import { useRoute } from 'vue-router';
-import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-ui-components/land-task/dialogs/update';
+import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-components/land-task/dialogs/update';
 
 const land = inject(INJECTION_KEY_LAND);
 provide(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND, land);

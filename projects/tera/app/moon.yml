@@ -1,19 +1,19 @@
 dependsOn:
   - css-core
   - tera-api-sdk
+  - tera-components
   - tera-composables
   - tera-constants
   - tera-events
-  - tera-ui-components
-  - tera-ui-i18n
+  - tera-i18n
   - typescript-zitadel
+  - vue-components-app
+  - vue-components-core
+  - vue-components-extra
   - vue-composables
   - vue-i18n-composables
   - vue-i18n-configs
-  - vue-ui-components-app
-  - vue-ui-components-core
-  - vue-ui-components-extra
-  - vue-ui-layouts
+  - vue-layouts
 
 env:
   DEV_DOMAIN: app.tera.lychen.local

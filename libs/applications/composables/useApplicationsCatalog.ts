@@ -1,47 +1,44 @@
 import {
   messages as teraMessages,
   TRANSLATION_KEY as TERA_TRANSLATION_KEY,
-} from '@lychen/tera-ui-i18n';
+} from '@lychen/tera-i18n';
 import {
   messages as mykoMessages,
   TRANSLATION_KEY as MYKO_TRANSLATION_KEY,
-} from '@lychen/myko-ui-i18n';
+} from '@lychen/myko-i18n';
 import {
   messages as kiroMessages,
   TRANSLATION_KEY as KIRO_TRANSLATION_KEY,
-} from '@lychen/kiro-ui-i18n';
+} from '@lychen/kiro-i18n';
 import {
   messages as meliMessages,
   TRANSLATION_KEY as MELI_TRANSLATION_KEY,
-} from '@lychen/meli-ui-i18n';
+} from '@lychen/meli-i18n';
 import {
   messages as humuMessages,
   TRANSLATION_KEY as HUMU_TRANSLATION_KEY,
-} from '@lychen/humu-ui-i18n';
+} from '@lychen/humu-i18n';
 import {
   messages as koloMessages,
   TRANSLATION_KEY as KOLO_TRANSLATION_KEY,
-} from '@lychen/kolo-ui-i18n';
+} from '@lychen/kolo-i18n';
 import {
   messages as varaMessages,
   TRANSLATION_KEY as VARA_TRANSLATION_KEY,
-} from '@lychen/vara-ui-i18n';
-import {
-  messages as ekoMessages,
-  TRANSLATION_KEY as EKO_TRANSLATION_KEY,
-} from '@lychen/eko-ui-i18n';
+} from '@lychen/vara-i18n';
+import { messages as ekoMessages, TRANSLATION_KEY as EKO_TRANSLATION_KEY } from '@lychen/eko-i18n';
 import {
   messages as noviMessages,
   TRANSLATION_KEY as NOVI_TRANSLATION_KEY,
-} from '@lychen/novi-ui-i18n';
+} from '@lychen/novi-i18n';
 import {
   messages as lunaMessages,
   TRANSLATION_KEY as LUNA_TRANSLATION_KEY,
-} from '@lychen/luna-ui-i18n';
+} from '@lychen/luna-i18n';
 import {
   messages as robustMessages,
   TRANSLATION_KEY as ROBUST_TRANSLATION_KEY,
-} from '@lychen/robust-ui-i18n';
+} from '@lychen/robust-i18n';
 import { type Application, type ApplicationAlias } from '@lychen/applications-model/Application';
 import { computed } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Badge from '@lychen/vue-ui-components-core/badge/Badge.vue';
-import { VARIANT_NAMES } from '@lychen/vue-ui-components-core/badge';
+import Badge from '@lychen/vue-components-core/badge/Badge.vue';
+import { VARIANT_NAMES } from '@lychen/vue-components-core/badge';
 
 const meta: Meta<typeof Badge> = {
   title: 'Core/Badge',

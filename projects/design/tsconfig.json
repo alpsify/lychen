@@ -6,9 +6,9 @@
     "../../libs/vite/ssg/**/*",
     "../../libs/vue/i18n/composables/**/*",
     "../../libs/vue/i18n/configs/**/*",
-    "../../libs/vue/ui-components-app/**/*",
-    "../../libs/vue/ui-components-core/**/*",
-    "../../libs/vue/ui-components-extra/**/*",
+    "../../libs/vue/components-app/**/*",
+    "../../libs/vue/components-core/**/*",
+    "../../libs/vue/components-extra/**/*",
     "**/*",
     "**/*.json"
   ],
@@ -26,13 +26,13 @@
       "path": "../../libs/vue/i18n/configs"
     },
     {
-      "path": "../../libs/vue/ui-components-app"
+      "path": "../../libs/vue/components-app"
     },
     {
-      "path": "../../libs/vue/ui-components-core"
+      "path": "../../libs/vue/components-core"
     },
     {
-      "path": "../../libs/vue/ui-components-extra"
+      "path": "../../libs/vue/components-extra"
     }
   ],
   "compilerOptions": {
@@ -48,9 +48,9 @@
       "@lychen/vite-ssg/*": ["../../libs/vite/ssg/*"],
       "@lychen/vue-i18n-composables/*": ["../../libs/vue/i18n/composables/*"],
       "@lychen/vue-i18n-configs/*": ["../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-ui-components-app/*": ["../../libs/vue/ui-components-app/*"],
-      "@lychen/vue-ui-components-core/*": ["../../libs/vue/ui-components-core/*"],
-      "@lychen/vue-ui-components-extra/*": ["../../libs/vue/ui-components-extra/*"]
+      "@lychen/vue-components-app/*": ["../../libs/vue/components-app/*"],
+      "@lychen/vue-components-core/*": ["../../libs/vue/components-core/*"],
+      "@lychen/vue-components-extra/*": ["../../libs/vue/components-extra/*"]
     }
   }
 }

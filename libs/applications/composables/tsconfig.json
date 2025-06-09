@@ -1,30 +1,30 @@
 {
   "extends": "../../../tsconfig.options.json",
   "include": [
-    "../../eko/ui-i18n/**/*",
+    "../../eko/i18n/**/*",
     "../../eko/features/**/*",
-    "../../humu/ui-i18n/**/*",
+    "../../humu/i18n/**/*",
     "../../humu/features/**/*",
-    "../../kiro/ui-i18n/**/*",
+    "../../kiro/i18n/**/*",
     "../../kiro/features/**/*",
-    "../../kolo/ui-i18n/**/*",
+    "../../kolo/i18n/**/*",
     "../../kolo/features/**/*",
-    "../../luna/ui-i18n/**/*",
+    "../../luna/i18n/**/*",
     "../../luna/features/**/*",
-    "../../meli/ui-i18n/**/*",
+    "../../meli/i18n/**/*",
     "../../meli/features/**/*",
-    "../../myko/ui-i18n/**/*",
+    "../../myko/i18n/**/*",
     "../../myko/features/**/*",
-    "../../novi/ui-i18n/**/*",
+    "../../novi/i18n/**/*",
     "../../novi/features/**/*",
-    "../../robust/ui-i18n/**/*",
+    "../../robust/i18n/**/*",
     "../../robust/features/**/*",
-    "../../tera/ui-i18n/**/*",
+    "../../tera/i18n/**/*",
     "../../tera/features/**/*",
-    "../../vara/ui-i18n/**/*",
+    "../../vara/i18n/**/*",
     "../../vara/features/**/*",
     "../../vue/i18n/composables/**/*",
-    "../ui-i18n/**/*",
+    "../i18n/**/*",
     "../constants/**/*",
     "../generic-composables/**/*",
     "../model/**/*",
@@ -32,67 +32,67 @@
   ],
   "references": [
     {
-      "path": "../../eko/ui-i18n"
+      "path": "../../eko/i18n"
     },
     {
       "path": "../../eko/features"
     },
     {
-      "path": "../../humu/ui-i18n"
+      "path": "../../humu/i18n"
     },
     {
       "path": "../../humu/features"
     },
     {
-      "path": "../../kiro/ui-i18n"
+      "path": "../../kiro/i18n"
     },
     {
       "path": "../../kiro/features"
     },
     {
-      "path": "../../kolo/ui-i18n"
+      "path": "../../kolo/i18n"
     },
     {
       "path": "../../kolo/features"
     },
     {
-      "path": "../../luna/ui-i18n"
+      "path": "../../luna/i18n"
     },
     {
       "path": "../../luna/features"
     },
     {
-      "path": "../../meli/ui-i18n"
+      "path": "../../meli/i18n"
     },
     {
       "path": "../../meli/features"
     },
     {
-      "path": "../../myko/ui-i18n"
+      "path": "../../myko/i18n"
     },
     {
       "path": "../../myko/features"
     },
     {
-      "path": "../../novi/ui-i18n"
+      "path": "../../novi/i18n"
     },
     {
       "path": "../../novi/features"
     },
     {
-      "path": "../../robust/ui-i18n"
+      "path": "../../robust/i18n"
     },
     {
       "path": "../../robust/features"
     },
     {
-      "path": "../../tera/ui-i18n"
+      "path": "../../tera/i18n"
     },
     {
       "path": "../../tera/features"
     },
     {
-      "path": "../../vara/ui-i18n"
+      "path": "../../vara/i18n"
     },
     {
       "path": "../../vara/features"
@@ -101,7 +101,7 @@
       "path": "../../vue/i18n/composables"
     },
     {
-      "path": "../ui-i18n"
+      "path": "../i18n"
     },
     {
       "path": "../constants"
@@ -116,31 +116,31 @@
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/applications/composables",
     "paths": {
-      "@lychen/applications-ui-i18n": ["../ui-i18n/index.ts"],
-      "@lychen/applications-ui-i18n/*": ["../ui-i18n/*"],
+      "@lychen/applications-i18n": ["../i18n/index.ts"],
+      "@lychen/applications-i18n/*": ["../i18n/*"],
       "@lychen/applications-model/*": ["../model/*"],
       "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
       "@lychen/applications-constants/*": ["../constants/*"],
-      "@lychen/tera-ui-i18n/*": ["../../tera/ui-i18n/*"],
-      "@lychen/myko-ui-i18n": ["../../myko/ui-i18n/index.ts"],
-      "@lychen/myko-ui-i18n/*": ["../../myko/ui-i18n/*"],
-      "@lychen/tera-ui-i18n": ["../../tera/ui-i18n/index.ts"],
-      "@lychen/kiro-ui-i18n": ["../../kiro/ui-i18n/index.ts"],
-      "@lychen/kiro-ui-i18n/*": ["../../kiro/ui-i18n/*"],
-      "@lychen/meli-ui-i18n": ["../../meli/ui-i18n/index.ts"],
-      "@lychen/meli-ui-i18n/*": ["../../meli/ui-i18n/*"],
-      "@lychen/humu-ui-i18n": ["../../humu/ui-i18n/index.ts"],
-      "@lychen/humu-ui-i18n/*": ["../../humu/ui-i18n/*"],
-      "@lychen/kolo-ui-i18n": ["../../kolo/ui-i18n/index.ts"],
-      "@lychen/kolo-ui-i18n/*": ["../../kolo/ui-i18n/*"],
-      "@lychen/vara-ui-i18n": ["../../vara/ui-i18n/index.ts"],
-      "@lychen/vara-ui-i18n/*": ["../../vara/ui-i18n/*"],
-      "@lychen/eko-ui-i18n": ["../../eko/ui-i18n/index.ts"],
-      "@lychen/eko-ui-i18n/*": ["../../eko/ui-i18n/*"],
-      "@lychen/novi-ui-i18n": ["../../novi/ui-i18n/index.ts"],
-      "@lychen/novi-ui-i18n/*": ["../../novi/ui-i18n/*"],
-      "@lychen/luna-ui-i18n": ["../../luna/ui-i18n/index.ts"],
-      "@lychen/luna-ui-i18n/*": ["../../luna/ui-i18n/*"],
+      "@lychen/tera-i18n/*": ["../../tera/i18n/*"],
+      "@lychen/myko-i18n": ["../../myko/i18n/index.ts"],
+      "@lychen/myko-i18n/*": ["../../myko/i18n/*"],
+      "@lychen/tera-i18n": ["../../tera/i18n/index.ts"],
+      "@lychen/kiro-i18n": ["../../kiro/i18n/index.ts"],
+      "@lychen/kiro-i18n/*": ["../../kiro/i18n/*"],
+      "@lychen/meli-i18n": ["../../meli/i18n/index.ts"],
+      "@lychen/meli-i18n/*": ["../../meli/i18n/*"],
+      "@lychen/humu-i18n": ["../../humu/i18n/index.ts"],
+      "@lychen/humu-i18n/*": ["../../humu/i18n/*"],
+      "@lychen/kolo-i18n": ["../../kolo/i18n/index.ts"],
+      "@lychen/kolo-i18n/*": ["../../kolo/i18n/*"],
+      "@lychen/vara-i18n": ["../../vara/i18n/index.ts"],
+      "@lychen/vara-i18n/*": ["../../vara/i18n/*"],
+      "@lychen/eko-i18n": ["../../eko/i18n/index.ts"],
+      "@lychen/eko-i18n/*": ["../../eko/i18n/*"],
+      "@lychen/novi-i18n": ["../../novi/i18n/index.ts"],
+      "@lychen/novi-i18n/*": ["../../novi/i18n/*"],
+      "@lychen/luna-i18n": ["../../luna/i18n/index.ts"],
+      "@lychen/luna-i18n/*": ["../../luna/i18n/*"],
       "@lychen/tera-features/*": ["../../tera/features/*"],
       "@lychen/applications-generic-composables/*": ["../generic-composables/*"],
       "@lychen/kiro-features/*": ["../../kiro/features/*"],
@@ -152,8 +152,8 @@
       "@lychen/kolo-features/*": ["../../kolo/features/*"],
       "@lychen/humu-features/*": ["../../humu/features/*"],
       "@lychen/eko-features/*": ["../../eko/features/*"],
-      "@lychen/robust-ui-i18n": ["../../robust/ui-i18n/index.ts"],
-      "@lychen/robust-ui-i18n/*": ["../../robust/ui-i18n/*"],
+      "@lychen/robust-i18n": ["../../robust/i18n/index.ts"],
+      "@lychen/robust-i18n/*": ["../../robust/i18n/*"],
       "@lychen/robust-features/*": ["../../robust/features/*"]
     }
   }

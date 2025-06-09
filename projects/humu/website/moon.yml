@@ -1,21 +1,21 @@
 dependsOn:
   - applications-assets
-  - applications-ui-components
+  - applications-components
   - css-core
   - humu-constants
   - humu-features
 
-  - humu-ui-i18n
+  - humu-i18n
   - typescript-constants
 
   - vite-ssg
+  - vue-components-core
+  - vue-components-website
   - vue-composables
   - vue-i18n-composables
   - vue-i18n-configs
+  - vue-layouts
   - vue-router-configs
-  - vue-ui-components-core
-  - vue-ui-components-website
-  - vue-ui-layouts
   - vue-unhead-composables
 
 env:

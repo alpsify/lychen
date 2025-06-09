@@ -14,11 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import Title from '@lychen/vue-ui-components-website/title/Title.vue';
+import Title from '@lychen/vue-components-website/title/Title.vue';
 import { defineAsyncComponent } from 'vue';
 
 const DivWithBackgroundImg = defineAsyncComponent(
-  () => import('@lychen/vue-ui-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
+  () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
 );
 
 withDefaults(defineProps<{ backgroundImage: string; title: string }>(), {
