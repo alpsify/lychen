@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abbc6e7a696ee1d6aa25150a90012035",
+    "content-hash": "3dd691b41a01b2c92576c88d7f46c401",
     "packages": [
         {
             "name": "api-platform/core",
@@ -13916,27 +13916,30 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v2.3.10",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "76c2d4ac9d9c08fd80ca2cb216b42abef46ae3f3"
+                "reference": "830d5a5243b5b81e79b2b91b67654836490ed833"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/76c2d4ac9d9c08fd80ca2cb216b42abef46ae3f3",
-                "reference": "76c2d4ac9d9c08fd80ca2cb216b42abef46ae3f3",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/830d5a5243b5b81e79b2b91b67654836490ed833",
+                "reference": "830d5a5243b5b81e79b2b91b67654836490ed833",
                 "shasum": ""
             },
             "require": {
-                "doctrine/persistence": "^2.0|^3.0|^4.0",
                 "fakerphp/faker": "^1.23",
                 "php": ">=8.1",
                 "symfony/deprecation-contracts": "^2.2|^3.0",
-                "symfony/framework-bundle": "^6.4|^7.0",
                 "symfony/property-access": "^6.4|^7.0",
+                "symfony/property-info": "^6.4|^7.0",
                 "symfony/var-exporter": "^6.4.9|~7.0.9|^7.1.2",
                 "zenstruck/assert": "^1.4"
+            },
+            "conflict": {
+                "doctrine/persistence": "<2.0",
+                "symfony/framework-bundle": "<6.4"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8",
@@ -13949,9 +13952,11 @@
                 "doctrine/mongodb-odm": "^2.4",
                 "doctrine/mongodb-odm-bundle": "^4.6|^5.0",
                 "doctrine/orm": "^2.16|^3.0",
-                "phpunit/phpunit": "^9.5.0 || ^10.0 || ^11.0",
+                "doctrine/persistence": "^2.0|^3.0|^4.0",
+                "phpunit/phpunit": "^9.5.0 || ^10.0 || ^11.0 || ^12.0",
                 "symfony/console": "^6.4|^7.0",
                 "symfony/dotenv": "^6.4|^7.0",
+                "symfony/framework-bundle": "^6.4|^7.0",
                 "symfony/maker-bundle": "^1.55",
                 "symfony/phpunit-bridge": "^6.4|^7.0",
                 "symfony/runtime": "^6.4|^7.0",
@@ -14009,7 +14014,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v2.3.10"
+                "source": "https://github.com/zenstruck/foundry/tree/v2.6.0"
             },
             "funding": [
                 {
@@ -14017,7 +14022,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-31T09:53:36+00:00"
+            "time": "2025-06-05T08:34:41+00:00"
         },
         {
             "name": "zenstruck/messenger-test",
