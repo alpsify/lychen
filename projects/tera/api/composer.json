@@ -12,7 +12,7 @@
     "ext-libxml": "*",
     "ext-openssl": "*",
     "ext-xml": "*",
-    "api-platform/core": "4.0.*",
+    "api-platform/core": "4.1.*",
     "aws/aws-sdk-php": "3.330.*",
     "doctrine/annotations": "2.0.*",
     "doctrine/cache": "2.2.*",
