@@ -12,8 +12,8 @@ class UniqueStatePerPerson extends Constraint
 
     public function __construct(
         public readonly array $states = [],
-        string                $message = null,
-        array                 $groups = null,
+        ?string                $message = null,
+        ?array                 $groups = null,
         mixed                 $payload = null
     )
     {

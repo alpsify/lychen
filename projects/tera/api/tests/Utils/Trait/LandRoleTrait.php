@@ -9,7 +9,7 @@ use Zenstruck\Foundry\Persistence\Proxy;
 
 trait LandRoleTrait
 {
-    protected function createLandRole(Land|Proxy $land, array $permissions = null): LandRole|Proxy
+    protected function createLandRole(Land|Proxy $land, ?array $permissions = null): LandRole|Proxy
     {
         return LandRoleFactory::new()->create([
             'land' => $land,
