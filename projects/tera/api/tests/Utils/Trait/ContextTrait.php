@@ -52,7 +52,7 @@ trait ContextTrait
         return $landTestContext;
     }
 
-    protected function addOneLandRole(LandTestContext $landTestContext, array $permissions = null): LandTestContext
+    protected function addOneLandRole(LandTestContext $landTestContext, ?array $permissions = null): LandTestContext
     {
         $landRole = $this->createLandRole($landTestContext->land, $permissions);
 

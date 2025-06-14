@@ -88,12 +88,12 @@ abstract class AbstractLandAwareVoterInterface extends AbstractPermissionVoter i
         return $this->canWithLandCheck($subject, $permissionHolder, $permission);
     }
 
-    private function canWithLandCheck(LandAwareInterface $subject = null,
+    private function canWithLandCheck(LandAwareInterface $subject,
         PermissionHolder $permissionHolder,
         string $permission): bool
     {
         $hasPermission = $this->can($permissionHolder, $permission);
-        if ($permissionHolder instanceof LandApiKey && $subject !== null) {
+        if ($permissionHolder instanceof LandApiKey) {
             $belongToLand = $permissionHolder->getLand() === $subject->getLand();
             return $hasPermission && $belongToLand;
         }

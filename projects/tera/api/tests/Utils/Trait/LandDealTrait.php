@@ -10,7 +10,7 @@ use Zenstruck\Foundry\Persistence\Proxy;
 
 trait LandDealTrait
 {
-    protected function createLandDeal(Land|Proxy $land, Person|Proxy $person, array $attributes = null): LandDeal|Proxy
+    protected function createLandDeal(Land|Proxy $land, Person|Proxy $person, ?array $attributes = null): LandDeal|Proxy
     {
         return LandDealFactory::new()->create(array_merge([
             'land' => $land,
