@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 import mkcert from 'vite-plugin-mkcert';
 import { VitePWA } from 'vite-plugin-pwa';
 import tailwindcss from '@tailwindcss/vite';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
 const config: UserConfig = {
   server: {
@@ -12,6 +13,7 @@ const config: UserConfig = {
     port: 8080,
   },
   plugins: [
+    vueDevTools(),
     tailwindcss(),
     mkcert({
       hosts: ['app.tera.lychen.local'],

@@ -9,7 +9,7 @@ use Zenstruck\Foundry\Persistence\Proxy;
 
 trait LandProposalTrait
 {
-    protected function createLandProposal(Land|Proxy $land, array $attributes = null): LandProposal|Proxy
+    protected function createLandProposal(Land|Proxy $land, ?array $attributes = null): LandProposal|Proxy
     {
         return LandProposalFactory::new()->create(array_merge([
             'land' => $land,
