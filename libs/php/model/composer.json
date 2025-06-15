@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": "^8.0",
+    "php": "^8.4",
     "api-platform/core": "^4.0",
     "symfony/uid": "^7.2",
     "gedmo/doctrine-extensions": "^3.17"
