@@ -16,6 +16,8 @@ services:
 
   php:
     build: !reset null
+    environment:
+      - PHP_CS_FIXER_IGNORE_ENV=1
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
