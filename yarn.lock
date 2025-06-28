@@ -2877,6 +2877,7 @@ __metadata:
     "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
+    "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-app": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
@@ -3147,7 +3148,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-color-scheme@workspace:libs/vue/color-scheme":
+"@lychen/vue-color-scheme@workspace:*, @lychen/vue-color-scheme@workspace:libs/vue/color-scheme":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-color-scheme@workspace:libs/vue/color-scheme"
   dependencies:
@@ -3164,6 +3165,7 @@ __metadata:
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"

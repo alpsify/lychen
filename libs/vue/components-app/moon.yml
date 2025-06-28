@@ -1,5 +1,6 @@
 dependsOn:
   - typescript-tailwind
+  - vue-color-scheme
 
 id: vue-components-app
 

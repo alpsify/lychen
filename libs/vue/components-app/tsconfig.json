@@ -2,10 +2,11 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "../../typescript/tailwind/**/*",
-    "../i18n/composables/**/*",
+    "../color-scheme/**/*",
     "../components-core/**/*",
     "../components-extra/**/*",
     "../composables/**/*",
+    "../i18n/composables/**/*",
     "**/*",
     "**/i18n/**/*.json"
   ],
@@ -14,7 +15,7 @@
       "path": "../../typescript/tailwind"
     },
     {
-      "path": "../i18n/composables"
+      "path": "../color-scheme"
     },
     {
       "path": "../components-core"
@@ -24,6 +25,9 @@
     },
     {
       "path": "../composables"
+    },
+    {
+      "path": "../i18n/composables"
     }
   ],
   "compilerOptions": {
@@ -33,7 +37,8 @@
       "@lychen/vue-i18n-composables/*": ["../i18n/composables/*"],
       "@lychen/vue-components-core/*": ["../components-core/*"],
       "@lychen/vue-components-extra/*": ["../components-extra/*"],
-      "@lychen/vue-composables/*": ["../composables/*"]
+      "@lychen/vue-composables/*": ["../composables/*"],
+      "@lychen/vue-color-scheme/*": ["../color-scheme/*"]
     }
   }
 }

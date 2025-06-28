@@ -16,7 +16,7 @@
         </PopoverTrigger>
       </TooltipTrigger>
       <PopoverContent class="flex flex-col gap-4">
-        <h2 class="p-2 self-center font-medium">Swiss Steel écosystème</h2>
+        <h2 class="p-2 self-center font-medium">Lychen écosystème</h2>
         <div class="grid grid-cols-3 gap-4 place-items-center">
           <AppMenuIcon
             v-for="app in filteredApps"
@@ -46,43 +46,8 @@ import { computed } from 'vue';
 
 const apps = [
   {
-    id: 'horus-app',
-    name: 'horus',
-    link: '',
-  },
-  {
-    id: 'odin-app',
-    name: 'odin',
-    link: '',
-  },
-  {
-    id: 'themis-app',
-    name: 'themis',
-    link: '',
-  },
-  {
-    id: 'ordo',
-    name: 'ordo',
-    link: '',
-  },
-  {
-    id: 'vulcain-app',
-    name: 'vulcain',
-    link: '',
-  },
-  {
-    id: 'wms',
-    name: 'wms',
-    link: '',
-  },
-  {
-    id: 'oxyde-app',
-    name: 'oxyde',
-    link: '',
-  },
-  {
-    id: 'thor-app',
-    name: 'thor',
+    id: 'tera-app',
+    name: 'tera',
     link: '',
   },
 ];

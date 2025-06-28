@@ -2,8 +2,9 @@
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-tailwind/Cn';
 import { reactiveOmit } from '@vueuse/core';
-import { ChevronDown } from 'lucide-vue-next';
 import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import { Icon } from '../icon';
 
 const props = withDefaults(
   defineProps<SelectTriggerProps & { class?: HTMLAttributes['class']; size?: 'sm' | 'default' }>(),
@@ -28,7 +29,10 @@ const forwardedProps = useForwardProps(delegatedProps);
   >
     <slot />
     <SelectIcon as-child>
-      <ChevronDown class="size-4 opacity-50" />
+      <Icon
+        :icon="faChevronDown"
+        class="size-4 opacity-50"
+      />
     </SelectIcon>
   </SelectTrigger>
 </template>

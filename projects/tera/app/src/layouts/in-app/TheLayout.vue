@@ -32,6 +32,10 @@
               </div>
             </div>
           </template>
+          <Select>
+            <SelectTrigger> </SelectTrigger>
+            <SelectContent> </SelectContent>
+          </Select>
           <LayoutInAppSideNavigationItem
             v-for="(item, indexItems) in landSection.items"
             :key="indexItems"
@@ -61,7 +65,11 @@
       <div></div>
       <div class="flex flex-row gap-2 items-center justify-end">
         <AppMenu />
-        <UserAvatar />
+        <UserAvatar
+          :first-name="zitadelAuth.oidcAuth.userProfile.given_name"
+          :last-name="zitadelAuth.oidcAuth.userProfile.family_name"
+          :email="zitadelAuth.oidcAuth.userProfile.email"
+        />
       </div>
     </LayoutInAppHeader>
   </LayoutInAppRoot>
@@ -97,6 +105,10 @@ import {
 import useMenus from '@/layouts/in-app/useMenus';
 import { RoutePageLands } from '@/pages/lands';
 import LayoutInAppSideNavigationSectionLabel from '@lychen/vue-layouts/in-app/LayoutInAppSideNavigationSectionLabel.vue';
+import { Select, SelectContent, SelectTrigger } from '@lychen/vue-components-core/select';
+import AppMenu from '@lychen/vue-components-app/app-menu/AppMenu.vue';
+import UserAvatar from '@lychen/vue-components-app/user-avatar/UserAvatar.vue';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 
 const navigationExpanded = inject(INJECTION_KEY_NAVIGATION_EXPANDED);
 

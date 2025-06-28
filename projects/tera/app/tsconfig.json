@@ -2,20 +2,21 @@
   "extends": "../../../tsconfig.options.json",
   "include": [
     "../../../libs/css/core/**/*",
-    "../../../libs/tera/components/**/*",
-    "../../../libs/tera/i18n/**/*",
     "../../../libs/tera/api-sdk/**/*",
+    "../../../libs/tera/components/**/*",
     "../../../libs/tera/composables/**/*",
     "../../../libs/tera/constants/**/*",
     "../../../libs/tera/events/**/*",
+    "../../../libs/tera/i18n/**/*",
     "../../../libs/typescript/zitadel/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
+    "../../../libs/vue/color-scheme/**/*",
     "../../../libs/vue/components-app/**/*",
     "../../../libs/vue/components-core/**/*",
     "../../../libs/vue/components-extra/**/*",
-    "../../../libs/vue/layouts/**/*",
     "../../../libs/vue/composables/**/*",
+    "../../../libs/vue/i18n/composables/**/*",
+    "../../../libs/vue/i18n/configs/**/*",
+    "../../../libs/vue/layouts/**/*",
     "**/*"
   ],
   "references": [
@@ -23,13 +24,10 @@
       "path": "../../../libs/css/core"
     },
     {
-      "path": "../../../libs/tera/components"
-    },
-    {
-      "path": "../../../libs/tera/i18n"
-    },
-    {
       "path": "../../../libs/tera/api-sdk"
+    },
+    {
+      "path": "../../../libs/tera/components"
     },
     {
       "path": "../../../libs/tera/composables"
@@ -41,13 +39,13 @@
       "path": "../../../libs/tera/events"
     },
     {
+      "path": "../../../libs/tera/i18n"
+    },
+    {
       "path": "../../../libs/typescript/zitadel"
     },
     {
-      "path": "../../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../../libs/vue/i18n/configs"
+      "path": "../../../libs/vue/color-scheme"
     },
     {
       "path": "../../../libs/vue/components-app"
@@ -59,10 +57,16 @@
       "path": "../../../libs/vue/components-extra"
     },
     {
-      "path": "../../../libs/vue/layouts"
+      "path": "../../../libs/vue/composables"
     },
     {
-      "path": "../../../libs/vue/composables"
+      "path": "../../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/configs"
+    },
+    {
+      "path": "../../../libs/vue/layouts"
     }
   ],
   "compilerOptions": {
@@ -88,7 +92,8 @@
       "@lychen/vue-components-extra/*": ["../../../libs/vue/components-extra/*"],
       "@lychen/tera-events/*": ["../../../libs/tera/events/*"],
       "@lychen/tera-constants/*": ["../../../libs/tera/constants/*"],
-      "@lychen/tera-composables/*": ["../../../libs/tera/composables/*"]
+      "@lychen/tera-composables/*": ["../../../libs/tera/composables/*"],
+      "@lychen/vue-color-scheme/*": ["../../../libs/vue/color-scheme/*"]
     }
   }
 }

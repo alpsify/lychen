@@ -19,6 +19,7 @@
     "@lychen/tera-events": "workspace:*",
     "@lychen/tera-i18n": "workspace:*",
     "@lychen/typescript-zitadel": "workspace:*",
+    "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-app": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-extra": "workspace:*",
