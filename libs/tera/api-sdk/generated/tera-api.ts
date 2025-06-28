@@ -1551,6 +1551,92 @@ export interface components {
       readonly '@type'?: string;
       city?: string | null;
     };
+    /** @description Unprocessable entity */
+    'ConstraintViolation-json': {
+      /**
+       * @default 422
+       * @example 422
+       */
+      status: number;
+      violations?: {
+        /** @description The property path of the violation */
+        propertyPath?: string;
+        /** @description The message associated with the violation */
+        message?: string;
+      }[];
+      readonly detail?: string;
+      readonly type?: string;
+      readonly title?: string | null;
+      readonly instance?: string | null;
+    };
+    /** @description Unprocessable entity */
+    'ConstraintViolation.jsonld-jsonld': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: ConstraintViolationJsonldJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /**
+       * @default 422
+       * @example 422
+       */
+      status: number;
+      violations?: {
+        /** @description The property path of the violation */
+        propertyPath?: string;
+        /** @description The message associated with the violation */
+        message?: string;
+      }[];
+      readonly detail?: string;
+      readonly description?: string;
+      readonly type?: string;
+      readonly title?: string | null;
+      readonly instance?: string | null;
+    };
+    /** @description A representation of common errors. */
+    Error: {
+      /** @description A short, human-readable summary of the problem. */
+      readonly title?: string | null;
+      /** @description A human-readable explanation specific to this occurrence of the problem. */
+      readonly detail?: string | null;
+      /** @default 400 */
+      status: number;
+      /** @description A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced. */
+      readonly instance?: string | null;
+      /** @description A URI reference that identifies the problem type */
+      readonly type?: string;
+    };
+    /** @description A representation of common errors. */
+    'Error.jsonld': {
+      readonly '@context'?:
+        | string
+        | ({
+            '@vocab': string;
+            /** @enum {string} */
+            hydra: ErrorJsonldContextHydra;
+          } & {
+            [key: string]: unknown;
+          });
+      readonly '@id'?: string;
+      readonly '@type'?: string;
+      /** @description A short, human-readable summary of the problem. */
+      readonly title?: string | null;
+      /** @description A human-readable explanation specific to this occurrence of the problem. */
+      readonly detail?: string | null;
+      /** @default 400 */
+      status: number;
+      /** @description A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced. */
+      readonly instance?: string | null;
+      /** @description A URI reference that identifies the problem type */
+      readonly type?: string;
+      readonly description?: string | null;
+    };
     'Land-land.patch_land.patch.input': {
       name?: string;
       surface?: number | null;
@@ -2152,7 +2238,11 @@ export interface components {
       updatedAt?: string | null;
     };
     'LandAreaParameter-land_area_parameter.patch_land_area_parameter.patch.input': {
-      aboveGround?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      aboveGround: boolean;
       width?: number | null;
       length?: number | null;
     };
@@ -2173,7 +2263,11 @@ export interface components {
        * @example https://example.com/
        */
       landArea?: string;
-      aboveGround?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      aboveGround: boolean;
       width?: number | null;
       length?: number | null;
       /** Format: ulid */
@@ -2191,14 +2285,22 @@ export interface components {
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      aboveGround?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      aboveGround: boolean;
       width?: number | null;
       length?: number | null;
       /** Format: ulid */
       ulid?: string;
     };
     'LandAreaSetting-land_area_setting.patch_land_area_setting.patch.input': {
-      rotationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      rotationActivated: boolean;
     };
     'LandAreaSetting.jsonld-land_area_setting.get': {
       readonly '@context'?:
@@ -2217,7 +2319,11 @@ export interface components {
        * @example https://example.com/
        */
       landArea?: string;
-      rotationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      rotationActivated: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -2233,7 +2339,11 @@ export interface components {
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      rotationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      rotationActivated: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -2593,14 +2703,30 @@ export interface components {
       landAcceptedAt?: string | null;
       /** Format: date-time */
       landRefusedAt?: string | null;
-      isLandAccepted?: boolean;
-      isLandRefused?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      isLandAccepted: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      isLandRefused: boolean;
       /** Format: date-time */
       personAcceptedAt?: string | null;
       /** Format: date-time */
       personRefusedAt?: string | null;
-      isPersonAccepted?: boolean;
-      isPersonRefused?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      isPersonAccepted: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      isPersonRefused: boolean;
       readonly id?: number;
       /** Format: ulid */
       ulid?: string;
@@ -2963,7 +3089,11 @@ export interface components {
     LandMember: {
       /** Format: date-time */
       readonly joinedAt?: string;
-      readonly owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      readonly owner: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -2996,7 +3126,11 @@ export interface components {
       readonly '@type'?: string;
       /** Format: date-time */
       joinedAt?: string;
-      owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      owner: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3019,7 +3153,11 @@ export interface components {
       readonly '@type'?: string;
       /** Format: date-time */
       joinedAt?: string;
-      owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      owner: boolean;
       person?: components['schemas']['Person.jsonld-land_member.collection'];
       /**
        * Format: iri-reference
@@ -3044,7 +3182,11 @@ export interface components {
       readonly '@type'?: string;
       /** Format: date-time */
       joinedAt?: string;
-      owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      owner: boolean;
       person?: components['schemas']['Person.jsonld-land_member.get'];
       /**
        * Format: iri-reference
@@ -3067,7 +3209,11 @@ export interface components {
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      owner: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3091,7 +3237,11 @@ export interface components {
       readonly '@type'?: string;
       /** Format: date-time */
       joinedAt?: string;
-      owner?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      owner: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3315,7 +3465,11 @@ export interface components {
       readonly '@type'?: string;
     };
     'LandMemberSetting-land_member_setting.patch_land_member_setting.patch.input': {
-      emailNotificationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      emailNotificationActivated: boolean;
     };
     'LandMemberSetting.jsonld-land_member_setting.get': {
       readonly '@context'?:
@@ -3329,7 +3483,11 @@ export interface components {
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      emailNotificationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      emailNotificationActivated: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -3345,7 +3503,11 @@ export interface components {
           });
       readonly '@id'?: string;
       readonly '@type'?: string;
-      emailNotificationActivated?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      emailNotificationActivated: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -3364,11 +3526,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalLand_proposalPatch_land_proposalPatchInputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3393,7 +3575,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalLand_proposalPatch_land_proposalPatchInputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -3434,11 +3620,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3463,7 +3669,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3527,11 +3737,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3556,7 +3786,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalArchive_land_proposalArchiveOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * @default draft
        * @example draft
@@ -3605,11 +3839,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalCollectionOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3634,7 +3888,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * @default draft
        * @example draft
@@ -3683,11 +3941,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalCollectionPublicOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3712,7 +3990,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalCollectionPublicLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       land?: components['schemas']['Land.jsonld-land_proposal.collection-public'];
       /**
        * @default draft
@@ -3763,11 +4045,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalGetOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3792,7 +4094,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalGetLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3855,11 +4161,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3884,7 +4210,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPatch_land_proposalPatchOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -3936,11 +4266,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostInputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -3965,7 +4315,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostInputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -4010,11 +4364,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -4039,7 +4413,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPost_land_proposalPostOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -4102,11 +4480,31 @@ export interface components {
        * @enum {string}
        */
       orientation?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputOrientation;
-      hasParking?: boolean;
-      hasTools?: boolean;
-      hasShed?: boolean;
-      hasWaterPoint?: boolean;
-      hasIndependentAccess?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasParking: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasShed: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasWaterPoint: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasIndependentAccess: boolean;
       gardenState?: string;
       /**
        * @default no_preference
@@ -4131,7 +4529,11 @@ export interface components {
        */
       lookingForGardenerLevel?: LandProposalJsonldLand_proposalPublish_land_proposalPublishOutputLookingForGardenerLevel;
       gardenTotalSurface?: number;
-      foodSecurityParticipation?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      foodSecurityParticipation: boolean;
       /**
        * @default draft
        * @example draft
@@ -4180,7 +4582,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4193,7 +4599,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4231,7 +4641,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestLand_requestPatch_land_requestPatchInputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4244,7 +4658,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestLand_requestPatch_land_requestPatchInputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4288,7 +4706,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4301,7 +4723,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4356,7 +4782,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4369,7 +4799,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestArchive_land_requestArchiveOutputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4414,7 +4848,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestCollectionGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4427,7 +4865,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestCollectionPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4472,7 +4914,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestCollectionPublicGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4485,7 +4931,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestCollectionPublicPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4539,7 +4989,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestGetGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4552,7 +5006,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestGetPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4606,7 +5064,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestPatch_land_requestPatchOutputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4619,7 +5081,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestPatch_land_requestPatchOutputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4656,7 +5122,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestPost_land_requestPostInputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4669,7 +5139,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostInputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4711,7 +5185,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestPost_land_requestPostOutputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4724,7 +5202,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestPost_land_requestPostOutputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4778,7 +5260,11 @@ export interface components {
        * @enum {string}
        */
       gardeningLevel: LandRequestJsonldLand_requestPublish_land_requestPublishOutputGardeningLevel;
-      hasTools?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      hasTools: boolean;
       title?: string;
       /**
        * @default no_preference
@@ -4791,7 +5277,11 @@ export interface components {
        * @enum {array}
        */
       preferredInteractionMode: LandRequestJsonldLand_requestPublish_land_requestPublishOutputPreferredInteractionMode;
-      supportsLocalFoodSecurity?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      supportsLocalFoodSecurity: boolean;
       /**
        * @example [
        *       "general_maintenance",
@@ -4971,7 +5461,11 @@ export interface components {
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
-      position?: number;
+      /**
+       * @default 0
+       * @example 0
+       */
+      position: number;
     };
     'LandRole.jsonld-land_member.collection': {
       readonly '@context'?:
@@ -5164,7 +5658,11 @@ export interface components {
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
-      position?: number;
+      /**
+       * @default 0
+       * @example 0
+       */
+      position: number;
     };
     'LandRole.jsonld-land_role.get': {
       readonly '@context'?:
@@ -5253,7 +5751,11 @@ export interface components {
       createdAt?: string;
       /** Format: date-time */
       updatedAt?: string | null;
-      position?: number;
+      /**
+       * @default 0
+       * @example 0
+       */
+      position: number;
     };
     'LandRole.jsonld-land_role.patch_land_role.patch.output': {
       readonly '@context'?:
@@ -5495,7 +5997,11 @@ export interface components {
       updatedAt?: string | null;
     };
     'LandSetting-land_setting.patch_land_setting.patch.input': {
-      lookingForMember?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      lookingForMember: boolean;
     };
     'LandSetting.jsonld-land_setting.get': {
       readonly '@context'?:
@@ -5514,7 +6020,11 @@ export interface components {
        * @example https://example.com/
        */
       land?: string;
-      lookingForMember?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      lookingForMember: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -5535,7 +6045,11 @@ export interface components {
        * @example https://example.com/
        */
       land?: string;
-      lookingForMember?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      lookingForMember: boolean;
       /** Format: ulid */
       ulid?: string;
     };
@@ -6006,7 +6520,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6059,7 +6577,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6170,7 +6692,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6229,7 +6755,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6272,7 +6802,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6326,7 +6860,11 @@ export interface components {
       ulid?: string;
       name?: string;
       latinName?: string | null;
-      perpetual?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      perpetual: boolean;
       daysToGerminationAverage?: number | null;
       variety?: string | null;
       sowingMinimalTemperature?: number | null;
@@ -6407,7 +6945,11 @@ export interface components {
       quantityInNumberOfSeed?: number | null;
       /** Format: date-time */
       purchaseDate?: string | null;
-      publiclyShared?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      publiclyShared: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -6442,7 +6984,11 @@ export interface components {
       quantityInNumberOfSeed?: number | null;
       /** Format: date-time */
       purchaseDate?: string | null;
-      publiclyShared?: boolean;
+      /**
+       * @default false
+       * @example false
+       */
+      publiclyShared: boolean;
       /**
        * Format: iri-reference
        * @example https://example.com/
@@ -6568,14 +7114,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -6600,12 +7154,16 @@ export interface operations {
           'application/ld+json': components['schemas']['Address.jsonld'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -6628,12 +7186,16 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -6668,21 +7230,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -6751,7 +7325,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -6783,21 +7361,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -6827,14 +7417,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -6862,14 +7460,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -6904,28 +7510,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -6996,7 +7618,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7028,14 +7654,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7065,14 +7699,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7100,14 +7742,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7178,7 +7828,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7210,14 +7864,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7247,14 +7909,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7282,14 +7952,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7324,28 +8002,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7375,14 +8069,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7417,28 +8119,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7468,14 +8186,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7510,28 +8236,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7602,7 +8344,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7634,14 +8380,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7671,14 +8425,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7706,14 +8468,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7748,28 +8518,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7863,14 +8649,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -7895,12 +8689,16 @@ export interface operations {
           'application/ld+json': components['schemas']['LandDeal.jsonld-land_deal.get'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7923,12 +8721,16 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -7963,21 +8765,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8012,21 +8826,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8061,21 +8887,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8110,21 +8948,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8195,7 +9045,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8227,14 +9081,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8264,14 +9126,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8299,14 +9169,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8341,28 +9219,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8392,14 +9286,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8434,28 +9336,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8485,14 +9403,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8527,28 +9453,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8619,7 +9561,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8649,14 +9595,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8686,14 +9640,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8721,14 +9683,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8763,28 +9733,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8855,7 +9841,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -8887,14 +9877,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -8967,7 +9965,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9008,14 +10010,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9045,14 +10055,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9080,14 +10098,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9122,28 +10148,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9178,28 +10220,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9234,28 +10292,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9285,14 +10359,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9327,28 +10409,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9426,7 +10524,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9458,14 +10560,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9543,7 +10653,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9573,14 +10687,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9608,14 +10730,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9650,28 +10780,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9706,28 +10852,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9762,28 +10924,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9859,7 +11037,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -9891,21 +11073,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -9979,7 +11173,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10009,14 +11207,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10044,14 +11250,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10086,28 +11300,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10142,28 +11372,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10198,28 +11444,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10291,7 +11553,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10323,14 +11589,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10360,14 +11634,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10395,14 +11677,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10437,28 +11727,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10488,14 +11794,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10530,28 +11844,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10625,7 +11955,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10657,14 +11991,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10694,14 +12036,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10729,14 +12079,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -10771,28 +12129,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10827,28 +12201,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10883,28 +12273,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -10973,7 +12379,11 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11005,21 +12415,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11049,14 +12471,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11084,14 +12514,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11185,14 +12623,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11217,12 +12663,16 @@ export interface operations {
           'application/ld+json': components['schemas']['Plant.jsonld'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11245,12 +12695,16 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11285,21 +12739,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11393,14 +12859,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11425,12 +12899,16 @@ export interface operations {
           'application/ld+json': components['schemas']['PlantConversionRequest.jsonld'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11453,12 +12931,16 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11493,21 +12975,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11601,14 +13095,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11638,14 +13140,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11673,14 +13183,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11715,28 +13233,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11830,21 +13364,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -11869,12 +13415,16 @@ export interface operations {
           'application/ld+json': components['schemas']['PlantGlobal.jsonld'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11902,14 +13452,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -11944,28 +13502,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -12059,14 +13633,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -12096,14 +13678,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -12131,14 +13721,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -12173,28 +13771,44 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
       /** @description Forbidden */
       403: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -12288,14 +13902,22 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -12320,12 +13942,16 @@ export interface operations {
           'application/ld+json': components['schemas']['SeedStockEntry.jsonld'];
         };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -12348,12 +13974,16 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
     };
   };
@@ -12388,21 +14018,33 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Resource not found */
+      /** @description Not found */
       404: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['Error.jsonld'];
+          'application/problem+json': components['schemas']['Error'];
+          'application/json': components['schemas']['Error'];
+        };
       };
-      /** @description Unprocessable entity */
+      /** @description An error occurred */
       422: {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
+        content: {
+          'application/ld+json': components['schemas']['ConstraintViolation.jsonld-jsonld'];
+          'application/problem+json': components['schemas']['ConstraintViolation-json'];
+          'application/json': components['schemas']['ConstraintViolation-json'];
+        };
       };
     };
   };
@@ -12499,6 +14141,12 @@ export enum AddressJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum AddressJsonldLand_proposalCollectionPublicContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum ConstraintViolationJsonldJsonldContextHydra {
+  http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
+}
+export enum ErrorJsonldContextHydra {
   http_www_w3_org_ns_hydra_core_ = 'http://www.w3.org/ns/hydra/core#',
 }
 export enum LandJsonldContextHydra {
