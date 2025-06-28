@@ -1,10 +1,12 @@
 dependsOn:
   - applications-components
   - typescript-constants
+  - vue-components-app
   - vue-components-core
   - vue-components-extra
   - vue-components-website
   - vue-i18n-composables
+  - vue-icons
 
 id: vue-layouts
 

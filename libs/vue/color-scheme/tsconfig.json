@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["../components-core/**/*", "../icons/**/*", "**/*"],
+  "references": [
+    {
+      "path": "../components-core"
+    },
+    {
+      "path": "../icons"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/color-scheme",
+    "paths": {
+      "@lychen/vue-icons/*": ["../icons/*"],
+      "@lychen/vue-components-core/*": ["../components-core/*"]
+    }
+  }
+}

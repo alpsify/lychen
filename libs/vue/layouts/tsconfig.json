@@ -3,10 +3,12 @@
   "include": [
     "../../applications/components/**/*",
     "../../typescript/constants/**/*",
-    "../i18n/composables/**/*",
+    "../components-app/**/*",
     "../components-core/**/*",
     "../components-extra/**/*",
     "../components-website/**/*",
+    "../i18n/composables/**/*",
+    "../icons/**/*",
     "**/*"
   ],
   "references": [
@@ -17,7 +19,7 @@
       "path": "../../typescript/constants"
     },
     {
-      "path": "../i18n/composables"
+      "path": "../components-app"
     },
     {
       "path": "../components-core"
@@ -27,6 +29,12 @@
     },
     {
       "path": "../components-website"
+    },
+    {
+      "path": "../i18n/composables"
+    },
+    {
+      "path": "../icons"
     }
   ],
   "compilerOptions": {
@@ -37,7 +45,9 @@
       "@lychen/typescript-constants/*": ["../../typescript/constants/*"],
       "@lychen/vue-i18n-composables/*": ["../i18n/composables/*"],
       "@lychen/vue-components-extra/*": ["../components-extra/*"],
-      "@lychen/vue-components-website/*": ["../components-website/*"]
+      "@lychen/vue-components-website/*": ["../components-website/*"],
+      "@lychen/vue-components-app/*": ["../components-app/*"],
+      "@lychen/vue-icons/*": ["../icons/*"]
     }
   }
 }
