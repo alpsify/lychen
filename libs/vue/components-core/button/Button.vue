@@ -15,22 +15,16 @@
     :aria-label="label"
     :disabled="loading"
   >
-    <Icon
-      v-if="!loading && icon && iconPosition === ICON_POSITION.Start"
-      :icon="icon"
-    />
-    <slot name="prepend" />
-    <slot>{{ label }}</slot>
-    <slot name="append" />
-    <Icon
-      v-if="!loading && icon && iconPosition === ICON_POSITION.End"
-      :icon="icon"
-    />
-    <Icon
-      v-if="loading"
-      :icon="faSpinnerThird"
-      class="fa-spin transition-opacity"
-    />
+    <template v-if="ICON_POSITION.Start === iconPosition">
+      <slot name="icon" />
+    </template>
+    <template v-if="!iconOnly">
+      <slot>{{ label }}</slot>
+    </template>
+    <template v-if="ICON_POSITION.End === iconPosition">
+      <slot name="icon" />
+    </template>
+    <IconSpinnerThird v-if="loading" />
   </button>
 </template>
 
@@ -46,9 +40,7 @@ import {
   type VariantKey,
   type SizeKey,
 } from '.';
-import Icon from '../icon/Icon.vue';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons';
+import IconSpinnerThird from '@lychen/vue-icons/IconSpinnerThird.vue';
 
 interface Props {
   /**
@@ -68,10 +60,6 @@ interface Props {
    */
   class?: HTMLAttributes['class'];
   /**
-   * Icon SVG definition
-   */
-  icon?: IconDefinition;
-  /**
    * Position of the icon againts the label
    */
   iconPosition?: IconPosition;
@@ -79,6 +67,8 @@ interface Props {
    * Feedback for user clicking on the button, disable the button when active
    */
   loading?: boolean;
+
+  iconOnly?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -86,13 +76,13 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   class: undefined,
   label: undefined,
-  icon: undefined,
   iconPosition: ICON_POSITION.End,
   loading: false,
+  iconOnly: false,
 });
 
 const innerRound = computed(() => {
-  if (props.icon && !props.label) {
+  if (props.iconOnly) {
     return true;
   }
 
@@ -107,11 +97,7 @@ defineSlots<{
   /**
    * Before the label
    */
-  prepend: () => VNode[];
-  /**
-   * After the label
-   */
-  append: () => VNode[];
+  icon: () => VNode[];
 }>();
 </script>
 
