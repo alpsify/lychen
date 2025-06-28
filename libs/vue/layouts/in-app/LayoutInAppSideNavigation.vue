@@ -11,7 +11,7 @@
         )
       "
     >
-      <slot />
+      <slot :expanded />
     </div>
   </nav>
 </template>

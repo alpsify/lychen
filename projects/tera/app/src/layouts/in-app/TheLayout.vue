@@ -1,48 +1,69 @@
 <template>
   <LayoutInAppRoot>
-    <LayoutInAppSideNavigation class="flex flex-col justify-between">
+    <LayoutInAppSideNavigation
+      v-slot="{ expanded }"
+      class="flex flex-col justify-between"
+    >
       <LayoutInAppSideNavigationButtonExpand />
       <LayoutInAppSideNavigationHeaderApp name="tera" />
       <div class="flex flex-col gap-4">
         <LayoutInAppSideNavigationItem v-bind="dashboardItem" />
         <LayoutInAppSideNavigationSection>
           <template #header>
-            <div
-              :class="navigationExpanded ? 'flex flex-row justify-between gap-2 items-center' : ''"
-            >
+            <div :class="expanded ? 'flex flex-row justify-between gap-2 items-center' : ''">
               <LayoutInAppSideNavigationSectionLabel :label="landSection.label" />
               <div
-                v-if="navigationExpanded"
+                v-if="expanded"
                 class="flex flex-row gap-2 justify-end items-center"
               >
                 <RouterLink :to="RoutePageLands">
                   <Button
                     variant="ghost"
                     size="xs"
-                    :icon="faListUl"
-                  ></Button>
+                  >
+                    <template #icon>
+                      <IconListUl />
+                    </template>
+                  </Button>
                 </RouterLink>
                 <DialogTeraLandCreate v-model:open="open">
                   <Button
                     variant="ghost"
                     size="xs"
-                    :icon="faPlus"
-                  ></Button>
+                  >
+                    <template #icon>
+                      <IconPlus />
+                    </template>
+                  </Button>
                 </DialogTeraLandCreate>
               </div>
             </div>
           </template>
-          <Select>
-            <SelectTrigger> </SelectTrigger>
-            <SelectContent> </SelectContent>
+          <Select
+            v-if="lands && lands.member && expanded"
+            v-model="selectedLand"
+          >
+            <SelectTrigger class="w-auto">
+              <SelectValue placeholder="Select a land" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="(land, index) in lands.member"
+                :key="index"
+                :value="land"
+              >
+                {{ land.name }}
+              </SelectItem>
+            </SelectContent>
           </Select>
-          <LayoutInAppSideNavigationItem
-            v-for="(item, indexItems) in landSection.items"
-            :key="indexItems"
-            :to="{ name: item.to.name, params: { landUlid: land.ulid } }"
-            :icon="item.icon"
-            :label="item.label"
-          />
+          <template v-if="selectedLand">
+            <LayoutInAppSideNavigationItem
+              v-for="(item, indexItems) in landSection.items"
+              :key="indexItems"
+              :to="{ name: item.to.name, params: { landUlid: selectedLand.ulid } }"
+              :icon="item.icon"
+              :label="item.label"
+          /></template>
         </LayoutInAppSideNavigationSection>
         <LayoutInAppSideNavigationSection
           v-for="(section, indexSections) in navigation"
@@ -76,8 +97,9 @@
 </template>
 
 <script setup lang="ts">
-import { faListUl, faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-components-core/button/Button.vue';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
+import IconListUl from '@lychen/vue-icons/IconListUl.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { useEventBus } from '@vueuse/core';
@@ -88,10 +110,9 @@ import {
 } from '@lychen/tera-events/LandEvents';
 import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
 import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
-import { inject, ref } from 'vue';
+import { ref } from 'vue';
 import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 import {
-  INJECTION_KEY_NAVIGATION_EXPANDED,
   LayoutInAppContent,
   LayoutInAppHeader,
   LayoutInAppRoot,
@@ -105,30 +126,29 @@ import {
 import useMenus from '@/layouts/in-app/useMenus';
 import { RoutePageLands } from '@/pages/lands';
 import LayoutInAppSideNavigationSectionLabel from '@lychen/vue-layouts/in-app/LayoutInAppSideNavigationSectionLabel.vue';
-import { Select, SelectContent, SelectTrigger } from '@lychen/vue-components-core/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@lychen/vue-components-core/select';
 import AppMenu from '@lychen/vue-components-app/app-menu/AppMenu.vue';
 import UserAvatar from '@lychen/vue-components-app/user-avatar/UserAvatar.vue';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 
-const navigationExpanded = inject(INJECTION_KEY_NAVIGATION_EXPANDED);
-
 const open = ref(false);
 
 const { menus: navigation, landSection, dashboardItem } = useMenus();
-const land = ref({ ulid: 'kfdjglk' });
+const selectedLand = ref<{ ulid?: string }>();
 
 const { api } = useTeraApi();
 
 const { data: lands, refetch } = useQuery({
-  queryKey: ['lands-first-five'],
+  queryKey: ['lands'],
   queryFn: async () => {
-    const response = await api.GET('/api/lands', {
-      params: {
-        query: {
-          itemsPerPage: 5,
-        },
-      },
-    });
+    const response = await api.GET('/api/lands');
+    selectedLand.value = response.data?.member[0];
     return response.data;
   },
 });
@@ -164,15 +184,3 @@ onLeaveLand(() => {
   refetch();
 });
 </script>
-
-<style scoped>
-/*.menu-item.router-link-active {
-  background-color: var(--color-surface);
-}
-
-.accordion-menu-item.router-link-active {
-  :deep(button) {
-    background-color: var(--color-surface);
-  }
-}*/
-</style>

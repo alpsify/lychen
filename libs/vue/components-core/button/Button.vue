@@ -15,13 +15,13 @@
     :aria-label="label"
     :disabled="loading"
   >
-    <template v-if="ICON_POSITION.Start === iconPosition">
+    <template v-if="ICON_POSITION.Start === iconPosition && !loading">
       <slot name="icon" />
     </template>
     <template v-if="!iconOnly">
       <slot>{{ label }}</slot>
     </template>
-    <template v-if="ICON_POSITION.End === iconPosition">
+    <template v-if="ICON_POSITION.End === iconPosition && !loading">
       <slot name="icon" />
     </template>
     <IconSpinnerThird v-if="loading" />

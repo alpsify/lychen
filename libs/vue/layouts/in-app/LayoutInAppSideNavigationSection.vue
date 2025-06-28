@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-1">
     <slot name="header">
       <template v-if="label">
         <LayoutInAppSideNavigationSectionLabel :label />

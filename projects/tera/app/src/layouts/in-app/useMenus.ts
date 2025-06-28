@@ -28,6 +28,8 @@ import { RoutePageLandCultureItinaries } from '@/pages/land/culture-itinaries';
 import { RoutePageLandDiary } from '@/pages/land/diary';
 
 import { RoutePageLandTasks } from '../../pages/land/tasks';
+import { RoutePageLandDashboard } from '@/pages/land/dashboard';
+import { faObjectsColumn } from '@fortawesome/pro-light-svg-icons/faObjectsColumn';
 
 export default function useMenus() {
   const dashboardItem: NavigationItem = {
@@ -43,6 +45,11 @@ export default function useMenus() {
   const landSection: NavigationSection & { items: NavigationItem[] } = {
     label: 'Espaces de culture',
     items: [
+      {
+        icon: faObjectsColumn,
+        to: RoutePageLandDashboard,
+        label: 'Dashboard',
+      },
       {
         icon: faClipboardListCheck,
         to: RoutePageLandTasks,

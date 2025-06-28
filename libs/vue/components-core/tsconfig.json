@@ -4,6 +4,7 @@
     "../../typescript/fontawesome/**/*",
     "../../typescript/object/**/*",
     "../../typescript/tailwind/**/*",
+    "../icons/**/*",
     "**/*"
   ],
   "references": [
@@ -15,6 +16,9 @@
     },
     {
       "path": "../../typescript/tailwind"
+    },
+    {
+      "path": "../icons"
     }
   ],
   "compilerOptions": {
@@ -23,7 +27,8 @@
       "@/*": ["./*"],
       "@lychen/typescript-object/*": ["../../typescript/object/*"],
       "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
-      "@lychen/typescript-fontawesome/*": ["../../typescript/fontawesome/*"]
+      "@lychen/typescript-fontawesome/*": ["../../typescript/fontawesome/*"],
+      "@lychen/vue-icons/*": ["../icons/*"]
     }
   }
 }

@@ -3190,6 +3190,7 @@ __metadata:
     "@lychen/typescript-fontawesome": "workspace:*"
     "@lychen/typescript-object": "workspace:*"
     "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@vee-validate/zod": "npm:^4.15.0"
     "@vueuse/core": "npm:^13.1.0"
     class-variance-authority: "npm:^0.7.1"
