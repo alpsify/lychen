@@ -1,7 +1,6 @@
 {
   "name": "@lychen/vue-i18n-composables",
   "dependencies": {
-    "@lychen/typescript-date": "workspace:*",
     "@lychen/vue-i18n-helpers": "workspace:*"
   }
 }

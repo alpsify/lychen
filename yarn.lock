@@ -2059,7 +2059,7 @@ __metadata:
   dependencies:
     "@lychen/applications-i18n": "workspace:*"
     "@lychen/applications-model": "workspace:*"
-    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     vue: "npm:^3.5.13"
@@ -2137,7 +2137,7 @@ __metadata:
   resolution: "@lychen/applications-model@workspace:libs/applications/model"
   dependencies:
     "@lychen/applications-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2200,7 +2200,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/humu-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2273,7 +2273,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/kiro-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2364,7 +2364,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/kolo-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2426,7 +2426,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/meli-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2488,7 +2488,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/myko-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2550,7 +2550,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/novi-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2640,7 +2640,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/robust-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2783,7 +2783,7 @@ __metadata:
     "@lychen/tera-constants": "workspace:*"
     "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@tanstack/vue-query": "npm:^5.67.3"
@@ -2802,7 +2802,7 @@ __metadata:
   resolution: "@lychen/tera-composables@workspace:libs/tera/composables"
   dependencies:
     "@lychen/tera-api-sdk": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2829,7 +2829,7 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
     "@lychen/tera-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2899,38 +2899,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/typescript-date@workspace:*, @lychen/typescript-date@workspace:libs/typescript/date":
+"@lychen/typescript-utils@workspace:*, @lychen/typescript-utils@workspace:libs/typescript/utils":
   version: 0.0.0-use.local
-  resolution: "@lychen/typescript-date@workspace:libs/typescript/date"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/typescript-fontawesome@workspace:*, @lychen/typescript-fontawesome@workspace:libs/typescript/fontawesome":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-fontawesome@workspace:libs/typescript/fontawesome"
-  dependencies:
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/typescript-object@workspace:*, @lychen/typescript-object@workspace:libs/typescript/object":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-object@workspace:libs/typescript/object"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/typescript-tailwind@workspace:*, @lychen/typescript-tailwind@workspace:libs/typescript/tailwind":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-tailwind@workspace:libs/typescript/tailwind"
+  resolution: "@lychen/typescript-utils@workspace:libs/typescript/utils"
   dependencies:
     clsx: "npm:^2.1.1"
     tailwind-merge: "npm:^2.5.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/typescript-types@workspace:*, @lychen/typescript-types@workspace:libs/typescript/types":
-  version: 0.0.0-use.local
-  resolution: "@lychen/typescript-types@workspace:libs/typescript/types"
   languageName: unknown
   linkType: soft
 
@@ -2956,7 +2930,7 @@ __metadata:
   dependencies:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-model": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vara-constants": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -3036,7 +3010,7 @@ __metadata:
   resolution: "@lychen/vue-components-app@workspace:libs/vue/components-app"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
@@ -3059,9 +3033,7 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@fortawesome/vue-fontawesome": "npm:^3.0.8"
     "@internationalized/date": "npm:^3.7.0"
-    "@lychen/typescript-fontawesome": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
-    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
     "@vee-validate/zod": "npm:^4.15.0"
     "@vueuse/core": "npm:^13.1.0"
@@ -3084,7 +3056,7 @@ __metadata:
   resolution: "@lychen/vue-components-extra@workspace:libs/vue/components-extra"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
@@ -3098,7 +3070,7 @@ __metadata:
   resolution: "@lychen/vue-components-website@workspace:libs/vue/components-website"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/typescript-tailwind": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
@@ -3149,8 +3121,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-i18n-composables@workspace:libs/vue/i18n/composables"
   dependencies:
-    "@lychen/typescript-date": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
     "@lychen/vue-i18n-helpers": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -3252,8 +3222,6 @@ __metadata:
 "@lychen/vue-tiptap-composables@workspace:*, @lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-tiptap-composables@workspace:libs/vue/tiptap/composables"
-  dependencies:
-    "@lychen/typescript-types": "workspace:*"
   languageName: unknown
   linkType: soft
 
