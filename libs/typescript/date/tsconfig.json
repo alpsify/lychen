@@ -3,7 +3,6 @@
   "include": ["**/*"],
   "references": [],
   "compilerOptions": {
-    "paths": {},
     "outDir": "../../../.moon/cache/types/libs/typescript/date"
   }
 }

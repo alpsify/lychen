@@ -47,7 +47,7 @@ import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { defineAsyncComponent } from 'vue';
 
-const Page = defineAsyncComponent(() => import('@components/Page.vue'));
+const Page = defineAsyncComponent(() => import('@/components/Page.vue'));
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );

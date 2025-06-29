@@ -1,25 +1,9 @@
 {
   "extends": "../../tsconfig.options.json",
-  "files": [],
+  "include": ["**/*"],
   "references": [
-    /*{
-      "path": "."
-    },
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    },*/
-    {
-      "path": "../../libs/css/core"
-    },
-
     {
       "path": "../../libs/tera/components"
-    },
-    {
-      "path": "../../libs/vue/i18n/configs"
     },
     {
       "path": "../../libs/vue/components-app"
@@ -32,28 +16,12 @@
     },
     {
       "path": "../../libs/vue/components-website"
+    },
+    {
+      "path": "../../libs/vue/i18n/configs"
     }
-  ],
-  "include": [
-    "../../libs/css/core/**/*",
-    "../../libs/tera/components/**/*",
-    "../../libs/vue/i18n/configs/**/*",
-    "../../libs/vue/components-app/**/*",
-    "../../libs/vue/components-core/**/*",
-    "../../libs/vue/components-extra/**/*",
-    "../../libs/vue/components-website/**/*",
-    "**/*"
   ],
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/projects/storybook",
-    "paths": {
-      "@lychen/vue-components-core/*": ["../../libs/vue/components-core/*"],
-      "@lychen/vue-components-extra/*": ["../../libs/vue/components-extra/*"],
-      "@lychen/vue-components-website/*": ["../../libs/vue/components-website/*"],
-      "@lychen/css-core/*": ["../../libs/css/core/*"],
-      "@lychen/tera-components/*": ["../../libs/tera/components/*"],
-      "@lychen/vue-i18n-configs/*": ["../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-components-app/*": ["../../libs/vue/components-app/*"]
-    }
+    "outDir": "../../.moon/cache/types/projects/storybook"
   }
 }

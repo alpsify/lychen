@@ -7,12 +7,14 @@ dependsOn:
   - tera-events
   - tera-i18n
   - typescript-zitadel
+  - vue-color-scheme
   - vue-components-app
   - vue-components-core
   - vue-components-extra
   - vue-composables
   - vue-i18n-composables
   - vue-i18n-configs
+  - vue-icons
   - vue-layouts
 
 env:

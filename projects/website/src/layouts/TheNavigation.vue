@@ -156,9 +156,9 @@ import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/vue-components-core/navigation-menu';
 import { computed, defineAsyncComponent } from 'vue';
-import { RoutePageHome } from '@pages/home';
+import { RoutePageHome } from '@/pages/home';
 import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
-import { RoutePagePrice } from '@pages/price';
+import { RoutePagePrice } from '@/pages/price';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
@@ -166,7 +166,7 @@ import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight'
 
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
-import { RoutePageSponsor } from '@pages/sponsor';
+import { RoutePageSponsor } from '@/pages/sponsor';
 
 import ButtonTallyPreregister from '@lychen/vue-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
 import LogoLychenFull from '@lychen/vue-components-extra/logo-lychen/LogoLychenFull.vue';

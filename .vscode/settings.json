@@ -42,7 +42,7 @@
     "**/dist": true,
     "**/vendor/**": true,
     "**/.yarn/**": true,
-    "yarn.lock": true,
+    "yarn.lock": true
   },
   "typescript.tsserver.maxTsServerMemory": 8192,
   "css.lint.unknownAtRules": "ignore",
@@ -56,5 +56,12 @@
   "javascript.preferences.renameMatchingJsxTags": true,
   "typescript.preferences.renameMatchingJsxTags": true,
   "svg.preview.background": "dark-transparent",
-  "colorize.decoration_type": "background"
+  "colorize.decoration_type": "background",
+  "yaml.schemas": {
+    "./.moon/cache/schemas/project.json": ["**/moon.yml"],
+    "./.moon/cache/schemas/tasks.json": [".moon/tasks.yml", ".moon/tasks/**/*.yml"],
+    "./.moon/cache/schemas/template.json": ["**/template.yml"],
+    "./.moon/cache/schemas/toolchain.json": [".moon/toolchain.yml"],
+    "./.moon/cache/schemas/workspace.json": [".moon/workspace.yml"]
+  }
 }

@@ -250,7 +250,7 @@ import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
 import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
 import BadgeDevelopmentInProgress from '@lychen/vue-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
-import BannerTeraShareYourLand from '@components/banners/BannerTeraShareYourLand.vue';
+import BannerTeraShareYourLand from '@/components/banners/BannerTeraShareYourLand.vue';
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 

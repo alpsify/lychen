@@ -1,0 +1,9 @@
+dependsOn:
+  - vue-components-core
+  - vue-icons
+
+id: vue-color-scheme
+
+language: typescript
+
+type: library

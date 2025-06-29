@@ -1,11 +1,6 @@
 {
   "extends": "../../../../tsconfig.options.json",
-  "include": [
-    "**/*",
-    "../../../typescript/date/**/*",
-    "../../../typescript/object/**/*",
-    "../helpers/**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../../typescript/date"
@@ -18,11 +13,6 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../../.moon/cache/types/libs/vue/i18n/composables",
-    "paths": {
-      "@lychen/typescript-date/*": ["../../../typescript/date/*"],
-      "@lychen/typescript-object/*": ["../../../typescript/object/*"],
-      "@lychen/vue-i18n-helpers/*": ["../helpers/*"]
-    }
+    "outDir": "../../../../.moon/cache/types/libs/vue/i18n/composables"
   }
 }

@@ -1,28 +1,6 @@
 {
   "extends": "../../tsconfig.options.json",
-  "include": [
-    "../../libs/applications/components/**/*",
-    "../../libs/applications/composables/**/*",
-    "../../libs/applications/constants/**/*",
-    "../../libs/css/core/**/*",
-    "../../libs/odd/composables/**/*",
-    "../../libs/tailwind/configs/**/*",
-    "../../libs/typescript/constants/**/*",
-
-    "../../libs/vite/ssg/**/*",
-    "../../libs/vue/drawio/core/**/*",
-    "../../libs/vue/drawio/components/**/*",
-    "../../libs/vue/i18n/composables/**/*",
-    "../../libs/vue/i18n/configs/**/*",
-    "../../libs/vue/router/configs/**/*",
-    "../../libs/vue/components-core/**/*",
-    "../../libs/vue/components-extra/**/*",
-    "../../libs/vue/components-website/**/*",
-    "../../libs/vue/layouts/**/*",
-    "../../libs/vue/unhead/composables/**/*",
-    "../../libs/vue/composables/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../libs/applications/components"
@@ -34,9 +12,6 @@
       "path": "../../libs/applications/constants"
     },
     {
-      "path": "../../libs/css/core"
-    },
-    {
       "path": "../../libs/odd/composables"
     },
     {
@@ -44,21 +19,6 @@
     },
     {
       "path": "../../libs/vite/ssg"
-    },
-    {
-      "path": "../../libs/vue/drawio/core"
-    },
-    {
-      "path": "../../libs/vue/drawio/components"
-    },
-    {
-      "path": "../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../libs/vue/i18n/configs"
-    },
-    {
-      "path": "../../libs/vue/router/configs"
     },
     {
       "path": "../../libs/vue/components-core"
@@ -70,42 +30,34 @@
       "path": "../../libs/vue/components-website"
     },
     {
+      "path": "../../libs/vue/composables"
+    },
+    {
+      "path": "../../libs/vue/drawio/components"
+    },
+    {
+      "path": "../../libs/vue/drawio/core"
+    },
+    {
+      "path": "../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../libs/vue/i18n/configs"
+    },
+    {
       "path": "../../libs/vue/layouts"
     },
     {
-      "path": "../../libs/vue/unhead/composables"
+      "path": "../../libs/vue/router/configs"
     },
     {
-      "path": "../../libs/vue/composables"
+      "path": "../../libs/vue/unhead/composables"
     }
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "outDir": "../../.moon/cache/types/projects/website",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/css-core/*": ["../../libs/css/core/*"],
-
-      "@lychen/vue-i18n-composables/*": ["../../libs/vue/i18n/composables/*"],
-      "@lychen/vue-composables/*": ["../../libs/vue/composables/*"],
-      "@lychen/applications-composables/*": ["../../libs/applications/composables/*"],
-      "@lychen/odd-composables/*": ["../../libs/odd/composables/*"],
-      "@lychen/applications-components/*": ["../../libs/applications/components/*"],
-      "@lychen/vue-i18n-configs/*": ["../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-router-configs/*": ["../../libs/vue/router/configs/*"],
-      "@lychen/vite-ssg/*": ["../../libs/vite/ssg/*"],
-      "@lychen/tailwind-configs/*": ["../../libs/tailwind/configs/*"],
-      "@lychen/vue-unhead-composables/*": ["../../libs/vue/unhead/composables/*"],
-      "@lychen/typescript-constants/*": ["../../libs/typescript/constants/*"],
-      "@lychen/applications-constants/*": ["../../libs/applications/constants/*"],
-      "@lychen/vue-components-core/*": ["../../libs/vue/components-core/*"],
-      "@lychen/vue-components-website/*": ["../../libs/vue/components-website/*"],
-      "@lychen/vue-layouts/*": ["../../libs/vue/layouts/*"],
-      "@lychen/vue-components-extra/*": ["../../libs/vue/components-extra/*"],
-      "@lychen/vue-drawio-components/*": ["../../libs/vue/drawio/components/*"],
-      "@lychen/vue-drawio-core/*": ["../../libs/vue/drawio/core/*"]
-    },
-    "outDir": "../../.moon/cache/types/projects/website"
+      "@/*": ["./src/*"]
+    }
   }
 }

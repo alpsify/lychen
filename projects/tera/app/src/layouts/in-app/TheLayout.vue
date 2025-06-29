@@ -1,105 +1,106 @@
 <template>
-  <Teleport
-    to="#main-title-right"
-    defer
-  >
-    <div class="flex flex-row gap-2 justify-end items-center">
-      <RouterLink :to="RoutePageLands">
-        <Button
-          variant="ghost"
-          size="xs"
-          :icon="faListUl"
-        ></Button>
-      </RouterLink>
-      <DialogTeraLandCreate v-model:open="open">
-        <Button
-          variant="ghost"
-          size="xs"
-          :icon="faPlus"
-        ></Button>
-      </DialogTeraLandCreate>
-    </div>
-  </Teleport>
-  <LayoutInApp
-    :menu-structure="navigation"
-    :application="{ name: 'Tera' }"
-  >
-    <template #main-menu-section>
-      <Accordion
-        v-if="lands?.member"
-        class="w-full"
-        collapsible
-        type="single"
-        :default-value="lands.member[0]?.ulid"
-      >
-        <AccordionItem
-          v-for="land in lands.member"
-          :key="land.ulid"
-          :value="land.ulid!"
-        >
-          <RouterLink
-            :to="{ name: RoutePageLandDashboard.name, params: { landUlid: land.ulid } }"
-            class="accordion-menu-item"
+  <LayoutInAppRoot>
+    <LayoutInAppSideNavigation
+      v-slot="{ expanded }"
+      class="flex flex-col justify-between"
+    >
+      <LayoutInAppSideNavigationButtonExpand />
+      <LayoutInAppSideNavigationHeaderApp name="tera" />
+      <div class="flex flex-col gap-4">
+        <LayoutInAppSideNavigationSection>
+          <template #header>
+            <div :class="expanded ? 'flex flex-row justify-between gap-2 items-center' : ''">
+              <LayoutInAppSideNavigationSectionLabel :label="landSection.label" />
+              <div
+                v-if="expanded"
+                class="flex flex-row gap-2 justify-end items-center"
+              >
+                <RouterLink :to="RoutePageLands">
+                  <Button
+                    variant="ghost"
+                    size="xs"
+                  >
+                    <template #icon>
+                      <IconListUl />
+                    </template>
+                  </Button>
+                </RouterLink>
+                <DialogTeraLandCreate v-model:open="open">
+                  <Button
+                    variant="ghost"
+                    size="xs"
+                  >
+                    <template #icon>
+                      <IconPlus />
+                    </template>
+                  </Button>
+                </DialogTeraLandCreate>
+              </div>
+            </div>
+          </template>
+          <Select
+            v-if="lands && lands.member && expanded"
+            v-model="selectedLand"
           >
-            <AccordionTrigger
-              class="text-sm font-medium flex flex-row gap-2 items-center p-2 cursor-pointer hover:bg-surface-container rounded-xl group"
-            >
-              {{ land.name }}
-            </AccordionTrigger>
-          </RouterLink>
-
-          <AccordionContent class="flex flex-col gap-1 p-2">
-            <LayoutInAppNavigationMenuItem
-              v-for="(menu, index) in mainMenus"
-              :key="index"
-              :to="{ name: menu.to.name, params: { landUlid: land.ulid } }"
-              :icon="menu.icon"
-              :title="menu.title"
+            <SelectTrigger class="w-auto">
+              <SelectValue placeholder="Select a land" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="(land, index) in lands.member"
+                :key="index"
+                :value="land"
+              >
+                {{ land.name }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <template v-if="selectedLand">
+            <LayoutInAppSideNavigationItem
+              v-for="(item, indexItems) in landSection.items"
+              :key="indexItems"
+              :to="{ name: item.to.name, params: { landUlid: selectedLand.ulid } }"
+              :icon="item.icon"
+              :label="item.label"
+          /></template>
+        </LayoutInAppSideNavigationSection>
+        <LayoutInAppSideNavigationSection
+          v-for="(section, indexSections) in navigation"
+          :key="indexSections"
+          :label="section.label"
+        >
+          <template v-if="section.items">
+            <LayoutInAppSideNavigationItem
+              v-for="(item, indexItems) in section.items"
+              :key="indexItems"
+              v-bind="item"
             />
-          </AccordionContent>
-        </AccordionItem> </Accordion
-    ></template>
-  </LayoutInApp>
+          </template>
+        </LayoutInAppSideNavigationSection>
+      </div>
+      <LayoutInAppSideNavigationFooter />
+    </LayoutInAppSideNavigation>
+    <LayoutInAppContent />
+    <LayoutInAppHeader class="justify-between gap-2">
+      <div></div>
+      <div class="flex flex-row gap-2 items-center justify-end">
+        <AppMenu />
+        <UserAvatar
+          :first-name="zitadelAuth.oidcAuth.userProfile.given_name"
+          :last-name="zitadelAuth.oidcAuth.userProfile.family_name"
+          :email="zitadelAuth.oidcAuth.userProfile.email"
+        />
+      </div>
+    </LayoutInAppHeader>
+  </LayoutInAppRoot>
 </template>
 
 <script setup lang="ts">
-import LayoutInApp from '@lychen/vue-layouts/in-app/LayoutInApp.vue';
-import { faHouse } from '@fortawesome/pro-light-svg-icons/faHouse';
-import { faClipboardListCheck } from '@fortawesome/pro-light-svg-icons/faClipboardListCheck';
-import { faCalendarDays } from '@fortawesome/pro-light-svg-icons/faCalendarDays';
-import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
-import { faBagSeedling } from '@fortawesome/pro-light-svg-icons/faBagSeedling';
-import { faSunPlantWilt } from '@fortawesome/pro-light-svg-icons/faSunPlantWilt';
-import { faNotebook } from '@fortawesome/pro-light-svg-icons/faNotebook';
-import { faBuildingMemo } from '@fortawesome/pro-light-svg-icons/faBuildingMemo';
-import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
-import { faPeopleSimple } from '@fortawesome/pro-light-svg-icons/faPeopleSimple';
-import { faBuildingWheat } from '@fortawesome/pro-light-svg-icons/faBuildingWheat';
-import { faChartSimple } from '@fortawesome/pro-light-svg-icons/faChartSimple';
-
-import { RoutePageFoodSafety } from '../../pages/food-safety';
-import { RoutePageGreeningPermit } from '@/pages/greening-permit';
-import { RoutePageLandCalendars } from '@/pages/land/calendars';
-import { RoutePageLandCultureItinaries } from '@/pages/land/culture-itinaries';
-import { RoutePageLandDiary } from '@/pages/land/diary';
-import { RoutePageCoGardening } from '@/pages/co-gardening/dashboard';
-
-import { RoutePageData } from '@/pages/data';
-import { RoutePageGrainLibrary } from '@/pages/grain-library';
-import { RoutePageHerbarium } from '@/pages/herbarium';
-import { RoutePageSharedGardens } from '@/pages/shared-gardens';
-import { RoutePageLands } from '@/pages/lands';
-import { faListUl, faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-components-core/button/Button.vue';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
+import IconListUl from '@lychen/vue-icons/IconListUl.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import Accordion from '@lychen/vue-components-core/accordion/Accordion.vue';
-import AccordionContent from '@lychen/vue-components-core/accordion/AccordionContent.vue';
-import AccordionTrigger from '@lychen/vue-components-core/accordion/AccordionTrigger.vue';
-import AccordionItem from '@lychen/vue-components-core/accordion/AccordionItem.vue';
-import { RoutePageLandTasks } from '../../pages/land/tasks';
-import { RoutePageLandDashboard } from '@/pages/land/dashboard';
-import LayoutInAppNavigationMenuItem from '@lychen/vue-layouts/in-app/LayoutInAppNavigationMenuItem.vue';
 import { useEventBus } from '@vueuse/core';
 import {
   landDeleteSucceededEvent,
@@ -110,81 +111,43 @@ import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-events/La
 import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
+import {
+  LayoutInAppContent,
+  LayoutInAppHeader,
+  LayoutInAppRoot,
+  LayoutInAppSideNavigation,
+  LayoutInAppSideNavigationButtonExpand,
+  LayoutInAppSideNavigationFooter,
+  LayoutInAppSideNavigationHeaderApp,
+  LayoutInAppSideNavigationItem,
+  LayoutInAppSideNavigationSection,
+} from '@lychen/vue-layouts/in-app';
+import useMenus from '@/layouts/in-app/useMenus';
+import { RoutePageLands } from '@/pages/lands';
+import LayoutInAppSideNavigationSectionLabel from '@lychen/vue-layouts/in-app/LayoutInAppSideNavigationSectionLabel.vue';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@lychen/vue-components-core/select';
+import AppMenu from '@lychen/vue-components-app/app-menu/AppMenu.vue';
+import UserAvatar from '@lychen/vue-components-app/user-avatar/UserAvatar.vue';
+import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 
 const open = ref(false);
 
-const navigation = {
-  first: {
-    list: [
-      {
-        icon: faHouse,
-        to: RoutePageLands,
-        title: 'Tableau de bord',
-      },
-    ],
-  },
-  main: {
-    title: 'Espaces de culture',
-  },
-  resources: {
-    title: 'Ressources',
-    list: [
-      {
-        icon: faSeedling,
-        to: RoutePageHerbarium,
-        title: 'Herbarium',
-      },
-      {
-        icon: faBagSeedling,
-        to: RoutePageGrainLibrary,
-        title: 'Grainothèque',
-      },
-    ],
-  },
-  actions: {
-    title: 'Territoire',
-    list: [
-      {
-        icon: faPeopleSimple,
-        to: RoutePageCoGardening,
-        title: 'Co-jardinage',
-      },
-      {
-        icon: faBuildingWheat,
-        to: RoutePageSharedGardens,
-        title: 'Jardins partagés',
-      },
-      {
-        icon: faBuildingMemo,
-        to: RoutePageGreeningPermit,
-        title: 'Permis de végétaliser',
-      },
-      {
-        icon: faHandHoldingHeart,
-        to: RoutePageFoodSafety,
-        title: 'Sécurité alimentaire',
-      },
-      {
-        icon: faChartSimple,
-        to: RoutePageData,
-        title: 'Données',
-      },
-    ],
-  },
-};
+const { menus: navigation, landSection } = useMenus();
+const selectedLand = ref<{ ulid?: string }>();
 
 const { api } = useTeraApi();
 
 const { data: lands, refetch } = useQuery({
-  queryKey: ['lands-first-five'],
+  queryKey: ['lands'],
   queryFn: async () => {
-    const response = await api.GET('/api/lands', {
-      params: {
-        query: {
-          itemsPerPage: 5,
-        },
-      },
-    });
+    const response = await api.GET('/api/lands');
+    selectedLand.value = response.data?.member[0];
     return response.data;
   },
 });
@@ -219,39 +182,4 @@ const { on: onLeaveLand } = useEventBus(landMemberLeaveSucceededEvent);
 onLeaveLand(() => {
   refetch();
 });
-
-const mainMenus = [
-  {
-    icon: faClipboardListCheck,
-    to: RoutePageLandTasks,
-    title: 'Tâches',
-  },
-  {
-    icon: faSunPlantWilt,
-    to: RoutePageLandCultureItinaries,
-    title: 'Itinéraires de culture',
-  },
-  {
-    icon: faNotebook,
-    to: RoutePageLandDiary,
-    title: 'Journal',
-  },
-  {
-    icon: faCalendarDays,
-    to: RoutePageLandCalendars,
-    title: 'Calendriers',
-  },
-];
 </script>
-
-<style scoped>
-.menu-item.router-link-active {
-  background-color: var(--color-surface);
-}
-
-.accordion-menu-item.router-link-active {
-  :deep(button) {
-    background-color: var(--color-surface);
-  }
-}
-</style>

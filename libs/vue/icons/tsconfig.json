@@ -3,6 +3,6 @@
   "include": ["**/*"],
   "references": [],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/css/core"
+    "outDir": "../../../.moon/cache/types/libs/vue/icons"
   }
 }

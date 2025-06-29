@@ -1,16 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*", "../constants/**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../constants"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/meli/i18n",
-    "paths": {
-      "@lychen/myko-constants/*": ["../constants/*"],
-      "@lychen/meli-constants/*": ["../constants/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/meli/i18n"
   }
 }

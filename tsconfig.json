@@ -5,9 +5,6 @@
       "path": "libs/applications/components"
     },
     {
-      "path": "libs/applications/i18n"
-    },
-    {
       "path": "libs/applications/composables"
     },
     {
@@ -17,13 +14,10 @@
       "path": "libs/applications/generic-composables"
     },
     {
+      "path": "libs/applications/i18n"
+    },
+    {
       "path": "libs/applications/model"
-    },
-    {
-      "path": "libs/css/core"
-    },
-    {
-      "path": "libs/eko/i18n"
     },
     {
       "path": "libs/eko/constants"
@@ -32,7 +26,7 @@
       "path": "libs/eko/features"
     },
     {
-      "path": "libs/humu/i18n"
+      "path": "libs/eko/i18n"
     },
     {
       "path": "libs/humu/constants"
@@ -41,10 +35,10 @@
       "path": "libs/humu/features"
     },
     {
-      "path": "libs/kiro/components"
+      "path": "libs/humu/i18n"
     },
     {
-      "path": "libs/kiro/i18n"
+      "path": "libs/kiro/components"
     },
     {
       "path": "libs/kiro/constants"
@@ -53,10 +47,10 @@
       "path": "libs/kiro/features"
     },
     {
-      "path": "libs/kiro/sdk"
+      "path": "libs/kiro/i18n"
     },
     {
-      "path": "libs/kolo/i18n"
+      "path": "libs/kiro/sdk"
     },
     {
       "path": "libs/kolo/constants"
@@ -65,7 +59,7 @@
       "path": "libs/kolo/features"
     },
     {
-      "path": "libs/luna/i18n"
+      "path": "libs/kolo/i18n"
     },
     {
       "path": "libs/luna/constants"
@@ -74,7 +68,7 @@
       "path": "libs/luna/features"
     },
     {
-      "path": "libs/meli/i18n"
+      "path": "libs/luna/i18n"
     },
     {
       "path": "libs/meli/constants"
@@ -83,7 +77,7 @@
       "path": "libs/meli/features"
     },
     {
-      "path": "libs/myko/i18n"
+      "path": "libs/meli/i18n"
     },
     {
       "path": "libs/myko/constants"
@@ -92,7 +86,7 @@
       "path": "libs/myko/features"
     },
     {
-      "path": "libs/novi/i18n"
+      "path": "libs/myko/i18n"
     },
     {
       "path": "libs/novi/constants"
@@ -101,16 +95,16 @@
       "path": "libs/novi/features"
     },
     {
-      "path": "libs/odd/i18n"
+      "path": "libs/novi/i18n"
     },
     {
       "path": "libs/odd/composables"
     },
     {
-      "path": "libs/odd/model"
+      "path": "libs/odd/i18n"
     },
     {
-      "path": "libs/robust/i18n"
+      "path": "libs/odd/model"
     },
     {
       "path": "libs/robust/constants"
@@ -119,13 +113,13 @@
       "path": "libs/robust/features"
     },
     {
-      "path": "libs/tera/components"
-    },
-    {
-      "path": "libs/tera/i18n"
+      "path": "libs/robust/i18n"
     },
     {
       "path": "libs/tera/api-sdk"
+    },
+    {
+      "path": "libs/tera/components"
     },
     {
       "path": "libs/tera/composables"
@@ -138,6 +132,9 @@
     },
     {
       "path": "libs/tera/features"
+    },
+    {
+      "path": "libs/tera/i18n"
     },
     {
       "path": "libs/typescript/constants"
@@ -161,43 +158,19 @@
       "path": "libs/typescript/zitadel"
     },
     {
-      "path": "libs/vara/i18n"
-    },
-    {
       "path": "libs/vara/constants"
     },
     {
       "path": "libs/vara/features"
     },
     {
+      "path": "libs/vara/i18n"
+    },
+    {
       "path": "libs/vite/ssg"
     },
     {
-      "path": "libs/vue/drawio/core"
-    },
-    {
-      "path": "libs/vue/drawio/tera"
-    },
-    {
-      "path": "libs/vue/drawio/components"
-    },
-    {
-      "path": "libs/vue/i18n/composables"
-    },
-    {
-      "path": "libs/vue/i18n/configs"
-    },
-    {
-      "path": "libs/vue/i18n/helpers"
-    },
-    {
-      "path": "libs/vue/router/configs"
-    },
-    {
-      "path": "libs/vue/tiptap/components"
-    },
-    {
-      "path": "libs/vue/tiptap/composables"
+      "path": "libs/vue/color-scheme"
     },
     {
       "path": "libs/vue/components-app"
@@ -212,13 +185,43 @@
       "path": "libs/vue/components-website"
     },
     {
+      "path": "libs/vue/composables"
+    },
+    {
+      "path": "libs/vue/drawio/components"
+    },
+    {
+      "path": "libs/vue/drawio/core"
+    },
+    {
+      "path": "libs/vue/drawio/tera"
+    },
+    {
+      "path": "libs/vue/i18n/composables"
+    },
+    {
+      "path": "libs/vue/i18n/configs"
+    },
+    {
+      "path": "libs/vue/i18n/helpers"
+    },
+    {
+      "path": "libs/vue/icons"
+    },
+    {
       "path": "libs/vue/layouts"
     },
     {
-      "path": "libs/vue/unhead/composables"
+      "path": "libs/vue/router/configs"
     },
     {
-      "path": "libs/vue/composables"
+      "path": "libs/vue/tiptap/components"
+    },
+    {
+      "path": "libs/vue/tiptap/composables"
+    },
+    {
+      "path": "libs/vue/unhead/composables"
     },
     {
       "path": "projects/design"
@@ -230,16 +233,7 @@
       "path": "projects/humu/website"
     },
     {
-      "path": "projects/kiro/admin-app"
-    },
-    {
-      "path": "projects/kiro/manager-app"
-    },
-    {
       "path": "projects/kiro/member-app"
-    },
-    {
-      "path": "projects/kiro/producer-app"
     },
     {
       "path": "projects/kiro/website"
@@ -270,6 +264,9 @@
     },
     {
       "path": "projects/tera/tests-app"
+    },
+    {
+      "path": "projects/tera/tests-e2e"
     },
     {
       "path": "projects/tera/website"

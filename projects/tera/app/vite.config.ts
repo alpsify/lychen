@@ -10,7 +10,7 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 const config: UserConfig = {
   server: {
     https: {},
-    port: 8080,
+    port: 5800,
   },
   plugins: [
     vueDevTools(),
@@ -62,9 +62,6 @@ const config: UserConfig = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@pages': path.resolve(__dirname, './src/pages'),
-      '@layouts': path.resolve(__dirname, './src/layouts'),
-      '@components': path.resolve(__dirname, './src/components'),
     },
   },
   build: {

@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*"],
+  "references": [
+    {
+      "path": "../components-core"
+    },
+    {
+      "path": "../icons"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/color-scheme"
+  }
+}

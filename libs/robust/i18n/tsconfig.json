@@ -1,15 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../constants/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../constants"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/robust/i18n",
-    "paths": {
-      "@lychen/robust-constants/*": ["../constants/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/robust/i18n"
   }
 }

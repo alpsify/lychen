@@ -1,51 +1,15 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../../libs/applications/components/**/*",
-    "../../../libs/applications/composables/**/*",
-    "../../../libs/applications/constants/**/*",
-    "../../../libs/css/core/**/*",
-
-    "../../../libs/kiro/components/**/*",
-    "../../../libs/odd/composables/**/*",
-    "../../../libs/robust/i18n/**/*",
-    "../../../libs/robust/constants/**/*",
-    "../../../libs/robust/features/**/*",
-    "../../../libs/typescript/constants/**/*",
-
-    "../../../libs/vite/ssg/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
-    "../../../libs/vue/router/configs/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "../../../libs/vue/components-website/**/*",
-    "../../../libs/vue/layouts/**/*",
-    "../../../libs/vue/unhead/composables/**/*",
-    "../../../libs/vue/composables/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../../libs/applications/components"
     },
     {
-      "path": "../../../libs/applications/composables"
-    },
-    {
       "path": "../../../libs/applications/constants"
     },
     {
-      "path": "../../../libs/css/core"
-    },
-
-    {
-      "path": "../../../libs/kiro/components"
-    },
-    {
       "path": "../../../libs/odd/composables"
-    },
-    {
-      "path": "../../../libs/robust/i18n"
     },
     {
       "path": "../../../libs/robust/constants"
@@ -54,20 +18,13 @@
       "path": "../../../libs/robust/features"
     },
     {
+      "path": "../../../libs/robust/i18n"
+    },
+    {
       "path": "../../../libs/typescript/constants"
     },
-
     {
       "path": "../../../libs/vite/ssg"
-    },
-    {
-      "path": "../../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../../libs/vue/i18n/configs"
-    },
-    {
-      "path": "../../../libs/vue/router/configs"
     },
     {
       "path": "../../../libs/vue/components-core"
@@ -76,44 +33,28 @@
       "path": "../../../libs/vue/components-website"
     },
     {
+      "path": "../../../libs/vue/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/configs"
+    },
+    {
       "path": "../../../libs/vue/layouts"
     },
     {
-      "path": "../../../libs/vue/unhead/composables"
+      "path": "../../../libs/vue/router/configs"
     },
     {
-      "path": "../../../libs/vue/composables"
+      "path": "../../../libs/vue/unhead/composables"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/robust/website",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
-      "@lychen/applications-components/*": ["../../../libs/applications/components/*"],
-      "@lychen/applications-composables/*": ["../../../libs/applications/composables/*"],
-      "@lychen/odd-composables/*": ["../../../libs/odd/composables/*"],
-      "@lychen/tailwind-configs/*": ["../../../libs/tailwind/configs/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-
-      "@lychen/vite-ssg/*": ["../../../libs/vite/ssg/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/vue-i18n-configs/*": ["../../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-router-configs/*": ["../../../libs/vue/router/configs/*"],
-      "@lychen/vue-unhead-composables/*": ["../../../libs/vue/unhead/composables/*"],
-      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
-      "@lychen/typescript-constants/*": ["../../../libs/typescript/constants/*"],
-      "@lychen/applications-constants/*": ["../../../libs/applications/constants/*"],
-      "@lychen/robust-constants/*": ["../../../libs/robust/constants/*"],
-      "@lychen/robust-features/*": ["../../../libs/robust/features/*"],
-      "@lychen/robust-i18n": ["../../../libs/robust/i18n/index.ts"],
-      "@lychen/robust-i18n/*": ["../../../libs/robust/i18n/*"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
-      "@lychen/vue-components-website/*": ["../../../libs/vue/components-website/*"],
-      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

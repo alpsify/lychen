@@ -1,12 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "**/*",
-    "../../applications/generic-composables/**/*",
-    "../../applications/model/**/*",
-    "../../typescript/object/**/*",
-    "../constants/**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../applications/generic-composables"
@@ -22,14 +16,6 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/humu/features",
-    "paths": {
-      "@lychen/applications-model/*": ["../../applications/model/*"],
-      "@lychen/typescript-object/*": ["../../typescript/object/*"],
-      "@lychen/tera-constants/*": ["../constants/*"],
-      "@lychen/applications-generic-composables/*": ["../../applications/generic-composables/*"],
-      "@lychen/kiro-constants/*": ["../constants/*"],
-      "@lychen/humu-constants/*": ["../constants/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/humu/features"
   }
 }

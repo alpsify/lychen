@@ -1,48 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../../libs/applications/components/**/*",
-    "../../../libs/applications/composables/**/*",
-    "../../../libs/applications/constants/**/*",
-    "../../../libs/css/core/**/*",
-
-    "../../../libs/kiro/components/**/*",
-    "../../../libs/kolo/i18n/**/*",
-    "../../../libs/kolo/constants/**/*",
-    "../../../libs/kolo/features/**/*",
-    "../../../libs/odd/composables/**/*",
-    "../../../libs/typescript/constants/**/*",
-
-    "../../../libs/vite/ssg/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
-    "../../../libs/vue/router/configs/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "../../../libs/vue/components-website/**/*",
-    "../../../libs/vue/layouts/**/*",
-    "../../../libs/vue/unhead/composables/**/*",
-    "../../../libs/vue/composables/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../../libs/applications/components"
     },
     {
-      "path": "../../../libs/applications/composables"
-    },
-    {
       "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/css/core"
-    },
-
-    {
-      "path": "../../../libs/kiro/components"
-    },
-    {
-      "path": "../../../libs/kolo/i18n"
     },
     {
       "path": "../../../libs/kolo/constants"
@@ -51,23 +15,16 @@
       "path": "../../../libs/kolo/features"
     },
     {
+      "path": "../../../libs/kolo/i18n"
+    },
+    {
       "path": "../../../libs/odd/composables"
     },
     {
       "path": "../../../libs/typescript/constants"
     },
-
     {
       "path": "../../../libs/vite/ssg"
-    },
-    {
-      "path": "../../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../../libs/vue/i18n/configs"
-    },
-    {
-      "path": "../../../libs/vue/router/configs"
     },
     {
       "path": "../../../libs/vue/components-core"
@@ -76,44 +33,28 @@
       "path": "../../../libs/vue/components-website"
     },
     {
+      "path": "../../../libs/vue/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/configs"
+    },
+    {
       "path": "../../../libs/vue/layouts"
     },
     {
-      "path": "../../../libs/vue/unhead/composables"
+      "path": "../../../libs/vue/router/configs"
     },
     {
-      "path": "../../../libs/vue/composables"
+      "path": "../../../libs/vue/unhead/composables"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/kolo/website",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
-      "@lychen/applications-components/*": ["../../../libs/applications/components/*"],
-      "@lychen/applications-composables/*": ["../../../libs/applications/composables/*"],
-      "@lychen/odd-composables/*": ["../../../libs/odd/composables/*"],
-      "@lychen/tailwind-configs/*": ["../../../libs/tailwind/configs/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-
-      "@lychen/vite-ssg/*": ["../../../libs/vite/ssg/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/vue-i18n-configs/*": ["../../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-router-configs/*": ["../../../libs/vue/router/configs/*"],
-      "@lychen/vue-unhead-composables/*": ["../../../libs/vue/unhead/composables/*"],
-      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
-      "@lychen/typescript-constants/*": ["../../../libs/typescript/constants/*"],
-      "@lychen/applications-constants/*": ["../../../libs/applications/constants/*"],
-      "@lychen/kolo-constants/*": ["../../../libs/kolo/constants/*"],
-      "@lychen/kolo-features/*": ["../../../libs/kolo/features/*"],
-      "@lychen/kolo-i18n": ["../../../libs/kolo/i18n/index.ts"],
-      "@lychen/kolo-i18n/*": ["../../../libs/kolo/i18n/*"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
-      "@lychen/vue-components-website/*": ["../../../libs/vue/components-website/*"],
-      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

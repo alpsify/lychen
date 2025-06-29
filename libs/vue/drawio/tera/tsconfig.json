@@ -1,15 +1,12 @@
 {
   "extends": "../../../../tsconfig.options.json",
-  "include": ["../components/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../components"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../../.moon/cache/types/libs/vue/drawio/tera",
-    "paths": {
-      "@lychen/vue-drawio-components/*": ["../components/*"]
-    }
+    "outDir": "../../../../.moon/cache/types/libs/vue/drawio/tera"
   }
 }

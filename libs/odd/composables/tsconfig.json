@@ -1,6 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../../vue/i18n/composables/**/*", "../i18n/**/*", "../model/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../vue/i18n/composables"
@@ -13,12 +13,6 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/odd/composables",
-    "paths": {
-      "@lychen/odd-model/*": ["../model/*"],
-      "@lychen/odd-i18n": ["../i18n/index.ts"],
-      "@lychen/odd-i18n/*": ["../i18n/*"],
-      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/odd/composables"
   }
 }

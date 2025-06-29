@@ -2,6 +2,7 @@ dependsOn:
   - typescript-fontawesome
   - typescript-object
   - typescript-tailwind
+  - vue-icons
 
 id: vue-components-core
 

@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*"],
+  "references": [
+    {
+      "path": "../app"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/projects/tera/tests-e2e"
+  }
+}

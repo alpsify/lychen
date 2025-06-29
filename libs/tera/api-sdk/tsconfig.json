@@ -3,7 +3,6 @@
   "include": ["**/*"],
   "references": [],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/tera/api-sdk",
-    "paths": {}
+    "outDir": "../../../.moon/cache/types/libs/tera/api-sdk"
   }
 }

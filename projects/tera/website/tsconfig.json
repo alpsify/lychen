@@ -1,51 +1,15 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../../libs/applications/components/**/*",
-    "../../../libs/applications/composables/**/*",
-    "../../../libs/applications/constants/**/*",
-    "../../../libs/css/core/**/*",
-    "../../../libs/kiro/components/**/*",
-    "../../../libs/odd/composables/**/*",
-    "../../../libs/tera/i18n/**/*",
-    "../../../libs/tera/constants/**/*",
-    "../../../libs/tera/features/**/*",
-    "../../../libs/typescript/constants/**/*",
-
-    "../../../libs/vite/ssg/**/*",
-    "../../../libs/vue/drawio/tera/**/*",
-    "../../../libs/vue/drawio/components/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
-    "../../../libs/vue/router/configs/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "../../../libs/vue/components-website/**/*",
-    "../../../libs/vue/layouts/**/*",
-    "../../../libs/vue/unhead/composables/**/*",
-    "../../../libs/vue/composables/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../../libs/applications/components"
     },
     {
-      "path": "../../../libs/applications/composables"
-    },
-    {
       "path": "../../../libs/applications/constants"
     },
     {
-      "path": "../../../libs/css/core"
-    },
-    {
-      "path": "../../../libs/kiro/components"
-    },
-    {
       "path": "../../../libs/odd/composables"
-    },
-    {
-      "path": "../../../libs/tera/i18n"
     },
     {
       "path": "../../../libs/tera/constants"
@@ -54,26 +18,13 @@
       "path": "../../../libs/tera/features"
     },
     {
+      "path": "../../../libs/tera/i18n"
+    },
+    {
       "path": "../../../libs/typescript/constants"
     },
-
     {
       "path": "../../../libs/vite/ssg"
-    },
-    {
-      "path": "../../../libs/vue/drawio/tera"
-    },
-    {
-      "path": "../../../libs/vue/drawio/components"
-    },
-    {
-      "path": "../../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../../libs/vue/i18n/configs"
-    },
-    {
-      "path": "../../../libs/vue/router/configs"
     },
     {
       "path": "../../../libs/vue/components-core"
@@ -82,46 +33,34 @@
       "path": "../../../libs/vue/components-website"
     },
     {
+      "path": "../../../libs/vue/composables"
+    },
+    {
+      "path": "../../../libs/vue/drawio/components"
+    },
+    {
+      "path": "../../../libs/vue/drawio/tera"
+    },
+    {
+      "path": "../../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/configs"
+    },
+    {
       "path": "../../../libs/vue/layouts"
     },
     {
-      "path": "../../../libs/vue/unhead/composables"
+      "path": "../../../libs/vue/router/configs"
     },
     {
-      "path": "../../../libs/vue/composables"
+      "path": "../../../libs/vue/unhead/composables"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/tera/website",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
-      "@lychen/applications-components/*": ["../../../libs/applications/components/*"],
-      "@lychen/applications-composables/*": ["../../../libs/applications/composables/*"],
-      "@lychen/odd-composables/*": ["../../../libs/odd/composables/*"],
-      "@lychen/tailwind-configs/*": ["../../../libs/tailwind/configs/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-
-      "@lychen/vite-ssg/*": ["../../../libs/vite/ssg/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/vue-i18n-configs/*": ["../../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-router-configs/*": ["../../../libs/vue/router/configs/*"],
-      "@lychen/vue-unhead-composables/*": ["../../../libs/vue/unhead/composables/*"],
-      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
-      "@lychen/typescript-constants/*": ["../../../libs/typescript/constants/*"],
-      "@lychen/applications-constants/*": ["../../../libs/applications/constants/*"],
-      "@lychen/tera-constants/*": ["../../../libs/tera/constants/*"],
-      "@lychen/tera-features/*": ["../../../libs/tera/features/*"],
-      "@lychen/tera-i18n/*": ["../../../libs/tera/i18n/*"],
-      "@lychen/vue-drawio-components/*": ["../../../libs/vue/drawio/components/*"],
-      "@lychen/tera-i18n": ["../../../libs/tera/i18n/index.ts"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
-      "@lychen/vue-components-website/*": ["../../../libs/vue/components-website/*"],
-      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"],
-      "@lychen/vue-drawio-tera/*": ["../../../libs/vue/drawio/tera/*"]
+      "@/*": ["./src/*"]
     }
   }
 }
