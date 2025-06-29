@@ -16,6 +16,7 @@
     "../../../libs/vue/composables/**/*",
     "../../../libs/vue/i18n/composables/**/*",
     "../../../libs/vue/i18n/configs/**/*",
+    "../../../libs/vue/icons/**/*",
     "../../../libs/vue/layouts/**/*",
     "**/*"
   ],
@@ -66,6 +67,9 @@
       "path": "../../../libs/vue/i18n/configs"
     },
     {
+      "path": "../../../libs/vue/icons"
+    },
+    {
       "path": "../../../libs/vue/layouts"
     }
   ],
@@ -93,7 +97,8 @@
       "@lychen/tera-events/*": ["../../../libs/tera/events/*"],
       "@lychen/tera-constants/*": ["../../../libs/tera/constants/*"],
       "@lychen/tera-composables/*": ["../../../libs/tera/composables/*"],
-      "@lychen/vue-color-scheme/*": ["../../../libs/vue/color-scheme/*"]
+      "@lychen/vue-color-scheme/*": ["../../../libs/vue/color-scheme/*"],
+      "@lychen/vue-icons/*": ["../../../libs/vue/icons/*"]
     }
   }
 }

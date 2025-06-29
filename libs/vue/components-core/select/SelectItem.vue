@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import { cn } from '@lychen/typescript-tailwind/Cn';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 import {
   SelectItem,
   SelectItemIndicator,
@@ -9,7 +9,6 @@ import {
   useForwardProps,
 } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { Icon } from '../icon';
 
 const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>();
 
@@ -35,11 +34,7 @@ const forwardedProps = useForwardProps(delegatedProps);
   >
     <span class="absolute right-2 flex size-3.5 items-center justify-center">
       <SelectItemIndicator>
-        <Check class="size-4" />
-        <Icon
-          :icon="faCheck"
-          class="size-4"
-        />
+        <IconCheck class="size-4" />
       </SelectItemIndicator>
     </span>
 

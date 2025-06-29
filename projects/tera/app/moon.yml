@@ -14,6 +14,7 @@ dependsOn:
   - vue-composables
   - vue-i18n-composables
   - vue-i18n-configs
+  - vue-icons
   - vue-layouts
 
 env:

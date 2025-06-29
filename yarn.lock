@@ -2884,6 +2884,7 @@ __metadata:
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
     "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@tanstack/vue-query": "npm:^5.66.11"

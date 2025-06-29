@@ -23,17 +23,24 @@
             <DialogTeraLandCreate v-model:open="open">
               <Button
                 :label="t('add_land')"
-                :icon="faPlus"
                 size="sm"
-            /></DialogTeraLandCreate>
+              >
+                <template #icon>
+                  <IconPlus />
+                </template>
+              </Button>
+            </DialogTeraLandCreate>
           </div>
           <div>
             <RouterLink :to="RoutePageCoGardening">
               <Button
-                :icon="faSearch"
                 :label="t('search_land')"
                 size="sm"
-              />
+              >
+                <template #icon>
+                  <IconSearch />
+                </template>
+              </Button>
             </RouterLink>
           </div>
         </div>
@@ -86,7 +93,6 @@ import CardTeraLand from '@lychen/tera-components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@pages/land/dashboard';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useQuery } from '@tanstack/vue-query';
-import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
@@ -104,8 +110,9 @@ import {
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-events/LandMemberInvitationEvents';
 import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-api-sdk/generated/tera-api';
-import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
+import IconSearch from '@lychen/vue-icons/IconSearch.vue';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
