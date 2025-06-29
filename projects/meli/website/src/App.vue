@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePreferredColorScheme } from '@lychen/vue-composables/usePreferredColorScheme';
+import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { TRANSLATION_KEY, messages } from '@lychen/meli-i18n';

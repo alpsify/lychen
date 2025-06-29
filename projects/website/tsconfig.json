@@ -21,6 +21,9 @@
       "path": "../../libs/vite/ssg"
     },
     {
+      "path": "../../libs/vue/color-scheme"
+    },
+    {
       "path": "../../libs/vue/components-core"
     },
     {
@@ -28,9 +31,6 @@
     },
     {
       "path": "../../libs/vue/components-website"
-    },
-    {
-      "path": "../../libs/vue/composables"
     },
     {
       "path": "../../libs/vue/drawio/components"

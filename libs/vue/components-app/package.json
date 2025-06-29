@@ -6,7 +6,6 @@
     "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-extra": "workspace:*",
-    "@lychen/vue-composables": "workspace:*",
     "@vueuse/core": "^13.0.0",
     "class-variance-authority": "^0.7.1",
     "reka-ui": "^2.3.1",

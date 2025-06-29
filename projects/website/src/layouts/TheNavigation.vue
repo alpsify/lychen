@@ -129,7 +129,7 @@
 
     <div class="flex flex-row items-center gap-4">
       <LanguageSwitcher />
-      <ThemeSwitcher />
+      <ToggleColorScheme />
       <a
         :href="SOCIAL_LINK.GitHub"
         target="_blank"
@@ -173,16 +173,14 @@ import LogoLychenFull from '@lychen/vue-components-extra/logo-lychen/LogoLychenF
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
+import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+
 const LanguageSwitcher = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
 );
 
 const NavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuSubLink.vue'),
-);
-
-const ThemeSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));

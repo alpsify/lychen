@@ -9,9 +9,9 @@ dependsOn:
   - typescript-constants
 
   - vite-ssg
+  - vue-color-scheme
   - vue-components-core
   - vue-components-website
-  - vue-composables
   - vue-i18n
   - vue-i18n
   - vue-layouts

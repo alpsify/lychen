@@ -1,7 +1,7 @@
 dependsOn:
   - typescript-utils
+  - vue-color-scheme
   - vue-components-extra
-  - vue-composables
   - vue-i18n
   - vue-icons
 

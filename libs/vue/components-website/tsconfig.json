@@ -6,18 +6,17 @@
       "path": "../../typescript/utils"
     },
     {
+      "path": "../color-scheme"
+    },
+    {
       "path": "../components-core"
     },
     {
       "path": "../components-extra"
     },
     {
-      "path": "../composables"
-    },
-    {
       "path": "../i18n"
     },
-
     {
       "path": "../icons"
     }

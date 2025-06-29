@@ -35,7 +35,7 @@
     <LayoutInAppContent />
     <LayoutInAppHeader>
       <div class="flex flex-row justify-end gap-4 w-full p-4">
-        <ThemeSwitcher />
+        <ToggleColorScheme />
         <LanguageSwitcher />
       </div>
     </LayoutInAppHeader>
@@ -49,7 +49,7 @@ import { RoutePageColors } from '@/pages/colors';
 import { RoutePagePersonas } from '@/pages/personas';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { RoutePageHome } from '@/pages/home';
-import ThemeSwitcher from '@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue';
+import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
 import LanguageSwitcher from '@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue';
 import { computed } from 'vue';
 import LayoutInAppRoot from './in-app/LayoutInAppRoot.vue';

@@ -8,10 +8,10 @@ dependsOn:
   - tera-i18n
   - typescript-zitadel
   - vue-color-scheme
+  - vue-color-scheme
   - vue-components-app
   - vue-components-core
   - vue-components-extra
-  - vue-composables
   - vue-i18n
   - vue-i18n
   - vue-icons
