@@ -4,8 +4,8 @@ tasks:
   assets-sync:
     command: noop
     deps:
-      - sync-fonts
-      - sync-logos
+      - args: '$projectRoot/public/fonts'
+        target: assets-fonts:create-symlink-on-content
 
   build:
     command: yarn build
@@ -36,21 +36,3 @@ tasks:
     env:
       VITE_UNHEAD_HOST: ${STAGING_DOMAIN}
     extends: build
-
-  sync-fonts:
-    command: ln -sfn $workspaceRoot/libs/assets/fonts $projectRoot/public/fonts
-    deps:
-      - assets:affected
-    inputs:
-      - '/libs/assets/fonts/**/*'
-    options:
-      cache: false
-
-  sync-logos:
-    command: ln -sfn $workspaceRoot/libs/assets/logos $projectRoot/public/logos
-    deps:
-      - assets:affected
-    inputs:
-      - '/libs/assets/logos/**/*'
-    options:
-      cache: false

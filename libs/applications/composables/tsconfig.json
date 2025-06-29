@@ -51,13 +51,10 @@
       "path": "../../tera/i18n"
     },
     {
-      "path": "../../vara/features"
-    },
-    {
-      "path": "../../vara/i18n"
-    },
-    {
       "path": "../../vue/i18n"
+    },
+    {
+      "path": "../../vue/vara"
     },
     {
       "path": "../constants"

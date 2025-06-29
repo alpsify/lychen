@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/vara-i18n",
-  "dependencies": {
-    "@lychen/vara-constants": "workspace:*"
-  }
-}

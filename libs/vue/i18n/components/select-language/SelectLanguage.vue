@@ -28,12 +28,12 @@ const availableLocales = [
     <PopoverContent
       class="w-auto"
       side="top"
-      :side-offset="30"
+      :side-offset="20"
     >
       <div
         v-for="(localeItem, index) in availableLocales"
         :key="index"
-        class="p-2 cursor-pointer hover:bg-gray-100"
+        class="p-2 cursor-pointer hover:bg-surface-container-high rounded-xl px-4"
         @click="locale = localeItem.code"
       >
         {{ localeItem.name }}

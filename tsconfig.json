@@ -80,15 +80,6 @@
       "path": "libs/novi/i18n"
     },
     {
-      "path": "libs/odd/composables"
-    },
-    {
-      "path": "libs/odd/i18n"
-    },
-    {
-      "path": "libs/odd/model"
-    },
-    {
       "path": "libs/robust/constants"
     },
     {
@@ -126,15 +117,6 @@
     },
     {
       "path": "libs/typescript/zitadel"
-    },
-    {
-      "path": "libs/vara/constants"
-    },
-    {
-      "path": "libs/vara/features"
-    },
-    {
-      "path": "libs/vara/i18n"
     },
     {
       "path": "libs/vite/ssg"
@@ -176,10 +158,16 @@
       "path": "libs/vue/router/configs"
     },
     {
+      "path": "libs/vue/sustainable-development-goals"
+    },
+    {
       "path": "libs/vue/tiptap"
     },
     {
       "path": "libs/vue/unhead/composables"
+    },
+    {
+      "path": "libs/vue/vara"
     },
     {
       "path": "projects/design"

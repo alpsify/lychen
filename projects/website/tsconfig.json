@@ -12,9 +12,6 @@
       "path": "../../libs/applications/constants"
     },
     {
-      "path": "../../libs/odd/composables"
-    },
-    {
       "path": "../../libs/typescript/constants"
     },
     {
@@ -46,6 +43,9 @@
     },
     {
       "path": "../../libs/vue/router/configs"
+    },
+    {
+      "path": "../../libs/vue/sustainable-development-goals"
     },
     {
       "path": "../../libs/vue/unhead/composables"

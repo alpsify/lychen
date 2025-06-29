@@ -8,20 +8,9 @@
     {
       "path": "../../../libs/applications/constants"
     },
-    {
-      "path": "../../../libs/odd/composables"
-    },
+
     {
       "path": "../../../libs/typescript/constants"
-    },
-    {
-      "path": "../../../libs/vara/constants"
-    },
-    {
-      "path": "../../../libs/vara/features"
-    },
-    {
-      "path": "../../../libs/vara/i18n"
     },
     {
       "path": "../../../libs/vite/ssg"
@@ -46,6 +35,9 @@
     },
     {
       "path": "../../../libs/vue/unhead/composables"
+    },
+    {
+      "path": "../../../libs/vue/vara"
     }
   ],
   "compilerOptions": {

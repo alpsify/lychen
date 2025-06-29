@@ -1,0 +1,14 @@
+id: assets-sustainable-development-goals
+
+language: assets
+
+tasks:
+  sync-icons:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/icons
+    inputs:
+      - '$projectRoot/icons/'
+
+type: library

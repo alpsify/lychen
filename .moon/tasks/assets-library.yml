@@ -1,0 +1,32 @@
+tasks:
+  create-symlink-on-content:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/content/
+    options:
+      cache: false
+      
+  create-symlink-on-covers:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/content/covers
+    options:
+      cache: false
+
+  create-symlink-on-icons:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/content/icons
+    options:
+      cache: false
+  
+  create-symlink-on-logos:
+    command:
+      - ln
+      - -sfn
+      - $projectRoot/content/logos
+    options:
+      cache: false

@@ -8,9 +8,7 @@
     {
       "path": "../../../libs/applications/constants"
     },
-    {
-      "path": "../../../libs/odd/composables"
-    },
+
     {
       "path": "../../../libs/robust/constants"
     },

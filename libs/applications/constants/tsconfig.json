@@ -27,7 +27,7 @@
       "path": "../../tera/constants"
     },
     {
-      "path": "../../vara/constants"
+      "path": "../../vue/vara"
     }
   ],
   "compilerOptions": {

@@ -20,7 +20,7 @@
         <div class="relative">
           <img
             v-if="selectedGoal"
-            :src="`odd-icons/${selectedGoal.icon}`"
+            :src="`sustainable-development-goals/icons/${selectedGoal.icon}`"
             class="rounded-2xl h-14 md:h-24 absolute odd-icon z-10"
             :alt="`Icône de l'objectif de développement durable n° ${selectedGoal.index}`"
           />
@@ -41,7 +41,7 @@ import Goal2Url from './assets/goal-2.webp';
 import Goal12Url from './assets/goal-12.webp';
 import Goal11Url from './assets/goal-11.webp';
 import { computed, defineAsyncComponent, ref } from 'vue';
-import { useOddCatalog } from '@lychen/odd-composables/useOddCatalog';
+import { useSustainableDevelopmentGoals } from '@lychen/vue-sustainable-development-goals/composables/useSustainableDevelopmentGoals';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
@@ -57,7 +57,7 @@ const Container = defineAsyncComponent(
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
-const { two, eleven, twelve } = useOddCatalog();
+const { two, eleven, twelve } = useSustainableDevelopmentGoals();
 
 const goals = computed(() => [eleven.value, two.value, twelve.value]);
 const selectedGoal = ref(eleven.value);

@@ -3,8 +3,6 @@ dependsOn:
   - applications-composables
   - applications-constants
   - css-core
-  - odd-assets
-  - odd-composables
   - typescript-constants
   - vite-ssg
   - vue-color-scheme
@@ -16,6 +14,7 @@ dependsOn:
   - vue-i18n
   - vue-layouts
   - vue-router-configs
+  - vue-sustainable-development-goals
   - vue-unhead-composables
 
 env:
@@ -45,9 +44,25 @@ tags:
 tasks:
   assets-sync:
     deps:
-      - args: '$projectRoot/public/odd-icons'
-        target: odd-assets:sync-icons
-      - args: '$projectRoot/public/applications-covers'
-        target: applications-assets:sync-covers
+      - args: '$projectRoot/public/vara/covers'
+        target: assets-vara:create-symlink-on-covers
+      - args: '$projectRoot/public/tera/covers'
+        target: assets-tera:create-symlink-on-covers
+      - args: '$projectRoot/public/humu/covers'
+        target: assets-humu:create-symlink-on-covers
+      - args: '$projectRoot/public/myko/covers'
+        target: assets-myko:create-symlink-on-covers
+      - args: '$projectRoot/public/kiro/covers'
+        target: assets-kiro:create-symlink-on-covers
+      - args: '$projectRoot/public/kolo/covers'
+        target: assets-kolo:create-symlink-on-covers
+      - args: '$projectRoot/public/novi/covers'
+        target: assets-novi:create-symlink-on-covers
+      - args: '$projectRoot/public/robust/covers'
+        target: assets-robust:create-symlink-on-covers
+      - args: '$projectRoot/public/meli/covers'
+        target: assets-meli:create-symlink-on-covers
+      - args: '$projectRoot/public/sustainable-development-goals'
+        target: assets-sustainable-development-goals:create-symlink-on-content
 
 type: application

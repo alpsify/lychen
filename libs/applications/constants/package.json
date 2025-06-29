@@ -9,6 +9,6 @@
     "@lychen/novi-constants": "workspace:*",
     "@lychen/robust-constants": "workspace:*",
     "@lychen/tera-constants": "workspace:*",
-    "@lychen/vara-constants": "workspace:*"
+    "@lychen/vue-vara": "workspace:*"
   }
 }

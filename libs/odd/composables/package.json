@@ -1,8 +1,0 @@
-{
-  "name": "@lychen/odd-composables",
-  "dependencies": {
-    "@lychen/odd-i18n": "workspace:*",
-    "@lychen/odd-model": "workspace:*",
-    "@lychen/vue-i18n": "workspace:*"
-  }
-}

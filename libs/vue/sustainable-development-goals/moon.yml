@@ -1,0 +1,8 @@
+dependsOn:
+  - vue-i18n
+
+id: vue-sustainable-development-goals
+
+language: typescript
+
+type: library
