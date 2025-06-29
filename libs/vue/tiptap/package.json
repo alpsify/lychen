@@ -1,7 +1,6 @@
 {
-  "name": "@lychen/vue-tiptap-components",
+  "name": "@lychen/vue-tiptap",
   "dependencies": {
-    "@lychen/vue-tiptap-composables": "workspace:*",
     "@tiptap/core": "^2.11.5",
     "@tiptap/extension-bold": "^2.11.5",
     "@tiptap/extension-bullet-list": "^2.11.5",

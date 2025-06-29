@@ -194,6 +194,9 @@
       "path": "libs/vue/router/configs"
     },
     {
+      "path": "libs/vue/tiptap"
+    },
+    {
       "path": "libs/vue/tiptap/components"
     },
     {
