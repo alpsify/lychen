@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/vara-features",
-  "dependencies": {
-    "@lychen/applications-generic-composables": "workspace:*",
-    "@lychen/applications-model": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*",
-    "@lychen/vara-constants": "workspace:*"
-  }
-}
