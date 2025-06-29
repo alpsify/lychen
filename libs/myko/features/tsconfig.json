@@ -8,9 +8,7 @@
     {
       "path": "../../applications/model"
     },
-    {
-      "path": "../../typescript/object"
-    },
+
     {
       "path": "../../typescript/utils"
     },
