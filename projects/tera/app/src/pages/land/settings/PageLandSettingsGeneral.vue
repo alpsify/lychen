@@ -54,7 +54,7 @@ import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import { SectionSetting } from '@lychen/vue-components-app/section-setting';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import DialogTeraLandDelete from '@lychen/tera-components/land/dialogs/delete/DialogTeraLandDelete.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { inject } from 'vue';

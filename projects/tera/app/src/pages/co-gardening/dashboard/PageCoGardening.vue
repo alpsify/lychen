@@ -42,7 +42,7 @@ import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import BannerTeraShareYourLand from '@/components/banners/BannerTeraShareYourLand.vue';
 import { RoutePageCoGardeningProposals } from '../proposals';

@@ -6,7 +6,7 @@ dependsOn:
   - tera-i18n
   - typescript-utils
   - vue-components-core
-  - vue-i18n-composables
+  - vue-i18n
 
 id: tera-components
 language: typescript

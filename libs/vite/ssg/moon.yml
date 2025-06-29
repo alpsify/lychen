@@ -1,5 +1,5 @@
 dependsOn:
-  - vue-i18n-configs
+  - vue-i18n
   - vue-router-configs
 
 id: vite-ssg

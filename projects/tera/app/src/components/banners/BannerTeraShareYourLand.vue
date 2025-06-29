@@ -31,7 +31,7 @@ import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';

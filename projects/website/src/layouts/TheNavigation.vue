@@ -161,7 +161,7 @@ import { useApplicationsCatalog } from '@lychen/applications-composables/useAppl
 import { RoutePagePrice } from '@/pages/price';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
 import { useCommunityMenu } from './composables/useCommunityMenu';

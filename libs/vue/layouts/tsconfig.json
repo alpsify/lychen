@@ -21,8 +21,9 @@
       "path": "../components-website"
     },
     {
-      "path": "../i18n/composables"
+      "path": "../i18n"
     },
+
     {
       "path": "../icons"
     }

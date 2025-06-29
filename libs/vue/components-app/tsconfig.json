@@ -16,9 +16,6 @@
     },
     {
       "path": "../composables"
-    },
-    {
-      "path": "../i18n/composables"
     }
   ],
   "compilerOptions": {

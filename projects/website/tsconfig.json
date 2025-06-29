@@ -39,10 +39,7 @@
       "path": "../../libs/vue/drawio/core"
     },
     {
-      "path": "../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../libs/vue/i18n/configs"
+      "path": "../../libs/vue/i18n"
     },
     {
       "path": "../../libs/vue/layouts"

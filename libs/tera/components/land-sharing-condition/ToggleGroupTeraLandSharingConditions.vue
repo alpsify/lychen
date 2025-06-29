@@ -48,7 +48,7 @@ import {
 import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-components/icons/IconLandSharingCondition';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-proposal';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const model = defineModel<LandSharingCondition[]>({ default: [] });
 

@@ -5,7 +5,7 @@ dependsOn:
   - vue-components-core
   - vue-components-extra
   - vue-components-website
-  - vue-i18n-composables
+  - vue-i18n
   - vue-icons
 
 id: vue-layouts

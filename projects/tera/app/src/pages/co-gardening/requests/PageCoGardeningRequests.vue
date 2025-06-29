@@ -34,7 +34,7 @@ import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import CardTeraLandRequest from '@lychen/tera-components/land-request/card/CardTeraLandRequest.vue';
 import DialogTeraLandRequestView from '@lychen/tera-components/land-request/dialogs/view/DialogTeraLandRequestView.vue';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 
 const { t } = useI18nExtended({

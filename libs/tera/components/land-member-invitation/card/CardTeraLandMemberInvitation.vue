@@ -79,7 +79,7 @@ import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import { defineAsyncComponent } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { TRANSLATION_KEY, messages } from './i18n';
 import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,

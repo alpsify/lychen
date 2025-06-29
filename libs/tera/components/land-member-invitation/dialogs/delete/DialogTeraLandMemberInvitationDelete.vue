@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import {
   messages as landMemberInvitationMessages,
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,

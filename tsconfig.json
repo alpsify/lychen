@@ -122,15 +122,6 @@
       "path": "libs/typescript/constants"
     },
     {
-      "path": "libs/typescript/core"
-    },
-    {
-      "path": "libs/typescript/object"
-    },
-    {
-      "path": "libs/typescript/tailwind"
-    },
-    {
       "path": "libs/typescript/utils"
     },
     {
@@ -176,13 +167,7 @@
       "path": "libs/vue/drawio/tera"
     },
     {
-      "path": "libs/vue/i18n/composables"
-    },
-    {
-      "path": "libs/vue/i18n/configs"
-    },
-    {
-      "path": "libs/vue/i18n/helpers"
+      "path": "libs/vue/i18n"
     },
     {
       "path": "libs/vue/icons"
@@ -195,12 +180,6 @@
     },
     {
       "path": "libs/vue/tiptap"
-    },
-    {
-      "path": "libs/vue/tiptap/components"
-    },
-    {
-      "path": "libs/vue/tiptap/composables"
     },
     {
       "path": "libs/vue/unhead/composables"
@@ -237,9 +216,6 @@
     },
     {
       "path": "projects/tera/app"
-    },
-    {
-      "path": "projects/tera/tests-app"
     },
     {
       "path": "projects/tera/tests-e2e"

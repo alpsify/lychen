@@ -78,7 +78,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent, onBeforeUnmount, ref, watch } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
 import ApplicationCard from '@lychen/applications-components/ApplicationCard.vue';
 import ApplicationTitle from '@lychen/applications-components/ApplicationTitle.vue';

@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { ref, onMounted, defineAsyncComponent } from 'vue';
 import type { Component } from 'vue';
 

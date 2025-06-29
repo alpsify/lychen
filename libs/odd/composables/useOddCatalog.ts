@@ -1,7 +1,7 @@
 import { messages, TRANSLATION_KEY } from '@lychen/odd-i18n';
 import { type Odd } from '@lychen/odd-model/Odd';
 import { type Ref, ref } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 export function useOddCatalog() {
   const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

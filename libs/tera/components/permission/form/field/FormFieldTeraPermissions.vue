@@ -108,7 +108,7 @@ import {
   TagsInput,
   TagsInputInput,
 } from '@lychen/vue-components-core/tags-input';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/permission';
 import {
   messages as landRoleMessages,

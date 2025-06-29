@@ -12,7 +12,7 @@
 import { defineAsyncComponent } from 'vue';
 import { type OrganizedFeaturesByGroup } from '@lychen/applications-model/OrganizedFeaturesByGroup';
 import { TRANSLATION_KEY, messages } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const ApplicationsGridFeatures = defineAsyncComponent(
   () => import('@lychen/applications-components/grids/ApplicationsGridFeatures.vue'),

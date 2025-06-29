@@ -71,7 +71,7 @@ import {
   messages as landMessages,
   TRANSLATION_KEY as LAND_TRANSLATION_KEY,
 } from '@lychen/tera-i18n/land';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
 import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';

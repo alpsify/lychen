@@ -171,7 +171,7 @@ import NathanDePachtereImage from './assets/NathanDePachtere.webp';
 import JenniferGeoffroyImage from './assets/JenniferGeoffroy.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-constants/Link';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';

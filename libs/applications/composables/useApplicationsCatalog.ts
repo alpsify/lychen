@@ -36,7 +36,7 @@ import {
 } from '@lychen/robust-i18n';
 import { type Application, type ApplicationAlias } from '@lychen/applications-model/Application';
 import { computed } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { APPLICATION_STATE } from '@lychen/applications-constants/ApplicationState';
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 

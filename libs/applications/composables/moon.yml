@@ -22,7 +22,7 @@ dependsOn:
   - tera-i18n
   - vara-features
   - vara-i18n
-  - vue-i18n-composables
+  - vue-i18n
 
 id: applications-composables
 

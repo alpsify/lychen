@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/vue-i18n",
+  "dependencies": {
+    "@intlify/core-base": "^11.1.7",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.7"
+  }
+}

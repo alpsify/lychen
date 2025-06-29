@@ -1,6 +1,6 @@
 import { ViteSSG } from 'vite-ssg';
 
-import { useI18n } from '@lychen/vue-i18n-configs/useI18n';
+import { useI18n } from '@lychen/vue-i18n/configs/useI18n';
 import { buildConfigObject } from '@lychen/vue-router-configs/DefaultConfig';
 import { type Component } from 'vue';
 import { type RouteRecordRaw } from 'vue-router';

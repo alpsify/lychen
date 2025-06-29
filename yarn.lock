@@ -1924,57 +1924,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:11.1.2":
-  version: 11.1.2
-  resolution: "@intlify/core-base@npm:11.1.2"
+"@intlify/core-base@npm:11.1.7, @intlify/core-base@npm:^11.1.7":
+  version: 11.1.7
+  resolution: "@intlify/core-base@npm:11.1.7"
   dependencies:
-    "@intlify/message-compiler": "npm:11.1.2"
-    "@intlify/shared": "npm:11.1.2"
-  checksum: 10c0/c067cfecd9e6791ac680cc3a4f15d6a00360118e44bfe8d368a5dd08fec468950b1bff2954df1df1a5134bdef6704f2c6020e61df672ddfe30492e5405d42bb4
+    "@intlify/message-compiler": "npm:11.1.7"
+    "@intlify/shared": "npm:11.1.7"
+  checksum: 10c0/72d663436eb33a5df33708c0f2176356cb8fd8839e442a6d88ae55fb759b277899494710de7f9d6a8c270b2e11015cbf1f67cdb71c86735cc2d1b9aa631b3717
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:^10.0.4":
-  version: 10.0.6
-  resolution: "@intlify/core-base@npm:10.0.6"
+"@intlify/message-compiler@npm:11.1.7":
+  version: 11.1.7
+  resolution: "@intlify/message-compiler@npm:11.1.7"
   dependencies:
-    "@intlify/message-compiler": "npm:10.0.6"
-    "@intlify/shared": "npm:10.0.6"
-  checksum: 10c0/84af28b63bf658876802812f8df2325112fb165803fe43e45f88d91a842d7237085af21d0929fe4bfafc5fdb7b36a2676a82a273c6c03075779f7140de3ebf29
-  languageName: node
-  linkType: hard
-
-"@intlify/message-compiler@npm:10.0.6":
-  version: 10.0.6
-  resolution: "@intlify/message-compiler@npm:10.0.6"
-  dependencies:
-    "@intlify/shared": "npm:10.0.6"
+    "@intlify/shared": "npm:11.1.7"
     source-map-js: "npm:^1.0.2"
-  checksum: 10c0/58e73233b6b9362559119e1cd72bf9e7efc522cc1dd02a8944c876527d98ab21ff8589f987230bb3d5d9f34cdbd44bfa1edd9dd7612ddec7aae1e0f6f24a3145
+  checksum: 10c0/1f0a352e89e851dc8b57874bf75490e69e0ba87acaddc27532a32aa959a3cea36f5677838e685b95af40548d8083d29242fb3b01a9fa2d33a88de52b05e7d797
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:11.1.2":
-  version: 11.1.2
-  resolution: "@intlify/message-compiler@npm:11.1.2"
-  dependencies:
-    "@intlify/shared": "npm:11.1.2"
-    source-map-js: "npm:^1.0.2"
-  checksum: 10c0/2700641d604696306ae456dceacf968738e02b8123ad35bf47240b984c53ebb04c26ec575a6d5c6b55e179c8477aa8accfe9df4b68b093dbd3501bc99ea87b9e
-  languageName: node
-  linkType: hard
-
-"@intlify/shared@npm:10.0.6":
-  version: 10.0.6
-  resolution: "@intlify/shared@npm:10.0.6"
-  checksum: 10c0/cd90aeee74a2906516f11ad4d0a50de2b462c2a29a7b469c83e6078bd5fbe3bd99a9e1b11af7961570d29b8608beb8b9c67d7f4846b7c50707e00368888cd11f
-  languageName: node
-  linkType: hard
-
-"@intlify/shared@npm:11.1.2":
-  version: 11.1.2
-  resolution: "@intlify/shared@npm:11.1.2"
-  checksum: 10c0/6dcf992abdf6693c546a5e32fb0d9747cf20b9ed786be2855789a2e3274dfe0eb070bf57a164415934096d1a9a3af5fa5d531ae146c755fe4c39ee659079119a
+"@intlify/shared@npm:11.1.7":
+  version: 11.1.7
+  resolution: "@intlify/shared@npm:11.1.7"
+  checksum: 10c0/b603470654ae92f2f4e588f797ae4a442c34c453327da98e2ca9f22208681079d55f7a1a83e70ce46deeaa2fc528df163c9096dab7910274fe59ad1ebb3df3d0
   languageName: node
   linkType: hard
 
@@ -2061,7 +2034,7 @@ __metadata:
     "@lychen/applications-model": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2092,7 +2065,7 @@ __metadata:
     "@lychen/tera-i18n": "workspace:*"
     "@lychen/vara-features": "workspace:*"
     "@lychen/vara-i18n": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2119,7 +2092,7 @@ __metadata:
   dependencies:
     "@lychen/applications-constants": "workspace:*"
     "@lychen/applications-model": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2159,8 +2132,7 @@ __metadata:
     "@lychen/vue-components-app": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
@@ -2230,8 +2202,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2294,7 +2265,7 @@ __metadata:
     "@lychen/css-core": "workspace:*"
     "@lychen/kiro-components": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vueuse/core": "npm:^13.0.0"
@@ -2332,8 +2303,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2394,8 +2364,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2456,8 +2425,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2518,8 +2486,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2580,8 +2547,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2611,7 +2577,7 @@ __metadata:
   dependencies:
     "@lychen/odd-i18n": "workspace:*"
     "@lychen/odd-model": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2670,8 +2636,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2702,7 +2667,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@storybook/addon-essentials": "npm:^8.6.12"
     "@storybook/addon-interactions": "npm:^8.6.12"
     "@storybook/addon-onboarding": "npm:^8.6.12"
@@ -2753,8 +2718,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.11"
@@ -2785,7 +2749,7 @@ __metadata:
     "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@tanstack/vue-query": "npm:^5.67.3"
     "@tanstack/vue-table": "npm:^8.21.2"
     "@vee-validate/zod": "npm:^4.15.0"
@@ -2874,8 +2838,7 @@ __metadata:
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-tera": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2961,8 +2924,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -2984,7 +2946,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vite-ssg@workspace:libs/vite/ssg"
   dependencies:
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@vitejs/plugin-vue": "npm:^6.0.0"
     vite: "npm:^6.3.5"
@@ -3015,7 +2977,6 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     reka-ui: "npm:^2.3.1"
@@ -3074,7 +3035,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
@@ -3096,7 +3057,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-drawio-components@workspace:libs/vue/drawio/components"
   dependencies:
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -3117,30 +3078,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vue-i18n-composables@workspace:*, @lychen/vue-i18n-composables@workspace:libs/vue/i18n/composables":
+"@lychen/vue-i18n@workspace:*, @lychen/vue-i18n@workspace:libs/vue/i18n":
   version: 0.0.0-use.local
-  resolution: "@lychen/vue-i18n-composables@workspace:libs/vue/i18n/composables"
+  resolution: "@lychen/vue-i18n@workspace:libs/vue/i18n"
   dependencies:
-    "@lychen/vue-i18n-helpers": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-i18n-configs@workspace:*, @lychen/vue-i18n-configs@workspace:libs/vue/i18n/configs":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-i18n-configs@workspace:libs/vue/i18n/configs"
-  dependencies:
+    "@intlify/core-base": "npm:^11.1.7"
     vue: "npm:^3.5.13"
-    vue-i18n: "npm:^11.1.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vue-i18n-helpers@workspace:*, @lychen/vue-i18n-helpers@workspace:libs/vue/i18n/helpers":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vue-i18n-helpers@workspace:libs/vue/i18n/helpers"
-  dependencies:
-    "@intlify/core-base": "npm:^10.0.4"
-    vue: "npm:^3.5.13"
-    vue-i18n: "npm:^11.1.2"
+    vue-i18n: "npm:^11.1.7"
   languageName: unknown
   linkType: soft
 
@@ -3169,7 +3113,7 @@ __metadata:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     vue: "npm:^3.5.13"
@@ -3249,8 +3193,7 @@ __metadata:
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-core": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
@@ -12984,16 +12927,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^11.1.2":
-  version: 11.1.2
-  resolution: "vue-i18n@npm:11.1.2"
+"vue-i18n@npm:^11.1.2, vue-i18n@npm:^11.1.7":
+  version: 11.1.7
+  resolution: "vue-i18n@npm:11.1.7"
   dependencies:
-    "@intlify/core-base": "npm:11.1.2"
-    "@intlify/shared": "npm:11.1.2"
+    "@intlify/core-base": "npm:11.1.7"
+    "@intlify/shared": "npm:11.1.7"
     "@vue/devtools-api": "npm:^6.5.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10c0/3e0ba180c978e79264ad4d83b2fb8d0faba41637cdc9aba14fcaf649e1710108e75dd200d02f05d87e7cef284b51cd737e076e8b726158101cddbc66381edf82
+  checksum: 10c0/dab16d8c9f3ab25c09fbb1ca953b5b06d29f24a7d7884bd275907c24f8f989baf13e25b4e304becb875ae7af0d27438cc0a4b3fb2c547c2628b79106f8d3797d
   languageName: node
   linkType: hard
 

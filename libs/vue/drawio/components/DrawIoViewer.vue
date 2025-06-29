@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { onMounted } from 'vue';
 

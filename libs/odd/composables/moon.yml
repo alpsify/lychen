@@ -1,7 +1,7 @@
 dependsOn:
   - odd-i18n
   - odd-model
-  - vue-i18n-composables
+  - vue-i18n
 
 id: odd-composables
 

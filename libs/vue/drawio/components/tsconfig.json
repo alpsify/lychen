@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../i18n/composables"
+      "path": "../../i18n"
     }
   ],
   "compilerOptions": {

@@ -5,7 +5,7 @@ dependsOn:
   - vue-components-core
   - vue-components-extra
   - vue-components-website
-  - vue-i18n-configs
+  - vue-i18n
 
 id: storybook
 

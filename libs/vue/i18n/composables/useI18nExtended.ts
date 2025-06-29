@@ -1,6 +1,6 @@
 import { useI18n, type UseI18nOptions } from 'vue-i18n';
 
-import { addRootKey } from '@lychen/vue-i18n-helpers/RootKeyHelper';
+import { addRootKey } from '../helpers/RootKeyHelper';
 
 export interface UseCustomI18nOptions extends UseI18nOptions {
   rootKey?: string;

@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import type { HTMLAttributes } from 'vue';

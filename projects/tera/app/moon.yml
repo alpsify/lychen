@@ -12,8 +12,8 @@ dependsOn:
   - vue-components-core
   - vue-components-extra
   - vue-composables
-  - vue-i18n-composables
-  - vue-i18n-configs
+  - vue-i18n
+  - vue-i18n
   - vue-icons
   - vue-layouts
 

@@ -81,7 +81,7 @@ import { useApplicationsCatalog } from '@lychen/applications-composables/useAppl
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { RoutePagePrice } from '@/pages/price';
 import { RoutePageHome } from '@/pages/home';
 import { useCommunityMenu } from './composables/useCommunityMenu';
