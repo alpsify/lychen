@@ -3232,6 +3232,7 @@ __metadata:
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n-composables": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     class-variance-authority: "npm:^0.7.1"
     reka-ui: "npm:^2.3.1"

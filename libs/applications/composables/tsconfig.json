@@ -1,107 +1,75 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../eko/i18n/**/*",
-    "../../eko/features/**/*",
-    "../../humu/i18n/**/*",
-    "../../humu/features/**/*",
-    "../../kiro/i18n/**/*",
-    "../../kiro/features/**/*",
-    "../../kolo/i18n/**/*",
-    "../../kolo/features/**/*",
-    "../../luna/i18n/**/*",
-    "../../luna/features/**/*",
-    "../../meli/i18n/**/*",
-    "../../meli/features/**/*",
-    "../../myko/i18n/**/*",
-    "../../myko/features/**/*",
-    "../../novi/i18n/**/*",
-    "../../novi/features/**/*",
-    "../../robust/i18n/**/*",
-    "../../robust/features/**/*",
-    "../../tera/i18n/**/*",
-    "../../tera/features/**/*",
-    "../../vara/i18n/**/*",
-    "../../vara/features/**/*",
-    "../../vue/i18n/composables/**/*",
-    "../i18n/**/*",
-    "../constants/**/*",
-    "../generic-composables/**/*",
-    "../model/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
-    {
-      "path": "../../eko/i18n"
-    },
     {
       "path": "../../eko/features"
     },
     {
-      "path": "../../humu/i18n"
+      "path": "../../eko/i18n"
     },
     {
       "path": "../../humu/features"
     },
     {
-      "path": "../../kiro/i18n"
+      "path": "../../humu/i18n"
     },
     {
       "path": "../../kiro/features"
     },
     {
-      "path": "../../kolo/i18n"
+      "path": "../../kiro/i18n"
     },
     {
       "path": "../../kolo/features"
     },
     {
-      "path": "../../luna/i18n"
+      "path": "../../kolo/i18n"
     },
     {
       "path": "../../luna/features"
     },
     {
-      "path": "../../meli/i18n"
+      "path": "../../luna/i18n"
     },
     {
       "path": "../../meli/features"
     },
     {
-      "path": "../../myko/i18n"
+      "path": "../../meli/i18n"
     },
     {
       "path": "../../myko/features"
     },
     {
-      "path": "../../novi/i18n"
+      "path": "../../myko/i18n"
     },
     {
       "path": "../../novi/features"
     },
     {
-      "path": "../../robust/i18n"
+      "path": "../../novi/i18n"
     },
     {
       "path": "../../robust/features"
     },
     {
-      "path": "../../tera/i18n"
+      "path": "../../robust/i18n"
     },
     {
       "path": "../../tera/features"
     },
     {
-      "path": "../../vara/i18n"
+      "path": "../../tera/i18n"
     },
     {
       "path": "../../vara/features"
     },
     {
-      "path": "../../vue/i18n/composables"
+      "path": "../../vara/i18n"
     },
     {
-      "path": "../i18n"
+      "path": "../../vue/i18n/composables"
     },
     {
       "path": "../constants"
@@ -110,51 +78,13 @@
       "path": "../generic-composables"
     },
     {
+      "path": "../i18n"
+    },
+    {
       "path": "../model"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/applications/composables",
-    "paths": {
-      "@lychen/applications-i18n": ["../i18n/index.ts"],
-      "@lychen/applications-i18n/*": ["../i18n/*"],
-      "@lychen/applications-model/*": ["../model/*"],
-      "@lychen/vue-i18n-composables/*": ["../../vue/i18n/composables/*"],
-      "@lychen/applications-constants/*": ["../constants/*"],
-      "@lychen/tera-i18n/*": ["../../tera/i18n/*"],
-      "@lychen/myko-i18n": ["../../myko/i18n/index.ts"],
-      "@lychen/myko-i18n/*": ["../../myko/i18n/*"],
-      "@lychen/tera-i18n": ["../../tera/i18n/index.ts"],
-      "@lychen/kiro-i18n": ["../../kiro/i18n/index.ts"],
-      "@lychen/kiro-i18n/*": ["../../kiro/i18n/*"],
-      "@lychen/meli-i18n": ["../../meli/i18n/index.ts"],
-      "@lychen/meli-i18n/*": ["../../meli/i18n/*"],
-      "@lychen/humu-i18n": ["../../humu/i18n/index.ts"],
-      "@lychen/humu-i18n/*": ["../../humu/i18n/*"],
-      "@lychen/kolo-i18n": ["../../kolo/i18n/index.ts"],
-      "@lychen/kolo-i18n/*": ["../../kolo/i18n/*"],
-      "@lychen/vara-i18n": ["../../vara/i18n/index.ts"],
-      "@lychen/vara-i18n/*": ["../../vara/i18n/*"],
-      "@lychen/eko-i18n": ["../../eko/i18n/index.ts"],
-      "@lychen/eko-i18n/*": ["../../eko/i18n/*"],
-      "@lychen/novi-i18n": ["../../novi/i18n/index.ts"],
-      "@lychen/novi-i18n/*": ["../../novi/i18n/*"],
-      "@lychen/luna-i18n": ["../../luna/i18n/index.ts"],
-      "@lychen/luna-i18n/*": ["../../luna/i18n/*"],
-      "@lychen/tera-features/*": ["../../tera/features/*"],
-      "@lychen/applications-generic-composables/*": ["../generic-composables/*"],
-      "@lychen/kiro-features/*": ["../../kiro/features/*"],
-      "@lychen/meli-features/*": ["../../meli/features/*"],
-      "@lychen/myko-features/*": ["../../myko/features/*"],
-      "@lychen/vara-features/*": ["../../vara/features/*"],
-      "@lychen/novi-features/*": ["../../novi/features/*"],
-      "@lychen/luna-features/*": ["../../luna/features/*"],
-      "@lychen/kolo-features/*": ["../../kolo/features/*"],
-      "@lychen/humu-features/*": ["../../humu/features/*"],
-      "@lychen/eko-features/*": ["../../eko/features/*"],
-      "@lychen/robust-i18n": ["../../robust/i18n/index.ts"],
-      "@lychen/robust-i18n/*": ["../../robust/i18n/*"],
-      "@lychen/robust-features/*": ["../../robust/features/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/applications/composables"
   }
 }

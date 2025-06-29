@@ -1,6 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../../vue/components-core/**/*", "../sdk/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../vue/components-core"
@@ -10,11 +10,6 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/kiro/components",
-    "paths": {
-      "@lychen/kiro-sdk/*": ["../sdk/*"],
-
-      "@lychen/vue-components-core/*": ["../../vue/components-core/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/kiro/components"
   }
 }

@@ -1,20 +1,9 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../typescript/tailwind/**/*",
-    "../i18n/composables/**/*",
-    "../components-core/**/*",
-    "../components-extra/**/*",
-    "../composables/**/*",
-    "**/*",
-    "**/*.json"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../typescript/tailwind"
-    },
-    {
-      "path": "../i18n/composables"
     },
     {
       "path": "../components-core"
@@ -24,16 +13,15 @@
     },
     {
       "path": "../composables"
+    },
+    {
+      "path": "../i18n/composables"
+    },
+    {
+      "path": "../icons"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/vue/components-website",
-    "paths": {
-      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
-      "@lychen/vue-i18n-composables/*": ["../i18n/composables/*"],
-      "@lychen/vue-components-core/*": ["../components-core/*"],
-      "@lychen/vue-components-extra/*": ["../components-extra/*"],
-      "@lychen/vue-composables/*": ["../composables/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/vue/components-website"
   }
 }

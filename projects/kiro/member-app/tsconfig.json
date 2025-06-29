@@ -1,41 +1,21 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "files": [],
+  "include": ["**/*"],
   "references": [
-    {
-      "path": "../../../libs/css/core"
-    },
-
     {
       "path": "../../../libs/kiro/components"
     },
     {
-      "path": "../../../libs/vue/i18n/composables"
+      "path": "../../../libs/vue/components-core"
     },
     {
-      "path": "../../../libs/vue/components-core"
+      "path": "../../../libs/vue/i18n/composables"
     }
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "outDir": "../../../.moon/cache/types/projects/kiro/member-app",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@assets/*": ["src/assets/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"]
-    },
-    "outDir": "../../../.moon/cache/types/projects/kiro/member-app"
-  },
-  "include": [
-    "../../../libs/css/core/**/*",
-
-    "../../../libs/kiro/components/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "**/*"
-  ]
+      "@/*": ["./src/*"]
+    }
+  }
 }

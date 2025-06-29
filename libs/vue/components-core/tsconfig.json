@@ -1,12 +1,6 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../typescript/fontawesome/**/*",
-    "../../typescript/object/**/*",
-    "../../typescript/tailwind/**/*",
-    "../icons/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../typescript/fontawesome"
@@ -22,13 +16,6 @@
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/vue/components-core",
-    "paths": {
-      "@/*": ["./*"],
-      "@lychen/typescript-object/*": ["../../typescript/object/*"],
-      "@lychen/typescript-tailwind/*": ["../../typescript/tailwind/*"],
-      "@lychen/typescript-fontawesome/*": ["../../typescript/fontawesome/*"],
-      "@lychen/vue-icons/*": ["../icons/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/vue/components-core"
   }
 }

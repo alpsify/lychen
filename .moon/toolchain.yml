@@ -9,12 +9,12 @@ node:
   syncProjectWorkspaceDependencies: true
   version: 23.8.0
   yarn:
-    version: 4.9.1
+    version: 4.9.2
 
 typescript:
   createMissingConfig: true
-  includeProjectReferenceSources: true
-  includeSharedTypes: true
+  includeProjectReferenceSources: false
+  includeSharedTypes: false
   routeOutDirToCache: true
   syncProjectReferences: true
-  syncProjectReferencesToPaths: true
+  syncProjectReferencesToPaths: false

@@ -3,6 +3,7 @@ dependsOn:
   - vue-components-extra
   - vue-composables
   - vue-i18n-composables
+  - vue-icons
 
 id: vue-components-website
 

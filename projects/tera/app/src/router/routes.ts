@@ -1,10 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
-import { RoutePageDashboard } from '@pages/dashboard';
-import { RoutePageOnboarding } from '@pages/onboarding';
-import { LAND_ROUTE_PATH } from '@pages/land';
-import { RoutePageFoodSafety } from '../pages/food-safety';
+import { RoutePageDashboard } from '@/pages/dashboard';
+import { RoutePageOnboarding } from '@/pages/onboarding';
+import { LAND_ROUTE_PATH } from '@/pages/land';
+import { RoutePageFoodSafety } from '@/pages/food-safety';
 import { RoutePageGreeningPermit } from '@/pages/greening-permit';
 import { RoutePageCalendars } from '@/pages/calendars';
 import { RoutePageCultureItinaries } from '@/pages/culture-itinaries';

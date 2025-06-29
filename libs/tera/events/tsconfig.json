@@ -1,15 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../api-sdk/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../api-sdk"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/tera/events",
-    "paths": {
-      "@lychen/tera-api-sdk/*": ["../api-sdk/*"]
-    }
+    "outDir": "../../../.moon/cache/types/libs/tera/events"
   }
 }

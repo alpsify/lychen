@@ -1,48 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../../libs/applications/components/**/*",
-    "../../../libs/applications/composables/**/*",
-    "../../../libs/applications/constants/**/*",
-    "../../../libs/css/core/**/*",
-
-    "../../../libs/kiro/components/**/*",
-    "../../../libs/novi/i18n/**/*",
-    "../../../libs/novi/constants/**/*",
-    "../../../libs/novi/features/**/*",
-    "../../../libs/odd/composables/**/*",
-    "../../../libs/typescript/constants/**/*",
-
-    "../../../libs/vite/ssg/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
-    "../../../libs/vue/router/configs/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "../../../libs/vue/components-website/**/*",
-    "../../../libs/vue/layouts/**/*",
-    "../../../libs/vue/unhead/composables/**/*",
-    "../../../libs/vue/composables/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../../../libs/applications/components"
     },
     {
-      "path": "../../../libs/applications/composables"
-    },
-    {
       "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/css/core"
-    },
-
-    {
-      "path": "../../../libs/kiro/components"
-    },
-    {
-      "path": "../../../libs/novi/i18n"
     },
     {
       "path": "../../../libs/novi/constants"
@@ -51,23 +15,16 @@
       "path": "../../../libs/novi/features"
     },
     {
+      "path": "../../../libs/novi/i18n"
+    },
+    {
       "path": "../../../libs/odd/composables"
     },
     {
       "path": "../../../libs/typescript/constants"
     },
-
     {
       "path": "../../../libs/vite/ssg"
-    },
-    {
-      "path": "../../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../../libs/vue/i18n/configs"
-    },
-    {
-      "path": "../../../libs/vue/router/configs"
     },
     {
       "path": "../../../libs/vue/components-core"
@@ -76,44 +33,28 @@
       "path": "../../../libs/vue/components-website"
     },
     {
+      "path": "../../../libs/vue/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/composables"
+    },
+    {
+      "path": "../../../libs/vue/i18n/configs"
+    },
+    {
       "path": "../../../libs/vue/layouts"
     },
     {
-      "path": "../../../libs/vue/unhead/composables"
+      "path": "../../../libs/vue/router/configs"
     },
     {
-      "path": "../../../libs/vue/composables"
+      "path": "../../../libs/vue/unhead/composables"
     }
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/novi/website",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lychen/kiro-components/*": ["../../../libs/kiro/components/*"],
-      "@lychen/applications-components/*": ["../../../libs/applications/components/*"],
-      "@lychen/applications-composables/*": ["../../../libs/applications/composables/*"],
-      "@lychen/odd-composables/*": ["../../../libs/odd/composables/*"],
-      "@lychen/tailwind-configs/*": ["../../../libs/tailwind/configs/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-
-      "@lychen/vite-ssg/*": ["../../../libs/vite/ssg/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/vue-i18n-configs/*": ["../../../libs/vue/i18n/configs/*"],
-      "@lychen/vue-router-configs/*": ["../../../libs/vue/router/configs/*"],
-      "@lychen/vue-unhead-composables/*": ["../../../libs/vue/unhead/composables/*"],
-      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
-      "@lychen/typescript-constants/*": ["../../../libs/typescript/constants/*"],
-      "@lychen/applications-constants/*": ["../../../libs/applications/constants/*"],
-      "@lychen/novi-constants/*": ["../../../libs/novi/constants/*"],
-      "@lychen/novi-features/*": ["../../../libs/novi/features/*"],
-      "@lychen/novi-i18n": ["../../../libs/novi/i18n/index.ts"],
-      "@lychen/novi-i18n/*": ["../../../libs/novi/i18n/*"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
-      "@lychen/vue-components-website/*": ["../../../libs/vue/components-website/*"],
-      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

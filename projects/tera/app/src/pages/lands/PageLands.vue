@@ -90,7 +90,7 @@
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
 import CardTeraLand from '@lychen/tera-components/land/card/CardTeraLand.vue';
-import { RoutePageLandDashboard } from '@pages/land/dashboard';
+import { RoutePageLandDashboard } from '@/pages/land/dashboard';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useQuery } from '@tanstack/vue-query';
 import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';

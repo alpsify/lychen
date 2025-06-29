@@ -1,17 +1,12 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["../app/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../app"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/projects/tera/tests-app",
-    "baseUrl": ".",
-    "paths": {
-      "@lychen/tera-app/*": ["../app/src/*"],
-      "fixtures/*": ["fixtures/*"]
-    }
+    "outDir": "../../../.moon/cache/types/projects/tera/tests-app"
   }
 }

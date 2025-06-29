@@ -3,7 +3,6 @@
   "include": ["**/*"],
   "references": [],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/novi/constants",
-    "paths": {}
+    "outDir": "../../../.moon/cache/types/libs/novi/constants"
   }
 }

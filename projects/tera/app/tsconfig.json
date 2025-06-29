@@ -1,29 +1,7 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": [
-    "../../../libs/css/core/**/*",
-    "../../../libs/tera/api-sdk/**/*",
-    "../../../libs/tera/components/**/*",
-    "../../../libs/tera/composables/**/*",
-    "../../../libs/tera/constants/**/*",
-    "../../../libs/tera/events/**/*",
-    "../../../libs/tera/i18n/**/*",
-    "../../../libs/typescript/zitadel/**/*",
-    "../../../libs/vue/color-scheme/**/*",
-    "../../../libs/vue/components-app/**/*",
-    "../../../libs/vue/components-core/**/*",
-    "../../../libs/vue/components-extra/**/*",
-    "../../../libs/vue/composables/**/*",
-    "../../../libs/vue/i18n/composables/**/*",
-    "../../../libs/vue/i18n/configs/**/*",
-    "../../../libs/vue/icons/**/*",
-    "../../../libs/vue/layouts/**/*",
-    "**/*"
-  ],
+  "include": ["**/*"],
   "references": [
-    {
-      "path": "../../../libs/css/core"
-    },
     {
       "path": "../../../libs/tera/api-sdk"
     },
@@ -75,30 +53,8 @@
   ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/projects/tera/app",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@components/*": ["src/components/*"],
-      "@lychen/tera-i18n": ["../../../libs/tera/i18n/index.ts"],
-      "@lychen/tera-i18n/*": ["../../../libs/tera/i18n/*"],
-      "@lychen/vue-composables/*": ["../../../libs/vue/composables/*"],
-      "@lychen/vue-i18n-composables/*": ["../../../libs/vue/i18n/composables/*"],
-      "@lychen/css-core/*": ["../../../libs/css/core/*"],
-      "@lychen/typescript-zitadel/*": ["../../../libs/typescript/zitadel/*"],
-      "@lychen/tera-api-sdk/*": ["../../../libs/tera/api-sdk/*"],
-      "@lychen/vue-i18n-configs/*": ["../../../libs/vue/i18n/configs/*"],
-      "@lychen/tera-components/*": ["../../../libs/tera/components/*"],
-      "@lychen/vue-components-core/*": ["../../../libs/vue/components-core/*"],
-      "@lychen/vue-layouts/*": ["../../../libs/vue/layouts/*"],
-      "@lychen/vue-components-app/*": ["../../../libs/vue/components-app/*"],
-      "@lychen/vue-components-extra/*": ["../../../libs/vue/components-extra/*"],
-      "@lychen/tera-events/*": ["../../../libs/tera/events/*"],
-      "@lychen/tera-constants/*": ["../../../libs/tera/constants/*"],
-      "@lychen/tera-composables/*": ["../../../libs/tera/composables/*"],
-      "@lychen/vue-color-scheme/*": ["../../../libs/vue/color-scheme/*"],
-      "@lychen/vue-icons/*": ["../../../libs/vue/icons/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

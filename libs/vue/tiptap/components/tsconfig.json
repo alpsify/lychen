@@ -1,15 +1,12 @@
 {
   "extends": "../../../../tsconfig.options.json",
-  "include": ["../composables/**/*", "**/*"],
+  "include": ["**/*"],
   "references": [
     {
       "path": "../composables"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../../.moon/cache/types/libs/vue/tiptap/components",
-    "paths": {
-      "@lychen/vue-tiptap-composables/*": ["../composables/*"]
-    }
+    "outDir": "../../../../.moon/cache/types/libs/vue/tiptap/components"
   }
 }

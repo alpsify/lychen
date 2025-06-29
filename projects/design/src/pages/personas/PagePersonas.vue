@@ -29,15 +29,15 @@ import type { Component } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 
-import type { Props as CardPersonaProps } from '@components/card-persona';
+import type { Props as CardPersonaProps } from '@/components/card-persona';
 import CardPersonaSmall from '@/components/card-persona/CardPersonaSmall.vue';
 import CardPersonaOverImage from '@/components/card-persona/CardPersonaOverImage.vue';
 
-const Page = defineAsyncComponent(() => import('@components/Page.vue'));
+const Page = defineAsyncComponent(() => import('@/components/Page.vue'));
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const CardPersona = defineAsyncComponent<Component<CardPersonaProps>>(
-  () => import('@components/card-persona/CardPersona.vue'),
+  () => import('@/components/card-persona/CardPersona.vue'),
 );
 
 const personas = ref<CardPersonaProps[]>([]);

@@ -20,9 +20,6 @@
       "path": "libs/applications/model"
     },
     {
-      "path": "libs/css/core"
-    },
-    {
       "path": "libs/eko/constants"
     },
     {
@@ -236,16 +233,7 @@
       "path": "projects/humu/website"
     },
     {
-      "path": "projects/kiro/admin-app"
-    },
-    {
-      "path": "projects/kiro/manager-app"
-    },
-    {
       "path": "projects/kiro/member-app"
-    },
-    {
-      "path": "projects/kiro/producer-app"
     },
     {
       "path": "projects/kiro/website"
