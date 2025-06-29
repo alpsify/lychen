@@ -31,7 +31,7 @@
                   >
                     <img
                       class="absolute top-0 left-0 w-full h-full rounded-3xl opacity-50"
-                      src="/applications-covers/robust-cover-1.webp"
+                      src="/robust/covers/robust-cover-1.webp"
                     />
                     <div
                       class="absolute bg-gradient-to-br from-tertiary-container to-tertiary-container/20 rounded-3xl top-0 left-0 w-full h-full z-20"

@@ -1,7 +1,7 @@
 <template>
   <DivWithBackgroundImg
     :class="cn('flex flex-col gap-2 p-6 rounded-xl group justify-between', $props.class)"
-    :background-image="`${backgroundImageFolder}/${application.alias}-cover-1.webp`"
+    :background-image="`${application.alias}/covers/${application.alias}-cover-1.webp`"
     overlay
     data-theme="light"
     overlay-class="bg-on-surface opacity-30 group-hover:opacity-15 transition duration-300 ease-in-out"
@@ -36,6 +36,5 @@ const { displayState = false } = defineProps<{
   class?: HTMLAttributes['class'];
   application: Application;
   displayState?: boolean;
-  backgroundImageFolder?: string;
 }>();
 </script>

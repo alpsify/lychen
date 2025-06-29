@@ -20,7 +20,7 @@
         <div class="relative">
           <img
             v-if="selectedGoal"
-            :src="`odd-icons/${selectedGoal.icon}`"
+            :src="`sustainable-development-goals/icons/${selectedGoal.icon}`"
             class="rounded-2xl h-14 md:h-24 absolute odd-icon z-10"
             :alt="`Icône de l'objectif de développement durable n° ${selectedGoal.index}`"
           />
