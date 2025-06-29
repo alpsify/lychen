@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vue-layouts",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/pro-light-svg-icons": "^6.7.2",

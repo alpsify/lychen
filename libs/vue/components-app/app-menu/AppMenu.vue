@@ -43,22 +43,9 @@ import IconGrid from '@lychen/vue-icons/IconGrid.vue';
 import AppMenuIcon from './AppMenuIcon.vue';
 import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 import { computed } from 'vue';
+import { ECOSYSTEM_APPS } from './apps';
 
-const apps = [
-  {
-    id: 'tera-app',
-    name: 'tera',
-    link: '',
-  },
-];
-
-apps.sort((a, b) => {
-  const nameA = a.name.toLowerCase();
-  const nameB = b.name.toLowerCase();
-  if (nameA < nameB) return -1;
-  if (nameA > nameB) return 1;
-  return 0;
-});
+const apps = ECOSYSTEM_APPS;
 
 const currentAppId = import.meta.env.VITE_APP_ID;
 const filteredApps = computed(() => {

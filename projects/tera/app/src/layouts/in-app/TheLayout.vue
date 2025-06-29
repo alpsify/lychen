@@ -7,7 +7,6 @@
       <LayoutInAppSideNavigationButtonExpand />
       <LayoutInAppSideNavigationHeaderApp name="tera" />
       <div class="flex flex-col gap-4">
-        <LayoutInAppSideNavigationItem v-bind="dashboardItem" />
         <LayoutInAppSideNavigationSection>
           <template #header>
             <div :class="expanded ? 'flex flex-row justify-between gap-2 items-center' : ''">
@@ -139,7 +138,7 @@ import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 
 const open = ref(false);
 
-const { menus: navigation, landSection, dashboardItem } = useMenus();
+const { menus: navigation, landSection } = useMenus();
 const selectedLand = ref<{ ulid?: string }>();
 
 const { api } = useTeraApi();

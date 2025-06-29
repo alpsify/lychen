@@ -1,4 +1,3 @@
-import { faHouse } from '@fortawesome/pro-light-svg-icons/faHouse';
 import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
 import { faBagSeedling } from '@fortawesome/pro-light-svg-icons/faBagSeedling';
 import { faBuildingMemo } from '@fortawesome/pro-light-svg-icons/faBuildingMemo';
@@ -15,7 +14,6 @@ import { RoutePageData } from '@/pages/data';
 import { RoutePageGrainLibrary } from '@/pages/grain-library';
 import { RoutePageHerbarium } from '@/pages/herbarium';
 import { RoutePageSharedGardens } from '@/pages/shared-gardens';
-import { RoutePageLands } from '@/pages/lands';
 import { type NavigationItem, type NavigationSection } from '@lychen/vue-layouts/in-app';
 
 import { faClipboardListCheck } from '@fortawesome/pro-light-svg-icons/faClipboardListCheck';
@@ -32,12 +30,6 @@ import { RoutePageLandDashboard } from '@/pages/land/dashboard';
 import { faObjectsColumn } from '@fortawesome/pro-light-svg-icons/faObjectsColumn';
 
 export default function useMenus() {
-  const dashboardItem: NavigationItem = {
-    icon: faHouse,
-    to: RoutePageLands,
-    label: 'Tableau de bord',
-  };
-
   const dynamicLandSection: NavigationSection = {
     label: 'Espaces de culture',
   };
@@ -122,7 +114,6 @@ export default function useMenus() {
   ];
 
   return {
-    dashboardItem,
     dynamicLandSection,
     landSection,
     menus,
