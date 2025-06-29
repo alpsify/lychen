@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { ComboboxItem, useForwardPropsEmits } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

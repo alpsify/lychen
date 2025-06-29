@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import Icon from '../icon/Icon.vue';
 import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
 

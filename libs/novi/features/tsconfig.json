@@ -12,6 +12,9 @@
       "path": "../../typescript/object"
     },
     {
+      "path": "../../typescript/utils"
+    },
+    {
       "path": "../constants"
     }
   ],

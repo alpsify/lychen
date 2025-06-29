@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { ToastRoot, type ToastRootEmits, useForwardPropsEmits } from 'reka-ui';
 import { computed } from 'vue';
 import { type ToastProps, toastVariants } from '.';

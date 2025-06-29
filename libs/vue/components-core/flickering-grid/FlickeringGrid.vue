@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { ref, onMounted, onBeforeUnmount, toRefs, computed } from 'vue';
 
 interface FlickeringGridProps {

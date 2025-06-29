@@ -5,9 +5,7 @@
     {
       "path": "../../../typescript/date"
     },
-    {
-      "path": "../../../typescript/object"
-    },
+
     {
       "path": "../helpers"
     }

@@ -2,7 +2,7 @@
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 interface Props extends PrimitiveProps {
   class?: HTMLAttributes['class'];

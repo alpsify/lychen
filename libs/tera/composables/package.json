@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "dependencies": {
     "@lychen/tera-api-sdk": "workspace:*",
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   }
 }

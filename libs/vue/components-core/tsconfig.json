@@ -6,10 +6,7 @@
       "path": "../../typescript/fontawesome"
     },
     {
-      "path": "../../typescript/object"
-    },
-    {
-      "path": "../../typescript/tailwind"
+      "path": "../../typescript/utils"
     },
     {
       "path": "../icons"

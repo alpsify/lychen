@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import {
   CalendarRoot,
   type CalendarRootEmits,

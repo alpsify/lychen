@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { type HTMLAttributes } from 'vue';
 import { INJECTION_KEY_NAVIGATION_EXPANDED } from '.';
 import { provide } from 'vue';

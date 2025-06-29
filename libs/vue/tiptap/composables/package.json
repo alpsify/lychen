@@ -1,6 +1,4 @@
 {
   "name": "@lychen/vue-tiptap-composables",
-  "dependencies": {
-    "@lychen/typescript-types": "workspace:*"
-  }
+  "dependencies": {}
 }

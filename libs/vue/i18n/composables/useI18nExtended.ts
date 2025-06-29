@@ -1,4 +1,3 @@
-import { unixDateToDate } from '@lychen/typescript-date/UnixDate';
 import { useI18n, type UseI18nOptions } from 'vue-i18n';
 
 import { addRootKey } from '@lychen/vue-i18n-helpers/RootKeyHelper';
@@ -70,13 +69,8 @@ export function useI18nExtended(options?: UseCustomI18nOptions): UseI18nExtended
 
   // Define customD using function declaration, matching original d (ComposerDateTimeFormatting)
   function customD(...args: Parameters<typeof originalD>): ReturnType<typeof originalD> {
-    const value = args[0];
     const passThroughArgs = [...args]; // Copy args
 
-    if (typeof value === 'number') {
-      // Convert unix timestamp (assuming seconds) to Date object
-      passThroughArgs[0] = unixDateToDate(value);
-    }
     // If value is already Date or string, pass through unmodified
 
     // Pass potentially modified args to the original d using apply

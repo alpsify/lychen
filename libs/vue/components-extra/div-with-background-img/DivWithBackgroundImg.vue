@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { type DivWithBackgroundImgProps } from '.';
 
 const props = withDefaults(defineProps<DivWithBackgroundImgProps>(), {

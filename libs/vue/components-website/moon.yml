@@ -1,5 +1,5 @@
 dependsOn:
-  - typescript-tailwind
+  - typescript-utils
   - vue-components-extra
   - vue-composables
   - vue-i18n-composables

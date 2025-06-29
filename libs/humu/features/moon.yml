@@ -2,7 +2,7 @@ dependsOn:
   - applications-generic-composables
   - applications-model
   - humu-constants
-  - typescript-object
+  - typescript-utils
 
 id: humu-features
 

@@ -1,6 +1,3 @@
-dependsOn:
-  - typescript-types
-
 id: vue-tiptap-composables
 
 language: typescript

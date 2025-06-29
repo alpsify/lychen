@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { toggleVariants } from '../toggle';
 import type { VariantProps } from 'class-variance-authority';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import {
   ToggleGroupRoot,
   type ToggleGroupRootEmits,

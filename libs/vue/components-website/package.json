@@ -2,7 +2,7 @@
   "name": "@lychen/vue-components-website",
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/typescript-tailwind": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-extra": "workspace:*",
     "@lychen/vue-composables": "workspace:*",

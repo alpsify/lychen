@@ -4,6 +4,6 @@
     "@lychen/applications-generic-composables": "workspace:*",
     "@lychen/applications-model": "workspace:*",
     "@lychen/kiro-constants": "workspace:*",
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   }
 }

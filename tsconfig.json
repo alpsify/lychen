@@ -125,19 +125,13 @@
       "path": "libs/typescript/core"
     },
     {
-      "path": "libs/typescript/date"
-    },
-    {
-      "path": "libs/typescript/fontawesome"
-    },
-    {
       "path": "libs/typescript/object"
     },
     {
       "path": "libs/typescript/tailwind"
     },
     {
-      "path": "libs/typescript/types"
+      "path": "libs/typescript/utils"
     },
     {
       "path": "libs/typescript/zitadel"

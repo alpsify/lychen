@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { useScroll } from '@vueuse/core';
 import { ref, toRefs, watch, type HTMLAttributes } from 'vue';
 

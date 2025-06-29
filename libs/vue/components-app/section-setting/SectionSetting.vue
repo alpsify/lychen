@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { VARIANT_VALUES, type VariantKey } from '.';
 import type { HTMLAttributes } from 'vue';
 import BaseHeading from '../base-heading/BaseHeading.vue';

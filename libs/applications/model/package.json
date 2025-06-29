@@ -2,6 +2,6 @@
   "name": "@lychen/applications-model",
   "dependencies": {
     "@lychen/applications-constants": "workspace:*",
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   }
 }

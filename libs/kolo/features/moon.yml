@@ -2,7 +2,7 @@ dependsOn:
   - applications-generic-composables
   - applications-model
   - kolo-constants
-  - typescript-object
+  - typescript-utils
 
 id: kolo-features
 

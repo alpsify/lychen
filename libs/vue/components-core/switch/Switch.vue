@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PRESETS } from '../utils/Preset';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import {
   SwitchRoot,
   type SwitchRootEmits,

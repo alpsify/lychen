@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import IconChevronLeft from '@lychen/vue-icons/IconChevronLeft.vue';
 import { inject, type HTMLAttributes } from 'vue';
 import { INJECTION_KEY_NAVIGATION_EXPANDED } from '.';

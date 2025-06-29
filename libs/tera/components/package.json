@@ -7,7 +7,7 @@
     "@lychen/tera-constants": "workspace:*",
     "@lychen/tera-events": "workspace:*",
     "@lychen/tera-i18n": "workspace:*",
-    "@lychen/typescript-object": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-i18n-composables": "workspace:*",
     "@tanstack/vue-query": "^5.67.3",

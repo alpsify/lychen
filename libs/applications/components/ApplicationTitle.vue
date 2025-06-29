@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { type HTMLAttributes } from 'vue';
 
 const props = defineProps<{ value: string; class?: HTMLAttributes['class'] }>();
