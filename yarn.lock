@@ -2063,9 +2063,8 @@ __metadata:
     "@lychen/robust-i18n": "workspace:*"
     "@lychen/tera-features": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
-    "@lychen/vara-features": "workspace:*"
-    "@lychen/vara-i18n": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
+    "@lychen/vue-vara": "workspace:*"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -2082,7 +2081,7 @@ __metadata:
     "@lychen/novi-constants": "workspace:*"
     "@lychen/robust-constants": "workspace:*"
     "@lychen/tera-constants": "workspace:*"
-    "@lychen/vara-constants": "workspace:*"
+    "@lychen/vue-vara": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2880,31 +2879,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/vara-constants@workspace:*, @lychen/vara-constants@workspace:libs/vara/constants":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vara-constants@workspace:libs/vara/constants"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vara-features@workspace:*, @lychen/vara-features@workspace:libs/vara/features":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vara-features@workspace:libs/vara/features"
-  dependencies:
-    "@lychen/applications-generic-composables": "workspace:*"
-    "@lychen/applications-model": "workspace:*"
-    "@lychen/typescript-utils": "workspace:*"
-    "@lychen/vara-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/vara-i18n@workspace:*, @lychen/vara-i18n@workspace:libs/vara/i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/vara-i18n@workspace:libs/vara/i18n"
-  dependencies:
-    "@lychen/vara-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/vara-website@workspace:projects/vara/website":
   version: 0.0.0-use.local
   resolution: "@lychen/vara-website@workspace:projects/vara/website"
@@ -2916,9 +2890,6 @@ __metadata:
     "@lychen/odd-assets": "workspace:*"
     "@lychen/odd-composables": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
-    "@lychen/vara-constants": "workspace:*"
-    "@lychen/vara-features": "workspace:*"
-    "@lychen/vara-i18n": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
@@ -2927,6 +2898,7 @@ __metadata:
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
+    "@lychen/vue-vara": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
@@ -3160,6 +3132,12 @@ __metadata:
     "@unhead/vue": "npm:^1.11.14"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/vue-vara@workspace:*, @lychen/vue-vara@workspace:libs/vue/vara":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-vara@workspace:libs/vue/vara"
   languageName: unknown
   linkType: soft
 

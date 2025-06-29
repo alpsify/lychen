@@ -4,7 +4,7 @@ import { APP_ALIAS as KIRO_APP_ALIAS } from '@lychen/kiro-constants/App';
 import { APP_ALIAS as MELI_APP_ALIAS } from '@lychen/meli-constants/App';
 import { APP_ALIAS as HUMU_APP_ALIAS } from '@lychen/humu-constants/App';
 import { APP_ALIAS as KOLO_APP_ALIAS } from '@lychen/kolo-constants/App';
-import { APP_ALIAS as VARA_APP_ALIAS } from '@lychen/vara-constants/App';
+import { APP_ALIAS as VARA_APP_ALIAS } from '@lychen/vue-vara/constants/App';
 import { APP_ALIAS as NOVI_APP_ALIAS } from '@lychen/novi-constants/App';
 
 import { APP_ALIAS as ROBUST_APP_ALIAS } from '@lychen/robust-constants/App';

@@ -20,9 +20,8 @@ dependsOn:
   - robust-i18n
   - tera-features
   - tera-i18n
-  - vara-features
-  - vara-i18n
   - vue-i18n
+  - vue-vara
 
 id: applications-composables
 

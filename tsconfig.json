@@ -128,15 +128,6 @@
       "path": "libs/typescript/zitadel"
     },
     {
-      "path": "libs/vara/constants"
-    },
-    {
-      "path": "libs/vara/features"
-    },
-    {
-      "path": "libs/vara/i18n"
-    },
-    {
       "path": "libs/vite/ssg"
     },
     {
@@ -180,6 +171,9 @@
     },
     {
       "path": "libs/vue/unhead/composables"
+    },
+    {
+      "path": "libs/vue/vara"
     },
     {
       "path": "projects/design"

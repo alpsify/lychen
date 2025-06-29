@@ -25,7 +25,7 @@ import {
 import {
   messages as varaMessages,
   TRANSLATION_KEY as VARA_TRANSLATION_KEY,
-} from '@lychen/vara-i18n';
+} from '@lychen/vue-vara/i18n';
 import {
   messages as noviMessages,
   TRANSLATION_KEY as NOVI_TRANSLATION_KEY,

@@ -4,7 +4,7 @@ import { useFeatures as useTeraFeatures } from '@lychen/tera-features/composable
 import { useFeatures as useKiroFeatures } from '@lychen/kiro-features/composables/useFeatures';
 import { useFeatures as useMeliFeatures } from '@lychen/meli-features/composables/useFeatures';
 import { useFeatures as useMykoFeatures } from '@lychen/myko-features/composables/useFeatures';
-import { useFeatures as useVaraFeatures } from '@lychen/vara-features/composables/useFeatures';
+import { useFeatures as useVaraFeatures } from '@lychen/vue-vara/features/composables/useFeatures';
 import { useFeatures as useNoviFeatures } from '@lychen/novi-features/composables/useFeatures';
 import { useFeatures as useKoloFeatures } from '@lychen/kolo-features/composables/useFeatures';
 import { useFeatures as useHumuFeatures } from '@lychen/humu-features/composables/useFeatures';

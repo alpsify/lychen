@@ -7,7 +7,7 @@ dependsOn:
   - novi-constants
   - robust-constants
   - tera-constants
-  - vara-constants
+  - vue-vara
 
 id: applications-constants
 

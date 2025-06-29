@@ -3,10 +3,6 @@ dependsOn:
   - applications-components
   - css-core
   - typescript-constants
-
-  - vara-constants
-  - vara-features
-  - vara-i18n
   - vite-ssg
   - vue-color-scheme
   - vue-components-core
@@ -16,6 +12,7 @@ dependsOn:
   - vue-layouts
   - vue-router-configs
   - vue-unhead-composables
+  - vue-vara
 
 env:
   DEV_DOMAIN: vara.lychen.local
