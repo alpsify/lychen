@@ -1,4 +1,4 @@
-export interface Odd {
+export interface SustainableDevelopmentGoal {
   index: number;
   title: string;
   description: string;

@@ -17,9 +17,7 @@
     {
       "path": "../../../libs/novi/i18n"
     },
-    {
-      "path": "../../../libs/odd/composables"
-    },
+
     {
       "path": "../../../libs/typescript/constants"
     },

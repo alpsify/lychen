@@ -13,7 +13,6 @@
     "@lychen/applications-components": "workspace:*",
     "@lychen/applications-constants": "workspace:*",
     "@lychen/css-core": "workspace:*",
-    "@lychen/odd-composables": "workspace:*",
     "@lychen/tera-constants": "workspace:*",
     "@lychen/tera-features": "workspace:*",
     "@lychen/tera-i18n": "workspace:*",

@@ -1,9 +1,7 @@
 dependsOn:
-  - odd-i18n
-  - odd-model
   - vue-i18n
 
-id: odd-composables
+id: vue-sustainable-development-goals
 
 language: typescript
 

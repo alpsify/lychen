@@ -16,7 +16,6 @@
     "@lychen/kolo-constants": "workspace:*",
     "@lychen/kolo-features": "workspace:*",
     "@lychen/kolo-i18n": "workspace:*",
-    "@lychen/odd-composables": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",

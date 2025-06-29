@@ -16,7 +16,6 @@
     "@lychen/novi-constants": "workspace:*",
     "@lychen/novi-features": "workspace:*",
     "@lychen/novi-i18n": "workspace:*",
-    "@lychen/odd-composables": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",

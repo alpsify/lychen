@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'odd';
+export const TRANSLATION_KEY = 'sustainable_development_goals';

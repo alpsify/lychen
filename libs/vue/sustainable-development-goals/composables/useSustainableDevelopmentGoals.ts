@@ -1,14 +1,16 @@
-import { messages, TRANSLATION_KEY } from '@lychen/odd-i18n';
-import { type Odd } from '@lychen/odd-model/Odd';
+import { messages, TRANSLATION_KEY } from '../i18n';
+import { type SustainableDevelopmentGoal } from '../model/SustainableDevelopmentGoal';
 import { type Ref, ref } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
-export function useOddCatalog() {
+export function useSustainableDevelopmentGoals() {
   const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 
   const totalNumber = 17;
 
-  function constructOddObject(index: number): Ref<Odd> {
+  function constructSustainableDevelopmentGoalObject(
+    index: number,
+  ): Ref<SustainableDevelopmentGoal> {
     return ref({
       index: index,
       title: t(`goal.${index}.title`),
@@ -18,9 +20,9 @@ export function useOddCatalog() {
     });
   }
 
-  const two = constructOddObject(2);
-  const eleven = constructOddObject(11);
-  const twelve = constructOddObject(12);
+  const two = constructSustainableDevelopmentGoalObject(2);
+  const eleven = constructSustainableDevelopmentGoalObject(11);
+  const twelve = constructSustainableDevelopmentGoalObject(12);
 
   return {
     totalNumber: totalNumber,

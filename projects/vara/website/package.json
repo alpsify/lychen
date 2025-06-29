@@ -13,7 +13,6 @@
     "@lychen/applications-components": "workspace:*",
     "@lychen/applications-constants": "workspace:*",
     "@lychen/css-core": "workspace:*",
-    "@lychen/odd-composables": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",

@@ -3,16 +3,10 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../vue/i18n"
-    },
-    {
       "path": "../i18n"
-    },
-    {
-      "path": "../model"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/odd/composables"
+    "outDir": "../../../.moon/cache/types/libs/vue/sustainable-development-goals"
   }
 }

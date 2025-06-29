@@ -80,15 +80,6 @@
       "path": "libs/novi/i18n"
     },
     {
-      "path": "libs/odd/composables"
-    },
-    {
-      "path": "libs/odd/i18n"
-    },
-    {
-      "path": "libs/odd/model"
-    },
-    {
       "path": "libs/robust/constants"
     },
     {
@@ -165,6 +156,9 @@
     },
     {
       "path": "libs/vue/router/configs"
+    },
+    {
+      "path": "libs/vue/sustainable-development-goals"
     },
     {
       "path": "libs/vue/tiptap"
