@@ -1,7 +1,5 @@
 {
   "name": "@lychen/kiro-i18n",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/kiro-constants": "workspace:*"
   }

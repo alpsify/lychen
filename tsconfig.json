@@ -122,6 +122,9 @@
       "path": "libs/typescript/constants"
     },
     {
+      "path": "libs/typescript/core"
+    },
+    {
       "path": "libs/typescript/date"
     },
     {

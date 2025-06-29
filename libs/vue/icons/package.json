@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vue-icons",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",

@@ -1,7 +1,5 @@
 {
   "name": "@lychen/applications-composables",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/applications-constants": "workspace:*",
     "@lychen/applications-generic-composables": "workspace:*",

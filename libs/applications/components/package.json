@@ -1,7 +1,5 @@
 {
   "name": "@lychen/applications-components",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/applications-i18n": "workspace:*",
     "@lychen/applications-model": "workspace:*",

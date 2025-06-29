@@ -1,5 +1,3 @@
-id: typescript-fontawesome
-
+id: typescript-core
 language: typescript
-
 type: library

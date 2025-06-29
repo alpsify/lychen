@@ -1,7 +1,5 @@
 {
   "name": "@lychen/myko-features",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/applications-generic-composables": "workspace:*",
     "@lychen/applications-model": "workspace:*",

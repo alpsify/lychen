@@ -1,7 +1,5 @@
 {
   "name": "@lychen/odd-composables",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/odd-i18n": "workspace:*",
     "@lychen/odd-model": "workspace:*",

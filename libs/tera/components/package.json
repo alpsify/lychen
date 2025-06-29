@@ -1,7 +1,5 @@
 {
   "name": "@lychen/tera-components",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/tera-api-sdk": "workspace:*",

@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vue-tiptap-composables",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/typescript-types": "workspace:*"
   }

@@ -1,7 +1,5 @@
 {
   "name": "@lychen/kiro-components",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/kiro-sdk": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",

@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vue-i18n-composables",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/typescript-date": "workspace:*",
     "@lychen/typescript-object": "workspace:*",

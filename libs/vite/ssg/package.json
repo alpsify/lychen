@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vite-ssg",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/vue-i18n-configs": "workspace:*",
     "@lychen/vue-router-configs": "workspace:*",

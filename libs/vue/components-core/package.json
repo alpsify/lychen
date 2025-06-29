@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vue-components-core",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/duotone-light-svg-icons": "^6.7.2",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -9,7 +7,6 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@internationalized/date": "^3.7.0",
-    "@lychen/typescript-fontawesome": "workspace:*",
     "@lychen/typescript-object": "workspace:*",
     "@lychen/typescript-tailwind": "workspace:*",
     "@lychen/vue-icons": "workspace:*",

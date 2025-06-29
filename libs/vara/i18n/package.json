@@ -1,7 +1,5 @@
 {
   "name": "@lychen/vara-i18n",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/vara-constants": "workspace:*"
   }

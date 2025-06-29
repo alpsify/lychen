@@ -1,7 +1,5 @@
 {
   "name": "@lychen/applications-constants",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/humu-constants": "workspace:*",
     "@lychen/kiro-constants": "workspace:*",

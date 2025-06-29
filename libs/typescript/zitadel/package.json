@@ -1,7 +1,5 @@
 {
   "name": "@lychen/typescript-zitadel",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@zitadel/vue": "^1.1.4",
     "oidc-client": "^1.11.5",

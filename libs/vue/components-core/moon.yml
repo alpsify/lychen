@@ -1,5 +1,4 @@
 dependsOn:
-  - typescript-fontawesome
   - typescript-object
   - typescript-tailwind
   - vue-icons
