@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { useProvideCarousel } from './useCarousel';
 
 const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {

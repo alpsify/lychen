@@ -97,7 +97,7 @@
 <script setup lang="ts">
 import { SectionSetting } from '@lychen/vue-components-app/section-setting';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import {
   messages as landRoleMessages,

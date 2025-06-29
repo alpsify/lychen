@@ -64,7 +64,7 @@ import {
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import { Badge } from '@lychen/vue-components-core/badge';
 import FormTeraLandTaskUpdate from '@lychen/tera-components/land-task/forms/FormTeraLandTaskUpdate.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useEventBus } from '@vueuse/core';
 import {

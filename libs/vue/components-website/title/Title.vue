@@ -10,7 +10,7 @@
 import { type AsTag, Primitive, type PrimitiveProps } from 'reka-ui';
 import { type Component, computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { type TitleVariants, titleVariants } from '.';
 
 interface Props extends PrimitiveProps {

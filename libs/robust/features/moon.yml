@@ -2,7 +2,7 @@ dependsOn:
   - applications-generic-composables
   - applications-model
   - robust-constants
-  - typescript-object
+  - typescript-utils
 
 id: robust-features
 

@@ -1,9 +1,7 @@
 {
   "name": "@lychen/applications-model",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/applications-constants": "workspace:*",
-    "@lychen/typescript-object": "workspace:*"
+    "@lychen/typescript-utils": "workspace:*"
   }
 }

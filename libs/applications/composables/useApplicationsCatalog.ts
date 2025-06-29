@@ -26,22 +26,17 @@ import {
   messages as varaMessages,
   TRANSLATION_KEY as VARA_TRANSLATION_KEY,
 } from '@lychen/vara-i18n';
-import { messages as ekoMessages, TRANSLATION_KEY as EKO_TRANSLATION_KEY } from '@lychen/eko-i18n';
 import {
   messages as noviMessages,
   TRANSLATION_KEY as NOVI_TRANSLATION_KEY,
 } from '@lychen/novi-i18n';
-import {
-  messages as lunaMessages,
-  TRANSLATION_KEY as LUNA_TRANSLATION_KEY,
-} from '@lychen/luna-i18n';
 import {
   messages as robustMessages,
   TRANSLATION_KEY as ROBUST_TRANSLATION_KEY,
 } from '@lychen/robust-i18n';
 import { type Application, type ApplicationAlias } from '@lychen/applications-model/Application';
 import { computed } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { APPLICATION_STATE } from '@lychen/applications-constants/ApplicationState';
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 
@@ -53,9 +48,7 @@ export function useApplicationsCatalog() {
   useI18nExtended({ messages: humuMessages, rootKey: HUMU_TRANSLATION_KEY });
   useI18nExtended({ messages: koloMessages, rootKey: KOLO_TRANSLATION_KEY });
   useI18nExtended({ messages: varaMessages, rootKey: VARA_TRANSLATION_KEY });
-  useI18nExtended({ messages: ekoMessages, rootKey: EKO_TRANSLATION_KEY });
   useI18nExtended({ messages: noviMessages, rootKey: NOVI_TRANSLATION_KEY });
-  useI18nExtended({ messages: lunaMessages, rootKey: LUNA_TRANSLATION_KEY });
   useI18nExtended({ messages: robustMessages, rootKey: ROBUST_TRANSLATION_KEY });
   const { t } = useI18nExtended();
 
@@ -88,11 +81,9 @@ export function useApplicationsCatalog() {
       APPLICATION_ALIAS.Meli,
       APPLICATION_ALIAS.Kiro,
       APPLICATION_ALIAS.Humu,
-      //APPLICATION_ALIAS.Luna,
       APPLICATION_ALIAS.Novi,
       APPLICATION_ALIAS.Vara,
       APPLICATION_ALIAS.Kolo,
-      //APPLICATION_ALIAS.Eko,
     ];
     return Object.values(customOrder).map((alias) => {
       return generateAppInfo(alias);

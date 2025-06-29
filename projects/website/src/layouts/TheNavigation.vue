@@ -127,9 +127,9 @@
       </NavigationMenu>
     </div>
 
-    <div class="flex flex-row items-center gap-4">
-      <LanguageSwitcher />
-      <ThemeSwitcher />
+    <div class="flex flex-row items-center gap-2">
+      <SelectLanguage />
+      <ToggleColorScheme />
       <a
         :href="SOCIAL_LINK.GitHub"
         target="_blank"
@@ -161,7 +161,7 @@ import { useApplicationsCatalog } from '@lychen/applications-composables/useAppl
 import { RoutePagePrice } from '@/pages/price';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 
 import { useCommunityMenu } from './composables/useCommunityMenu';
@@ -173,16 +173,14 @@ import LogoLychenFull from '@lychen/vue-components-extra/logo-lychen/LogoLychenF
 import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
+import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+
+const SelectLanguage = defineAsyncComponent(
+  () => import('@lychen/vue-i18n/components/select-language/SelectLanguage.vue'),
 );
 
 const NavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuSubLink.vue'),
-);
-
-const ThemeSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue'),
 );
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));

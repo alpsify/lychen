@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { LabelProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { Label } from '../label';
 import { useFormField } from './useFormField';
 

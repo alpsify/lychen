@@ -3,13 +3,13 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../typescript/tailwind"
+      "path": "../../typescript/utils"
     },
     {
       "path": "../../vue/components-core"
     },
     {
-      "path": "../../vue/i18n/composables"
+      "path": "../../vue/i18n"
     },
     {
       "path": "../i18n"

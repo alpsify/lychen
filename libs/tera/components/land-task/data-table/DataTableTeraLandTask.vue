@@ -149,7 +149,7 @@ import { Checkbox } from '@lychen/vue-components-core/checkbox';
 import { faSort } from '@fortawesome/pro-light-svg-icons/faSort';
 import { cn, valueUpdater } from '@lychen/vue-components-core/lib/utils';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { DropdownMenu } from '@lychen/vue-components-core/dropdown-menu';
 import DropdownMenuTrigger from '@lychen/vue-components-core/dropdown-menu/DropdownMenuTrigger.vue';
 import DropdownMenuContent from '@lychen/vue-components-core/dropdown-menu/DropdownMenuContent.vue';

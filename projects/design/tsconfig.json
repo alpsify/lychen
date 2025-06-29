@@ -15,10 +15,7 @@
       "path": "../../libs/vue/components-extra"
     },
     {
-      "path": "../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../libs/vue/i18n/configs"
+      "path": "../../libs/vue/i18n"
     }
   ],
   "compilerOptions": {

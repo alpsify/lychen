@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../typescript/object"
+      "path": "../../typescript/utils"
     },
     {
       "path": "../api-sdk"

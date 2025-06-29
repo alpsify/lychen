@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ComboboxEmptyProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { ComboboxEmpty } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

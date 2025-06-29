@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 interface RainbowButtonProps {
   class?: string;

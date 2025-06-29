@@ -9,7 +9,7 @@ import { type OrganizedFeaturesByGroup } from '@lychen/applications-model/Organi
 import {
   type UseCustomI18nOptions,
   useI18nExtended,
-} from '@lychen/vue-i18n-composables/useI18nExtended';
+} from '@lychen/vue-i18n/composables/useI18nExtended';
 
 export interface UseGenericApplicationsFeatures<
   G extends ApplicationFeatureGroup = ApplicationFeatureGroup,

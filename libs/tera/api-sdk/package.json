@@ -1,7 +1,5 @@
 {
   "name": "@lychen/tera-api-sdk",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
     "openapi-fetch": "^0.13.5"

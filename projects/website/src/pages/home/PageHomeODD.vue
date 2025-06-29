@@ -43,7 +43,7 @@ import Goal11Url from './assets/goal-11.webp';
 import { computed, defineAsyncComponent, ref } from 'vue';
 import { useOddCatalog } from '@lychen/odd-composables/useOddCatalog';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const GoalSubSection = defineAsyncComponent(
   () => import('@/pages/home/component/GoalSubSection.vue'),

@@ -1,15 +1,11 @@
 {
   "name": "@lychen/vue-components-app",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/typescript-tailwind": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-extra": "workspace:*",
-    "@lychen/vue-composables": "workspace:*",
-    "@lychen/vue-i18n-composables": "workspace:*",
     "@vueuse/core": "^13.0.0",
     "class-variance-authority": "^0.7.1",
     "reka-ui": "^2.3.1",

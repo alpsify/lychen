@@ -21,6 +21,9 @@
       "path": "../../libs/vite/ssg"
     },
     {
+      "path": "../../libs/vue/color-scheme"
+    },
+    {
       "path": "../../libs/vue/components-core"
     },
     {
@@ -30,19 +33,13 @@
       "path": "../../libs/vue/components-website"
     },
     {
-      "path": "../../libs/vue/composables"
-    },
-    {
       "path": "../../libs/vue/drawio/components"
     },
     {
       "path": "../../libs/vue/drawio/core"
     },
     {
-      "path": "../../libs/vue/i18n/composables"
-    },
-    {
-      "path": "../../libs/vue/i18n/configs"
+      "path": "../../libs/vue/i18n"
     },
     {
       "path": "../../libs/vue/layouts"

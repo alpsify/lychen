@@ -27,7 +27,7 @@ import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import { landRolePostSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';

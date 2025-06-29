@@ -4,9 +4,9 @@ dependsOn:
   - tera-constants
   - tera-events
   - tera-i18n
-  - typescript-object
+  - typescript-utils
   - vue-components-core
-  - vue-i18n-composables
+  - vue-i18n
 
 id: tera-components
 language: typescript

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from './interface';
 import Button from '../button/Button.vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { useCarousel } from './useCarousel';
-import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
+import IconArrowRight from '@lychen/vue-icons/IconArrowRight.vue';
 
 const props = defineProps<WithClassAsProps>();
 
@@ -25,9 +25,12 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
     size="sm"
     variant="outline"
     aria-label="Suivant"
-    :icon="faArrowRight"
+    icon-only
     @click="scrollNext"
   >
+    <template #icon>
+      <IconArrowRight />
+    </template>
     <slot />
   </Button>
 </template>

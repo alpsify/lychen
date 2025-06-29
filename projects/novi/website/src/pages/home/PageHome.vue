@@ -5,7 +5,7 @@
 
 <script lang="ts" setup>
 import ogImageUrl from './assets/HomeOgImage.webp';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import PageHomeHero from './PageHomeHero.vue';

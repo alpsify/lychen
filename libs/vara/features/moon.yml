@@ -1,7 +1,7 @@
 dependsOn:
   - applications-generic-composables
   - applications-model
-  - typescript-object
+  - typescript-utils
   - vara-constants
 
 id: vara-features

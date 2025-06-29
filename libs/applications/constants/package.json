@@ -1,13 +1,9 @@
 {
   "name": "@lychen/applications-constants",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
-    "@lychen/eko-constants": "workspace:*",
     "@lychen/humu-constants": "workspace:*",
     "@lychen/kiro-constants": "workspace:*",
     "@lychen/kolo-constants": "workspace:*",
-    "@lychen/luna-constants": "workspace:*",
     "@lychen/meli-constants": "workspace:*",
     "@lychen/myko-constants": "workspace:*",
     "@lychen/novi-constants": "workspace:*",

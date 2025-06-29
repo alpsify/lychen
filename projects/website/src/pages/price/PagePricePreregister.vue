@@ -39,7 +39,7 @@ import imageUrl from './assets/preregister.webp';
 import { defineAsyncComponent } from 'vue';
 import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-constants/Link';
 
 const DivWithBackgroundImg = defineAsyncComponent(

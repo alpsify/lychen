@@ -1,8 +1,8 @@
 dependsOn:
-  - typescript-tailwind
+  - typescript-utils
+  - vue-color-scheme
   - vue-components-extra
-  - vue-composables
-  - vue-i18n-composables
+  - vue-i18n
   - vue-icons
 
 id: vue-components-website

@@ -1,6 +1,6 @@
 import { RoutePageManifest } from '@/pages/manifest';
 import { messages, TRANSLATION_KEY } from '../i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-constants/Link';
 
 export function useResourcesMenu() {

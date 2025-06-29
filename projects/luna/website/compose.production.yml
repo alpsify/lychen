@@ -1,4 +1,0 @@
-services:
-  website:
-    image: ghcr.io/alpsify/lychen/production/luna/website:latest
-    restart: unless-stopped

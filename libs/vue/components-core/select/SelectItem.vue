@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 import {
   SelectItem,

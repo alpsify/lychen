@@ -41,8 +41,8 @@
         </div>
 
         <div class="flex flex-row items-center gap-4">
-          <LanguageSwitcher />
-          <ThemeSwitcher />
+          <SelectLanguage />
+          <ToggleColorScheme />
           <a
             :href="SOCIAL_LINK.GitHub"
             target="_blank"
@@ -91,6 +91,8 @@ import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
 
+import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+
 const ButtonTallyPreregister = defineAsyncComponent(
   () =>
     import('@lychen/vue-components-website/button-tally-preregister/ButtonTallyPreregister.vue'),
@@ -114,18 +116,14 @@ const SheetTrigger = defineAsyncComponent(
   () => import('@lychen/vue-components-core/sheet/SheetTrigger.vue'),
 );
 
-const ThemeSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue'),
-);
-
 const Sheet = defineAsyncComponent(() => import('@lychen/vue-components-core/sheet/Sheet.vue'));
 
 const SheetContent = defineAsyncComponent(
   () => import('@lychen/vue-components-core/sheet/SheetContent.vue'),
 );
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
+const SelectLanguage = defineAsyncComponent(
+  () => import('@lychen/vue-i18n/components/select-language/SelectLanguage.vue'),
 );
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));

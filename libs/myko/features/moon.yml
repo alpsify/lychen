@@ -2,7 +2,7 @@ dependsOn:
   - applications-generic-composables
   - applications-model
   - myko-constants
-  - typescript-object
+  - typescript-utils
 
 id: myko-features
 

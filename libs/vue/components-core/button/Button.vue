@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { computed, type HTMLAttributes, type VNode } from 'vue';
 import { PRESETS } from '../utils/Preset';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import {
   ICON_POSITION,
   SIZE_VALUES,

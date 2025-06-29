@@ -3,12 +3,6 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../eko/features"
-    },
-    {
-      "path": "../../eko/i18n"
-    },
-    {
       "path": "../../humu/features"
     },
     {
@@ -25,12 +19,6 @@
     },
     {
       "path": "../../kolo/i18n"
-    },
-    {
-      "path": "../../luna/features"
-    },
-    {
-      "path": "../../luna/i18n"
     },
     {
       "path": "../../meli/features"
@@ -69,7 +57,7 @@
       "path": "../../vara/i18n"
     },
     {
-      "path": "../../vue/i18n/composables"
+      "path": "../../vue/i18n"
     },
     {
       "path": "../constants"

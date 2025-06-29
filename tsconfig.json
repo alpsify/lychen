@@ -20,15 +20,6 @@
       "path": "libs/applications/model"
     },
     {
-      "path": "libs/eko/constants"
-    },
-    {
-      "path": "libs/eko/features"
-    },
-    {
-      "path": "libs/eko/i18n"
-    },
-    {
       "path": "libs/humu/constants"
     },
     {
@@ -60,15 +51,6 @@
     },
     {
       "path": "libs/kolo/i18n"
-    },
-    {
-      "path": "libs/luna/constants"
-    },
-    {
-      "path": "libs/luna/features"
-    },
-    {
-      "path": "libs/luna/i18n"
     },
     {
       "path": "libs/meli/constants"
@@ -140,19 +122,7 @@
       "path": "libs/typescript/constants"
     },
     {
-      "path": "libs/typescript/date"
-    },
-    {
-      "path": "libs/typescript/fontawesome"
-    },
-    {
-      "path": "libs/typescript/object"
-    },
-    {
-      "path": "libs/typescript/tailwind"
-    },
-    {
-      "path": "libs/typescript/types"
+      "path": "libs/typescript/utils"
     },
     {
       "path": "libs/typescript/zitadel"
@@ -185,9 +155,6 @@
       "path": "libs/vue/components-website"
     },
     {
-      "path": "libs/vue/composables"
-    },
-    {
       "path": "libs/vue/drawio/components"
     },
     {
@@ -197,13 +164,7 @@
       "path": "libs/vue/drawio/tera"
     },
     {
-      "path": "libs/vue/i18n/composables"
-    },
-    {
-      "path": "libs/vue/i18n/configs"
-    },
-    {
-      "path": "libs/vue/i18n/helpers"
+      "path": "libs/vue/i18n"
     },
     {
       "path": "libs/vue/icons"
@@ -215,19 +176,13 @@
       "path": "libs/vue/router/configs"
     },
     {
-      "path": "libs/vue/tiptap/components"
-    },
-    {
-      "path": "libs/vue/tiptap/composables"
+      "path": "libs/vue/tiptap"
     },
     {
       "path": "libs/vue/unhead/composables"
     },
     {
       "path": "projects/design"
-    },
-    {
-      "path": "projects/eko/website"
     },
     {
       "path": "projects/humu/website"
@@ -240,9 +195,6 @@
     },
     {
       "path": "projects/kolo/website"
-    },
-    {
-      "path": "projects/luna/website"
     },
     {
       "path": "projects/meli/website"
@@ -261,9 +213,6 @@
     },
     {
       "path": "projects/tera/app"
-    },
-    {
-      "path": "projects/tera/tests-app"
     },
     {
       "path": "projects/tera/tests-e2e"

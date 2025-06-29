@@ -1,6 +1,6 @@
 dependsOn:
   - applications-constants
-  - typescript-object
+  - typescript-utils
 
 id: applications-model
 

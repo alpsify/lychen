@@ -7,13 +7,13 @@ dependsOn:
   - odd-composables
   - typescript-constants
   - vite-ssg
+  - vue-color-scheme
   - vue-components-core
   - vue-components-extra
   - vue-components-website
-  - vue-composables
   - vue-drawio-core
-  - vue-i18n-composables
-  - vue-i18n-configs
+  - vue-i18n
+  - vue-i18n
   - vue-layouts
   - vue-router-configs
   - vue-unhead-composables

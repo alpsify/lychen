@@ -30,7 +30,7 @@ import {
 } from '@lychen/vue-components-core/dialog';
 import DialogDescription from '@lychen/vue-components-core/dialog/DialogDescription.vue';
 import FormTeraLandCreate from '@lychen/tera-components/land/forms/FormTeraLandCreate.vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
 

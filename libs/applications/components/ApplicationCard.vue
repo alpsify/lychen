@@ -24,7 +24,7 @@
 import { type Application } from '@lychen/applications-model/Application';
 import { defineAsyncComponent, type HTMLAttributes } from 'vue';
 import ApplicationTitle from './ApplicationTitle.vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),

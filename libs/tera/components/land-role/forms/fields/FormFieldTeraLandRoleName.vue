@@ -32,7 +32,7 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-role';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

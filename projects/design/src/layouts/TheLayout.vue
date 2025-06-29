@@ -35,22 +35,22 @@
     <LayoutInAppContent />
     <LayoutInAppHeader>
       <div class="flex flex-row justify-end gap-4 w-full p-4">
-        <ThemeSwitcher />
-        <LanguageSwitcher />
+        <ToggleColorScheme />
+        <SelectLanguage />
       </div>
     </LayoutInAppHeader>
   </LayoutInAppRoot>
 </template>
 
 <script lang="ts" setup>
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { RoutePageColors } from '@/pages/colors';
 import { RoutePagePersonas } from '@/pages/personas';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { RoutePageHome } from '@/pages/home';
-import ThemeSwitcher from '@lychen/vue-components-extra/theme-switcher/ThemeSwitcher.vue';
-import LanguageSwitcher from '@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue';
+import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+import SelectLanguage from '@lychen/vue-i18n/components/select-language/SelectLanguage.vue';
 import { computed } from 'vue';
 import LayoutInAppRoot from './in-app/LayoutInAppRoot.vue';
 import LayoutInAppSideNavigation from './in-app/LayoutInAppSideNavigation.vue';

@@ -30,7 +30,7 @@ import {
 import { Input } from '@lychen/vue-components-core/input';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 
 const fieldSchema = toTypedSchema(z.string().email());

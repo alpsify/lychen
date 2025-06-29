@@ -1,7 +1,5 @@
 {
   "name": "@lychen/css-core",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "devDependencies": {
     "tailwindcss": "^4.1.3"
   }

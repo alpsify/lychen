@@ -6,10 +6,8 @@ import { useFeatures as useMeliFeatures } from '@lychen/meli-features/composable
 import { useFeatures as useMykoFeatures } from '@lychen/myko-features/composables/useFeatures';
 import { useFeatures as useVaraFeatures } from '@lychen/vara-features/composables/useFeatures';
 import { useFeatures as useNoviFeatures } from '@lychen/novi-features/composables/useFeatures';
-import { useFeatures as useLunaFeatures } from '@lychen/luna-features/composables/useFeatures';
 import { useFeatures as useKoloFeatures } from '@lychen/kolo-features/composables/useFeatures';
 import { useFeatures as useHumuFeatures } from '@lychen/humu-features/composables/useFeatures';
-import { useFeatures as useEkoFeatures } from '@lychen/eko-features/composables/useFeatures';
 import { type UseGenericApplicationsFeatures } from '@lychen/applications-generic-composables/useGenericApplicationsFeatures';
 import { type ApplicationFeatureAlias } from '@lychen/applications-model/ApplicationFeatureAlias';
 import { type ApplicationFeatureGroup } from '@lychen/applications-model/ApplicationFeatureGroup';
@@ -25,10 +23,8 @@ export function useApplicationsFeatures() {
     [APPLICATION_ALIAS.Myko]: useMykoFeatures(),
     [APPLICATION_ALIAS.Vara]: useVaraFeatures(),
     [APPLICATION_ALIAS.Novi]: useNoviFeatures(),
-    [APPLICATION_ALIAS.Luna]: useLunaFeatures(),
     [APPLICATION_ALIAS.Kolo]: useKoloFeatures(),
     [APPLICATION_ALIAS.Humu]: useHumuFeatures(),
-    [APPLICATION_ALIAS.Eko]: useEkoFeatures(),
   };
 
   function getFeatures(

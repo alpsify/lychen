@@ -30,11 +30,11 @@ import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
 import { landMemberPatchSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
-import { extractValuesByKey } from '@lychen/typescript-object/Object';
+import { extractValuesByKey } from '@lychen/typescript-utils/transformers/extractValuesByKey';
 import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

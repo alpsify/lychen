@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { DrawerDescription } from 'vaul-vue';
 import { computed, type HtmlHTMLAttributes } from 'vue';
 

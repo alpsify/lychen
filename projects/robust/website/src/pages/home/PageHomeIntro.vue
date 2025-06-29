@@ -137,7 +137,7 @@ import AwardImageUrl from './assets/award.png';
 import RewardsImageUrl from './assets/rewards.png';
 import BadgeImageUrl from './assets/badge.png';
 import CompanyImageUrl from './assets/CompanyLogo.png';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { messages, TRANSLATION_KEY } from './i18n';

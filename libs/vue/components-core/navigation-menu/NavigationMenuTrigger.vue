@@ -3,7 +3,7 @@ import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps
 import { computed, type HTMLAttributes } from 'vue';
 
 import Icon from '../icon/Icon.vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { navigationMenuTriggerStyle } from '.';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 

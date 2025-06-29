@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from '@lychen/applications-i18n';
 import { type ApplicationState } from '@lychen/applications-model/Application';
 import { APPLICATION_STATE } from '@lychen/applications-constants/ApplicationState';

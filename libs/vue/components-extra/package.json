@@ -1,10 +1,8 @@
 {
   "name": "@lychen/vue-components-extra",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/typescript-tailwind": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@vueuse/core": "^13.0.0",
     "class-variance-authority": "^0.7.1",

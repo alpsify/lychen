@@ -1,11 +1,9 @@
 {
   "name": "@lychen/applications-generic-composables",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "dependencies": {
     "@lychen/applications-constants": "workspace:*",
     "@lychen/applications-model": "workspace:*",
-    "@lychen/vue-i18n-composables": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*",
     "vue": "^3.5.13"
   }
 }

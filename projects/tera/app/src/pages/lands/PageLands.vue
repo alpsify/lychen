@@ -100,7 +100,7 @@ import { ref, defineAsyncComponent } from 'vue';
 import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';

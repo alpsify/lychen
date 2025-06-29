@@ -1,4 +1,3 @@
-import { type OrNullUndefined } from '@lychen/typescript-types/Utility';
 import { type JSONContent } from '@tiptap/core';
 import Bold from '@tiptap/extension-bold';
 import BulletList from '@tiptap/extension-bullet-list';
@@ -26,7 +25,7 @@ export type EditorProps = {
   modelValue: EditorModelValue;
 };
 
-export type EditorModelValue = OrNullUndefined<JSONContent>;
+export type EditorModelValue = JSONContent | null | undefined;
 export type EditorEmit = {
   (e: 'update:modelValue', value: EditorModelValue): void;
 };

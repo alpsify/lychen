@@ -25,7 +25,7 @@ import imageUrl from './assets/presentation.webp';
 import { defineAsyncComponent } from 'vue';
 
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-components-website/container/Container.vue'),

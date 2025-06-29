@@ -1,4 +1,4 @@
-import type { ObjectValues } from '@lychen/typescript-object/Object';
+import { type ObjectValues } from '@lychen/typescript-utils/transformers/ObjectValues';
 
 export const LAND_SHARING_CONDITION = {
   GeneralMaintenance: 'general_maintenance',

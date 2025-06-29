@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../typescript/tailwind"
+      "path": "../../typescript/utils"
     },
     {
       "path": "../color-scheme"
@@ -13,12 +13,6 @@
     },
     {
       "path": "../components-extra"
-    },
-    {
-      "path": "../composables"
-    },
-    {
-      "path": "../i18n/composables"
     }
   ],
   "compilerOptions": {

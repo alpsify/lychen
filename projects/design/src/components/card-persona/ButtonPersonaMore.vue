@@ -18,7 +18,7 @@ import { EXCLUDED_CLASS } from './useDownloadHTMLAsImage';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import DropdownMenuPersona from './DropdownMenuPersona.vue';
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 interface Props {
   personaId: string;

@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../vue/i18n/composables"
+      "path": "../../vue/i18n"
     },
     {
       "path": "../constants"

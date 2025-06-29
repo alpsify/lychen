@@ -9,7 +9,7 @@
       "path": "../../../libs/vue/components-core"
     },
     {
-      "path": "../../../libs/vue/i18n/composables"
+      "path": "../../../libs/vue/i18n"
     }
   ],
   "compilerOptions": {

@@ -116,11 +116,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  type EditorModelValue,
-  type EditorProps,
-  useEditor,
-} from '@lychen/vue-tiptap-composables/useEditor';
+import { type EditorModelValue, type EditorProps, useEditor } from '../composables/useEditor';
 import { BubbleMenu, EditorContent } from '@tiptap/vue-3';
 import { onBeforeUnmount } from 'vue';
 

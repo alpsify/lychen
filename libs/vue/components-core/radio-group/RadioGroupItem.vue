@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { RadioGroupItemProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui';
 import { computed } from 'vue';
 import Icon from '../icon/Icon.vue';

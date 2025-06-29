@@ -98,7 +98,7 @@ import {
 } from '@lychen/vue-components-core/form';
 import { useFilter } from 'reka-ui';
 import { computed, ref, onMounted } from 'vue';
-import { useI18nExtended } from '@lychen/vue-i18n-composables/useI18nExtended';
+import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,

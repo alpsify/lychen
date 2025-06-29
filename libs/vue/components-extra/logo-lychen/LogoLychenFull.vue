@@ -9,7 +9,7 @@
 import { type HTMLAttributes } from 'vue';
 import LogoLychenIconOnly from './LogoLychenIconOnly.vue';
 import LogoLychenTextOnly from './LogoLychenTextOnly.vue';
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];

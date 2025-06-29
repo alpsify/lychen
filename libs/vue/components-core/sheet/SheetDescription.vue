@@ -2,7 +2,7 @@
 import { DialogDescription, type DialogDescriptionProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 const props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes['class'] }>();
 

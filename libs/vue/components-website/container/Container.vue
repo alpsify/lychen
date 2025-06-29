@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@lychen/typescript-tailwind/Cn';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 const props = defineProps<{ class?: string; wrapperClass?: string }>();
 </script>

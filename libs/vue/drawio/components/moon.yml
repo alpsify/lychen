@@ -1,5 +1,5 @@
 dependsOn:
-  - vue-i18n-composables
+  - vue-i18n
 
 id: vue-drawio-components
 
