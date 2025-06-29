@@ -1,5 +1,4 @@
 dependsOn:
-  - applications-assets
   - applications-components
   - css-core
   - typescript-constants

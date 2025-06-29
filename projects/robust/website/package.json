@@ -13,7 +13,6 @@
     "@lychen/applications-components": "workspace:*",
     "@lychen/applications-constants": "workspace:*",
     "@lychen/css-core": "workspace:*",
-    "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-composables": "workspace:*",
     "@lychen/robust-constants": "workspace:*",
     "@lychen/robust-features": "workspace:*",

@@ -16,7 +16,6 @@
     "@lychen/applications-constants": "workspace:*",
     "@lychen/css-core": "workspace:*",
     "@lychen/drawio-core": "workspace:*",
-    "@lychen/odd-assets": "workspace:*",
     "@lychen/odd-composables": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",

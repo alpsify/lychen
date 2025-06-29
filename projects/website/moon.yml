@@ -3,7 +3,6 @@ dependsOn:
   - applications-composables
   - applications-constants
   - css-core
-  - odd-assets
   - odd-composables
   - typescript-constants
   - vite-ssg
@@ -42,12 +41,12 @@ tags:
   - dokploy
   - ssg
 
-tasks:
-  assets-sync:
-    deps:
-      - args: '$projectRoot/public/odd-icons'
-        target: odd-assets:sync-icons
-      - args: '$projectRoot/public/applications-covers'
-        target: applications-assets:sync-covers
+#tasks:
+#assets-sync:
+#deps:
+#- args: '$projectRoot/public/odd-icons'
+#  target: odd-assets:sync-icons
+#- args: '$projectRoot/public/applications-covers'
+#  target: applications-assets:sync-covers
 
 type: application

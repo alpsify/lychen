@@ -1,8 +1,0 @@
-id: assets
-
-language: assets
-
-project:
-  description: Assets for Lychen environment
-  
-type: library
