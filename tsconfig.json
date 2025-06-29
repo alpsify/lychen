@@ -266,6 +266,9 @@
       "path": "projects/tera/tests-app"
     },
     {
+      "path": "projects/tera/tests-e2e"
+    },
+    {
       "path": "projects/tera/website"
     },
     {

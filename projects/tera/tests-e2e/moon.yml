@@ -2,7 +2,7 @@ dependsOn:
   - tera-api
   - tera-app
 
-id: tera-tests-app
+id: tera-tests-e2e
 
 language: typescript
 

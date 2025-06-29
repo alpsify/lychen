@@ -1,7 +1,5 @@
 {
-  "name": "@lychen/tera-tests-app",
-  "license": "UNLICENSED",
-  "version": "0.0.0",
+  "name": "@lychen/tera-tests-e2e",
   "devDependencies": {
     "@faker-js/faker": "^9.6.0",
     "@playwright/test": "^1.51.1",
