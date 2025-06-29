@@ -41,7 +41,7 @@
         </div>
 
         <div class="flex flex-row items-center gap-4">
-          <LanguageSwitcher />
+          <SelectLanguage />
           <ToggleColorScheme />
           <a
             :href="SOCIAL_LINK.GitHub"
@@ -122,8 +122,8 @@ const SheetContent = defineAsyncComponent(
   () => import('@lychen/vue-components-core/sheet/SheetContent.vue'),
 );
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
+const SelectLanguage = defineAsyncComponent(
+  () => import('@lychen/vue-i18n/components/select-language/SelectLanguage.vue'),
 );
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));

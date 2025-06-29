@@ -36,7 +36,7 @@
     <LayoutInAppHeader>
       <div class="flex flex-row justify-end gap-4 w-full p-4">
         <ToggleColorScheme />
-        <LanguageSwitcher />
+        <SelectLanguage />
       </div>
     </LayoutInAppHeader>
   </LayoutInAppRoot>
@@ -50,7 +50,7 @@ import { RoutePagePersonas } from '@/pages/personas';
 import { TRANSLATION_KEY, messages } from './i18n';
 import { RoutePageHome } from '@/pages/home';
 import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
-import LanguageSwitcher from '@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue';
+import SelectLanguage from '@lychen/vue-i18n/components/select-language/SelectLanguage.vue';
 import { computed } from 'vue';
 import LayoutInAppRoot from './in-app/LayoutInAppRoot.vue';
 import LayoutInAppSideNavigation from './in-app/LayoutInAppSideNavigation.vue';

@@ -3072,6 +3072,8 @@ __metadata:
   resolution: "@lychen/vue-i18n@workspace:libs/vue/i18n"
   dependencies:
     "@intlify/core-base": "npm:^11.1.7"
+    "@lychen/vue-components-core": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     vue: "npm:^3.5.13"
     vue-i18n: "npm:^11.1.7"
   languageName: unknown

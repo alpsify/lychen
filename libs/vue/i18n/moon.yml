@@ -1,3 +1,7 @@
+dependsOn:
+  - vue-components-core
+  - vue-icons
+
 id: vue-i18n
 
 language: typescript

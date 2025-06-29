@@ -127,8 +127,8 @@
       </NavigationMenu>
     </div>
 
-    <div class="flex flex-row items-center gap-4">
-      <LanguageSwitcher />
+    <div class="flex flex-row items-center gap-2">
+      <SelectLanguage />
       <ToggleColorScheme />
       <a
         :href="SOCIAL_LINK.GitHub"
@@ -175,8 +175,8 @@ import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
 
-const LanguageSwitcher = defineAsyncComponent(
-  () => import('@lychen/vue-components-extra/language-switcher/LanguageSwitcher.vue'),
+const SelectLanguage = defineAsyncComponent(
+  () => import('@lychen/vue-i18n/components/select-language/SelectLanguage.vue'),
 );
 
 const NavigationMenuSubLink = defineAsyncComponent(
