@@ -2074,16 +2074,12 @@ __metadata:
     "@lychen/applications-generic-composables": "workspace:*"
     "@lychen/applications-i18n": "workspace:*"
     "@lychen/applications-model": "workspace:*"
-    "@lychen/eko-features": "workspace:*"
-    "@lychen/eko-i18n": "workspace:*"
     "@lychen/humu-features": "workspace:*"
     "@lychen/humu-i18n": "workspace:*"
     "@lychen/kiro-features": "workspace:*"
     "@lychen/kiro-i18n": "workspace:*"
     "@lychen/kolo-features": "workspace:*"
     "@lychen/kolo-i18n": "workspace:*"
-    "@lychen/luna-features": "workspace:*"
-    "@lychen/luna-i18n": "workspace:*"
     "@lychen/meli-features": "workspace:*"
     "@lychen/meli-i18n": "workspace:*"
     "@lychen/myko-features": "workspace:*"
@@ -2105,11 +2101,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/applications-constants@workspace:libs/applications/constants"
   dependencies:
-    "@lychen/eko-constants": "workspace:*"
     "@lychen/humu-constants": "workspace:*"
     "@lychen/kiro-constants": "workspace:*"
     "@lychen/kolo-constants": "workspace:*"
-    "@lychen/luna-constants": "workspace:*"
     "@lychen/meli-constants": "workspace:*"
     "@lychen/myko-constants": "workspace:*"
     "@lychen/novi-constants": "workspace:*"
@@ -2190,67 +2184,6 @@ __metadata:
 "@lychen/drawio-tera@workspace:libs/drawio/tera":
   version: 0.0.0-use.local
   resolution: "@lychen/drawio-tera@workspace:libs/drawio/tera"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/eko-constants@workspace:*, @lychen/eko-constants@workspace:libs/eko/constants":
-  version: 0.0.0-use.local
-  resolution: "@lychen/eko-constants@workspace:libs/eko/constants"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/eko-features@workspace:*, @lychen/eko-features@workspace:libs/eko/features":
-  version: 0.0.0-use.local
-  resolution: "@lychen/eko-features@workspace:libs/eko/features"
-  dependencies:
-    "@lychen/applications-generic-composables": "workspace:*"
-    "@lychen/applications-model": "workspace:*"
-    "@lychen/eko-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/eko-i18n@workspace:*, @lychen/eko-i18n@workspace:libs/eko/i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/eko-i18n@workspace:libs/eko/i18n"
-  dependencies:
-    "@lychen/eko-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/eko-website@workspace:projects/eko/website":
-  version: 0.0.0-use.local
-  resolution: "@lychen/eko-website@workspace:projects/eko/website"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/applications-components": "workspace:*"
-    "@lychen/applications-constants": "workspace:*"
-    "@lychen/css-core": "workspace:*"
-    "@lychen/eko-constants": "workspace:*"
-    "@lychen/eko-features": "workspace:*"
-    "@lychen/eko-i18n": "workspace:*"
-    "@lychen/odd-assets": "workspace:*"
-    "@lychen/odd-composables": "workspace:*"
-    "@lychen/typescript-constants": "workspace:*"
-    "@lychen/vite-ssg": "workspace:*"
-    "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-components-website": "workspace:*"
-    "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
-    "@lychen/vue-layouts": "workspace:*"
-    "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-unhead-composables": "workspace:*"
-    "@tailwindcss/vite": "npm:^4.1.11"
-    "@unhead/schema-org": "npm:^1.11.14"
-    "@unhead/vue": "npm:^1.11.14"
-    "@vitejs/plugin-vue": "npm:^6.0.0"
-    unhead: "npm:^1.11.14"
-    vite: "npm:^6.3.5"
-    vite-ssg: "npm:^27.0.1"
-    vite-ssg-sitemap: "npm:^0.8.1"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
 
@@ -2467,68 +2400,6 @@ __metadata:
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-unhead-composables": "workspace:*"
     "@tailwindcss/vite": "npm:^4.0.0"
-    "@unhead/schema-org": "npm:^1.11.14"
-    "@unhead/vue": "npm:^1.11.14"
-    "@vitejs/plugin-vue": "npm:^6.0.0"
-    unhead: "npm:^1.11.14"
-    vite: "npm:^6.3.5"
-    vite-plugin-mkcert: "npm:^1.17.7"
-    vite-ssg: "npm:^27.0.1"
-    vite-ssg-sitemap: "npm:^0.8.1"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/luna-constants@workspace:*, @lychen/luna-constants@workspace:libs/luna/constants":
-  version: 0.0.0-use.local
-  resolution: "@lychen/luna-constants@workspace:libs/luna/constants"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/luna-features@workspace:*, @lychen/luna-features@workspace:libs/luna/features":
-  version: 0.0.0-use.local
-  resolution: "@lychen/luna-features@workspace:libs/luna/features"
-  dependencies:
-    "@lychen/applications-generic-composables": "workspace:*"
-    "@lychen/applications-model": "workspace:*"
-    "@lychen/luna-constants": "workspace:*"
-    "@lychen/typescript-object": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/luna-i18n@workspace:*, @lychen/luna-i18n@workspace:libs/luna/i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/luna-i18n@workspace:libs/luna/i18n"
-  dependencies:
-    "@lychen/luna-constants": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/luna-website@workspace:projects/luna/website":
-  version: 0.0.0-use.local
-  resolution: "@lychen/luna-website@workspace:projects/luna/website"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/applications-components": "workspace:*"
-    "@lychen/applications-constants": "workspace:*"
-    "@lychen/css-core": "workspace:*"
-    "@lychen/luna-constants": "workspace:*"
-    "@lychen/luna-features": "workspace:*"
-    "@lychen/luna-i18n": "workspace:*"
-    "@lychen/odd-assets": "workspace:*"
-    "@lychen/odd-composables": "workspace:*"
-    "@lychen/typescript-constants": "workspace:*"
-    "@lychen/vite-ssg": "workspace:*"
-    "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-components-website": "workspace:*"
-    "@lychen/vue-composables": "workspace:*"
-    "@lychen/vue-i18n-composables": "workspace:*"
-    "@lychen/vue-i18n-configs": "workspace:*"
-    "@lychen/vue-layouts": "workspace:*"
-    "@lychen/vue-router-configs": "workspace:*"
-    "@lychen/vue-unhead-composables": "workspace:*"
-    "@tailwindcss/vite": "npm:^4.1.11"
     "@unhead/schema-org": "npm:^1.11.14"
     "@unhead/vue": "npm:^1.11.14"
     "@vitejs/plugin-vue": "npm:^6.0.0"
@@ -2970,9 +2841,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-tests-app@workspace:projects/tera/tests-app":
+"@lychen/tera-tests-e2e@workspace:projects/tera/tests-e2e":
   version: 0.0.0-use.local
-  resolution: "@lychen/tera-tests-app@workspace:projects/tera/tests-app"
+  resolution: "@lychen/tera-tests-e2e@workspace:projects/tera/tests-e2e"
   dependencies:
     "@faker-js/faker": "npm:^9.6.0"
     "@lychen/tera-app": "workspace:*"

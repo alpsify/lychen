@@ -20,15 +20,6 @@
       "path": "libs/applications/model"
     },
     {
-      "path": "libs/eko/constants"
-    },
-    {
-      "path": "libs/eko/features"
-    },
-    {
-      "path": "libs/eko/i18n"
-    },
-    {
       "path": "libs/humu/constants"
     },
     {
@@ -60,15 +51,6 @@
     },
     {
       "path": "libs/kolo/i18n"
-    },
-    {
-      "path": "libs/luna/constants"
-    },
-    {
-      "path": "libs/luna/features"
-    },
-    {
-      "path": "libs/luna/i18n"
     },
     {
       "path": "libs/meli/constants"
@@ -227,9 +209,6 @@
       "path": "projects/design"
     },
     {
-      "path": "projects/eko/website"
-    },
-    {
       "path": "projects/humu/website"
     },
     {
@@ -240,9 +219,6 @@
     },
     {
       "path": "projects/kolo/website"
-    },
-    {
-      "path": "projects/luna/website"
     },
     {
       "path": "projects/meli/website"

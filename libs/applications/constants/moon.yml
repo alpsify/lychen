@@ -1,9 +1,7 @@
 dependsOn:
-  - eko-constants
   - humu-constants
   - kiro-constants
   - kolo-constants
-  - luna-constants
   - meli-constants
   - myko-constants
   - novi-constants

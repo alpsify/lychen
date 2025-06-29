@@ -3,9 +3,6 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../eko/constants"
-    },
-    {
       "path": "../../humu/constants"
     },
     {
@@ -13,9 +10,6 @@
     },
     {
       "path": "../../kolo/constants"
-    },
-    {
-      "path": "../../luna/constants"
     },
     {
       "path": "../../meli/constants"
