@@ -43,7 +43,18 @@ export default [
   ...eslintPluginYml.configs['flat/recommended'],
   {
     files: ['**/*.vue'],
-    languageOptions: { parserOptions: { parser: tseslint.parser } },
+    languageOptions: {
+      parserOptions: { parser: tseslint.parser },
+      globals: { ...globals.browser },
+    },
+    rules: {
+      'vue/block-order': [
+        'error',
+        {
+          order: ['template', 'script', 'style'],
+        },
+      ],
+    },
   },
   {
     files: ['**/compose.*.yml', '**/compose.yml'],
