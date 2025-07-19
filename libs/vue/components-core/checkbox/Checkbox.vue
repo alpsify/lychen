@@ -1,23 +1,3 @@
-<script setup lang="ts">
-import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
-
-const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
-const emits = defineEmits<CheckboxRootEmits>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
-</script>
-
 <template>
   <CheckboxRoot
     v-bind="forwarded"
@@ -38,3 +18,23 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     </CheckboxIndicator>
   </CheckboxRoot>
 </template>
+
+<script setup lang="ts">
+import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+import Icon from '../icon/Icon.vue';
+import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+
+const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
+const emits = defineEmits<CheckboxRootEmits>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
+</script>

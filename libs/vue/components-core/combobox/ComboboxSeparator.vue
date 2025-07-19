@@ -1,3 +1,12 @@
+<template>
+  <ComboboxSeparator
+    v-bind="delegatedProps"
+    :class="cn('-mx-1 h-px bg-primary', props.class)"
+  >
+    <slot />
+  </ComboboxSeparator>
+</template>
+
 <script setup lang="ts">
 import type { ComboboxSeparatorProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -12,12 +21,3 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 </script>
-
-<template>
-  <ComboboxSeparator
-    v-bind="delegatedProps"
-    :class="cn('-mx-1 h-px bg-primary', props.class)"
-  >
-    <slot />
-  </ComboboxSeparator>
-</template>

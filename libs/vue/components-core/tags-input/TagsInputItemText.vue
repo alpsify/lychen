@@ -1,3 +1,10 @@
+<template>
+  <TagsInputItemText
+    v-bind="forwardedProps"
+    :class="cn('py-1 px-2 text-sm rounded bg-transparent', props.class)"
+  />
+</template>
+
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { TagsInputItemText, type TagsInputItemTextProps, useForwardProps } from 'reka-ui';
@@ -13,10 +20,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <TagsInputItemText
-    v-bind="forwardedProps"
-    :class="cn('py-1 px-2 text-sm rounded bg-transparent', props.class)"
-  />
-</template>

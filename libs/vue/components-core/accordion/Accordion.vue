@@ -1,3 +1,9 @@
+<template>
+  <AccordionRoot v-bind="forwarded">
+    <slot />
+  </AccordionRoot>
+</template>
+
 <script setup lang="ts">
 import {
   AccordionRoot,
@@ -11,9 +17,3 @@ const emits = defineEmits<AccordionRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-
-<template>
-  <AccordionRoot v-bind="forwarded">
-    <slot />
-  </AccordionRoot>
-</template>

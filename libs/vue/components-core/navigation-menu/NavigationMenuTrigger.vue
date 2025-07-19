@@ -1,3 +1,17 @@
+<template>
+  <NavigationMenuTrigger
+    v-bind="forwardedProps"
+    :class="cn(navigationMenuTriggerStyle(), 'group', props.class)"
+  >
+    <slot />
+    <Icon
+      :icon="faChevronDown"
+      class="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
+      aria-hidden="true"
+    />
+  </NavigationMenuTrigger>
+</template>
+
 <script setup lang="ts">
 import { NavigationMenuTrigger, type NavigationMenuTriggerProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
@@ -17,17 +31,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <NavigationMenuTrigger
-    v-bind="forwardedProps"
-    :class="cn(navigationMenuTriggerStyle(), 'group', props.class)"
-  >
-    <slot />
-    <Icon
-      :icon="faChevronDown"
-      class="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
-      aria-hidden="true"
-    />
-  </NavigationMenuTrigger>
-</template>

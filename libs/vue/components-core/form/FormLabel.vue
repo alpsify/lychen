@@ -1,3 +1,12 @@
+<template>
+  <Label
+    :class="cn(error && 'text-negative', props.class)"
+    :for="formItemId"
+  >
+    <slot />
+  </Label>
+</template>
+
 <script lang="ts" setup>
 import type { LabelProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
@@ -9,12 +18,3 @@ const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>();
 
 const { error, formItemId } = useFormField();
 </script>
-
-<template>
-  <Label
-    :class="cn(error && 'text-negative', props.class)"
-    :for="formItemId"
-  >
-    <slot />
-  </Label>
-</template>

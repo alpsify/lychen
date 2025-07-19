@@ -1,30 +1,3 @@
-<script setup lang="ts">
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import {
-  DialogClose,
-  DialogContent,
-  type DialogContentEmits,
-  type DialogContentProps,
-  DialogOverlay,
-  DialogPortal,
-  useForwardPropsEmits,
-} from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
-
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>();
-const emits = defineEmits<DialogContentEmits>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
-</script>
-
 <template>
   <DialogPortal>
     <DialogOverlay
@@ -66,3 +39,30 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     </DialogOverlay>
   </DialogPortal>
 </template>
+
+<script setup lang="ts">
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import {
+  DialogClose,
+  DialogContent,
+  type DialogContentEmits,
+  type DialogContentProps,
+  DialogOverlay,
+  DialogPortal,
+  useForwardPropsEmits,
+} from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+import Icon from '../icon/Icon.vue';
+import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
+
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>();
+const emits = defineEmits<DialogContentEmits>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
+</script>

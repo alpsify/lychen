@@ -1,3 +1,14 @@
+<template>
+  <TagsInputRoot
+    v-bind="forwarded"
+    :class="
+      cn('flex flex-wrap gap-2 items-center px-3 py-2 text-sm', PRESETS.InputField, props.class)
+    "
+  >
+    <slot />
+  </TagsInputRoot>
+</template>
+
 <script setup lang="ts">
 import { PRESETS } from '../utils/Preset';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -20,14 +31,3 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
-
-<template>
-  <TagsInputRoot
-    v-bind="forwarded"
-    :class="
-      cn('flex flex-wrap gap-2 items-center px-3 py-2 text-sm', PRESETS.InputField, props.class)
-    "
-  >
-    <slot />
-  </TagsInputRoot>
-</template>

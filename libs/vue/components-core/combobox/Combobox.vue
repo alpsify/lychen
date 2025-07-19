@@ -1,3 +1,9 @@
+<template>
+  <ComboboxRoot v-bind="forwarded">
+    <slot />
+  </ComboboxRoot>
+</template>
+
 <script setup lang="ts">
 import {
   ComboboxRoot,
@@ -11,9 +17,3 @@ const emits = defineEmits<ComboboxRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-
-<template>
-  <ComboboxRoot v-bind="forwarded">
-    <slot />
-  </ComboboxRoot>
-</template>

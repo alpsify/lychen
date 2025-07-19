@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { DialogClose, type DialogCloseProps } from 'reka-ui';
-import Button from '../button/Button.vue';
-import IconTimes from '@lychen/vue-icons/IconTimes.vue';
-
-const props = defineProps<DialogCloseProps>();
-</script>
-
 <template>
   <DialogClose v-bind="props">
     <slot>
@@ -21,3 +13,11 @@ const props = defineProps<DialogCloseProps>();
     </slot>
   </DialogClose>
 </template>
+
+<script setup lang="ts">
+import { DialogClose, type DialogCloseProps } from 'reka-ui';
+import Button from '../button/Button.vue';
+import IconTimes from '@lychen/vue-icons/IconTimes.vue';
+
+const props = defineProps<DialogCloseProps>();
+</script>

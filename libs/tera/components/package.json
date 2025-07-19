@@ -10,6 +10,7 @@
     "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-i18n": "workspace:*",
+    "@lychen/vue-icons": "workspace:*",
     "@tanstack/vue-query": "^5.67.3",
     "@tanstack/vue-table": "^8.21.2",
     "@vee-validate/zod": "^4.15.0",

@@ -1,20 +1,3 @@
-<script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { reactiveOmit } from '@vueuse/core';
-import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
-import { PRESETS } from '../utils/Preset';
-import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
-
-const props = withDefaults(
-  defineProps<SelectTriggerProps & { class?: HTMLAttributes['class']; size?: 'sm' | 'default' }>(),
-  { size: 'default', class: undefined },
-);
-
-const delegatedProps = reactiveOmit(props, 'class', 'size');
-const forwardedProps = useForwardProps(delegatedProps);
-</script>
-
 <template>
   <SelectTrigger
     data-slot="select-trigger"
@@ -36,3 +19,20 @@ const forwardedProps = useForwardProps(delegatedProps);
     </SelectIcon>
   </SelectTrigger>
 </template>
+
+<script setup lang="ts">
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { reactiveOmit } from '@vueuse/core';
+import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
+import { PRESETS } from '../utils/Preset';
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
+
+const props = withDefaults(
+  defineProps<SelectTriggerProps & { class?: HTMLAttributes['class']; size?: 'sm' | 'default' }>(),
+  { size: 'default', class: undefined },
+);
+
+const delegatedProps = reactiveOmit(props, 'class', 'size');
+const forwardedProps = useForwardProps(delegatedProps);
+</script>

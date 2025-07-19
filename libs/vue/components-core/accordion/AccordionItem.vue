@@ -1,3 +1,12 @@
+<template>
+  <AccordionItem
+    v-bind="forwardedProps"
+    :class="cn(props.class)"
+  >
+    <slot />
+  </AccordionItem>
+</template>
+
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui';
@@ -13,12 +22,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <AccordionItem
-    v-bind="forwardedProps"
-    :class="cn(props.class)"
-  >
-    <slot />
-  </AccordionItem>
-</template>

@@ -1,3 +1,17 @@
+<template>
+  <div
+    :class="
+      cn(
+        'flex flex-row items-center justify-center rounded-md px-2 py-1 text-xs gap-2 cursor-default',
+        VARIANT_VALUES[variant],
+        propsClass,
+      )
+    "
+  >
+    <slot />
+  </div>
+</template>
+
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue';
 
@@ -15,17 +29,3 @@ const { class: propsClass, variant = 'default' } = defineProps<{
   class?: HTMLAttributes['class'];
 }>();
 </script>
-
-<template>
-  <div
-    :class="
-      cn(
-        'flex flex-row items-center justify-center rounded-md px-2 py-1 text-xs gap-2 cursor-default',
-        VARIANT_VALUES[variant],
-        propsClass,
-      )
-    "
-  >
-    <slot />
-  </div>
-</template>

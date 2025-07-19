@@ -7,6 +7,7 @@ dependsOn:
   - typescript-utils
   - vue-components-core
   - vue-i18n
+  - vue-icons
 
 id: tera-components
 language: typescript

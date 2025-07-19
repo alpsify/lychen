@@ -1,3 +1,13 @@
+<template>
+  <ComboboxTrigger
+    v-bind="forwarded"
+    :class="cn('', props.class)"
+    tabindex="0"
+  >
+    <slot />
+  </ComboboxTrigger>
+</template>
+
 <script setup lang="ts">
 import type { ComboboxTriggerProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -14,13 +24,3 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <ComboboxTrigger
-    v-bind="forwarded"
-    :class="cn('', props.class)"
-    tabindex="0"
-  >
-    <slot />
-  </ComboboxTrigger>
-</template>

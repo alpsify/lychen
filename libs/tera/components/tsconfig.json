@@ -12,6 +12,9 @@
       "path": "../../vue/i18n"
     },
     {
+      "path": "../../vue/icons"
+    },
+    {
       "path": "../api-sdk"
     },
     {

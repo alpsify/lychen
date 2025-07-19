@@ -1,22 +1,3 @@
-<script lang="ts" setup>
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { VARIANT_VALUES } from '../button';
-import { CalendarNext, type CalendarNextProps, useForwardProps } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
-
-const props = defineProps<CalendarNextProps & { class?: HTMLAttributes['class'] }>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwardedProps = useForwardProps(delegatedProps);
-</script>
-
 <template>
   <CalendarNext
     data-slot="calendar-next-button"
@@ -38,3 +19,22 @@ const forwardedProps = useForwardProps(delegatedProps);
     </slot>
   </CalendarNext>
 </template>
+
+<script lang="ts" setup>
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { VARIANT_VALUES } from '../button';
+import { CalendarNext, type CalendarNextProps, useForwardProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+import Icon from '../icon/Icon.vue';
+import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
+
+const props = defineProps<CalendarNextProps & { class?: HTMLAttributes['class'] }>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwardedProps = useForwardProps(delegatedProps);
+</script>

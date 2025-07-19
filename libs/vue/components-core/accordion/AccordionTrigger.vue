@@ -1,19 +1,3 @@
-<script setup lang="ts">
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
-
-const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-</script>
-
 <template>
   <AccordionHeader class="flex">
     <AccordionTrigger
@@ -35,3 +19,19 @@ const delegatedProps = computed(() => {
     </AccordionTrigger>
   </AccordionHeader>
 </template>
+
+<script setup lang="ts">
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+import Icon from '../icon/Icon.vue';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+
+const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+</script>

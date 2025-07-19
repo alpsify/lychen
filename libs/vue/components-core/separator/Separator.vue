@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { Separator, type SeparatorProps } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-
-const props = defineProps<SeparatorProps & { class?: HTMLAttributes['class']; label?: string }>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-</script>
-
 <template>
   <Separator
     v-bind="delegatedProps"
@@ -35,3 +21,17 @@ const delegatedProps = computed(() => {
     >
   </Separator>
 </template>
+
+<script setup lang="ts">
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { Separator, type SeparatorProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+
+const props = defineProps<SeparatorProps & { class?: HTMLAttributes['class']; label?: string }>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+</script>

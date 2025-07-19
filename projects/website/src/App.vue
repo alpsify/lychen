@@ -1,3 +1,9 @@
+<template>
+  <TooltipProvider>
+    <RouterView />
+  </TooltipProvider>
+</template>
+
 <script setup lang="ts">
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
@@ -30,9 +36,3 @@ useSchemaOrg([
   defineWebPage(),
 ]);
 </script>
-
-<template>
-  <TooltipProvider>
-    <RouterView />
-  </TooltipProvider>
-</template>

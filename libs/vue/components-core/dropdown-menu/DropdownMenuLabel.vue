@@ -1,3 +1,12 @@
+<template>
+  <DropdownMenuLabel
+    v-bind="forwardedProps"
+    :class="cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', props.class)"
+  >
+    <slot />
+  </DropdownMenuLabel>
+</template>
+
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'reka-ui';
@@ -15,12 +24,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <DropdownMenuLabel
-    v-bind="forwardedProps"
-    :class="cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', props.class)"
-  >
-    <slot />
-  </DropdownMenuLabel>
-</template>

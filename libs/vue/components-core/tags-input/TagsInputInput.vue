@@ -1,3 +1,10 @@
+<template>
+  <TagsInputInput
+    v-bind="forwardedProps"
+    :class="cn('text-sm min-h-6 flex-1 px-1 bg-transparent', props.class)"
+  />
+</template>
+
 <script setup lang="ts">
 import { PRESETS } from '../utils/Preset';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -14,10 +21,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <TagsInputInput
-    v-bind="forwardedProps"
-    :class="cn('text-sm min-h-6 flex-1 px-1 bg-transparent', props.class)"
-  />
-</template>

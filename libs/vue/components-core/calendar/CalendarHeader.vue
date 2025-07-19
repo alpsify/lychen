@@ -1,3 +1,13 @@
+<template>
+  <CalendarHeader
+    data-slot="calendar-header"
+    :class="cn('flex justify-center pt-1 relative items-center w-full', props.class)"
+    v-bind="forwardedProps"
+  >
+    <slot />
+  </CalendarHeader>
+</template>
+
 <script lang="ts" setup>
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { CalendarHeader, type CalendarHeaderProps, useForwardProps } from 'reka-ui';
@@ -13,13 +23,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <CalendarHeader
-    data-slot="calendar-header"
-    :class="cn('flex justify-center pt-1 relative items-center w-full', props.class)"
-    v-bind="forwardedProps"
-  >
-    <slot />
-  </CalendarHeader>
-</template>

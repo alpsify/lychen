@@ -1,3 +1,18 @@
+<template>
+  <CalendarCell
+    data-slot="calendar-cell"
+    :class="
+      cn(
+        'relative p-0 text-center text-sm text-on-surface focus-within:relative focus-within:z-20 [&:has([data-selected])]:rounded-md [&:has([data-selected])]:bg-primary [&:has([data-selected])]:text-on-primary',
+        props.class,
+      )
+    "
+    v-bind="forwardedProps"
+  >
+    <slot />
+  </CalendarCell>
+</template>
+
 <script lang="ts" setup>
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { CalendarCell, type CalendarCellProps, useForwardProps } from 'reka-ui';
@@ -13,18 +28,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <CalendarCell
-    data-slot="calendar-cell"
-    :class="
-      cn(
-        'relative p-0 text-center text-sm text-on-surface focus-within:relative focus-within:z-20 [&:has([data-selected])]:rounded-md [&:has([data-selected])]:bg-primary [&:has([data-selected])]:text-on-primary',
-        props.class,
-      )
-    "
-    v-bind="forwardedProps"
-  >
-    <slot />
-  </CalendarCell>
-</template>

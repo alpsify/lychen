@@ -1,3 +1,9 @@
+<template>
+  <TooltipRoot v-bind="forwarded">
+    <slot />
+  </TooltipRoot>
+</template>
+
 <script setup lang="ts">
 import {
   TooltipRoot,
@@ -11,9 +17,3 @@ const emits = defineEmits<TooltipRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-
-<template>
-  <TooltipRoot v-bind="forwarded">
-    <slot />
-  </TooltipRoot>
-</template>

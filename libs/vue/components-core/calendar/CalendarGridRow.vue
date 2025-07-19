@@ -1,3 +1,13 @@
+<template>
+  <CalendarGridRow
+    data-slot="calendar-grid-row"
+    :class="cn('flex', props.class)"
+    v-bind="forwardedProps"
+  >
+    <slot />
+  </CalendarGridRow>
+</template>
+
 <script lang="ts" setup>
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { CalendarGridRow, type CalendarGridRowProps, useForwardProps } from 'reka-ui';
@@ -13,13 +23,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <CalendarGridRow
-    data-slot="calendar-grid-row"
-    :class="cn('flex', props.class)"
-    v-bind="forwardedProps"
-  >
-    <slot />
-  </CalendarGridRow>
-</template>

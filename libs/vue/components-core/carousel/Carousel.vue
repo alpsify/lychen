@@ -1,3 +1,23 @@
+<template>
+  <div
+    :class="cn('relative', props.class)"
+    role="region"
+    aria-roledescription="carousel"
+    tabindex="0"
+    @keydown="onKeyDown"
+  >
+    <slot
+      :can-scroll-next
+      :can-scroll-prev
+      :carousel-api
+      :carousel-ref
+      :orientation
+      :scroll-next
+      :scroll-prev
+    />
+  </div>
+</template>
+
 <script setup lang="ts">
 import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -46,23 +66,3 @@ function onKeyDown(event: KeyboardEvent) {
   }
 }
 </script>
-
-<template>
-  <div
-    :class="cn('relative', props.class)"
-    role="region"
-    aria-roledescription="carousel"
-    tabindex="0"
-    @keydown="onKeyDown"
-  >
-    <slot
-      :can-scroll-next
-      :can-scroll-prev
-      :carousel-api
-      :carousel-ref
-      :orientation
-      :scroll-next
-      :scroll-prev
-    />
-  </div>
-</template>

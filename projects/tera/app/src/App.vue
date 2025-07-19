@@ -1,3 +1,10 @@
+<template>
+  <Toaster />
+  <TooltipProvider>
+    <RouterView />
+  </TooltipProvider>
+</template>
+
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
@@ -9,10 +16,3 @@ const TooltipProvider = defineAsyncComponent(
 
 usePreferredColorScheme();
 </script>
-
-<template>
-  <Toaster />
-  <TooltipProvider>
-    <RouterView />
-  </TooltipProvider>
-</template>

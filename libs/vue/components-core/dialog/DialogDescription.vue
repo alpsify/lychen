@@ -1,3 +1,12 @@
+<template>
+  <DialogDescription
+    v-bind="forwardedProps"
+    :class="cn('text-sm text-muted-foreground', props.class)"
+  >
+    <slot />
+  </DialogDescription>
+</template>
+
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { DialogDescription, type DialogDescriptionProps, useForwardProps } from 'reka-ui';
@@ -13,12 +22,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <DialogDescription
-    v-bind="forwardedProps"
-    :class="cn('text-sm text-muted-foreground', props.class)"
-  >
-    <slot />
-  </DialogDescription>
-</template>

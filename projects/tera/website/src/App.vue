@@ -1,3 +1,7 @@
+<template>
+  <RouterView />
+</template>
+
 <script setup lang="ts">
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
@@ -29,7 +33,3 @@ useSchemaOrg([
   defineWebPage(),
 ]);
 </script>
-
-<template>
-  <RouterView />
-</template>

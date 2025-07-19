@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import type { WithClassAsProps } from './interface';
-import Button from '../button/Button.vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { useCarousel } from './useCarousel';
-import IconArrowLeft from '@lychen/vue-icons/IconArrowLeft.vue';
-
-const props = defineProps<WithClassAsProps>();
-
-const { orientation, canScrollPrev, scrollPrev } = useCarousel();
-</script>
-
 <template>
   <Button
     :disabled="!canScrollPrev"
@@ -34,3 +22,15 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
     <slot />
   </Button>
 </template>
+
+<script setup lang="ts">
+import type { WithClassAsProps } from './interface';
+import Button from '../button/Button.vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { useCarousel } from './useCarousel';
+import IconArrowLeft from '@lychen/vue-icons/IconArrowLeft.vue';
+
+const props = defineProps<WithClassAsProps>();
+
+const { orientation, canScrollPrev, scrollPrev } = useCarousel();
+</script>

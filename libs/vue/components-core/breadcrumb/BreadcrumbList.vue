@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-</script>
-
 <template>
   <ol
     :class="
@@ -19,3 +10,12 @@ const props = defineProps<{
     <slot />
   </ol>
 </template>
+
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>

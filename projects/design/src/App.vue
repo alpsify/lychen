@@ -1,3 +1,9 @@
+<template>
+  <TooltipProvider>
+    <RouterView />
+  </TooltipProvider>
+</template>
+
 <script setup lang="ts">
 import { TooltipProvider } from '@lychen/vue-components-core/tooltip';
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
@@ -26,9 +32,3 @@ useSchemaOrg([
   defineWebPage(),
 ]);
 </script>
-
-<template>
-  <TooltipProvider>
-    <RouterView />
-  </TooltipProvider>
-</template>

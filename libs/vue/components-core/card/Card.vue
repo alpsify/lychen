@@ -1,3 +1,18 @@
+<template>
+  <Primitive
+    :as="as"
+    :class="
+      cn(
+        'flex flex-col rounded-3xl p-6 bg-surface-container-low text-on-surface-container duration-300 ease-in-out',
+        hoverable ? 'hover:shadow-md hover:shadow-on-surface/10 cursor-pointer' : '',
+        props.class,
+      )
+    "
+  >
+    <slot />
+  </Primitive>
+</template>
+
 <script setup lang="ts">
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
@@ -14,18 +29,3 @@ const props = withDefaults(defineProps<Props>(), {
   hoverable: false,
 });
 </script>
-
-<template>
-  <Primitive
-    :as="as"
-    :class="
-      cn(
-        'flex flex-col rounded-3xl p-6 bg-surface-container-low text-on-surface-container duration-300 ease-in-out',
-        hoverable ? 'hover:shadow-md hover:shadow-on-surface/10 cursor-pointer' : '',
-        props.class,
-      )
-    "
-  >
-    <slot />
-  </Primitive>
-</template>

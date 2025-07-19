@@ -1,38 +1,3 @@
-<script lang="ts" setup>
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import {
-  CalendarRoot,
-  type CalendarRootEmits,
-  type CalendarRootProps,
-  useForwardPropsEmits,
-} from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-import {
-  CalendarCell,
-  CalendarCellTrigger,
-  CalendarGrid,
-  CalendarGridBody,
-  CalendarGridHead,
-  CalendarGridRow,
-  CalendarHeadCell,
-  CalendarHeader,
-  CalendarHeading,
-  CalendarNextButton,
-  CalendarPrevButton,
-} from '.';
-
-const props = defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>();
-const emits = defineEmits<CalendarRootEmits>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
-</script>
-
 <template>
   <CalendarRoot
     v-slot="{ grid, weekDays }"
@@ -86,3 +51,38 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     </div>
   </CalendarRoot>
 </template>
+
+<script lang="ts" setup>
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import {
+  CalendarRoot,
+  type CalendarRootEmits,
+  type CalendarRootProps,
+  useForwardPropsEmits,
+} from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+import {
+  CalendarCell,
+  CalendarCellTrigger,
+  CalendarGrid,
+  CalendarGridBody,
+  CalendarGridHead,
+  CalendarGridRow,
+  CalendarHeadCell,
+  CalendarHeader,
+  CalendarHeading,
+  CalendarNextButton,
+  CalendarPrevButton,
+} from '.';
+
+const props = defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>();
+const emits = defineEmits<CalendarRootEmits>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
+</script>

@@ -1,26 +1,3 @@
-<script setup lang="ts">
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import IconCheck from '@lychen/vue-icons/IconCheck.vue';
-import {
-  SelectItem,
-  SelectItemIndicator,
-  type SelectItemProps,
-  SelectItemText,
-  useForwardProps,
-} from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-
-const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwardedProps = useForwardProps(delegatedProps);
-</script>
-
 <template>
   <SelectItem
     data-slot="select-item"
@@ -43,3 +20,26 @@ const forwardedProps = useForwardProps(delegatedProps);
     </SelectItemText>
   </SelectItem>
 </template>
+
+<script setup lang="ts">
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
+import {
+  SelectItem,
+  SelectItemIndicator,
+  type SelectItemProps,
+  SelectItemText,
+  useForwardProps,
+} from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+
+const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwardedProps = useForwardProps(delegatedProps);
+</script>

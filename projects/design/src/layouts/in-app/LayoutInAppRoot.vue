@@ -1,10 +1,10 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="layout-in-app-root">
     <slot> </slot>
   </div>
 </template>
+
+<script setup lang="ts"></script>
 
 <style lang="css" scoped>
 .layout-in-app-root {

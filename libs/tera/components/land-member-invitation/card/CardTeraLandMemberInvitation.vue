@@ -45,24 +45,34 @@
         :land-member-invitation="landMemberInvitation"
       >
         <Button
-          :icon="faTrash"
           variant="negative"
           size="sm"
           @click.stop
-        />
+        >
+          <template #icon>
+            <IconTrash />
+          </template>
+        </Button>
       </DialogTeraLandMemberInvitationDelete>
       <template v-if="variant === VARIANT.ForUser">
         <Button
-          :icon="faCheck"
           variant="positive"
           size="sm"
-          @click="accept" />
+          @click="accept"
+        >
+          <template #icon>
+            <IconCheck />
+          </template>
+        </Button>
         <Button
-          :icon="faTimes"
           variant="negative"
           size="sm"
           @click="refuse"
-      /></template>
+        >
+          <template #icon>
+            <IconTimes />
+          </template> </Button
+      ></template>
     </div>
   </Card>
 </template>
@@ -72,9 +82,6 @@ import Card from '@lychen/vue-components-core/card/Card.vue';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';
 import DialogTeraLandMemberInvitationDelete from '../dialogs/delete/DialogTeraLandMemberInvitationDelete.vue';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
-import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
 import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
@@ -93,6 +100,9 @@ import {
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-events/LandMemberInvitationEvents';
 import { useEventBus } from '@vueuse/core';
+import IconTimes from '@lychen/vue-icons/IconTimes.vue';
+import IconTrash from '@lychen/vue-icons/IconTrash.vue';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),

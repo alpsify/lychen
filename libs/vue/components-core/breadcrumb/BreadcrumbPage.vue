@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-</script>
-
 <template>
   <span
     role="link"
@@ -17,3 +8,12 @@ const props = defineProps<{
     <slot />
   </span>
 </template>
+
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>

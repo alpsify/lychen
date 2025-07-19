@@ -1,23 +1,3 @@
-<script setup lang="ts">
-import type { ComboboxGroupProps } from 'reka-ui';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { ComboboxGroup, ComboboxLabel } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-
-const props = defineProps<
-  ComboboxGroupProps & {
-    class?: HTMLAttributes['class'];
-    heading?: string;
-  }
->();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-</script>
-
 <template>
   <ComboboxGroup
     v-bind="delegatedProps"
@@ -37,3 +17,23 @@ const delegatedProps = computed(() => {
     <slot />
   </ComboboxGroup>
 </template>
+
+<script setup lang="ts">
+import type { ComboboxGroupProps } from 'reka-ui';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { ComboboxGroup, ComboboxLabel } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+
+const props = defineProps<
+  ComboboxGroupProps & {
+    class?: HTMLAttributes['class'];
+    heading?: string;
+  }
+>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+</script>

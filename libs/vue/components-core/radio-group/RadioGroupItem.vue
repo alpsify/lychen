@@ -1,3 +1,22 @@
+<template>
+  <RadioGroupItem
+    v-bind="forwardedProps"
+    :class="
+      cn(
+        'peer cursor-pointer aspect-square h-4 w-4 rounded-full border border-on-surface/50 text-primary focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        props.class,
+      )
+    "
+  >
+    <RadioGroupIndicator class="flex items-center justify-center">
+      <Icon
+        :icon="faCheck"
+        class="h-2.5 w-2.5 fill-current text-current"
+      />
+    </RadioGroupIndicator>
+  </RadioGroupItem>
+</template>
+
 <script setup lang="ts">
 import type { RadioGroupItemProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
@@ -17,22 +36,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <RadioGroupItem
-    v-bind="forwardedProps"
-    :class="
-      cn(
-        'peer cursor-pointer aspect-square h-4 w-4 rounded-full border border-on-surface/50 text-primary focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
-        props.class,
-      )
-    "
-  >
-    <RadioGroupIndicator class="flex items-center justify-center">
-      <Icon
-        :icon="faCheck"
-        class="h-2.5 w-2.5 fill-current text-current"
-      />
-    </RadioGroupIndicator>
-  </RadioGroupItem>
-</template>

@@ -1,11 +1,3 @@
-<script lang="ts" setup>
-import { ErrorMessage } from 'vee-validate';
-import { toValue } from 'vue';
-import { useFormField } from './useFormField';
-
-const { name, formMessageId } = useFormField();
-</script>
-
 <template>
   <ErrorMessage
     :id="formMessageId"
@@ -14,3 +6,11 @@ const { name, formMessageId } = useFormField();
     class="text-sm font-medium text-negative"
   />
 </template>
+
+<script lang="ts" setup>
+import { ErrorMessage } from 'vee-validate';
+import { toValue } from 'vue';
+import { useFormField } from './useFormField';
+
+const { name, formMessageId } = useFormField();
+</script>

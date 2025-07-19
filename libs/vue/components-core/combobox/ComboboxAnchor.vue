@@ -1,3 +1,12 @@
+<template>
+  <ComboboxAnchor
+    v-bind="forwarded"
+    :class="cn('w-[200px]', props.class)"
+  >
+    <slot />
+  </ComboboxAnchor>
+</template>
+
 <script setup lang="ts">
 import type { ComboboxAnchorProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -14,12 +23,3 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <ComboboxAnchor
-    v-bind="forwarded"
-    :class="cn('w-[200px]', props.class)"
-  >
-    <slot />
-  </ComboboxAnchor>
-</template>

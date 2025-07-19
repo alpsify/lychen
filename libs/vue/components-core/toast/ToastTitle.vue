@@ -1,3 +1,12 @@
+<template>
+  <ToastTitle
+    v-bind="delegatedProps"
+    :class="cn('text-sm font-semibold', props.class)"
+  >
+    <slot />
+  </ToastTitle>
+</template>
+
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { ToastTitle, type ToastTitleProps } from 'reka-ui';
@@ -11,12 +20,3 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 </script>
-
-<template>
-  <ToastTitle
-    v-bind="delegatedProps"
-    :class="cn('text-sm font-semibold', props.class)"
-  >
-    <slot />
-  </ToastTitle>
-</template>

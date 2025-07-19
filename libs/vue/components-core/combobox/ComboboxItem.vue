@@ -1,3 +1,17 @@
+<template>
+  <ComboboxItem
+    v-bind="forwarded"
+    :class="
+      cn(
+        'relative flex cursor-default gap-2 select-none justify-between items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-secondary data-[highlighted]:text-on-secondary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0',
+        props.class,
+      )
+    "
+  >
+    <slot />
+  </ComboboxItem>
+</template>
+
 <script setup lang="ts">
 import type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -15,17 +29,3 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
-
-<template>
-  <ComboboxItem
-    v-bind="forwarded"
-    :class="
-      cn(
-        'relative flex cursor-default gap-2 select-none justify-between items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-secondary data-[highlighted]:text-on-secondary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0',
-        props.class,
-      )
-    "
-  >
-    <slot />
-  </ComboboxItem>
-</template>

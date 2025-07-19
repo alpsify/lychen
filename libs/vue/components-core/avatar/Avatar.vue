@@ -1,3 +1,9 @@
+<template>
+  <AvatarRoot :class="cn(avatarVariant({ size, shape }), props.class)">
+    <slot />
+  </AvatarRoot>
+</template>
+
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -17,9 +23,3 @@ const props = withDefaults(
   },
 );
 </script>
-
-<template>
-  <AvatarRoot :class="cn(avatarVariant({ size, shape }), props.class)">
-    <slot />
-  </AvatarRoot>
-</template>

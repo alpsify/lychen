@@ -1,13 +1,3 @@
-<script setup lang="ts">
-import type { WithClassAsProps } from './interface';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { useCarousel } from './useCarousel';
-
-const props = defineProps<WithClassAsProps>();
-
-const { orientation } = useCarousel();
-</script>
-
 <template>
   <div
     role="group"
@@ -23,3 +13,13 @@ const { orientation } = useCarousel();
     <slot />
   </div>
 </template>
+
+<script setup lang="ts">
+import type { WithClassAsProps } from './interface';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { useCarousel } from './useCarousel';
+
+const props = defineProps<WithClassAsProps>();
+
+const { orientation } = useCarousel();
+</script>

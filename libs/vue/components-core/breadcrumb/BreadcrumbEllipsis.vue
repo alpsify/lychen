@@ -1,14 +1,3 @@
-<script lang="ts" setup>
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import Icon from '../icon/Icon.vue';
-import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
-
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-</script>
-
 <template>
   <span
     role="presentation"
@@ -24,3 +13,14 @@ const props = defineProps<{
     <span class="sr-only">More</span>
   </span>
 </template>
+
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import Icon from '../icon/Icon.vue';
+import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>

@@ -1,21 +1,3 @@
-<script setup lang="ts">
-import { Icon } from '../icon';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { DropdownMenuSubTrigger, type DropdownMenuSubTriggerProps, useForwardProps } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-
-const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'] }>();
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwardedProps = useForwardProps(delegatedProps);
-</script>
-
 <template>
   <DropdownMenuSubTrigger
     v-bind="forwardedProps"
@@ -33,3 +15,21 @@ const forwardedProps = useForwardProps(delegatedProps);
     />
   </DropdownMenuSubTrigger>
 </template>
+
+<script setup lang="ts">
+import { Icon } from '../icon';
+import { faChevronRight } from '@fortawesome/pro-light-svg-icons';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { DropdownMenuSubTrigger, type DropdownMenuSubTriggerProps, useForwardProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+
+const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'] }>();
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwardedProps = useForwardProps(delegatedProps);
+</script>

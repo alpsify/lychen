@@ -1,3 +1,9 @@
+<template>
+  <DialogRoot v-bind="forwarded">
+    <slot />
+  </DialogRoot>
+</template>
+
 <script setup lang="ts">
 import {
   DialogRoot,
@@ -11,9 +17,3 @@ const emits = defineEmits<DialogRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-
-<template>
-  <DialogRoot v-bind="forwarded">
-    <slot />
-  </DialogRoot>
-</template>

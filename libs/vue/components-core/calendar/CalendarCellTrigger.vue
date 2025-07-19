@@ -1,26 +1,3 @@
-<script lang="ts" setup>
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { VARIANT_VALUES } from '../button';
-import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
-
-const props = withDefaults(
-  defineProps<CalendarCellTriggerProps & { class?: HTMLAttributes['class'] }>(),
-  {
-    as: 'button',
-    class: undefined,
-  },
-);
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwardedProps = useForwardProps(delegatedProps);
-</script>
-
 <template>
   <CalendarCellTrigger
     data-slot="calendar-cell-trigger"
@@ -45,3 +22,26 @@ const forwardedProps = useForwardProps(delegatedProps);
     <slot />
   </CalendarCellTrigger>
 </template>
+
+<script lang="ts" setup>
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { VARIANT_VALUES } from '../button';
+import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
+
+const props = withDefaults(
+  defineProps<CalendarCellTriggerProps & { class?: HTMLAttributes['class'] }>(),
+  {
+    as: 'button',
+    class: undefined,
+  },
+);
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwardedProps = useForwardProps(delegatedProps);
+</script>

@@ -1,14 +1,3 @@
-<script lang="ts" setup>
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import Icon from '../icon/Icon.vue';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
-
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-</script>
-
 <template>
   <li
     role="presentation"
@@ -20,3 +9,14 @@ const props = defineProps<{
     </slot>
   </li>
 </template>
+
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import Icon from '../icon/Icon.vue';
+import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>

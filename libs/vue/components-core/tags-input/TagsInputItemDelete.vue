@@ -1,3 +1,17 @@
+<template>
+  <TagsInputItemDelete
+    v-bind="forwardedProps"
+    :class="cn('flex rounded bg-transparent mr-1 cursor-pointer', props.class)"
+  >
+    <slot>
+      <Icon
+        :icon="faTimes"
+        class="w-4 h-4"
+      />
+    </slot>
+  </TagsInputItemDelete>
+</template>
+
 <script setup lang="ts">
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 import Icon from '../icon/Icon.vue';
@@ -15,17 +29,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <TagsInputItemDelete
-    v-bind="forwardedProps"
-    :class="cn('flex rounded bg-transparent mr-1 cursor-pointer', props.class)"
-  >
-    <slot>
-      <Icon
-        :icon="faTimes"
-        class="w-4 h-4"
-      />
-    </slot>
-  </TagsInputItemDelete>
-</template>

@@ -1,3 +1,12 @@
+<template>
+  <ComboboxEmpty
+    v-bind="delegatedProps"
+    :class="cn('py-6 text-center text-sm', props.class)"
+  >
+    <slot />
+  </ComboboxEmpty>
+</template>
+
 <script setup lang="ts">
 import type { ComboboxEmptyProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
@@ -12,12 +21,3 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 </script>
-
-<template>
-  <ComboboxEmpty
-    v-bind="delegatedProps"
-    :class="cn('py-6 text-center text-sm', props.class)"
-  >
-    <slot />
-  </ComboboxEmpty>
-</template>

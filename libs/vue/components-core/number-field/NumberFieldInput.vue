@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import { NumberFieldInput } from 'reka-ui';
-import { PRESETS } from '../utils/Preset';
-
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-</script>
-
 <template>
   <NumberFieldInput
     data-slot="input"
@@ -23,3 +12,14 @@ const props = defineProps<{
     "
   />
 </template>
+
+<script setup lang="ts">
+import type { HTMLAttributes } from 'vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import { NumberFieldInput } from 'reka-ui';
+import { PRESETS } from '../utils/Preset';
+
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+</script>
