@@ -91,7 +91,7 @@
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-components/land-task/card/CardTeraLandTask.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import Kanban from '@lychen/vue-components-extra/kanban/Kanban.vue';
 import KanbanColumn from '@lychen/vue-components-extra/kanban/KanbanColumn.vue';
@@ -112,7 +112,7 @@ import DialogTeraLandTaskCreate from '@lychen/tera-components/land-task/dialogs/
 import {
   LandTaskJsonldState as LandTaskState,
   type components,
-} from '@lychen/tera-api-sdk/generated/tera-api';
+} from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
 import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-events/LandTaskEvents';

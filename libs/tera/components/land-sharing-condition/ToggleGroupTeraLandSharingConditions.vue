@@ -44,7 +44,7 @@ import { Icon } from '@lychen/vue-components-core/icon';
 import {
   LAND_SHARING_CONDITIONS,
   type LandSharingCondition,
-} from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+} from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-components/icons/IconLandSharingCondition';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-proposal';

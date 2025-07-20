@@ -2346,27 +2346,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/tera-api-sdk@workspace:*, @lychen/tera-api-sdk@workspace:libs/tera/api-sdk":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-api-sdk@workspace:libs/tera/api-sdk"
-  dependencies:
-    openapi-fetch: "npm:^0.13.5"
-    openapi-typescript: "npm:^7.6.1"
-    typescript: "npm:^5.8.2"
-  languageName: unknown
-  linkType: soft
-
 "@lychen/tera-app@workspace:*, @lychen/tera-app@workspace:projects/tera/app":
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
-    "@lychen/tera-api-sdk": "workspace:*"
     "@lychen/tera-components": "workspace:*"
     "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
-    "@lychen/typescript-tera": "workspace:*"
+    "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-app": "workspace:*"
@@ -2397,9 +2386,9 @@ __metadata:
   resolution: "@lychen/tera-components@workspace:libs/tera/components"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/tera-api-sdk": "workspace:*"
     "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
+    "@lychen/typescript-tera-api-sdk": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
@@ -2419,7 +2408,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-events@workspace:libs/tera/events"
   dependencies:
-    "@lychen/tera-api-sdk": "workspace:*"
+    "@lychen/typescript-tera-api-sdk": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     vue: "npm:^3.5.13"
   languageName: unknown
@@ -2451,7 +2440,7 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
-    "@lychen/typescript-tera": "workspace:*"
+    "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
     "@lychen/vue-applications": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
@@ -2483,7 +2472,7 @@ __metadata:
   resolution: "@lychen/typescript-applications@workspace:libs/typescript/applications"
   dependencies:
     "@lychen/typescript-robust": "workspace:*"
-    "@lychen/typescript-tera": "workspace:*"
+    "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2550,9 +2539,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lychen/typescript-tera@workspace:*, @lychen/typescript-tera@workspace:libs/typescript/tera":
+"@lychen/typescript-tera-api-sdk@workspace:*, @lychen/typescript-tera-api-sdk@workspace:libs/typescript/tera/api-sdk":
   version: 0.0.0-use.local
-  resolution: "@lychen/typescript-tera@workspace:libs/typescript/tera"
+  resolution: "@lychen/typescript-tera-api-sdk@workspace:libs/typescript/tera/api-sdk"
+  dependencies:
+    openapi-typescript: "npm:^7.6.1"
+  languageName: unknown
+  linkType: soft
+
+"@lychen/typescript-tera-core@workspace:*, @lychen/typescript-tera-core@workspace:libs/typescript/tera/core":
+  version: 0.0.0-use.local
+  resolution: "@lychen/typescript-tera-core@workspace:libs/typescript/tera/core"
   dependencies:
     "@lychen/typescript-utils": "workspace:*"
   languageName: unknown
@@ -2909,10 +2906,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-tera@workspace:libs/vue/tera"
   dependencies:
-    "@lychen/tera-api-sdk": "workspace:*"
-    "@lychen/typescript-tera": "workspace:*"
+    "@lychen/typescript-tera-api-sdk": "workspace:*"
+    "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
+    "@lychen/typescript-zitadel": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
+    openapi-fetch: "npm:^0.14.0"
     vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
@@ -9812,12 +9811,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openapi-fetch@npm:^0.13.5":
-  version: 0.13.5
-  resolution: "openapi-fetch@npm:0.13.5"
+"openapi-fetch@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "openapi-fetch@npm:0.14.0"
   dependencies:
     openapi-typescript-helpers: "npm:^0.0.15"
-  checksum: 10c0/57736d9d4310d7bc7fa5e4e37e80d28893a7fefee88ee6e0327600de893e0638479445bf0c9f5bd7b1a2429f409425d3945d6e942b23b37b8081630ac52244fb
+  checksum: 10c0/d23155edde61837a25896a2b201c890649ec8d16b37c3920dee940290ef6a66bd1b6f1df5ac68ec203f32d485ce16f7cf3557c13c183299e2e321d0a2eb62691
   languageName: node
   linkType: hard
 

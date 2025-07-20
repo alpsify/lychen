@@ -56,7 +56,7 @@ import Button from '@lychen/vue-components-core/button/Button.vue';
 import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
 import TeraLandProposalSharingConditions from '../../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { DISPLAY } from '../../../common/sharing-conditions-icons';
-import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

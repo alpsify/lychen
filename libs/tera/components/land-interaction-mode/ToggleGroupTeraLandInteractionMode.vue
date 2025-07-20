@@ -30,7 +30,7 @@ import { Icon } from '@lychen/vue-components-core/icon';
 import {
   LAND_INTERACTION_MODES,
   type LandInteractionMode,
-} from '@lychen/tera-api-sdk/constants/LandInteractionMode';
+} from '@lychen/typescript-tera-core/constants/LandInteractionMode';
 import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-components/icons/IconLandInteractionMode';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';

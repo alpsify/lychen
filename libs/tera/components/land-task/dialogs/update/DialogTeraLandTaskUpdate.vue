@@ -77,7 +77,7 @@ import {
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-i18n/land-task';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import { useRouter } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '.';

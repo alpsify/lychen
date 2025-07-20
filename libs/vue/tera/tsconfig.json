@@ -3,9 +3,6 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../tera/api-sdk"
-    },
-    {
       "path": "../../typescript/tera/api-sdk"
     },
     {

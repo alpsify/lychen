@@ -1,4 +1,4 @@
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { computed, type Ref } from 'vue';
 import { LAND_GUARD_STRATEGY, type LandGuardStrategy } from '.';
 

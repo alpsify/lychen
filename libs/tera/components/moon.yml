@@ -1,6 +1,7 @@
 dependsOn:
   - tera-events
   - tera-i18n
+  - typescript-tera-api-sdk
   - typescript-utils
   - vue-components-core
   - vue-i18n

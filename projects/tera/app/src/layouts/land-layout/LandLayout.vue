@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { RoutePageDashboard } from '@/pages/dashboard';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';

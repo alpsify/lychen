@@ -27,7 +27,7 @@ import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-proposal';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { type Display, DISPLAY } from '.';
-import { type LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+import { type LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import { LAND_SHARING_CONDITION_ICON } from '@lychen/tera-components/icons/IconLandSharingCondition';
 
 const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));

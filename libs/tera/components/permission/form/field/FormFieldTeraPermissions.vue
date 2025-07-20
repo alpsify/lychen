@@ -116,7 +116,7 @@ import {
 } from '@lychen/tera-i18n/land-role';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import Icon from '@lychen/vue-components-core/icon/Icon.vue';
-import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/tera-api-sdk/generated/tera-api';
+import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({

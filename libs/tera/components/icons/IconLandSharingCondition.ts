@@ -10,7 +10,7 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   LAND_SHARING_CONDITION,
   type LandSharingCondition,
-} from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+} from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 
 export const LAND_SHARING_CONDITION_ICON: { [key in LandSharingCondition]: IconDefinition } = {
   [LAND_SHARING_CONDITION.GeneralMaintenance]: faShovel,

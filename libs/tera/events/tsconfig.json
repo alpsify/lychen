@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../api-sdk"
+      "path": "../../typescript/tera/api-sdk"
     }
   ],
   "compilerOptions": {

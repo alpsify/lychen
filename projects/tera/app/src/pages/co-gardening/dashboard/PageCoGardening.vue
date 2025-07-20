@@ -49,9 +49,9 @@ import { RoutePageCoGardeningProposals } from '../proposals';
 import GridTeraLandProposal from '@lychen/tera-components/land-proposal/grid/GridTeraLandProposal.vue';
 import ToggleGroupTeraLandSharingConditions from '@lychen/tera-components/land-sharing-condition/ToggleGroupTeraLandSharingConditions.vue';
 import ToggleGroupTeraLandInteractionMode from '@lychen/tera-components/land-interaction-mode/ToggleGroupTeraLandInteractionMode.vue';
-import { type LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
-import { type LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { type LandInteractionMode } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
+import { type LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { ref } from 'vue';
 

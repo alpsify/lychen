@@ -22,11 +22,11 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-task';
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
-import type { paths } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { inject } from 'vue';
 import { EVENT_landTaskPostSucceeded } from '@lychen/tera-events/LandTaskEvents';
 

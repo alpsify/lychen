@@ -30,14 +30,14 @@ import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land';
 import { useForm } from 'vee-validate';
 
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandName.vue';
 import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
-import type { paths } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

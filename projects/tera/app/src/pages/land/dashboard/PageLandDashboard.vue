@@ -251,7 +251,7 @@
 import { defineAsyncComponent, computed, inject } from 'vue';
 import CardTeraLandGreenhouse from '@lychen/tera-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
 import CardTeraLandArea from '@lychen/tera-components/land-area/card/CardTeraLandArea.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue';

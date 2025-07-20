@@ -26,13 +26,13 @@ import {
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
 } from '@lychen/tera-i18n/land-task';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
 import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-events/LandTaskEvents';
 import DialogWithCancelButton from '@lychen/vue-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t: tLandTask } = useI18nExtended({
   messages: landTaskMessages,

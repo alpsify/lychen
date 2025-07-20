@@ -101,7 +101,7 @@ import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/Di
 import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 import { VARIANT } from '@lychen/tera-components/land-member-invitation/card';
@@ -109,7 +109,7 @@ import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
 } from '@lychen/tera-events/LandMemberInvitationEvents';
-import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-api-sdk/generated/tera-api';
+import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
 import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 import IconSearch from '@lychen/vue-icons/IconSearch.vue';

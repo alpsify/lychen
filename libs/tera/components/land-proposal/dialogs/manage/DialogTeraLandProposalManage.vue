@@ -38,7 +38,7 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
 import { ref, computed } from 'vue';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

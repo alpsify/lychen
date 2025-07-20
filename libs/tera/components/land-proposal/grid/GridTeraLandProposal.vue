@@ -52,8 +52,8 @@ import DialogTeraLandProposalView from '@lychen/tera-components/land-proposal/di
 
 import { Icon } from '@lychen/vue-components-core/icon';
 import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons/faSpinnerThird';
-import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
-import type { operations } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
+import type { operations } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import type { QueryStatus } from '@tanstack/vue-query';
 
 defineProps<{

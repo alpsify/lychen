@@ -34,7 +34,7 @@ import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
 import { landMemberInvitationPostSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
 import { ref } from 'vue';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

@@ -55,7 +55,7 @@ import {
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { Separator } from '@lychen/vue-components-core/separator';
 import DialogTeraLandRoleDelete from '../delete/DialogTeraLandRoleDelete.vue';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({

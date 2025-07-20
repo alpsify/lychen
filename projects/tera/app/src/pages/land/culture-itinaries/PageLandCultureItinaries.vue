@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, inject } from 'vue';

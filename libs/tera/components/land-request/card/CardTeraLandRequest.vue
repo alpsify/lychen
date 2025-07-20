@@ -64,8 +64,8 @@ import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 import { faUserVneck } from '@fortawesome/pro-light-svg-icons/faUserVneck';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
-import { type LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
-import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+import { type LandInteractionMode } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
+import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import { LAND_INTERACTION_MODE_ICON } from '@lychen/tera-components/icons/IconLandInteractionMode';
 import { useCloseToExpire } from '@lychen/vue-tera/composables/use-close-to-expire';
 

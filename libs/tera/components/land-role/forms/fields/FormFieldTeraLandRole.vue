@@ -105,7 +105,7 @@ import {
 } from '@lychen/tera-i18n/land-role';
 import Icon from '@lychen/vue-components-core/icon/Icon.vue';
 import { useQuery } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { z } from 'zod';
 import { toTypedSchema } from '@vee-validate/zod';
 import {
@@ -114,7 +114,7 @@ import {
   TagsInput,
   TagsInputInput,
 } from '@lychen/vue-components-core/tags-input';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({
   messages: landRoleMessages,

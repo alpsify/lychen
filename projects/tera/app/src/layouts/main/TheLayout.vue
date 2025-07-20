@@ -99,7 +99,7 @@
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 import IconListUl from '@lychen/vue-icons/IconListUl.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import { useEventBus } from '@vueuse/core';
 import {

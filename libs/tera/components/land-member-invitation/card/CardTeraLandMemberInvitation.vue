@@ -84,7 +84,7 @@ import DialogTeraLandMemberInvitationDelete from '../dialogs/delete/DialogTeraLa
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { VARIANT, type Variant } from '.';
 import BadgeTeraLandMemberInvitation from '../badge/BadgeTeraLandMemberInvitation.vue';
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { defineAsyncComponent } from 'vue';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { TRANSLATION_KEY, messages } from './i18n';
@@ -93,7 +93,7 @@ import {
   messages as messagesLandMemberInvitations,
 } from '@lychen/tera-i18n/land-member-invitation';
 import { useMutation } from '@tanstack/vue-query';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { toast } from '@lychen/vue-components-core/toast';
 import {
   landMemberInvitationAcceptSucceededEvent,

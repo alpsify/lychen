@@ -1,4 +1,4 @@
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import type { EventBusKey } from '@vueuse/core';
 
 export const landMemberPostSucceededEvent: EventBusKey<components['schemas']['LandMember.jsonld']> =

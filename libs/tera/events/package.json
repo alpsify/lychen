@@ -2,7 +2,7 @@
   "name": "@lychen/tera-events",
   "version": "0.0.0",
   "dependencies": {
-    "@lychen/tera-api-sdk": "workspace:*",
+    "@lychen/typescript-tera-api-sdk": "workspace:*",
     "@vueuse/core": "^13.0.0",
     "vue": "^3.5.13"
   }

@@ -80,8 +80,8 @@ import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
 import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { LAND_INTERACTION_MODE_ICON } from '../../icons/IconLandInteractionMode';
-import type { LandInteractionMode } from '@lychen/tera-api-sdk/constants/LandInteractionMode';
-import type { LandSharingCondition } from '@lychen/tera-api-sdk/constants/LandSharingCondition';
+import type { LandInteractionMode } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
+import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import { useCloseToExpire } from '@lychen/vue-tera/composables/use-close-to-expire';
 
 const Card = defineAsyncComponent(() => import('@lychen/vue-components-core/card/Card.vue'));

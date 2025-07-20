@@ -3,6 +3,9 @@
   "include": ["**/*"],
   "references": [
     {
+      "path": "../../typescript/tera/api-sdk"
+    },
+    {
       "path": "../../typescript/utils"
     },
     {
@@ -13,9 +16,6 @@
     },
     {
       "path": "../../vue/icons"
-    },
-    {
-      "path": "../api-sdk"
     },
     {
       "path": "../events"

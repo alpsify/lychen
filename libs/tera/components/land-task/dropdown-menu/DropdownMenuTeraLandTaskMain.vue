@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
+import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { useClipboard } from '@vueuse/core';
 import {
   DropdownMenu,

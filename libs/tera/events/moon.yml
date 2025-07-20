@@ -1,3 +1,6 @@
+dependsOn:
+  - typescript-tera-api-sdk
+
 id: tera-events
 
 language: typescript

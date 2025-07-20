@@ -136,7 +136,7 @@ import {
   landMemberInvitationPostSucceededEvent,
 } from '@lychen/tera-events/LandMemberInvitationEvents';
 import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 
 const land = inject(INJECTION_KEY_LAND);
 const landUlid = computed(() => land?.value?.ulid);
