@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
 import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useQuery } from '@tanstack/vue-query';

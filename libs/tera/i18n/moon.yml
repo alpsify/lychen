@@ -1,6 +1,3 @@
-dependsOn:
-  - tera-constants
-
 id: tera-i18n
 
 language: typescript

@@ -15,7 +15,6 @@
     "@lychen/tera-api-sdk": "workspace:*",
     "@lychen/tera-components": "workspace:*",
     "@lychen/tera-composables": "workspace:*",
-    "@lychen/tera-constants": "workspace:*",
     "@lychen/tera-events": "workspace:*",
     "@lychen/tera-i18n": "workspace:*",
     "@lychen/typescript-zitadel": "workspace:*",

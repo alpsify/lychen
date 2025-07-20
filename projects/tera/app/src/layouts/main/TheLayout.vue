@@ -122,7 +122,7 @@ import {
   LayoutInAppSideNavigationItem,
   LayoutInAppSideNavigationSection,
 } from '@lychen/vue-layouts/in-app';
-import useMenus from '@/layouts/in-app/useMenus';
+import useMenus from '@/layouts/main/useMenus';
 import { RoutePageLands } from '@/pages/lands';
 import LayoutInAppSideNavigationSectionLabel from '@lychen/vue-layouts/in-app/LayoutInAppSideNavigationSectionLabel.vue';
 import {

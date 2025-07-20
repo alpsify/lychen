@@ -3,7 +3,6 @@ dependsOn:
   - tera-api-sdk
   - tera-components
   - tera-composables
-  - tera-constants
   - tera-events
   - tera-i18n
   - typescript-zitadel

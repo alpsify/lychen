@@ -1,6 +1,4 @@
 {
   "name": "@lychen/tera-i18n",
-  "dependencies": {
-    "@lychen/tera-constants": "workspace:*"
-  }
+  "dependencies": {}
 }

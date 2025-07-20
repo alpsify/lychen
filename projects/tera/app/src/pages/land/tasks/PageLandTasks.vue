@@ -88,7 +88,7 @@
 </template>
 
 <script lang="ts" setup>
-import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/tera-components/land-task/card/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';

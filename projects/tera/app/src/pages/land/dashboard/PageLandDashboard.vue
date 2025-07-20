@@ -256,10 +256,7 @@ import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue';
 import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
-import {
-  INJECTION_KEY_LAND,
-  INJECTION_KEY_LAND_MEMBER,
-} from '@lychen/tera-constants/InjectionKeys';
+import { INJECTION_KEY_LAND, INJECTION_KEY_LAND_MEMBER } from '@/layouts/land-layout';
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
