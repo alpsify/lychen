@@ -54,7 +54,7 @@ import { ref } from 'vue';
 import {
   messages as landMemberMessages,
   TRANSLATION_KEY as LAND_MEMBER_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-member';
+} from '@lychen/i18n-tera/land-member';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { Separator } from '@lychen/vue-components-core/separator';
 import DialogTeraLandMemberDelete from '../delete/DialogTeraLandMemberDelete.vue';

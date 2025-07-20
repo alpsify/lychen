@@ -2,7 +2,7 @@
   "name": "@lychen/tera-components",
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/tera-i18n": "workspace:*",
+    "@lychen/i18n-tera": "workspace:*",
     "@lychen/typescript-tera-api-sdk": "workspace:*",
     "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",

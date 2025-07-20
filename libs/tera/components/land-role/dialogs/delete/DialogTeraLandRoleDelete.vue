@@ -24,7 +24,7 @@ import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-role';
+} from '@lychen/i18n-tera/land-role';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';

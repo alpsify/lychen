@@ -102,11 +102,11 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-role';
+} from '@lychen/i18n-tera/land-role';
 import {
   messages as landMemberInvitationMessages,
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-member-invitation';
+} from '@lychen/i18n-tera/land-member-invitation';
 import { computed, inject, onUnmounted } from 'vue';
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { useQuery } from '@tanstack/vue-query';

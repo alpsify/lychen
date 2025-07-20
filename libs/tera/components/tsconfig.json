@@ -3,6 +3,9 @@
   "include": ["**/*"],
   "references": [
     {
+      "path": "../../i18n/tera"
+    },
+    {
       "path": "../../typescript/tera/api-sdk"
     },
     {
@@ -16,9 +19,6 @@
     },
     {
       "path": "../../vue/icons"
-    },
-    {
-      "path": "../i18n"
     }
   ],
   "compilerOptions": {

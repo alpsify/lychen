@@ -24,7 +24,7 @@ import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import {
   messages as landMemberInvitationMessages,
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-member-invitation';
+} from '@lychen/i18n-tera/land-member-invitation';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useMutation } from '@tanstack/vue-query';

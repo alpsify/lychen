@@ -39,7 +39,7 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { VARIANT, type Variant } from '.';
 import { faUsers } from '@fortawesome/pro-light-svg-icons/faUsers';

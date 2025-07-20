@@ -5,7 +5,7 @@
       "path": "libs/tera/components"
     },
     {
-      "path": "libs/tera/i18n"
+      "path": "libs/i18n/tera"
     },
     {
       "path": "libs/typescript/applications"

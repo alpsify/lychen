@@ -1,5 +1,5 @@
 dependsOn:
-  - tera-i18n
+  - i18n-tera
   - typescript-tera-api-sdk
   - typescript-utils
   - vue-components-core

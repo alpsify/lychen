@@ -75,7 +75,7 @@ import { inject, watch } from 'vue';
 import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-task';
+} from '@lychen/i18n-tera/land-task';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';

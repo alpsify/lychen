@@ -28,7 +28,7 @@ import {
   FormMessage,
 } from '@lychen/vue-components-core/form';
 import { Input } from '@lychen/vue-components-core/input';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-role';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land-role';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 

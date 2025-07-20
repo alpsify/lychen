@@ -51,7 +51,7 @@ import { ref } from 'vue';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-role';
+} from '@lychen/i18n-tera/land-role';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { Separator } from '@lychen/vue-components-core/separator';
 import DialogTeraLandRoleDelete from '../delete/DialogTeraLandRoleDelete.vue';

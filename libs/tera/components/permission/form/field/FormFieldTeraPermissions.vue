@@ -109,11 +109,11 @@ import {
   TagsInputInput,
 } from '@lychen/vue-components-core/tags-input';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/permission';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/permission';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-role';
+} from '@lychen/i18n-tera/land-role';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import Icon from '@lychen/vue-components-core/icon/Icon.vue';
 import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/typescript-tera-api-sdk/generated/tera-api';

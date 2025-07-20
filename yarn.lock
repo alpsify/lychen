@@ -2118,6 +2118,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/i18n-tera@workspace:*, @lychen/i18n-tera@workspace:libs/i18n/tera":
+  version: 0.0.0-use.local
+  resolution: "@lychen/i18n-tera@workspace:libs/i18n/tera"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/kiro-website@workspace:projects/kiro/website":
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
@@ -2352,8 +2358,8 @@ __metadata:
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
+    "@lychen/i18n-tera": "workspace:*"
     "@lychen/tera-components": "workspace:*"
-    "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
@@ -2385,7 +2391,7 @@ __metadata:
   resolution: "@lychen/tera-components@workspace:libs/tera/components"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/tera-i18n": "workspace:*"
+    "@lychen/i18n-tera": "workspace:*"
     "@lychen/typescript-tera-api-sdk": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
@@ -2399,12 +2405,6 @@ __metadata:
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
     zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-i18n@workspace:*, @lychen/tera-i18n@workspace:libs/tera/i18n":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-i18n@workspace:libs/tera/i18n"
   languageName: unknown
   linkType: soft
 

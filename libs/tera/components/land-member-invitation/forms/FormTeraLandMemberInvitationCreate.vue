@@ -26,7 +26,7 @@
 import { toast } from '@lychen/vue-components-core/toast/use-toast';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import FormFieldEmail from '@lychen/vue-components-app/fields/email/FormFieldEmail.vue';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-member-invitation';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land-member-invitation';
 
 import { useForm } from 'vee-validate';
 

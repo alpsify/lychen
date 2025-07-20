@@ -12,8 +12,8 @@
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/css-core": "workspace:*",
+    "@lychen/i18n-tera": "workspace:*",
     "@lychen/tera-components": "workspace:*",
-    "@lychen/tera-i18n": "workspace:*",
     "@lychen/typescript-tera-core": "workspace:*",
     "@lychen/typescript-zitadel": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",

@@ -54,7 +54,7 @@ import {
 import {
   messages as landTaskMessages,
   TRANSLATION_KEY as LAND_TASK_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-task';
+} from '@lychen/i18n-tera/land-task';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { defineAsyncComponent, computed, ref } from 'vue';
 import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';

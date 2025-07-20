@@ -56,7 +56,7 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-proposal';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land-proposal';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';

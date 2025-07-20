@@ -1,7 +1,7 @@
 import {
   messages as teraMessages,
   TRANSLATION_KEY as TERA_TRANSLATION_KEY,
-} from '@lychen/vue-tera/i18n';
+} from '@lychen/vue-i18n/tera';
 import {
   messages as mykoMessages,
   TRANSLATION_KEY as MYKO_TRANSLATION_KEY,

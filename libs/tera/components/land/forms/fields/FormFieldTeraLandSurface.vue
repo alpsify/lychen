@@ -43,7 +43,7 @@ import {
 } from '@lychen/vue-components-core/number-field';
 import NumberFieldInput from '@lychen/vue-components-core/number-field/NumberFieldInput.vue';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 

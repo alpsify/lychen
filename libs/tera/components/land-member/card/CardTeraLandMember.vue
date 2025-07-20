@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import Card from '@lychen/vue-components-core/card/Card.vue';
-import { messages, TRANSLATION_KEY } from '@lychen/tera-i18n/land-member';
+import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land-member';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { Badge } from '@lychen/vue-components-core/badge';
 import BadgeTeraLandRole from '../../land-role/badge/BadgeTeraLandRole.vue';

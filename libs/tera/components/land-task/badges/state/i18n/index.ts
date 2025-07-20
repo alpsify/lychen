@@ -7,4 +7,4 @@ export const messages = {
   'en-GB': enUs,
 };
 
-export const TRANSLATION_KEY = 'badge_tera_land_task_state'; //TODO Delete and use tera-i18n package
+export const TRANSLATION_KEY = 'badge_tera_land_task_state'; //TODO Delete and use i18n-tera package

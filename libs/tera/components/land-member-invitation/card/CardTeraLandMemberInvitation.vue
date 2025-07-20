@@ -91,7 +91,7 @@ import { TRANSLATION_KEY, messages } from './i18n';
 import {
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
   messages as messagesLandMemberInvitations,
-} from '@lychen/tera-i18n/land-member-invitation';
+} from '@lychen/i18n-tera/land-member-invitation';
 import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { toast } from '@lychen/vue-components-core/toast';
