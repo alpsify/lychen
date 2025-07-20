@@ -9,7 +9,6 @@ dependsOn:
   - vue-components-website
   - vue-drawio-tera
   - vue-i18n
-  - vue-i18n
   - vue-layouts
   - vue-router-configs
   - vue-tera
