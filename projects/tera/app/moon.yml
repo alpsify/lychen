@@ -1,7 +1,6 @@
 dependsOn:
   - css-core
   - tera-components
-  - tera-events
   - tera-i18n
   - typescript-tera-core
   - typescript-zitadel

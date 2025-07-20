@@ -95,7 +95,7 @@ import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useQuery } from '@tanstack/vue-query';
 import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
+import { landPostSucceededEvent } from '@lychen/vue-tera/events/LandEvents';
 import { ref, defineAsyncComponent } from 'vue';
 import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
@@ -108,7 +108,7 @@ import { VARIANT } from '@lychen/tera-components/land-member-invitation/card';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
 import IconPlus from '@lychen/vue-icons/IconPlus.vue';

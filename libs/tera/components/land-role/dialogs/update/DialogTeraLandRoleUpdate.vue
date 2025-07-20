@@ -46,7 +46,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   landRoleDeleteSucceededEvent,
   landRolePatchSucceededEvent,
-} from '@lychen/tera-events/LandRoleEvents';
+} from '@lychen/vue-tera/events/LandRoleEvents';
 import { ref } from 'vue';
 import {
   messages as landRoleMessages,

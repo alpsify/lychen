@@ -13,7 +13,6 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/css-core": "workspace:*",
     "@lychen/tera-components": "workspace:*",
-    "@lychen/tera-events": "workspace:*",
     "@lychen/tera-i18n": "workspace:*",
     "@lychen/typescript-tera-core": "workspace:*",
     "@lychen/typescript-zitadel": "workspace:*",

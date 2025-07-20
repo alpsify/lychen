@@ -33,7 +33,7 @@ import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
-import { landMemberPatchSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
+import { landMemberPatchSucceededEvent } from '@lychen/vue-tera/events/LandMemberEvents';
 import { extractValuesByKey } from '@lychen/typescript-utils/transformers/extractValuesByKey';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

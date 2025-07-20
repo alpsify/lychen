@@ -33,7 +33,7 @@ import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
 
-import { landMemberInvitationPatchSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
+import { landMemberInvitationPatchSucceededEvent } from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import { extractValuesByKey } from '@lychen/typescript-utils/transformers/extractValuesByKey';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

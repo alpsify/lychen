@@ -2353,7 +2353,6 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
     "@lychen/tera-components": "workspace:*"
-    "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
@@ -2386,7 +2385,6 @@ __metadata:
   resolution: "@lychen/tera-components@workspace:libs/tera/components"
   dependencies:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/tera-events": "workspace:*"
     "@lychen/tera-i18n": "workspace:*"
     "@lychen/typescript-tera-api-sdk": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
@@ -2401,16 +2399,6 @@ __metadata:
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
     zod: "npm:^3.24.2"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-events@workspace:*, @lychen/tera-events@workspace:libs/tera/events":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-events@workspace:libs/tera/events"
-  dependencies:
-    "@lychen/typescript-tera-api-sdk": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
-    vue: "npm:^3.5.13"
   languageName: unknown
   linkType: soft
 
@@ -2911,6 +2899,7 @@ __metadata:
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
+    "@vueuse/core": "npm:^13.0.0"
     openapi-fetch: "npm:^0.14.0"
     vue: "npm:^3.5.13"
   languageName: unknown

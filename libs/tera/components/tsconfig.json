@@ -18,9 +18,6 @@
       "path": "../../vue/icons"
     },
     {
-      "path": "../events"
-    },
-    {
       "path": "../i18n"
     }
   ],

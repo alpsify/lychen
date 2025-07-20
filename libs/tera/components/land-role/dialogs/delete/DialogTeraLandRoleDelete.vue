@@ -30,7 +30,7 @@ import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi
 import { useMutation } from '@tanstack/vue-query';
 import { toast } from '@lychen/vue-components-core/toast/use-toast';
 import { useEventBus } from '@vueuse/core';
-import { landRoleDeleteSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
+import { landRoleDeleteSucceededEvent } from '@lychen/vue-tera/events/LandRoleEvents';
 import DialogWithCancelButton from '@lychen/vue-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

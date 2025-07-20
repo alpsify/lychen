@@ -122,19 +122,19 @@ import {
   landRolePostSucceededEvent,
   landRolePatchSucceededEvent,
   landRoleDeleteSucceededEvent,
-} from '@lychen/tera-events/LandRoleEvents';
+} from '@lychen/vue-tera/events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
 import CardTeraLandMember from '@lychen/tera-components/land-member/card/CardTeraLandMember.vue';
 import DialogTeraLandMemberUpdate from '@lychen/tera-components/land-member/dialogs/update/DialogTeraLandMemberUpdate.vue';
 import {
   landMemberDeleteSucceededEvent,
   landMemberPatchSucceededEvent,
-} from '@lychen/tera-events/LandMemberEvents';
+} from '@lychen/vue-tera/events/LandMemberEvents';
 import {
   landMemberInvitationDeleteSucceededEvent,
   landMemberInvitationPatchSucceededEvent,
   landMemberInvitationPostSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 

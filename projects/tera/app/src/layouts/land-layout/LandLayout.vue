@@ -19,7 +19,7 @@ import { useQuery } from '@tanstack/vue-query';
 import { computed, provide, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { INJECTION_KEY_LAND, INJECTION_KEY_LAND_MEMBER } from './index';
-import { landPatchSucceededEvent } from '@lychen/tera-events/LandEvents';
+import { landPatchSucceededEvent } from '@lychen/vue-tera/events/LandEvents';
 import { useEventBus } from '@vueuse/core';
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 

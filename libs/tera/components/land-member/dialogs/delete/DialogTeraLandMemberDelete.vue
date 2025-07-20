@@ -33,7 +33,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   landMemberDeleteSucceededEvent,
   landMemberLeaveSucceededEvent,
-} from '@lychen/tera-events/LandMemberEvents';
+} from '@lychen/vue-tera/events/LandMemberEvents';
 import DialogWithCancelButton from '@lychen/vue-components-app/dialogs/with-cancel-button/DialogWithCancelButton.vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

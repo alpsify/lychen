@@ -264,7 +264,7 @@ import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor'
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
 import { useLandGuard } from '@lychen/vue-tera/composables/use-land-guard';
 import { RoutePageLandMemberSettings } from '../member-settings';
-import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
+import { landMemberLeaveSucceededEvent } from '@lychen/vue-tera/events/LandMemberEvents';
 import { RoutePageDashboard } from '@/pages/dashboard';
 import { useEventBus } from '@vueuse/core';
 import { useRouter } from 'vue-router';

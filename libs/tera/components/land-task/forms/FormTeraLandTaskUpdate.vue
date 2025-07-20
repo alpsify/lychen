@@ -39,7 +39,7 @@ import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
 
-import { EVENT_landTaskPatchSucceeded } from '@lychen/tera-events/LandTaskEvents';
+import { EVENT_landTaskPatchSucceeded } from '@lychen/vue-tera/events/LandTaskEvents';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

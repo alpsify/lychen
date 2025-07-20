@@ -1,5 +1,4 @@
 dependsOn:
-  - tera-events
   - tera-i18n
   - typescript-tera-api-sdk
   - typescript-utils

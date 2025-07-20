@@ -36,7 +36,7 @@ import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
 import { useEventBus } from '@vueuse/core';
-import { landRolePostSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
+import { landRolePostSucceededEvent } from '@lychen/vue-tera/events/LandRoleEvents';
 import { ref } from 'vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 

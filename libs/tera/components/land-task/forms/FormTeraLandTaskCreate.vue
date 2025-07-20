@@ -28,7 +28,7 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { inject } from 'vue';
-import { EVENT_landTaskPostSucceeded } from '@lychen/tera-events/LandTaskEvents';
+import { EVENT_landTaskPostSucceeded } from '@lychen/vue-tera/events/LandTaskEvents';
 
 const land = inject('fg'); // To rebuild
 

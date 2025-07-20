@@ -115,7 +115,7 @@ import {
 } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-development-in-progress/SectionDevelopmentInProgress.vue';
 import { useEventBus } from '@vueuse/core';
-import { EVENT_landTaskDeleteSucceeded } from '@lychen/tera-events/LandTaskEvents';
+import { EVENT_landTaskDeleteSucceeded } from '@lychen/vue-tera/events/LandTaskEvents';
 import { useRoute } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/tera-components/land-task/dialogs/update';
 

@@ -106,11 +106,11 @@ import {
   landDeleteSucceededEvent,
   landPostSucceededEvent,
   landPatchSucceededEvent,
-} from '@lychen/tera-events/LandEvents';
-import { landMemberInvitationAcceptSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
+} from '@lychen/vue-tera/events/LandEvents';
+import { landMemberInvitationAcceptSucceededEvent } from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
-import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
+import { landMemberLeaveSucceededEvent } from '@lychen/vue-tera/events/LandMemberEvents';
 import {
   LayoutInAppContent,
   LayoutInAppHeader,

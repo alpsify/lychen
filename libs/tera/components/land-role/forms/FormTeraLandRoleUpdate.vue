@@ -34,7 +34,7 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 
-import { landRolePatchSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
+import { landRolePatchSucceededEvent } from '@lychen/vue-tera/events/LandRoleEvents';
 import type {
   components,
   LandRoleUserLand_rolePatchPermissions,

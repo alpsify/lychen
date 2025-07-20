@@ -60,7 +60,7 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { inject } from 'vue';
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { useEventBus } from '@vueuse/core';
-import { landDeleteSucceededEvent } from '@lychen/tera-events/LandEvents';
+import { landDeleteSucceededEvent } from '@lychen/vue-tera/events/LandEvents';
 import { useRouter } from 'vue-router';
 import { RoutePageLands } from '@/pages/lands';
 import FormTeraLandUpdate from '@lychen/tera-components/land/forms/FormTeraLandUpdate.vue';

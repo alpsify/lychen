@@ -29,7 +29,7 @@ import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
-import { landRolePostSucceededEvent } from '@lychen/tera-events/LandRoleEvents';
+import { landRolePostSucceededEvent } from '@lychen/vue-tera/events/LandRoleEvents';
 import FormFieldTeraLandRoleName from './fields/FormFieldTeraLandRoleName.vue';
 import FormFieldTeraPermissions from '../../permission/form/field/FormFieldTeraPermissions.vue';
 import type { components, paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';

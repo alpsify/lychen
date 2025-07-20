@@ -41,7 +41,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   landMemberInvitationDeleteSucceededEvent,
   landMemberInvitationPatchSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import { ref } from 'vue';
 import FormTeraLandMemberInvitationUpdate from '../../forms/FormTeraLandMemberInvitationUpdate.vue';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';

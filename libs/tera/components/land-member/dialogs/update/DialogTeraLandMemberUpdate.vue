@@ -49,7 +49,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   landMemberDeleteSucceededEvent,
   landMemberPatchSucceededEvent,
-} from '@lychen/tera-events/LandMemberEvents';
+} from '@lychen/vue-tera/events/LandMemberEvents';
 import { ref } from 'vue';
 import {
   messages as landMemberMessages,

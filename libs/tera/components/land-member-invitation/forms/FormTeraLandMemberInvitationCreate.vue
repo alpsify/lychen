@@ -34,7 +34,7 @@ import { useMutation } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { useEventBus } from '@vueuse/core';
-import { landMemberInvitationPostSucceededEvent } from '@lychen/tera-events/LandMemberInvitationEvents';
+import { landMemberInvitationPostSucceededEvent } from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import FormFieldTeraLandRole from '../../land-role/forms/fields/FormFieldTeraLandRole.vue';
 import { extractValuesByKey } from '@lychen/typescript-utils/transformers/extractValuesByKey';
 import { z } from 'zod';

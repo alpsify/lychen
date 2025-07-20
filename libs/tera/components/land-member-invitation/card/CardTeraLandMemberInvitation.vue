@@ -98,7 +98,7 @@ import { toast } from '@lychen/vue-components-core/toast';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
 import { useEventBus } from '@vueuse/core';
 import IconTimes from '@lychen/vue-icons/IconTimes.vue';
 import IconTrash from '@lychen/vue-icons/IconTrash.vue';

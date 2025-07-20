@@ -70,7 +70,7 @@ import { useEventBus } from '@vueuse/core';
 import {
   EVENT_landTaskDeleteSucceeded,
   EVENT_landTaskPatchSucceeded,
-} from '@lychen/tera-events/LandTaskEvents';
+} from '@lychen/vue-tera/events/LandTaskEvents';
 import { inject, watch } from 'vue';
 import {
   messages as landTaskMessages,

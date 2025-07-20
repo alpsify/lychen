@@ -39,7 +39,7 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandName from './fields/FormFieldTeraLandName.vue';
 import FormFieldTeraLandAltitude from './fields/FormFieldTeraLandAltitude.vue';
 import FormFieldTeraLandSurface from './fields/FormFieldTeraLandSurface.vue';
-import { landPatchSucceededEvent } from '@lychen/tera-events/LandEvents';
+import { landPatchSucceededEvent } from '@lychen/vue-tera/events/LandEvents';
 import type { components, paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

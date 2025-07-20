@@ -5,9 +5,6 @@
       "path": "libs/tera/components"
     },
     {
-      "path": "libs/tera/events"
-    },
-    {
       "path": "libs/tera/i18n"
     },
     {
