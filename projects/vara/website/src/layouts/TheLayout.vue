@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
-import { APP_STATE } from '@lychen/vue-vara/constants/App';
+import { APP_STATE } from '@lychen/typescript-vara/constants/App';
 import { defineAsyncComponent } from 'vue';
 import { TRANSLATION_KEY, messages } from '@lychen/vue-vara/i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';

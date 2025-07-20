@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/vue-myko",
+  "dependencies": {
+    "@lychen/typescript-myko": "workspace:*",
+    "@lychen/vue-composables": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
+}

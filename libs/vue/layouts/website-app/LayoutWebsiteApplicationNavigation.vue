@@ -106,10 +106,10 @@ const LogoLychenTextOnly = defineAsyncComponent(
 );
 
 const ApplicationTitle = defineAsyncComponent(
-  () => import('@lychen/applications-components/ApplicationTitle.vue'),
+  () => import('@lychen/vue-applications/components/ApplicationTitle.vue'),
 );
 const ApplicationBadgeState = defineAsyncComponent(
-  () => import('@lychen/applications-components/ApplicationBadgeState.vue'),
+  () => import('@lychen/vue-applications/components/ApplicationBadgeState.vue'),
 );
 
 const SheetTrigger = defineAsyncComponent(

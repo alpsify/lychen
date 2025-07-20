@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/kolo-features",
-  "dependencies": {
-    "@lychen/applications-generic-composables": "workspace:*",
-    "@lychen/applications-model": "workspace:*",
-    "@lychen/kolo-constants": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*"
-  }
-}

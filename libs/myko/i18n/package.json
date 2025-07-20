@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/myko-i18n",
-  "dependencies": {
-    "@lychen/myko-constants": "workspace:*"
-  }
-}

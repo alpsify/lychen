@@ -89,27 +89,27 @@
 
 <script lang="ts" setup>
 import bannerImg from './assets/banner.webp';
-import CardTeraLand from '@lychen/tera-components/land/card/CardTeraLand.vue';
+import CardTeraLand from '@lychen/vue-tera/components/land/card/CardTeraLand.vue';
 import { RoutePageLandDashboard } from '@/pages/land/dashboard';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { useQuery } from '@tanstack/vue-query';
 import SectionWithTitle from '@lychen/vue-components-app/section-with-title/SectionWithTitle.vue';
 import { useEventBus } from '@vueuse/core';
-import { landPostSucceededEvent } from '@lychen/tera-events/LandEvents';
+import { landPostSucceededEvent } from '@lychen/vue-tera/events/LandEvents';
 import { ref, defineAsyncComponent } from 'vue';
-import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/vue-tera/components/land/dialogs/create/DialogTeraLandCreate.vue';
 import BaseHeading from '@lychen/vue-components-app/base-heading/BaseHeading.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
-import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
+import CardTeraLandMemberInvitation from '@lychen/vue-tera/components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
-import { VARIANT } from '@lychen/tera-components/land-member-invitation/card';
+import { VARIANT } from '@lychen/vue-tera/components/land-member-invitation/card';
 import {
   landMemberInvitationAcceptSucceededEvent,
   landMemberInvitationRefuseSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
-import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/tera-api-sdk/generated/tera-api';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
+import { LandMemberInvitationJsonldState as LandMemberInvitationState } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import { RoutePageCoGardening } from '../co-gardening/dashboard';
 import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 import IconSearch from '@lychen/vue-icons/IconSearch.vue';

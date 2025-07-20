@@ -1,0 +1,6 @@
+{
+  "name": "@lychen/typescript-kolo",
+  "dependencies": {
+    "@lychen/typescript-utils": "workspace:*"
+  }
+}

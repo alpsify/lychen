@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-robust
+
+language: typescript
+
+type: library

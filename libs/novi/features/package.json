@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/novi-features",
-  "dependencies": {
-    "@lychen/applications-generic-composables": "workspace:*",
-    "@lychen/applications-model": "workspace:*",
-    "@lychen/novi-constants": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*"
-  }
-}

@@ -3,25 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/humu/constants"
-    },
-    {
-      "path": "../../../libs/humu/features"
-    },
-    {
-      "path": "../../../libs/humu/i18n"
-    },
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/humu"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -31,6 +22,9 @@
     },
     {
       "path": "../../../libs/vue/components-website"
+    },
+    {
+      "path": "../../../libs/vue/humu"
     },
     {
       "path": "../../../libs/vue/i18n"

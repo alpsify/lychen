@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-meli
+
+language: typescript
+
+type: library

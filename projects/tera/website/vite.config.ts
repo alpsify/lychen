@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 const config: UserConfig = {
   server: {
     https: {},
-    port: 8080,
+    port: 5142,
   },
   plugins: [
     tailwindcss(),

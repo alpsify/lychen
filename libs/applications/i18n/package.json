@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/applications-i18n",
-  "dependencies": {
-    "@lychen/applications-constants": "workspace:*"
-  }
-}

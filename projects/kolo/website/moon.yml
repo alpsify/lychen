@@ -1,18 +1,14 @@
 dependsOn:
-  - applications-components
   - css-core
-  - kolo-constants
-  - kolo-features
-
-  - kolo-i18n
   - typescript-constants
-
+  - typescript-kolo
   - vite-ssg
+  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-website
   - vue-i18n
-  - vue-i18n
+  - vue-kolo
   - vue-layouts
   - vue-router-configs
   - vue-unhead-composables

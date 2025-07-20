@@ -1,7 +1,0 @@
-@import '@lychen/css-core/all';
-
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
-}

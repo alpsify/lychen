@@ -1,0 +1,10 @@
+dependsOn:
+  - typescript-kiro
+  - vue-composables
+  - vue-i18n
+
+id: vue-kiro
+
+language: typescript
+
+type: library

@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/vue-novi",
+  "dependencies": {
+    "@lychen/typescript-novi": "workspace:*",
+    "@lychen/vue-composables": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
+}

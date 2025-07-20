@@ -1,19 +1,15 @@
 dependsOn:
-  - applications-components
   - css-core
-  - myko-constants
-  - myko-features
-
-  - myko-i18n
   - typescript-constants
-
+  - typescript-myko
   - vite-ssg
+  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-website
   - vue-i18n
-  - vue-i18n
   - vue-layouts
+  - vue-myko
   - vue-router-configs
   - vue-unhead-composables
 

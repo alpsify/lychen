@@ -4,7 +4,7 @@
       :class="
         cn(
           'flex flex-col h-full rounded-xl gap-8',
-          'bg-surface-container',
+          'bg-surface-container-low',
           'relative transition-all duration-200 ease-in-out',
           expanded ? 'w-[250px] p-4' : 'w-[60px] px-2 py-4 items-center',
           props.class,

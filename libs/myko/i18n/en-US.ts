@@ -1,4 +1,0 @@
-export default {
-  name: 'Myko',
-  description: 'Optimizes mushroom cultivation and raises awareness about mycology',
-};

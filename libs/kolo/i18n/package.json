@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/kolo-i18n",
-  "dependencies": {
-    "@lychen/kolo-constants": "workspace:*"
-  }
-}

@@ -1,0 +1,6 @@
+{
+  "name": "@lychen/typescript-novi",
+  "dependencies": {
+    "@lychen/typescript-utils": "workspace:*"
+  }
+}

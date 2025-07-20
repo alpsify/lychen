@@ -1,3 +1,8 @@
+dependsOn:
+  - typescript-vara
+  - vue-composables
+  - vue-i18n
+
 id: vue-vara
 
 language: typescript

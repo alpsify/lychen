@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/kiro-i18n",
-  "dependencies": {
-    "@lychen/kiro-constants": "workspace:*"
-  }
-}

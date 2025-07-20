@@ -1,0 +1,20 @@
+dependsOn:
+  - typescript-applications
+  - typescript-utils
+  - vue-components-core
+  - vue-components-extra
+  - vue-i18n
+  - vue-kiro
+  - vue-kolo
+  - vue-meli
+  - vue-myko
+  - vue-novi
+  - vue-robust
+  - vue-tera
+  - vue-vara
+
+id: vue-applications
+
+language: typescript
+
+type: library

@@ -1,0 +1,19 @@
+{
+  "name": "@lychen/vue-applications",
+  "dependencies": {
+    "@lychen/typescript-applications": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*",
+    "@lychen/vue-components-core": "workspace:*",
+    "@lychen/vue-components-extra": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*",
+    "@lychen/vue-kiro": "workspace:*",
+    "@lychen/vue-kolo": "workspace:*",
+    "@lychen/vue-meli": "workspace:*",
+    "@lychen/vue-myko": "workspace:*",
+    "@lychen/vue-novi": "workspace:*",
+    "@lychen/vue-robust": "workspace:*",
+    "@lychen/vue-tera": "workspace:*",
+    "@lychen/vue-vara": "workspace:*",
+    "vue": "^3.5.13"
+  }
+}

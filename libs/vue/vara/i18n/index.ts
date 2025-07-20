@@ -1,6 +1,6 @@
-import { APP_ALIAS } from '@lychen/vue-vara/constants/App';
-import enUs from './en-US';
-import frFr from './fr-FR';
+import { APP_ALIAS } from '@lychen/typescript-vara/constants/App';
+import enUs from './en-US.json';
+import frFr from './fr-FR.json';
 
 export const messages = {
   'fr-FR': frFr,

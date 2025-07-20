@@ -1,0 +1,7 @@
+{
+  "name": "@lychen/typescript-tera-api-sdk",
+  "type": "module",
+  "devDependencies": {
+    "openapi-typescript": "^7.6.1"
+  }
+}

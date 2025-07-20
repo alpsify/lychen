@@ -3,26 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/novi/constants"
-    },
-    {
-      "path": "../../../libs/novi/features"
-    },
-    {
-      "path": "../../../libs/novi/i18n"
-    },
-
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/novi"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -38,6 +28,9 @@
     },
     {
       "path": "../../../libs/vue/layouts"
+    },
+    {
+      "path": "../../../libs/vue/novi"
     },
     {
       "path": "../../../libs/vue/router/configs"

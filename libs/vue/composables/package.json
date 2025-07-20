@@ -1,0 +1,7 @@
+{
+  "name": "@lychen/vue-composables",
+  "dependencies": {
+    "@lychen/typescript-applications": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
+}

@@ -1,0 +1,10 @@
+dependsOn:
+  - typescript-meli
+  - vue-composables
+  - vue-i18n
+
+id: vue-meli
+
+language: typescript
+
+type: library

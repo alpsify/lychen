@@ -3,9 +3,6 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../libs/tera/components"
-    },
-    {
       "path": "../../libs/vue/components-app"
     },
     {
@@ -19,6 +16,9 @@
     },
     {
       "path": "../../libs/vue/i18n"
+    },
+    {
+      "path": "../../libs/vue/tera"
     }
   ],
   "compilerOptions": {

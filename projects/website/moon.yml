@@ -1,10 +1,10 @@
 dependsOn:
-  - applications-components
-  - applications-composables
-  - applications-constants
   - css-core
+  - typescript-applications
   - typescript-constants
   - vite-ssg
+  - vue-applications
+  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-extra

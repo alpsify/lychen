@@ -1,8 +1,0 @@
-dependsOn:
-  - kiro-constants
-
-id: kiro-i18n
-
-language: typescript
-
-type: library

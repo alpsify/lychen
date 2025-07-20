@@ -30,7 +30,7 @@ import { RoutePageCoGardeningProposals } from '@/pages/co-gardening/proposals';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/layouts/in-app/TheLayout.vue'),
+    component: () => import('../layouts/main/TheLayout.vue'),
     meta: {
       authName: zitadelAuth.oidcAuth.authName,
     },
@@ -39,7 +39,7 @@ const routes: RouteRecordRaw[] = [
       RoutePageDashboard,
       {
         path: LAND_ROUTE_PATH,
-        component: () => import('@/layouts/in-app/LandLayout.vue'),
+        component: () => import('@/layouts/land-layout/LandLayout.vue'),
         children: [
           RoutePageLandTasks,
           RoutePageLandDashboard,

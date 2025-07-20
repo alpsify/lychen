@@ -3,26 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/meli/constants"
-    },
-    {
-      "path": "../../../libs/meli/features"
-    },
-    {
-      "path": "../../../libs/meli/i18n"
-    },
-
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/meli"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -38,6 +28,9 @@
     },
     {
       "path": "../../../libs/vue/layouts"
+    },
+    {
+      "path": "../../../libs/vue/meli"
     },
     {
       "path": "../../../libs/vue/router/configs"

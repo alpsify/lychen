@@ -102,41 +102,41 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-role';
+} from '@lychen/i18n-tera/land-role';
 import {
   messages as landMemberInvitationMessages,
   TRANSLATION_KEY as LAND_MEMBER_INVITATION_TRANSLATION_KEY,
-} from '@lychen/tera-i18n/land-member-invitation';
+} from '@lychen/i18n-tera/land-member-invitation';
 import { computed, inject, onUnmounted } from 'vue';
-import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
+import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { useQuery } from '@tanstack/vue-query';
 import { faPlus } from '@fortawesome/pro-light-svg-icons';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import CardTeraLandRole from '@lychen/tera-components/land-role/card/CardTeraLandRole.vue';
-import DialogTeraLandRoleCreate from '@lychen/tera-components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';
-import DialogTeraLandMemberInvitationCreate from '@lychen/tera-components/land-member-invitation/dialogs/create/DialogTeraLandMemberInvitationCreate.vue';
-import DialogTeraLandRoleUpdate from '@lychen/tera-components/land-role/dialogs/update/DialogTeraLandRoleUpdate.vue';
-import DialogTeraLandMemberInvitationUpdate from '@lychen/tera-components/land-member-invitation/dialogs/update/DialogTeraLandMemberInvitationUpdate.vue';
+import CardTeraLandRole from '@lychen/vue-tera/components/land-role/card/CardTeraLandRole.vue';
+import DialogTeraLandRoleCreate from '@lychen/vue-tera/components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';
+import DialogTeraLandMemberInvitationCreate from '@lychen/vue-tera/components/land-member-invitation/dialogs/create/DialogTeraLandMemberInvitationCreate.vue';
+import DialogTeraLandRoleUpdate from '@lychen/vue-tera/components/land-role/dialogs/update/DialogTeraLandRoleUpdate.vue';
+import DialogTeraLandMemberInvitationUpdate from '@lychen/vue-tera/components/land-member-invitation/dialogs/update/DialogTeraLandMemberInvitationUpdate.vue';
 
 import {
   landRolePostSucceededEvent,
   landRolePatchSucceededEvent,
   landRoleDeleteSucceededEvent,
-} from '@lychen/tera-events/LandRoleEvents';
+} from '@lychen/vue-tera/events/LandRoleEvents';
 import { useEventBus } from '@vueuse/core';
-import CardTeraLandMember from '@lychen/tera-components/land-member/card/CardTeraLandMember.vue';
-import DialogTeraLandMemberUpdate from '@lychen/tera-components/land-member/dialogs/update/DialogTeraLandMemberUpdate.vue';
+import CardTeraLandMember from '@lychen/vue-tera/components/land-member/card/CardTeraLandMember.vue';
+import DialogTeraLandMemberUpdate from '@lychen/vue-tera/components/land-member/dialogs/update/DialogTeraLandMemberUpdate.vue';
 import {
   landMemberDeleteSucceededEvent,
   landMemberPatchSucceededEvent,
-} from '@lychen/tera-events/LandMemberEvents';
+} from '@lychen/vue-tera/events/LandMemberEvents';
 import {
   landMemberInvitationDeleteSucceededEvent,
   landMemberInvitationPatchSucceededEvent,
   landMemberInvitationPostSucceededEvent,
-} from '@lychen/tera-events/LandMemberInvitationEvents';
-import CardTeraLandMemberInvitation from '@lychen/tera-components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+} from '@lychen/vue-tera/events/LandMemberInvitationEvents';
+import CardTeraLandMemberInvitation from '@lychen/vue-tera/components/land-member-invitation/card/CardTeraLandMemberInvitation.vue';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 
 const land = inject(INJECTION_KEY_LAND);
 const landUlid = computed(() => land?.value?.ulid);

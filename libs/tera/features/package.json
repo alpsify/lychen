@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/tera-features",
-  "dependencies": {
-    "@lychen/applications-generic-composables": "workspace:*",
-    "@lychen/applications-model": "workspace:*",
-    "@lychen/tera-constants": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*"
-  }
-}

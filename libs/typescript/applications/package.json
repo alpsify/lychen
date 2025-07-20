@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/typescript-applications",
+  "dependencies": {
+    "@lychen/typescript-robust": "workspace:*",
+    "@lychen/typescript-tera-core": "workspace:*",
+    "@lychen/typescript-utils": "workspace:*"
+  }
+}

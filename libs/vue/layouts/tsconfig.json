@@ -3,10 +3,10 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../applications/components"
+      "path": "../../typescript/constants"
     },
     {
-      "path": "../../typescript/constants"
+      "path": "../applications"
     },
     {
       "path": "../components-app"
@@ -23,7 +23,6 @@
     {
       "path": "../i18n"
     },
-
     {
       "path": "../icons"
     }

@@ -1,0 +1,10 @@
+dependsOn:
+  - typescript-kolo
+  - vue-composables
+  - vue-i18n
+
+id: vue-kolo
+
+language: typescript
+
+type: library

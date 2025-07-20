@@ -1,20 +1,17 @@
 dependsOn:
-  - applications-components
   - css-core
-  - tera-constants
-  - tera-features
-  - tera-i18n
   - typescript-constants
-
+  - typescript-tera-core
   - vite-ssg
+  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-website
   - vue-drawio-tera
   - vue-i18n
-  - vue-i18n
   - vue-layouts
   - vue-router-configs
+  - vue-tera
   - vue-unhead-composables
 
 env:

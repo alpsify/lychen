@@ -3,19 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../libs/applications/components"
-    },
-    {
-      "path": "../../libs/applications/composables"
-    },
-    {
-      "path": "../../libs/applications/constants"
+      "path": "../../libs/typescript/applications"
     },
     {
       "path": "../../libs/typescript/constants"
     },
     {
       "path": "../../libs/vite/ssg"
+    },
+    {
+      "path": "../../libs/vue/applications"
     },
     {
       "path": "../../libs/vue/color-scheme"

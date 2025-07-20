@@ -10,7 +10,7 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 const config: UserConfig = {
   server: {
     https: {},
-    port: 8080,
+    port: 5150,
   },
   plugins: [
     vueDevTools(),

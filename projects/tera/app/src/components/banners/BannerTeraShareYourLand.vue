@@ -33,9 +33,9 @@ import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
-import { useTeraApi } from '@lychen/tera-api-sdk/composables/useTeraApi';
+import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
-import DialogTeraLandProposalManage from '@lychen/tera-components/land-proposal/dialogs/manage/DialogTeraLandProposalManage.vue';
+import DialogTeraLandProposalManage from '@lychen/vue-tera/components/land-proposal/dialogs/manage/DialogTeraLandProposalManage.vue';
 
 const { t } = useI18nExtended({
   messages,

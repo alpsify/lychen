@@ -157,7 +157,7 @@ import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/vue-components-core/navigation-menu';
 import { computed, defineAsyncComponent } from 'vue';
 import { RoutePageHome } from '@/pages/home';
-import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
+import { useApplicationsCatalog } from '@lychen/vue-applications/composables/useApplicationsCatalog';
 import { RoutePagePrice } from '@/pages/price';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
@@ -170,7 +170,7 @@ import { RoutePageSponsor } from '@/pages/sponsor';
 
 import ButtonTallyPreregister from '@lychen/vue-components-website/button-tally-preregister/ButtonTallyPreregister.vue';
 import LogoLychenFull from '@lychen/vue-components-extra/logo-lychen/LogoLychenFull.vue';
-import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
+import { APPLICATION_ALIAS } from '@lychen/typescript-applications/constants/ApplicationAlias';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';

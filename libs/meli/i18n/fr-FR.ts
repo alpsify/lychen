@@ -1,4 +1,0 @@
-export default {
-  name: 'Meli',
-  description: "Organise l'activité apicole et connecte les apiculteurs avec les acteurs locaux",
-};

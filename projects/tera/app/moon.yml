@@ -1,21 +1,16 @@
 dependsOn:
   - css-core
-  - tera-api-sdk
-  - tera-components
-  - tera-composables
-  - tera-constants
-  - tera-events
-  - tera-i18n
+  - i18n-tera
+  - typescript-tera-core
   - typescript-zitadel
-  - vue-color-scheme
   - vue-color-scheme
   - vue-components-app
   - vue-components-core
   - vue-components-extra
   - vue-i18n
-  - vue-i18n
   - vue-icons
   - vue-layouts
+  - vue-tera
 
 env:
   DEV_DOMAIN: app.tera.lychen.local
@@ -45,6 +40,6 @@ tasks:
 
   dev:
     deps:
-      - tera-api-sdk:generate-api
+      - typescript-tera-api-sdk:generate-api
 
 type: application

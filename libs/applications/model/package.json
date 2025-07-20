@@ -1,7 +1,0 @@
-{
-  "name": "@lychen/applications-model",
-  "dependencies": {
-    "@lychen/applications-constants": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*"
-  }
-}

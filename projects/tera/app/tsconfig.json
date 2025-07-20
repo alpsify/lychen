@@ -3,22 +3,10 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/tera/api-sdk"
+      "path": "../../../libs/i18n/tera"
     },
     {
-      "path": "../../../libs/tera/components"
-    },
-    {
-      "path": "../../../libs/tera/composables"
-    },
-    {
-      "path": "../../../libs/tera/constants"
-    },
-    {
-      "path": "../../../libs/tera/events"
-    },
-    {
-      "path": "../../../libs/tera/i18n"
+      "path": "../../../libs/typescript/tera/core"
     },
     {
       "path": "../../../libs/typescript/zitadel"
@@ -35,7 +23,6 @@
     {
       "path": "../../../libs/vue/components-extra"
     },
-
     {
       "path": "../../../libs/vue/i18n"
     },
@@ -44,6 +31,9 @@
     },
     {
       "path": "../../../libs/vue/layouts"
+    },
+    {
+      "path": "../../../libs/vue/tera"
     }
   ],
   "compilerOptions": {

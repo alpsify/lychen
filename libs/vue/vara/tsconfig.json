@@ -1,7 +1,17 @@
 {
   "extends": "../../../tsconfig.options.json",
-  "include": ["**/*"],
-  "references": [],
+  "include": ["**/*", "**/*.json"],
+  "references": [
+    {
+      "path": "../../typescript/vara"
+    },
+    {
+      "path": "../composables"
+    },
+    {
+      "path": "../i18n"
+    }
+  ],
   "compilerOptions": {
     "outDir": "../../../.moon/cache/types/libs/vue/vara"
   }

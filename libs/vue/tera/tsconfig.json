@@ -1,0 +1,36 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*"],
+  "references": [
+    {
+      "path": "../../i18n/tera"
+    },
+    {
+      "path": "../../typescript/tera/api-sdk"
+    },
+    {
+      "path": "../../typescript/tera/core"
+    },
+    {
+      "path": "../../typescript/utils"
+    },
+    {
+      "path": "../../typescript/zitadel"
+    },
+    {
+      "path": "../components-core"
+    },
+    {
+      "path": "../composables"
+    },
+    {
+      "path": "../i18n"
+    },
+    {
+      "path": "../icons"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/tera"
+  }
+}
