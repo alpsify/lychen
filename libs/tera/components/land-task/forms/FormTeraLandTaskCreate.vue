@@ -28,10 +28,9 @@ import { useEventBus } from '@vueuse/core';
 import FormFieldTeraLandTaskTitle from './fields/FormFieldTeraLandTaskTitle.vue';
 import type { paths } from '@lychen/tera-api-sdk/generated/tera-api';
 import { inject } from 'vue';
-import { INJECTION_KEY_LAND } from '@lychen/tera-constants/InjectionKeys';
 import { EVENT_landTaskPostSucceeded } from '@lychen/tera-events/LandTaskEvents';
 
-const land = inject(INJECTION_KEY_LAND);
+const land = inject('fg'); // To rebuild
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

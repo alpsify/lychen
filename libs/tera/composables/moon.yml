@@ -1,9 +1,0 @@
-dependsOn:
-  - tera-api-sdk
-  - typescript-utils
-
-id: tera-composables
-
-language: typescript
-
-type: library

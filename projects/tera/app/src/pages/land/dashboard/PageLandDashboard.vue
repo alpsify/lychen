@@ -262,7 +262,7 @@ import DialogTeraLandMemberDelete from '@lychen/tera-components/land-member/dial
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
-import { useLandGuard } from '@lychen/tera-composables/useLandGuard';
+import { useLandGuard } from '@lychen/vue-tera/composables/use-land-guard';
 import { RoutePageLandMemberSettings } from '../member-settings';
 import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 import { RoutePageDashboard } from '@/pages/dashboard';

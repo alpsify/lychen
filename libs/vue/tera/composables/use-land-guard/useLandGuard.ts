@@ -1,20 +1,13 @@
 import type { components } from '@lychen/tera-api-sdk/generated/tera-api';
 import { computed, type Ref } from 'vue';
-import { type ObjectValues } from '@lychen/typescript-utils/transformers/ObjectValues';
-
-export const LAND_GUARD_STRATEGY = {
-  Unanimous: 'unanimous',
-  Affirmative: 'affirmative',
-} as const;
-
-export type LandGuardStrategy = ObjectValues<typeof LAND_GUARD_STRATEGY>;
+import { LAND_GUARD_STRATEGY, type LandGuardStrategy } from '.';
 
 export function useLandGuard(
   landMember:
     | Ref<components['schemas']['LandMember.jsonld-land_member.me'] | undefined>
     | undefined,
   permissions: string[],
-  strategy: 'unanimous' | 'affirmative' = 'unanimous',
+  strategy: LandGuardStrategy = LAND_GUARD_STRATEGY.Unanimous,
 ) {
   const allowed = computed(() => {
     if (!landMember || !landMember.value) {

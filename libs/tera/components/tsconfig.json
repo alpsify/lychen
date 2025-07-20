@@ -18,12 +18,6 @@
       "path": "../api-sdk"
     },
     {
-      "path": "../composables"
-    },
-    {
-      "path": "../constants"
-    },
-    {
       "path": "../events"
     },
     {

@@ -3,7 +3,13 @@
   "include": ["**/*"],
   "references": [
     {
+      "path": "../../tera/api-sdk"
+    },
+    {
       "path": "../../typescript/tera"
+    },
+    {
+      "path": "../../typescript/utils"
     },
     {
       "path": "../composables"

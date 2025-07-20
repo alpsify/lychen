@@ -8,12 +8,6 @@
       "path": "libs/tera/components"
     },
     {
-      "path": "libs/tera/composables"
-    },
-    {
-      "path": "libs/tera/constants"
-    },
-    {
       "path": "libs/tera/events"
     },
     {
