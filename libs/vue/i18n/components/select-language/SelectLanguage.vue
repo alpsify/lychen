@@ -1,17 +1,3 @@
-<script lang="ts" setup>
-import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-components-core/popover';
-import { useI18nExtended } from '../../composables/useI18nExtended';
-import IconLanguage from '@lychen/vue-icons/IconLanguage.vue';
-import Button from '@lychen/vue-components-core/button/Button.vue';
-
-const { locale } = useI18nExtended();
-
-const availableLocales = [
-  { code: 'en-US', name: 'English' },
-  { code: 'fr-FR', name: 'Français' },
-];
-</script>
-
 <template>
   <Popover>
     <PopoverTrigger as-child>
@@ -41,3 +27,17 @@ const availableLocales = [
     </PopoverContent>
   </Popover>
 </template>
+
+<script lang="ts" setup>
+import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-components-core/popover';
+import { useI18nExtended } from '../../composables/useI18nExtended';
+import IconLanguage from '@lychen/vue-icons/IconLanguage.vue';
+import Button from '@lychen/vue-components-core/button/Button.vue';
+
+const { locale } = useI18nExtended();
+
+const availableLocales = [
+  { code: 'en-US', name: 'English' },
+  { code: 'fr-FR', name: 'Français' },
+];
+</script>
