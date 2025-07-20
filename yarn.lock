@@ -2324,12 +2324,12 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@internationalized/date": "npm:^3.7.0"
     "@lychen/css-core": "workspace:*"
-    "@lychen/tera-components": "workspace:*"
     "@lychen/vue-components-app": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
+    "@lychen/vue-tera": "workspace:*"
     "@storybook/addon-essentials": "npm:^8.6.12"
     "@storybook/addon-interactions": "npm:^8.6.12"
     "@storybook/addon-onboarding": "npm:^8.6.12"
@@ -2359,7 +2359,6 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
     "@lychen/css-core": "workspace:*"
     "@lychen/i18n-tera": "workspace:*"
-    "@lychen/tera-components": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
@@ -2383,28 +2382,6 @@ __metadata:
     vite-plugin-vue-devtools: "npm:^7.7.7"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
-  languageName: unknown
-  linkType: soft
-
-"@lychen/tera-components@workspace:*, @lychen/tera-components@workspace:libs/tera/components":
-  version: 0.0.0-use.local
-  resolution: "@lychen/tera-components@workspace:libs/tera/components"
-  dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@lychen/i18n-tera": "workspace:*"
-    "@lychen/typescript-tera-api-sdk": "workspace:*"
-    "@lychen/typescript-utils": "workspace:*"
-    "@lychen/vue-components-core": "workspace:*"
-    "@lychen/vue-i18n": "workspace:*"
-    "@lychen/vue-icons": "workspace:*"
-    "@tanstack/vue-query": "npm:^5.67.3"
-    "@tanstack/vue-table": "npm:^8.21.2"
-    "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^13.0.0"
-    vee-validate: "npm:^4.15.0"
-    vue: "npm:^3.5.13"
-    vue-router: "npm:^4.5.0"
-    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -2894,11 +2871,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-tera@workspace:libs/vue/tera"
   dependencies:
+    "@lychen/i18n-tera": "workspace:*"
     "@lychen/typescript-tera-api-sdk": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/typescript-zitadel": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-composables": "workspace:*"
+    "@lychen/vue-i18n": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@vueuse/core": "npm:^13.0.0"
     openapi-fetch: "npm:^0.14.0"
     vue: "npm:^3.5.13"
@@ -3999,7 +3980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/vue-query@npm:^5.66.11, @tanstack/vue-query@npm:^5.67.3":
+"@tanstack/vue-query@npm:^5.66.11":
   version: 5.67.3
   resolution: "@tanstack/vue-query@npm:5.67.3"
   dependencies:
