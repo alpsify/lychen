@@ -14,23 +14,30 @@
           <Button
             :icon="faPersonToDoor"
             variant="ghost"
-        /></DialogTeraLandMemberDelete>
+          >
+            <template #icon>
+              <IconPersonToDoor />
+            </template>
+          </Button>
+        </DialogTeraLandMemberDelete>
         <RouterLink
           :to="{ name: RoutePageLandMemberSettings.name, params: { landUlid: land.ulid } }"
         >
-          <Button
-            :icon="faUserGear"
-            variant="ghost"
-          />
+          <Button variant="ghost">
+            <template #icon>
+              <IconUserGear />
+            </template>
+          </Button>
         </RouterLink>
         <RouterLink
           v-if="settingsButtonAllowed"
           :to="{ name: RoutePageLandSettings.name, params: { landUlid: land.ulid } }"
         >
-          <Button
-            :icon="faGear"
-            variant="ghost"
-          />
+          <Button variant="ghost">
+            <template #icon>
+              <IconGear />
+            </template>
+          </Button>
         </RouterLink>
       </div>
     </div>
@@ -45,41 +52,57 @@
           <RouterLink :to="RoutePageLandSettings">
             <Button
               label="Inviter"
-              :icon="faUserPlus"
               size="sm"
               variant="outline"
-          /></RouterLink>
+            >
+              <template #icon>
+                <IconUserPlus />
+              </template>
+            </Button>
+          </RouterLink>
         </div>
         <div class="flex flex-row gap-2">
           <Button
             label="Planifier une culture"
-            :icon="faCalendarCirclePlus"
             variant="outline"
             size="sm"
             disabled
-          />
+          >
+            <template #icon>
+              <IconCalendarCirclePlus />
+            </template>
+          </Button>
           <Button
             label="Ajouter une tâche"
-            :icon="faTasks"
             size="sm"
             variant="outline"
-          />
+          >
+            <template #icon>
+              <IconTasks />
+            </template>
+          </Button>
           <Button
             label="Prendre une note"
-            :icon="faNoteSticky"
             variant="outline"
             size="sm"
             disabled
-          />
+          >
+            <template #icon>
+              <IconNoteSticky />
+            </template>
+          </Button>
         </div>
         <div>
           <Button
             label="Enregistrer une mesure"
-            :icon="faGridRound2Plus"
             disabled
             size="sm"
             variant="outline"
-          />
+          >
+            <template #icon>
+              <IconGridRound2Plus />
+            </template>
+          </Button>
         </div>
       </div>
       <div id="principal">
@@ -117,9 +140,12 @@
           <Button
             label="Signaler un surplus"
             class="bg-purple-200 self-end text-black hover:bg-purple-700 hover:text-purple-200"
-            :icon="faHandHoldingHeart"
             disabled
-          />
+          >
+            <template #icon>
+              <IconHandHoldingHeart />
+            </template>
+          </Button>
         </Card>
         <Card class="bg-gradient-to-tr from-amber-500 to-yellow-500 gap-4">
           <div class="flex flex-col gap-0 text-amber-800">
@@ -136,7 +162,11 @@
             class="bg-amber-200 self-end text-black hover:bg-amber-700 hover:text-amber-200"
             :icon="faBee"
             disabled
-          />
+          >
+            <template #icon>
+              <IconBee />
+            </template>
+          </Button>
         </Card>
         <BannerTeraShareYourLand />
       </div>
@@ -146,14 +176,16 @@
       <div class="flex flex-row items-center gap-4">
         <BaseHeading variant="h3">Zones de culture</BaseHeading>
         <div class="flex flex-row gap-2">
-          <Button
-            :icon="faPlus"
-            variant="ghost"
-          />
-          <Button
-            :icon="faListUl"
-            variant="ghost"
-          />
+          <Button variant="ghost">
+            <template #icon>
+              <IconPlus />
+            </template>
+          </Button>
+          <Button variant="ghost">
+            <template #icon>
+              <IconListUl />
+            </template>
+          </Button>
         </div>
       </div>
 
@@ -182,14 +214,16 @@
       <div class="flex flex-row justify-between items-center">
         <Title variant="h4">Serres</Title>
         <div class="flex flex-row gap-2">
-          <Button
-            :icon="faPlus"
-            variant="ghost"
-          />
-          <Button
-            :icon="faListUl"
-            variant="ghost"
-          />
+          <Button variant="ghost">
+            <template #icon>
+              <IconPlus />
+            </template>
+          </Button>
+          <Button variant="ghost">
+            <template #icon>
+              <IconListUl />
+            </template>
+          </Button>
         </div>
       </div>
 
@@ -222,9 +256,6 @@ import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
 import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue';
 import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
-import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
-import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
 import {
   INJECTION_KEY_LAND,
   INJECTION_KEY_LAND_MEMBER,
@@ -233,24 +264,29 @@ import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/tera-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
-import { faUserGear } from '@fortawesome/pro-light-svg-icons/faUserGear';
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
 import { useLandGuard } from '@lychen/tera-composables/useLandGuard';
 import { RoutePageLandMemberSettings } from '../member-settings';
 import { landMemberLeaveSucceededEvent } from '@lychen/tera-events/LandMemberEvents';
 import { RoutePageDashboard } from '@/pages/dashboard';
 import { useEventBus } from '@vueuse/core';
-import { faUserPlus } from '@fortawesome/pro-light-svg-icons/faUserPlus';
 import { useRouter } from 'vue-router';
 import Card from '@lychen/vue-components-core/card/Card.vue';
-import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
-import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalendarCirclePlus';
-import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
-import { faNoteSticky } from '@fortawesome/pro-light-svg-icons/faNoteSticky';
-import { faGridRound2Plus } from '@fortawesome/pro-light-svg-icons/faGridRound2Plus';
 import BadgeDevelopmentInProgress from '@lychen/vue-components-app/badge-development-in-progress/BadgeDevelopmentInProgress.vue';
 import { RoutePageLandTasks } from '../tasks';
 import BannerTeraShareYourLand from '@/components/banners/BannerTeraShareYourLand.vue';
+import IconUserGear from '@lychen/vue-icons/IconUserGear.vue';
+import IconGear from '@lychen/vue-icons/IconGear.vue';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
+import IconListUl from '@lychen/vue-icons/IconListUl.vue';
+import IconUserPlus from '@lychen/vue-icons/IconUserPlus.vue';
+import IconCalendarCirclePlus from '@lychen/vue-icons/IconCalendarCirclePlus.vue';
+import IconBee from '@lychen/vue-icons/IconBee.vue';
+import IconHandHoldingHeart from '@lychen/vue-icons/IconHandHoldingHeart.vue';
+import IconTasks from '@lychen/vue-icons/IconTasks.vue';
+import IconGridRound2Plus from '@lychen/vue-icons/IconGridRound2Plus.vue';
+import IconNoteSticky from '@lychen/vue-icons/IconNoteSticky.vue';
+import IconPersonToDoor from '@lychen/vue-icons/IconPersonToDoor.vue';
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 

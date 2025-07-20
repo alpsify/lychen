@@ -2,7 +2,7 @@
   <template v-if="navigationExpanded">
     <RouterLink
       :to="to"
-      exact-active-class="bg-surface-container-high"
+      exact-active-class="bg-surface-container"
       :class="
         cn(
           'menu-item flex flex-row items-center justify-start gap-2 px-3 -mx-3 py-2 rounded-xl hover:bg-surface-container-highest',
@@ -24,7 +24,7 @@
       <TooltipTrigger as-child>
         <RouterLink
           :to="to"
-          exact-active-class="bg-surface-container-high"
+          exact-active-class="bg-surface-container"
           :class="
             cn(
               'menu-item flex flex-row items-center justify-start gap-4 px-3 -mx-3 py-2 rounded-xl hover:bg-surface-container-highest',

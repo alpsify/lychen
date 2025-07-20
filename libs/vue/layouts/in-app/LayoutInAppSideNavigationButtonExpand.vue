@@ -2,7 +2,7 @@
   <div
     :class="
       cn(
-        'border-3 border-surface bg-surface-container-highest absolute top-6 -right-4 h-6 w-6 rounded-full cursor-pointer flex items-center justify-center hover:bg-surface-container-highest',
+        'border-3 border-surface bg-surface-container-low absolute top-6 -right-4 h-6 w-6 rounded-full cursor-pointer flex items-center justify-center hover:bg-surface-container-highest',
         props.class,
       )
     "

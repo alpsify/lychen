@@ -21,7 +21,7 @@ const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
 );
 
-withDefaults(defineProps<{ backgroundImage: string; title: string }>(), {
+withDefaults(defineProps<{ backgroundImage?: string; title: string }>(), {
   backgroundImage: undefined,
 });
 </script>

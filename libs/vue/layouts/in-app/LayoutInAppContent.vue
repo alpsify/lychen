@@ -1,5 +1,5 @@
 <template>
-  <main :class="cn('layout-in-app-content', 'flex flex-col', props.class)">
+  <main :class="cn('layout-in-app-content', 'flex flex-col pr-2', props.class)">
     <slot>
       <RouterView />
     </slot>

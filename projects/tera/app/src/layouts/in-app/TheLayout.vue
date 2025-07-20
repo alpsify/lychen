@@ -82,7 +82,7 @@
     </LayoutInAppSideNavigation>
     <LayoutInAppContent />
     <LayoutInAppHeader class="justify-between gap-2">
-      <div></div>
+      <div id="breadcrumb"></div>
       <div class="flex flex-row gap-2 items-center justify-end">
         <AppMenu />
         <UserAvatar
