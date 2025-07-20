@@ -1,3 +1,54 @@
+<template>
+  <div class="gantt-container">
+    <!-- Table Header -->
+    <div class="gantt-header">
+      <div class="gantt-task-column">Task</div>
+      <div class="gantt-timeline">
+        <div
+          v-for="n in totalDays"
+          :key="n"
+          class="gantt-day"
+        >
+          {{ n }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Rows -->
+    <div
+      v-for="task in table.getRowModel().rows"
+      :key="task.id"
+      class="gantt-row"
+    >
+      <!-- Task Name Column -->
+      <div class="gantt-task-column">{{ task.original.name }}</div>
+
+      <!-- Gantt Task Bar -->
+      <div class="gantt-timeline">
+        <div
+          ref="dragRefs"
+          class="gantt-task-bar"
+          :style="{
+            left: getTaskPosition(task.original).startOffset * 30 + 'px',
+            width: getTaskPosition(task.original).duration * 30 + 'px',
+          }"
+          @mounted="makeDraggable(task.original)"
+        >
+          <div
+            ref="resizeStartRefs"
+            class="resize-handle left"
+          ></div>
+          {{ task.original.name }}
+          <div
+            ref="resizeEndRefs"
+            class="resize-handle right"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useVueTable, createColumnHelper, getCoreRowModel } from '@tanstack/vue-table';
@@ -103,57 +154,6 @@ function makeDraggable(task: Task) {
   });
 }
 </script>
-
-<template>
-  <div class="gantt-container">
-    <!-- Table Header -->
-    <div class="gantt-header">
-      <div class="gantt-task-column">Task</div>
-      <div class="gantt-timeline">
-        <div
-          v-for="n in totalDays"
-          :key="n"
-          class="gantt-day"
-        >
-          {{ n }}
-        </div>
-      </div>
-    </div>
-
-    <!-- Table Rows -->
-    <div
-      v-for="task in table.getRowModel().rows"
-      :key="task.id"
-      class="gantt-row"
-    >
-      <!-- Task Name Column -->
-      <div class="gantt-task-column">{{ task.original.name }}</div>
-
-      <!-- Gantt Task Bar -->
-      <div class="gantt-timeline">
-        <div
-          ref="dragRefs"
-          class="gantt-task-bar"
-          :style="{
-            left: getTaskPosition(task.original).startOffset * 30 + 'px',
-            width: getTaskPosition(task.original).duration * 30 + 'px',
-          }"
-          @mounted="makeDraggable(task.original)"
-        >
-          <div
-            ref="resizeStartRefs"
-            class="resize-handle left"
-          ></div>
-          {{ task.original.name }}
-          <div
-            ref="resizeEndRefs"
-            class="resize-handle right"
-          ></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .gantt-container {

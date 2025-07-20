@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
-import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
+import { defineOrganization, defineWebPage, defineWebSite } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { defineAsyncComponent } from 'vue';
 
@@ -25,14 +25,12 @@ useHead({
   },
 });
 
-useSchemaOrg([
-  defineOrganization({
-    name: 'Lychen',
-    logo: '/logos/lychen/logo-lychen.svg',
-  }),
-  defineWebSite({
-    name: 'Lychen',
-  }),
-  defineWebPage(),
-]);
+defineOrganization({
+  name: 'Lychen',
+  logo: '/logos/lychen/logo-lychen.svg',
+});
+defineWebSite({
+  name: 'Lychen',
+});
+defineWebPage();
 </script>

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { TooltipProvider } from '@lychen/vue-components-core/tooltip';
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
-import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
+import { defineOrganization, defineWebPage, defineWebSite } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 
 usePreferredColorScheme();
@@ -21,14 +21,12 @@ useHead({
   },
 });
 
-useSchemaOrg([
-  defineOrganization({
-    name: 'Lychen - Design System',
-    logo: '/logos/lychen/logo-lychen.svg',
-  }),
-  defineWebSite({
-    name: 'Lychen - Design System',
-  }),
-  defineWebPage(),
-]);
+defineOrganization({
+  name: 'Lychen - Design System',
+  logo: '/logos/lychen/logo-lychen.svg',
+});
+defineWebSite({
+  name: 'Lychen - Design System',
+});
+defineWebPage();
 </script>
