@@ -3,26 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-
-    {
-      "path": "../../../libs/robust/constants"
-    },
-    {
-      "path": "../../../libs/robust/features"
-    },
-    {
-      "path": "../../../libs/robust/i18n"
-    },
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/robust"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -38,6 +28,9 @@
     },
     {
       "path": "../../../libs/vue/layouts"
+    },
+    {
+      "path": "../../../libs/vue/robust"
     },
     {
       "path": "../../../libs/vue/router/configs"

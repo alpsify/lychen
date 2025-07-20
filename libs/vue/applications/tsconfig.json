@@ -1,0 +1,48 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "**/*.json"],
+  "references": [
+    {
+      "path": "../../typescript/applications"
+    },
+    {
+      "path": "../../typescript/utils"
+    },
+    {
+      "path": "../components-core"
+    },
+    {
+      "path": "../components-extra"
+    },
+    {
+      "path": "../i18n"
+    },
+    {
+      "path": "../kiro"
+    },
+    {
+      "path": "../kolo"
+    },
+    {
+      "path": "../meli"
+    },
+    {
+      "path": "../myko"
+    },
+    {
+      "path": "../novi"
+    },
+    {
+      "path": "../robust"
+    },
+    {
+      "path": "../tera"
+    },
+    {
+      "path": "../vara"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/applications"
+  }
+}

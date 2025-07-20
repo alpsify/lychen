@@ -3,25 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/kiro/constants"
-    },
-    {
-      "path": "../../../libs/kiro/features"
-    },
-    {
-      "path": "../../../libs/kiro/i18n"
-    },
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/kiro"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -34,6 +25,9 @@
     },
     {
       "path": "../../../libs/vue/i18n"
+    },
+    {
+      "path": "../../../libs/vue/kiro"
     },
     {
       "path": "../../../libs/vue/layouts"

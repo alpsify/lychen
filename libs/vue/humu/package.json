@@ -1,0 +1,8 @@
+{
+  "name": "@lychen/vue-humu",
+  "dependencies": {
+    "@lychen/typescript-humu": "workspace:*",
+    "@lychen/vue-composables": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
+}

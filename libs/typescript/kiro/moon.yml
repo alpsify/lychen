@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-kiro
+
+language: typescript
+
+type: library

@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*"],
+  "references": [
+    {
+      "path": "../../typescript/tera"
+    },
+    {
+      "path": "../composables"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/tera"
+  }
+}

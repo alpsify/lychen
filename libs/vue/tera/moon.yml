@@ -1,0 +1,9 @@
+dependsOn:
+  - typescript-tera
+  - vue-composables
+
+id: vue-tera
+
+language: typescript
+
+type: library

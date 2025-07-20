@@ -1,8 +1,0 @@
-dependsOn:
-  - robust-constants
-
-id: robust-i18n
-
-language: typescript
-
-type: library

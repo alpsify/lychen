@@ -1,17 +1,13 @@
 dependsOn:
-  - applications-components
   - css-core
-  - humu-constants
-  - humu-features
-
-  - humu-i18n
   - typescript-constants
-
+  - typescript-humu
   - vite-ssg
+  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-website
-  - vue-i18n
+  - vue-humu
   - vue-i18n
   - vue-layouts
   - vue-router-configs

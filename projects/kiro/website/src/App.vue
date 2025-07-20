@@ -6,7 +6,7 @@
 import { usePreferredColorScheme } from '@lychen/vue-color-scheme/composables/usePreferredColorScheme';
 import { defineOrganization, defineWebPage, defineWebSite, useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
-import { TRANSLATION_KEY, messages } from '@lychen/kiro-i18n';
+import { TRANSLATION_KEY, messages } from '@lychen/vue-kiro/i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 usePreferredColorScheme();

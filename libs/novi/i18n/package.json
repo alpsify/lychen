@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/novi-i18n",
-  "dependencies": {
-    "@lychen/novi-constants": "workspace:*"
-  }
-}

@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-humu
+
+language: typescript
+
+type: library

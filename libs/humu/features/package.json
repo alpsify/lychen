@@ -1,9 +1,0 @@
-{
-  "name": "@lychen/humu-features",
-  "dependencies": {
-    "@lychen/applications-generic-composables": "workspace:*",
-    "@lychen/applications-model": "workspace:*",
-    "@lychen/humu-constants": "workspace:*",
-    "@lychen/typescript-utils": "workspace:*"
-  }
-}

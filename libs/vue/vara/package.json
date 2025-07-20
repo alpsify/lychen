@@ -1,3 +1,8 @@
 {
-  "name": "@lychen/vue-vara"
+  "name": "@lychen/vue-vara",
+  "dependencies": {
+    "@lychen/typescript-vara": "workspace:*",
+    "@lychen/vue-composables": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
 }

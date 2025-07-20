@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-vara
+
+language: typescript
+
+type: library

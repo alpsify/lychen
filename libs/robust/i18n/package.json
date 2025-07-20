@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/robust-i18n",
-  "dependencies": {
-    "@lychen/robust-constants": "workspace:*"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/meli-i18n",
-  "dependencies": {
-    "@lychen/meli-constants": "workspace:*"
-  }
-}

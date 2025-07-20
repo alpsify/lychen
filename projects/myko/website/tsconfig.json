@@ -3,26 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-    {
-      "path": "../../../libs/myko/constants"
-    },
-    {
-      "path": "../../../libs/myko/features"
-    },
-    {
-      "path": "../../../libs/myko/i18n"
-    },
-
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/myko"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -38,6 +28,9 @@
     },
     {
       "path": "../../../libs/vue/layouts"
+    },
+    {
+      "path": "../../../libs/vue/myko"
     },
     {
       "path": "../../../libs/vue/router/configs"

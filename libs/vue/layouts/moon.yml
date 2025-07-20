@@ -1,6 +1,6 @@
 dependsOn:
-  - applications-components
   - typescript-constants
+  - vue-applications
   - vue-components-app
   - vue-components-core
   - vue-components-extra

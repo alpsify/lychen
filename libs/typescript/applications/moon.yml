@@ -1,0 +1,10 @@
+dependsOn:
+  - typescript-robust
+  - typescript-tera
+  - typescript-utils
+
+id: typescript-applications
+
+language: typescript
+
+type: library

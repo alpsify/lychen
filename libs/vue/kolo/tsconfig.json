@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "include": ["**/*", "**/*.json"],
+  "references": [
+    {
+      "path": "../../typescript/kolo"
+    },
+    {
+      "path": "../composables"
+    },
+    {
+      "path": "../i18n"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "../../../.moon/cache/types/libs/vue/kolo"
+  }
+}

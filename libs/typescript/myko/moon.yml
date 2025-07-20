@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-myko
+
+language: typescript
+
+type: library

@@ -3,8 +3,8 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/applications-components": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
+    "@lychen/vue-applications": "workspace:*",
     "@lychen/vue-components-app": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-extra": "workspace:*",

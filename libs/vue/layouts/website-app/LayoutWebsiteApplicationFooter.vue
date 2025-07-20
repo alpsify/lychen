@@ -18,7 +18,7 @@ import { defineAsyncComponent } from 'vue';
 import { type LayoutWebsiteApplicationFooterProps } from '.';
 
 const ApplicationTitle = defineAsyncComponent(
-  () => import('@lychen/applications-components/ApplicationTitle.vue'),
+  () => import('@lychen/vue-applications/components/ApplicationTitle.vue'),
 );
 
 const FooterMain = defineAsyncComponent(

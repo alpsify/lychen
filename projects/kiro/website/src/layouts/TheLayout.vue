@@ -19,9 +19,9 @@
 
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
-import { APP_STATE } from '@lychen/kiro-constants/App';
+import { APP_STATE } from '@lychen/typescript-kiro/constants/App';
 import { defineAsyncComponent } from 'vue';
-import { TRANSLATION_KEY, messages } from '@lychen/kiro-i18n';
+import { TRANSLATION_KEY, messages } from '@lychen/vue-kiro/i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 const LayoutWebsiteApplication = defineAsyncComponent(

@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-tera
+
+language: typescript
+
+type: library

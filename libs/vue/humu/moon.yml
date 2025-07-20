@@ -1,0 +1,10 @@
+dependsOn:
+  - typescript-humu
+  - vue-composables
+  - vue-i18n
+
+id: vue-humu
+
+language: typescript
+
+type: library

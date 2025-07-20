@@ -1,0 +1,9 @@
+dependsOn:
+  - typescript-applications
+  - vue-i18n
+
+id: vue-composables
+
+language: typescript
+
+type: library

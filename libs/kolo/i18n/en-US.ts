@@ -1,4 +1,0 @@
-export default {
-  name: 'Kolo',
-  description: 'Manages producer stores and connects citizens with local producers',
-};

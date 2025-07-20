@@ -1,0 +1,7 @@
+{
+  "name": "@lychen/vue-tera",
+  "dependencies": {
+    "@lychen/typescript-tera": "workspace:*",
+    "@lychen/vue-composables": "workspace:*"
+  }
+}

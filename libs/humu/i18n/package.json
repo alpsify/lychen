@@ -1,6 +1,0 @@
-{
-  "name": "@lychen/humu-i18n",
-  "dependencies": {
-    "@lychen/humu-constants": "workspace:*"
-  }
-}

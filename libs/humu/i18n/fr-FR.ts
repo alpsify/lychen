@@ -1,4 +1,0 @@
-export default {
-  name: 'Humu',
-  description: 'Structure la gestion des biodéchets et développe des initiatives de compostage',
-};

@@ -3,26 +3,16 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/applications/components"
-    },
-    {
-      "path": "../../../libs/applications/constants"
-    },
-
-    {
-      "path": "../../../libs/tera/constants"
-    },
-    {
-      "path": "../../../libs/tera/features"
-    },
-    {
-      "path": "../../../libs/tera/i18n"
-    },
-    {
       "path": "../../../libs/typescript/constants"
     },
     {
+      "path": "../../../libs/typescript/tera"
+    },
+    {
       "path": "../../../libs/vite/ssg"
+    },
+    {
+      "path": "../../../libs/vue/applications"
     },
     {
       "path": "../../../libs/vue/color-scheme"
@@ -47,6 +37,9 @@
     },
     {
       "path": "../../../libs/vue/router/configs"
+    },
+    {
+      "path": "../../../libs/vue/tera"
     },
     {
       "path": "../../../libs/vue/unhead/composables"

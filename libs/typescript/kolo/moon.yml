@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-kolo
+
+language: typescript
+
+type: library

@@ -1,0 +1,7 @@
+{
+  "name": "@lychen/vue-robust",
+  "dependencies": {
+    "@lychen/typescript-robust": "workspace:*",
+    "@lychen/vue-i18n": "workspace:*"
+  }
+}

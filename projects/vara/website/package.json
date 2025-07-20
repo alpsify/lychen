@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
-    "@lychen/applications-components": "workspace:*",
-    "@lychen/applications-constants": "workspace:*",
     "@lychen/css-core": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
+    "@lychen/typescript-vara": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
+    "@lychen/vue-applications": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-components-website": "workspace:*",

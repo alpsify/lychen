@@ -77,8 +77,8 @@
 </template>
 
 <script setup lang="ts">
-import { useApplicationsCatalog } from '@lychen/applications-composables/useApplicationsCatalog';
-import { APPLICATION_ALIAS } from '@lychen/applications-constants/ApplicationAlias';
+import { useApplicationsCatalog } from '@lychen/vue-applications/composables/useApplicationsCatalog';
+import { APPLICATION_ALIAS } from '@lychen/typescript-applications/constants/ApplicationAlias';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';

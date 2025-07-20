@@ -1,0 +1,8 @@
+dependsOn:
+  - typescript-utils
+
+id: typescript-novi
+
+language: typescript
+
+type: library

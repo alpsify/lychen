@@ -1,8 +1,0 @@
-dependsOn:
-  - applications-constants
-
-id: applications-i18n
-
-language: typescript
-
-type: library
