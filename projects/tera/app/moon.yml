@@ -1,10 +1,9 @@
 dependsOn:
   - css-core
-  - tera-api-sdk
   - tera-components
   - tera-events
   - tera-i18n
-  - typescript-tera
+  - typescript-tera-core
   - typescript-zitadel
   - vue-color-scheme
   - vue-components-app
@@ -43,6 +42,6 @@ tasks:
 
   dev:
     deps:
-      - tera-api-sdk:generate-api
+      - typescript-tera-api-sdk:generate-api
 
 type: application

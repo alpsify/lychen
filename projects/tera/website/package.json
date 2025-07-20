@@ -12,7 +12,7 @@
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@lychen/css-core": "workspace:*",
     "@lychen/typescript-constants": "workspace:*",
-    "@lychen/typescript-tera": "workspace:*",
+    "@lychen/typescript-tera-core": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
     "@lychen/vue-applications": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",

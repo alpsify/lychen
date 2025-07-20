@@ -1,7 +1,7 @@
 dependsOn:
   - typescript-utils
 
-id: typescript-tera
+id: typescript-tera-core
 
 language: typescript
 

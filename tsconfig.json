@@ -41,7 +41,10 @@
       "path": "libs/typescript/robust"
     },
     {
-      "path": "libs/typescript/tera"
+      "path": "libs/typescript/tera/api-sdk"
+    },
+    {
+      "path": "libs/typescript/tera/core"
     },
     {
       "path": "libs/typescript/utils"

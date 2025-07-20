@@ -4,7 +4,7 @@ import {
   FEATURES_LIST,
   type FeatureAlias,
   type FeatureGroup,
-} from '@lychen/typescript-tera/constants/Feature';
+} from '@lychen/typescript-tera-core/constants/Feature';
 import {
   useGenericApplicationsFeatures,
   type UseGenericApplicationsFeatures,

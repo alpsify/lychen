@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { RoutePageHome } from '@/pages/home';
 
-import { APP_STATE } from '@lychen/typescript-tera/constants/App';
+import { APP_STATE } from '@lychen/typescript-tera-core/constants/App';
 import { TRANSLATION_KEY, messages } from '@lychen/vue-tera/i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { defineAsyncComponent } from 'vue';

@@ -1,10 +1,12 @@
 {
   "name": "@lychen/vue-tera",
   "dependencies": {
-    "@lychen/tera-api-sdk": "workspace:*",
-    "@lychen/typescript-tera": "workspace:*",
+    "@lychen/typescript-tera-api-sdk": "workspace:*",
+    "@lychen/typescript-tera-core": "workspace:*",
     "@lychen/typescript-utils": "workspace:*",
+    "@lychen/typescript-zitadel": "workspace:*",
     "@lychen/vue-composables": "workspace:*",
+    "openapi-fetch": "^0.14.0",
     "vue": "^3.5.13"
   }
 }

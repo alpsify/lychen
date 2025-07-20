@@ -6,10 +6,16 @@
       "path": "../../tera/api-sdk"
     },
     {
-      "path": "../../typescript/tera"
+      "path": "../../typescript/tera/api-sdk"
+    },
+    {
+      "path": "../../typescript/tera/core"
     },
     {
       "path": "../../typescript/utils"
+    },
+    {
+      "path": "../../typescript/zitadel"
     },
     {
       "path": "../composables"

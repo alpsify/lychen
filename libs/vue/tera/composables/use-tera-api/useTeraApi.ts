@@ -1,5 +1,5 @@
 import createClient, { type Middleware } from 'openapi-fetch';
-import type { paths } from '../generated/tera-api';
+import type { paths } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 
 const middleware: Middleware = {

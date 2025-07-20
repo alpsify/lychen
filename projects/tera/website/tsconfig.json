@@ -6,7 +6,7 @@
       "path": "../../../libs/typescript/constants"
     },
     {
-      "path": "../../../libs/typescript/tera"
+      "path": "../../../libs/typescript/tera/core"
     },
     {
       "path": "../../../libs/vite/ssg"

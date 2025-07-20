@@ -1,4 +1,4 @@
-import { APP_ALIAS } from '@lychen/typescript-tera/constants/App';
+import { APP_ALIAS } from '@lychen/typescript-tera-core/constants/App';
 import enUs from './en-US.json';
 import frFr from './fr-FR.json';
 

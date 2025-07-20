@@ -1,7 +1,8 @@
 dependsOn:
-  - tera-api-sdk
-  - typescript-tera
+  - typescript-tera-api-sdk
+  - typescript-tera-core
   - typescript-utils
+  - typescript-zitadel
   - vue-composables
 
 id: vue-tera

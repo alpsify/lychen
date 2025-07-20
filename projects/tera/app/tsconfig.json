@@ -15,7 +15,7 @@
       "path": "../../../libs/tera/i18n"
     },
     {
-      "path": "../../../libs/typescript/tera"
+      "path": "../../../libs/typescript/tera/core"
     },
     {
       "path": "../../../libs/typescript/zitadel"

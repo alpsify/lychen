@@ -1,6 +1,6 @@
 import { type ObjectValues } from '@lychen/typescript-utils/transformers/ObjectValues';
 
-import { APP_ALIAS as TERA_APP_ALIAS } from '@lychen/typescript-tera/constants/App';
+import { APP_ALIAS as TERA_APP_ALIAS } from '@lychen/typescript-tera-core/constants/App';
 import { APP_ALIAS as MYKO_APP_ALIAS } from '@lychen/typescript-myko/constants/App';
 import { APP_ALIAS as KIRO_APP_ALIAS } from '@lychen/typescript-kiro/constants/App';
 import { APP_ALIAS as MELI_APP_ALIAS } from '@lychen/typescript-meli/constants/App';

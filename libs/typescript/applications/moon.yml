@@ -1,6 +1,6 @@
 dependsOn:
   - typescript-robust
-  - typescript-tera
+  - typescript-tera-core
   - typescript-utils
 
 id: typescript-applications

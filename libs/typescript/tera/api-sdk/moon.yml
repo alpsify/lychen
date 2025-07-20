@@ -1,7 +1,7 @@
 env:
-  OPENAPI_SCHEMA_JSON: ../../../projects/tera/api/openapi_docs.json
+  OPENAPI_SCHEMA_JSON: ../../../../projects/tera/api/openapi_docs.json
 
-id: tera-api-sdk
+id: typescript-tera-api-sdk
 
 language: typescript
 

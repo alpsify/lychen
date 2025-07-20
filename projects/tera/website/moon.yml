@@ -1,7 +1,7 @@
 dependsOn:
   - css-core
   - typescript-constants
-  - typescript-tera
+  - typescript-tera-core
   - vite-ssg
   - vue-applications
   - vue-color-scheme

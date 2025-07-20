@@ -1,5 +1,5 @@
 {
-  "name": "@lychen/typescript-tera",
+  "name": "@lychen/typescript-tera-core",
   "dependencies": {
     "@lychen/typescript-utils": "workspace:*"
   }

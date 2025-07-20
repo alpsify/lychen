@@ -9,6 +9,9 @@
       "path": "../tera"
     },
     {
+      "path": "../tera/core"
+    },
+    {
       "path": "../utils"
     }
   ],

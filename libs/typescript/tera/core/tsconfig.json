@@ -3,10 +3,10 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../utils"
+      "path": "../../utils"
     }
   ],
   "compilerOptions": {
-    "outDir": "../../../.moon/cache/types/libs/typescript/tera"
+    "outDir": "../../../../.moon/cache/types/libs/typescript/tera/core"
   }
 }
