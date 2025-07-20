@@ -249,8 +249,8 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, computed, inject } from 'vue';
-import CardTeraLandGreenhouse from '@lychen/tera-components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
-import CardTeraLandArea from '@lychen/tera-components/land-area/card/CardTeraLandArea.vue';
+import CardTeraLandGreenhouse from '@lychen/vue-tera/components/land-greenhouse/card/CardTeraLandGreenhouse.vue';
+import CardTeraLandArea from '@lychen/vue-tera/components/land-area/card/CardTeraLandArea.vue';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { useQuery } from '@tanstack/vue-query';
 import Carousel from '@lychen/vue-components-core/carousel/Carousel.vue';
@@ -258,7 +258,7 @@ import CarouselItem from '@lychen/vue-components-core/carousel/CarouselItem.vue'
 import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
 import { INJECTION_KEY_LAND, INJECTION_KEY_LAND_MEMBER } from '@/layouts/land-layout';
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
-import DialogTeraLandMemberDelete from '@lychen/tera-components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
+import DialogTeraLandMemberDelete from '@lychen/vue-tera/components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
 import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
 import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';

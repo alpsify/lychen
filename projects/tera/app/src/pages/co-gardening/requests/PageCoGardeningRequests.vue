@@ -31,8 +31,8 @@ import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 
 import { useQuery } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
-import CardTeraLandRequest from '@lychen/tera-components/land-request/card/CardTeraLandRequest.vue';
-import DialogTeraLandRequestView from '@lychen/tera-components/land-request/dialogs/view/DialogTeraLandRequestView.vue';
+import CardTeraLandRequest from '@lychen/vue-tera/components/land-request/card/CardTeraLandRequest.vue';
+import DialogTeraLandRequestView from '@lychen/vue-tera/components/land-request/dialogs/view/DialogTeraLandRequestView.vue';
 
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';

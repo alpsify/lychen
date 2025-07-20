@@ -3,6 +3,9 @@
   "include": ["**/*"],
   "references": [
     {
+      "path": "../../i18n/tera"
+    },
+    {
       "path": "../../typescript/tera/api-sdk"
     },
     {
@@ -15,7 +18,16 @@
       "path": "../../typescript/zitadel"
     },
     {
+      "path": "../components-core"
+    },
+    {
       "path": "../composables"
+    },
+    {
+      "path": "../i18n"
+    },
+    {
+      "path": "../icons"
     }
   ],
   "compilerOptions": {

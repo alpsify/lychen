@@ -3,9 +3,6 @@
   "include": ["**/*"],
   "references": [
     {
-      "path": "../../../libs/tera/components"
-    },
-    {
       "path": "../../../libs/i18n/tera"
     },
     {

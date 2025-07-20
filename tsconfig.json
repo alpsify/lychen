@@ -2,9 +2,6 @@
   "extends": "./tsconfig.options.json",
   "references": [
     {
-      "path": "libs/tera/components"
-    },
-    {
       "path": "libs/i18n/tera"
     },
     {

@@ -1,7 +1,6 @@
 dependsOn:
   - css-core
   - i18n-tera
-  - tera-components
   - typescript-tera-core
   - typescript-zitadel
   - vue-color-scheme

@@ -108,7 +108,7 @@ import {
   landPatchSucceededEvent,
 } from '@lychen/vue-tera/events/LandEvents';
 import { landMemberInvitationAcceptSucceededEvent } from '@lychen/vue-tera/events/LandMemberInvitationEvents';
-import DialogTeraLandCreate from '@lychen/tera-components/land/dialogs/create/DialogTeraLandCreate.vue';
+import DialogTeraLandCreate from '@lychen/vue-tera/components/land/dialogs/create/DialogTeraLandCreate.vue';
 import { ref } from 'vue';
 import { landMemberLeaveSucceededEvent } from '@lychen/vue-tera/events/LandMemberEvents';
 import {
