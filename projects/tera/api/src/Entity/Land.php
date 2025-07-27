@@ -137,6 +137,12 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: LandApiKey::class, mappedBy: 'land', orphanRemoval: true)]
     private Collection $landApiKeys;
 
+    /**
+     * @var Collection<int, LandHarvestEntry>
+     */
+    #[ORM\OneToMany(targetEntity: LandHarvestEntry::class, mappedBy: 'land', orphanRemoval: true)]
+    private Collection $landHarvestEntries;
+
     public function __construct(?Ulid $ulid = null)
     {
         parent::__construct($ulid);
@@ -151,6 +157,7 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
         $this->landProposals = new ArrayCollection();
         $this->landDeals = new ArrayCollection();
         $this->landApiKeys = new ArrayCollection();
+        $this->landHarvestEntries = new ArrayCollection();
     }
 
     public function getName(): ?string
@@ -547,6 +554,36 @@ class Land extends AbstractIdOrmAndUlidApiIdentified
             // set the owning side to null (unless already changed)
             if ($landApiKey->getLand() === $this) {
                 $landApiKey->setLand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LandHarvestEntry>
+     */
+    public function getLandHarvestEntries(): Collection
+    {
+        return $this->landHarvestEntries;
+    }
+
+    public function addLandHarvestEntry(LandHarvestEntry $landHarvestEntry): static
+    {
+        if (!$this->landHarvestEntries->contains($landHarvestEntry)) {
+            $this->landHarvestEntries->add($landHarvestEntry);
+            $landHarvestEntry->setLand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandHarvestEntry(LandHarvestEntry $landHarvestEntry): static
+    {
+        if ($this->landHarvestEntries->removeElement($landHarvestEntry)) {
+            // set the owning side to null (unless already changed)
+            if ($landHarvestEntry->getLand() === $this) {
+                $landHarvestEntry->setLand(null);
             }
         }
 
