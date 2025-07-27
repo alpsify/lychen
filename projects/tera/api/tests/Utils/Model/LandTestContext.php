@@ -6,6 +6,7 @@ use App\Entity\Land;
 use App\Entity\LandArea;
 use App\Entity\LandCultivationPlan;
 use App\Entity\LandGreenhouse;
+use App\Entity\LandHarvestEntry;
 use App\Entity\LandMember;
 use App\Entity\LandMemberInvitation;
 use App\Entity\LandRole;
@@ -38,6 +39,9 @@ class LandTestContext
 
     /** @var LandMemberInvitation|Proxy[] */
     public array $landMemberInvitations;
+
+    /** @var LandHarvestEntry|Proxy[] */
+    public array $landHarvestEntries;
 
     public function setOwner(Person|Proxy $owner): static
     {
@@ -90,6 +94,12 @@ class LandTestContext
     public function addLandMemberInvitation(LandMemberInvitation|Proxy $landMemberInvitation): static
     {
         $this->landMemberInvitations[] = $landMemberInvitation;
+        return $this;
+    }
+
+    public function addLandHarvestEntry(LandHarvestEntry|Proxy $landHarvestEntry): static
+    {
+        $this->landHarvestEntries[] = $landHarvestEntry;
         return $this;
     }
 }
