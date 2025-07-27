@@ -72,6 +72,8 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
               "land_harvest_entry:patch",
               "land_harvest_entry:post"])]
     #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\GreaterThan(0)]
     private ?int $weight = null;
 
     /**
@@ -89,6 +91,8 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
               "land_harvest_entry:patch",
               "land_harvest_entry:post"])]
     #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\LessThanOrEqual('today')]
     private ?\DateTimeImmutable $harvestedAt = null;
 
     #[Groups(["land_harvest_entry:collection",
