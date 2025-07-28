@@ -85,7 +85,7 @@ class LandHarvestEntrySecurityTest extends AbstractApiTestCase
             ->patch($this->getIriFromResource($context1->landHarvestEntries[0]), ['json' => []])
             ->assertStatus(403);
 
-        // API Key
+        // API Key with missing permission
         $landApiKey = $this->createLandApiKey($context1->land,
             ['permissions' => LandMemberPermission::ALL],
             [LandHarvestEntryVoter::PATCH]);
@@ -93,6 +93,7 @@ class LandHarvestEntrySecurityTest extends AbstractApiTestCase
             ->patch($this->getIriFromResource($context1->landHarvestEntries[0]), ['json' => []])
             ->assertStatus(403);
 
+        // API Key from wrong land
         $landApiKey2 = $this->createLandApiKey($context2->land, ['permissions' => LandMemberPermission::ALL]);
         $this->browser()->actingAs($landApiKey2)
             ->patch($this->getIriFromResource($context1->landHarvestEntries[0]), ['json' => []])

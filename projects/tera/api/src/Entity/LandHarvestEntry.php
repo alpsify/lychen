@@ -62,7 +62,6 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
 
     #[Groups(["land_harvest_entry:collection",
               "land_harvest_entry:get",
-              "land_harvest_entry:patch",
               "land_harvest_entry:post"])]
     #[ORM\ManyToOne(inversedBy: 'landHarvestEntries')]
     #[ORM\JoinColumn(nullable: false)]
