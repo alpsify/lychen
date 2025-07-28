@@ -10,6 +10,7 @@ use App\Security\Voter\LandCultivationPlanVoter;
 use App\Security\Voter\LandGreenhouseParameterVoter;
 use App\Security\Voter\LandGreenhouseSettingVoter;
 use App\Security\Voter\LandGreenhouseVoter;
+use App\Security\Voter\LandHarvestEntryVoter;
 use App\Security\Voter\LandMemberInvitationVoter;
 use App\Security\Voter\LandMemberVoter;
 use App\Security\Voter\LandProposalVoter;
@@ -34,5 +35,6 @@ final class LandMemberPermission
         ...LandMemberInvitationVoter::ALL_LAND,
         ...LandApiKeyVoter::ALL_LAND,
         ...LandProposalVoter::ALL_LAND,
+        ...LandHarvestEntryVoter::ALL_LAND,
     ];
 }

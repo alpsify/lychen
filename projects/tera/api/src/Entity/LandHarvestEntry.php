@@ -54,6 +54,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         'order[:property]' => new QueryParameter(filter: 'land_harvest_entry.order_filter'),
     ]
 )]
+#[ORM\HasLifecycleCallbacks]
 class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements LandAwareInterface
 {
     use CreatedAtTrait;
@@ -91,7 +92,6 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
               "land_harvest_entry:patch",
               "land_harvest_entry:post"])]
     #[ORM\Column]
-    #[Assert\NotNull]
     #[Assert\LessThanOrEqual('today')]
     private ?\DateTimeImmutable $harvestedAt = null;
 
@@ -181,6 +181,14 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
         $this->harvestedAt = $harvestedAt;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    public function setHarvestedAtValue(): void
+    {
+        if(null ===$this->harvestedAt) {
+            $this->harvestedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getQuality(): ?string
