@@ -5,6 +5,7 @@ namespace App\Factory;
 use App\Constant\HarvestQuality;
 use App\Entity\LandHarvestEntry;
 use Lychen\UtilTiptap\Service\TipTapFaker;
+use Symfony\Component\Uid\Ulid;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
@@ -24,7 +25,8 @@ final class LandHarvestEntryFactory extends PersistentProxyObjectFactory
             'notes' => TipTapFaker::randomContent(),
             'weight' => self::faker()->numberBetween(0, 10000),
             'harvestedAt' => $harvestedAt,
-            'quality' => self::faker()->randomElement(HarvestQuality::ALL)
+            'quality' => self::faker()->randomElement(HarvestQuality::ALL),
+            'plantId' => new Ulid(),
         ];
     }
 

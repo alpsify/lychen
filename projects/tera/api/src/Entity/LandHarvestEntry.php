@@ -20,6 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Bridge\Doctrine\Types\UlidType;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -106,6 +107,13 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
         'example' => HarvestQuality::GOOD
     ])]
     private ?string $quality = HarvestQuality::STANDARD;
+
+    #[Groups(["land_harvest_entry:collection",
+              "land_harvest_entry:get",
+              "land_harvest_entry:patch",
+              "land_harvest_entry:post"])]
+    #[ORM\Column(type: UlidType::NAME)]
+    private ?Ulid $plantId = null;
 
     #[Groups(["land_harvest_entry:collection",
               "land_harvest_entry:get",
@@ -198,6 +206,18 @@ class LandHarvestEntry extends AbstractIdOrmAndUlidApiIdentified implements Land
     public function setQuality(string $quality): static
     {
         $this->quality = $quality;
+
+        return $this;
+    }
+
+    public function getPlantId(): ?Ulid
+    {
+        return $this->plantId;
+    }
+
+    public function setPlantId(Ulid $plantId): static
+    {
+        $this->plantId = $plantId;
 
         return $this;
     }
