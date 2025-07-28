@@ -9,6 +9,7 @@ use App\Tests\Utils\Trait\LandAreaTrait;
 use App\Tests\Utils\Trait\LandCultivationPlanTrait;
 use App\Tests\Utils\Trait\LandDealTrait;
 use App\Tests\Utils\Trait\LandGreenhouseTrait;
+use App\Tests\Utils\Trait\LandHarvestEntryTrait;
 use App\Tests\Utils\Trait\LandMemberInvitationTrait;
 use App\Tests\Utils\Trait\LandMemberTrait;
 use App\Tests\Utils\Trait\LandProposalTrait;
@@ -51,6 +52,7 @@ class AbstractApiTestCase extends ApiTestCase
     use ContextTrait;
     use PersonApiKeyTrait;
     use LandApiKeyTrait;
+    use LandHarvestEntryTrait;
 
     protected function browser(array $options = [], array $server = []): KernelBrowser
     {

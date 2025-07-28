@@ -79,4 +79,13 @@ trait ContextTrait
 
         return $landTestContext;
     }
+
+    protected function addOneLandHarvestEntry(LandTestContext $landTestContext, ?array $attributes = []): LandTestContext
+    {
+        $landHarvestEntry = $this->createLandHarvestEntry($landTestContext->land, $attributes);
+
+        $landTestContext->addLandHarvestEntry($landHarvestEntry);
+
+        return $landTestContext;
+    }
 }

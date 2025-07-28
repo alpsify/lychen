@@ -68,6 +68,13 @@ services:
     parent: 'api_platform.doctrine.orm.order_filter'
     tags: [ 'api_platform.filter' ]
 
+  land_harvest_entry.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { harvestedAt: ~, createdAt: ~, updatedAt: ~, weight: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: [ 'api_platform.filter' ]
+
   land_member_invitation.state_filter:
     arguments:
       $properties: { state: ~ }
