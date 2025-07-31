@@ -2,8 +2,6 @@
 
 namespace App\Security\Voter;
 
-use App\Entity\LandApiKey;
-use App\Entity\LandMember;
 use App\Entity\Person;
 use App\Entity\PersonApiKey;
 use App\Security\Checker\PersonApiKeyPermissionChecker;

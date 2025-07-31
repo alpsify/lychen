@@ -3,7 +3,6 @@
 namespace App\Tests\Security;
 
 use App\Security\Authenticator\PersonApiKeyAuthenticator;
-use App\Security\Voter\LandVoter;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 
 class PersonApiKeySecurityTest extends AbstractApiTestCase
@@ -17,7 +16,7 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
             ->post('/api/person_api_keys',
                 ['json' => [
                     'name' => 'Test API Key',
-                    'permissions' => [LandVoter::POST, LandVoter::COLLECTION],
+                    'permissions' => [],
                 ]])
             ->assertSuccessful()
             ->json()->decoded();
@@ -28,7 +27,7 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
                     PersonApiKeyAuthenticator::HEADER_ATTRIBUTE => $response["token"]
                 ]
             ]
-        )->get('/api/lands')->assertSuccessful();
+        )->get('/api/plants')->assertSuccessful();
     }
 
     public function testAuthenticationWithInvalidToken(): void
@@ -39,30 +38,20 @@ class PersonApiKeySecurityTest extends AbstractApiTestCase
                     PersonApiKeyAuthenticator::HEADER_ATTRIBUTE => 'invalid-token'
                 ]
             ]
-        )->get('/api/lands')->assertStatus(401);
+        )->get('/api/plants')->assertStatus(401);
     }
 
     public function testCannotCreateApiKeyThroughApi(): void
     {
-        $context = $this->createLandContext();
-        $apiKey = $this->createPersonApiKey($context->owner,
-            ['permissions' => ['person:person_api_key:post']]);
-
-        $landApiKey = $this->createLandApiKey($context->land,
+        $person = $this->createPerson();
+        $apiKey = $this->createPersonApiKey($person,
             ['permissions' => ['person:person_api_key:post']]);
 
         $this->browser()->actingAs($apiKey)
             ->post('/api/person_api_keys',
                 ['json' => [
                     'name' => 'Test API Key',
-                    'permissions' => ['person:land:post', 'person:land:collection'],
-                ]])->assertStatus(403);
-
-        $this->browser()->actingAs($landApiKey)
-            ->post('/api/person_api_keys',
-                ['json' => [
-                    'name' => 'Test API Key',
-                    'permissions' => ['person:land:post', 'person:land:collection'],
+                    'permissions' => [],
                 ]])->assertStatus(403);
     }
 }

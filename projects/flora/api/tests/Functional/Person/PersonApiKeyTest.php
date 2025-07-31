@@ -15,11 +15,11 @@ class PersonApiKeyTest extends AbstractApiTestCase
         $this->browser()->actingAs($person)
             ->post('/api/person_api_keys', ['json' => [
                 'name' => 'Test API Key',
-                'permissions' => ['person:land:post', 'person:land:collection'],
+                'permissions' => [],
             ]])
             ->assertSuccessful()
             ->assertJsonMatches('name', 'Test API Key')
-            ->assertJsonMatches('permissions', ['person:land:post', 'person:land:collection'])
+            ->assertJsonMatches('permissions', [])
             ->assertJsonMatches('lastUsedDate', null)
             ->assertJsonMatches('expirationDate', null)
             ->use(function (Json $json) {
