@@ -17,6 +17,9 @@ doctrine:
     entity_managers:
       default:
         connection: default
+        dql:
+          string_functions:
+            JSON_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonbContains
         mappings:
           Default:
             alias: Default
@@ -25,9 +28,6 @@ doctrine:
             prefix: 'App\Entity'
             type: attribute
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
-        dql:
-          string_functions:
-            JSON_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonbContains
 
 when@prod:
   doctrine:
@@ -48,6 +48,7 @@ when@prod:
           adapter: cache.app
         doctrine.system_cache_pool:
           adapter: cache.system
+
 when@test:
   doctrine:
     dbal:

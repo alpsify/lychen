@@ -1,11 +1,11 @@
 security:
-  access_decision_manager:
-    strategy: unanimous
-    allow_if_all_abstain: false
-
   access_control:
     - { path: ^/api/docs, roles: PUBLIC_ACCESS }
     - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
+
+  access_decision_manager:
+    allow_if_all_abstain: false
+    strategy: unanimous
 
   firewalls:
     dev:
@@ -21,8 +21,8 @@ security:
       stateless: true
 
   providers:
-    zitadel_user_provider:
-      id: Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider
     all_users:
       chain:
-        providers: [ 'zitadel_user_provider' ]
+        providers: ['zitadel_user_provider']
+    zitadel_user_provider:
+      id: Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider
