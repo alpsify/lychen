@@ -14,17 +14,6 @@ services:
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
     resource: '../src/*'
 
-  App\Security\JWT\JWTDecoder:
-    arguments:
-      $algorithm: '%env(JWT_ALGORITHM)%'
-
-      $secret: '%env(JWT_SECRET)%'
-  App\Security\JWT\JWTEncoder:
-    arguments:
-      $algorithm: '%env(JWT_ALGORITHM)%'
-
-      $secret: '%env(JWT_SECRET)%'
-
   # default configuration for services in *this* file
   _defaults:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
