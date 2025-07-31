@@ -30,4 +30,4 @@ security:
         property: jti
     all_users:
       chain:
-        providers: [ person_api_key', 'zitadel_user_provider' ]
+        providers: [ 'person_api_key', 'zitadel_user_provider' ]
