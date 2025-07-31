@@ -1,19 +1,17 @@
-{% set project_name = name ~ "-api" %}
-
 dependsOn:
   - lychen-php-core
   - lychen-php-model
   - lychen-php-zitadel
 
 env:
-  DEV_DOMAIN: api.{{name}}.lychen.local
-  PRODUCTION_DOCKER_IMAGE: lychen/production/{{name}}/api
+  DEV_DOMAIN: api.{{ name }}.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/{{ name }}/api
   PRODUCTION_DOKPLOY_COMPOSE_ID: ''
-  PRODUCTION_DOMAIN: api.{{name}}.lychen.fr
+  PRODUCTION_DOMAIN: api.{{ name }}.lychen.fr
   STAGING_DOKPLOY_COMPOSE_ID: ''
-  STAGING_DOMAIN: staging.api.{{name}}.lychen.fr
+  STAGING_DOMAIN: staging.api.{{ name }}.lychen.fr
 
-id: {{ project_name }}
+id: {{ name }}-api
 
 language: php
 

@@ -11,7 +11,7 @@ services:
       context: .
       target: frankenphp_dev
     environment:
-      SERVER_NAME: api.{{name}}.lychen.local
+      SERVER_NAME: api.{{ name }}.lychen.local
       #MERCURE_EXTRA_DIRECTIVES: demo
       # See https://xdebug.org/docs/all_settings#mode
       XDEBUG_MODE: '${XDEBUG_MODE:-off}'

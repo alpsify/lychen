@@ -1,5 +1,4 @@
-{% set project_name = name ~ "-api" %}
-name: {{ project_name }}
+name: {{ name }}-api
 
 services:
   database:
@@ -45,7 +44,7 @@ services:
       #MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
       #MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
-    image: ${IMAGES_PREFIX:-}{{ project_name }}
+    image: ${IMAGES_PREFIX:-}{{ name }}-api
     ports:
       # HTTP
       - protocol: tcp
@@ -67,7 +66,7 @@ services:
 
   rabbitmq:
     environment:
-      - RABBITMQ_DEFAULT_VHOST={{name}}
+      - RABBITMQ_DEFAULT_VHOST={{ name }}
     image: rabbitmq:4.0.4-management-alpine
     ports:
       - '5672:5672'
