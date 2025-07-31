@@ -15,6 +15,16 @@ services:
     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
     resource: '../src/*'
 
+  App\Security\JWT\JWTDecoder:
+    arguments:
+      $algorithm: '%env(JWT_ALGORITHM)%'
+
+      $secret: '%env(JWT_SECRET)%'
+  App\Security\JWT\JWTEncoder:
+    arguments:
+      $algorithm: '%env(JWT_ALGORITHM)%'
+
+      $secret: '%env(JWT_SECRET)%'
   App\Serializer\ContextBuilder\DynamicGroupsContextBuilder:
     autoconfigure: false
     decorates: 'api_platform.serializer.context_builder'
@@ -31,16 +41,6 @@ services:
     arguments:
       - api_key: '%env(STRIPE_SECRET_KEY)%'
 
-  App\Security\JWT\JWTEncoder:
-    arguments:
-      $secret: '%env(JWT_SECRET)%'
-      $algorithm: '%env(JWT_ALGORITHM)%'
-
-  App\Security\JWT\JWTDecoder:
-    arguments:
-      $secret: '%env(JWT_SECRET)%'
-      $algorithm: '%env(JWT_ALGORITHM)%'
-
   # default configuration for services in *this* file
   _defaults:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
@@ -48,73 +48,70 @@ services:
     bind:
       $zitadelProjectId: '%env(ZITADEL_PROJECT_ID)%'
 
-  land_task.order_filter:
+  common.collection_land_filter:
     arguments:
-      $orderParameterName: order
-      $properties: { dueDate: ~ }
-    parent: 'api_platform.doctrine.orm.order_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_task.state_filter:
-    arguments:
-      $properties: { state: ~ }
+      $properties: { land: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_role.order_filter:
-    arguments:
-      $orderParameterName: order
-      $properties: { position: ~ }
-    parent: 'api_platform.doctrine.orm.order_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_harvest_entry.order_filter:
-    arguments:
-      $orderParameterName: order
-      $properties: { harvestedAt: ~, createdAt: ~, updatedAt: ~, weight: ~ }
-    parent: 'api_platform.doctrine.orm.order_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_member_invitation.state_filter:
-    arguments:
-      $properties: { state: ~ }
-    parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_request.state_filter:
-    arguments:
-      $properties: { state: ~ }
-    parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
-
-  land_request.order_filter:
-    arguments:
-      $orderParameterName: order
-      $properties: { archivedAt: ~, publishedAt: ~, expirationDate: ~, createdAt: ~, updatedAt: ~ }
-    parent: 'api_platform.doctrine.orm.order_filter'
-    tags: [ 'api_platform.filter' ]
+    tags: ['api_platform.filter']
 
   common.collection_state_filter:
     arguments:
       $properties: { state: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
+    tags: ['api_platform.filter']
 
-  common.collection_land_filter:
+  land_harvest_entry.order_filter:
     arguments:
-      $properties: { land: ~ }
-    parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
+      $orderParameterName: order
+      $properties: { createdAt: ~, harvestedAt: ~, updatedAt: ~, weight: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: ['api_platform.filter']
 
-  land_proposal.preferred_interaction_mode_filter:
+  land_member_invitation.state_filter:
     arguments:
-      $properties: { preferredInteractionMode: ~ }
+      $properties: { state: ~ }
     parent: 'api_platform.doctrine.orm.search_filter'
-    tags: [ 'api_platform.filter' ]
+    tags: ['api_platform.filter']
 
   land_proposal.order_filter:
     arguments:
       $orderParameterName: order
-      $properties: { archivedAt: ~, publishedAt: ~, expirationDate: ~, createdAt: ~, updatedAt: ~ }
+      $properties: { archivedAt: ~, createdAt: ~, expirationDate: ~, publishedAt: ~, updatedAt: ~ }
     parent: 'api_platform.doctrine.orm.order_filter'
-    tags: [ 'api_platform.filter' ]
+    tags: ['api_platform.filter']
+  land_proposal.preferred_interaction_mode_filter:
+    arguments:
+      $properties: { preferredInteractionMode: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: ['api_platform.filter']
+  land_request.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { archivedAt: ~, createdAt: ~, expirationDate: ~, publishedAt: ~, updatedAt: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: ['api_platform.filter']
+
+  land_request.state_filter:
+    arguments:
+      $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: ['api_platform.filter']
+  land_role.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { position: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: ['api_platform.filter']
+
+  land_task.order_filter:
+    arguments:
+      $orderParameterName: order
+      $properties: { dueDate: ~ }
+    parent: 'api_platform.doctrine.orm.order_filter'
+    tags: ['api_platform.filter']
+
+  land_task.state_filter:
+    arguments:
+      $properties: { state: ~ }
+    parent: 'api_platform.doctrine.orm.search_filter'
+    tags: ['api_platform.filter']
