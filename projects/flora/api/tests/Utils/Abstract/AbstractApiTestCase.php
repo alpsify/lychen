@@ -3,8 +3,6 @@
 namespace App\Tests\Utils\Abstract;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
-use App\Tests\Utils\Trait\PersonApiKeyTrait;
-use App\Tests\Utils\Trait\PersonTrait;
 use DAMA\DoctrineTestBundle\Doctrine\DBAL\StaticDriver;
 use JetBrains\PhpStorm\NoReturn;
 use Zenstruck\Browser\HttpOptions;
@@ -22,9 +20,6 @@ class AbstractApiTestCase extends ApiTestCase
     use HasBrowser {
         browser as baseKernelBrowser;
     }
-
-    use PersonTrait;
-    use PersonApiKeyTrait;
 
     protected function browser(array $options = [], array $server = []): KernelBrowser
     {

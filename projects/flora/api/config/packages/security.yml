@@ -15,7 +15,6 @@ security:
     main:
       custom_authenticators:
         - Lychen\UtilZitadelBundle\Authenticator\ZitadelUserAuthenticator
-        - App\Security\Authenticator\PersonApiKeyAuthenticator
       lazy: true
       pattern: ^/
       provider: all_users
@@ -24,10 +23,6 @@ security:
   providers:
     zitadel_user_provider:
       id: Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider
-    person_api_key:
-      entity:
-        class: App\Entity\PersonApiKey
-        property: jti
     all_users:
       chain:
-        providers: [ 'person_api_key', 'zitadel_user_provider' ]
+        providers: [ 'zitadel_user_provider' ]

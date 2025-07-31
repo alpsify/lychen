@@ -6,7 +6,6 @@
 parameters:
   cache_adapter: cache.adapter.system
   locale: 'fr'
-  uploads_base_url: 'https://%env(AWS_S3_BUCKET_NAME)%.s3.amazonaws.com/'
 
 services:
   # makes classes in src/ available to be used as services
