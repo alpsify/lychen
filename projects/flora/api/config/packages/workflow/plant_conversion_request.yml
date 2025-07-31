@@ -1,0 +1,20 @@
+framework:
+  workflows:
+    plant_conversion_request:
+      audit_trail:
+        enabled: true
+      initial_marking: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::OPENED
+      marking_store:
+        property: 'state'
+        type: 'method'
+      places: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::PLACES
+      supports:
+        - App\Entity\PlantConversionRequest
+      transitions:
+        !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowTransition::MARK_AS_COMPLETED:
+          from: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::OPENED
+          to: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::COMPLETED
+        !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowTransition::PUBLISH:
+          from: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::COMPLETED
+          to: !php/const App\Workflow\PlantConversionRequest\PlantConversionRequestWorkflowPlace::PUBLISHED
+      type: 'state_machine'
