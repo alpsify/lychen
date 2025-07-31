@@ -4,8 +4,7 @@ api_platform:
       standard_put: true
     pagination_client_enabled: true
     pagination_client_items_per_page: true
-
-  description: 'Tera API'
+  description: ' '
   error_formats:
     jsonld:
       mime_types: [ 'application/ld+json' ]
@@ -25,5 +24,5 @@ api_platform:
         name: Authorization
         type: header
     versions: [ 3 ]
-  title: 'Tera API'
+  title: 'Tera'
   use_symfony_listeners: true
