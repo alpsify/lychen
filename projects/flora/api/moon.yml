@@ -1,0 +1,22 @@
+dependsOn:
+  - lychen-php-core
+  - lychen-php-model
+  - lychen-php-zitadel
+
+env:
+  DEV_DOMAIN: api.flora.lychen.local
+  PRODUCTION_DOCKER_IMAGE: lychen/production/flora/api
+  PRODUCTION_DOKPLOY_COMPOSE_ID: ''
+  PRODUCTION_DOMAIN: api.flora.lychen.fr
+  STAGING_DOKPLOY_COMPOSE_ID: ''
+  STAGING_DOMAIN: staging.api.flora.lychen.fr
+
+id: flora-api
+
+language: php
+
+tags:
+  - symfony
+  - dokploy
+
+type: application

@@ -1,0 +1,11 @@
+# https://moonrepo.dev/docs/config/template
+$schema: '../../.moon/cache/schemas/template.json'
+
+description: 'Scaffolds the initial structure for an API build with PHP - Symfony - ApiPlatform - FrankenPHP'
+title: 'PHP Api'
+variables:
+  name:
+    default: ''
+    prompt: 'Api name ? (without -api)'
+    required: true
+    type: 'string'
