@@ -16,6 +16,7 @@ final class DefaultSpeciesStory extends Story
     public const string CUCUMIS_METULIFERUS = 'cucumis_metuliferus';
     public const string CYNARA_CARDUNCIUS = 'cynara_cardunculus';
     public const string OCIMUM_BASILICUM = 'ocimum_basiliatum';
+    public const string CENTAUREA_CYANUS = 'centaurea_cyanus';
 
     public const array ALL = [
         self::LACTUCA_SATIVA,
@@ -27,6 +28,7 @@ final class DefaultSpeciesStory extends Story
         self::CUCUMIS_METULIFERUS,
         self::CYNARA_CARDUNCIUS,
         self::OCIMUM_BASILICUM,
+        self::CENTAUREA_CYANUS,
     ];
 
     public function build(): void
@@ -40,9 +42,11 @@ final class DefaultSpeciesStory extends Story
         $this->createSpecies(self::CUCUMIS_METULIFERUS, DefaultFamiliesStory::CUCURBITACEAE);
         $this->createSpecies(self::CYNARA_CARDUNCIUS, DefaultFamiliesStory::ASTERACEAE);
         $this->createSpecies(self::OCIMUM_BASILICUM, DefaultFamiliesStory::LAMIACEAE);
+        $this->createSpecies(self::CENTAUREA_CYANUS, DefaultFamiliesStory::ASTERACEAE);
     }
 
-    protected function createSpecies(string $code, string $familyCode): void {
+    protected function createSpecies(string $code, string $familyCode): void
+    {
         $this->addState(
             $code,
             SpeciesFactory::new([

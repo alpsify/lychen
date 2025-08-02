@@ -9,6 +9,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\PartRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -41,6 +43,18 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
+    /**
+     * @var Collection<int, PlantPart>
+     */
+    #[ORM\OneToMany(targetEntity: PlantPart::class, mappedBy: 'part', orphanRemoval: true)]
+    private Collection $plantParts;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->plantParts = new ArrayCollection();
+    }
+
     public function getCode(): ?string
     {
         return $this->code;
@@ -63,5 +77,35 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return Collection<int, PlantPart>
+     */
+    public function getPlantParts(): Collection
+    {
+        return $this->plantParts;
+    }
+
+    public function addPlantPart(PlantPart $plantPart): static
+    {
+        if (!$this->plantParts->contains($plantPart)) {
+            $this->plantParts->add($plantPart);
+            $plantPart->setPart($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlantPart(PlantPart $plantPart): static
+    {
+        if ($this->plantParts->removeElement($plantPart)) {
+            // set the owning side to null (unless already changed)
+            if ($plantPart->getPart() === $this) {
+                $plantPart->setPart(null);
+            }
+        }
+
+        return $this;
     }
 }

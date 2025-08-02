@@ -12,6 +12,8 @@ use ApiPlatform\Metadata\Post;
 use App\Repository\PlantRepository;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -74,6 +76,18 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
         description: 'A boolean indicating if the plant is medicinal or not',
     )]
     private ?bool $medicinal = false;
+
+    /**
+     * @var Collection<int, PlantPart>
+     */
+    #[ORM\OneToMany(targetEntity: PlantPart::class, mappedBy: 'plant', orphanRemoval: true)]
+    private Collection $plantParts;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->plantParts = new ArrayCollection();
+    }
 
     #[Groups(["plant:get"])]
     public function getUlid(): Ulid
@@ -173,6 +187,36 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     public function setMedicinal(bool $medicinal): static
     {
         $this->medicinal = $medicinal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlantPart>
+     */
+    public function getPlantParts(): Collection
+    {
+        return $this->plantParts;
+    }
+
+    public function addPlantPart(PlantPart $plantPart): static
+    {
+        if (!$this->plantParts->contains($plantPart)) {
+            $this->plantParts->add($plantPart);
+            $plantPart->setPlant($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlantPart(PlantPart $plantPart): static
+    {
+        if ($this->plantParts->removeElement($plantPart)) {
+            // set the owning side to null (unless already changed)
+            if ($plantPart->getPlant() === $this) {
+                $plantPart->setPlant(null);
+            }
+        }
 
         return $this;
     }

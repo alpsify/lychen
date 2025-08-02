@@ -4,6 +4,7 @@ namespace App\Story;
 
 use App\Factory\CultivationFactory;
 use App\Factory\PlantFactory;
+use App\Factory\PlantPartFactory;
 use Zenstruck\Foundry\Story;
 
 final class DefaultPlantsStory extends Story
@@ -14,6 +15,7 @@ final class DefaultPlantsStory extends Story
     public const string PLANT_4 = 'plant_4';
     public const string PLANT_5 = 'plant_5';
     public const string PLANT_6 = 'plant_6';
+    public const string PLANT_7 = 'plant_7';
 
     public function build(): void
     {
@@ -38,6 +40,12 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::FULL_SUN),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
+                    'consumable' => true
+                ],
             ]
         );
 
@@ -62,6 +70,12 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::PARTIAL_SHADE),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
+                    'consumable' => true
+                ],
             ]
         );
 
@@ -85,6 +99,12 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::FULL_SUN),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
+                    'consumable' => true
+                ],
             ]
         );
 
@@ -108,6 +128,16 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::FULL_SUN),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::ROOT),
+                    'consumable' => true
+                ],
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
+                    'consumable' => true
+                ],
             ]
         );
 
@@ -131,6 +161,12 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::FULL_SUN),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
+                    'consumable' => true
+                ],
             ]
         );
 
@@ -154,18 +190,72 @@ final class DefaultPlantsStory extends Story
                 'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
                 'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::PARTIAL_SHADE),
                 'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::FLOWER),
+                    'consumable' => true
+                ],
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
+                    'consumable' => true
+                ],
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::STEM),
+                    'consumable' => true
+                ]
+            ]
+        );
+
+        $this->createPlant(self::PLANT_7,
+            [
+                'name' => 'Bleuet bleu',
+                'perennial' => false,
+                'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::CENTAUREA_CYANUS),
+                'medicinal' => true,
+                'melliferous' => true,
+            ],
+            [
+                'sowingMonths' => [3, 4, 5, 8, 9, 10],
+                'sowingMinimalTemperature' => 18,
+                'sowingMaximalTemperature' => 25,
+                'minimalDaysToGermination' => 20,
+                'maximalDaysToGermination' => 20,
+                'harvestingMonths' => [6, 7, 8],
+                'minimalDaysToHarvest' => 50,
+                'maximalDaysToHarvest' => 80,
+                'maturity' => DefaultMaturitiesStory::get(DefaultMaturitiesStory::STANDARD),
+                'exposure' => DefaultExposuresStory::get(DefaultExposuresStory::FULL_SUN),
+                'vegetationTemperatureThreshold' => null,
+            ],
+            [
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::FLOWER),
+                    'consumable' => true
+                ],
+                [
+                    'part' => DefaultPartsStory::get(DefaultPartsStory::PETAL),
+                    'consumable' => true
+                ]
             ]
         );
     }
 
-    protected function createPlant(string $stateId, array $attributes, ?array $cultivationAttributes = []): void
+    protected function createPlant(string $stateId,
+        array $attributes,
+        ?array $cultivationAttributes = [],
+        ?array $plantPartList = []): void
     {
+        $plant = PlantFactory::new([
+            ...$attributes,
+            'cultivation' => CultivationFactory::new($cultivationAttributes)
+        ])->create();
         $this->addState(
             $stateId,
-            PlantFactory::new([
-                ...$attributes,
-                'cultivation' => CultivationFactory::new($cultivationAttributes)
-            ])->create()
+            $plant
         );
+        foreach ($plantPartList as $plantPart) {
+            PlantPartFactory::new([...$plantPart, 'plant' => $plant])->create();
+        }
     }
 }

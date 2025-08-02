@@ -16,6 +16,7 @@ final class DefaultPartsStory extends Story
     public const string BULB = 'bulb';
     public const string TUBER = 'tuber';
     public const string RHIZOME = 'rhizome';
+    public const string PETAL = 'petal';
 
     public const array ALL = [
         self::ROOT,
@@ -26,7 +27,8 @@ final class DefaultPartsStory extends Story
         self::SEED,
         self::BULB,
         self::TUBER,
-        self::RHIZOME
+        self::RHIZOME,
+        self::PETAL
     ];
 
     public function build(): void
