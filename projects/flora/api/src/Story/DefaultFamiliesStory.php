@@ -15,6 +15,7 @@ final class DefaultFamiliesStory extends Story
     public const string LILIACEAE = 'liliaceae';
     public const string POACEAE = 'poaceae';
     public const string APIACEAE = 'apiaceae';
+    public const string LAMIACEAE = 'lamiaceae';
 
     public const array ALL = [
         self::ASTERACEAE,
@@ -24,7 +25,8 @@ final class DefaultFamiliesStory extends Story
         self::CUCURBITACEAE,
         self::LILIACEAE,
         self::POACEAE,
-        self::APIACEAE
+        self::APIACEAE,
+        self::LAMIACEAE
     ];
 
     public function build(): void

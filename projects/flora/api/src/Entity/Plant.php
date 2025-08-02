@@ -10,6 +10,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\PlantRepository;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -20,8 +22,8 @@ use Symfony\Component\Uid\Ulid;
 #[ORM\Entity(repositoryClass: PlantRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext   : ['groups' => ['plant:post', 'plant:post:output']],
-    denormalizationContext : ['groups' => ['plant:post', 'plant:post:input']]
+    normalizationContext  : ['groups' => ['plant:post', 'plant:post:output']],
+    denormalizationContext: ['groups' => ['plant:post', 'plant:post:input']]
 )]
 #[Patch(
     normalizationContext  : ['groups' => ['plant:patch', 'plant:patch:output']],
@@ -42,7 +44,7 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     #[ApiProperty(
         description: 'A boolean indicating if the plant is perennial or not',
     )]
-    private ?bool $perennial = null;
+    private ?bool $perennial = false;
 
     #[Groups(["plant:get"])]
     #[ORM\Column(length: 255)]
@@ -60,19 +62,33 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     private ?Cultivation $cultivation = null;
 
     #[Groups(["plant:get"])]
+    #[ORM\Column]
+    #[ApiProperty(
+        description: 'A boolean indicating if the plant is melliferous (used by bees) or not',
+    )]
+    private ?bool $melliferous = false;
+
+    #[Groups(["plant:get"])]
+    #[ORM\Column]
+    #[ApiProperty(
+        description: 'A boolean indicating if the plant is medicinal or not',
+    )]
+    private ?bool $medicinal = false;
+
+    #[Groups(["plant:get"])]
     public function getUlid(): Ulid
     {
         return parent::getUlid();
     }
 
     #[Groups(["plant:get"])]
-    public function getCreatedAt(): \DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
     #[Groups(["plant:get"])]
-    public function getUpdatedAt(): \DateTimeInterface
+    public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -133,6 +149,30 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     public function setCultivation(Cultivation $cultivation): static
     {
         $this->cultivation = $cultivation;
+
+        return $this;
+    }
+
+    public function isMelliferous(): ?bool
+    {
+        return $this->melliferous;
+    }
+
+    public function setMelliferous(bool $melliferous): static
+    {
+        $this->melliferous = $melliferous;
+
+        return $this;
+    }
+
+    public function isMedicinal(): ?bool
+    {
+        return $this->medicinal;
+    }
+
+    public function setMedicinal(bool $medicinal): static
+    {
+        $this->medicinal = $medicinal;
 
         return $this;
     }

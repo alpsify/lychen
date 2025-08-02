@@ -11,6 +11,8 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Constant\Month;
 use App\Repository\CultivationRepository;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
@@ -22,8 +24,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: CultivationRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext   : ['groups' => ['cultivation:post', 'cultivation:post:output']],
-    denormalizationContext : ['groups' => ['cultivation:post', 'cultivation:post:input']]
+    normalizationContext  : ['groups' => ['cultivation:post', 'cultivation:post:output']],
+    denormalizationContext: ['groups' => ['cultivation:post', 'cultivation:post:input']]
 )]
 #[Patch(
     normalizationContext  : ['groups' => ['cultivation:patch', 'cultivation:patch:output']],
@@ -52,7 +54,7 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     #[ApiProperty(
         description: 'An integer indicating the optimal temperature for the sowing in degrees Celsius',
     )]
-    private ?int $sowingOptimalTemperature = null;
+    private ?int $sowingMaximalTemperature = null;
 
     #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
@@ -76,18 +78,11 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     private ?int $maximalDaysToHarvest = null;
 
     #[Groups(["cultivation:get"])]
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the temperature where the plant stop growing in degrees Celsius',
     )]
     private ?int $vegetationTemperatureThreshold = null;
-
-    #[Groups(["cultivation:get"])]
-    #[ORM\Column(nullable: true)]
-    #[ApiProperty(
-        description: 'An integer indicating the average number of days to germination',
-    )]
-    private ?int $daysToGerminationAverage = null;
 
     #[Groups(["cultivation:get"])]
     #[ORM\Column(type: Types::JSONB, nullable: true)]
@@ -116,6 +111,20 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\JoinColumn(nullable: false)]
     private ?Exposure $exposure = null;
 
+    #[Groups(["cultivation:get"])]
+    #[ORM\Column(nullable: true)]
+    #[ApiProperty(
+        description: 'An integer indicating the minimal number of days to germination',
+    )]
+    private ?int $minimalDaysToGermination = null;
+
+    #[Groups(["cultivation:get"])]
+    #[ORM\Column(nullable: true)]
+    #[ApiProperty(
+        description: 'An integer indicating the maximal number of days to germination',
+    )]
+    private ?int $maximalDaysToGermination = null;
+
     public function getSowingMinimalTemperature(): ?int
     {
         return $this->sowingMinimalTemperature;
@@ -128,14 +137,14 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    public function getSowingOptimalTemperature(): ?int
+    public function getSowingMaximalTemperature(): ?int
     {
-        return $this->sowingOptimalTemperature;
+        return $this->sowingMaximalTemperature;
     }
 
-    public function setSowingOptimalTemperature(?int $sowingOptimalTemperature): static
+    public function setSowingMaximalTemperature(?int $sowingMaximalTemperature): static
     {
-        $this->sowingOptimalTemperature = $sowingOptimalTemperature;
+        $this->sowingMaximalTemperature = $sowingMaximalTemperature;
 
         return $this;
     }
@@ -181,21 +190,9 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
         return $this->vegetationTemperatureThreshold;
     }
 
-    public function setVegetationTemperatureThreshold(int $vegetationTemperatureThreshold): static
+    public function setVegetationTemperatureThreshold(?int $vegetationTemperatureThreshold): static
     {
         $this->vegetationTemperatureThreshold = $vegetationTemperatureThreshold;
-
-        return $this;
-    }
-
-    public function getDaysToGerminationAverage(): ?int
-    {
-        return $this->daysToGerminationAverage;
-    }
-
-    public function setDaysToGerminationAverage(?int $daysToGerminationAverage): static
-    {
-        $this->daysToGerminationAverage = $daysToGerminationAverage;
 
         return $this;
     }
@@ -225,13 +222,13 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     }
 
     #[Groups(["cultivation:get"])]
-    public function getCreatedAt(): \DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
     #[Groups(["cultivation:get"])]
-    public function getUpdatedAt(): \DateTimeInterface
+    public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -273,6 +270,30 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     public function setExposure(?Exposure $exposure): static
     {
         $this->exposure = $exposure;
+
+        return $this;
+    }
+
+    public function getMinimalDaysToGermination(): ?int
+    {
+        return $this->minimalDaysToGermination;
+    }
+
+    public function setMinimalDaysToGermination(?int $minimalDaysToGermination): static
+    {
+        $this->minimalDaysToGermination = $minimalDaysToGermination;
+
+        return $this;
+    }
+
+    public function getMaximalDaysToGermination(): ?int
+    {
+        return $this->maximalDaysToGermination;
+    }
+
+    public function setMaximalDaysToGermination(?int $maximalDaysToGermination): static
+    {
+        $this->maximalDaysToGermination = $maximalDaysToGermination;
 
         return $this;
     }

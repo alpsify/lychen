@@ -21,14 +21,12 @@ final class CultivationFactory extends PersistentProxyObjectFactory
         return [
             'exposure' => ExposureFactory::new(),
             'maturity' => MaturityFactory::new(),
-            'vegetationTemperatureThreshold' => self::faker()->randomNumber(),
         ];
     }
 
     protected function initialize(): static
     {
-        return $this
-            // ->afterInstantiate(function(Cultivation $cultivation): void {})
-        ;
+        return $this// ->afterInstantiate(function(Cultivation $cultivation): void {})
+            ;
     }
 }
