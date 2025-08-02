@@ -83,10 +83,17 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\OneToMany(targetEntity: PlantPart::class, mappedBy: 'plant', orphanRemoval: true)]
     private Collection $plantParts;
 
+    /**
+     * @var Collection<int, SoilType>
+     */
+    #[ORM\ManyToMany(targetEntity: SoilType::class, inversedBy: 'plants')]
+    private Collection $soilTypes;
+
     public function __construct()
     {
         parent::__construct();
         $this->plantParts = new ArrayCollection();
+        $this->soilTypes = new ArrayCollection();
     }
 
     #[Groups(["plant:get"])]
@@ -217,6 +224,30 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
                 $plantPart->setPlant(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SoilType>
+     */
+    public function getSoilTypes(): Collection
+    {
+        return $this->soilTypes;
+    }
+
+    public function addSoilType(SoilType $soilType): static
+    {
+        if (!$this->soilTypes->contains($soilType)) {
+            $this->soilTypes->add($soilType);
+        }
+
+        return $this;
+    }
+
+    public function removeSoilType(SoilType $soilType): static
+    {
+        $this->soilTypes->removeElement($soilType);
 
         return $this;
     }

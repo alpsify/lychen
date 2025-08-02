@@ -27,6 +27,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::CUCUMIS_METULIFERUS),
                 'medicinal' => false,
                 'melliferous' => false,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::LOAMY)
+                ]
             ],
             [
                 'sowingMonths' => [3, 4, 5],
@@ -60,6 +63,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::LACTUCA_SATIVA),
                 'medicinal' => false,
                 'melliferous' => false,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::HUMIFEROUS)
+                ]
             ],
             [
                 'sowingMonths' => [2, 3, 4, 5, 6, 7, 8, 9],
@@ -92,6 +98,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::CYNARA_CARDUNCIUS),
                 'medicinal' => false,
                 'melliferous' => false,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::LOAMY)
+                ]
             ],
             [
                 'sowingMonths' => [2, 3, 4],
@@ -124,6 +133,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::DAUCUS_CAROTA),
                 'medicinal' => false,
                 'melliferous' => false,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::SANDY)
+                ]
             ],
             [
                 'sowingMonths' => [2, 3, 4, 5],
@@ -164,6 +176,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::PHASEOLUS_VULGARIS),
                 'medicinal' => false,
                 'melliferous' => false,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::HUMIFEROUS)
+                ]
             ],
             [
                 'sowingMonths' => [5, 6],
@@ -196,6 +211,9 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::OCIMUM_BASILICUM),
                 'medicinal' => true,
                 'melliferous' => true,
+                'soilTypes' => [
+                    DefaultSoilTypesStory::get(DefaultSoilTypesStory::LOAMY)
+                ]
             ],
             [
                 'sowingMonths' => [3, 4, 5],
@@ -248,6 +266,7 @@ final class DefaultPlantsStory extends Story
                 'species' => DefaultSpeciesStory::get(DefaultSpeciesStory::CENTAUREA_CYANUS),
                 'medicinal' => true,
                 'melliferous' => true,
+                'soilTypes' => DefaultSoilTypesStory::getPool('all')
             ],
             [
                 'sowingMonths' => [3, 4, 5, 8, 9, 10],

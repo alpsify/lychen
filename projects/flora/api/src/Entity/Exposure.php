@@ -9,6 +9,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Repository\ExposureRepository;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,8 +22,8 @@ use Symfony\Component\Serializer\Attribute\Groups;
 #[ORM\Entity(repositoryClass: ExposureRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext   : ['groups' => ['exposure:post', 'exposure:post:output']],
-    denormalizationContext : ['groups' => ['exposure:post', 'exposure:post:input']]
+    normalizationContext  : ['groups' => ['exposure:post', 'exposure:post:output']],
+    denormalizationContext: ['groups' => ['exposure:post', 'exposure:post:input']]
 )]
 #[Patch(
     normalizationContext  : ['groups' => ['exposure:patch', 'exposure:patch:output']],
@@ -67,13 +69,13 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
     }
 
     #[Groups(["exposure:get"])]
-    public function getCreatedAt(): \DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
     #[Groups(["exposure:get"])]
-    public function getUpdatedAt(): \DateTimeInterface
+    public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -106,16 +108,5 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
         }
 
         return $this;
-    }
-
-    public function toArray()
-    {
-        return [
-            'id' => $this->getId(),
-            'ulid' => $this->getUlid(),
-            'code' => $this->getCode(),
-            'createdAt' => $this->getCreatedAt(),
-            'updatedAt' => $this->getUpdatedAt(),
-        ];
     }
 }
