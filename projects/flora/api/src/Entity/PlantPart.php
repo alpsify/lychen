@@ -11,6 +11,8 @@ use ApiPlatform\Metadata\Post;
 use App\Repository\PlantPartRepository;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -49,6 +51,18 @@ class PlantPart extends AbstractIdOrmAndUlidApiIdentified
 
     #[ORM\Column]
     private ?bool $consumable = false;
+
+    /**
+     * @var Collection<int, ConsumptionMethod>
+     */
+    #[ORM\ManyToMany(targetEntity: ConsumptionMethod::class, inversedBy: 'plantParts')]
+    private Collection $consumptionMethods;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->consumptionMethods = new ArrayCollection();
+    }
 
     #[Groups(["plant_part:get"])]
     public function getUlid(): Ulid
@@ -100,6 +114,30 @@ class PlantPart extends AbstractIdOrmAndUlidApiIdentified
     public function setConsumable(bool $consumable): static
     {
         $this->consumable = $consumable;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ConsumptionMethod>
+     */
+    public function getConsumptionMethods(): Collection
+    {
+        return $this->consumptionMethods;
+    }
+
+    public function addConsumptionMethod(ConsumptionMethod $consumptionMethod): static
+    {
+        if (!$this->consumptionMethods->contains($consumptionMethod)) {
+            $this->consumptionMethods->add($consumptionMethod);
+        }
+
+        return $this;
+    }
+
+    public function removeConsumptionMethod(ConsumptionMethod $consumptionMethod): static
+    {
+        $this->consumptionMethods->removeElement($consumptionMethod);
 
         return $this;
     }

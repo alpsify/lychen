@@ -11,6 +11,8 @@ use ApiPlatform\Metadata\Post;
 use App\Repository\ConsumptionMethodRepository;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
@@ -42,6 +44,18 @@ class ConsumptionMethod extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
+    /**
+     * @var Collection<int, PlantPart>
+     */
+    #[ORM\ManyToMany(targetEntity: PlantPart::class, mappedBy: 'consumptionMethods')]
+    private Collection $plantParts;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->plantParts = new ArrayCollection();
+    }
+
     public function getCode(): ?string
     {
         return $this->code;
@@ -64,5 +78,32 @@ class ConsumptionMethod extends AbstractIdOrmAndUlidApiIdentified
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return Collection<int, PlantPart>
+     */
+    public function getPlantParts(): Collection
+    {
+        return $this->plantParts;
+    }
+
+    public function addPlantPart(PlantPart $plantPart): static
+    {
+        if (!$this->plantParts->contains($plantPart)) {
+            $this->plantParts->add($plantPart);
+            $plantPart->addConsumptionMethod($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlantPart(PlantPart $plantPart): static
+    {
+        if ($this->plantParts->removeElement($plantPart)) {
+            $plantPart->removeConsumptionMethod($this);
+        }
+
+        return $this;
     }
 }

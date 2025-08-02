@@ -44,7 +44,10 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW)
+                    ]
                 ],
             ]
         );
@@ -74,7 +77,10 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW)
+                    ]
                 ],
             ]
         );
@@ -103,7 +109,10 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED)
+                    ]
                 ],
             ]
         );
@@ -132,11 +141,18 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::ROOT),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW)
+                    ]
                 ],
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                    ]
                 ],
             ]
         );
@@ -165,7 +181,10 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::FRUIT),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                    ]
                 ],
             ]
         );
@@ -194,15 +213,30 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::FLOWER),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::DRIED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW),
+                    ]
                 ],
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::LEAF),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::DRIED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW),
+                    ]
                 ],
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::STEM),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::DRIED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW),
+                    ]
                 ]
             ]
         );
@@ -231,11 +265,25 @@ final class DefaultPlantsStory extends Story
             [
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::FLOWER),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::DRIED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::INFUSED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::FERMENTED),
+                    ]
                 ],
                 [
                     'part' => DefaultPartsStory::get(DefaultPartsStory::PETAL),
-                    'consumable' => true
+                    'consumable' => true,
+                    'consumptionMethods' => [
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::COOKED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::DRIED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::RAW),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::INFUSED),
+                        DefaultConsumptionMethodsStory::get(DefaultConsumptionMethodsStory::FERMENTED),
+                    ]
                 ]
             ]
         );
