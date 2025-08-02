@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CultivationRepository::class)]
@@ -39,48 +40,56 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the minimal temperature for the sowing in degrees Celsius',
     )]
     private ?int $sowingMinimalTemperature = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the optimal temperature for the sowing in degrees Celsius',
     )]
     private ?int $sowingOptimalTemperature = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the spacing between two plants in millimeters',
     )]
     private ?int $plantingSpacing = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the minimal number of days to harvest',
     )]
     private ?int $minimalDaysToHarvest = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the maximal number of days to harvest',
     )]
     private ?int $maximalDaysToHarvest = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column]
     #[ApiProperty(
         description: 'An integer indicating the temperature where the plant stop growing in degrees Celsius',
     )]
     private ?int $vegetationTemperatureThreshold = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(nullable: true)]
     #[ApiProperty(
         description: 'An integer indicating the average number of days to germination',
     )]
     private ?int $daysToGerminationAverage = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(type: Types::JSONB, nullable: true)]
     #[ApiProperty(
         description: 'An array of integer indicating the recommended sowing months',
@@ -88,6 +97,7 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
     #[Assert\Choice(choices: Month::ALL, multiple: true)]
     private mixed $sowingMonths = null;
 
+    #[Groups(["cultivation:get"])]
     #[ORM\Column(type: Types::JSONB, nullable: true)]
     #[ApiProperty(
         description: 'An array of integer indicating the expected harvesting months',
@@ -214,11 +224,13 @@ class Cultivation extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
+    #[Groups(["cultivation:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    #[Groups(["cultivation:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;

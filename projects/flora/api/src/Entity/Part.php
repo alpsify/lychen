@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints\Unique;
 
 #[ORM\Entity(repositoryClass: PartRepository::class)]
@@ -36,6 +37,7 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["part:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
@@ -51,11 +53,13 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
+    #[Groups(["part:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    #[Groups(["part:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;

@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: MaturityRepository::class)]
 #[ApiResource]
@@ -37,6 +38,7 @@ class Maturity extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["maturity:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
@@ -64,11 +66,13 @@ class Maturity extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
+    #[Groups(["maturity:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    #[Groups(["maturity:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;

@@ -38,6 +38,7 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["exposure:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
@@ -65,11 +66,13 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
+    #[Groups(["exposure:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    #[Groups(["exposure:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;

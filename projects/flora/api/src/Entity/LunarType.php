@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: LunarTypeRepository::class)]
 #[ApiResource]
@@ -37,6 +38,7 @@ class LunarType extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["lunar_type:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
@@ -92,5 +94,17 @@ class LunarType extends AbstractIdOrmAndUlidApiIdentified
         }
 
         return $this;
+    }
+
+    #[Groups(["lunar_type:get"])]
+    public function getCreatedAt(): \DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    #[Groups(["lunar_type:get"])]
+    public function getUpdatedAt(): \DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }

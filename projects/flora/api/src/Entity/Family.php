@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: FamilyRepository::class)]
 #[ApiResource]
@@ -37,6 +38,7 @@ class Family extends AbstractIdOrmAndUlidApiIdentified
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
+    #[Groups(["family:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
@@ -64,11 +66,13 @@ class Family extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
+    #[Groups(["family:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    #[Groups(["family:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
