@@ -107,4 +107,15 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
 
         return $this;
     }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'ulid' => $this->getUlid(),
+            'code' => $this->getCode(),
+            'createdAt' => $this->getCreatedAt(),
+            'updatedAt' => $this->getUpdatedAt(),
+        ];
+    }
 }

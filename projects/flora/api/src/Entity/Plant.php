@@ -48,10 +48,6 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[Groups(["plant:get"])]
-    #[ORM\Column(length: 255)]
-    private ?string $scientificName = null;
-
     #[ORM\ManyToOne(inversedBy: 'plants')]
     private ?LunarType $lunarType = null;
 
@@ -101,18 +97,6 @@ class Plant extends AbstractIdOrmAndUlidApiIdentified
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getScientificName(): ?string
-    {
-        return $this->scientificName;
-    }
-
-    public function setScientificName(string $scientificName): static
-    {
-        $this->scientificName = $scientificName;
 
         return $this;
     }
