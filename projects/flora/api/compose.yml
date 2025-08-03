@@ -11,7 +11,7 @@ services:
       timeout: 5s
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     volumes:
-      - database_data:/var/lib/postgresql/data:rw
+      - flora_database_data:/var/lib/postgresql/data:rw
 
   flora-api:
     depends_on:
@@ -26,12 +26,11 @@ services:
     image: ${IMAGES_PREFIX:-}flora-api
     restart: unless-stopped
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - flora_caddy_data:/data
+      - flora_caddy_config:/config
       - ../../../libs/php:/packages
 
 volumes:
-  caddy_config:
-  caddy_data:
-  database_data:
-  mailpit_data:
+  flora_caddy_config:
+  flora_caddy_data:
+  flora_database_data:

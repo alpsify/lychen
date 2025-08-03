@@ -11,7 +11,7 @@ services:
       timeout: 5s
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     volumes:
-      - database_data:/var/lib/postgresql/data:rw
+      - tera_database_data:/var/lib/postgresql/data:rw
 
   tera-api:
     depends_on:
@@ -26,11 +26,11 @@ services:
     image: ${IMAGES_PREFIX:-}tera-api
     restart: unless-stopped
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - tera_caddy_data:/data
+      - tera_caddy_config:/config
       - ../../../libs/php:/packages
 
 volumes:
-  caddy_config:
-  caddy_data:
-  database_data:
+  tera_caddy_config:
+  tera_caddy_data:
+  tera_database_data:
