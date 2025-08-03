@@ -8,7 +8,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Repository\PartRepository;
+use App\Repository\FamilyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,43 +16,42 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Serializer\Attribute\Groups;
-use Symfony\Component\Validator\Constraints\Unique;
 
-#[ORM\Entity(repositoryClass: PartRepository::class)]
+#[ORM\Entity(repositoryClass: FamilyRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext   : ['groups' => ['part:post', 'part:post:output']],
-    denormalizationContext : ['groups' => ['part:post', 'part:post:input']]
+    normalizationContext   : ['groups' => ['family:post', 'family:post:output']],
+    denormalizationContext : ['groups' => ['family:post', 'family:post:input']]
 )]
 #[Patch(
-    normalizationContext  : ['groups' => ['part:patch', 'part:patch:output']],
-    denormalizationContext: ['groups' => ['part:patch', 'part:patch:input']]
+    normalizationContext  : ['groups' => ['family:patch', 'family:patch:output']],
+    denormalizationContext: ['groups' => ['family:patch', 'family:patch:input']]
 )]
 #[Delete()]
-#[Get(normalizationContext: ['groups' => ['part:get']])]
+#[Get(normalizationContext: ['groups' => ['family:get']])]
 #[GetCollection(
-    normalizationContext: ['groups' => ['part:collection']],
+    normalizationContext: ['groups' => ['family:collection']],
 )]
 #[ORM\HasLifecycleCallbacks]
-class Part extends AbstractIdOrmAndUlidApiIdentified
+class Family extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
-    #[Groups(["part:get"])]
+    #[Groups(["family:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
     /**
-     * @var Collection<int, PlantPart>
+     * @var Collection<int, Species>
      */
-    #[ORM\OneToMany(targetEntity: PlantPart::class, mappedBy: 'part', orphanRemoval: true)]
-    private Collection $plantParts;
+    #[ORM\OneToMany(targetEntity: Species::class, mappedBy: 'family')]
+    private Collection $species;
 
     public function __construct()
     {
         parent::__construct();
-        $this->plantParts = new ArrayCollection();
+        $this->species = new ArrayCollection();
     }
 
     public function getCode(): ?string
@@ -67,42 +66,42 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    #[Groups(["part:get"])]
+    #[Groups(["family:get"])]
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["part:get"])]
+    #[Groups(["family:get"])]
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
     }
 
     /**
-     * @return Collection<int, PlantPart>
+     * @return Collection<int, Species>
      */
-    public function getPlantParts(): Collection
+    public function getSpecies(): Collection
     {
-        return $this->plantParts;
+        return $this->species;
     }
 
-    public function addPlantPart(PlantPart $plantPart): static
+    public function addSpecies(Species $species): static
     {
-        if (!$this->plantParts->contains($plantPart)) {
-            $this->plantParts->add($plantPart);
-            $plantPart->setPart($this);
+        if (!$this->species->contains($species)) {
+            $this->species->add($species);
+            $species->setFamily($this);
         }
 
         return $this;
     }
 
-    public function removePlantPart(PlantPart $plantPart): static
+    public function removeSpecies(Species $species): static
     {
-        if ($this->plantParts->removeElement($plantPart)) {
+        if ($this->species->removeElement($species)) {
             // set the owning side to null (unless already changed)
-            if ($plantPart->getPart() === $this) {
-                $plantPart->setPart(null);
+            if ($species->getFamily() === $this) {
+                $species->setFamily(null);
             }
         }
 

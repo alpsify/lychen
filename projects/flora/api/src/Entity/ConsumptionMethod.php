@@ -8,7 +8,9 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Repository\PartRepository;
+use App\Repository\ConsumptionMethodRepository;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,37 +18,36 @@ use Lychen\UtilModel\Abstract\AbstractIdOrmAndUlidApiIdentified;
 use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Serializer\Attribute\Groups;
-use Symfony\Component\Validator\Constraints\Unique;
 
-#[ORM\Entity(repositoryClass: PartRepository::class)]
+#[ORM\Entity(repositoryClass: ConsumptionMethodRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext   : ['groups' => ['part:post', 'part:post:output']],
-    denormalizationContext : ['groups' => ['part:post', 'part:post:input']]
+    normalizationContext  : ['groups' => ['consumption_method:post', 'consumption_method:post:output']],
+    denormalizationContext: ['groups' => ['consumption_method:post', 'consumption_method:post:input']]
 )]
 #[Patch(
-    normalizationContext  : ['groups' => ['part:patch', 'part:patch:output']],
-    denormalizationContext: ['groups' => ['part:patch', 'part:patch:input']]
+    normalizationContext  : ['groups' => ['consumption_method:patch', 'consumption_method:patch:output']],
+    denormalizationContext: ['groups' => ['consumption_method:patch', 'consumption_method:patch:input']]
 )]
 #[Delete()]
-#[Get(normalizationContext: ['groups' => ['part:get']])]
+#[Get(normalizationContext: ['groups' => ['consumption_method:get']])]
 #[GetCollection(
-    normalizationContext: ['groups' => ['part:collection']],
+    normalizationContext: ['groups' => ['consumption_method:collection']],
 )]
 #[ORM\HasLifecycleCallbacks]
-class Part extends AbstractIdOrmAndUlidApiIdentified
+class ConsumptionMethod extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
-    #[Groups(["part:get"])]
+    #[Groups(["consumption_method:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
     /**
      * @var Collection<int, PlantPart>
      */
-    #[ORM\OneToMany(targetEntity: PlantPart::class, mappedBy: 'part', orphanRemoval: true)]
+    #[ORM\ManyToMany(targetEntity: PlantPart::class, mappedBy: 'consumptionMethods')]
     private Collection $plantParts;
 
     public function __construct()
@@ -67,14 +68,14 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    #[Groups(["part:get"])]
-    public function getCreatedAt(): \DateTimeImmutable
+    #[Groups(["consumption_method:get"])]
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["part:get"])]
-    public function getUpdatedAt(): \DateTimeInterface
+    #[Groups(["consumption_method:get"])]
+    public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -91,7 +92,7 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
     {
         if (!$this->plantParts->contains($plantPart)) {
             $this->plantParts->add($plantPart);
-            $plantPart->setPart($this);
+            $plantPart->addConsumptionMethod($this);
         }
 
         return $this;
@@ -100,10 +101,7 @@ class Part extends AbstractIdOrmAndUlidApiIdentified
     public function removePlantPart(PlantPart $plantPart): static
     {
         if ($this->plantParts->removeElement($plantPart)) {
-            // set the owning side to null (unless already changed)
-            if ($plantPart->getPart() === $this) {
-                $plantPart->setPart(null);
-            }
+            $plantPart->removeConsumptionMethod($this);
         }
 
         return $this;

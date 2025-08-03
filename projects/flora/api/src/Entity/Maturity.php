@@ -8,9 +8,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
-use App\Repository\ExposureRepository;
-use DateTimeImmutable;
-use DateTimeInterface;
+use App\Repository\MaturityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,35 +17,35 @@ use Lychen\UtilModel\Trait\CreatedAtTrait;
 use Lychen\UtilModel\Trait\UpdatedAtTrait;
 use Symfony\Component\Serializer\Attribute\Groups;
 
-#[ORM\Entity(repositoryClass: ExposureRepository::class)]
+#[ORM\Entity(repositoryClass: MaturityRepository::class)]
 #[ApiResource]
 #[Post(
-    normalizationContext  : ['groups' => ['exposure:post', 'exposure:post:output']],
-    denormalizationContext: ['groups' => ['exposure:post', 'exposure:post:input']]
+    normalizationContext   : ['groups' => ['maturity:post', 'maturity:post:output']],
+    denormalizationContext : ['groups' => ['maturity:post', 'maturity:post:input']]
 )]
 #[Patch(
-    normalizationContext  : ['groups' => ['exposure:patch', 'exposure:patch:output']],
-    denormalizationContext: ['groups' => ['exposure:patch', 'exposure:patch:input']]
+    normalizationContext  : ['groups' => ['maturity:patch', 'maturity:patch:output']],
+    denormalizationContext: ['groups' => ['maturity:patch', 'maturity:patch:input']]
 )]
 #[Delete()]
-#[Get(normalizationContext: ['groups' => ['exposure:get']])]
+#[Get(normalizationContext: ['groups' => ['maturity:get']])]
 #[GetCollection(
-    normalizationContext: ['groups' => ['exposure:collection']],
+    normalizationContext: ['groups' => ['maturity:collection']],
 )]
 #[ORM\HasLifecycleCallbacks]
-class Exposure extends AbstractIdOrmAndUlidApiIdentified
+class Maturity extends AbstractIdOrmAndUlidApiIdentified
 {
     use CreatedAtTrait;
     use UpdatedAtTrait;
 
-    #[Groups(["exposure:get"])]
+    #[Groups(["maturity:get"])]
     #[ORM\Column(length: 100, unique: true)]
     private ?string $code = null;
 
     /**
      * @var Collection<int, Cultivation>
      */
-    #[ORM\OneToMany(targetEntity: Cultivation::class, mappedBy: 'exposure')]
+    #[ORM\OneToMany(targetEntity: Cultivation::class, mappedBy: 'maturity')]
     private Collection $cultivations;
 
     public function __construct()
@@ -68,14 +66,14 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
         return $this;
     }
 
-    #[Groups(["exposure:get"])]
-    public function getCreatedAt(): DateTimeImmutable
+    #[Groups(["maturity:get"])]
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[Groups(["exposure:get"])]
-    public function getUpdatedAt(): DateTimeInterface
+    #[Groups(["maturity:get"])]
+    public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -92,7 +90,7 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
     {
         if (!$this->cultivations->contains($cultivation)) {
             $this->cultivations->add($cultivation);
-            $cultivation->setExposure($this);
+            $cultivation->setMaturity($this);
         }
 
         return $this;
@@ -102,8 +100,8 @@ class Exposure extends AbstractIdOrmAndUlidApiIdentified
     {
         if ($this->cultivations->removeElement($cultivation)) {
             // set the owning side to null (unless already changed)
-            if ($cultivation->getExposure() === $this) {
-                $cultivation->setExposure(null);
+            if ($cultivation->getMaturity() === $this) {
+                $cultivation->setMaturity(null);
             }
         }
 
