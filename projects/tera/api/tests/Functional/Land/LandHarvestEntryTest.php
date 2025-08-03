@@ -271,8 +271,9 @@ class LandHarvestEntryTest extends AbstractApiTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $plantVerifier = $this->createMock(PlantVerifier::class);
-        $plantVerifier->expects($this->any())->method('assertPlantExists');
-        static::getContainer()->set(PlantVerifier::class, $plantVerifier);
+        $mockPlantVerifier = $this->createMock(PlantVerifier::class);
+        $mockPlantVerifier->expects($this->any())->method('assertPlantExists')->willReturnCallback(function () {
+        });
+        self::getContainer()->set(PlantVerifier::class, $mockPlantVerifier);
     }
 }
