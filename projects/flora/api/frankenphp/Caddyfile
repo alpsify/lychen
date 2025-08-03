@@ -55,3 +55,25 @@
 
     file_server
 }
+
+flora-api {
+    root * /app/public
+    encode zstd br gzip
+
+    log {
+        output discard
+    }
+
+    vulcain
+
+    @phpRoute {
+        not path /.well-known/mercure*
+        not file {path}
+    }
+    rewrite @phpRoute index.php
+
+    @frontController path index.php
+    php @frontController
+
+    file_server
+}

@@ -20,7 +20,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $notes = TipTapFaker::paragraphs();
         $harvestedAt = faker()->dateTimeThisMonth()->format('c');
         $quality = faker()->randomElement(HarvestQuality::ALL);
-        $plantId = "01986bdc-8800-3b48-664d-dcd6dc6ae47b";
+        $plantId = "01K1RBDZSV7NR0NH3AC6104AGA";
 
         // Owner
         $this->browser()->actingAs($context->owner)

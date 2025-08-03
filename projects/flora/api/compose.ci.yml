@@ -1,6 +1,6 @@
 # Development environment override
 services:
-  database:
+  flora-database:
     environment:
       - POSTGRES_DB=${POSTGRES_DB:-app_test}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForLocal!}
@@ -9,12 +9,12 @@ services:
       retries: 5
       start_period: 60s
       test:
-        ['CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app_test}', '-U', '${POSTGRES_USER:-userlocal}']
+        [ 'CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app_test}', '-U', '${POSTGRES_USER:-userlocal}' ]
       timeout: 5s
     ports:
       - '5432:5432'
 
-  php:
+  flora-api:
     build: !reset null
     environment:
       - PHP_CS_FIXER_IGNORE_ENV=1

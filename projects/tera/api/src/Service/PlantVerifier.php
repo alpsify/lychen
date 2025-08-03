@@ -18,7 +18,7 @@ readonly class PlantVerifier
         try {
             $response = $this->floraClient->request(
                 'GET',
-                "/plants/{$plantUlid}"
+                "/api/plants/{$plantUlid}",
             );
         } catch (Exception $e) {
             throw new NotFoundHttpException("Plant {$plantUlid} not found in Flora.");

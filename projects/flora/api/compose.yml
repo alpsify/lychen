@@ -1,7 +1,5 @@
-name: flora-api
-
 services:
-  database:
+  flora-database:
     environment:
       - POSTGRES_DB=${POSTGRES_DB:-app}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-PasswordForLocal!}
@@ -9,19 +7,19 @@ services:
     healthcheck:
       retries: 5
       start_period: 60s
-      test: ['CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app}', '-U', '${POSTGRES_USER:-userlocal}']
+      test: [ 'CMD', 'pg_isready', '-d', '${POSTGRES_DB:-app}', '-U', '${POSTGRES_USER:-userlocal}' ]
       timeout: 5s
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     volumes:
       - database_data:/var/lib/postgresql/data:rw
 
-  php:
+  flora-api:
     depends_on:
-      database:
+      flora-database:
         condition: service_healthy
     environment:
       APP_RUNTIME: Runtime\FrankenPhpSymfony\Runtime
-      DATABASE_URL: postgresql://${POSTGRES_USER:-userlocal}:${POSTGRES_PASSWORD:-PasswordForLocal!}@database:5432/${POSTGRES_DB:-app}?serverVersion=${POSTGRES_VERSION:-16}&charset=${POSTGRES_CHARSET:-utf8}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-userlocal}:${POSTGRES_PASSWORD:-PasswordForLocal!}@flora-database:5432/${POSTGRES_DB:-app}?serverVersion=${POSTGRES_VERSION:-16}&charset=${POSTGRES_CHARSET:-utf8}
       SERVER_NAME: ${SERVER_NAME:-localhost}, php:80
       TRUSTED_HOSTS: ${TRUSTED_HOSTS:-^${SERVER_NAME:-example\.com|localhost}|php$$}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}

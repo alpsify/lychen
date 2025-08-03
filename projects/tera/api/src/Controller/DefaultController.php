@@ -18,7 +18,6 @@ class DefaultController extends AbstractController
     #[Route('/plant-verifier/{plantUlid}', name: 'plant-verifier')]
     public function test(PlantVerifier $plantVerifier, string $plantUlid): Response
     {
-        dump($plantUlid, 'ulid');
         $plantVerifier->assertPlantExists($plantUlid);
         return new Response('cv');
     }

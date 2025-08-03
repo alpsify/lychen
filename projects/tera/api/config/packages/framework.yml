@@ -20,7 +20,7 @@ framework:
   http_client:
     scoped_clients:
       flora.client:
-        base_uri: '%env(FLORA_API_URL)%/api'
+        base_uri: '%env(FLORA_API_URL)%'
         headers:
           Content-Type: 'application/ld+json'
 
