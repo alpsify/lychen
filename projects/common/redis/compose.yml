@@ -1,0 +1,6 @@
+name: common
+
+services:
+  redis:
+    image: redis:alpine
+    restart: unless-stopped

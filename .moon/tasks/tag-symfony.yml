@@ -44,7 +44,11 @@ tasks:
     command: docker compose -f compose.yml -f compose.ci.yml run --rm php bin/console doctrine:schema:validate -n
 
   dev:
-    command: docker compose up -d
+    command: docker compose up -d --remove-orphans
+    deps:
+      - common-mailpit:up
+      - common-rabbitmq:up
+      - common-redis:up
 
   docker-build:
     command: docker buildx build $projectRoot --cache-from ${DOCKER_IMAGE_NAME}:latest --platform linux/arm64,linux/amd64 --target frankenphp_prod -t ${DOCKER_IMAGE_NAME}:latest --push
@@ -57,9 +61,6 @@ tasks:
     command: noop
     options:
       cache: false
-
-  down:
-    command: docker compose down --remove-orphans
 
   export-openapi:
     command: docker compose run --rm php bin/console api:openapi:export --spec-version=3.0.0 --output=openapi_docs.json

@@ -1,0 +1,9 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  down:
+    command: docker compose down --remove-orphans
+
+  up:
+    command: docker compose up -d --remove-orphans
+

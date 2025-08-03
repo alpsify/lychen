@@ -19,5 +19,6 @@ language: php
 tags:
   - symfony
   - dokploy
+  - compose
 
 type: application

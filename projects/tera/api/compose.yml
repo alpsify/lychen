@@ -15,18 +15,6 @@ services:
     volumes:
       - database_data:/var/lib/postgresql/data:rw
 
-  mailpit:
-    environment:
-      MP_DATABASE: /data/mailpit.db
-      MP_MAX_MESSAGES: 5000
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-
-    image: axllent/mailpit
-    restart: unless-stopped
-    volumes:
-      - mailpit_data:/data
-
   php:
     depends_on:
       database:
@@ -45,38 +33,13 @@ services:
       #MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
     image: ${IMAGES_PREFIX:-}tera-api
-    ports:
-      # HTTP
-      - protocol: tcp
-        published: ${HTTP_PORT:-80}
-        target: 80
-      # HTTPS
-      - protocol: tcp
-        published: ${HTTPS_PORT:-443}
-        target: 443
-      # HTTP/3
-      - protocol: udp
-        published: ${HTTP3_PORT:-443}
-        target: 443
     restart: unless-stopped
     volumes:
       - caddy_data:/data
       - caddy_config:/config
       - ../../../libs/php:/packages
 
-  rabbitmq:
-    environment:
-      - RABBITMQ_DEFAULT_VHOST=flora
-    image: rabbitmq:4.0.4-management-alpine
-    ports:
-      - '5672:5672'
-      - '15672:15672'
-
-  redis:
-    image: redis:alpine
-
 volumes:
   caddy_config:
   caddy_data:
   database_data:
-  mailpit_data:

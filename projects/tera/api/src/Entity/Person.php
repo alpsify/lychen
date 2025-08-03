@@ -28,12 +28,6 @@ class Person extends AbstractZitadelUser implements PermissionHolder
     private Collection $landRequests;
 
     /**
-     * @var Collection<int, PlantCustom>
-     */
-    #[ORM\OneToMany(targetEntity: PlantCustom::class, mappedBy: 'person', orphanRemoval: true)]
-    private Collection $plantCustoms;
-
-    /**
      * @var Collection<int, SeedStock>
      */
     #[ORM\OneToMany(targetEntity: SeedStock::class, mappedBy: 'person', orphanRemoval: true)]
@@ -63,7 +57,6 @@ class Person extends AbstractZitadelUser implements PermissionHolder
     {
         $this->landMembers = new ArrayCollection();
         $this->landRequests = new ArrayCollection();
-        $this->plantCustoms = new ArrayCollection();
         $this->seedStocks = new ArrayCollection();
         $this->landMemberInvitations = new ArrayCollection();
         $this->landDeals = new ArrayCollection();
@@ -136,36 +129,6 @@ class Person extends AbstractZitadelUser implements PermissionHolder
             // set the owning side to null (unless already changed)
             if ($landRequest->getPerson() === $this) {
                 $landRequest->setPerson(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, PlantCustom>
-     */
-    public function getPlantCustoms(): Collection
-    {
-        return $this->plantCustoms;
-    }
-
-    public function addPlantCustom(PlantCustom $plantCustom): static
-    {
-        if (!$this->plantCustoms->contains($plantCustom)) {
-            $this->plantCustoms->add($plantCustom);
-            $plantCustom->setPerson($this);
-        }
-
-        return $this;
-    }
-
-    public function removePlantCustom(PlantCustom $plantCustom): static
-    {
-        if ($this->plantCustoms->removeElement($plantCustom)) {
-            // set the owning side to null (unless already changed)
-            if ($plantCustom->getPerson() === $this) {
-                $plantCustom->setPerson(null);
             }
         }
 
