@@ -3,9 +3,11 @@
 namespace App\Service;
 
 use Exception;
+use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+#[AsAlias('plant.verifier', true, 'test')]
 readonly class PlantVerifier
 {
     public function __construct(private HttpClientInterface $floraClient)
@@ -16,7 +18,7 @@ readonly class PlantVerifier
     public function assertPlantExists(string $plantUlid): void
     {
         try {
-            $response = $this->floraClient->request(
+            $this->floraClient->request(
                 'GET',
                 "/api/plants/{$plantUlid}",
             );

@@ -4,6 +4,7 @@ namespace App\Tests\Functional\Land;
 
 use App\Constant\HarvestQuality;
 use App\Security\Voter\LandHarvestEntryVoter;
+use App\Service\PlantVerifier;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Lychen\UtilTiptap\Service\TipTapFaker;
 use Symfony\Component\Uid\Ulid;
@@ -20,7 +21,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $notes = TipTapFaker::paragraphs();
         $harvestedAt = faker()->dateTimeThisMonth()->format('c');
         $quality = faker()->randomElement(HarvestQuality::ALL);
-        $plantId = "01K1RDSTJ4FNC680A8AV5M9A7Y";
+        $plantId = "01K1RDSTN27NX2Y10WCQQ33KP1";
 
         // Owner
         $this->browser()->actingAs($context->owner)
@@ -265,5 +266,13 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->delete($this->getIriFromResource($context->landHarvestEntries[1]))
             ->assertStatus(204);
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $plantVerifier = $this->createMock(PlantVerifier::class);
+        $plantVerifier->expects($this->any())->method('assertPlantExists');
+        static::getContainer()->set(PlantVerifier::class, $plantVerifier);
     }
 }
