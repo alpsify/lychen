@@ -17,6 +17,13 @@ framework:
 
   handle_all_throwables: true
 
+  http_client:
+    scoped_clients:
+      flora.client:
+        base_uri: '%env(FLORA_API_URL)%/api'
+        headers:
+          Content-Type: 'application/ld+json'
+
   #csrf_protection: true
   http_method_override: false
   #esi: true
@@ -31,7 +38,6 @@ framework:
 
 when@test:
   framework:
-    test:
-      true
-      #session:
+    test: true
+    #session:
     #storage_factory_id: session.storage.factory.mock_file
