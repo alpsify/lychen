@@ -1,7 +1,7 @@
 security:
   access_control:
     - { path: ^/api/docs, roles: PUBLIC_ACCESS }
-    - { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
+    #- { path: ^/api/, roles: IS_AUTHENTICATED_FULLY }
 
   access_decision_manager:
     allow_if_all_abstain: false
@@ -23,6 +23,6 @@ security:
   providers:
     all_users:
       chain:
-        providers: ['zitadel_user_provider']
+        providers: [ 'zitadel_user_provider' ]
     zitadel_user_provider:
       id: Lychen\UtilZitadelBundle\UserProvider\ZitadelUserProvider
