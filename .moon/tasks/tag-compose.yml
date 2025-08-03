@@ -6,4 +6,6 @@ tasks:
 
   up:
     command: docker compose up -d --remove-orphans
+    deps:
+     - common-network:create-network
 

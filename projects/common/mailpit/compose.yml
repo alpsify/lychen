@@ -11,6 +11,12 @@ services:
     restart: unless-stopped
     volumes:
       - mailpit_data:/data
+    networks:
+      - lychen-network
 
 volumes:
   mailpit_data:
+
+networks:
+  lychen-network:
+    external: true

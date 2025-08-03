@@ -3,6 +3,8 @@ services:
   database:
     ports:
       - '21432:5432/tcp'
+    networks:
+      - lychen-network
 
   php:
     build:
@@ -29,3 +31,9 @@ services:
       - protocol: udp
         published: ${HTTP3_PORT:-40443}
         target: 443
+    networks:
+      - lychen-network
+
+networks:
+  lychen-network:
+    external: true

@@ -12,7 +12,13 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+    networks:
+      - lychen-network
 
 volumes:
   rabbitmq_data:
   rabbitmq_config:
+
+networks:
+  lychen-network:
+    external: true
