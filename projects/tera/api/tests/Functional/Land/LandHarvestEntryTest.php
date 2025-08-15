@@ -8,11 +8,14 @@ use App\Service\PlantVerifier;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
 use Lychen\UtilTiptap\Service\TipTapFaker;
 use Symfony\Component\Uid\Ulid;
+use Zenstruck\Browser;
 use Zenstruck\Browser\Json;
 use function Zenstruck\Foundry\faker;
 
 class LandHarvestEntryTest extends AbstractApiTestCase
 {
+    private Browser $browser;
+
     public function testPost()
     {
         $context = $this->createLandContext();
@@ -21,10 +24,11 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $notes = TipTapFaker::paragraphs();
         $harvestedAt = faker()->dateTimeThisMonth()->format('c');
         $quality = faker()->randomElement(HarvestQuality::ALL);
-        $plantId = "01K1RDSTN27NX2Y10WCQQ33KP1";
+        $plantId = new Ulid()->toString();
 
         // Owner
-        $this->browser()->actingAs($context->owner)
+        $this->browser
+            ->actingAs($context->owner)
             ->post('/api/land_harvest_entries',
                 ['json' => [
                     'weight' => $weight,
@@ -43,16 +47,20 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
+    }
 
-        // Member with permissions
+    public function testPostWithPermissions()
+    {
+        $context = $this->createLandContext();
         $landRole = $this->createLandRole($context->land, [LandHarvestEntryVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
         $weight = faker()->numberBetween(0, 10000);
         $notes = TipTapFaker::paragraphs();
         $quality = faker()->randomElement(HarvestQuality::ALL);
+        $plantId = new Ulid()->toString();
 
-        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+        $this->browser->actingAs($context->landMembers[0]->getPerson())
             ->post('/api/land_harvest_entries',
                 ['json' => [
                     'weight' => $weight,
@@ -87,7 +95,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->assertJsonMatches('weight', $landHarvestEntry->getWeight())
             ->assertJsonMatches('notes', $landHarvestEntry->getNotes())
             ->assertJsonMatches('quality', $landHarvestEntry->getQuality())
-            ->assertJsonMatches('plantId', $landHarvestEntry->getPlantId())
+            ->assertJsonMatches('plantId', $landHarvestEntry->getPlantId()->toString())
             ->use(function (Json $json) {
                 $json->assertThat('harvestedAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -105,7 +113,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->assertJsonMatches('weight', $landHarvestEntry->getWeight())
             ->assertJsonMatches('notes', $landHarvestEntry->getNotes())
             ->assertJsonMatches('quality', $landHarvestEntry->getQuality())
-            ->assertJsonMatches('plantId', $landHarvestEntry->getPlantId())
+            ->assertJsonMatches('plantId', $landHarvestEntry->getPlantId()->toString())
             ->use(function (Json $json) {
                 $json->assertThat('harvestedAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -123,16 +131,16 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $newWeight = faker()->numberBetween(0, 10000);
         $newNotes = TipTapFaker::paragraphs();
         $newQuality = faker()->randomElement(HarvestQuality::ALL);
-        $newPlantId = new Ulid();
+        $newPlantId = new Ulid()->toString();
 
-        $this->browser()->actingAs($context->owner)
+        $this->browser->actingAs($context->owner)
             ->patch($this->getIriFromResource($landHarvestEntry),
                 [
                     'json' => [
                         'weight' => $newWeight,
                         'notes' => $newNotes,
                         'quality' => $newQuality,
-                        'plantId' => $newPlantId->toString()
+                        'plantId' => $newPlantId
                     ]
                 ])
             ->assertStatus(200)
@@ -140,7 +148,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->assertJsonMatches('weight', $newWeight)
             ->assertJsonMatches('notes', $newNotes)
             ->assertJsonMatches('quality', $newQuality)
-            ->assertJsonMatches('plantId', $newPlantId->toString())
+            ->assertJsonMatches('plantId', $newPlantId)
             ->use(function (Json $json) {
                 $json->assertThat('harvestedAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -154,16 +162,16 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $newWeight = faker()->numberBetween(0, 10000);
         $newNotes = TipTapFaker::paragraphs();
         $newQuality = faker()->randomElement(HarvestQuality::ALL);
-        $newPlantId = new Ulid();
+        $newPlantId = new Ulid()->toString();
 
-        $this->browser()->actingAs($context->landMembers[0]->getPerson())
+        $this->browser->actingAs($context->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($landHarvestEntry),
                 [
                     'json' => [
                         'weight' => $newWeight,
                         'notes' => $newNotes,
                         'quality' => $newQuality,
-                        'plantId' => $newPlantId->toString()
+                        'plantId' => $newPlantId
                     ]
                 ])
             ->assertStatus(200)
@@ -171,7 +179,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->assertJsonMatches('weight', $newWeight)
             ->assertJsonMatches('notes', $newNotes)
             ->assertJsonMatches('quality', $newQuality)
-            ->assertJsonMatches('plantId', $newPlantId->toString())
+            ->assertJsonMatches('plantId', $newPlantId)
             ->use(function (Json $json) {
                 $json->assertThat('harvestedAt', fn(Json $json) => $json->isNotNull());
                 $json->assertThat('createdAt', fn(Json $json) => $json->isNotNull());
@@ -274,6 +282,12 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $mockPlantVerifier = $this->createMock(PlantVerifier::class);
         $mockPlantVerifier->expects($this->any())->method('assertPlantExists')->willReturnCallback(function () {
         });
-        self::getContainer()->set(PlantVerifier::class, $mockPlantVerifier);
+        $this->browser = $this->browser()->disableReboot();
+        $this->browser->client()->getContainer()->set(PlantVerifier::class, $mockPlantVerifier);
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
     }
 }
