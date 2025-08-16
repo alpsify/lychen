@@ -6,15 +6,15 @@ use App\Constant\HarvestQuality;
 use App\Security\Voter\LandHarvestEntryVoter;
 use App\Service\PlantVerifier;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
+use App\Tests\Utils\Mock\PlantVerifierMockTrait;
 use Lychen\UtilTiptap\Service\TipTapFaker;
 use Symfony\Component\Uid\Ulid;
-use Zenstruck\Browser;
 use Zenstruck\Browser\Json;
 use function Zenstruck\Foundry\faker;
 
 class LandHarvestEntryTest extends AbstractApiTestCase
 {
-    private Browser $browser;
+    use PlantVerifierMockTrait;
 
     public function testPost()
     {
@@ -27,7 +27,8 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $plantId = new Ulid()->toString();
 
         // Owner
-        $this->browser
+        $this->browser()
+            ->addMock(PlantVerifier::class, $this->preventAssertPlantExistsException($this->getMockedPlantVerifier()))
             ->actingAs($context->owner)
             ->post('/api/land_harvest_entries',
                 ['json' => [
@@ -47,11 +48,8 @@ class LandHarvestEntryTest extends AbstractApiTestCase
             ->use(function (Json $json) {
                 $json->assertThat('ulid', fn(Json $json) => $json->isNotNull());
             });
-    }
 
-    public function testPostWithPermissions()
-    {
-        $context = $this->createLandContext();
+        // Member with permissions
         $landRole = $this->createLandRole($context->land, [LandHarvestEntryVoter::POST]);
         $this->addLandMember($context, [$landRole]);
 
@@ -60,7 +58,9 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $quality = faker()->randomElement(HarvestQuality::ALL);
         $plantId = new Ulid()->toString();
 
-        $this->browser->actingAs($context->landMembers[0]->getPerson())
+        $this->browser()
+            ->addMock(PlantVerifier::class, $this->preventAssertPlantExistsException($this->getMockedPlantVerifier()))
+            ->actingAs($context->landMembers[0]->getPerson())
             ->post('/api/land_harvest_entries',
                 ['json' => [
                     'weight' => $weight,
@@ -133,7 +133,9 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $newQuality = faker()->randomElement(HarvestQuality::ALL);
         $newPlantId = new Ulid()->toString();
 
-        $this->browser->actingAs($context->owner)
+        $this->browser()
+            ->addMock(PlantVerifier::class, $this->preventAssertPlantExistsException($this->getMockedPlantVerifier()))
+            ->actingAs($context->owner)
             ->patch($this->getIriFromResource($landHarvestEntry),
                 [
                     'json' => [
@@ -155,10 +157,6 @@ class LandHarvestEntryTest extends AbstractApiTestCase
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
             });
 
-    }
-
-    public function testPatchWithPermissions()
-    {
         $context = $this->createLandContext();
         $this->addOneLandHarvestEntry($context);
 
@@ -173,7 +171,9 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $newPlantId = new Ulid()->toString();
 
 
-        $this->browser->actingAs($context->landMembers[0]->getPerson())
+        $this->browser()
+            ->addMock(PlantVerifier::class, $this->preventAssertPlantExistsException($this->getMockedPlantVerifier()))
+            ->actingAs($context->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($landHarvestEntry),
                 [
                     'json' => [
@@ -283,20 +283,5 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $this->browser()->actingAs($context->landMembers[0]->getPerson())
             ->delete($this->getIriFromResource($context->landHarvestEntries[1]))
             ->assertStatus(204);
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $mockPlantVerifier = $this->createMock(PlantVerifier::class);
-        $mockPlantVerifier->expects($this->any())->method('assertPlantExists')->willReturnCallback(function () {
-        });
-        $this->browser = $this->browser();
-        $this->browser->client()->getContainer()->set(PlantVerifier::class, $mockPlantVerifier);
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
     }
 }

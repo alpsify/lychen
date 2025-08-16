@@ -5,10 +5,14 @@ namespace App\Tests\Security;
 use App\Entity\Land;
 use App\Security\Constant\LandMemberPermission;
 use App\Security\Voter\LandHarvestEntryVoter;
+use App\Service\PlantVerifier;
 use App\Tests\Utils\Abstract\AbstractApiTestCase;
+use App\Tests\Utils\Mock\PlantVerifierMockTrait;
 
 class LandHarvestEntrySecurityTest extends AbstractApiTestCase
 {
+    use PlantVerifierMockTrait;
+
     public function testPut()
     {
         $context = $this->createLandContext();
@@ -43,7 +47,8 @@ class LandHarvestEntrySecurityTest extends AbstractApiTestCase
         $landRole = $this->createLandRole($context1->land);
         $this->addLandMember($context1, [$landRole]);
         $this->browser()->actingAs($context1->landMembers[0]->getPerson())
-            ->post('/api/land_harvest_entries', ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
+            ->post('/api/land_harvest_entries',
+                ['json' => ['land' => $this->getIriFromResource($context1->land->_real())]])
             ->assertStatus(403);
     }
 
@@ -64,7 +69,9 @@ class LandHarvestEntrySecurityTest extends AbstractApiTestCase
             ->assertStatus(403);
 
         // User cannot patch a LandHarvestEntry with a Land they are not a member of (land property should be ignored)
-        $this->browser()->actingAs($context1->owner)
+        $this->browser()
+            ->addMock(PlantVerifier::class, $this->preventAssertPlantExistsException($this->getMockedPlantVerifier()))
+            ->actingAs($context1->owner)
             ->patch($this->getIriFromResource($context1->landHarvestEntries[0]),
                 ['json' => ['land' => $this->getIriFromResource($context2->land)]])
             ->assertSuccessful();
