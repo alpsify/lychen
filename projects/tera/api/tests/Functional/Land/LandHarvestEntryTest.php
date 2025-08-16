@@ -155,6 +155,14 @@ class LandHarvestEntryTest extends AbstractApiTestCase
                 $json->assertThat('updatedAt', fn(Json $json) => $json->isNotNull());
             });
 
+    }
+
+    public function testPatchWithPermissions()
+    {
+        $context = $this->createLandContext();
+        $this->addOneLandHarvestEntry($context);
+
+        $landHarvestEntry = $context->landHarvestEntries[0];
         // Member with permissions
         $landRole = $this->createLandRole($context->land, [LandHarvestEntryVoter::PATCH]);
         $this->addLandMember($context, [$landRole]);
@@ -163,6 +171,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $newNotes = TipTapFaker::paragraphs();
         $newQuality = faker()->randomElement(HarvestQuality::ALL);
         $newPlantId = new Ulid()->toString();
+
 
         $this->browser->actingAs($context->landMembers[0]->getPerson())
             ->patch($this->getIriFromResource($landHarvestEntry),
@@ -282,7 +291,7 @@ class LandHarvestEntryTest extends AbstractApiTestCase
         $mockPlantVerifier = $this->createMock(PlantVerifier::class);
         $mockPlantVerifier->expects($this->any())->method('assertPlantExists')->willReturnCallback(function () {
         });
-        $this->browser = $this->browser()->disableReboot();
+        $this->browser = $this->browser();
         $this->browser->client()->getContainer()->set(PlantVerifier::class, $mockPlantVerifier);
     }
 
