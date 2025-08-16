@@ -1,0 +1,9 @@
+id: common-network
+
+language: unknown
+
+tasks:
+  create-network:
+    command: docker network create lychen-network
+
+type: tool

@@ -45,10 +45,6 @@ class SeedStockEntry extends AbstractIdOrmAndUlidApiIdentified
     #[ORM\Column]
     private ?bool $publiclyShared = false;
 
-    #[ORM\ManyToOne(inversedBy: 'seedStockEntries')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Plant $plant = null;
-
     public function getSeedStock(): ?SeedStock
     {
         return $this->seedStock;
@@ -105,18 +101,6 @@ class SeedStockEntry extends AbstractIdOrmAndUlidApiIdentified
     public function setPubliclyShared(bool $publiclyShared): static
     {
         $this->publiclyShared = $publiclyShared;
-
-        return $this;
-    }
-
-    public function getPlant(): ?Plant
-    {
-        return $this->plant;
-    }
-
-    public function setPlant(?Plant $plant): static
-    {
-        $this->plant = $plant;
 
         return $this;
     }

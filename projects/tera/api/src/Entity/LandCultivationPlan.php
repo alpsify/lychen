@@ -128,14 +128,6 @@ class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements L
 
     #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(["land_cultivation_plan:collection",
-              "land_cultivation_plan:get",
-              "land_cultivation_plan:patch",
-              "land_cultivation_plan:post"])]
-    private ?Plant $plant = null;
-
-    #[ORM\ManyToOne(inversedBy: 'landCultivationPlans')]
-    #[ORM\JoinColumn(nullable: false)]
     #[Groups(["land_cultivation_plan:get", "land_cultivation_plan:post", "land_cultivation_plan:patch:output"])]
     private ?Land $land = null;
 
@@ -283,18 +275,6 @@ class LandCultivationPlan extends AbstractIdOrmAndUlidApiIdentified implements L
     public function setState(string $state): static
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    public function getPlant(): ?Plant
-    {
-        return $this->plant;
-    }
-
-    public function setPlant(?Plant $plant): static
-    {
-        $this->plant = $plant;
 
         return $this;
     }

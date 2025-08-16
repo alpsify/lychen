@@ -1,12 +1,9 @@
 # Development environment override
 services:
-  database:
+  {{ name }}-database:
     ports:
-      - protocol: tcp
-        published: 5432
-        target: 5432
-
-  php:
+      - '21432:5432/tcp' #TODO Change it
+  {{ name }}-api:
     build:
       context: .
       target: frankenphp_dev
@@ -24,3 +21,13 @@ services:
       - ./var:/app/var
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
+    ports:
+      - protocol: tcp
+        published: ${HTTP_PORT:-8080} #TODO Change it
+        target: 80
+      - protocol: tcp
+        published: ${HTTPS_PORT:-30443} #TODO Change it
+        target: 443
+      - protocol: udp
+        published: ${HTTP3_PORT:-40443} #TODO Change it
+        target: 443
