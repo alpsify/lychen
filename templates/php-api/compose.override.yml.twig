@@ -18,7 +18,7 @@ services:
     tty: true
     volumes:
       - ./:/app
-      - ./var:/app/var
+      #- ./var:/app/var
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
     ports:
