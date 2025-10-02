@@ -7,9 +7,9 @@ node:
   packageManager: yarn
   syncPackageManagerField: true
   syncProjectWorkspaceDependencies: true
-  version: 23.8.0
+  version: 24.9.0
   yarn:
-    version: 4.9.2
+    version: 4.10.3
 
 typescript:
   createMissingConfig: true

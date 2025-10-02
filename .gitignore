@@ -60,3 +60,12 @@ tsconfig.tsbuildinfo
 .idea/inspectionProfiles
 .idea/runConfigurations/
 ###< JetBrain/PHPStorm ###
+
+.nginx-build
+
+# ignore fonts & logos
+projects/**/public/fonts
+projects/**/public/logos
+projects/**/public/**/covers
+
+.DS_Store
