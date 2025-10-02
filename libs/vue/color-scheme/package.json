@@ -1,7 +1,7 @@
 {
   "name": "@lychen/vue-color-scheme",
   "devDependencies": {
-    "@vueuse/core": "^13.4.0",
+    "@vueuse/core": "^13.9.0",
     "vue": "^3.5.22"
   },
   "dependencies": {

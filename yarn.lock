@@ -1557,10 +1557,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^9.6.0":
-  version: 9.6.0
-  resolution: "@faker-js/faker@npm:9.6.0"
-  checksum: 10c0/57f76aba8744ac5f588bfcf55e61ab6f1b61664f0d1cd6cc9d9ae5bf9376bdb48d867487ace638bee393de126257b7fe6ebd602c9efd3346e7ee10e8643f1cdc
+"@faker-js/faker@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@faker-js/faker@npm:10.0.0"
+  checksum: 10c0/7692f21cad661cd0cb150d72d4dff79322c892923c97a263c12ae74de45739306bea4e2630e8ac852dd4395ead2cb76be3715011395256c56e8a9b39acdcb97a
   languageName: node
   linkType: hard
 
@@ -1601,17 +1601,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/duotone-light-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/duotone-light-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fduotone-light-svg-icons%2F-%2F6.7.2%2Fduotone-light-svg-icons-6.7.2.tgz"
-  checksum: 10c0/3022d5a13ce6bfe65c53458af7cfebbe7e4cb41de08a42a6ab94c0339e6bccba9807919865db3624de2125cdaa5702505c23485ea187c4f7591482abb6a4609b
+"@fortawesome/duotone-light-svg-icons@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "@fortawesome/duotone-light-svg-icons@npm:7.0.1"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": "npm:7.0.1"
+  checksum: 10c0/93fa6c8ba9fd160ac02627322c8ab579dcc83a4b45cd9f85c2f4080133e9919e44c71cb03571b1942309811299c14556657d86d64f0e6969a82b0b5ddfc17731
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-common-types%2F-%2F6.7.2%2Ffontawesome-common-types-6.7.2.tgz"
-  checksum: 10c0/0785df560542d9c08a0ba07bb7a39902274a3cd65c018672eb2520a99efccce18bdb7f7f4b1c6089763bc5627bf0f0837c3af963a8427eaeb535bd57c820a723
+"@fortawesome/fontawesome-common-types@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@fortawesome/fontawesome-common-types@npm:7.0.1"
+  checksum: 10c0/1cebe9727950f8fcea581e115ed91f9b2bf287114077adde0cc1fb32d25c2c2ec282a8cff291b22ca558cbb1264af7fad04b85c5afcb899745584b2874df4151
   languageName: node
   linkType: hard
 
@@ -1622,12 +1624,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-svg-core%2F-%2F6.7.2%2Ffontawesome-svg-core-6.7.2.tgz"
+"@fortawesome/fontawesome-svg-core@npm:^7.0.0":
+  version: 7.1.0
+  resolution: "@fortawesome/fontawesome-svg-core@npm:7.1.0"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10c0/9e4e2992b341d2d11cd6ab8cf001e2cb9be4266ce200b307d15c0618e7d2cf11c1c4c67a1f95f3cc70feed2380fa66672132c32078674d5f9cb2cb0b7703f3ac
+    "@fortawesome/fontawesome-common-types": "npm:7.1.0"
+  checksum: 10c0/6c32b78f1a7c269d4c14c457ed0f3d09269f700861524330e54b838693727827be810ded3322099995266d490235321a8f356a6f270dc5bd9ce651fc3c94be26
   languageName: node
   linkType: hard
 
@@ -1649,13 +1651,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/vue-fontawesome@npm:^3.0.8":
-  version: 3.0.8
-  resolution: "@fortawesome/vue-fontawesome@npm:3.0.8"
+"@fortawesome/vue-fontawesome@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@fortawesome/vue-fontawesome@npm:3.1.2"
   peerDependencies:
-    "@fortawesome/fontawesome-svg-core": ~1 || ~6
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6 || ~7
     vue: ">= 3.0.0 < 4"
-  checksum: 10c0/a123db06deceb3b7304a94081262946f8da64884a6aac55ea3691ef7fe803692b3af933e772b04cdaad4f2c41473594122cc516a3078f861d413452ce6cb1d86
+  checksum: 10c0/bce79543821d0cdd966b10a1003a0080418340cfa894c02a275c85a2fd8a2fa908eab908e937e6b4977bf0394162f62f4b39c7522930f63a41fc47a9d75fe3b4
   languageName: node
   linkType: hard
 
@@ -1872,12 +1874,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@internationalized/date@npm:^3.5.0, @internationalized/date@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "@internationalized/date@npm:3.7.0"
+"@internationalized/date@npm:^3.5.0, @internationalized/date@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "@internationalized/date@npm:3.9.0"
   dependencies:
     "@swc/helpers": "npm:^0.5.0"
-  checksum: 10c0/4d0979dd49f0f979169073afa2b44ce8ae941407e22d4caba069e26e9d9a0c6d29fc11fb50d5e6fcad351f0f9b180e21cbd440fd4238e899719f5d3c84829985
+  checksum: 10c0/8f2bf54c407aa95ab9922759c27f19bd9185bc6c4bde936fb5cc7a99bf764de8483102a61d53afa0598eefa11711617d3c05a65e8a5cb8bfac10c2c0800e488a
   languageName: node
   linkType: hard
 
@@ -2028,8 +2030,8 @@ __metadata:
     html-to-image: "npm:^1.11.13"
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2072,8 +2074,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2110,8 +2112,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2142,8 +2144,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2174,8 +2176,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2206,8 +2208,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2238,8 +2240,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2270,8 +2272,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2295,11 +2297,11 @@ __metadata:
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-tera": "workspace:*"
     "@tailwindcss/vite": "npm:^4.1.13"
-    "@tanstack/vue-query": "npm:^5.66.11"
-    "@tanstack/vue-table": "npm:^8.21.2"
+    "@tanstack/vue-query": "npm:^5.90.2"
+    "@tanstack/vue-table": "npm:^8.21.3"
     "@vite-pwa/assets-generator": "npm:^1.0.0"
     "@vitejs/plugin-vue": "npm:^6.0.1"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     tailwindcss: "npm:^4.1.14"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
@@ -2314,12 +2316,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-tests-e2e@workspace:projects/tera/tests-e2e"
   dependencies:
-    "@faker-js/faker": "npm:^9.6.0"
+    "@faker-js/faker": "npm:^10.0.0"
     "@lychen/tera-app": "workspace:*"
-    "@playwright/test": "npm:^1.51.1"
-    "@types/node": "npm:^22.13.13"
+    "@playwright/test": "npm:^1.55.1"
     vue: "npm:^3.5.22"
-    vue-i18n: "npm:^11.1.10"
+    vue-i18n: "npm:^11.1.12"
   languageName: unknown
   linkType: soft
 
@@ -2350,8 +2351,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2498,8 +2499,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2513,7 +2514,7 @@ __metadata:
     "@lychen/vue-router-configs": "workspace:*"
     "@vitejs/plugin-vue": "npm:^6.0.1"
     vite: "npm:^7.1.7"
-    vite-ssg: "npm:^28.0.0"
+    vite-ssg: "npm:^28.1.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2546,7 +2547,7 @@ __metadata:
   dependencies:
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
-    "@vueuse/core": "npm:^13.4.0"
+    "@vueuse/core": "npm:^13.9.0"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2560,9 +2561,9 @@ __metadata:
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@lychen/vue-components-extra": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.3.1"
+    reka-ui: "npm:^2.5.1"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2571,27 +2572,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-core@workspace:libs/vue/components-core"
   dependencies:
-    "@fortawesome/duotone-light-svg-icons": "npm:^6.7.2"
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
+    "@fortawesome/duotone-light-svg-icons": "npm:^7.0.0"
+    "@fortawesome/fontawesome-svg-core": "npm:^7.0.0"
     "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
     "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
-    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
-    "@internationalized/date": "npm:^3.7.0"
+    "@fortawesome/vue-fontawesome": "npm:^3.1.2"
+    "@internationalized/date": "npm:^3.9.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
-    "@vee-validate/zod": "npm:^4.15.0"
-    "@vueuse/core": "npm:^13.1.0"
+    "@vee-validate/zod": "npm:^4.15.1"
+    "@vueuse/core": "npm:^13.9.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
-    embla-carousel-vue: "npm:^8.5.2"
-    reka-ui: "npm:^2.3.1"
+    embla-carousel-vue: "npm:^8.6.0"
+    reka-ui: "npm:^2.5.1"
     tailwind-merge: "npm:^3.1.0"
     tailwindcss: "npm:^4.1.14"
-    vaul-vue: "npm:^0.3.0"
-    vee-validate: "npm:^4.15.0"
+    vaul-vue: "npm:^0.4.1"
+    vee-validate: "npm:^4.15.1"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
-    zod: "npm:^3.24.2"
+    zod: "npm:^4.1.11"
   languageName: unknown
   linkType: soft
 
@@ -2602,9 +2603,9 @@ __metadata:
     "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.3.1"
+    reka-ui: "npm:^2.5.1"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2620,9 +2621,9 @@ __metadata:
     "@lychen/vue-components-extra": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     class-variance-authority: "npm:^0.7.1"
-    reka-ui: "npm:^2.3.1"
+    reka-ui: "npm:^2.5.1"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2687,11 +2688,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-icons@workspace:libs/vue/icons"
   dependencies:
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
+    "@fortawesome/fontawesome-svg-core": "npm:^7.0.0"
     "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
     "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
-    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
-    reka-ui: "npm:^2.3.1"
+    "@fortawesome/vue-fontawesome": "npm:^3.1.2"
+    reka-ui: "npm:^2.5.1"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2730,7 +2731,7 @@ __metadata:
     "@lychen/vue-components-website": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2806,7 +2807,7 @@ __metadata:
     "@lychen/vue-composables": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
-    "@vueuse/core": "npm:^13.0.0"
+    "@vueuse/core": "npm:^13.9.0"
     openapi-fetch: "npm:^0.14.0"
     vue: "npm:^3.5.22"
   languageName: unknown
@@ -2894,8 +2895,8 @@ __metadata:
     unhead: "npm:^2.0.17"
     vite: "npm:^7.1.7"
     vite-plugin-mkcert: "npm:^1.17.8"
-    vite-ssg: "npm:^28.0.0"
-    vite-ssg-sitemap: "npm:^0.9.0"
+    vite-ssg: "npm:^28.1.0"
+    vite-ssg-sitemap: "npm:^0.10.0"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
   languageName: unknown
@@ -2975,14 +2976,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.51.1":
-  version: 1.51.1
-  resolution: "@playwright/test@npm:1.51.1"
+"@playwright/test@npm:^1.55.1":
+  version: 1.55.1
+  resolution: "@playwright/test@npm:1.55.1"
   dependencies:
-    playwright: "npm:1.51.1"
+    playwright: "npm:1.55.1"
   bin:
     playwright: cli.js
-  checksum: 10c0/bdb98f3df58f60b5c62e6d5c79c30910404d1855afea0803af0efd6dc63f90c473dbf92ff7dc212f1459f1d32c85dc44a60f70c2e0ea604f975b953d59523234
+  checksum: 10c0/23fa213844bc594b03c0a907ef69da7e26a6c3295ee602b1567d26a473d30253468b832698779b02a304b71ae14aa0875645c526678227cc0675324dbf77e118
   languageName: node
   linkType: hard
 
@@ -3522,17 +3523,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.67.3":
-  version: 5.67.3
-  resolution: "@tanstack/query-core@npm:5.67.3"
-  checksum: 10c0/3f681967cd457599c1e35bbef1467150a4b96837222c299876e6d80a835a4c86eba39fb1cbfc9c7f77bde6007ffbef7369fc93417196e9c61d49c4db6111e535
+"@tanstack/query-core@npm:5.90.2":
+  version: 5.90.2
+  resolution: "@tanstack/query-core@npm:5.90.2"
+  checksum: 10c0/695a7450b0bb9f6dd21bebeacfc962dfc886631a3b3a13c33a842ef719b4c3dd30c15febe8c1ade6902a85e0f387c51a97570f430cc8f5c7032ff737d6410597
   languageName: node
   linkType: hard
 
-"@tanstack/table-core@npm:8.21.2":
-  version: 8.21.2
-  resolution: "@tanstack/table-core@npm:8.21.2"
-  checksum: 10c0/836326c6aef7e0b9b4566f9b2ade5ea73b90ce94f2b0cc35a3b3e1f44a9b3512d5507e4818c509824443b3d0488f2026df54e7a9f8f0cdccae6040347e6ff079
+"@tanstack/table-core@npm:8.21.3":
+  version: 8.21.3
+  resolution: "@tanstack/table-core@npm:8.21.3"
+  checksum: 10c0/40e3560e6d55e07cc047024aa7f83bd47a9323d21920d4adabba8071fd2d21230c48460b26cedf392588f8265b9edc133abb1b0d6d0adf4dae0970032900a8c9
   languageName: node
   linkType: hard
 
@@ -3543,12 +3544,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/vue-query@npm:^5.66.11":
-  version: 5.67.3
-  resolution: "@tanstack/vue-query@npm:5.67.3"
+"@tanstack/vue-query@npm:^5.90.2":
+  version: 5.90.2
+  resolution: "@tanstack/vue-query@npm:5.90.2"
   dependencies:
     "@tanstack/match-sorter-utils": "npm:^8.19.4"
-    "@tanstack/query-core": "npm:5.67.3"
+    "@tanstack/query-core": "npm:5.90.2"
     "@vue/devtools-api": "npm:^6.6.3"
     vue-demi: "npm:^0.14.10"
   peerDependencies:
@@ -3557,18 +3558,18 @@ __metadata:
   peerDependenciesMeta:
     "@vue/composition-api":
       optional: true
-  checksum: 10c0/8b6e376d3452d845aad7464111ad1a2ffa57a1df41c200dca2c7aaa9c145e3a6706c60f636673320bb6b6cdcd52212d05b274d2662703f52c6c3e70719da238c
+  checksum: 10c0/24a8a71a8c1fcfd03c02eeace2bb413c8b454657b901167380476a7748e61a0eb520c19ad78a5c634a3b78ca48bbca155a1ee99db70051c527db85f3d2b665ca
   languageName: node
   linkType: hard
 
-"@tanstack/vue-table@npm:^8.21.2":
-  version: 8.21.2
-  resolution: "@tanstack/vue-table@npm:8.21.2"
+"@tanstack/vue-table@npm:^8.21.3":
+  version: 8.21.3
+  resolution: "@tanstack/vue-table@npm:8.21.3"
   dependencies:
-    "@tanstack/table-core": "npm:8.21.2"
+    "@tanstack/table-core": "npm:8.21.3"
   peerDependencies:
     vue: ">=3.2"
-  checksum: 10c0/fa97631c0012437ac5a6d5a800a3934ad2f4faa8fe43fe2382d152986bd911cb741f35fb47fcb5955c7ef1a1c4ca26044de60c6351466b79c151b9489f442e37
+  checksum: 10c0/d2c0da0bcf411a1d457f1daa82323837c82416cb5e30f931c4b6e9aec2dd64e3259bade3f1d20398dc9bf5fcc665e315c697198fe8996b995f8c39a6a6aebee5
   languageName: node
   linkType: hard
 
@@ -3947,15 +3948,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.13.13":
-  version: 22.13.13
-  resolution: "@types/node@npm:22.13.13"
-  dependencies:
-    undici-types: "npm:~6.20.0"
-  checksum: 10c0/daf792ba5dcff1316abf4b33680f94b792f8d54d6ae495efc8929531e0ba1284a248d29aab117d2259f9280284d986ad5799b193b0516e2b926d713aab835f7d
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^24.6.1":
   version: 24.6.2
   resolution: "@types/node@npm:24.6.2"
@@ -4137,12 +4129,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:^2.0.11":
-  version: 2.0.12
-  resolution: "@unhead/dom@npm:2.0.12"
+"@unhead/dom@npm:^2.0.14":
+  version: 2.0.17
+  resolution: "@unhead/dom@npm:2.0.17"
   peerDependencies:
-    unhead: 2.0.12
-  checksum: 10c0/cea970f8f38b62971668fbdbc6e7bf746587009f28ab430031f720ae513d750d9aa69864978029b6b7fd95b48cafbec8b85f90a4d447ebeb86926bc4a4b18fd7
+    unhead: 2.0.17
+  checksum: 10c0/254079623dd451e5ed25d1a3bfbedf9eed72d5b1c6b2a0be2f0b87e1a330739008713ca18a03a92108c47138b81a61383ecccae96d3c514cce4ccb847b73a299
   languageName: node
   linkType: hard
 
@@ -4172,7 +4164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/vue@npm:^2.0.11, @unhead/vue@npm:^2.0.17":
+"@unhead/vue@npm:^2.0.14, @unhead/vue@npm:^2.0.17":
   version: 2.0.17
   resolution: "@unhead/vue@npm:2.0.17"
   dependencies:
@@ -4184,15 +4176,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vee-validate/zod@npm:^4.15.0":
-  version: 4.15.0
-  resolution: "@vee-validate/zod@npm:4.15.0"
+"@vee-validate/zod@npm:^4.15.1":
+  version: 4.15.1
+  resolution: "@vee-validate/zod@npm:4.15.1"
   dependencies:
     type-fest: "npm:^4.8.3"
-    vee-validate: "npm:4.15.0"
+    vee-validate: "npm:4.15.1"
   peerDependencies:
     zod: ^3.24.0
-  checksum: 10c0/c298f74b07427155a18d56b8ca41fd86ce5ecdecbf8664b54d08dcf7a8ea23026c902f0af2247c5c05e9492657fc27a7f6d2c9acfa365986370e3f85a824819e
+  checksum: 10c0/4b6f7a542120abda0e71fded9685344f4d41ce9a09bb04b28f9e339c6b72fa43e2fd2b75156b23914f8a3f348e5edd5ee9d520cd4129fbc3bd4deec3ef9c9800
   languageName: node
   linkType: hard
 
@@ -4472,16 +4464,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^13.0.0, @vueuse/core@npm:^13.1.0, @vueuse/core@npm:^13.4.0":
-  version: 13.4.0
-  resolution: "@vueuse/core@npm:13.4.0"
+"@vueuse/core@npm:^13.9.0":
+  version: 13.9.0
+  resolution: "@vueuse/core@npm:13.9.0"
   dependencies:
     "@types/web-bluetooth": "npm:^0.0.21"
-    "@vueuse/metadata": "npm:13.4.0"
-    "@vueuse/shared": "npm:13.4.0"
+    "@vueuse/metadata": "npm:13.9.0"
+    "@vueuse/shared": "npm:13.9.0"
   peerDependencies:
     vue: ^3.5.0
-  checksum: 10c0/a4ec26881cba3cefb8cb7eddb2148d80508c10c3d3efb07069c39119cec3f99a0dee578d776c4f440d57e4a23b07b0b65e66de0a66fecced28191ec4c6380805
+  checksum: 10c0/f1e6c5e02584e018e53e0e5f93844afbcd33742c5a2454e57aaa3433e9068efbe84b7b423f34628738e28e3ba4bfe7d648f2edaae39706a236ae48bc1a22709b
   languageName: node
   linkType: hard
 
@@ -4499,10 +4491,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/metadata@npm:13.4.0":
-  version: 13.4.0
-  resolution: "@vueuse/metadata@npm:13.4.0"
-  checksum: 10c0/223b3ec56c9b82586e3940a79f9f3d350986a3ee9f39b3b3bed74055e44fd1d947528c8b78574f2b0afcc4f8d48f6f56abccf1b5919782fc4aee858c0a12f3bb
+"@vueuse/metadata@npm:13.9.0":
+  version: 13.9.0
+  resolution: "@vueuse/metadata@npm:13.9.0"
+  checksum: 10c0/7e4620c6e5acbf8f2e5eba0db80a8de887f4816221b383e5d829ee833139d262b8a89e9709d58d7aacb263927ce2c55e262eb29372f784aa9138c8fa7a86506a
   languageName: node
   linkType: hard
 
@@ -4524,12 +4516,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:13.4.0":
-  version: 13.4.0
-  resolution: "@vueuse/shared@npm:13.4.0"
+"@vueuse/shared@npm:13.9.0":
+  version: 13.9.0
+  resolution: "@vueuse/shared@npm:13.9.0"
   peerDependencies:
     vue: ^3.5.0
-  checksum: 10c0/6a32f8bf1f655b42374f3f07efd370e1f5b2f2ab9ff7d67f544f8660a48dbf4cb21f206991be6b12fc20a0983e3c82117676583c636f435e369a91dfd5455d78
+  checksum: 10c0/4820f71caab3c94bc88343270bb4408d8818baa9c0223e6f7499aeb05f9227a87724c15b792f2aaf308137ac996cccd93c0cbe338f7cf3ae50045981abc223a3
   languageName: node
   linkType: hard
 
@@ -5533,31 +5525,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"embla-carousel-reactive-utils@npm:8.5.2":
-  version: 8.5.2
-  resolution: "embla-carousel-reactive-utils@npm:8.5.2"
+"embla-carousel-reactive-utils@npm:8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-reactive-utils@npm:8.6.0"
   peerDependencies:
-    embla-carousel: 8.5.2
-  checksum: 10c0/aa4870539d9090f9ac02338c3ca3e1710a6f0e6890cd2f6fbf6afcc1eeac48192406f92bf042fe9429cc61709338124baf1514c75227a7a16b19b83e9f376274
+    embla-carousel: 8.6.0
+  checksum: 10c0/33d07e6df4d8dec9b4fc95858838ea2d5e5df078039c05b2a342c05ba4979d8d18564a1c607da445fed744daf969a0b5a90124ce487a854e86ced6f0458b51e9
   languageName: node
   linkType: hard
 
-"embla-carousel-vue@npm:^8.5.2":
-  version: 8.5.2
-  resolution: "embla-carousel-vue@npm:8.5.2"
+"embla-carousel-vue@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-vue@npm:8.6.0"
   dependencies:
-    embla-carousel: "npm:8.5.2"
-    embla-carousel-reactive-utils: "npm:8.5.2"
+    embla-carousel: "npm:8.6.0"
+    embla-carousel-reactive-utils: "npm:8.6.0"
   peerDependencies:
     vue: ^3.2.37
-  checksum: 10c0/d6d55ddc0194c1517c9372914bab36f541bfd64061c4bc198c6f52131effb4bfb07f38a270440cc572dc3826b90bcaf33a9c9db4c54deef830d1f8d0cdaa78b4
+  checksum: 10c0/f7f4e09d8e03ada0375806d88ce597fd351b1354378110f82aaf278aa5343dd7be279d4a116e42bdd77391a96d8185989e75b944d35105aa0a99fb90666a1444
   languageName: node
   linkType: hard
 
-"embla-carousel@npm:8.5.2":
-  version: 8.5.2
-  resolution: "embla-carousel@npm:8.5.2"
-  checksum: 10c0/4bbb04c08616d560a7b47b1897794a077baa5aa27642420b35b3be58ab7b0dc000ef073b6e47d0029b0791c046e0cd39d295704faecb1957d2c315df51be58e6
+"embla-carousel@npm:8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel@npm:8.6.0"
+  checksum: 10c0/f4c598e7be28b70340d31ffd2bebb2472db370b0c81d9b089bf9555cf618695f35dc4a0694565c994c9ab972731123063f945aa09ff485df0df761d79c6a08ef
   languageName: node
   linkType: hard
 
@@ -8895,27 +8887,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.51.1":
-  version: 1.51.1
-  resolution: "playwright-core@npm:1.51.1"
+"playwright-core@npm:1.55.1":
+  version: 1.55.1
+  resolution: "playwright-core@npm:1.55.1"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/4f004d9dea5ecbd76b84c858fa4880ed955600b6cda972a3e8093ea47e150ce20bf2ea806e73e740497d34f4b61b080c208339a661fc75ad04d8f00bedcc21e0
+  checksum: 10c0/39837a8c1232ec27486eac8c3fcacc0b090acc64310f7f9004b06715370fc426f944e3610fe8c29f17cd3d68280ed72c75f660c02aa5b5cf0eb34bab0031308f
   languageName: node
   linkType: hard
 
-"playwright@npm:1.51.1":
-  version: 1.51.1
-  resolution: "playwright@npm:1.51.1"
+"playwright@npm:1.55.1":
+  version: 1.55.1
+  resolution: "playwright@npm:1.55.1"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.51.1"
+    playwright-core: "npm:1.55.1"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/2aea553b8b1086ee419e72c9d4f4117686e6bdb5e09e0f47dfe563ce0f0bd79c4ee79dd9c8a0f023a2fb7803b81d4fdc552887410d16c036be07f21ab72b3f46
+  checksum: 10c0/b84a97b0d764403df512f5bbb10c7343974e151a28202cc06f90883a13e8a45f4491a0597f0ae5fb03a026746cbc0d200f0f32195bfaa381aee5ca5770626771
   languageName: node
   linkType: hard
 
@@ -9360,9 +9352,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reka-ui@npm:^2.0.0, reka-ui@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "reka-ui@npm:2.3.1"
+"reka-ui@npm:^2.0.0, reka-ui@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "reka-ui@npm:2.5.1"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.13"
     "@floating-ui/vue": "npm:^1.1.6"
@@ -9376,7 +9368,7 @@ __metadata:
     ohash: "npm:^2.0.11"
   peerDependencies:
     vue: ">= 3.2.0"
-  checksum: 10c0/2f7ec2deb76dab7329fdacd67d8b7031539ba34a5bec60097747ea44bd1b631e992eea481a8cb1bdd317fb266f17dd33d1c9b900cb1c17cc1037348a3eed1651
+  checksum: 10c0/085f3d58d5044a24a4d182e9e4d6f873371d01639bc03598133686211f278b86e5b0a66b4ffae0f6b4002a7c477dcf2af1048cea45c6751dc42c1712cc6c02f3
   languageName: node
   linkType: hard
 
@@ -10529,13 +10521,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.20.0":
-  version: 6.20.0
-  resolution: "undici-types@npm:6.20.0"
-  checksum: 10c0/68e659a98898d6a836a9a59e6adf14a5d799707f5ea629433e025ac90d239f75e408e2e5ff086afc3cace26f8b26ee52155293564593fbb4a2f666af57fc59bf
-  languageName: node
-  linkType: hard
-
 "undici-types@npm:~7.13.0":
   version: 7.13.0
   resolution: "undici-types@npm:7.13.0"
@@ -10717,9 +10702,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vaul-vue@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "vaul-vue@npm:0.3.0"
+"vaul-vue@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "vaul-vue@npm:0.4.1"
   dependencies:
     "@vueuse/core": "npm:^10.8.0"
     reka-ui: "npm:^2.0.0"
@@ -10727,19 +10712,19 @@ __metadata:
   peerDependencies:
     reka-ui: ^2.0.0
     vue: ^3.3.0
-  checksum: 10c0/c6a8325cf59869336fd75e350800af66868a8af70f931145094689720a27bf8e8593978e3136818b2c7c9b918e9a9e767af004c15462ba5412a7487153dc79b8
+  checksum: 10c0/5128799b724d3e155efe0fe846ed4b8af07e7825dde0191b895058145232c36476a3974c5f3a14e8ad2820da8776f57af6fad88773d188c82ca2ea3e3ef8fae4
   languageName: node
   linkType: hard
 
-"vee-validate@npm:4.15.0, vee-validate@npm:^4.15.0":
-  version: 4.15.0
-  resolution: "vee-validate@npm:4.15.0"
+"vee-validate@npm:4.15.1, vee-validate@npm:^4.15.1":
+  version: 4.15.1
+  resolution: "vee-validate@npm:4.15.1"
   dependencies:
     "@vue/devtools-api": "npm:^7.5.2"
     type-fest: "npm:^4.8.3"
   peerDependencies:
     vue: ^3.4.26
-  checksum: 10c0/5ea7318f92cd724a9c6999bc65c6cc589818355fd7d0860807e1e2b70be2ccd3a199e1d3892cfa33dfa0a29c6ccaae91d5c2f2f3f69a6cba37292287607e68f3
+  checksum: 10c0/da59a54cb17e673d89426c63a240578628de1eed1d7008e7f765d83c3f7ccbc729e0282b56a19833d725c37def30537f81960a3130755ca8b1d7771262344c00
   languageName: node
   linkType: hard
 
@@ -10856,19 +10841,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-ssg-sitemap@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "vite-ssg-sitemap@npm:0.9.0"
-  checksum: 10c0/54b418de79dc8ef08f01e770404d781f4d4e6844896985dc1387e66489160e110d0351b5499b8f82fb80a1135e0b3b717460a47a4fc90951cf60576319c9b8d3
+"vite-ssg-sitemap@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "vite-ssg-sitemap@npm:0.10.0"
+  checksum: 10c0/662f264903dd9d043d66a6e298500529efe44ef87c569ad5d3bc6b3e6d4e9d906e574df3a23ae21b114990ae0d514c4ee750033199909a6a9190540a521887a1
   languageName: node
   linkType: hard
 
-"vite-ssg@npm:^28.0.0":
-  version: 28.0.0
-  resolution: "vite-ssg@npm:28.0.0"
+"vite-ssg@npm:^28.1.0":
+  version: 28.1.0
+  resolution: "vite-ssg@npm:28.1.0"
   dependencies:
-    "@unhead/dom": "npm:^2.0.11"
-    "@unhead/vue": "npm:^2.0.11"
+    "@unhead/dom": "npm:^2.0.14"
+    "@unhead/vue": "npm:^2.0.14"
     ansis: "npm:^4.1.0"
     cac: "npm:^6.7.14"
     html-minifier-terser: "npm:^7.2.0"
@@ -10889,7 +10874,7 @@ __metadata:
       optional: true
   bin:
     vite-ssg: bin/vite-ssg.js
-  checksum: 10c0/22a70c5d174a47a8c740e223c5efaabb03a0ba7873857469e9087fe210939b66dfa326e2f9f9402b1f3f38bb0640770b2955dcecfbec9db41ba90889ef588ff2
+  checksum: 10c0/ab9bfd8267eb38dfb48644c691d12eb16b93bffba027cc5b922f4dca7a6474fb87df56d0e9e5cf06b1b885d1498f69e199177e30d438e6c251c6f6d1a5452671
   languageName: node
   linkType: hard
 
@@ -10980,7 +10965,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^11.1.10, vue-i18n@npm:^11.1.12":
+"vue-i18n@npm:^11.1.12":
   version: 11.1.12
   resolution: "vue-i18n@npm:11.1.12"
   dependencies:
@@ -11521,10 +11506,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.24.2":
-  version: 3.24.2
-  resolution: "zod@npm:3.24.2"
-  checksum: 10c0/c638c7220150847f13ad90635b3e7d0321b36cce36f3fc6050ed960689594c949c326dfe2c6fa87c14b126ee5d370ccdebd6efb304f41ef5557a4aaca2824565
+"zod@npm:^4.1.11":
+  version: 4.1.11
+  resolution: "zod@npm:4.1.11"
+  checksum: 10c0/ce6a4c4acfbf51d7dd0f2669c82f207d62a1f00264eef608994b94eb99d86a74c99f59b0dd3e61ef82909ee136631378b709e0908f0a02a2d5c21d0c497de5db
   languageName: node
   linkType: hard
 

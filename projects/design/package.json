@@ -27,7 +27,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "@vitejs/plugin-vue": "^6.0.1",
     "vite": "^7.1.7",
-    "vite-ssg": "^28.0.0",
-    "vite-ssg-sitemap": "^0.9.0"
+    "vite-ssg": "^28.1.0",
+    "vite-ssg-sitemap": "^0.10.0"
   }
 }

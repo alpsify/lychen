@@ -120,7 +120,7 @@
 
 <script lang="ts" setup>
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import { h, ref, computed } from 'vue';
+import { h, ref, computed, type Ref } from 'vue';
 import {
   Table,
   TableBody,
@@ -133,6 +133,7 @@ import type {
   ColumnFiltersState,
   ExpandedState,
   SortingState,
+  Updater,
   VisibilityState,
 } from '@tanstack/vue-table';
 import {
@@ -147,7 +148,6 @@ import {
 } from '@tanstack/vue-table';
 import { Checkbox } from '@lychen/vue-components-core/checkbox';
 import { faSort } from '@fortawesome/pro-light-svg-icons/faSort';
-import { cn, valueUpdater } from '@lychen/vue-components-core/lib/utils';
 import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { DropdownMenu } from '@lychen/vue-components-core/dropdown-menu';
@@ -160,6 +160,7 @@ import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import DialogTeraLandTaskUpdate from '../dialogs/update/DialogTeraLandTaskUpdate.vue';
+import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 const { d } = useI18nExtended();
 
@@ -169,6 +170,11 @@ const { data } = defineProps<{
   totalItems?: number;
 }>();
 const columnHelper = createColumnHelper<components['schemas']['LandTask.jsonld']>();
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
+  ref.value = typeof updaterOrValue === 'function' ? updaterOrValue(ref.value) : updaterOrValue;
+}
 
 const dataForTable = computed(() => data || []);
 
