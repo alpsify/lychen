@@ -1,7 +1,7 @@
-moon = "1.39.4"
-node = "23.8.0"
-yarn = "4.9.2"
-npm = "11.5.2"
+moon = "1.41.1"
+node = "24.9.0"
+yarn = "4.10.3"
+npm = "11.6.1"
 
 [settings]
 auto-install = true

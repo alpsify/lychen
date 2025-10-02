@@ -1,6 +1,6 @@
 {
   "name": "lychen",
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "yarn@4.10.3",
   "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -23,7 +23,7 @@
     "vue-eslint-parser": "^10.2.0"
   },
   "engines": {
-    "node": "23.8.0"
+    "node": "24.9.0"
   },
   "workspaces": [
     "projects/**/*",
