@@ -1,7 +1,7 @@
 {
   "name": "@lychen/vue-components-app",
   "dependencies": {
-    "@fortawesome/pro-light-svg-icons": "^6.7.2",
+    "@fortawesome/pro-light-svg-icons": "^7.0.0",
     "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",
@@ -9,6 +9,6 @@
     "@vueuse/core": "^13.0.0",
     "class-variance-authority": "^0.7.1",
     "reka-ui": "^2.3.1",
-    "vue": "^3.5.17"
+    "vue": "^3.5.22"
   }
 }

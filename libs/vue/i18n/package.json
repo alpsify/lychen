@@ -4,7 +4,7 @@
     "@intlify/core-base": "^11.1.7",
     "@lychen/vue-components-core": "workspace:*",
     "@lychen/vue-icons": "workspace:*",
-    "vue": "^3.5.17",
+    "vue": "^3.5.22",
     "vue-i18n": "^11.1.10"
   }
 }
