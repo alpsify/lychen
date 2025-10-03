@@ -1,19 +1,19 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { RoutePagePrice } from '@/pages/price';
-import { RoutePageHome } from '@/pages/home';
-import { RoutePageManifest } from '@/pages/manifest';
-import { RoutePageSponsor } from '@/pages/sponsor';
+import { ROUTE_PRICE } from '@/views/price';
+import { ROUTE_HOME } from '@/views/home';
+import { ROUTE_MANIFEST } from '@/views/manifest';
+import { ROUTE_SPONSOR } from '@/views/sponsor';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@/layouts/TheLayout.vue'),
-    children: [RoutePageHome, RoutePagePrice, RoutePageManifest, RoutePageSponsor],
+    children: [ROUTE_HOME, ROUTE_PRICE, ROUTE_MANIFEST, ROUTE_SPONSOR],
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: RoutePageHome,
+    redirect: ROUTE_HOME,
   },
 ];
 

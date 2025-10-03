@@ -1,6 +1,6 @@
 <template>
   <Container class="flex flex-col items-stretch justify-center">
-    <RouterLink :to="RoutePageManifest">
+    <RouterLink :to="ROUTE_MANIFEST">
       <DivWithBackgroundImg
         :background-image="ossUrl"
         overlay
@@ -38,7 +38,7 @@ import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight'
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { RoutePageManifest } from '../manifest';
+import { ROUTE_MANIFEST } from '../manifest';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
