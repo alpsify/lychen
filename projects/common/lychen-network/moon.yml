@@ -4,6 +4,6 @@ language: unknown
 
 tasks:
   create-network:
-    command: docker network create lychen-network
+    command: docker network create lychen-network || true
 
 type: tool
