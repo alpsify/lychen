@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full flex-row items-stretch justify-between gap-4">
     <RouterLink
-      :to="ROUTE_HOME"
+      :to="{ name: ROUTE_HOME.name }"
       class="flex flex-row items-stretch"
     >
       <LogoLychenFull class="hover:text-on-primary-container"
@@ -101,7 +101,7 @@
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <RouterLink :to="ROUTE_PRICE">
+            <RouterLink :to="{ name: ROUTE_PRICE.name }">
               <NavigationMenuLink
                 as="div"
                 :class="navigationMenuTriggerStyle()"
