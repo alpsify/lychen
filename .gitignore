@@ -67,5 +67,6 @@ tsconfig.tsbuildinfo
 projects/**/public/fonts
 projects/**/public/logos
 projects/**/public/**/covers
+projects/**/public/**/icons
 
 .DS_Store
