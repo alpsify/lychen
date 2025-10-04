@@ -67,18 +67,18 @@ tsconfig.tsbuildinfo
 .idea/runConfigurations/
 ###< JetBrain/PHPStorm ###
 
-# Ignore assets symlink
-projects/**/public/fonts
-projects/**/public/logos
-projects/**/public/**/covers
-projects/**/public/**/icons
+###> Project ###
+# Public folder
+projects/**/public/*
 
-projects/**/public
+# Allow some files
+!projects/**/public/static/
+!projects/**/public/robots.txt
 
-###> Env ###
-*.local
-###< Env ###
+# Env files
+projects/**/*.local
+###< Project ###
 
-###> OS Specific ###
+###> System files ###
 .DS_Store
-###> OS Specific ###
+###< System file ###
