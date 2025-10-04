@@ -22,9 +22,6 @@ docker/database/data/*
 docker-compose.override.yml
 ###< Docker ###
 
-###> System files ###
-.DS_Store
-###< System files ###
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
