@@ -31,12 +31,12 @@ tags:
   - pwa
 
 tasks:
-  #assets-sync:
-  #deps:
-  #- args: '$projectRoot/public/icons'
-  #  target: assets-tera:create-symlink-on-icons
-  #- args: '$projectRoot/public/logos'
-  #  target: assets-tera:create-symlink-on-logos
+  assets-sync:
+    deps:
+      - args: '$projectRoot/public/icons'
+        target: assets-tera:create-symlink-on-icons
+      - args: '$projectRoot/public/logos'
+        target: assets-tera:create-symlink-on-logos
 
   dev:
     deps:
