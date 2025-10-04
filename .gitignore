@@ -73,6 +73,8 @@ projects/**/public/logos
 projects/**/public/**/covers
 projects/**/public/**/icons
 
+projects/**/public
+
 ###> Env ###
 *.local
 ###< Env ###
