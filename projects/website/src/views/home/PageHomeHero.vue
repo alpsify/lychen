@@ -31,7 +31,7 @@
             />
           </RouterLink>
           <RouterLink
-            :to="RoutePageSponsor"
+            :to="{ name: ROUTE_SPONSOR.name }"
             class="z-20"
           >
             <RainbowBox class="flex flex-row gap-2 no-wrap rounded-2xl">
@@ -55,7 +55,7 @@ import { faHandsHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandsHol
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { RoutePageSponsor } from '../sponsor';
+import { ROUTE_SPONSOR } from '../sponsor';
 
 const DivScalingDown = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),

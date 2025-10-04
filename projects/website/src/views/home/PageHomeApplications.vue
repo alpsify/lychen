@@ -42,7 +42,7 @@
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <DialogContent class="md:max-w-[50%] w-full max-h-dvh gap-8">
+      <DialogContent class="md:max-w-[50%] w-full max-h-dvh gap-8 overflow-y-scroll">
         <div
           class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch overflow-y-auto"
         >
