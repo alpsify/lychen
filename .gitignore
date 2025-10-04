@@ -10,11 +10,17 @@
 coverage/
 cjs/
 dist/
+dist-ssr/
 dts/
 esm/
 mjs/
 tmp/
 umd/
+
+###> Vite ###
+.vite-ssg-temp
+.nginx-build
+###< Vite ###
 
 ###> Node ###
 node_modules/
@@ -61,12 +67,18 @@ tsconfig.tsbuildinfo
 .idea/runConfigurations/
 ###< JetBrain/PHPStorm ###
 
-.nginx-build
+###> Project ###
+# Public folder
+projects/**/public/*
 
-# ignore fonts & logos
-projects/**/public/fonts
-projects/**/public/logos
-projects/**/public/**/covers
-projects/**/public/**/icons
+# Allow some files
+!projects/**/public/static/
+!projects/**/public/robots.txt
 
+# Env files
+projects/**/*.local
+###< Project ###
+
+###> System files ###
 .DS_Store
+###< System file ###

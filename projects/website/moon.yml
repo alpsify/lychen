@@ -44,24 +44,24 @@ tags:
 tasks:
   assets-sync:
     deps:
-      - args: '$projectRoot/public/vara/covers'
-        target: assets-vara:create-symlink-on-covers
-      - args: '$projectRoot/public/tera/covers'
-        target: assets-tera:create-symlink-on-covers
-      - args: '$projectRoot/public/humu/covers'
-        target: assets-humu:create-symlink-on-covers
-      - args: '$projectRoot/public/myko/covers'
-        target: assets-myko:create-symlink-on-covers
-      - args: '$projectRoot/public/kiro/covers'
-        target: assets-kiro:create-symlink-on-covers
-      - args: '$projectRoot/public/kolo/covers'
-        target: assets-kolo:create-symlink-on-covers
-      - args: '$projectRoot/public/novi/covers'
-        target: assets-novi:create-symlink-on-covers
-      - args: '$projectRoot/public/robust/covers'
-        target: assets-robust:create-symlink-on-covers
-      - args: '$projectRoot/public/meli/covers'
-        target: assets-meli:create-symlink-on-covers
+      - args: '$projectRoot/public/vara'
+        target: assets-vara:create-symlink-on-content
+      - args: '$projectRoot/public/humu'
+        target: assets-humu:create-symlink-on-content
+      - args: '$projectRoot/public/myko'
+        target: assets-myko:create-symlink-on-content
+      - args: '$projectRoot/public/kiro'
+        target: assets-kiro:create-symlink-on-content
+      - args: '$projectRoot/public/kolo'
+        target: assets-kolo:create-symlink-on-content
+      - args: '$projectRoot/public/novi'
+        target: assets-novi:create-symlink-on-content
+      - args: '$projectRoot/public/robust'
+        target: assets-robust:create-symlink-on-content
+      - args: '$projectRoot/public/meli'
+        target: assets-meli:create-symlink-on-content
+      - args: '$projectRoot/public/tera'
+        target: assets-tera:create-symlink-on-content
       - args: '$projectRoot/public/sustainable-development-goals'
         target: assets-sustainable-development-goals:create-symlink-on-content
 
