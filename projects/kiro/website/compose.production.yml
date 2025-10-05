@@ -1,4 +1,4 @@
 services:
   website:
-    image: ghcr.io/alpsify/lychen/production/kiro/website:latest
+    image: ghcr.io/lychen-lab/lychen/production/kiro/website:latest
     restart: unless-stopped

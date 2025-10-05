@@ -1,4 +1,4 @@
 services:
   website:
-    image: ghcr.io/alpsify/lychen/production/novi/website:latest
+    image: ghcr.io/lychen-lab/lychen/production/novi/website:latest
     restart: unless-stopped

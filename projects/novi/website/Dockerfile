@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-LABEL org.opencontainers.image.source=https://github.com/alpsify/lychen
+LABEL org.opencontainers.image.source=https://github.com/lychen-lab/lychen
 
 ARG CACHE_DATE="$(date)"
 

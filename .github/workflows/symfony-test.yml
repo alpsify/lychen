@@ -1,7 +1,7 @@
 name: Symfony | Tests
 
 env:
-  REGISTRY: ghcr.io/alpsify/lychen/test
+  REGISTRY: ghcr.io/lychen-lab/lychen/test
 
 on:
   pull_request:

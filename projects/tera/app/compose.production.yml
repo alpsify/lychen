@@ -1,4 +1,4 @@
 services:
   app:
-    image: ghcr.io/alpsify/lychen/production/tera/app:latest
+    image: ghcr.io/lychen-lab/lychen/production/tera/app:latest
     restart: unless-stopped

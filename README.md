@@ -19,7 +19,7 @@ Lychen is an GPL-3.0-licensed open source project with its ongoing development m
 
 ## Questions
 
-For questions and support please use [the official forum](https://github.com/alpsify/lychen/discussions) or [community chat](https://discord.gg/FSMbXt5gr4). The issue list of this repo is **exclusively** for bug reports and feature requests.
+For questions and support please use [the official forum](https://github.com/lychen-lab/lychen/discussions) or [community chat](https://discord.gg/FSMbXt5gr4). The issue list of this repo is **exclusively** for bug reports and feature requests.
 
 ## Technologies
 
@@ -72,6 +72,6 @@ Thank you to everyone who has contributed or will contribute to Lychen!🙏🏽�
 
 ## License
 
-[GPL-3.0](https://github.com/alpsify/lychen?tab=GPL-3.0-1-ov-file)
+[GPL-3.0](https://github.com/lychen-lab/lychen?tab=GPL-3.0-1-ov-file)
 
 Copyright (c) 2025-present, Alpsify

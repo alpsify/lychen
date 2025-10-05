@@ -1,15 +1,15 @@
 services:
   api:
-    image: ghcr.io/alpsify/lychen/production/flora/api:latest
+    image: ghcr.io/lychen-lab/lychen/production/flora/api:latest
     env_file:
       - .env
     ports:
       - 80
     restart: unless-stopped
     volumes:
-      - 'caddy_data:/data'
-      - 'caddy_config:/config'
-      - 'api_logs:/app/var/log'
+      - "caddy_data:/data"
+      - "caddy_config:/config"
+      - "api_logs:/app/var/log"
 
 volumes:
   caddy_config:
