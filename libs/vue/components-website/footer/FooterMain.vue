@@ -19,20 +19,7 @@
 
       <div class="flex basis-1/4 flex-col justify-center gap-2 text-sm">
         <p class="font-medium">{{ EMAIL.Bonjour }}</p>
-        <p>
-          Made with ❤️ by
-          <a
-            class="underline"
-            :href="LINK.Alpsify"
-            >@alpsify</a
-          >
-          and
-          <a
-            class="underline"
-            :href="LINK.HumusAndCo"
-            >@humusandco</a
-          >
-        </p>
+        <p>Made with ❤️ by lychen</p>
       </div>
     </div>
 
