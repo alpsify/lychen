@@ -74,4 +74,4 @@ Thank you to everyone who has contributed or will contribute to Lychen!🙏🏽�
 
 [GPL-3.0](https://github.com/lychen-lab/lychen?tab=GPL-3.0-1-ov-file)
 
-Copyright (c) 2025-present, Alpsify
+Copyright (c) 2025-present, lychen
