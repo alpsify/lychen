@@ -59,6 +59,9 @@
       "path": "libs/vue/components-app"
     },
     {
+      "path": "libs/vue/components-business"
+    },
+    {
       "path": "libs/vue/components-core"
     },
     {
@@ -150,9 +153,6 @@
     },
     {
       "path": "projects/robust/website"
-    },
-    {
-      "path": "projects/storybook"
     },
     {
       "path": "projects/tera/app"

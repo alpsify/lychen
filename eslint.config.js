@@ -8,8 +8,9 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import markdown from '@eslint/markdown';
 import checkFile from 'eslint-plugin-check-file';
 import eslintPluginYml from 'eslint-plugin-yml';
+import { defineConfig } from 'eslint/config';
 
-export default [
+export default defineConfig([
   {
     ignores: [
       '*.min.js',
@@ -102,4 +103,4 @@ export default [
       //'tailwindcss/classnames-order': 'off',
     },
   },
-];
+]);

@@ -1,0 +1,9 @@
+dependsOn:
+  - typescript-utils
+  - vue-components-core
+
+id: vue-components-business
+
+language: typescript
+
+type: library
