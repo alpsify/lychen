@@ -15,7 +15,7 @@ By promoting symbiotic relationships between these actors, Lychen encourages eco
 
 ## Sponsors
 
-Lychen is an GPL-3.0-licensed open source project with its ongoing development made possible entirely by the support backers. If you'd like to join them, please consider [sponsoring Lychen development](https://github.com/sponsors/nathan-de-pachtere).
+Lychen is an GPL-3.0-licensed open source project with its ongoing development made possible entirely by the support backers. If you'd like to join them, please consider [sponsoring Lychen development]().
 
 ## Questions
 
