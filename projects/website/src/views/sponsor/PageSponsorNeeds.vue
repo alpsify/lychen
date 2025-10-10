@@ -1,21 +1,21 @@
 <template>
-  <Container class="flex flex-col gap-4 items-center md:py-20">
+  <Container class="flex flex-col items-center gap-4 md:py-20">
     <Title variant="h2">{{ t(`section.needs.title`) }}</Title>
     <Paragraph
       variant="website-highlight"
       class="text-center md:w-3/5"
       >{{ t(`section.needs.description`) }}</Paragraph
     >
-    <div class="flex flex-col lg:w-2/3 m-auto gap-6">
+    <div class="m-auto flex flex-col gap-6 lg:w-2/3">
       <div
-        class="flex flex-col md:grid md:grid-cols-[100px_1fr_min-content] gap-4 bg-surface-container text-on-surface-container rounded-lg items-center p-4"
+        class="bg-surface-container text-on-surface-container flex flex-col items-center gap-4 rounded-lg p-4 md:grid md:grid-cols-[100px_1fr_min-content]"
       >
         <div class="flex items-center justify-center">
           <IconServer />
         </div>
-        <div class="flex flex-col justify-center md:items-start items-center gap-2">
+        <div class="flex flex-col items-center justify-center gap-2 md:items-start">
           <Title variant="h3">{{ t(`section.needs.server.title`) }}</Title>
-          <p class="text-center md:text-left opacity-80">
+          <p class="text-center opacity-80 md:text-left">
             {{ t(`section.needs.server.description`) }}
           </p>
         </div>
@@ -25,7 +25,7 @@
           }}</Badge>
           <p
             variant="h6"
-            class="opacity-60 whitespace-nowrap"
+            class="whitespace-nowrap opacity-60"
           >
             {{ t(`section.needs.backed_by`) }}
           </p>
@@ -34,7 +34,7 @@
               <small class="opacity-40">2025</small>
               <a
                 :href="LINK.Alpsify"
-                class="flex gap-2 items-center"
+                class="flex items-center gap-2"
                 target="_blank"
                 >alpsify <IconArrowUpRight class="opacity-50"
               /></a>
@@ -43,7 +43,7 @@
               <small class="opacity-40">2024</small>
               <a
                 :href="LINK.Alpsify"
-                class="flex gap-2 items-center"
+                class="flex items-center gap-2"
                 target="_blank"
                 >alpsify <IconArrowUpRight class="opacity-50"
               /></a>

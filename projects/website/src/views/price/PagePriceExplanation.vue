@@ -18,7 +18,7 @@
     </Paragraph>
 
     <Paragraph
-      class="md:w-4/6 text-tertiary"
+      class="text-tertiary md:w-4/6"
       variant="website-default"
       ><IconArrowRight class="mr-2" />{{ t('explanation.flexible')
       }}<a

@@ -1,13 +1,13 @@
 <template>
   <DivScalingDown>
     <Hero
-      class="dark:text-on-surface text-surface flex flex-col items-center justify-center gap-4 min-h-[30dvh] md:min-h-[60dvh] text-center bg-gradient-to-tr from-[#348F50] to-[#56B4D3] rounded-b-3xl pt-20"
+      class="dark:text-on-surface text-surface flex min-h-[30dvh] flex-col items-center justify-center gap-4 rounded-b-3xl bg-gradient-to-tr from-[#348F50] to-[#56B4D3] pt-20 text-center md:min-h-[60dvh]"
     >
-      <div class="flex flex-col basis-3/4 gap-4 items-center">
+      <div class="flex basis-3/4 flex-col items-center gap-4">
         <Title variant="h1">{{ t(`section.intro.title`) }}</Title>
         <Paragraph
           variant="website-highlight"
-          class="flex md:w-4/5 items-center"
+          class="flex items-center md:w-4/5"
           >{{ t(`section.intro.description`) }}</Paragraph
         >
       </div>

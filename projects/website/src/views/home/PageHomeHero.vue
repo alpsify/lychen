@@ -1,15 +1,15 @@
 <template>
   <DivScalingDown class="flex flex-col justify-start">
     <Hero
-      class="text-surface dark:text-on-surface flex flex-row items-center justify-start gap-4 min-h-dvh"
+      class="text-surface dark:text-on-surface flex min-h-dvh flex-row items-center justify-start gap-4"
       :background-image="heroUrl"
       overlay
       overlay-class="bg-on-surface dark:bg-surface opacity-40"
     >
-      <div class="flex flex-col md:w-3/5 items-start gap-4">
+      <div class="flex flex-col items-start gap-4 md:w-3/5">
         <Title
           variant="h1"
-          class="text-balance z-20"
+          class="z-20 text-balance"
           >{{ t('hero.title.prepend') }}
           {{ t('hero.title.key_word') }}
           {{ t('hero.title.append') }}</Title
@@ -19,7 +19,7 @@
           class="z-20"
           >{{ t('hero.description') }}
         </Paragraph>
-        <div class="flex flex-row gap-4 items-center">
+        <div class="flex flex-row items-center gap-4">
           <RouterLink
             to="#discover"
             class="z-20"
@@ -34,7 +34,7 @@
             :to="{ name: ROUTE_SPONSOR.name }"
             class="z-20"
           >
-            <RainbowBox class="flex flex-row gap-2 no-wrap rounded-2xl">
+            <RainbowBox class="no-wrap flex flex-row gap-2 rounded-2xl">
               {{ t('hero.sponsor_us') }}<IconHeartHandshake />
             </RainbowBox>
           </RouterLink>

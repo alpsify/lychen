@@ -13,11 +13,11 @@
             <NavigationMenuTrigger>{{ t(`navigation.app.title`) }}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div
-                class="flex flex-col items-stretch gap-2 bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
+                class="bg-surface-container/70 text-on-surface-container flex flex-col items-stretch gap-2 backdrop-blur-lg"
               >
                 <div class="flex flex-row gap-4">
                   <div
-                    class="basis-2/3 grid gap-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-2 p-6"
+                    class="grid basis-2/3 gap-4 p-6 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-2"
                   >
                     <NavigationMenuSubLink
                       v-for="application in opiniatedApplicationsList"
@@ -27,17 +27,17 @@
                   </div>
 
                   <div
-                    class="relative bg-tertiary-container basis-1/3 rounded-3xl flex flex-col gap-2"
+                    class="bg-tertiary-container relative flex basis-1/3 flex-col gap-2 rounded-3xl"
                   >
                     <img
-                      class="absolute top-0 left-0 w-full h-full rounded-3xl opacity-50"
+                      class="absolute top-0 left-0 h-full w-full rounded-3xl opacity-50"
                       src="/robust/covers/robust-cover-1.webp"
                     />
                     <div
-                      class="absolute bg-gradient-to-br from-tertiary-container to-tertiary-container/20 rounded-3xl top-0 left-0 w-full h-full z-20"
+                      class="from-tertiary-container to-tertiary-container/20 absolute top-0 left-0 z-20 h-full w-full rounded-3xl bg-gradient-to-br"
                     ></div>
                     <div class="text-on-surface z-20 flex flex-col gap-4 p-8">
-                      <p class="text-md font-black font-lexend leading-none tracking-wide">
+                      <p class="text-md font-lexend leading-none font-black tracking-wide">
                         {{ robust.title }}
                       </p>
                       <p>{{ robust.description }}</p>
@@ -60,9 +60,9 @@
             <NavigationMenuTrigger>{{ t(`navigation.resources.title`) }}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div
-                class="flex flex-row gap-2 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
+                class="bg-surface-container/70 text-on-surface-container flex flex-row gap-2 backdrop-blur-lg md:w-[500px]"
               >
-                <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
+                <div class="flex basis-1/2 flex-col items-stretch gap-4 p-6">
                   <NavigationMenuSubLink
                     v-for="resourceMenu in resourcesMenuList"
                     v-bind="resourceMenu"
@@ -72,7 +72,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="ResourcesMenuUrl"
-                    class="h-full w-auto max-h-[500px]"
+                    class="h-full max-h-[500px] w-auto"
                   />
                 </div>
               </div>
@@ -82,9 +82,9 @@
             <NavigationMenuTrigger>{{ t(`navigation.community.title`) }}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div
-                class="flex flex-row gap-4 md:w-[500px] bg-surface-container/70 text-on-surface-container backdrop-blur-lg"
+                class="bg-surface-container/70 text-on-surface-container flex flex-row gap-4 backdrop-blur-lg md:w-[500px]"
               >
-                <div class="flex flex-col items-stretch gap-4 basis-1/2 p-6">
+                <div class="flex basis-1/2 flex-col items-stretch gap-4 p-6">
                   <NavigationMenuSubLink
                     v-for="communityMenu in communityMenuList"
                     v-bind="communityMenu"
@@ -94,7 +94,7 @@
                 <div class="basis-1/2">
                   <img
                     :src="CommunityMenuUrl"
-                    class="h-full w-auto max-h-[500px]"
+                    class="h-full max-h-[500px] w-auto"
                   />
                 </div>
               </div>
