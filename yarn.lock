@@ -2568,6 +2568,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-components-business@workspace:libs/vue/components-business":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-business@workspace:libs/vue/components-business"
+  dependencies:
+    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
+    "@lychen/typescript-utils": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@vueuse/core": "npm:^13.9.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.5.1"
+    vue: "npm:^3.5.22"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-components-core@workspace:*, @lychen/vue-components-core@workspace:libs/vue/components-core":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-core@workspace:libs/vue/components-core"
@@ -2692,6 +2706,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
     "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@fortawesome/vue-fontawesome": "npm:^3.1.2"
+    lucide-vue-next: "npm:^0.545.0"
     reka-ui: "npm:^2.5.1"
     vue: "npm:^3.5.22"
   languageName: unknown
@@ -7663,6 +7678,15 @@ __metadata:
   dependencies:
     yallist: "npm:^3.0.2"
   checksum: 10c0/89b2ef2ef45f543011e38737b8a8622a2f8998cddf0e5437174ef8f1f70a8b9d14a918ab3e232cb3ba343b7abddffa667f0b59075b2b80e6b4d63c3de6127482
+  languageName: node
+  linkType: hard
+
+"lucide-vue-next@npm:^0.545.0":
+  version: 0.545.0
+  resolution: "lucide-vue-next@npm:0.545.0"
+  peerDependencies:
+    vue: ">=3.0.1"
+  checksum: 10c0/c8bcb97d840882819b9efe09adcca05c0dd26e6ccd20382aa372ca2d35200fd1fc6f76e4e43f7bf564f0db95a64ccd5ac03331f1e7bbf21956cbc6768326a29d
   languageName: node
   linkType: hard
 
