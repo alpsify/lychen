@@ -61,7 +61,7 @@ import LayoutInAppContent from './in-app/LayoutInAppContent.vue';
 import LayoutInAppSideNavigationHeader from './in-app/LayoutInAppSideNavigationHeader.vue';
 import LayoutInAppSideNavigationFooter from './in-app/LayoutInAppSideNavigationFooter.vue';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import { LogoLychenIconOnly } from '@lychen/vue-components-extra/logo-lychen';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

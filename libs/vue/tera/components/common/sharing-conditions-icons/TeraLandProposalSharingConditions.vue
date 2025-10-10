@@ -30,8 +30,6 @@ import { type Display, DISPLAY } from '.';
 import { type LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import { LAND_SHARING_CONDITION_ICON } from '@lychen/vue-tera/components/icons/IconLandSharingCondition';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
-
 const {
   display = DISPLAY.Horizontal,
   sharingConditions = [],

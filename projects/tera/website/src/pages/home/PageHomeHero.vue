@@ -26,10 +26,7 @@
             class="flex gap-2"
             data-umami-event="features-button"
             >{{ t('hero.button.features.label') }}
-            <Icon
-              :icon="faChevronDown"
-              beat
-            />
+            <IconChevronDown />
           </Button>
         </RouterLink>
       </div>
@@ -40,11 +37,10 @@
 <script setup lang="ts">
 import heroImg from './assets/HeroImage.webp';
 import { defineAsyncComponent } from 'vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
 
 const DivScalingDown = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),

@@ -8,7 +8,6 @@ dependsOn:
   - vue-components-core
   - vue-components-website
   - vue-i18n
-  - vue-i18n
   - vue-layouts
   - vue-router-configs
   - vue-unhead-composables

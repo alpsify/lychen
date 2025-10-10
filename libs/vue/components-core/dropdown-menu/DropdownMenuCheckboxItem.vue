@@ -10,10 +10,7 @@
   >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuItemIndicator>
-        <Icon
-          :icon="faCheck"
-          class="w-4 h-4"
-        />
+        <IconCheck class="w-4 h-4" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />
@@ -21,9 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import Icon from '../icon/Icon.vue';
-import { faCheck } from '@fortawesome/pro-light-svg-icons';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 import {
   DropdownMenuCheckboxItem,
   type DropdownMenuCheckboxItemEmits,

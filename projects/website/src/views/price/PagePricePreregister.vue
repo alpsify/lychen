@@ -26,7 +26,7 @@
           <Button
             variant="ghost"
             class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-on-primary"
-            >{{ t('preregister.button.label') }} <Icon :icon="faChevronRight"
+            >{{ t('preregister.button.label') }} <IconChevronRight
           /></Button>
         </div>
       </DivWithBackgroundImg>
@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import imageUrl from './assets/preregister.webp';
 import { defineAsyncComponent } from 'vue';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
+import IconChevronRight from '@lychen/vue-icons/IconChevronRight.vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { LINK } from '@lychen/typescript-constants/Link';
@@ -49,7 +49,6 @@ const DivWithBackgroundImg = defineAsyncComponent(
 const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),

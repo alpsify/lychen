@@ -23,7 +23,7 @@
           <Button
             variant="ghost"
             class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-on-primary"
-            >{{ t('oss.button.label') }} <Icon :icon="faChevronRight"
+            >{{ t('oss.button.label') }} <IconChevronRight
           /></Button>
         </div>
       </DivWithBackgroundImg>
@@ -34,11 +34,11 @@
 <script setup lang="ts">
 import ossUrl from './assets/oss.webp';
 import { defineAsyncComponent } from 'vue';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { ROUTE_MANIFEST } from '../manifest';
+import IconChevronRight from '@lychen/vue-icons/IconChevronRight.vue';
 
 const DivWithBackgroundImg = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-with-background-img/DivWithBackgroundImg.vue'),
@@ -47,7 +47,6 @@ const DivWithBackgroundImg = defineAsyncComponent(
 const Button = defineAsyncComponent(() => import('@lychen/vue-components-core/button/Button.vue'));
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),

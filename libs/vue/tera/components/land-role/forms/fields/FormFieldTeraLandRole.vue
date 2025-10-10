@@ -103,7 +103,7 @@ import {
   messages as landRoleMessages,
   TRANSLATION_KEY as LAND_ROLE_TRANSLATION_KEY,
 } from '@lychen/i18n-tera/land-role';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import { useQuery } from '@tanstack/vue-query';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import { z } from 'zod';

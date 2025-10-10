@@ -10,10 +10,7 @@
     "
   >
     <slot>
-      <Icon
-        :icon="faMinus"
-        class="h-4 w-4"
-      />
+      <IconMinus class="h-4 w-4" />
     </slot>
   </NumberFieldDecrement>
 </template>
@@ -23,8 +20,7 @@ import type { NumberFieldDecrementProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { faMinus } from '@fortawesome/pro-light-svg-icons/faMinus';
-import Icon from '../icon/Icon.vue';
+import IconMinus from '@lychen/vue-icons/IconMinus.vue';
 
 const props = defineProps<NumberFieldDecrementProps & { class?: HTMLAttributes['class'] }>();
 

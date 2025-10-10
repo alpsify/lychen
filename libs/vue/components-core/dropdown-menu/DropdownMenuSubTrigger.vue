@@ -9,17 +9,13 @@
     "
   >
     <slot />
-    <Icon
-      :icon="faChevronRight"
-      class="ml-auto h-4 w-4"
-    />
+    <IconChevronRight class="ml-auto h-4 w-4" />
   </DropdownMenuSubTrigger>
 </template>
 
 <script setup lang="ts">
-import { Icon } from '../icon';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import IconChevronRight from '@lychen/vue-icons/IconChevronRight.vue';
 import { DropdownMenuSubTrigger, type DropdownMenuSubTriggerProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

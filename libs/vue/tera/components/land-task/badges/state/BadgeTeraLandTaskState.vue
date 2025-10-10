@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import Badge from '@lychen/vue-components-core/badge/Badge.vue';
 import { faCircleDashed } from '@fortawesome/pro-light-svg-icons';
 import { LandTaskJsonldState as State } from '@lychen/typescript-tera-api-sdk/generated/tera-api';

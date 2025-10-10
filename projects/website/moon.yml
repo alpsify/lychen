@@ -4,14 +4,13 @@ dependsOn:
   - typescript-constants
   - vite-ssg
   - vue-applications
-  - vue-applications
   - vue-color-scheme
   - vue-components-core
   - vue-components-extra
   - vue-components-website
   - vue-drawio-core
   - vue-i18n
-  - vue-i18n
+  - vue-icons
   - vue-layouts
   - vue-router-configs
   - vue-sustainable-development-goals

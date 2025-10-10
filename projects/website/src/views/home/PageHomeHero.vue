@@ -67,7 +67,6 @@ const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const RainbowBox = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/rainbow-box/RainbowBox.vue'),

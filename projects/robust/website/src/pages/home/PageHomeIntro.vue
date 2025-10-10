@@ -145,8 +145,8 @@ import Container from '@lychen/vue-components-website/container/Container.vue';
 import Title from '@lychen/vue-components-website/title/Title.vue';
 import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
 import { TextHighlight } from '@lychen/vue-components-extra/text-highlight';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
 import { faStar } from '@fortawesome/pro-light-svg-icons/faStar';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

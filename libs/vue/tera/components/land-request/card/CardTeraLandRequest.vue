@@ -74,7 +74,7 @@ const Card = defineAsyncComponent(() => import('@lychen/vue-components-core/card
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
+
 const Badge = defineAsyncComponent(() => import('@lychen/vue-components-core/badge/Badge.vue'));
 
 const props = defineProps<{

@@ -179,7 +179,6 @@ import { faCoffee } from '@fortawesome/pro-light-svg-icons/faCoffee';
 import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
 import { faServer } from '@fortawesome/pro-light-svg-icons/faServer';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 const Badge = defineAsyncComponent(() => import('@lychen/vue-components-core/badge/Badge.vue'));
 
 const RainbowBox = defineAsyncComponent(

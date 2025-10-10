@@ -49,7 +49,6 @@ import Card from '@lychen/vue-components-core/card/Card.vue';
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const { variant = VARIANT.Default } = defineProps<{
   name?: string;

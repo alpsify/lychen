@@ -8,17 +8,13 @@
       )
     "
   >
-    <Icon
-      :icon="faTimes"
-      class="h-4 w-4"
-    />
+    <IconTimes class="h-4 w-4" />
   </ToastClose>
 </template>
 
 <script setup lang="ts">
-import { Icon } from '../icon';
-import { faTimes } from '@fortawesome/pro-light-svg-icons';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import IconTimes from '@lychen/vue-icons/IconTimes.vue';
 import { ToastClose, type ToastCloseProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 

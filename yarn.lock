@@ -2810,6 +2810,7 @@ __metadata:
     "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-core": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-sustainable-development-goals": "workspace:*"

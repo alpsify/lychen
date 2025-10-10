@@ -24,8 +24,6 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
-
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-components-website/container/Container.vue'),
 );

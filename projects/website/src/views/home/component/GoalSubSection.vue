@@ -32,7 +32,6 @@ const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 interface Props {
   title: string;

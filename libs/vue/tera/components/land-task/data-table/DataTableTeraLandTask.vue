@@ -154,7 +154,7 @@ import { DropdownMenu } from '@lychen/vue-components-core/dropdown-menu';
 import DropdownMenuTrigger from '@lychen/vue-components-core/dropdown-menu/DropdownMenuTrigger.vue';
 import DropdownMenuContent from '@lychen/vue-components-core/dropdown-menu/DropdownMenuContent.vue';
 import DropdownMenuCheckboxItem from '@lychen/vue-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
