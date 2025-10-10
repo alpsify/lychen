@@ -5,24 +5,24 @@
         :background-image="ossUrl"
         overlay
         overlay-class="bg-on-surface dark:bg-surface opacity-50"
-        class="p-8 rounded-3xl py-24 group"
+        class="group rounded-3xl p-8 py-24"
       >
         <div
-          class="relative flex flex-col items-center gap-8 z-10 text-surface dark:text-on-surface"
+          class="text-surface dark:text-on-surface relative z-10 flex flex-col items-center gap-8"
         >
           <Title
             variant="h2"
-            class="md:basis-2/5 text-center"
+            class="text-center md:basis-2/5"
             >{{ t('oss.title') }}</Title
           >
           <Paragraph
             variant="website-highlight"
-            class="opacity-90 md:w-3/5 text-center"
+            class="text-center opacity-90 md:w-3/5"
             >{{ t('oss.description') }}</Paragraph
           >
           <Button
             variant="ghost"
-            class="flex flex-row gap-2 group-hover:bg-primary group-hover:text-on-primary"
+            class="group-hover:bg-primary group-hover:text-on-primary flex flex-row gap-2"
             >{{ t('oss.button.label') }} <IconChevronRight
           /></Button>
         </div>

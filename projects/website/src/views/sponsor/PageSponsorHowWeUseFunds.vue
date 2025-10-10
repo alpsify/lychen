@@ -1,5 +1,5 @@
 <template>
-  <Container class="flex flex-col gap-4 lg:w-1/2 md:py-20">
+  <Container class="flex flex-col gap-4 md:py-20 lg:w-1/2">
     <Title variant="h2">{{ t(`section.how_we_use_funds.title`) }}</Title>
     <Paragraph variant="website-highlight">{{
       t(`section.how_we_use_funds.description`)

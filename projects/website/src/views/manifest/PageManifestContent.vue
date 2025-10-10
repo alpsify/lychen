@@ -5,9 +5,9 @@
       :key="index"
       class="md:py-10"
     >
-      <div class="flex flex-col md:flex-row gap-2 md:gap-8">
+      <div class="flex flex-col gap-2 md:flex-row md:gap-8">
         <div
-          class="flex flex-col basis-1/4 gap-2 rounded-3xl bg-tertiary-container text-on-tertiary-container p-4 md:p-6"
+          class="bg-tertiary-container text-on-tertiary-container flex basis-1/4 flex-col gap-2 rounded-3xl p-4 md:p-6"
         >
           <Title
             variant="h2"
@@ -17,7 +17,7 @@
           <Paragraph class="opacity-80">{{ t(`section.${sectionKey}.description`) }}</Paragraph>
         </div>
 
-        <div class="basis-3/4 flex flex-col gap-6 p-4 md:p-6">
+        <div class="flex basis-3/4 flex-col gap-6 p-4 md:p-6">
           <div
             v-for="(subSectionKey, _index) in Object.keys(
               messages['fr-FR'].section[sectionKey].sub_section,

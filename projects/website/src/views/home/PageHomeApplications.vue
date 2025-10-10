@@ -3,12 +3,12 @@
     <Title variant="h2">{{ t('applications.title') }}</Title>
     <Title
       variant="h2"
-      class="opacity-80 text-center"
+      class="text-center opacity-80"
       >{{ t('applications.second_title') }}</Title
     >
     <Dialog v-model:open="isOpen">
       <Carousel
-        class="w-[85%] sm:w-[90%] mt-10"
+        class="mt-10 w-[85%] sm:w-[90%]"
         :opts="{
           align: 'start',
         }"
@@ -23,13 +23,13 @@
               <ApplicationCard
                 :application="application"
                 background-image-folder="applications-covers"
-                class="bg-surface-container rounded-3xl min-h-[400px] md:min-h-[500px] p-6 cursor-pointer"
+                class="bg-surface-container min-h-[400px] cursor-pointer rounded-3xl p-6 md:min-h-[500px]"
                 :data-umami-event="`Clicks on ${application.alias} card`"
                 @click="selectedApplication = application"
               >
                 <template #footer
                   ><Button
-                    class="text-sm self-center z-10 justify-end animate-in slide-in-from-bottom-4 duration-300 md:hidden md:group-hover:flex"
+                    class="animate-in slide-in-from-bottom-4 z-10 justify-end self-center text-sm duration-300 md:hidden md:group-hover:flex"
                     size="sm"
                   >
                     {{ t('applications.see_features') }}
@@ -42,12 +42,12 @@
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <DialogContent class="md:max-w-[50%] w-full max-h-dvh gap-8 overflow-y-scroll">
+      <DialogContent class="max-h-dvh w-full gap-8 overflow-y-scroll md:max-w-[50%]">
         <div
-          class="flex flex-col justify-between gap-4 bg-secondary-container text-on-secondary-container rounded-3xl p-4 md:p-6 items-stretch overflow-y-auto"
+          class="bg-secondary-container text-on-secondary-container flex flex-col items-stretch justify-between gap-4 overflow-y-auto rounded-3xl p-4 md:p-6"
         >
           <div class="flex flex-col gap-2">
-            <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row items-center justify-between">
               <ApplicationTitle
                 class="text-3xl"
                 :value="selectedApplication.title"

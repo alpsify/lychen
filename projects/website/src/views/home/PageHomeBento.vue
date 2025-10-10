@@ -1,6 +1,6 @@
 <template>
   <Container class="flex flex-col items-center">
-    <div class="bento-grid self-stretch mt-8">
+    <div class="bento-grid mt-8 self-stretch">
       <div class="item justify-center">
         <IconEarth class="text-5xl" />
         <p class="text-xl">{{ t('bento.integrability.title') }}</p>
@@ -12,7 +12,7 @@
       </div>
       <div class="item justify-between">
         <p>{{ t('bento.local_value.title') }}</p>
-        <p class="text-4xl gradient">{{ t('bento.local_value.keyword') }}</p>
+        <p class="gradient text-4xl">{{ t('bento.local_value.keyword') }}</p>
         <p>{{ t('bento.local_value.subtitle') }}</p>
       </div>
       <div class="item justify-center">
@@ -23,15 +23,15 @@
         <p>{{ t('bento.accessibility.subtitle') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="text-xl gradient md:text-2xl">{{ t('bento.citizen_change.title') }}</p>
+        <p class="gradient text-xl md:text-2xl">{{ t('bento.citizen_change.title') }}</p>
       </div>
       <div class="item bg-surface-container-high">
         <img
           :src="bentoCentralImageUrl"
-          class="rounded-xl w-2/3"
+          class="w-2/3 rounded-xl"
           alt="number 10 as organic blue and green shapes"
         />
-        <p class="text-4xl gradient">{{ t('bento.applications.title') }}</p>
+        <p class="gradient text-4xl">{{ t('bento.applications.title') }}</p>
         <p>{{ t('bento.applications.subtitle') }}</p>
       </div>
       <div class="item justify-between">
@@ -43,24 +43,24 @@
         <div></div>
         <div>
           <IconHeartHandshake class="text-5xl" />
-          <p class="text-2xl md:text-4xl gradient">{{ t('bento.sponsorship.title') }}</p>
+          <p class="gradient text-2xl md:text-4xl">{{ t('bento.sponsorship.title') }}</p>
         </div>
         {{ t('bento.sponsorship.description') }}
       </div>
       <div class="item justify-center">
-        <p class="text-2xl gradient">{{ t('bento.ethics_inclusion.title') }}</p>
+        <p class="gradient text-2xl">{{ t('bento.ethics_inclusion.title') }}</p>
       </div>
       <div class="item justify-center">
         <p class="gradient text-5xl">{{ t('bento.compromise.title') }}</p>
         <p>{{ t('bento.compromise.subtitle') }}</p>
       </div>
       <div class="item justify-center">
-        <p class="text-xl gradient md:text-2xl">{{ t('bento.communication.title') }}</p>
+        <p class="gradient text-xl md:text-2xl">{{ t('bento.communication.title') }}</p>
       </div>
       <div class="item justify-center">
         <p class="text-2xl">{{ t('bento.team.title') }}</p>
       </div>
-      <div class="item justify-center bg-surface-container text-on-surface-container">
+      <div class="item bg-surface-container text-on-surface-container justify-center">
         {{ t('bento.transparency.title') }}
         <p class="gradient text-2xl">
           {{ t('bento.transparency.subtitle') }}

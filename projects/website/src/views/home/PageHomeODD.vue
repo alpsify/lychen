@@ -1,6 +1,6 @@
 <template>
   <Container class="flex flex-col items-center gap-4">
-    <div class="flex flex-col-reverse md:grid md:grid-cols-[30%_1fr] gap-8 mt-10 w-full">
+    <div class="mt-10 flex w-full flex-col-reverse gap-8 md:grid md:grid-cols-[30%_1fr]">
       <div class="flex flex-col justify-between gap-10">
         <Title variant="h2">{{ t('goals.title') }}</Title>
         <GoalSubSection
@@ -16,19 +16,19 @@
           @click="selectedGoal = goal"
         />
       </div>
-      <div class="rounded-2xl md:p-14 flex flex-col justify-center items-center">
+      <div class="flex flex-col items-center justify-center rounded-2xl md:p-14">
         <div class="relative">
           <img
             v-if="selectedGoal"
             :src="`sustainable-development-goals/icons/${selectedGoal.icon}`"
-            class="rounded-2xl h-14 md:h-24 absolute odd-icon z-10"
+            class="odd-icon absolute z-10 h-14 rounded-2xl md:h-24"
             :alt="`Icône de l'objectif de développement durable n° ${selectedGoal.index}`"
           />
           <img
             :key="selectedGoal.index"
             :src="images[selectedGoal.index]"
             :alt="`Image de l'objectif de développement durable n° ${selectedGoal.index}`"
-            class="rounded-2xl motion-preset-slide-left-sm"
+            class="motion-preset-slide-left-sm rounded-2xl"
           />
         </div>
       </div>

@@ -3,8 +3,8 @@
     class="component grid grid-cols-[4px_1fr] gap-6"
     :class="expanded ? 'expanded' : ''"
   >
-    <div class="w-full h-4/5 rounded-full mt-[3px] badge-track">
-      <div class="w-full h-2/5 bg-primary rounded-full badge"></div>
+    <div class="badge-track mt-[3px] h-4/5 w-full rounded-full">
+      <div class="bg-primary badge h-2/5 w-full rounded-full"></div>
     </div>
     <div class="flex flex-col gap-2">
       <Title variant="h3">{{ title }}</Title>
@@ -15,7 +15,7 @@
       >
       <a
         :href="link.href"
-        class="flex flex-row gap-2 text-primary items-center link"
+        class="text-primary link flex flex-row items-center gap-2"
         target="_blank"
         ><span class="underline">{{ link.title }}</span>
         <IconArrowUpRight />
