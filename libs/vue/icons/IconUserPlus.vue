@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faUserPlus" />
+  <UserRoundPlus />
 </template>
 
 <script setup lang="ts">
-import { faUserPlus } from '@fortawesome/pro-light-svg-icons/faUserPlus';
-import Icon from './Icon.vue';
+import { UserRoundPlus } from 'lucide-vue-next';
 </script>

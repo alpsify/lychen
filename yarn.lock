@@ -1601,66 +1601,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/duotone-light-svg-icons@npm:^7.0.0":
-  version: 7.0.1
-  resolution: "@fortawesome/duotone-light-svg-icons@npm:7.0.1"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:7.0.1"
-  checksum: 10c0/93fa6c8ba9fd160ac02627322c8ab579dcc83a4b45cd9f85c2f4080133e9919e44c71cb03571b1942309811299c14556657d86d64f0e6969a82b0b5ddfc17731
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-common-types@npm:7.0.1":
-  version: 7.0.1
-  resolution: "@fortawesome/fontawesome-common-types@npm:7.0.1"
-  checksum: 10c0/1cebe9727950f8fcea581e115ed91f9b2bf287114077adde0cc1fb32d25c2c2ec282a8cff291b22ca558cbb1264af7fad04b85c5afcb899745584b2874df4151
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-common-types@npm:7.1.0":
-  version: 7.1.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:7.1.0"
-  checksum: 10c0/8d10a6bfaa33f66fd042fe9f8159926a3e9b12d5cbf31698a88980b0e9b84ebc8c6b4b25e5c865c1d8542a67ed4fa1fadfaabfec250b991f018f2b45aa3b005d
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-svg-core@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "@fortawesome/fontawesome-svg-core@npm:7.1.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:7.1.0"
-  checksum: 10c0/6c32b78f1a7c269d4c14c457ed0f3d09269f700861524330e54b838693727827be810ded3322099995266d490235321a8f356a6f270dc5bd9ce651fc3c94be26
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-brands-svg-icons@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "@fortawesome/free-brands-svg-icons@npm:7.1.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:7.1.0"
-  checksum: 10c0/f12c17386f8e5d12b31936617fdb37f5bbd82617ea990197255be1d1818a0fc736b99c715591c6bb3e995851bcd72cc7cf6d76d49eb16486e0db84b4723fa4ad
-  languageName: node
-  linkType: hard
-
-"@fortawesome/pro-light-svg-icons@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "@fortawesome/pro-light-svg-icons@npm:7.1.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:7.1.0"
-  checksum: 10c0/7e50123a0013e5503910aac3ac8a01fd6b67809b0faabd01691d21981b19774fd323c59429c2983d35748ad32de1faf1de23e8d5d6a2bd2bf44ebc9cd376fe55
-  languageName: node
-  linkType: hard
-
-"@fortawesome/vue-fontawesome@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "@fortawesome/vue-fontawesome@npm:3.1.2"
-  peerDependencies:
-    "@fortawesome/fontawesome-svg-core": ~1 || ~6 || ~7
-    vue: ">= 3.0.0 < 4"
-  checksum: 10c0/bce79543821d0cdd966b10a1003a0080418340cfa894c02a275c85a2fd8a2fa908eab908e937e6b4977bf0394162f62f4b39c7522930f63a41fc47a9d75fe3b4
-  languageName: node
-  linkType: hard
-
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -2016,7 +1956,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/design@workspace:projects/design"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/vite-ssg": "workspace:*"
     "@lychen/vue-components-app": "workspace:*"
@@ -2053,7 +1992,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/humu-website@workspace:projects/humu/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-humu": "workspace:*"
@@ -2091,7 +2029,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kiro-website@workspace:projects/kiro/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-kiro": "workspace:*"
@@ -2123,7 +2060,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/kolo-website@workspace:projects/kolo/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-kolo": "workspace:*"
@@ -2155,7 +2091,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/meli-website@workspace:projects/meli/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-meli": "workspace:*"
@@ -2187,7 +2122,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/myko-website@workspace:projects/myko/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-myko": "workspace:*"
@@ -2219,7 +2153,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/novi-website@workspace:projects/novi/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-novi": "workspace:*"
@@ -2251,7 +2184,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/robust-website@workspace:projects/robust/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-robust": "workspace:*"
@@ -2283,7 +2215,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-app@workspace:projects/tera/app"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/i18n-tera": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
@@ -2328,7 +2259,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/tera-website@workspace:projects/tera/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-tera-core": "workspace:*"
@@ -2478,7 +2408,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vara-website@workspace:projects/vara/website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/typescript-vara": "workspace:*"
@@ -2556,7 +2485,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-app@workspace:libs/vue/components-app"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
@@ -2568,15 +2496,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lychen/vue-components-business@workspace:libs/vue/components-business":
+  version: 0.0.0-use.local
+  resolution: "@lychen/vue-components-business@workspace:libs/vue/components-business"
+  dependencies:
+    "@lychen/typescript-utils": "workspace:*"
+    "@lychen/vue-components-core": "workspace:*"
+    "@vueuse/core": "npm:^13.9.0"
+    class-variance-authority: "npm:^0.7.1"
+    reka-ui: "npm:^2.5.1"
+    vue: "npm:^3.5.22"
+  languageName: unknown
+  linkType: soft
+
 "@lychen/vue-components-core@workspace:*, @lychen/vue-components-core@workspace:libs/vue/components-core":
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-core@workspace:libs/vue/components-core"
   dependencies:
-    "@fortawesome/duotone-light-svg-icons": "npm:^7.0.0"
-    "@fortawesome/fontawesome-svg-core": "npm:^7.0.0"
-    "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
-    "@fortawesome/vue-fontawesome": "npm:^3.1.2"
     "@internationalized/date": "npm:^3.9.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-icons": "workspace:*"
@@ -2600,7 +2536,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-extra@workspace:libs/vue/components-extra"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
     "@vueuse/core": "npm:^13.9.0"
@@ -2614,7 +2549,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-components-website@workspace:libs/vue/components-website"
   dependencies:
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/typescript-utils": "workspace:*"
     "@lychen/vue-color-scheme": "workspace:*"
     "@lychen/vue-components-core": "workspace:*"
@@ -2688,11 +2622,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-icons@workspace:libs/vue/icons"
   dependencies:
-    "@fortawesome/fontawesome-svg-core": "npm:^7.0.0"
-    "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
-    "@fortawesome/vue-fontawesome": "npm:^3.1.2"
-    reka-ui: "npm:^2.5.1"
+    lucide-vue-next: "npm:^0.545.0"
     vue: "npm:^3.5.22"
   languageName: unknown
   linkType: soft
@@ -2721,8 +2651,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/vue-layouts@workspace:libs/vue/layouts"
   dependencies:
-    "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/typescript-constants": "workspace:*"
     "@lychen/vue-applications": "workspace:*"
     "@lychen/vue-components-app": "workspace:*"
@@ -2869,8 +2797,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lychen/website@workspace:projects/website"
   dependencies:
-    "@fortawesome/free-brands-svg-icons": "npm:^7.0.0"
-    "@fortawesome/pro-light-svg-icons": "npm:^7.0.0"
     "@lychen/css-core": "workspace:*"
     "@lychen/drawio-core": "workspace:*"
     "@lychen/typescript-applications": "workspace:*"
@@ -2884,6 +2810,7 @@ __metadata:
     "@lychen/vue-drawio-components": "workspace:*"
     "@lychen/vue-drawio-core": "workspace:*"
     "@lychen/vue-i18n": "workspace:*"
+    "@lychen/vue-icons": "workspace:*"
     "@lychen/vue-layouts": "workspace:*"
     "@lychen/vue-router-configs": "workspace:*"
     "@lychen/vue-sustainable-development-goals": "workspace:*"
@@ -7663,6 +7590,15 @@ __metadata:
   dependencies:
     yallist: "npm:^3.0.2"
   checksum: 10c0/89b2ef2ef45f543011e38737b8a8622a2f8998cddf0e5437174ef8f1f70a8b9d14a918ab3e232cb3ba343b7abddffa667f0b59075b2b80e6b4d63c3de6127482
+  languageName: node
+  linkType: hard
+
+"lucide-vue-next@npm:^0.545.0":
+  version: 0.545.0
+  resolution: "lucide-vue-next@npm:0.545.0"
+  peerDependencies:
+    vue: ">=3.0.1"
+  checksum: 10c0/c8bcb97d840882819b9efe09adcca05c0dd26e6ccd20382aa372ca2d35200fd1fc6f76e4e43f7bf564f0db95a64ccd5ac03331f1e7bbf21956cbc6768326a29d
   languageName: node
   linkType: hard
 

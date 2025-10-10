@@ -1,4 +1,3 @@
-import type { IconDefinition } from '@fortawesome/pro-light-svg-icons';
 import type { InjectionKey, Ref } from 'vue';
 
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
@@ -7,7 +6,6 @@ export const INJECTION_KEY_NAVIGATION_EXPANDED: InjectionKey<Ref<boolean>> = Sym
 
 export interface NavigationItem {
   label: string;
-  icon?: IconDefinition;
   to: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
 }
 

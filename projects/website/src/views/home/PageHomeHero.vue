@@ -35,11 +35,7 @@
             class="z-20"
           >
             <RainbowBox class="flex flex-row gap-2 no-wrap rounded-2xl">
-              {{ t('hero.sponsor_us')
-              }}<Icon
-                :icon="faHandsHoldingHeart"
-                class="fa-lg"
-              />
+              {{ t('hero.sponsor_us') }}<IconHeartHandshake />
             </RainbowBox>
           </RouterLink>
         </div>
@@ -51,11 +47,11 @@
 <script setup lang="ts">
 import heroUrl from './assets/hero-2.webp';
 import { defineAsyncComponent } from 'vue';
-import { faHandsHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandsHoldingHeart';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { ROUTE_SPONSOR } from '../sponsor';
+import IconHeartHandshake from '@lychen/vue-icons/IconHeartHandshake.vue';
 
 const DivScalingDown = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/div-scaling-down/DivScalingDown.vue'),
@@ -67,7 +63,6 @@ const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const RainbowBox = defineAsyncComponent(
   () => import('@lychen/vue-components-extra/rainbow-box/RainbowBox.vue'),

@@ -15,7 +15,7 @@
           </div>
           <small
             class="flex-row gap-1 hidden group-hover:flex items-center text-xs motion-blur-in-md motion-duration-[1s] motion-ease-spring-smooth"
-            >lychen.fr<Icon :icon="faArrowUpRight"
+            >lychen.fr<IconArrowUpRight
           /></small>
         </div>
       </a>
@@ -48,7 +48,7 @@
             target="_blank"
             aria-label="GitHub"
           >
-            <Icon :icon="faGithub" />
+            <IconGithub />
           </a>
           <ButtonTallyPreregister class="hidden md:flex" />
           <div class="flex flex-row items-center lg:hidden">
@@ -57,10 +57,7 @@
               side="right"
             >
               <SheetTrigger as-child>
-                <Icon
-                  :icon="faBarsStaggered"
-                  class="cursor-pointer"
-                />
+                <IconMenu class="cursor-pointer" />
               </SheetTrigger>
               <SheetContent
                 class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg flex flex-col gap-4"
@@ -84,14 +81,14 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
-import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
+import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
+import IconGithub from '@lychen/vue-icons/IconGithub.vue';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
 
 import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+import IconMenu from '@lychen/vue-icons/IconMenu.vue';
 
 const ButtonTallyPreregister = defineAsyncComponent(
   () =>
@@ -125,8 +122,6 @@ const SheetContent = defineAsyncComponent(
 const SelectLanguage = defineAsyncComponent(
   () => import('@lychen/vue-i18n/components/select-language/SelectLanguage.vue'),
 );
-
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const isOpen = ref<boolean>(false);
 

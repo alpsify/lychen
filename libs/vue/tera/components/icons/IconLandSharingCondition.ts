@@ -1,23 +1,14 @@
-import { faShovel } from '@fortawesome/pro-light-svg-icons/faShovel';
-import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
-import { faLeafyGreen } from '@fortawesome/pro-light-svg-icons/faLeafyGreen';
-import { faTreeDeciduous } from '@fortawesome/pro-light-svg-icons/faTreeDeciduous';
-import { faFlower } from '@fortawesome/pro-light-svg-icons/faFlower';
-import { faStrawberry } from '@fortawesome/pro-light-svg-icons/faStrawberry';
-import { faSeedling } from '@fortawesome/pro-light-svg-icons/faSeedling';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
 import {
   LAND_SHARING_CONDITION,
   type LandSharingCondition,
 } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 
-export const LAND_SHARING_CONDITION_ICON: { [key in LandSharingCondition]: IconDefinition } = {
-  [LAND_SHARING_CONDITION.GeneralMaintenance]: faShovel,
-  [LAND_SHARING_CONDITION.Gardening]: faSeedling,
-  [LAND_SHARING_CONDITION.Beehives]: faBee,
-  [LAND_SHARING_CONDITION.VegetableSharing]: faLeafyGreen,
-  [LAND_SHARING_CONDITION.FruitSharing]: faStrawberry,
-  [LAND_SHARING_CONDITION.FlowerPlanting]: faFlower,
-  [LAND_SHARING_CONDITION.TreePlanting]: faTreeDeciduous,
+export const LAND_SHARING_CONDITION_ICON: { [key in LandSharingCondition]: string } = {
+  [LAND_SHARING_CONDITION.GeneralMaintenance]: '',
+  [LAND_SHARING_CONDITION.Gardening]: '',
+  [LAND_SHARING_CONDITION.Beehives]: '',
+  [LAND_SHARING_CONDITION.VegetableSharing]: '',
+  [LAND_SHARING_CONDITION.FruitSharing]: '',
+  [LAND_SHARING_CONDITION.FlowerPlanting]: '',
+  [LAND_SHARING_CONDITION.TreePlanting]: '',
 } as const;

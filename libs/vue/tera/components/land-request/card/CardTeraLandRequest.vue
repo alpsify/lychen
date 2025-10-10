@@ -4,10 +4,7 @@
     class="grid md:grid-cols-[auto_1fr_auto_auto] gap-4 items-center"
   >
     <div class="bg-surface-container-high rounded-full size-12 flex items-center justify-center">
-      <Icon
-        :icon="faUserVneck"
-        class="p-2"
-      />
+      <IconUser class="p-2" />
     </div>
     <div class="flex flex-col">
       <BaseHeading variant="h3">{{ title }}</BaseHeading>
@@ -17,7 +14,7 @@
           size="sm"
           variant="outline"
         >
-          <Icon :icon="faMapLocation" />
+          <IconMapPin />
           {{ city }}
         </Badge>
         <Badge
@@ -25,7 +22,7 @@
           size="sm"
           :variant="isCloseToExpire ? 'warning' : 'default'"
         >
-          <Icon :icon="faClock" />
+          <IconClock />
           {{ d(expirationDate, 'short') }}
         </Badge>
       </div>
@@ -60,9 +57,9 @@ import { messages, TRANSLATION_KEY } from '@lychen/i18n-tera/land-proposal';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
-import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
-import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
-import { faUserVneck } from '@fortawesome/pro-light-svg-icons/faUserVneck';
+import IconClock from '@lychen/vue-icons/IconClock.vue';
+import IconUser from '@lychen/vue-icons/IconUser.vue';
+import IconMapPin from '@lychen/vue-icons/IconMapPin.vue';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { type LandInteractionMode } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
 import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
@@ -74,7 +71,7 @@ const Card = defineAsyncComponent(() => import('@lychen/vue-components-core/card
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
+
 const Badge = defineAsyncComponent(() => import('@lychen/vue-components-core/badge/Badge.vue'));
 
 const props = defineProps<{

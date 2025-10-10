@@ -10,10 +10,7 @@
   >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuItemIndicator>
-        <Icon
-          :icon="faCircle"
-          class="h-2 w-2 fill-current"
-        />
+        <IconCircle class="h-2 w-2 fill-current" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />
@@ -21,8 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '../icon';
-import { faCircle } from '@fortawesome/pro-light-svg-icons';
+import IconCircle from '@lychen/vue-icons/IconCircle.vue';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import {
   DropdownMenuItemIndicator,

@@ -3,7 +3,7 @@
     :class="classes[state]"
     class="uppercase"
   >
-    <Icon :icon="faCircleDashed" />
+    <IconCircleDashed />
     {{ t(state) }}
   </Badge>
 </template>
@@ -11,9 +11,10 @@
 <script lang="ts" setup>
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import Badge from '@lychen/vue-components-core/badge/Badge.vue';
-import { faCircleDashed } from '@fortawesome/pro-light-svg-icons';
+import IconCircleDashed from '@lychen/vue-icons/IconCircleDashed.vue';
+
 import { LandTaskJsonldState as State } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });

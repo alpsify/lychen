@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Icon } from '@lychen/vue-components-core/icon';
 import { type NavigationItem } from '.';
 
 defineProps<NavigationItem>();

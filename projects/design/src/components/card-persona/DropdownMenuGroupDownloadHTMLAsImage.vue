@@ -1,15 +1,11 @@
 <template>
   <DropdownMenuGroup>
-    <DropdownMenuItem
-      :icon="faFilePng"
-      @click="download(SUPPORTED_EXTENSION.Png)"
-    >
+    <DropdownMenuItem @click="download(SUPPORTED_EXTENSION.Png)">
+      <IconFileImage />
       <span>Télécharger en PNG</span>
     </DropdownMenuItem>
-    <DropdownMenuItem
-      :icon="faFileSvg"
-      @click="download(SUPPORTED_EXTENSION.Svg)"
-    >
+    <DropdownMenuItem @click="download(SUPPORTED_EXTENSION.Svg)">
+      <IconFileCode />
       <span>Télécharger en SVG</span>
     </DropdownMenuItem>
   </DropdownMenuGroup>
@@ -18,8 +14,8 @@
 <script setup lang="ts">
 import { SUPPORTED_EXTENSION, useDownloadHTMLAsImage } from './useDownloadHTMLAsImage';
 import { DropdownMenuGroup, DropdownMenuItem } from '@lychen/vue-components-core/dropdown-menu';
-import { faFileSvg } from '@fortawesome/pro-light-svg-icons/faFileSvg';
-import { faFilePng } from '@fortawesome/pro-light-svg-icons/faFilePng';
+import IconFileImage from '@lychen/vue-icons/IconFileImage.vue';
+import IconFileCode from '@lychen/vue-icons/IconFileCode.vue';
 
 interface Props {
   templateRef: string;

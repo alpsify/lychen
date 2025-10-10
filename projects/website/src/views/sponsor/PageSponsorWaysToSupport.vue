@@ -9,11 +9,10 @@
         v-for="(pointKey, index) in Object.keys(messages['fr-FR'].section.ways_to_support.options)"
         :key="index"
       >
-        <Icon
-          :icon="faArrowRight"
-          class="mr-2"
-        />
-        <p class="font-bold">{{ t(`section.ways_to_support.options.${pointKey}.title`) }}</p>
+        <div class="flex flex-row items-center">
+          <IconArrowRight class="mr-2" />
+          <p class="font-bold">{{ t(`section.ways_to_support.options.${pointKey}.title`) }}</p>
+        </div>
         <small class="opacity-80">{{
           t(`section.ways_to_support.options.${pointKey}.description`)
         }}</small>
@@ -26,7 +25,7 @@
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
+import IconArrowRight from '@lychen/vue-icons/IconArrowRight.vue';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-components-website/container/Container.vue'),

@@ -22,18 +22,15 @@
         <small>Journalisez vos observations</small>
       </div>
       <div class="flex flex-row gap-2 items-center">
-        <Button
-          :icon="faCamera"
-          variant="ghost"
-        />
-        <Button
-          :icon="faMicrophone"
-          variant="ghost"
-        />
-        <Button
-          :icon="faKeyboard"
-          variant="ghost"
-        />
+        <Button variant="ghost">
+          <template #icon><IconCamera /></template
+        ></Button>
+        <Button variant="ghost">
+          <template #icon><IconMic /></template
+        ></Button>
+        <Button variant="ghost">
+          <template #icon><IconKeyboard /></template
+        ></Button>
       </div>
     </div>
   </section>
@@ -43,9 +40,9 @@
 import zitadelAuth from '@lychen/typescript-zitadel/ZitadelAuth';
 import { defineAsyncComponent } from 'vue';
 import headerImg from './assets/header.webp';
-import { faMicrophone } from '@fortawesome/pro-light-svg-icons/faMicrophone';
-import { faKeyboard } from '@fortawesome/pro-light-svg-icons/faKeyboard';
-import { faCamera } from '@fortawesome/pro-light-svg-icons/faCamera';
+import IconKeyboard from '@lychen/vue-icons/IconKeyboard.vue';
+import IconMic from '@lychen/vue-icons/IconMic.vue';
+import IconCamera from '@lychen/vue-icons/IconCamera.vue';
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 

@@ -1,7 +1,6 @@
 {
   "name": "@lychen/vue-components-website",
   "dependencies": {
-    "@fortawesome/pro-light-svg-icons": "^7.0.0",
     "@lychen/typescript-utils": "workspace:*",
     "@lychen/vue-color-scheme": "workspace:*",
     "@lychen/vue-components-core": "workspace:*",

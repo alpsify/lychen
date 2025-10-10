@@ -10,10 +10,7 @@
   >
     <CheckboxIndicator class="flex h-full w-full items-center justify-center text-current">
       <slot>
-        <Icon
-          :icon="faCheck"
-          class="h-4 w-4"
-        />
+        <IconCheck class="h-4 w-4" />
       </slot>
     </CheckboxIndicator>
   </CheckboxRoot>
@@ -24,8 +21,7 @@ import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 
 const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<CheckboxRootEmits>();

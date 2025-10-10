@@ -29,10 +29,7 @@
         <DialogClose
           class="absolute top-3 right-3 p-0.5 transition-colors rounded-md hover:bg-secondary"
         >
-          <Icon
-            :icon="faTimes"
-            class="size-4"
-          />
+          <IconTimes class="size-4" />
           <span class="sr-only">Close</span>
         </DialogClose>
       </DialogContent>
@@ -42,6 +39,7 @@
 
 <script setup lang="ts">
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
+import IconTimes from '@lychen/vue-icons/IconTimes.vue';
 import {
   DialogClose,
   DialogContent,
@@ -52,8 +50,6 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
 
 const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<DialogContentEmits>();

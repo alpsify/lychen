@@ -45,9 +45,10 @@
                       <a href="https://robust.lychen.fr">
                         <Button
                           :label="t('navigation.app.robust.button')"
-                          :icon="faArrowUpRight"
                           class="self-start"
-                      /></a>
+                        >
+                          <template #icon> <IconArrowUpRight /> </template></Button
+                      ></a>
                     </div>
                   </div>
                 </div>
@@ -135,14 +136,14 @@
         target="_blank"
         aria-label="GitHub"
       >
-        <Icon :icon="faGithub" />
+        <IconGithub />
       </a>
       <a
         :href="SOCIAL_LINK.Discord"
         target="_blank"
         aria-label="Discord"
       >
-        <Icon :icon="faDiscord" />
+        <IconDiscord />
       </a>
       <ButtonTallyPreregister class="hidden md:flex" />
     </div>
@@ -150,8 +151,8 @@
 </template>
 
 <script setup lang="ts">
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
+import IconGithub from '@lychen/vue-icons/IconGithub.vue';
+import IconDiscord from '@lychen/vue-icons/IconDiscord.vue';
 import CommunityMenuUrl from './assets/community-menu.webp';
 import ResourcesMenuUrl from './assets/resources-menu.webp';
 import { navigationMenuTriggerStyle } from '@lychen/vue-components-core/navigation-menu';
@@ -162,7 +163,7 @@ import { ROUTE_PRICE } from '@/views/price';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
+import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 
 import { useCommunityMenu } from './composables/useCommunityMenu';
 import { useResourcesMenu } from './composables/useResourcesMenu';
@@ -183,7 +184,6 @@ const NavigationMenuSubLink = defineAsyncComponent(
   () => import('@lychen/vue-components-core/navigation-menu/NavigationMenuSubLink.vue'),
 );
 
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 const NavigationMenu = defineAsyncComponent(
   () => import('@lychen/vue-components-core/navigation-menu/NavigationMenu.vue'),
 );

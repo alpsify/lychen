@@ -1,8 +1,6 @@
 {
   "name": "@lychen/vue-layouts",
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^7.0.0",
-    "@fortawesome/pro-light-svg-icons": "^7.0.0",
     "@lychen/typescript-constants": "workspace:*",
     "@lychen/vue-applications": "workspace:*",
     "@lychen/vue-components-app": "workspace:*",

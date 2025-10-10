@@ -24,7 +24,7 @@
     <template v-if="ICON_POSITION.End === iconPosition && !loading">
       <slot name="icon" />
     </template>
-    <IconSpinnerThird v-if="loading" />
+    <IconLoaderCircle v-if="loading" />
   </button>
 </template>
 
@@ -40,7 +40,7 @@ import {
   type VariantKey,
   type SizeKey,
 } from '.';
-import IconSpinnerThird from '@lychen/vue-icons/IconSpinnerThird.vue';
+import IconLoaderCircle from '@lychen/vue-icons/IconLoaderCircle.vue';
 
 interface Props {
   /**

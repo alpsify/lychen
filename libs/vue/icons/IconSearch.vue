@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faSearch" />
+  <Search />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
+import { Search } from 'lucide-vue-next';
 </script>

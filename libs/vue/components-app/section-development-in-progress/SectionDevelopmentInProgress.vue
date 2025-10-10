@@ -4,8 +4,7 @@
     :variant="PATTERN_BACKGROUND_VARIANT.Grid"
     class="flex flex-col gap-4 p-20 rounded-3xl bg-surface-container size-full justify-center items-center"
   >
-    <Icon
-      :icon="faTrowelBricks"
+    <IconPickaxe
       size="2xl"
       class="text-warning"
     />
@@ -17,14 +16,13 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@lychen/vue-components-core/icon';
 import {
   PATTERN_BACKGROUND_DIRECTION,
   PATTERN_BACKGROUND_VARIANT,
   PatternBackground,
 } from '@lychen/vue-components-core/pattern-background';
 import BaseHeading from '../base-heading/BaseHeading.vue';
-import { faTrowelBricks } from '@fortawesome/pro-light-svg-icons/faTrowelBricks';
+import IconPickaxe from '@lychen/vue-icons/IconPickaxe.vue';
 
 defineProps<{ title?: string }>();
 </script>

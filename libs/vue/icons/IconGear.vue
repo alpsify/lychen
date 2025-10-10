@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faGear" />
+  <Settings />
 </template>
 
 <script setup lang="ts">
-import { faGear } from '@fortawesome/pro-light-svg-icons/faGear';
-import Icon from './Icon.vue';
+import { Settings } from 'lucide-vue-next';
 </script>

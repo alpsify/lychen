@@ -10,10 +10,7 @@
     "
   >
     <slot>
-      <Icon
-        :icon="faPlus"
-        class="h-4 w-4"
-      />
+      <IconPlus class="h-4 w-4" />
     </slot>
   </NumberFieldIncrement>
 </template>
@@ -23,8 +20,7 @@ import type { NumberFieldIncrementProps } from 'reka-ui';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { NumberFieldIncrement, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
-import Icon from '../icon/Icon.vue';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 
 const props = defineProps<NumberFieldIncrementProps & { class?: HTMLAttributes['class'] }>();
 

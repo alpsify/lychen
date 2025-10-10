@@ -9,26 +9,19 @@
       )
     "
   >
-    <Icon
-      v-if="icon"
-      :icon="icon"
-    />
     <slot />
   </DropdownMenuItem>
 </template>
 
 <script setup lang="ts">
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { DropdownMenuItem, type DropdownMenuItemProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { Icon } from '../icon';
 
 const props = defineProps<
   DropdownMenuItemProps & {
     class?: HTMLAttributes['class'];
     inset?: boolean;
-    icon?: IconDefinition;
   }
 >();
 

@@ -1,8 +1,5 @@
 name: 'End to end tests'
 
-env:
-  FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
-
 on:
   workflow_dispatch: {}
   #pull_request: #Disable for now

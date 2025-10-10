@@ -30,10 +30,11 @@
           <div class="flex flew-row items-center gap-4">
             <DropdownMenuTeraLandTaskMain :land-task="landTask">
               <Button
-                :icon="faEllipsisV"
                 size="sm"
                 variant="ghost"
-              />
+              >
+                <template #icon><IconEllipsisVertical /></template>
+              </Button>
             </DropdownMenuTeraLandTaskMain>
 
             <DialogClose
@@ -61,7 +62,7 @@ import {
   DialogClose,
   DialogTrigger,
 } from '@lychen/vue-components-core/dialog';
-import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
+import IconEllipsisVertical from '@lychen/vue-icons/IconEllipsisVertical.vue';
 import { Badge } from '@lychen/vue-components-core/badge';
 import FormTeraLandTaskUpdate from '@lychen/vue-tera/components/land-task/forms/FormTeraLandTaskUpdate.vue';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';

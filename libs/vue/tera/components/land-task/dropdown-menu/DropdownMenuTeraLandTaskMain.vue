@@ -5,29 +5,28 @@
       <DropdownMenuGroup>
         <DropdownMenuItem
           v-if="isSupported && landTask.ulid"
-          :icon="faHashtag"
           @click="copy(landTask.ulid)"
         >
+          <IconHash />
           <span>Copier l'ID</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           v-if="isSupported && landTask.ulid"
-          :icon="faLink"
           @click="copy(landTaskURL)"
         >
+          <IconClipboardCopy />
           <span>Copier le lien</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem :icon="faCopy">
+        <DropdownMenuItem>
           <span>Dupliquer</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuItem
         class="text-negative focus:bg-negative-container focus:text-on-negative-container"
-        :icon="faTrash"
         @click="openDeleteDialog = true"
       >
         {{ tLandTask('action.delete.label') }}
@@ -57,10 +56,8 @@ import {
 } from '@lychen/i18n-tera/land-task';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { defineAsyncComponent, computed, ref } from 'vue';
-import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
-import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';
-import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
-import { faCopy } from '@fortawesome/pro-light-svg-icons/faCopy';
+import IconHash from '@lychen/vue-icons/IconHash.vue';
+import IconClipboardCopy from '@lychen/vue-icons/IconClipboardCopy.vue';
 import { useRouter } from 'vue-router';
 
 const DialogTeraLandTaskDelete = defineAsyncComponent(

@@ -4,10 +4,7 @@
     class="grid md:grid-cols-[auto_1fr_auto_auto] gap-4 items-center"
   >
     <div class="bg-surface-container-high rounded-full size-12 flex items-center justify-center">
-      <Icon
-        :icon="faFence"
-        class="p-2"
-      />
+      <IconFence class="p-2" />
     </div>
 
     <div class="flex flex-col">
@@ -17,7 +14,7 @@
           size="sm"
           variant="outline"
         >
-          <Icon :icon="faMapLocation" />
+          <IconMapPin />
           {{ landCity }}
         </Badge>
         <Badge
@@ -25,7 +22,7 @@
           size="sm"
           :variant="isCloseToExpire ? 'warning' : 'default'"
         >
-          <Icon :icon="faClock" />
+          <IconClock />
           {{ d(expirationDate, 'short') }}
         </Badge>
       </div>
@@ -35,7 +32,7 @@
         <p v-if="landSurface">• {{ tLand('property.surface.default', landSurface) }}</p>
         <p v-if="landAltitude">
           •
-          <Icon :icon="faMountains" />
+          <IconMountain />
           {{ tLand('property.altitude.default', landAltitude) }}
         </p>
       </div>
@@ -74,10 +71,10 @@ import {
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
-import { faMountains } from '@fortawesome/pro-light-svg-icons/faMountains';
-import { faMapLocation } from '@fortawesome/pro-light-svg-icons/faMapLocation';
-import { faClock } from '@fortawesome/pro-light-svg-icons/faClock';
-import { faFence } from '@fortawesome/pro-light-svg-icons/faFence';
+import IconClock from '@lychen/vue-icons/IconClock.vue';
+import IconMountain from '@lychen/vue-icons/IconMountain.vue';
+import IconMapPin from '@lychen/vue-icons/IconMapPin.vue';
+import IconFence from '@lychen/vue-icons/IconFence.vue';
 import TeraLandProposalSharingConditions from '../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { LAND_INTERACTION_MODE_ICON } from '../../icons/IconLandInteractionMode';
 import type { LandInteractionMode } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
@@ -89,7 +86,7 @@ const Card = defineAsyncComponent(() => import('@lychen/vue-components-core/card
 const BaseHeading = defineAsyncComponent(
   () => import('@lychen/vue-components-app/base-heading/BaseHeading.vue'),
 );
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
+
 const Badge = defineAsyncComponent(() => import('@lychen/vue-components-core/badge/Badge.vue'));
 
 const props = defineProps<{

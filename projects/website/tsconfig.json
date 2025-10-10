@@ -36,6 +36,9 @@
       "path": "../../libs/vue/i18n"
     },
     {
+      "path": "../../libs/vue/icons"
+    },
+    {
       "path": "../../libs/vue/layouts"
     },
     {

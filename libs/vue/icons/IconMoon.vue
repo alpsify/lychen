@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faMoon" />
+  <Moon />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faMoon } from '@fortawesome/pro-light-svg-icons/faMoon';
+import { Moon } from 'lucide-vue-next';
 </script>

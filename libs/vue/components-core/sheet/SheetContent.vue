@@ -12,10 +12,7 @@
         <DialogClose
           class="focus:ring-ring data-[state=open]:bg-secondary rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-offset-2 disabled:pointer-events-none"
         >
-          <Icon
-            :icon="faTimes"
-            class="size-4"
-          />
+          <IconTimes class="size-4" />
         </DialogClose>
       </div>
 
@@ -36,10 +33,9 @@ import {
 } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
-import Icon from '../icon/Icon.vue';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { type SheetVariants, sheetVariants } from '.';
-import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
+import IconTimes from '@lychen/vue-icons/IconTimes.vue';
 
 interface SheetContentProps extends DialogContentProps {
   class?: HTMLAttributes['class'];

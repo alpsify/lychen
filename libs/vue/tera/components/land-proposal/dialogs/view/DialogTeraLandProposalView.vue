@@ -12,11 +12,12 @@
         </div>
         <div class="flex flex-row gap-2">
           <Button
-            :icon="faShare"
             label="Partager"
             variant="ghost"
             size="sm"
-          />
+          >
+            <template #icon><IconShare2 /></template
+          ></Button>
           <DialogClose />
         </div>
       </DialogHeader>
@@ -53,7 +54,7 @@ import { messages, TRANSLATION_KEY } from './i18n';
 import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
 import { ref } from 'vue';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
+import IconShare2 from '@lychen/vue-icons/IconShare2.vue';
 import TeraLandProposalSharingConditions from '../../../common/sharing-conditions-icons/TeraLandProposalSharingConditions.vue';
 import { DISPLAY } from '../../../common/sharing-conditions-icons';
 import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';

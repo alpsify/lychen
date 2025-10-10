@@ -2,10 +2,7 @@
   <Container class="flex flex-col items-center">
     <div class="bento-grid self-stretch mt-8">
       <div class="item justify-center">
-        <Icon
-          :icon="faChartNetwork"
-          class="text-5xl"
-        />
+        <IconEarth class="text-5xl" />
         <p class="text-xl">{{ t('bento.integrability.title') }}</p>
       </div>
       <div class="item justify-between">
@@ -45,10 +42,7 @@
       <div class="item justify-between">
         <div></div>
         <div>
-          <Icon
-            :icon="faHandHoldingHeart"
-            class="text-5xl"
-          />
+          <IconHeartHandshake class="text-5xl" />
           <p class="text-2xl md:text-4xl gradient">{{ t('bento.sponsorship.title') }}</p>
         </div>
         {{ t('bento.sponsorship.description') }}
@@ -81,10 +75,8 @@ import bentoCentralImageUrl from './assets/bento-central-9.webp';
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { faChartNetwork } from '@fortawesome/pro-light-svg-icons/faChartNetwork';
-import { faHandHoldingHeart } from '@fortawesome/pro-light-svg-icons/faHandHoldingHeart';
-
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
+import IconHeartHandshake from '@lychen/vue-icons/IconHeartHandshake.vue';
+import IconEarth from '@lychen/vue-icons/IconEarth.vue';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-components-website/container/Container.vue'),

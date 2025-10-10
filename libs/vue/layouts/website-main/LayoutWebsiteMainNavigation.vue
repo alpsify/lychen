@@ -11,10 +11,7 @@
           side="right"
         >
           <SheetTrigger as-child>
-            <Icon
-              :icon="faBarsStaggered"
-              class="cursor-pointer"
-            />
+            <IconMenu class="cursor-pointer" />
           </SheetTrigger>
           <SheetContent
             class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg"
@@ -30,7 +27,7 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
-import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
+import IconMenu from '@lychen/vue-icons/IconMenu.vue';
 
 const SheetTrigger = defineAsyncComponent(
   () => import('@lychen/vue-components-core/sheet/SheetTrigger.vue'),
@@ -41,8 +38,6 @@ const Sheet = defineAsyncComponent(() => import('@lychen/vue-components-core/she
 const SheetContent = defineAsyncComponent(
   () => import('@lychen/vue-components-core/sheet/SheetContent.vue'),
 );
-
-const Icon = defineAsyncComponent(() => import('@lychen/vue-components-core/icon/Icon.vue'));
 
 const isOpen = ref<boolean>(false);
 

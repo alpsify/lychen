@@ -9,10 +9,7 @@
     "
   >
     <RadioGroupIndicator class="flex items-center justify-center">
-      <Icon
-        :icon="faCheck"
-        class="h-2.5 w-2.5 fill-current text-current"
-      />
+      <IconCheck class="h-2.5 w-2.5 fill-current text-current" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>
@@ -23,8 +20,7 @@ import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui';
 import { computed } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 
 const props = defineProps<RadioGroupItemProps & { class?: HTMLAttributes['class'] }>();
 

@@ -5,10 +5,7 @@
     :class="cn('flex cursor-default items-center justify-center py-1', props.class)"
   >
     <slot>
-      <Icon
-        :icon="faChevronDown"
-        class="size-4"
-      />
+      <IconChevronDown class="size-4" />
     </slot>
   </SelectScrollDownButton>
 </template>
@@ -18,8 +15,7 @@ import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 
 import { SelectScrollDownButton, type SelectScrollDownButtonProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { Icon } from '../icon';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
 
 const props = defineProps<SelectScrollDownButtonProps & { class?: HTMLAttributes['class'] }>();
 

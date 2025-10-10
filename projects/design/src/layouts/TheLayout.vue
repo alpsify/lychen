@@ -24,12 +24,7 @@
         </LayoutInAppSideNavigationSection>
       </div>
       <LayoutInAppSideNavigationFooter>
-        <a href="https://lychen.fr"
-          >lychen.fr
-          <Icon
-            :icon="faArrowUpRight"
-            class="text-xs opacity-80"
-        /></a>
+        <a href="https://lychen.fr">lychen.fr <IconArrowUpRight class="text-xs opacity-80" /></a>
       </LayoutInAppSideNavigationFooter>
     </LayoutInAppSideNavigation>
     <LayoutInAppContent />
@@ -60,9 +55,9 @@ import LayoutInAppHeader from './in-app/LayoutInAppHeader.vue';
 import LayoutInAppContent from './in-app/LayoutInAppContent.vue';
 import LayoutInAppSideNavigationHeader from './in-app/LayoutInAppSideNavigationHeader.vue';
 import LayoutInAppSideNavigationFooter from './in-app/LayoutInAppSideNavigationFooter.vue';
-import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
+
 import { LogoLychenIconOnly } from '@lychen/vue-components-extra/logo-lychen';
+import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 

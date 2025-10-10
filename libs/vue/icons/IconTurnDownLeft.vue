@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faTurnDownLeft" />
+  <CornerDownLeft />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faTurnDownLeft } from '@fortawesome/pro-light-svg-icons/faTurnDownLeft';
+import { CornerDownLeft } from 'lucide-vue-next';
 </script>
