@@ -1,7 +1,6 @@
 name: 'Vue | Deploy to staging'
 
 env:
-  FONTAWESOME_PACKAGE_TOKEN: ${{ secrets.FONTAWESOME_PACKAGE_TOKEN }}
   REGISTRY: ghcr.io
 
 on:
