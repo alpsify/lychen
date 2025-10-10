@@ -1,18 +1,13 @@
-import { faPeopleArrows } from '@fortawesome/pro-light-svg-icons/faPeopleArrows';
-import { faPeoplePulling } from '@fortawesome/pro-light-svg-icons/faPeoplePulling';
-import { faPerson } from '@fortawesome/pro-light-svg-icons/faPerson';
-import { faMessagesQuestion } from '@fortawesome/pro-light-svg-icons/faMessagesQuestion';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   LAND_INTERACTION_MODE,
   type LandInteractionMode,
 } from '@lychen/typescript-tera-core/constants/LandInteractionMode';
 
 export const LAND_INTERACTION_MODE_ICON: {
-  [key in LandInteractionMode]: IconDefinition;
+  [key in LandInteractionMode]: string;
 } = {
-  [LAND_INTERACTION_MODE.Together]: faPeoplePulling,
-  [LAND_INTERACTION_MODE.Alone]: faPerson,
-  [LAND_INTERACTION_MODE.NoPreference]: faMessagesQuestion,
-  [LAND_INTERACTION_MODE.TogetherButNotAllTime]: faPeopleArrows,
+  [LAND_INTERACTION_MODE.Together]: '',
+  [LAND_INTERACTION_MODE.Alone]: '',
+  [LAND_INTERACTION_MODE.NoPreference]: '',
+  [LAND_INTERACTION_MODE.TogetherButNotAllTime]: '',
 } as const;

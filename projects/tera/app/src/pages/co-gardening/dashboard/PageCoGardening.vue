@@ -6,10 +6,11 @@
         <BaseHeading variant="h2">Ces espaces de culture recherches des co-jardineurs</BaseHeading>
         <RouterLink :to="RoutePageCoGardeningProposals">
           <Button
-            :icon="faListUl"
             size="sm"
             variant="ghost"
-          />
+          >
+            <template #icon><IconList /></template
+          ></Button>
         </RouterLink>
       </div>
       <div class="flex flex-row gap-4 justify-between items-center">
@@ -40,7 +41,7 @@ import SectionDevelopmentInProgress from '@lychen/vue-components-app/section-dev
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
-import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import IconList from '@lychen/vue-icons/IconList.vue';
 
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';

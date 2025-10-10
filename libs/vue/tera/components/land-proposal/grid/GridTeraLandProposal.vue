@@ -36,10 +36,7 @@
       v-if="status === 'pending'"
       class="flex flex-row gap-4 items-center"
     >
-      <Icon
-        :icon="faLoaderCircle"
-        class="fa-spin"
-      />
+      <IconLoaderCircle />
       Recherche en cours
     </div>
     <div v-else>No land proposals found.</div>
@@ -50,11 +47,10 @@
 import CardTeraLandProposal from '@lychen/vue-tera/components/land-proposal/card/CardTeraLandProposal.vue';
 import DialogTeraLandProposalView from '@lychen/vue-tera/components/land-proposal/dialogs/view/DialogTeraLandProposalView.vue';
 
-import { Icon } from '@lychen/vue-components-core/icon';
-import { faLoaderCircle } from '@fortawesome/pro-light-svg-icons/faLoaderCircle';
 import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import type { operations } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import type { QueryStatus } from '@tanstack/vue-query';
+import IconLoaderCircle from '@lychen/vue-icons/IconLoaderCircle.vue';
 
 defineProps<{
   queryResult?: operations['land-proposal_collection-public']['responses']['200']['content']['application/ld+json'];

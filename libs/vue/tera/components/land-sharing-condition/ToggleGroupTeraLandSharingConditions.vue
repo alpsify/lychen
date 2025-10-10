@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
 import { ToggleGroup, ToggleGroupItem } from '@lychen/vue-components-core/toggle-group';
-import { Icon } from '@lychen/vue-components-core/icon';
+
 import {
   LAND_SHARING_CONDITIONS,
   type LandSharingCondition,

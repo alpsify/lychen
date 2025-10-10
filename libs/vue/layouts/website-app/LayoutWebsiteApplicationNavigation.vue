@@ -57,10 +57,7 @@
               side="right"
             >
               <SheetTrigger as-child>
-                <Icon
-                  :icon="faBarsStaggered"
-                  class="cursor-pointer"
-                />
+                <IconMenu class="cursor-pointer" />
               </SheetTrigger>
               <SheetContent
                 class="bg-surface-container/70 text-on-surface-container w-full backdrop-blur-lg flex flex-col gap-4"
@@ -84,7 +81,6 @@
 
 <script lang="ts" setup>
 import { defineAsyncComponent, provide, ref } from 'vue';
-import { faBarsStaggered } from '@fortawesome/pro-light-svg-icons/faBarsStaggered';
 import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 import IconGithub from '@lychen/vue-icons/IconGithub.vue';
 import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
@@ -92,6 +88,7 @@ import { SOCIAL_LINK } from '@lychen/typescript-constants/Social';
 import { type LayoutWebsiteApplicationNavigationProps } from '.';
 
 import ToggleColorScheme from '@lychen/vue-color-scheme/components/ToggleColorScheme.vue';
+import IconMenu from '@lychen/vue-icons/IconMenu.vue';
 
 const ButtonTallyPreregister = defineAsyncComponent(
   () =>

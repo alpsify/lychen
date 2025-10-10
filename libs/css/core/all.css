@@ -8,5 +8,6 @@
 @import './components/scrollbar.css';
 @import './components/container.css';
 @import './components/grid.css';
+@import './components/icon.css';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));

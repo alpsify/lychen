@@ -32,10 +32,11 @@
         :land="land"
       >
         <Button
-          :icon="faPlus"
           variant="outline"
           class="self-start"
           :label="tLandMemberInvitation('action.create.label')"
+        >
+          <template #icon><IconPlus /></template
         ></Button>
       </DialogTeraLandMemberInvitationCreate>
     </template>
@@ -72,10 +73,11 @@
         :land="land"
       >
         <Button
-          :icon="faPlus"
           variant="outline"
           class="self-start"
           :label="tLandRole('action.create.label')"
+        >
+          <template #icon><IconPlus /></template
         ></Button>
       </DialogTeraLandRoleCreate>
     </template>
@@ -110,7 +112,7 @@ import {
 import { computed, inject, onUnmounted } from 'vue';
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
 import { useQuery } from '@tanstack/vue-query';
-import { faPlus } from '@fortawesome/pro-light-svg-icons';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import CardTeraLandRole from '@lychen/vue-tera/components/land-role/card/CardTeraLandRole.vue';
 import DialogTeraLandRoleCreate from '@lychen/vue-tera/components/land-role/dialogs/create/DialogTeraLandRoleCreate.vue';

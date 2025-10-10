@@ -59,10 +59,7 @@
               {{ landRole.label }}
 
               <ComboboxItemIndicator>
-                <Icon
-                  :icon="faCheck"
-                  class="ml-auto h-4 w-4"
-                />
+                <IconCheck class="ml-auto h-4 w-4" />
               </ComboboxItemIndicator>
             </ComboboxItem>
           </ComboboxGroup>
@@ -76,7 +73,6 @@
 </template>
 
 <script setup lang="ts">
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
 import {
   Combobox,
   ComboboxAnchor,
@@ -115,6 +111,7 @@ import {
   TagsInputInput,
 } from '@lychen/vue-components-core/tags-input';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
 
 const { t } = useI18nExtended({
   messages: landRoleMessages,

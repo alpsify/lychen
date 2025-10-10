@@ -32,11 +32,6 @@
             )
           "
         >
-          <Icon
-            v-if="icon"
-            :icon="icon"
-            class="w-5 h-5 shrink-0"
-          />
           <span class="sr-only">{{ label }}</span>
         </RouterLink>
       </TooltipTrigger>
@@ -54,7 +49,6 @@
 <script lang="ts" setup>
 import { inject, type HTMLAttributes } from 'vue';
 import { INJECTION_KEY_NAVIGATION_EXPANDED, type NavigationItem } from '.';
-import Icon from '@lychen/vue-icons/Icon.vue';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@lychen/vue-components-core/tooltip';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 

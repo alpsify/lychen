@@ -31,7 +31,7 @@
           class="flex flex-col items-center backdrop-blur-lg px-4 py-2 bg-surface-container/50 text-on-surface-container rounded-xl"
         >
           <p class="text-md font-medium">{{ t('intro.inspire_others') }}</p>
-          <Icon :icon="faChevronDown" />
+          <IconChevronDown />
         </div>
         <div
           class="self-stretch md:self-center rounded-xl p-6 bg-surface-container/80 backdrop-blur-lg md:w-[300px] flex flex-col gap-4 shadow-2xl shadow-primary/50 dark:shadow-primary-container/50 outline outline-offset-4 outline-surface/50"
@@ -86,10 +86,7 @@
         >
           <p class="text-md font-medium">{{ t('intro.win_success') }}</p>
 
-          <Icon
-            :icon="faChevronRight"
-            class="w-8"
-          />
+          <IconChevronRight class="w-8" />
         </div>
         <div
           class="flex flex-col md:flex-row gap-4 bg-surface-container/80 backdrop-blur-lg p-6 rounded-md shadow-2xl shadow-primary/50 dark:shadow-primary-container/50 justify-center items-center"
@@ -116,9 +113,9 @@
         />
         <p class="font-lexend font-bold text-lg">alpsify</p>
         <div class="flex flex-row justify-center gap-1 items-center text-orange-400">
-          <Icon :icon="faStar" />
-          <Icon :icon="faStar" />
-          <Icon :icon="faStar" />
+          <IconStar />
+          <IconStar />
+          <IconStar />
         </div>
         <div class="flex flex-col gap-2 self-stretch justify-center items-center">
           <div class="bg-gray-300 w-full h-3 rounded-md"></div>
@@ -138,7 +135,6 @@ import RewardsImageUrl from './assets/rewards.png';
 import BadgeImageUrl from './assets/badge.png';
 import CompanyImageUrl from './assets/CompanyLogo.png';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { faChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { messages, TRANSLATION_KEY } from './i18n';
 import Container from '@lychen/vue-components-website/container/Container.vue';
@@ -147,7 +143,8 @@ import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
 import { TextHighlight } from '@lychen/vue-components-extra/text-highlight';
 
 import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
-import { faStar } from '@fortawesome/pro-light-svg-icons/faStar';
+import IconChevronRight from '@lychen/vue-icons/IconChevronRight.vue';
+import IconStar from '@lychen/vue-icons/IconStar.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 </script>

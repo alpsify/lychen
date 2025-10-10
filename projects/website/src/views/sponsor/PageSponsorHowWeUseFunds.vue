@@ -8,11 +8,9 @@
       <li
         v-for="(pointKey, index) in Object.keys(messages['fr-FR'].section.how_we_use_funds.points)"
         :key="index"
+        class="flex flex-row items-center"
       >
-        <Icon
-          :icon="faArrowRight"
-          class="mr-2"
-        />{{ t(`section.how_we_use_funds.points.${pointKey}.title`) }}
+        <IconArrowRight class="mr-2" />{{ t(`section.how_we_use_funds.points.${pointKey}.title`) }}
       </li>
     </ul>
   </Container>
@@ -22,7 +20,7 @@
 import { defineAsyncComponent } from 'vue';
 import { messages, TRANSLATION_KEY } from './i18n';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
-import { faArrowRight } from '@fortawesome/pro-light-svg-icons/faArrowRight';
+import IconArrowRight from '@lychen/vue-icons/IconArrowRight.vue';
 
 const Container = defineAsyncComponent(
   () => import('@lychen/vue-components-website/container/Container.vue'),

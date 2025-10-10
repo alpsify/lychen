@@ -18,7 +18,7 @@
         class="flex flex-row gap-2 text-primary items-center link"
         target="_blank"
         ><span class="underline">{{ link.title }}</span>
-        <Icon :icon="faArrowUpRight" />
+        <IconArrowUpRight />
       </a>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
-import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
+import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 
 const Paragraph = defineAsyncComponent(
   () => import('@lychen/vue-components-website/paragraph/Paragraph.vue'),

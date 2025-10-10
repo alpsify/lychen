@@ -19,17 +19,18 @@
         <Button
           class="self-end @md:self-auto"
           :label="t('share')"
-          :icon="faShare"
-        />
+        >
+          <template #icon><IconShare2 /></template>
+        </Button>
       </DialogTeraLandProposalManage>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { faShare } from '@fortawesome/pro-light-svg-icons/faShare';
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import Button from '@lychen/vue-components-core/button/Button.vue';
+import IconShare2 from '@lychen/vue-icons/IconShare2.vue';
 
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { messages, TRANSLATION_KEY } from './i18n';

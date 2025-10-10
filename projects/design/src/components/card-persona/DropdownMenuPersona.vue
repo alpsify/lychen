@@ -5,9 +5,9 @@
       <DropdownMenuGroup>
         <DropdownMenuItem
           v-if="isSupported && personaId"
-          :icon="faHashtag"
           @click="copy(personaId)"
         >
+          <IconHash />
           <span>Copier l'ID</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
@@ -31,7 +31,7 @@ import {
 } from '@lychen/vue-components-core/dropdown-menu';
 import { useClipboard } from '@vueuse/core';
 import DropdownMenuGroupDownloadHTMLAsImage from './DropdownMenuGroupDownloadHTMLAsImage.vue';
-import { faHashtag } from '@fortawesome/pro-light-svg-icons/faHashtag';
+import IconHash from '@lychen/vue-icons/IconHash.vue';
 
 interface Props {
   templateRefForDownload: string;

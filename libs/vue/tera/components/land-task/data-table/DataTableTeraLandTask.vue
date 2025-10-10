@@ -16,10 +16,7 @@
             size="sm"
           >
             Champs
-            <Icon
-              :icon="faChevronDown"
-              class="ml-2 h-4 w-4"
-            />
+            <IconChevronDown class="ml-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
@@ -147,8 +144,7 @@ import {
   useVueTable,
 } from '@tanstack/vue-table';
 import { Checkbox } from '@lychen/vue-components-core/checkbox';
-import { faSort } from '@fortawesome/pro-light-svg-icons/faSort';
-import { faEllipsisV } from '@fortawesome/pro-light-svg-icons/faEllipsisV';
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
 import { useI18nExtended } from '@lychen/vue-i18n/composables/useI18nExtended';
 import { DropdownMenu } from '@lychen/vue-components-core/dropdown-menu';
 import DropdownMenuTrigger from '@lychen/vue-components-core/dropdown-menu/DropdownMenuTrigger.vue';
@@ -156,7 +152,6 @@ import DropdownMenuContent from '@lychen/vue-components-core/dropdown-menu/Dropd
 import DropdownMenuCheckboxItem from '@lychen/vue-components-core/dropdown-menu/DropdownMenuCheckboxItem.vue';
 
 import BadgeTeraLandTaskState from '../badges/state/BadgeTeraLandTaskState.vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 import type { components } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import DropdownMenuTeraLandTaskMain from '../dropdown-menu/DropdownMenuTeraLandTaskMain.vue';
 import DialogTeraLandTaskUpdate from '../dialogs/update/DialogTeraLandTaskUpdate.vue';
@@ -206,7 +201,7 @@ const columns = [
         h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-          icon: faSort,
+          label: 'sort',
           size: 'xs',
         }),
       ]);
@@ -220,7 +215,7 @@ const columns = [
         h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-          icon: faSort,
+          label: 'sort',
           size: 'xs',
         }),
       ]),
@@ -238,7 +233,7 @@ const columns = [
         h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-          icon: faSort,
+          icon: 'sort-icon',
           size: 'xs',
         }),
       ]),
@@ -271,7 +266,7 @@ const columns = [
           {
             default: () =>
               h(Button, {
-                icon: faEllipsisV,
+                label: 'ellipsis-vertical',
                 size: 'sm',
                 variant: 'ghost',
               }),

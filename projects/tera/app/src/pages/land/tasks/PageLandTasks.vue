@@ -6,9 +6,8 @@
       class="gap-2 flex flex-col"
     >
       <TabsList class="flex flex-row justify-between md:justify-start">
-        <TabsTrigger value="list"><Icon :icon="faListUl" /> Liste </TabsTrigger>
-        <TabsTrigger value="kanban"><Icon :icon="faChartKanban" /> Tableau </TabsTrigger>
-        <TabsTrigger value="gantt"><Icon :icon="faArrowProgress" /> Gantt </TabsTrigger>
+        <TabsTrigger value="list"><IconList /> Liste </TabsTrigger>
+        <TabsTrigger value="kanban"><IconKanban /> Tableau </TabsTrigger>
       </TabsList>
 
       <TabsContent
@@ -46,10 +45,11 @@
             >
               <DialogTeraLandTaskCreate :land="land">
                 <Button
-                  :icon="faPlus"
                   variant="ghost"
                   size="xs"
-                />
+                >
+                  <template #icon><IconPlus /></template
+                ></Button>
               </DialogTeraLandTaskCreate>
             </template>
             <template v-if="tasksQueries[index]?.data?.member">
@@ -89,7 +89,6 @@
 
 <script lang="ts" setup>
 import { INJECTION_KEY_LAND } from '@/layouts/land-layout';
-import { faPlus } from '@fortawesome/pro-light-svg-icons/faPlus';
 import CardTeraLandTask from '@lychen/vue-tera/components/land-task/card/CardTeraLandTask.vue';
 import { useTeraApi } from '@lychen/vue-tera/composables/use-tera-api/useTeraApi';
 import Button from '@lychen/vue-components-core/button/Button.vue';
@@ -100,15 +99,10 @@ import { computed, inject, watch, ref, provide, onMounted } from 'vue';
 import KanbanItem from '@lychen/vue-components-extra/kanban/KanbanItem.vue';
 import { Tabs, TabsList, TabsTrigger } from '@lychen/vue-components-core/tabs';
 import TabsContent from '@lychen/vue-components-core/tabs/TabsContent.vue';
-import { faChartKanban } from '@fortawesome/pro-light-svg-icons/faChartKanban';
-import { Icon } from '@lychen/vue-components-core/icon';
-import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
-import { faArrowProgress } from '@fortawesome/pro-light-svg-icons/faArrowProgress';
 import DataTableTeraLandTask from '@lychen/vue-tera/components/land-task/data-table/DataTableTeraLandTask.vue';
 import BadgeTeraLandTaskState from '@lychen/vue-tera/components/land-task/badges/state/BadgeTeraLandTaskState.vue';
 import DialogTeraLandTaskUpdate from '@lychen/vue-tera/components/land-task/dialogs/update/DialogTeraLandTaskUpdate.vue';
 import DialogTeraLandTaskCreate from '@lychen/vue-tera/components/land-task/dialogs/create/DialogTeraLandTaskCreate.vue';
-//import Gantt from '@lychen/vue-components-extra/gantt/Gantt.vue';
 import {
   LandTaskJsonldState as LandTaskState,
   type components,
@@ -118,6 +112,9 @@ import { useEventBus } from '@vueuse/core';
 import { EVENT_landTaskDeleteSucceeded } from '@lychen/vue-tera/events/LandTaskEvents';
 import { useRoute } from 'vue-router';
 import { INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND } from '@lychen/vue-tera/components/land-task/dialogs/update';
+import IconPlus from '@lychen/vue-icons/IconPlus.vue';
+import IconKanban from '@lychen/vue-icons/IconKanban.vue';
+import IconList from '@lychen/vue-icons/IconList.vue';
 
 const land = inject(INJECTION_KEY_LAND);
 provide(INJECTKEY_DIALOG_LAND_TASK_UPDATE_LAND, land);

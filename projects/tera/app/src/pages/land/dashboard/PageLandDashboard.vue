@@ -11,10 +11,7 @@
           :land-member="landMember"
           leave
         >
-          <Button
-            :icon="faPersonToDoor"
-            variant="ghost"
-          >
+          <Button variant="ghost">
             <template #icon>
               <IconRightFromBracket />
             </template>
@@ -151,7 +148,6 @@
           <Button
             label="Demander"
             class="bg-amber-200 self-end text-black hover:bg-amber-700 hover:text-amber-200"
-            :icon="faBee"
             disabled
           >
           </Button>
@@ -171,7 +167,7 @@
           </Button>
           <Button variant="ghost">
             <template #icon>
-              <IconListUl />
+              <IconList />
             </template>
           </Button>
         </div>
@@ -209,7 +205,7 @@
           </Button>
           <Button variant="ghost">
             <template #icon>
-              <IconListUl />
+              <IconList />
             </template>
           </Button>
         </div>
@@ -248,8 +244,6 @@ import { INJECTION_KEY_LAND, INJECTION_KEY_LAND_MEMBER } from '@/layouts/land-la
 import { BaseHeading } from '@lychen/vue-components-app/base-heading';
 import DialogTeraLandMemberDelete from '@lychen/vue-tera/components/land-member/dialogs/delete/DialogTeraLandMemberDelete.vue';
 import { RoutePageLandSettings } from '../settings';
-import { faPersonToDoor } from '@fortawesome/pro-light-svg-icons/faPersonToDoor';
-import { faBee } from '@fortawesome/pro-light-svg-icons/faBee';
 import { useLandGuard } from '@lychen/vue-tera/composables/use-land-guard';
 import { RoutePageLandMemberSettings } from '../member-settings';
 import { landMemberLeaveSucceededEvent } from '@lychen/vue-tera/events/LandMemberEvents';
@@ -263,7 +257,7 @@ import BannerTeraShareYourLand from '@/components/banners/BannerTeraShareYourLan
 import IconUserGear from '@lychen/vue-icons/IconUserGear.vue';
 import IconGear from '@lychen/vue-icons/IconGear.vue';
 import IconPlus from '@lychen/vue-icons/IconPlus.vue';
-import IconListUl from '@lychen/vue-icons/IconListUl.vue';
+import IconList from '@lychen/vue-icons/IconList.vue';
 import IconUserPlus from '@lychen/vue-icons/IconUserPlus.vue';
 import IconCalendarCirclePlus from '@lychen/vue-icons/IconCalendarCirclePlus.vue';
 import IconTasks from '@lychen/vue-icons/IconTasks.vue';

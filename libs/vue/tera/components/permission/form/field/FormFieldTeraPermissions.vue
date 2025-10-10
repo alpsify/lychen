@@ -38,10 +38,11 @@
                 />
               </ComboboxInput>
               <Button
-                :icon="faShieldCheck"
                 size="xs"
                 @click.stop.prevent="addAllOptions()"
-              />
+              >
+                <template #icon> <IconShieldCheck /> </template
+              ></Button>
             </TagsInput>
           </ComboboxAnchor>
         </FormControl>
@@ -59,10 +60,7 @@
               {{ permission.label }}
 
               <ComboboxItemIndicator>
-                <Icon
-                  :icon="faCheck"
-                  class="ml-auto h-4 w-4"
-                />
+                <IconCheck class="ml-auto h-4 w-4" />
               </ComboboxItemIndicator>
             </ComboboxItem>
           </ComboboxGroup>
@@ -76,8 +74,6 @@
 </template>
 
 <script setup lang="ts">
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck';
-import { faShieldCheck } from '@fortawesome/pro-light-svg-icons/faShieldCheck';
 import {
   Combobox,
   ComboboxAnchor,
@@ -117,6 +113,8 @@ import {
 import Button from '@lychen/vue-components-core/button/Button.vue';
 
 import { LandRoleLand_rolePatch_land_rolePatchInputPermissions as LandRolePermissions } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
+import IconCheck from '@lychen/vue-icons/IconCheck.vue';
+import IconShieldCheck from '@lychen/vue-icons/IconShieldCheck.vue';
 
 const { t } = useI18nExtended({ messages, rootKey: TRANSLATION_KEY, prefixed: true });
 const { t: tLandRole } = useI18nExtended({
