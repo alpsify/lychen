@@ -11,10 +11,7 @@
     >
       <slot />
       <slot name="icon">
-        <Icon
-          :icon="faChevronDown"
-          class="size-4 shrink-0 transition-transform duration-200"
-        />
+        <IconChevronDown class="size-4 shrink-0 transition-transform duration-200" />
       </slot>
     </AccordionTrigger>
   </AccordionHeader>
@@ -24,8 +21,7 @@
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { AccordionHeader, AccordionTrigger, type AccordionTriggerProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import IconChevronDown from '@lychen/vue-icons/IconChevronDown.vue';
 
 const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>();
 

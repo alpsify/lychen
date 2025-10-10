@@ -1,7 +1,7 @@
 <template>
-  <Plus />
+  <Grip />
 </template>
 
 <script setup lang="ts">
-import { Plus } from 'lucide-vue-next';
+import { Grip } from 'lucide-vue-next';
 </script>

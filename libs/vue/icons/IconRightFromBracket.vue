@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faRightFromBracket" />
+  <LogOut />
 </template>
 
 <script setup lang="ts">
-import { faRightFromBracket } from '@fortawesome/pro-light-svg-icons/faRightFromBracket';
-import Icon from './Icon.vue';
+import { LogOut } from 'lucide-vue-next';
 </script>

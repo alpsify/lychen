@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faLanguage" />
+  <Languages />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faLanguage } from '@fortawesome/pro-light-svg-icons/faLanguage';
+import { Languages } from 'lucide-vue-next';
 </script>

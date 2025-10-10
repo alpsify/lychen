@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faArrowUpRight" />
+  <ArrowUpRight />
 </template>
 
 <script setup lang="ts">
-import { faArrowUpRight } from '@fortawesome/pro-light-svg-icons/faArrowUpRight';
-import Icon from './Icon.vue';
+import { ArrowUpRight } from 'lucide-vue-next';
 </script>

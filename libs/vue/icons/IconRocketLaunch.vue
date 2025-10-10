@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faRocketLaunch" />
+  <Rocket />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faRocketLaunch } from '@fortawesome/pro-light-svg-icons/faRocketLaunch';
+import { Rocket } from 'lucide-vue-next';
 </script>

@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faListUl" />
+  <List />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faListUl } from '@fortawesome/pro-light-svg-icons/faListUl';
+import { List } from 'lucide-vue-next';
 </script>

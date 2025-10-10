@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faTrash" />
+  <Trash />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faTrash } from '@fortawesome/pro-light-svg-icons/faTrash';
+import { Trash } from 'lucide-vue-next';
 </script>

@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faCalendarCirclePlus" />
+  <CalendarPlus />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faCalendarCirclePlus } from '@fortawesome/pro-light-svg-icons/faCalendarCirclePlus';
+import { CalendarPlus } from 'lucide-vue-next';
 </script>

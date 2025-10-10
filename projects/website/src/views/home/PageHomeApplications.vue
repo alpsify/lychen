@@ -65,7 +65,7 @@
               class="flex flex-row gap-2"
               size="sm"
               variant="outline"
-              >Site web <Icon :icon="faLink"
+              >Site web <IconLink
             /></Button>
           </a>
         </div>
@@ -89,12 +89,11 @@ import CarouselNext from '@lychen/vue-components-core/carousel/CarouselNext.vue'
 import CarouselContent from '@lychen/vue-components-core/carousel/CarouselContent.vue';
 import Paragraph from '@lychen/vue-components-website/paragraph/Paragraph.vue';
 import Button from '@lychen/vue-components-core/button/Button.vue';
-import Icon from '@lychen/vue-components-core/icon/Icon.vue';
 import DialogTrigger from '@lychen/vue-components-core/dialog/DialogTrigger.vue';
 import { useApplicationsFeatures } from '@lychen/vue-applications/composables/useApplicationsFeatures';
 import DialogClose from '@lychen/vue-components-core/dialog/DialogClose.vue';
+import IconLink from '@lychen/vue-icons/IconLink.vue';
 import ApplicationsGridFeatures from '@lychen/vue-applications/components/grids/ApplicationsGridFeatures.vue';
-import { faLink } from '@fortawesome/pro-light-svg-icons/faLink';
 
 const Dialog = defineAsyncComponent(() => import('@lychen/vue-components-core/dialog/Dialog.vue'));
 

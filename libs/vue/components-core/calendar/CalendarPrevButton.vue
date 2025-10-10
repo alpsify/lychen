@@ -12,10 +12,7 @@
     v-bind="forwardedProps"
   >
     <slot>
-      <Icon
-        :icon="faChevronLeft"
-        class="size-4"
-      />
+      <IconChevronLeft class="size-4" />
     </slot>
   </CalendarPrev>
 </template>
@@ -25,8 +22,7 @@ import { cn } from '@lychen/typescript-utils/tailwind/Cn';
 import { VARIANT_VALUES } from '../button';
 import { CalendarPrev, type CalendarPrevProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import Icon from '../icon/Icon.vue';
-import { faChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
+import IconChevronLeft from '@lychen/vue-icons/IconChevronLeft.vue';
 
 const props = defineProps<CalendarPrevProps & { class?: HTMLAttributes['class'] }>();
 

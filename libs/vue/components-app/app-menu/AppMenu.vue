@@ -10,7 +10,7 @@
             :icon-position="ICON_POSITION.Start"
           >
             <template #icon>
-              <IconGrid />
+              <IconGrip />
             </template>
           </Button>
         </PopoverTrigger>
@@ -39,7 +39,7 @@ import { ICON_POSITION } from '@lychen/vue-components-core/button';
 import Button from '@lychen/vue-components-core/button/Button.vue';
 import { Popover, PopoverContent, PopoverTrigger } from '@lychen/vue-components-core/popover';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lychen/vue-components-core/tooltip';
-import IconGrid from '@lychen/vue-icons/IconGrid.vue';
+import IconGrip from '@lychen/vue-icons/IconGrip.vue';
 import AppMenuIcon from './AppMenuIcon.vue';
 import IconArrowUpRight from '@lychen/vue-icons/IconArrowUpRight.vue';
 import { computed } from 'vue';

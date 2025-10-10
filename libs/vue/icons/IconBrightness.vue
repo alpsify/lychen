@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faBrightness" />
+  <SunMedium />
 </template>
 
 <script setup lang="ts">
-import { faBrightness } from '@fortawesome/pro-light-svg-icons/faBrightness';
-import Icon from './Icon.vue';
+import { SunMedium } from 'lucide-vue-next';
 </script>

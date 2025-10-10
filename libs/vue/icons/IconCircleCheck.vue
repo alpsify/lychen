@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faCircleCheck" />
+  <CircleCheck />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faCircleCheck } from '@fortawesome/pro-light-svg-icons/faCircleCheck';
+import { CircleCheck } from 'lucide-vue-next';
 </script>

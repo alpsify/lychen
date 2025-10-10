@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faTimes" />
+  <X />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes';
+import { X } from 'lucide-vue-next';
 </script>

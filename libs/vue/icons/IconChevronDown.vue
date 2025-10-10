@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faChevronDown" />
+  <ChevronDown />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faChevronDown } from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import { ChevronDown } from 'lucide-vue-next';
 </script>

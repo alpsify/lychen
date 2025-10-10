@@ -1,8 +1,7 @@
 <template>
-  <Icon :icon="faTasks" />
+  <ListChecks />
 </template>
 
 <script setup lang="ts">
-import Icon from './Icon.vue';
-import { faTasks } from '@fortawesome/pro-light-svg-icons/faTasks';
+import { ListChecks } from 'lucide-vue-next';
 </script>

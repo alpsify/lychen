@@ -5,10 +5,7 @@
     :class="cn('flex h-9 w-9 items-center justify-center', props.class)"
   >
     <slot>
-      <Icon
-        :icon="faEllipsis"
-        class="h-4 w-4"
-      />
+      <IconEllipsis class="h-4 w-4" />
     </slot>
     <span class="sr-only">More</span>
   </span>
@@ -17,8 +14,7 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue';
 import { cn } from '@lychen/typescript-utils/tailwind/Cn';
-import Icon from '../icon/Icon.vue';
-import { faEllipsis } from '@fortawesome/pro-light-svg-icons/faEllipsis';
+import IconEllipsis from '@lychen/vue-icons/IconEllipsis.vue';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];

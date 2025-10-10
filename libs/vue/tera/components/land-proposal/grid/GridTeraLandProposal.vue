@@ -37,7 +37,7 @@
       class="flex flex-row gap-4 items-center"
     >
       <Icon
-        :icon="faSpinnerThird"
+        :icon="faLoaderCircle"
         class="fa-spin"
       />
       Recherche en cours
@@ -51,7 +51,7 @@ import CardTeraLandProposal from '@lychen/vue-tera/components/land-proposal/card
 import DialogTeraLandProposalView from '@lychen/vue-tera/components/land-proposal/dialogs/view/DialogTeraLandProposalView.vue';
 
 import { Icon } from '@lychen/vue-components-core/icon';
-import { faSpinnerThird } from '@fortawesome/pro-light-svg-icons/faSpinnerThird';
+import { faLoaderCircle } from '@fortawesome/pro-light-svg-icons/faLoaderCircle';
 import type { LandSharingCondition } from '@lychen/typescript-tera-core/constants/LandSharingCondition';
 import type { operations } from '@lychen/typescript-tera-api-sdk/generated/tera-api';
 import type { QueryStatus } from '@tanstack/vue-query';

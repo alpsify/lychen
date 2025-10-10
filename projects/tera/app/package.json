@@ -10,7 +10,6 @@
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
-    "@fortawesome/pro-light-svg-icons": "^7.0.0",
     "@lychen/css-core": "workspace:*",
     "@lychen/i18n-tera": "workspace:*",
     "@lychen/typescript-tera-core": "workspace:*",

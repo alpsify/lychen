@@ -16,7 +16,7 @@
             variant="ghost"
           >
             <template #icon>
-              <IconPersonToDoor />
+              <IconRightFromBracket />
             </template>
           </Button>
         </DialogTeraLandMemberDelete>
@@ -87,9 +87,6 @@
             size="sm"
             disabled
           >
-            <template #icon>
-              <IconNoteSticky />
-            </template>
           </Button>
         </div>
         <div>
@@ -99,9 +96,6 @@
             size="sm"
             variant="outline"
           >
-            <template #icon>
-              <IconGridRound2Plus />
-            </template>
           </Button>
         </div>
       </div>
@@ -142,9 +136,6 @@
             class="bg-purple-200 self-end text-black hover:bg-purple-700 hover:text-purple-200"
             disabled
           >
-            <template #icon>
-              <IconHandHoldingHeart />
-            </template>
           </Button>
         </Card>
         <Card class="bg-gradient-to-tr from-amber-500 to-yellow-500 gap-4">
@@ -163,9 +154,6 @@
             :icon="faBee"
             disabled
           >
-            <template #icon>
-              <IconBee />
-            </template>
           </Button>
         </Card>
         <BannerTeraShareYourLand />
@@ -278,12 +266,8 @@ import IconPlus from '@lychen/vue-icons/IconPlus.vue';
 import IconListUl from '@lychen/vue-icons/IconListUl.vue';
 import IconUserPlus from '@lychen/vue-icons/IconUserPlus.vue';
 import IconCalendarCirclePlus from '@lychen/vue-icons/IconCalendarCirclePlus.vue';
-import IconBee from '@lychen/vue-icons/IconBee.vue';
-import IconHandHoldingHeart from '@lychen/vue-icons/IconHandHoldingHeart.vue';
 import IconTasks from '@lychen/vue-icons/IconTasks.vue';
-import IconGridRound2Plus from '@lychen/vue-icons/IconGridRound2Plus.vue';
-import IconNoteSticky from '@lychen/vue-icons/IconNoteSticky.vue';
-import IconPersonToDoor from '@lychen/vue-icons/IconPersonToDoor.vue';
+import IconRightFromBracket from '@lychen/vue-icons/IconRightFromBracket.vue';
 
 const Title = defineAsyncComponent(() => import('@lychen/vue-components-website/title/Title.vue'));
 

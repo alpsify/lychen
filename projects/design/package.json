@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fortawesome/pro-light-svg-icons": "^7.0.0",
     "@lychen/css-core": "workspace:*",
     "@lychen/vite-ssg": "workspace:*",
     "@lychen/vue-components-app": "workspace:*",
